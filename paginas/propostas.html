@@ -33,32 +33,442 @@
     }
 </style>
 
-<!-- MODAL FILTRAR PESQUISA -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalfiltrodepesquisa">
-    Launch demo modal
-  </button>
-  
-  <!-- Modal -->
-  <div class="modal fade" id="modalfiltropesquisa" tabindex="-1" role="dialog" aria-labelledby="modalfiltropesquisa" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content">
+<!--MODAL FILTROS DE PESQUISA-->
+
+
+<div class="modal fade modal-filtroproposta" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          ...
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
-        </div>
-      </div>
+            <h5 class="modal-title" id="exampleModalLabel">Filtros de Pesquisa</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form class="needs-validation" novalidate>
+
+
+
+                <div class="form-row mt-0">
+
+
+                    <div class="col-md-5 mb-3">
+                        <label for="validationCustom01">Usuário</label>
+                        <input type="text" class="form-control form-control-sm" id="validationCustom01">
+
+                    </div>
+
+                    <div class="col-md-3 mb-3">
+                        <div class="form-group">
+                            <label for="exampleFormControlSelect1">Tipo de Usário</label>
+                            <select class="form-control form-control-sm" id="exampleFormControlSelect1">
+                                <option>   </option>
+                                
+
+                            </select>
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-4 mb-3">
+                        <label for="validationCustom01">Proposta</label>
+                        <input type="text" class="form-control form-control-sm" id="validationCustom01">
+
+                    </div>
+
+                    <div class="col-md-4 mb-3">
+                        <div class="form-group">
+                            <label for="exampleFormControlSelect1">Status</label>
+                            <select class="form-control form-control-sm" id="exampleFormControlSelect1">
+                                <option>     </option>
+                          
+
+                            </select>
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-3 mb-3">
+                        <div class="form-group">
+                            <label for="exampleFormControlSelect1">Tipo</label>
+                            <select class="form-control form-control-sm" id="exampleFormControlSelect1">
+                                <option>     </option>
+                 
+
+                            </select>
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-5 mb-3">
+                        <label for="validationCustom01">CPF</label>
+                        <input type="text" class="form-control form-control-sm" id="validationCustom01">
+
+                    </div>
+
+                    <div class="col-md-5 mb-3">
+                        <div class="form-group">
+                            <label for="exampleFormControlSelect1">Empresa</label>
+                            <select class="form-control form-control-sm" id="exampleFormControlSelect1">
+                                <option>     </option>
+                 
+
+                            </select>
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-3 mb-3">
+                        <div class="form-group">
+                            <label for="exampleFormControlSelect1">Mês</label>
+                            <select class="form-control form-control-sm" id="exampleFormControlSelect1">
+                                <option>     </option>
+                 
+
+                            </select>
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-4 mb-3">
+                        <label for="validationCustom01">Previsão Saldo</label>
+                        <input type="text" class="form-control form-control-sm" id="validationCustom01">
+
+                    </div>
+
+                    <div class="col-md-3 mb-3">
+                        <label for="validationCustom01">Nova Proposta</label>
+                        <input type="text" class="form-control form-control-sm" id="validationCustom01">
+
+                    </div>
+
+                    <div class="col-md-5 mb-3">
+                        <div class="form-group">
+                            <label for="exampleFormControlSelect1">Banco Portabilidade</label>
+                            <select class="form-control form-control-sm" id="exampleFormControlSelect1">
+                                <option>     </option>
+                 
+
+                            </select>
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-4 mb-3">
+                        <div class="form-group">
+                            <label for="exampleFormControlSelect1">Ordenar</label>
+                            <select class="form-control form-control-sm" id="exampleFormControlSelect1">
+                                <option>     </option>
+                 
+
+                            </select>
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-4 mb-3">
+                        <label for="validationCustom01">Data Cadastro</label>
+                        <input type="text" class="form-control form-control-sm" id="validationCustom01">
+
+                    </div>
+
+                    <div class="col-md-4 mb-3">
+                        <label for="validationCustom01">Data Atualização</label>
+                        <input type="text" class="form-control form-control-sm" id="validationCustom01">
+
+                    </div>
+
+                    <div class="col-md-4 mb-3">
+                        <div class="form-group">
+                            <label for="exampleFormControlSelect1">Correntista?</label>
+                            <select class="form-control form-control-sm" id="exampleFormControlSelect1">
+                                <option>   SIM  </option>
+                                <option>   NÃO  </option>
+                 
+
+                            </select>
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-5 mb-3">
+                        <div class="form-group">
+                            <label for="exampleFormControlSelect1">Sub-Status</label>
+                            <select class="form-control form-control-sm" id="exampleFormControlSelect1">
+                                <option>    </option>
+                               
+                 
+
+                            </select>
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-4 mb-3">
+                        <div class="form-group">
+                            <label for="exampleFormControlSelect1">Classificação</label>
+                            <select class="form-control form-control-sm" id="exampleFormControlSelect1">
+                                <option>   </option>
+                           
+                 
+
+                            </select>
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-3 mb-3">
+                        <div class="form-group">
+                            <label for="exampleFormControlSelect1">Situação Status</label>
+                            <select class="form-control form-control-sm" id="exampleFormControlSelect1">
+                                <option>    </option>
+                  
+                 
+
+                            </select>
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-4 mb-3">
+                        <div class="form-group">
+                            <label for="exampleFormControlSelect1">Convênio Master</label>
+                            <select class="form-control form-control-sm" id="exampleFormControlSelect1">
+                                <option>    </option>
+                               
+                 
+
+                            </select>
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-4 mb-3">
+                        <div class="form-group">
+                            <label for="exampleFormControlSelect1">Fase - Status</label>
+                            <select class="form-control form-control-sm" id="exampleFormControlSelect1">
+                                <option>   </option>
+                           
+                 
+
+                            </select>
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-4 mb-3">
+                        <div class="form-group">
+                            <label for="exampleFormControlSelect1">Banco</label>
+                            <select class="form-control form-control-sm" id="exampleFormControlSelect1">
+                                <option>    </option>
+                  
+                 
+
+                            </select>
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-5 mb-3">
+                        <div class="form-group">
+                            <label for="exampleFormControlSelect1">Produto</label>
+                            <select class="form-control form-control-sm" id="exampleFormControlSelect1">
+                                <option>    </option>
+                               
+                 
+
+                            </select>
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-4 mb-3">
+                        <div class="form-group">
+                            <label for="exampleFormControlSelect1">Classificação</label>
+                            <select class="form-control form-control-sm" id="exampleFormControlSelect1">
+                                <option>   </option>
+                           
+                 
+
+                            </select>
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-3 mb-3">
+                        <div class="form-group">
+                            <label for="exampleFormControlSelect1">Usuário Master</label>
+                            <select class="form-control form-control-sm" id="exampleFormControlSelect1">
+                                <option>    </option>
+                  
+                 
+
+                            </select>
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-5 mb-3">
+                        <div class="form-group">
+                            <label for="exampleFormControlSelect1">Supervisor</label>
+                            <select class="form-control form-control-sm" id="exampleFormControlSelect1">
+                                <option>    </option>
+                               
+                 
+
+                            </select>
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-2 mb-3">
+                        <div class="form-group">
+                            <label for="exampleFormControlSelect1">Produto Master</label>
+                            <select class="form-control form-control-sm" id="exampleFormControlSelect1">
+                                <option>   </option>
+                           
+                 
+
+                            </select>
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-5 mb-3">
+                        <div class="form-group">
+                            <label for="exampleFormControlSelect1">Gerente</label>
+                            <select class="form-control form-control-sm" id="exampleFormControlSelect1">
+                                <option>    </option>
+                  
+                 
+
+                            </select>
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-4 mb-3">
+                        <div class="form-group">
+                            <label for="exampleFormControlSelect1">Tipo Usário Master</label>
+                            <select class="form-control form-control-sm" id="exampleFormControlSelect1">
+                                <option>    </option>
+                               
+                 
+
+                            </select>
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-4 mb-3">
+                        <div class="form-group">
+                            <label for="exampleFormControlSelect1">Data de Corte</label>
+                            <select class="form-control form-control-sm" id="exampleFormControlSelect1">
+                                <option>   </option>
+                           
+                 
+
+                            </select>
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-4 mb-3">
+                        <div class="form-group">
+                            <label for="exampleFormControlSelect1">Empresa SMS</label>
+                            <select class="form-control form-control-sm" id="exampleFormControlSelect1">
+                                <option>    </option>
+                  
+                 
+
+                            </select>
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-4 mb-3">
+                        <label for="validationCustom01">Convênio</label>
+                        <input type="text" class="form-control form-control-sm" id="validationCustom01">
+
+                    </div>
+
+                    <div class="col-md-4 mb-3">
+                        <div class="form-group">
+                            <label for="exampleFormControlSelect1">Vínculo</label>
+                            <select class="form-control form-control-sm" id="exampleFormControlSelect1">
+                                <option>    </option>
+                  
+                 
+
+                            </select>
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-4 mb-3">
+                        <div class="form-group">
+                            <label for="exampleFormControlSelect1">Horário Agendamento</label>
+                            <select class="form-control form-control-sm" id="exampleFormControlSelect1">
+                                <option>    </option>
+                  
+                 
+
+                            </select>
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-4 mb-3">
+                        <label for="validationCustom01">Validade Contrato</label>
+                        <input type="text" class="form-control form-control-sm" id="validationCustom01">
+
+                    </div>
+
+                    <div class="col-md-4 mb-3">
+                        <div class="form-group">
+                            <label for="exampleFormControlSelect1">Etapa SMS</label>
+                            <select class="form-control form-control-sm" id="exampleFormControlSelect1">
+                                <option>    </option>
+                  
+                 
+
+                            </select>
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-4 mb-3">
+                        <div class="form-group">
+                            <label for="exampleFormControlSelect1">Banco Master</label>
+                            <select class="form-control form-control-sm" id="exampleFormControlSelect1">
+                                <option>    </option>
+                  
+                 
+
+                            </select>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+            <button type="button" class="btn btn-primary">Filtrar Busca</button>
+          </div>
     </div>
   </div>
+</div>
 
+
+<!--FIM DO MODAL FILTROS DE PESQUISA-->
+
+<!--MODAL NOVA PROPOSTA-->
+
+<!--FINAL MODAL NOVA PROPOSTA-->
 
 
 <body class="application application-offset">
@@ -730,7 +1140,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="row">
                     <div class="col-xl-12 col-md-6">
                         <div class="card card-fluid">
@@ -746,13 +1156,13 @@
                                         <span class="btn-inner--text">Nova Proposta</span>
                                     </button>
 
-                                    <button type="button" class="btn btn-primary btn-icon-label">
+                                    <button type="button" class="btn btn-primary btn-icon-label" data-toggle="modal" data-target=".modal-filtroproposta">
                                         <span class="btn-inner--icon">
                                             <i class="fas fa-filter"></i>
                                         </span>
                                         <span class="btn-inner--text">Filtros de Pesquisa</span>
                                     </button>
-        
+
                                 </div>
 
 
@@ -814,16 +1224,16 @@
 
                                             <tr>
 
-                                               <td>XXXXXXX XXXXXX XXXX</td>
-                                               <td>XXXXXXXXXX</td>
-                                               <td>323.323.323.32</td>
-                                               <td>00/00/0000</td>
-                                               <td>XXXXXXXX XXXXX XXXXXXXX</td>
-                                               <td>R$ 289483,92</td>    
-                                               <td>R$ 9483,92</td>
-                                               <td>XXXXXXX XXXXXX XXXXX</td>
-                                               <td>Banco Santander</td>
-                                               <td>CONSIGNADO</td>
+                                                <td>XXXXXXX XXXXXX XXXX</td>
+                                                <td>XXXXXXXXXX</td>
+                                                <td>323.323.323.32</td>
+                                                <td>00/00/0000</td>
+                                                <td>XXXXXXXX XXXXX XXXXXXXX</td>
+                                                <td>R$ 289483,92</td>
+                                                <td>R$ 9483,92</td>
+                                                <td>XXXXXXX XXXXXX XXXXX</td>
+                                                <td>Banco Santander</td>
+                                                <td>CONSIGNADO</td>
 
 
                                         </tbody>
