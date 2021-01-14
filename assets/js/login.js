@@ -69,6 +69,8 @@ const Email = () => {
             if(!response.ok)
                 return alert(data.erro);
 
+
+            // console.log(data)
             alert(data.sucesso);
 
             window.location.href = '../../paginas/login e recover/resetsenha.html'
