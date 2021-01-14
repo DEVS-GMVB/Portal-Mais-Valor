@@ -1,4 +1,20 @@
-
-.btn-entrar{
-
-}
+input {
+    text-transform: uppercase;
+  }
+  
+  ::-webkit-input-placeholder { /* Chrome, Safari */
+    text-transform: lowercase;
+  }
+  
+  
+  :-moz-placeholder { /* Firefox 18- */
+     text-transform: lowercase; 
+  }
+  
+  ::-moz-placeholder {  /* Firefox 19+ */
+     text-transform: lowercase;
+  }
+  
+  :-ms-input-placeholder {  /* IE */
+     text-transform: lowercase; 
+  }
