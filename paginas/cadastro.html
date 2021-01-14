@@ -18,18 +18,20 @@
 </head>
 
 <style>
-
     .bg-titulo {
 
         background-color: #93d482;
         text-align: center;
-        font-family: Arial, Helvetica, sans-serif;
+        font-family:-apple-system;
+        border-radius: 10px;
     }
 
-    .bg-subtitulo{
-        
-        background-color:#c0dfb8 ;
+    .bg-subtitulo {
+
+        background-color: #c0dfb8;
         text-align: center;
+        font-family:-apple-system;
+        border-radius: 10px;
 
     }
 </style>
@@ -63,6 +65,17 @@
                         <a class="nav-link" id="acesso-tab" data-toggle="tab" href="#acesso" role="tab"
                             aria-controls="acesso" aria-selected="false">Acesso</a>
                     </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" id="chavej-tab" data-toggle="tab" href="#chavej" role="tab"
+                            aria-controls="chavej" aria-selected="false">Chave J</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" id="siglae-tab" data-toggle="tab" href="#siglae" role="tab"
+                            aria-controls="siglae" aria-selected="false">Sigla E</a>
+                    </li>
+
                 </ul>
                 <div class="tab-content" id="myTabContent">
 
@@ -593,17 +606,12 @@
 
                                 </div>
 
-
                             </div>
-
 
 
                         </form>
 
-
-                      
-
-
+                   
 
 
 
@@ -760,8 +768,8 @@
 
                                 </div>
 
-                            
-                                
+
+
 
                             </div>
 
@@ -819,10 +827,10 @@
 
                                 </div>
 
-                           
 
-                            
-                                
+
+
+
 
                             </div>
 
@@ -880,10 +888,10 @@
 
                                 </div>
 
-                           
 
-                            
-                                
+
+
+
 
                             </div>
 
@@ -941,10 +949,10 @@
 
                                 </div>
 
-                           
 
-                            
-                                
+
+
+
 
                             </div>
 
@@ -1014,7 +1022,7 @@
 
                         </div>
 
-                    
+
                         <form class="needs-validation" novalidate>
 
 
@@ -1138,7 +1146,7 @@
                                     </div>
 
                                 </div>
-                                
+
 
                                 <div class="col-md-4 mb-3">
                                     <label for="validationCustom01">Acesso Olé</label>
@@ -1157,7 +1165,7 @@
                                     <input type="text" class="form-control form-control-sm" id="validationCustom01">
 
                                 </div>
-                            
+
 
                                 <div class="col-md-4 mb-3">
                                     <label for="validationCustom01">Acesso Itaú</label>
@@ -1176,8 +1184,8 @@
                                     <input type="text" class="form-control form-control-sm" id="validationCustom01">
 
                                 </div>
-                            
-                                
+
+
                                 <div class="col-md-4 mb-3">
                                     <label for="validationCustom01">Acesso Daycoval</label>
                                     <input type="text" class="form-control form-control-sm" id="validationCustom01">
@@ -1243,7 +1251,7 @@
                                     <input type="text" class="form-control form-control-sm" id="validationCustom01">
 
                                 </div>
-                            
+
 
                             </div>
 
@@ -1260,20 +1268,23 @@
                         </div>
 
                         <div class="table-responsive mt-3">
-                            <table class="table align-items-center"><thead>
+                            <table class="table align-items-center">
+                                <thead>
                                     <tr>
                                         <th scope="col" class="sort" data-sort="nome">Nome</th>
                                         <th scope="col" class="sort" data-sort="cpf">CPF</th>
                                         <th scope="col" class="sort" data-sort="cnpjmatricula">CNPJ da Matrícula</th>
                                         <th scope="col" class="sort" data-sort="supervisor">Supervisor</th>
                                         <th scope="col" class="sort" data-sort="gerente">Gerente</th>
-                                        <th scope="col" class="sort" data-sort="acoes" style="text-align: center;">Ação</th>
+                                        <th scope="col" class="sort" data-sort="acoes" style="text-align: center;">Ação
+                                        </th>
                                     </tr>
-                                </thead><tbody class="list">
-                                    
+                                </thead>
+                                <tbody class="list">
+
                                     <tr>
                                         <th>
-                                       <p><b>José ALbertino Silva</b></p>
+                                            <p><b>José ALbertino Silva</b></p>
                                         </th>
                                         <td>
                                             626.983.323-22
@@ -1285,34 +1296,289 @@
                                             PATATI PATATA AUGUSTO
                                         </td>
                                         <td class="total">
-                                           MICHEL SANTOS SILVA
+                                            MICHEL SANTOS SILVA
                                         </td>
                                         <td class="text-center">
                                             <!-- Actions -->
                                             <div class="actions ml-3">
-                                                <a href="#" class="action-item mr-0" data-toggle="tooltip" title="Alterar">
+                                                <a href="#" class="action-item mr-0" data-toggle="tooltip"
+                                                    title="Alterar">
                                                     <i class="fas fa-external-link-alt"></i>
                                                 </a>
-                                                <a href="#" class="action-item mr-0" data-toggle="tooltip" title="Visualizar">
+                                                <a href="#" class="action-item mr-0" data-toggle="tooltip"
+                                                    title="Visualizar">
                                                     <i class="fas fa-eye"></i>
                                                 </a>
                                             </div>
                                         </td>
                                     </tr>
-                                    
-                                    
-                                 
-                                
+
+
+
+
+
+
                                 </tbody>
                             </table>
                         </div>
 
-                        
+                    </div>
+
+                    <div class="tab-pane fade" id="chavej" role="tabpanel" aria-labelledby="chavej-tab">
+
+                        <div class="bg-titulo mt-4">
+
+                            <h3>CHAVE J</h3>
+
+                        </div>
+
+                        <form class="needs-validation" novalidate>
+
+
+
+                            <div class="form-row mt-4">
+
+
+                                <div class="col-md-3 mb-3">
+                                    <div class="form-group">
+                                        <label for="exampleFormControlSelect1">Status da Chave</label>
+                                        <select class="form-control form-control-sm" id="exampleFormControlSelect1">
+                                            <option> </option>
+
+                                        </select>
+                                    </div>
+
+                                </div>
+
+                                <div class="col-md-4 mb-3">
+                                    <label for="validationCustom01">Função</label>
+                                    <input type="text" class="form-control form-control-sm" id="validationCustom01">
+
+                                </div>
+
+                                <div class="col-md-5 mb-3">
+                                    <label for="validationCustom01">Empresa</label>
+                                    <input type="text" class="form-control form-control-sm" id="validationCustom01">
+
+                                </div>
+
+                                <div class="col-md-3 mb-3">
+                                    <label for="validationCustom01">Data Envio Chave J</label>
+                                    <input type="text" class="form-control form-control-sm" id="validationCustom01">
+
+                                </div>
+
+                                <div class="col-md-5 mb-3">
+                                    <div class="form-group">
+                                        <label for="exampleFormControlSelect1">Senha Chave J</label>
+                                        <select class="form-control form-control-sm" id="exampleFormControlSelect1">
+                                            <option> </option>
+
+                                        </select>
+                                    </div>
+
+                                </div>
+
+                                <div class="col-md-4 mb-3">
+                                    <div class="form-group">
+                                        <label for="exampleFormControlSelect1">Tipo Chave</label>
+                                        <select class="form-control form-control-sm" id="exampleFormControlSelect1">
+                                            <option> </option>
+
+                                        </select>
+                                    </div>
+
+                                </div>
+
+
+
+                                <div class="col-md-8 mb-3">
+                                    <label for="validationCustom01">Motivo Cancelamento</label>
+                                    <input type="text" class="form-control form-control-sm" id="validationCustom01">
+
+                                </div>
+
+                                <div class="col-md-4 mb-3">
+                                    <label for="validationCustom01">Data Cancelamento</label>
+                                    <input type="text" class="form-control form-control-sm" id="validationCustom01">
+
+                                </div>
+
+                                
+
+
+
+
+                            </div>
+
+                        </form>
+
+                        <div class="opcoes-cadastro mt-1" style="text-align: center; margin-inline: block;">
+                            <button type="button" class="btn btn-primary btn-icon-label">
+                                <span class="btn-inner--icon">
+                                    <i class="fas fa-plus"></i>
+                                </span>
+                                <span class="btn-inner--text">Incluir / Salvar Alteração</span>
+                            </button>
+
+                        </div>
+
+
 
 
 
 
                     </div>
+
+                    <div class="tab-pane fade" id="siglae" role="tabpanel" aria-labelledby="siglae-tab">
+
+                        <div class="bg-titulo mt-4">
+
+                            <h3>SIGLA E</h3>
+
+                        </div>
+
+                        <form class="needs-validation" novalidate>
+
+
+
+                            <div class="form-row mt-4">
+
+
+                                <div class="col-md-4 mb-3">
+                                    <label for="validationCustom01">SIGLA</label>
+                                    <input type="text" class="form-control form-control-sm" id="validationCustom01">
+
+                                </div>
+
+                                <div class="col-md-4 mb-3">
+                                    <label for="validationCustom01">Código Escritório</label>
+                                    <input type="text" class="form-control form-control-sm" id="validationCustom01">
+
+                                </div>
+
+                                <div class="col-md-4 mb-3">
+                                    <label for="validationCustom01">Nome Escritório</label>
+                                    <input type="text" class="form-control form-control-sm" id="validationCustom01">
+
+                                </div>
+
+                                <div class="col-md-2 mb-3">
+                                    <div class="form-group">
+                                        <label for="exampleFormControlSelect1">Status Siglas</label>
+                                        <select class="form-control form-control-sm" id="exampleFormControlSelect1">
+                                            <option> </option>
+
+                                        </select>
+                                    </div>
+
+                                </div>
+
+                                <div class="col-md-2 mb-3">
+                                    <label for="validationCustom01">Data Inativação</label>
+                                    <input type="text" class="form-control form-control-sm" id="validationCustom01">
+
+                                </div>
+
+                                <div class="col-md-5 mb-3">
+                                    <label for="validationCustom01">Motivo Pendência</label>
+                                    <input type="text" class="form-control form-control-sm" id="validationCustom01">
+
+                                </div>
+
+
+
+
+                                <div class="col-md-3 mb-3">
+                                    <label for="validationCustom01">Sigla Propesct</label>
+                                    <input type="text" class="form-control form-control-sm" id="validationCustom01">
+
+                                </div>
+
+                            </div>
+
+                        </form>
+
+                        <div class="bg-titulo mt-4">
+
+                            <h3>Quem Ultiliza?</h3>
+
+                        </div>
+
+                        <form class="needs-validation" novalidate>
+
+
+
+                            <div class="form-row mt-4 mx-6">
+
+
+                                <div class="col-md-6 mb-3">
+                                    <label for="validationCustom01">CPF/CNPJ</label>
+                                    <input type="text" class="form-control form-control-sm" id="validationCustom01">
+
+                                </div>
+
+                                <div class="col-md-6 mb-3">
+                                    <label for="validationCustom01">Parceiro/Promotor</label>
+                                    <input type="text" class="form-control form-control-sm" id="validationCustom01">
+
+                                </div>
+
+                                <div class="col-md-6 mb-3">
+                                    <div class="form-group">
+                                        <label for="exampleFormControlSelect1">Usa Sigla E?</label>
+                                        <select class="form-control form-control-sm" id="exampleFormControlSelect1">
+                                            <option> SIM </option>
+                                            <option> NÃO </option>
+
+                                        </select>
+                                    </div>
+
+                                </div>
+
+                                <div class="col-md-6 mb-3">
+                                    <div class="form-group">
+                                        <label for="exampleFormControlSelect1">Usa Sigla I?</label>
+                                        <select class="form-control form-control-sm" id="exampleFormControlSelect1">
+                                            <option> SIM </option>
+                                            <option> NÃO </option>
+
+                                        </select>
+                                    </div>
+
+                                </div>
+
+                                <div class="col-md-12 mb-3">
+                                <div class="form-group">
+                                    <label for="exampleFormControlTextarea1">Observação</label>
+                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                  </div>
+                                </div>
+
+
+                      
+
+
+                            </div>
+
+                        </form>
+
+                        <div class="opcoes-cadastro mt-1" style="text-align: center; margin-inline: block;">
+                            <button type="button" class="btn btn-primary btn-icon-label">
+                                <span class="btn-inner--icon">
+                                    <i class="fas fa-plus"></i>
+                                </span>
+                                <span class="btn-inner--text">Incluir / Salvar Alteração</span>
+                            </button>
+
+                        </div>  
+
+                    </div>
+
+
+
+
+
                 </div>
             </div>
         </div>
