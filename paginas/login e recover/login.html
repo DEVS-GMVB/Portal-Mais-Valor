@@ -14,6 +14,7 @@
   <link rel="stylesheet" href="../../assets/libs/@fortawesome/fontawesome-free/css/all.min.css"><!-- Purpose CSS -->
   <link rel="stylesheet" href="../../assets/css/purpose.css" id="stylesheet">
   <link rel="stylesheet" href="../../assets/css/personalizado.css" id="stylesheet">
+  <script src="../../assets/js/login.js"></script>
 </head>
 
 <!-- SOMENTE ESTILO PARA PÁGINA DE LOGIN E RESET SENHA -->
@@ -59,7 +60,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Sair</button>
-          <button type="button" class="btn btn-primary">Confirmar</button>
+          <button onclick="{ Email() }" type="button" class="btn btn-primary">Confirmar</button>
         </div>
       </div>
     </div>
@@ -118,7 +119,7 @@
                         </div>
                       </div>
                       <div class="mt-3">
-                        <button type="button" class="btn btn-sm btn-primary btn-icon rounded-pill"
+                        <button onclick="{Logar()}" type="button" id="login-button" class="btn btn-sm btn-primary btn-icon rounded-pill"
                           style="margin-inline: 30%;">
                           <span class="btn-inner--text">Entrar</span>
                           <span class="btn-inner--icon"><i class="fas fa-long-arrow-alt-right"></i></span>
