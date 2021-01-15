@@ -65,7 +65,7 @@ body {
     font-size: 1rem;
     font-weight: 400;
     line-height: 1.2;
-    color: #8492a6;
+    color: #818181;
     text-align: left;
     background-color: #f8f8fb
 }
@@ -79,7 +79,7 @@ hr {
     -webkit-box-sizing: content-box;
     box-sizing: content-box;
     height: 0;
-    overflow: visible
+    overflow: visible;
 }
 
 h1,
@@ -4737,9 +4737,10 @@ input[type=submit].btn-block {
 }
 
 .custom-file-input:focus~.custom-file-label {
-    border-color: rgba(110, 0, 255, .5);
+    border-color: rgba(0, 255, 76, 0.5);
     -webkit-box-shadow: 0 0 20px rgba(110, 0, 255, .1);
     box-shadow: 0 0 20px rgba(110, 0, 255, .1)
+
 }
 
 .custom-file-input:disabled~.custom-file-label {
