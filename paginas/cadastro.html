@@ -16,7 +16,7 @@
 <link rel="stylesheet" href="../assets/libs/fullcalendar/dist/fullcalendar.min.css">
 <!-- Purpose CSS -->
 <link rel="stylesheet" href="../assets/css/purpose.css" id="stylesheet">
-<!-- Purpose CSS -->
+<!-- CSS Personalizado -->
 <link rel="stylesheet" href="../assets/css/personalizado.css" id="stylesheet">
 </head>
 
@@ -283,7 +283,7 @@
 
                                 <div class="col-md-5 mb-3">
                                     <label for="validationCustom01">E-mail</label>
-                                    <input type="text" class="form-control form-control-sm" id="validationCustom01" required>
+                                    <input type="text" class="form-control form-control-sm" id="email" required>
 
                                 </div>
 
@@ -295,7 +295,7 @@
 
                                 <div class="col-md-2 mb-3">
                                     <label for="validationCustom01">CEP</label>
-                                    <input type="text" class="form-control form-control-sm" id="validationCustom01" required>
+                                    <input type="text" maxlength="9" name="cep" id="cep" onKeyDown="fMasc( this, mCEP );" class="form-control form-control-sm" id="validationCustom01" required>
 
                                 </div>
 
@@ -1124,7 +1124,7 @@
 
                                 <div class="col-md-4 mb-3">
                                     <label for="validationCustom01">E-mail</label>
-                                    <input type="text" class="form-control form-control-sm" id="validationCustom01">
+                                    <input type="text" class="form-control form-control-sm" id="email">
 
                                 </div>
 
@@ -2544,6 +2544,8 @@
     <script src="../assets/js/mascaras.js"></script>
     <!-- Demo JS - remove it when starting your project -->
     <script src="../assets/js/demo.js"></script>
+    <!-- AJAX -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 </body>
 
 </html>
