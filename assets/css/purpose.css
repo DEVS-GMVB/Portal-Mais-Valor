@@ -7809,7 +7809,7 @@ a.close.disabled {
 }
 
 .bg-primary {
-    background-color: #28AE61 !important
+    background-color: #239645 !important
 }
 
 a.bg-primary:focus,
@@ -21361,7 +21361,7 @@ textarea[resize=horizontal] {
     z-index: -1;
     pointer-events: none;
     height: 430px;
-    background-color: #28AE61;
+    background-color: #239645;
     border-bottom-left-radius: 2.5rem
 }
 
