@@ -39,6 +39,70 @@
     }
 </style>
 
+<!-- MODAL EXIBIR DETALHES -->
+
+
+<div class="modal fade modalexibirdetalhescomissao" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <img src="logocolorido.png" style="height: 70px; right: 70px;">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="table-responsive">
+                    <table class="table align-items-center">
+                        <thead>
+                            <tr>
+                                <th scope="col" style="text-align: center;"><b>Proposta</b></th>
+                                <th scope="col" style="text-align: center;"><b>Status Pagamento</b></th>
+                                <th scope="col" style="text-align: center;"><b>Produto</b></th>
+                                <th scope="col" style="text-align: center;"><b>Data Proposta</b></th>
+                                <th scope="col" style="text-align: center;"><b>Parceiro</b></th>
+                                <th scope="col" style="text-align: center;"><b>Parceiro Esteira</b></th>
+                                <th scope="col" style="text-align: center;"><b>Valor Entregue</b></th>
+                                <th scope="col" style="text-align: center;"><b>Convênio</b></th>
+                                <th scope="col" style="text-align: center;"><b>Tipo</b></th>
+                                <th scope="col" style="text-align: center;"><b>Comissão</b></th>
+                                <th scope="col" style="text-align: center;"><b>Mês Referência</b></th>
+                                <th scope="col" style="text-align: center;"><b>Data Pagamento</b></th>
+                                <th scope="col" style="text-align: center;"><b>Movimentação</b></th>
+                                <th scope="col" style="text-align: center;"><b>Comissão Supervisor</b></th>
+                                <th scope="col" style="text-align: center;"><b>Data Pagamento Supervisor</b></th>
+                                <th scope="col" style="text-align: center;"><b>Comissão Gerente</b></th>
+                                <th scope="col" style="text-align: center;"><b>Data Pagamento Gerente</b></th>
+                                <th scope="col" style="text-align: center;"><b>Regra</b></th>
+                                <th scope="col" style="text-align: center;"><b>Correntista</b></th>
+                                <th scope="col" style="text-align: center;"><b>Prazo Contrato</b></th>
+                                <th scope="col" style="text-align: center;"><b>Classificação</b></th>
+                                <th scope="col" style="text-align: center;"><b>Receita Líquida</b></th>
+                                <th scope="col" style="text-align: center;"><b>Competência Pagamento</b></th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+
+                                <td style="text-align: center;">XXXXXX XXXXX</td>
+                                <td style="text-align: center;">XXXXXXX</td>
+                                <td style="text-align: center;">XXXXXXX</td>
+                            </tr>
+                            <tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--FIM MODAL EXIBIR DETALHES-->
+
 
 
 
@@ -837,7 +901,7 @@
 
                                     <div class="opcoes-cadastro" style="text-align: center; margin-inline: block;">
                                         <button type="button" class="btn btn-primary btn-icon-label" data-toggle="modal"
-                                            data-target=".modalteladecadastro" title="Alterar">
+                                            data-target="#" title="Alterar">
                                             <span class="btn-inner--icon">
                                                 <i class="fas fa-plus"></i>
                                             </span>
@@ -881,103 +945,348 @@
                                         <tbody>
                                             <tr class="clickable">
                                                 <td style="text-align: center;">
-    
+
                                                     <a href="#" class="action-item mr-2" data-toggle="collapse"
-                                                    data-target="#col1-row1" title="Visualizar">
-                                                            <i class="fas fa-search-plus"></i>
-                                                        </a>
+                                                        data-target="#col1-row1" title="Visualizar">
+                                                        <i class="fas fa-search-plus"></i>
+                                                    </a>
                                                 </td>
                                                 <td style="text-align: center;">Santander</td>
-                                                <td style="text-align: center;"></td>
-                                                <td style="text-align: center;"></td>
+                                                <td style="text-align: center;">XXXXX</td>
+                                                <td style="text-align: center;">XXXXXXXX,XX</td>
 
                                             </tr>
                                             <tr id="col1-row1" class="collapse">
                                                 <td colspan="9">
                                                     <div class="row-fluid summary">
-                                                        1
+                                                        <table class="table">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th scope="col" style="text-align: center;"><b>BANCO
+                                                                            PROPOSTA</b></th>
+                                                                    <th scope="col" style="text-align: center;">
+                                                                        <b>PROPOSTA</b></th>
+                                                                    <th scope="col" style="text-align: center;">
+                                                                        <b>VALOR</b></th>
+                                                                    <th scope="col" style="text-align: center;">
+                                                                        <b>COMISSÃO</b></th>
+                                                                    <th scope="col" style="text-align: center;"><b>DATA
+                                                                            PAGAMENTO</b></th>
+                                                                    <th scope="col" style="text-align: center;">
+                                                                        <b>STATUS</b></th>
+                                                                    <th scope="col" style="text-align: center;">
+                                                                        <b>MOVIMENTAÇÃO</b></th>
+                                                                    <th scope="col" style="text-align: center;"><b>%
+                                                                            COMISSÃO</b></th>
+                                                                    <th scope="col" style="text-align: center;"><b>MAIS
+                                                                            DETALHES</b></th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <th style="text-align: center;">XXXXX XXXXXX</th>
+                                                                    <td style="text-align: center;">XXXXXXXX</td>
+                                                                    <td style="text-align: center;">XXXXXXX,XX</td>
+                                                                    <td style="text-align: center;">XXXXX,XX</td>
+                                                                    <td style="text-align: center;">XX/XX/XXXX</td>
+                                                                    <td style="text-align: center;">XXXXXX</td>
+                                                                    <td style="text-align: center;">XXXXXXXX</td>
+                                                                    <td style="text-align: center;">XX%</td>
+                                                                    <td class="text-right" style="text-align: center;">
+                                                                        <!-- VISUALIZAR -->
+                                                                        <div class="actions ml-3"
+                                                                            style="text-align: center;">
+
+                                                                            <a href="#" class="action-item mr-2"
+                                                                                data-toggle="modal"
+                                                                                data-target=".modalexibirdetalhescomissao"
+                                                                                title="Visualizar">
+                                                                                <i class="fas fa-eye"></i>
+                                                                            </a>
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+
+                                                            </tbody>
+                                                        </table>
                                                     </div>
                                                 </td>
                                             </tr>
 
                                             <tr class="clickable">
                                                 <td style="text-align: center;">
-    
+
                                                     <a href="#" class="action-item mr-2" data-toggle="collapse"
-                                                    data-target="#col2-row2" title="Visualizar">
-                                                            <i class="fas fa-search-plus"></i>
-                                                        </a>
+                                                        data-target="#col2-row2" title="Visualizar">
+                                                        <i class="fas fa-search-plus"></i>
+                                                    </a>
                                                 </td>
                                                 <td style="text-align: center;">Itaú</td>
-                                                <td style="text-align: center;"></td>
-                                                <td style="text-align: center;"></td>
+                                                <td style="text-align: center;">XXXXX</td>
+                                                <td style="text-align: center;">XXXXXXXX,XX</td>
 
                                             </tr>
                                             <tr id="col2-row2" class="collapse">
                                                 <td colspan="9">
                                                     <div class="row-fluid summary">
-                                                        2
+                                                        <table class="table">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th scope="col" style="text-align: center;"><b>BANCO
+                                                                            PROPOSTA</b></th>
+                                                                    <th scope="col" style="text-align: center;">
+                                                                        <b>PROPOSTA</b></th>
+                                                                    <th scope="col" style="text-align: center;">
+                                                                        <b>VALOR</b></th>
+                                                                    <th scope="col" style="text-align: center;">
+                                                                        <b>COMISSÃO</b></th>
+                                                                    <th scope="col" style="text-align: center;"><b>DATA
+                                                                            PAGAMENTO</b></th>
+                                                                    <th scope="col" style="text-align: center;">
+                                                                        <b>STATUS</b></th>
+                                                                    <th scope="col" style="text-align: center;">
+                                                                        <b>MOVIMENTAÇÃO</b></th>
+                                                                    <th scope="col" style="text-align: center;"><b>%
+                                                                            COMISSÃO</b></th>
+                                                                    <th scope="col" style="text-align: center;"><b>MAIS
+                                                                            DETALHES</b></th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <th style="text-align: center;">XXXXX XXXXXX</th>
+                                                                    <td style="text-align: center;">XXXXXXXX</td>
+                                                                    <td style="text-align: center;">XXXXXXX,XX</td>
+                                                                    <td style="text-align: center;">XXXXX,XX</td>
+                                                                    <td style="text-align: center;">XX/XX/XXXX</td>
+                                                                    <td style="text-align: center;">XXXXXX</td>
+                                                                    <td style="text-align: center;">XXXXXXXX</td>
+                                                                    <td style="text-align: center;">XX%</td>
+                                                                    <td class="text-right" style="text-align: center;">
+                                                                        <!-- VISUALIZAR -->
+                                                                        <div class="actions ml-3"
+                                                                            style="text-align: center;">
+
+                                                                            <a href="#" class="action-item mr-2"
+                                                                                data-toggle="modal"
+                                                                                data-target=".modalexibirdetalhescomissao"
+                                                                                title="Visualizar">
+                                                                                <i class="fas fa-eye"></i>
+                                                                            </a>
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+
+                                                            </tbody>
+                                                        </table>
                                                     </div>
                                                 </td>
                                             </tr>
 
                                             <tr class="clickable">
                                                 <td style="text-align: center;">
-    
+
                                                     <a href="#" class="action-item mr-2" data-toggle="collapse"
-                                                    data-target="#col3-row3" title="Visualizar">
-                                                            <i class="fas fa-search-plus"></i>
-                                                        </a>
+                                                        data-target="#col3-row3" title="Visualizar">
+                                                        <i class="fas fa-search-plus"></i>
+                                                    </a>
                                                 </td>
                                                 <td style="text-align: center;">Bradesco</td>
-                                                <td style="text-align: center;"></td>
-                                                <td style="text-align: center;"></td>
+                                                <td style="text-align: center;">XXXXX</td>
+                                                <td style="text-align: center;">XXXXXXXX,XX</td>
 
                                             </tr>
                                             <tr id="col3-row3" class="collapse">
                                                 <td colspan="9">
                                                     <div class="row-fluid summary">
-                                                        3
+                                                        <table class="table">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th scope="col" style="text-align: center;"><b>BANCO
+                                                                            PROPOSTA</b></th>
+                                                                    <th scope="col" style="text-align: center;">
+                                                                        <b>PROPOSTA</b></th>
+                                                                    <th scope="col" style="text-align: center;">
+                                                                        <b>VALOR</b></th>
+                                                                    <th scope="col" style="text-align: center;">
+                                                                        <b>COMISSÃO</b></th>
+                                                                    <th scope="col" style="text-align: center;"><b>DATA
+                                                                            PAGAMENTO</b></th>
+                                                                    <th scope="col" style="text-align: center;">
+                                                                        <b>STATUS</b></th>
+                                                                    <th scope="col" style="text-align: center;">
+                                                                        <b>MOVIMENTAÇÃO</b></th>
+                                                                    <th scope="col" style="text-align: center;"><b>%
+                                                                            COMISSÃO</b></th>
+                                                                    <th scope="col" style="text-align: center;"><b>MAIS
+                                                                            DETALHES</b></th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <th style="text-align: center;">XXXXX XXXXXX</th>
+                                                                    <td style="text-align: center;">XXXXXXXX</td>
+                                                                    <td style="text-align: center;">XXXXXXX,XX</td>
+                                                                    <td style="text-align: center;">XXXXX,XX</td>
+                                                                    <td style="text-align: center;">XX/XX/XXXX</td>
+                                                                    <td style="text-align: center;">XXXXXX</td>
+                                                                    <td style="text-align: center;">XXXXXXXX</td>
+                                                                    <td style="text-align: center;">XX%</td>
+                                                                    <td class="text-right" style="text-align: center;">
+                                                                        <!-- VISUALIZAR -->
+                                                                        <div class="actions ml-3"
+                                                                            style="text-align: center;">
+
+                                                                            <a href="#" class="action-item mr-2"
+                                                                                data-toggle="modal"
+                                                                                data-target=".modalexibirdetalhescomissao"
+                                                                                title="Visualizar">
+                                                                                <i class="fas fa-eye"></i>
+                                                                            </a>
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+
+                                                            </tbody>
+                                                        </table>
                                                     </div>
                                                 </td>
                                             </tr>
 
                                             <tr class="clickable">
                                                 <td style="text-align: center;">
-    
+
                                                     <a href="#" class="action-item mr-2" data-toggle="collapse"
-                                                    data-target="#col4-row4" title="Visualizar">
-                                                            <i class="fas fa-search-plus"></i>
-                                                        </a>
+                                                        data-target="#col4-row4" title="Visualizar">
+                                                        <i class="fas fa-search-plus"></i>
+                                                    </a>
                                                 </td>
                                                 <td style="text-align: center;">Banco Pan</td>
-                                                <td style="text-align: center;"></td>
-                                                <td style="text-align: center;"></td>
+                                                <td style="text-align: center;">XXXXX</td>
+                                                <td style="text-align: center;">XXXXXXXX,XX</td>
 
                                             </tr>
                                             <tr id="col4-row4" class="collapse">
                                                 <td colspan="9">
                                                     <div class="row-fluid summary">
-                                                        4
+                                                        <table class="table">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th scope="col" style="text-align: center;"><b>BANCO
+                                                                            PROPOSTA</b></th>
+                                                                    <th scope="col" style="text-align: center;">
+                                                                        <b>PROPOSTA</b></th>
+                                                                    <th scope="col" style="text-align: center;">
+                                                                        <b>VALOR</b></th>
+                                                                    <th scope="col" style="text-align: center;">
+                                                                        <b>COMISSÃO</b></th>
+                                                                    <th scope="col" style="text-align: center;"><b>DATA
+                                                                            PAGAMENTO</b></th>
+                                                                    <th scope="col" style="text-align: center;">
+                                                                        <b>STATUS</b></th>
+                                                                    <th scope="col" style="text-align: center;">
+                                                                        <b>MOVIMENTAÇÃO</b></th>
+                                                                    <th scope="col" style="text-align: center;"><b>%
+                                                                            COMISSÃO</b></th>
+                                                                    <th scope="col" style="text-align: center;"><b>MAIS
+                                                                            DETALHES</b></th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <th style="text-align: center;">XXXXX XXXXXX</th>
+                                                                    <td style="text-align: center;">XXXXXXXX</td>
+                                                                    <td style="text-align: center;">XXXXXXX,XX</td>
+                                                                    <td style="text-align: center;">XXXXX,XX</td>
+                                                                    <td style="text-align: center;">XX/XX/XXXX</td>
+                                                                    <td style="text-align: center;">XXXXXX</td>
+                                                                    <td style="text-align: center;">XXXXXXXX</td>
+                                                                    <td style="text-align: center;">XX%</td>
+                                                                    <td class="text-right" style="text-align: center;">
+                                                                        <!-- VISUALIZAR -->
+                                                                        <div class="actions ml-3"
+                                                                            style="text-align: center;">
+
+                                                                            <a href="#" class="action-item mr-2"
+                                                                                data-toggle="modal"
+                                                                                data-target=".modalexibirdetalhescomissao"
+                                                                                title="Visualizar">
+                                                                                <i class="fas fa-eye"></i>
+                                                                            </a>
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+
+                                                            </tbody>
+                                                        </table>
                                                     </div>
                                                 </td>
                                             </tr>
                                             <td style="text-align: center;">
-    
+
                                                 <a href="#" class="action-item mr-2" data-toggle="collapse"
-                                                data-target="#col5-row5" title="Visualizar">
-                                                        <i class="fas fa-search-plus"></i>
-                                                    </a>
+                                                    data-target="#col5-row5" title="Visualizar">
+                                                    <i class="fas fa-search-plus"></i>
+                                                </a>
                                             </td>
                                             <td style="text-align: center;">Cartão Olé</td>
-                                            <td style="text-align: center;"></td>
-                                            <td style="text-align: center;"></td>
+                                            <td style="text-align: center;">XXXXX</td>
+                                            <td style="text-align: center;">XXXXXXXX,XX</td>
 
                                             </tr>
                                             <tr id="col5-row5" class="collapse">
                                                 <td colspan="9">
                                                     <div class="row-fluid summary">
-                                                        5
+                                                        <table class="table">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th scope="col" style="text-align: center;"><b>BANCO
+                                                                            PROPOSTA</b></th>
+                                                                    <th scope="col" style="text-align: center;">
+                                                                        <b>PROPOSTA</b></th>
+                                                                    <th scope="col" style="text-align: center;">
+                                                                        <b>VALOR</b></th>
+                                                                    <th scope="col" style="text-align: center;">
+                                                                        <b>COMISSÃO</b></th>
+                                                                    <th scope="col" style="text-align: center;"><b>DATA
+                                                                            PAGAMENTO</b></th>
+                                                                    <th scope="col" style="text-align: center;">
+                                                                        <b>STATUS</b></th>
+                                                                    <th scope="col" style="text-align: center;">
+                                                                        <b>MOVIMENTAÇÃO</b></th>
+                                                                    <th scope="col" style="text-align: center;"><b>%
+                                                                            COMISSÃO</b></th>
+                                                                    <th scope="col" style="text-align: center;"><b>MAIS
+                                                                            DETALHES</b></th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <th style="text-align: center;">XXXXX XXXXXX</th>
+                                                                    <td style="text-align: center;">XXXXXXXX</td>
+                                                                    <td style="text-align: center;">XXXXXXX,XX</td>
+                                                                    <td style="text-align: center;">XXXXX,XX</td>
+                                                                    <td style="text-align: center;">XX/XX/XXXX</td>
+                                                                    <td style="text-align: center;">XXXXXX</td>
+                                                                    <td style="text-align: center;">XXXXXXXX</td>
+                                                                    <td style="text-align: center;">XX%</td>
+                                                                    <td class="text-right" style="text-align: center;">
+                                                                        <!-- VISUALIZAR -->
+                                                                        <div class="actions ml-3"
+                                                                            style="text-align: center;">
+
+                                                                            <a href="#" class="action-item mr-2"
+                                                                                data-toggle="modal"
+                                                                                data-target=".modalexibirdetalhescomissao"
+                                                                                title="Visualizar">
+                                                                                <i class="fas fa-eye"></i>
+                                                                            </a>
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+
+                                                            </tbody>
+                                                        </table>
                                                     </div>
                                                 </td>
                                             </tr>
