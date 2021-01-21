@@ -7,7 +7,7 @@
     <meta name="description"
         content="Purpose Application UI is the following chapter we've finished in order to create a complete and robust solution next to the already known Purpose Website UI.">
     <meta name="author" content="Webpixels">
-    <title>Saldo Devedor - Portal Mais Valor</title>
+    <title>Consulta de Margem - Portal Mais Valor</title>
     <!-- Favicon -->
     <link rel="icon" href="../assets/img/brand/favicon.png" type="image/png">
     <!-- Font Awesome 5 -->
@@ -42,7 +42,7 @@
 
 <!-- Extra large modal -->
 
-<div class="modal fade modal-alterar-saldodevedor" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel"
+<div class="modal fade modal-alterar-consultamargem" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel"
     aria-hidden="true">
     <div class="modal-dialog modal-xl">
         <div class="modal-content">
@@ -57,7 +57,10 @@
 
                 <div class="bg-titulo mt-4">
 
-                    <h3>Incluir/Alterar Saldo</h3>
+                    <h3>
+                        Incluir/Alterar Consulta de Margem
+
+                    </h3>
 
                 </div>
 
@@ -93,26 +96,16 @@
                             <label for="validationCustom01">Matrícula</label>
                             <input type="text" class="form-control form-control-sm" id="validationCustom01" required>
                         </div>
-                        <div class="col-md-2 mb-3">
-                            <label for="validationCustom01">Data Nascimento</label>
-                            <input type="text" class="form-control form-control-sm" id="validationCustom01" required>
-                        </div>
-                        <div class="col-md-2 mb-3">
+                        <div class="col-md-6 mb-3">
                             <label for="validationCustom01">Convênio</label>
                             <input type="text" class="form-control form-control-sm" id="validationCustom01" required>
                         </div>
-                        <div class="col-md-2 mb-3">
-                            <label for="validationCustom01">Parcela</label>
+                        <div class="col-md-6 mb-3">
+                            <label for="validationCustom01">Senha/Código Único</label>
                             <input type="text" class="form-control form-control-sm" id="validationCustom01" required>
                         </div>
-                        <div class="col-md-3 mb-3">
-                            <label for="validationCustom01">Banco Origi</label>
-                            <input type="text" class="form-control form-control-sm" id="validationCustom01" required>
-                        </div>
-                        <div class="col-md-3 mb-3">
-                            <label for="validationCustom01">IDT Margem</label>
-                            <input type="text" class="form-control form-control-sm" id="validationCustom01" required>
-                        </div>
+                        
+                        
 
 
 
@@ -133,24 +126,20 @@
 
 
 
-                    <div class="form-row mt-4">
+                    <div class="form-row mt-4 mx-6">
 
 
-                        <div class="col-md-4 mb-3">
-                            <label for="validationCustom01">Saldo Devedor</label>
+                        <div class="col-md-6 mb-3">
+                            <label for="validationCustom01">Valor Margem Disponível</label>
                             <input type="text" class="form-control form-control-sm" id="validationCustom01" required>
 
                         </div>
-                        <div class="col-md-4 mb-3">
-                            <label for="validationCustom01">Prazo Restante</label>
-                            <input type="text" class="form-control form-control-sm" id="validationCustom01" required>
+                        <div class="col-md-6 mb-3">
+                            <label for="validationCustom01">Anexo Print Margem</label>
+                            <input type="file" class="form-control-file" id="exampleFormControlFile1">
 
                         </div>
-                        <div class="col-md-4 mb-3">
-                            <label for="validationCustom01">Taxa de Juros</label>
-                            <input type="text" class="form-control form-control-sm" id="validationCustom01" required>
-
-                        </div>
+                        
 
 
 
@@ -742,7 +731,7 @@
                 <div class="page-title">
                     <div class="row justify-content-between align-items-center">
                         <div class="col-md-12 mb-3 mb-md-0">
-                            <h6 class="h3 font-weight-400 mb-0 text-white">Saldo Devedor </h6>
+                            <h6 class="h3 font-weight-400 mb-0 text-white">Consulta de Margem </h6>
 
                         </div>
                     </div>
@@ -758,30 +747,9 @@
 
                                     <div class="form-row">
                                         <div class="col-md-6 mb-3">
-                                            <div class="form-group">
-                                                <label for="exampleFormControlSelect1">Parceiro/Promotor</label>
-                                                <select class="form-control form-control-sm"
-                                                    id="exampleFormControlSelect1">
-                                                    <option> </option>
-
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6 mb-3">
-                                            <label for="validationCustom02">Proposta</label>
+                                            <label for="validationCustom02">Usuário</label>
                                             <input type="text" minlength="14" maxlength="18"
                                                 class="form-control form-control-sm" id="validationCustom02">
-
-                                        </div>
-                                        <div class="col-md-6 mb-3">
-                                            <div class="form-group">
-                                                <label for="exampleFormControlSelect1">Supervisor</label>
-                                                <select class="form-control form-control-sm"
-                                                    id="exampleFormControlSelect1">
-                                                    <option> </option>
-
-                                                </select>
-                                            </div>
 
                                         </div>
 
@@ -794,36 +762,33 @@
 
                                                 </select>
                                             </div>
+                                        </div>
+
+                                        <div class="col-md-3 mb-3">
+                                            <label for="validationCustom02">Data Atualização</label>
+                                            <input type="text" minlength="14" maxlength="18"
+                                                class="form-control form-control-sm" id="validationCustom02">
 
                                         </div>
+
+                                        <div class="col-md-3 mb-3">
+                                            <label for="validationCustom02">Data Cadastro</label>
+                                            <input type="text" minlength="14" maxlength="18"
+                                                class="form-control form-control-sm" id="validationCustom02">
+
+                                        </div>
+
+                                        <div class="col-md-6 mb-3">
+                                            <label for="validationCustom02">CPF</label>
+                                            <input type="text" minlength="14" maxlength="18"
+                                                class="form-control form-control-sm" id="validationCustom02">
+
+                                        </div>
+                                      
+                                        
                                     </div>
 
 
-                                    <div class="form-row">
-                                        <div class="col-md-6 mb-3">
-                                            <div class="form-group">
-                                                <label for="exampleFormControlSelect1">Gerente</label>
-                                                <select class="form-control form-control-sm"
-                                                    id="exampleFormControlSelect1">
-                                                    <option> </option>
-
-                                                </select>
-                                            </div>
-
-                                        </div>
-                                        <div class="col-md-6 mb-3">
-                                            <div class="form-group">
-                                                <label for="exampleFormControlSelect1">Data Pagamento Supervisor</label>
-                                                <select class="form-control form-control-sm"
-                                                    id="exampleFormControlSelect1">
-                                                    <option> </option>
-
-                                                </select>
-                                            </div>
-
-                                        </div>
-
-                                    </div>
 
 
                             </div>
@@ -836,7 +801,7 @@
                                     </span>
                                     <span class="btn-inner--text">Buscar</span>
                                     <button type="button" class="btn btn-primary btn-icon-label" data-toggle="modal"
-                                        data-target=".modal-alterar-saldodevedor" title="Alterar">
+                                        data-target=".modal-alterar-consultamargem" title="Alterar">
                                         <span class="btn-inner--icon">
                                             <i class="fas fa-plus"></i>
                                         </span>
@@ -867,14 +832,12 @@
                                             <th scope="col" style="text-align: center;"><b>Matrícula</b></th>
                                             <th scope="col" style="text-align: center;"><b>Status</b></th>
                                             <th scope="col" style="text-align: center;"><b>Parceiro</b></th>
-                                            <th scope="col" style="text-align: center;"><b>Parcela</b></th>
+                                            <th scope="col" style="text-align: center;"><b>Senha</b></th>
                                             <th scope="col" style="text-align: center;"><b>Renda</b></th>
-                                            <th scope="col" style="text-align: center;"><b>Data Nascimento</b></th>
                                             <th scope="col" style="text-align: center;"><b>Data Atualização</b></th>
-                                            <th scope="col" style="text-align: center;"><b>Log Alteração</b></th>
-                                            <th scope="col" style="text-align: center;"><b>Banco Origi</b></th>
-                                            <th scope="col" style="text-align: center;"><b>Saldo Devedor</b></th>
-                                            <th scope="col" style="text-align: center;"><b>Prazo Restante</b></th>
+                                            <th scope="col" style="text-align: center;"><b>Data Alteração</b></th>
+                                            <th scope="col" style="text-align: center;"><b>Status</b></th>
+                                            <th scope="col" style="text-align: center;"><b>Margem Disponível</b></th>
                                             <th scope="col" style="text-align: center;"><b>Alterar</b></th>
 
                                         </tr>
@@ -893,13 +856,11 @@
                                         <td style="text-align: center;"> XXXXXXXX </td>
                                         <td style="text-align: center;"> XXXXXXXX </td>
                                         <td style="text-align: center;"> XXXXXXXX </td>
-                                        <td style="text-align: center;"> XXXXXXXX </td>
-                                        <td style="text-align: center;"> XXXXXXXX </td>
                                         <td style="text-align: center;">
 
                                             <div class="actions ml-3" style="text-align: center;">
                                                 <a href="#" class="action-item mr-2" data-toggle="modal"
-                                                    data-target=".modal-alterar-saldodevedor" title="Alterar">
+                                                    data-target=".modal-alterar-consultamargem" title="Alterar">
                                                     <i class="fas fa-external-link-alt"></i>
                                                 </a>
 
