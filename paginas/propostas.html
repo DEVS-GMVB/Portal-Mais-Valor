@@ -40,7 +40,7 @@
     }
 
     .anexocampo1 {
-        text-align: align-self: auto;
+        text-align: align-self auto;
         ;
     }
 </style>
@@ -61,8 +61,6 @@
             <div class="modal-body">
                 <form class="needs-validation" novalidate>
 
-
-
                     <div class="form-row mt-0">
 
 
@@ -74,7 +72,7 @@
 
                         <div class="col-md-3 mb-3">
                             <div class="form-group">
-                                <label for="exampleFormControlSelect1">Tipo de Usário</label>
+                                <label for="exampleFormControlSelect1">Tipo de Usuário</label>
                                 <select class="form-control form-control-sm" id="exampleFormControlSelect1">
                                     <option> </option>
 
@@ -95,6 +93,11 @@
                                 <label for="exampleFormControlSelect1">Status</label>
                                 <select class="form-control form-control-sm" id="exampleFormControlSelect1">
                                     <option> </option>
+                                    <option>TODOS</option>
+                                    <option>AGUARDANDO APROVAÇÃO DP</option>
+                                    <option>ATIVO</option>
+                                    <option>INATIVO</option>
+                                    <option>BLOQUEADO</option>
 
 
                                 </select>
@@ -116,7 +119,7 @@
 
                         <div class="col-md-5 mb-3">
                             <label for="validationCustom01">CPF</label>
-                            <input type="text" class="form-control form-control-sm" id="validationCustom01">
+                            <input type="text" class="form-control form-control-sm" id="validationCustom01" onkeypress='mascaraMutuario(this,cpfCnpj)' placeholder="Ex: 000.000.000-00" maxlength="14">
 
                         </div>
 
@@ -135,7 +138,7 @@
                         <div class="col-md-3 mb-3">
                             <div class="form-group">
                                 <label for="exampleFormControlSelect1">Mês</label>
-                                <select class="form-control form-control-sm" id="exampleFormControlSelect1">
+                                <select class="form-control form-control-sm" id="exampleFormControlSelectMes">
                                     <option> </option>
 
 
@@ -146,7 +149,7 @@
 
                         <div class="col-md-4 mb-3">
                             <label for="validationCustom01">Previsão Saldo</label>
-                            <input type="text" class="form-control form-control-sm" id="validationCustom01">
+                            <input type="date" class="form-control form-control-sm" id="validationCustom01">
 
                         </div>
 
@@ -182,13 +185,13 @@
 
                         <div class="col-md-4 mb-3">
                             <label for="validationCustom01">Data Cadastro</label>
-                            <input type="text" class="form-control form-control-sm" id="validationCustom01">
+                            <input type="date" class="form-control form-control-sm" id="validationCustom01">
 
                         </div>
 
                         <div class="col-md-4 mb-3">
                             <label for="validationCustom01">Data Atualização</label>
-                            <input type="text" class="form-control form-control-sm" id="validationCustom01">
+                            <input type="date" class="form-control form-control-sm" id="validationCustom01">
 
                         </div>
 
@@ -314,14 +317,9 @@
                                 <label for="exampleFormControlSelect1">Usuário Master</label>
                                 <select class="form-control form-control-sm" id="exampleFormControlSelect1">
                                     <option> </option>
-                                    <option>BANNEG</option>
-                                    <option>CIA DO CREDITO</option>
-                                    <option>CONSIGACRED</option>
-                                    <option>CREDFACIL</option>
-                                    <option>DEMAIS PARCEIROS</option>
-                                    <option>FACTA</option>
-                                    <option>ISOCRED</option>
-                                    <option>VAZOLI</option>
+
+
+
                                 </select>
                             </div>
 
@@ -330,7 +328,7 @@
                         <div class="col-md-5 mb-3">
                             <div class="form-group">
                                 <label for="exampleFormControlSelect1">Supervisor</label>
-                                <select class="form-control form-control-sm" id="exampleFormControlSelect1">
+                                <select class="form-control form-control-sm" id="exampleFormControlSupervisor">
                                     <option> </option>
 
 
@@ -345,10 +343,9 @@
                                 <label for="exampleFormControlSelect1">Produto Master</label>
                                 <select class="form-control form-control-sm" id="exampleFormControlSelect1">
                                     <option> </option>
-                                    <option>CONSIGNADO</option>
-                                    <option>SMS</option>
-                                    <option>CARTAO OLE</option>
-                                    <option>MOBILE</option>
+
+
+
                                 </select>
                             </div>
 
@@ -357,7 +354,7 @@
                         <div class="col-md-5 mb-3">
                             <div class="form-group">
                                 <label for="exampleFormControlSelect1">Gerente</label>
-                                <select class="form-control form-control-sm" id="exampleFormControlSelect1">
+                                <select class="form-control form-control-sm" id="exampleFormControlSelectGerente">
                                     <option> </option>
 
 
@@ -369,11 +366,12 @@
 
                         <div class="col-md-4 mb-3">
                             <div class="form-group">
-                                <label for="exampleFormControlSelect1">Tipo Usário Master</label>
+                                <label for="exampleFormControlSelect1">Tipo Usuário Master</label>
                                 <select class="form-control form-control-sm" id="exampleFormControlSelect1">
                                     <option> </option>
-                                    <option>PARCEIRO</option>
-                                    <option>PROMOTOR</option>
+
+
+
                                 </select>
                             </div>
 
@@ -397,8 +395,9 @@
                                 <label for="exampleFormControlSelect1">Empresa SMS</label>
                                 <select class="form-control form-control-sm" id="exampleFormControlSelect1">
                                     <option> </option>
-                                    <option>VIC</option>
-                                    <option>ZENVIA</option>
+
+
+
                                 </select>
                             </div>
 
@@ -438,7 +437,7 @@
 
                         <div class="col-md-4 mb-3">
                             <label for="validationCustom01">Validade Contrato</label>
-                            <input type="text" class="form-control form-control-sm" id="validationCustom01">
+                            <input type="date" class="form-control form-control-sm" id="validationCustom01">
 
                         </div>
 
@@ -447,8 +446,9 @@
                                 <label for="exampleFormControlSelect1">Etapa SMS</label>
                                 <select class="form-control form-control-sm" id="exampleFormControlSelect1">
                                     <option> </option>
-                                    <option>VENDA</option>
-                                    <option>AUDITORIA</option>
+
+
+
                                 </select>
                             </div>
 
@@ -459,8 +459,9 @@
                                 <label for="exampleFormControlSelect1">Banco Master</label>
                                 <select class="form-control form-control-sm" id="exampleFormControlSelect1">
                                     <option> </option>
-                                    <option>SANTANDER</option>
-                                    <option>MULTI BANCOS</option>
+
+
+
                                 </select>
                             </div>
 
@@ -550,13 +551,13 @@
                                 </div>
                                 <div class="col-md-2 mb-3">
                                     <label for="validationCustom01">Data Cadastro</label>
-                                    <input type="text" class="form-control form-control-sm" id="validationCustom01"
+                                    <input type="date" class="form-control form-control-sm" id="validationCustom01"
                                         required>
 
                                 </div>
                                 <div class="col-md-3 mb-3">
                                     <label for="validationCustom01">Mês Referência</label>
-                                    <input type="text" class="form-control form-control-sm" id="validationCustom01"
+                                    <input type="date" class="form-control form-control-sm" id="validationCustom01"
                                         required>
 
                                 </div>
@@ -580,20 +581,20 @@
 
                                 <div class="col-md-2 mb-3">
                                     <label for="validationCustom01">Valor Entregue</label>
-                                    <input type="text" class="form-control form-control-sm" id="validationCustom01"
-                                        required>
+                                    <input type="text" class="form-control form-control-sm" id="validationCustomVE"
+                                        required  onKeyPress="return(MascaraMoeda(this,'.',',',event))">
 
                                 </div>
                                 <div class="col-md-2 mb-3">
                                     <label for="validationCustom01">Valor Troco</label>
-                                    <input type="text" class="form-control form-control-sm" id="validationCustom01"
-                                        required>
+                                    <input type="text" class="form-control form-control-sm" id="validationCustomVT"
+                                        required onKeyPress="return(MascaraMoeda(this,'.',',',event))">
 
                                 </div>
                                 <div class="col-md-2 mb-3">
-                                    <label for="validationCustom01">Valor Parcela</label>
-                                    <input type="text" class="form-control form-control-sm" id="validationCustom01"
-                                        required>
+                                    <label for="validationCustom01" >Valor Parcela</label>
+                                    <input type="text" class="form-control form-control-sm" id="validationCustomVP"
+                                        required onKeyPress="return(MascaraMoeda(this,'.',',',event))">
 
                                 </div>
 
@@ -605,7 +606,7 @@
                                 </div>
                                 <div class="col-md-3 mb-3">
                                     <label for="validationCustom01">Previsão de Saldo</label>
-                                    <input type="text" class="form-control form-control-sm" id="validationCustom01"
+                                    <input type="date" class="form-control form-control-sm" id="validationCustom01"
                                         required>
 
                                 </div>
@@ -642,15 +643,15 @@
 
                                 <div class="col-md-2 mb-3">
                                     <label for="validationCustom01">Data Corte</label>
-                                    <input type="text" class="form-control form-control-sm" id="validationCustom01"
+                                    <input type="date" class="form-control form-control-sm" id="validationCustom01"
                                         required>
 
                                 </div>
 
                                 <div class="col-md-3 mb-3">
                                     <label for="validationCustom01">Salário/Vencimentos</label>
-                                    <input type="text" class="form-control form-control-sm" id="validationCustom01"
-                                        required>
+                                    <input type="text" class="form-control form-control-sm" id="validationCustomSV"
+                                        required onKeyPress="return(MascaraMoeda(this,'.',',',event))">
 
                                 </div>
 
@@ -738,9 +739,12 @@
                                 <div class="col-md-10 mb-3">
                                     <label for="validationCustom01">Status</label>
                                     <select class="form-control form-control-sm" id="exampleFormControlSelect1">
-                                        <option> </option>
-
-
+                                        <option></option>
+                                        <option>TODOS</option>
+                                        <option>AGUARDANDO APROVAÇÃO DP</option>
+                                        <option>ATIVO</option>
+                                        <option>INATIVO</option>
+                                        <option>BLOQUEADO</option>
                                     </select>
 
                                 </div>
@@ -749,8 +753,6 @@
                                     <label for="validationCustom01">Sub-Status</label>
                                     <select class="form-control form-control-sm" id="exampleFormControlSelect1">
                                         <option> </option>
-
-
                                     </select>
 
                                 </div>
@@ -759,7 +761,6 @@
                                     <label for="validationCustom01">Convênio</label>
                                     <input type="text" class="form-control form-control-sm" id="validationCustom01"
                                         required>
-
                                 </div>
 
 
@@ -792,7 +793,7 @@
 
                                 <div class="col-md-3 mb-3">
                                     <label for="validationCustom01">Validade Contrato</label>
-                                    <input type="text" class="form-control form-control-sm" id="validationCustom01"
+                                    <input type="date" class="form-control form-control-sm" id="validationCustom01"
                                         required>
 
                                 </div>
@@ -818,8 +819,6 @@
                                         <option> </option>
                                         <option> SIM </option>
                                         <option> NÃO </option>
-
-
                                     </select>
 
                                 </div>
@@ -843,7 +842,7 @@
 
                                 <div class="col-md-3 mb-3">
                                     <label for="validationCustom01">Senha Exército</label>
-                                    <input type="text" class="form-control form-control-sm" id="validationCustom01"
+                                    <input type="password" class="form-control form-control-sm" id="validationCustom01"
                                         required>
 
                                 </div>
@@ -949,7 +948,7 @@
                                 <div class="col-md-3 mb-3">
                                     <label for="validationCustom01">Data Atualização New Space
                                     </label>
-                                    <input type="text" class="form-control form-control-sm" id="validationCustom01"
+                                    <input type="date" class="form-control form-control-sm" id="validationCustom01"
                                         required>
 
                                 </div>
@@ -982,8 +981,8 @@
                                 </div>
                                 <div class="col-md-3 mb-3">
                                     <label for="validationCustom01">CPF Cliente</label>
-                                    <input type="text" class="form-control form-control-sm" id="validationCustom01"
-                                        required>
+                                    <input type="text" class="form-control form-control-sm" id="validationCustomCpf"
+                                        required onkeypress='mascaraMutuario(this,cpfCnpj)' placeholder="Ex: 000.000.000-00" maxlength="14">
 
                                 </div>
                                 <div class="col-md-1 mb-3">
@@ -995,14 +994,16 @@
                                 <div class="col-md-3 mb-3">
                                     <label for="validationCustom01">Telefone Cliente</label>
                                     <input type="text" class="form-control form-control-sm" id="validationCustom01"
-                                        required>
+                                        required onkeypress='mascaraMutuario(this,mTelefoneCliente)' maxlength="10">
 
                                 </div>
 
                                 <div class="col-md-6 mb-3">
                                     <label for="validationCustom01">Gênero</label>
                                     <select class="form-control form-control-sm" id="exampleFormControlSelect1">
-                                        <option> </option>
+                                        <option> Selecione</option>
+                                        <option> Masculino</option>
+                                        <option> Feminino</option>
 
 
                                     </select>
@@ -1012,10 +1013,9 @@
                                 <div class="col-md-6 mb-3">
                                     <label for="validationCustom01">Sexo</label>
                                     <select class="form-control form-control-sm" id="exampleFormControlSelect1">
-                                        <option> </option>
-
-
-
+                                        <option> Selecione</option>
+                                        <option> Masculino</option>
+                                        <option> Feminino</option>
                                     </select>
 
                                 </div>
@@ -1023,14 +1023,14 @@
                                 <div class="col-md-3 mb-3">
                                     <label for="validationCustom01">Telefone Confirmação</label>
                                     <input type="text" class="form-control form-control-sm" id="validationCustom01"
-                                        required>
+                                        required onkeypress='mascaraMutuario(this,mTelefone)' maxlength="14">
 
                                 </div>
 
                                 <div class="col-md-3 mb-3">
                                     <label for="validationCustom01">Novo Contato Informado</label>
                                     <input type="text" class="form-control form-control-sm" id="validationCustom01"
-                                        required>
+                                        required onkeypress="mascaraMutuario(this,mTelefone)" maxlength="14">
 
                                 </div>
 
@@ -1043,7 +1043,7 @@
 
                                 <div class="col-md-3 mb-3">
                                     <label for="validationCustom01">Data Nascimento</label>
-                                    <input type="text" class="form-control form-control-sm" id="validationCustom01"
+                                    <input type="date" class="form-control form-control-sm" id="validationCustom01"
                                         required>
 
                                 </div>
@@ -1065,13 +1065,13 @@
                                 <div class="col-md-3 mb-3">
                                     <label for="validationCustom01">RG</label>
                                     <input type="text" class="form-control form-control-sm" id="validationCustom01"
-                                        required>
+                                        required onkeypress='mascaraMutuario(this,Rg)' maxlength="14">
 
                                 </div>
 
                                 <div class="col-md-3 mb-3">
                                     <label for="validationCustom01">Data Emissão RG</label>
-                                    <input type="text" class="form-control form-control-sm" id="validationCustom01"
+                                    <input type="date" class="form-control form-control-sm" id="validationCustom01"
                                         required>
 
                                 </div>
@@ -1103,7 +1103,7 @@
 
                                 <div class="col-md-2 mb-3">
                                     <label for="validationCustom01">Data Admissão</label>
-                                    <input type="text" class="form-control form-control-sm" id="validationCustom01"
+                                    <input type="date" class="form-control form-control-sm" id="validationCustom01"
                                         required>
 
                                 </div>
@@ -1121,13 +1121,12 @@
                                     <label for="validationCustom01">Cidade Endereço</label>
                                     <input type="text" class="form-control form-control-sm" id="validationCustom01"
                                         required>
-
                                 </div>
 
                                 <div class="col-md-3 mb-3">
                                     <label for="validationCustom01">CEP</label>
                                     <input type="text" class="form-control form-control-sm" id="validationCustom01"
-                                        required>
+                                        required onKeyDown="fMasc( this, mCEP );" maxlength="9">
 
                                 </div>
 
@@ -1180,7 +1179,7 @@
                                 <div class="col-md-2 mb-3">
                                     <label for="validationCustom01">Agência Cliente</label>
                                     <input type="text" class="form-control form-control-sm" id="validationCustom01"
-                                        required>
+                                        required maxlength="4">
 
                                 </div>
 
@@ -1195,7 +1194,7 @@
                                 <div class="col-md-2 mb-3">
                                     <label for="validationCustom01">Dígito Conta</label>
                                     <input type="text" class="form-control form-control-sm" id="validationCustom01"
-                                        required>
+                                        required maxlength="1">
 
                                 </div>
 
@@ -1214,7 +1213,7 @@
                                 <div class="col-md-4 mb-3">
                                     <label for="validationCustom01">Telefone SMS Cliente</label>
                                     <input type="text" class="form-control form-control-sm" id="validationCustom01"
-                                        required>
+                                        required onkeypress='mascaraMutuario(this,mTelefone)' maxlength="14">
 
                                 </div>
 
@@ -1250,8 +1249,6 @@
                                         <option> </option>
                                         <option> SIM </option>
                                         <option> NÃO </option>
-
-
                                     </select>
 
                                 </div>
@@ -1259,7 +1256,7 @@
                                 <div class="col-md-4 mb-3">
                                     <label for="validationCustom01">Telefone Completo</label>
                                     <input type="text" class="form-control form-control-sm" id="validationCustom01"
-                                        required>
+                                        required onkeypress='mascaraMutuario(this,mTelefone)' maxlength="14">
 
                                 </div>
 
@@ -1284,8 +1281,8 @@
 
                                 <div class="col-md-8 mb-3">
                                     <label for="validationCustom01">E-mail</label>
-                                    <input type="text" class="form-control form-control-sm" id="validationCustom01"
-                                        required>
+                                    <input type="email" class="form-control form-control-sm" id="validationCustom01"
+                                        required >
 
                                 </div>
 
@@ -1299,7 +1296,7 @@
 
                                 <div class="col-md-4 mb-3">
                                     <label for="validationCustom01">Melhor Data - Confirmação Cliente</label>
-                                    <input type="text" class="form-control form-control-sm" id="validationCustom01"
+                                    <input type="date" class="form-control form-control-sm" id="validationCustom01"
                                         required>
 
                                 </div>
@@ -3223,7 +3220,10 @@
                     <span class="btn-inner--icon d-block"><i class="fas fa-flag fa-2x"></i></span>
                     <span class="btn-inner--icon d-block pt-2">Relatórios</span>
                 </a>
-                
+                <a href="../application/widgets.html" class="btn btn-square text-sm">
+                    <span class="btn-inner--icon d-block"><i class="fas fa-user-clock fa-2x"></i></span>
+                    <span class="btn-inner--icon d-block pt-2">Propostas Aguardando Contrato</span>
+                </a>
                 <a href="../application/widgets.html" class="btn btn-square text-sm">
                     <span class="btn-inner--icon d-block"><i class="fas fa-bookmark fa-2x"></i></span>
                     <span class="btn-inner--icon d-block pt-2">Comunicados</span>
@@ -3391,7 +3391,7 @@
                             <li class="border-top opacity-2 my-2"></li>
                             <!-- Home  -->
                             <li class="nav-item ">
-                                <a class="nav-link pl-lg-0" href="../paginas/home.html">
+                                <a class="nav-link pl-lg-0" href="../application/home.html">
                                     Home
                                 </a>
                             </li>
@@ -3405,60 +3405,165 @@
                                     <!-- Top dropdown menu -->
                                     <div class="p-lg-4">
                                         <div class="dropdown dropdown-animate dropdown-submenu" data-toggle="hover">
-                                          <a href="#" class="dropdown-item dropdown-toggle" role="button" data-toggle="dropdown"
-                                            aria-haspopup="true" aria-expanded="false">
-                                            Propostas
-                                          </a>
-                                          <div class="dropdown-menu"><a class="dropdown-item" href="../paginas/propostas.html">
-                                              Propostas
+                                            <a href="#" class="dropdown-item dropdown-toggle" role="button"
+                                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                Project
                                             </a>
-                                            <a class="dropdown-item" href="../paginas/propostasimobiliario.html">
-                                              Propostas Imobiliário
-                                            </a>
-                                            <a class="dropdown-item" href="../application/project/propostasaguardandoct.html">
-                                              Propostas Aguardando Contrato
-                                            </a>
-                                            <a class="dropdown-item" href="../application/project/create-new.html">
-                                              Identificação de Proposta
-                                            </a>
-                                            <a class="dropdown-item" href="../application/project/estoque.html">
-                                              Estoque
-                                            </a>
-                                          </div>
+                                            <div class="dropdown-menu"><a class="dropdown-item"
+                                                    href="../application/project/card-listing.html">
+                                                    Card listing
+                                                </a>
+                                                <a class="dropdown-item"
+                                                    href="../application/project/table-listing.html">
+                                                    Table listing
+                                                </a>
+                                                <a class="dropdown-item" href="../application/project/overview.html">
+                                                    Overview
+                                                </a>
+                                                <a class="dropdown-item" href="../application/project/create-new.html">
+                                                    Create new
+                                                </a>
+                                            </div>
                                         </div>
                                         <div class="dropdown dropdown-animate dropdown-submenu" data-toggle="hover">
-                                          <a href="#" class="dropdown-item dropdown-toggle" role="button" data-toggle="dropdown"
-                                            aria-haspopup="true" aria-expanded="false">
-                                            Solicitações
-                                          </a>
-                                          <div class="dropdown-menu"><a class="dropdown-item" href="../application/task/saldodevedor.html">
-                                              Saldo Devedor
+                                            <a href="#" class="dropdown-item dropdown-toggle" role="button"
+                                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                Task
                                             </a>
-                                            <a class="dropdown-item" href="../application/task/consultasaldofer.html">
-                                              Consulta de Saldo Fer
-                                            </a>
-                                            <a class="dropdown-item" href="../application/task/atualizacaocadastralcli.html">
-                                              Atualização Cadastral Cliente
-                                            </a>
-                                            <a class="dropdown-item" href="../application/task/solicitacaocancelamento.html">
-                                              Solicitação Cancelamento
-                                            </a>
-                                            <a class="dropdown-item" href="../application/task/apropropostadigital.html">
-                                              Aprovação Proposta- Digital
-                                            </a>
-                                            <a class="dropdown-item" href="../application/task/averbacaogoias.html">
-                                              Averbação Goias
-                    
-                                            </a>
-                                            <a class="dropdown-item" href="../application/task/autoriinsssms.html">
-                                              Autorização INSS - VIA SMS
-                                            </a>
-                                          </div>
+                                            <div class="dropdown-menu"><a class="dropdown-item"
+                                                    href="../application/task/table-listing.html">
+                                                    Table listing
+                                                </a>
+                                                <a class="dropdown-item" href="../application/task/kanban-board.html">
+                                                    Kanban board
+                                                </a>
+                                                <a class="dropdown-item" href="../application/task/create-new.html">
+                                                    Create new
+                                                </a>
+                                            </div>
                                         </div>
-                    
-                    
-                    
-                                      </div>
+                                        <div class="dropdown dropdown-animate dropdown-submenu" data-toggle="hover">
+                                            <a href="#" class="dropdown-item dropdown-toggle" role="button"
+                                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                User
+                                            </a>
+                                            <div class="dropdown-menu"><a class="dropdown-item"
+                                                    href="../application/user/card-listing.html">
+                                                    Card listing
+                                                </a>
+                                                <a class="dropdown-item" href="../application/user/table-listing.html">
+                                                    Table listing
+                                                </a>
+                                                <a class="dropdown-item" href="../application/user/profile.html">
+                                                    Profile
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="dropdown dropdown-animate dropdown-submenu" data-toggle="hover">
+                                            <a href="#" class="dropdown-item dropdown-toggle" role="button"
+                                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                Authentication
+                                            </a>
+                                            <div class="dropdown-menu"><a class="dropdown-item"
+                                                    href="../application/authentication/login.html">
+                                                    Login
+                                                </a>
+                                                <a class="dropdown-item"
+                                                    href="../application/authentication/register.html">
+                                                    Register
+                                                </a>
+                                                <a class="dropdown-item"
+                                                    href="../application/authentication/recover.html">
+                                                    Recover
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="dropdown dropdown-animate dropdown-submenu" data-toggle="hover">
+                                            <a href="#" class="dropdown-item dropdown-toggle" role="button"
+                                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                Account
+                                            </a>
+                                            <div class="dropdown-menu"><a class="dropdown-item"
+                                                    href="../application/account/profile.html">
+                                                    Profile
+                                                </a>
+                                                <a class="dropdown-item" href="../application/account/settings.html">
+                                                    Settings
+                                                </a>
+                                                <a class="dropdown-item" href="../application/account/billing.html">
+                                                    Billing
+                                                </a>
+                                                <a class="dropdown-item"
+                                                    href="../application/account/notifications.html">
+                                                    Notifications
+                                                </a>
+                                                <a class="dropdown-item" href="../application/account/addresses.html">
+                                                    Addresses
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="dropdown dropdown-animate dropdown-submenu" data-toggle="hover">
+                                            <a href="#" class="dropdown-item dropdown-toggle" role="button"
+                                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                Shop
+                                            </a>
+                                            <div class="dropdown-menu"><a class="dropdown-item"
+                                                    href="../application/shop/card-listing.html">
+                                                    Card listing
+                                                </a>
+                                                <a class="dropdown-item" href="../application/shop/table-listing.html">
+                                                    Table listing
+                                                </a>
+                                                <a class="dropdown-item" href="../application/shop/product.html">
+                                                    Product
+                                                </a>
+                                                <a class="dropdown-item" href="../application/shop/orders.html">
+                                                    Orders
+                                                </a>
+                                                <a class="dropdown-item"
+                                                    href="../application/shop/order-description.html">
+                                                    Order description
+                                                </a>
+                                                <a class="dropdown-item" href="../application/shop/cart.html">
+                                                    Cart
+                                                </a>
+                                                <a class="dropdown-item" href="../application/shop/sellers.html">
+                                                    Sellers
+                                                </a>
+                                                <a class="dropdown-item" href="../application/shop/invoices.html">
+                                                    Invoices
+                                                </a>
+                                                <a class="dropdown-item"
+                                                    href="../application/shop/invoice-description.html">
+                                                    Invoice description
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="dropdown dropdown-animate dropdown-submenu" data-toggle="hover">
+                                            <a href="#" class="dropdown-item dropdown-toggle" role="button"
+                                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                Utility
+                                            </a>
+                                            <div class="dropdown-menu"><a class="dropdown-item"
+                                                    href="../application/utility/error-404.html">
+                                                    Error 404
+                                                </a>
+                                                <a class="dropdown-item" href="../application/utility/error-500.html">
+                                                    Error 500
+                                                </a>
+                                                <a class="dropdown-item"
+                                                    href="../application/utility/maintenance-mode.html">
+                                                    Maintenance mode
+                                                </a>
+                                                <a class="dropdown-item" href="../application/utility/faq.html">
+                                                    Faq
+                                                </a>
+                                                <a class="dropdown-item" href="../application/utility/topic.html">
+                                                    Topic
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
                                     <!-- Bottom dropdown menu -->
                                     <div class="dropdown-menu-links rounded-bottom delimiter-top p-lg-4">
                                         <div class="row">
@@ -3864,6 +3969,8 @@
     <script src="../assets/js/demo.js"></script>
     <!-- Mascaras -->
     <script src="../assets/js/mascaras.js"></script>
+    <script src="../assets/js/mascarasvalores.js"></script>
+    <script src="../assets/js/cadastro.js"></script>
 </body>
 
 </html>

@@ -1840,7 +1840,7 @@
                             <li class="border-top opacity-2 my-2"></li>
                             <!-- Home  -->
                             <li class="nav-item ">
-                                <a class="nav-link pl-lg-0" href="../paginas/home.html">
+                                <a class="nav-link pl-lg-0" href="../application/home.html">
                                     Home
                                 </a>
                             </li>
@@ -1858,10 +1858,10 @@
                                             aria-haspopup="true" aria-expanded="false">
                                             Propostas
                                           </a>
-                                          <div class="dropdown-menu"><a class="dropdown-item" href="../paginas/propostas.html">
+                                          <div class="dropdown-menu"><a class="dropdown-item" href="../application/project/propostas.html">
                                               Propostas
                                             </a>
-                                            <a class="dropdown-item" href="../paginas/propostasimobiliario.html">
+                                            <a class="dropdown-item" href="../application/project/propostasimobiliario.html">
                                               Propostas Imobiliário
                                             </a>
                                             <a class="dropdown-item" href="../application/project/propostasaguardandoct.html">
@@ -2155,7 +2155,7 @@
                                         <div class="col-md-4 mb-3">
                                             <label for="validationCustom01">Funcionario</label>
                                             <input type="text" class="form-control form-control-sm"
-                                                id="validationCustom01" placeholder="Funcionario">
+                                                id="validationCustomFuncionario" placeholder="Funcionario">
 
                                         </div>
                                         <div class="col-md-4 mb-3">
@@ -2175,7 +2175,6 @@
                                                     <option>ATIVO</option>
                                                     <option>INATIVO</option>
                                                     <option>BLOQUEADO</option>
-                                                    <option>NULL</option>
                                                 </select>
                                             </div>
 
@@ -2186,7 +2185,7 @@
                                             <div class="form-group">
                                                 <label for="exampleFormControlSelect1">Supervisor</label>
                                                 <select class="form-control form-control-sm"
-                                                    id="exampleFormControlSelect1">
+                                                    id="exampleFormControlSupervisor">
                                                     <option> </option>
 
                                                 </select>
@@ -2197,7 +2196,7 @@
                                             <div class="form-group">
                                                 <label for="exampleFormControlSelect1">Gerente</label>
                                                 <select class="form-control form-control-sm"
-                                                    id="exampleFormControlSelect1">
+                                                    id="exampleFormControlSelectGerente">
                                                     <option> </option>
 
                                                 </select>
@@ -2208,7 +2207,7 @@
                                             <div class="form-group">
                                                 <label for="exampleFormControlSelect1">Filial</label>
                                                 <select class="form-control form-control-sm"
-                                                    id="exampleFormControlSelect1">
+                                                    id="exampleFormControlFilial">
                                                     <option> </option>
 
                                                 </select>
@@ -2222,7 +2221,7 @@
                                             <div class="form-group">
                                                 <label for="exampleFormControlSelect1">Mês Admissão</label>
                                                 <select class="form-control form-control-sm"
-                                                    id="exampleFormControlSelect1">
+                                                    id="exampleFormControlMes">
                                                     <option> </option>
 
                                                 </select>
@@ -2233,7 +2232,7 @@
                                             <div class="form-group">
                                                 <label for="exampleFormControlSelect1">Mês Demissão</label>
                                                 <select class="form-control form-control-sm"
-                                                    id="exampleFormControlSelect1">
+                                                    id="exampleFormControlMesDemissao">
                                                     <option> </option>
 
                                                 </select>
@@ -2268,7 +2267,7 @@
 
                                         <div class="col-md-4 mt-4">
 
-                                            <button type="button" class="btn btn-primary btn-icon-only btn-sm">
+                                            <button type="button" class="btn btn-primary btn-icon-only btn-sm" id="incluir">
                                                 <span class="btn-inner--icon">
                                                     <i class="fas fa-search"></i>
                                                 </span>
@@ -2438,6 +2437,9 @@
     <script src="../assets/js/demo.js"></script>
     <!-- AJAX -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="../assets/js/cadastro.js"></script>
+    <script src="../assets/js/cadastropesquisar.js"></script>
+
 </body>
 
 </html>
