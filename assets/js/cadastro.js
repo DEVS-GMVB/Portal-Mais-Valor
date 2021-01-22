@@ -1,6 +1,7 @@
 // VARS
 var gerente = document.getElementById('exampleFormControlSelectGerente');
 var filial = document.getElementById('exampleFormControlFilial');
+var f = document.getElementById('exampleFormControlSelect1')
 var supervisor = document.getElementById('exampleFormControlSupervisor');
 var mes = document.getElementById('exampleFormControlMes');
 var mesDemissao = document.getElementById('exampleFormControlMesDemissao');
@@ -26,6 +27,15 @@ var requestOptions = {
     .then(function(data){
         for(let i = 0; i < data.length; i++){
             filial.innerHTML += '<option value="'+i+'">'+data[i].filial+'</option>;'
+        }
+    }))
+    .catch(error => console.log('error', error));
+
+    fetch("http://172.16.0.197:3000/user/filial", requestOptions)
+    .then(response => response.json()
+    .then(function(data){
+        for(let i = 0; i < data.length; i++){
+            f.innerHTML += '<option value="'+i+'">'+data[i].filial+'</option>;'
         }
     }))
     .catch(error => console.log('error', error));
