@@ -257,7 +257,7 @@
 
                                 <div class="col-md-2 mb-3">
                                     <label for="validationCustom01">PIS</label>
-                                    <input type="text" class="form-control form-control-sm" id="validationCustom01" required>
+                                    <input type="text" class="form-control form-control-sm" id="validationCustom01"  onkeyup="mascaraMutuario(this, pispasep);" maxlength="14"required>
 
                                 </div>
 
@@ -380,7 +380,7 @@
 
                                 <div class="col-md-3 mb-3">
                                     <label for="validationCustom01">Conta</label>
-                                    <input type="text" class="form-control form-control-sm" id="validationCustom01" required>
+                                    <input type="text" class="form-control form-control-sm" id="validationCustom01" required onkeypress="mascaraMutuario(this,mcc)">
 
                                 </div>
 
@@ -564,7 +564,8 @@
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <label for="validationCustom01">CPF Empresa</label>
-                                    <input type="text" class="form-control form-control-sm" id="validationCustom01" required>
+                                    <input type="text" class="form-control form-control-sm" id="validationCustom01" onkeypress='mascaraMutuario(this,cpfCnpj)' class="form-control form-control-sm" 
+                                    id="cpfcnpj"  minlength="14" maxlength="18" required>
 
                                 </div>
 
@@ -1104,6 +1105,11 @@
                                         <label for="exampleFormControlSelect1">Status</label>
                                         <select class="form-control form-control-sm" id="exampleFormControlSelect1">
                                             <option> </option>
+                                            <option value="1">TODOS</option>
+                                            <option value="2">AGUARDANDO APROVAÇÃO DP</option>
+                                            <option value="3">ATIVO</option>
+                                            <option value="inativo">INATIVO</option>
+                                            <option value="5">BLOQUEADO</option>
 
                                         </select>
                                     </div>
@@ -2161,20 +2167,20 @@
                                         <div class="col-md-4 mb-3">
                                             <label for="validationCustom02">CPF / CPNJ</label>
                                             <input type="text" minlength="14" maxlength="18" name='cpfcnpj' onkeypress='mascaraMutuario(this,cpfCnpj)' class="form-control form-control-sm" 
-                                                id="validationCustom02" placeholder="Ex: 000.000.000-00">
+                                                id="cpfcnpj" placeholder="Ex: 000.000.000-00">
 
                                         </div>
                                         <div class="col-md-4 mb-3">
                                             <div class="form-group">
                                                 <label for="exampleFormControlSelect1">Status</label>
                                                 <select class="form-control form-control-sm"
-                                                    id="exampleFormControlSelect1">
+                                                    id="status">
                                                     <option> </option>
-                                                    <option>TODOS</option>
-                                                    <option>AGUARDANDO APROVAÇÃO DP</option>
-                                                    <option>ATIVO</option>
-                                                    <option>INATIVO</option>
-                                                    <option>BLOQUEADO</option>
+                                                    <option value="0">TODOS</option>
+                                                    <option value="1">AGUARDANDO APROVAÇÃO DP</option>
+                                                    <option value="2">ATIVO</option>
+                                                    <option value="3">INATIVO</option>
+                                                    <option value="4">BLOQUEADO</option>
                                                 </select>
                                             </div>
 
@@ -2243,7 +2249,7 @@
                                             <div class="form-group">
                                                 <label for="exampleFormControlSelect1">Tipo</label>
                                                 <select class="form-control form-control-sm"
-                                                    id="exampleFormControlSelect1">
+                                                    id="exampleFormControlTipo">
                                                     <option> </option>
 
                                                 </select>
@@ -2340,7 +2346,7 @@
                                             </tr>
                                         </thead>
 
-                                        <tbody class="list">
+                                        <tbody class="list" id="id">
 
                                             <tr>
 

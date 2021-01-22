@@ -185,4 +185,12 @@ function mcc(v){
     v = v.substring(0, 19)// Limita o tamanho
   
     return v;
-  }
+}
+
+function pispasep(v) {
+    v = v.replace(/\D/g, "")                                      //Remove tudo o que não é dígito
+    v = v.replace(/^(\d{3})(\d)/, "$1.$2")                        //Coloca ponto entre o terceiro e o quarto dígitos
+    v = v.replace(/^(\d{3})\.(\d{5})(\d)/, "$1.$2.$3")            //Coloca ponto entre o quinto e o sexto dígitos
+    v = v.replace(/(\d{3})\.(\d{5})\.(\d{2})(\d)/, "$1.$2.$3.$4") //Coloca ponto entre o décimo e o décimo primeiro dígitos
+    return v
+}
