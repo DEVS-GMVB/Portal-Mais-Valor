@@ -7,7 +7,7 @@
     <meta name="description"
         content="Purpose Application UI is the following chapter we've finished in order to create a complete and robust solution next to the already known Purpose Website UI.">
     <meta name="author" content="Webpixels">
-    <title>Averbação Goiás - Portal Mais Valor</title>
+    <title>Autorização INSS via SMS - Portal Mais Valor</title>
     <!-- Favicon -->
     <link rel="icon" href="../assets/img/brand/favicon.png" type="image/png">
     <!-- Font Awesome 5 -->
@@ -42,7 +42,7 @@
 
 <!-- Extra large modal -->
 
-<div class="modal fade modal-alterar-averbacaogoias" tabindex="-1" role="dialog"
+<div class="modal fade modal-alterar-autorizacaosoliinss" tabindex="-1" role="dialog"
     aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-xl">
         <div class="modal-content">
@@ -61,7 +61,7 @@
                 <div class="bg-titulo mt-4">
 
                     <h3>
-                        Incluir/Alterar Averbação Goiás
+                        Incluir/Alterar Solicitação INSS - SMS
 
                     </h3>
 
@@ -80,50 +80,30 @@
                     <div class="form-row mt-4">
 
 
-                        <div class="col-md-3 mb-3">
+                        <div class="col-md-2 mb-3">
                             <label for="validationCustom01">Data Cadastro</label>
                             <input type="text" class="form-control form-control-sm" id="validationCustom01" required>
 
                         </div>
-                        <div class="col-md-6 mb-3">
+                        <div class="col-md-5 mb-3">
                             <label for="validationCustom01">Parceiro</label>
                             <input type="text" class="form-control form-control-sm" id="validationCustom01" required>
 
                         </div>
-                        <div class="col-md-3 mb-3">
-                            <label for="validationCustom01">Tipo</label>
+                        <div class="col-md-5 mb-3">
+                            <label for="validationCustom01">CPF Cliente</label>
                             <input type="text" class="form-control form-control-sm" id="validationCustom01" required>
 
                         </div>
-                        <div class="col-md-3 mb-3">
-                            <label for="validationCustom01">Valor Solicitado</label>
-                            <input type="text" class="form-control form-control-sm" id="validationCustom01" required>
-                        </div>
-                        <div class="col-md-3 mb-3">
-                            <label for="validationCustom01">Parcela</label>
-                            <input type="text" class="form-control form-control-sm" id="validationCustom01" required>
-                        </div>
-                        <div class="col-md-3 mb-3">
-                            <label for="validationCustom01">Prazo</label>
-                            <input type="text" class="form-control form-control-sm" id="validationCustom01" required>
-                        </div>
-                        <div class="col-md-3 mb-3">
-                            <label for="validationCustom01">Senha</label>
+                        <div class="col-md-8 mb-3">
+                            <label for="validationCustom01">Nome Cliente</label>
                             <input type="text" class="form-control form-control-sm" id="validationCustom01" required>
                         </div>
                         <div class="col-md-4 mb-3">
-                            <label for="validationCustom01">Validade Senha</label>
+                            <label for="validationCustom01">Telefone Cliente</label>
                             <input type="text" class="form-control form-control-sm" id="validationCustom01" required>
                         </div>
-                        <div class="col-md-4 mb-3">
-                            <label for="validationCustom01">Parcela Original</label>
-                            <input type="text" class="form-control form-control-sm" id="validationCustom01" required>
-                        </div>
-                        <div class="col-md-4 mb-3">
-                            <label for="validationCustom01">Matrícula</label>
-                            <input type="text" class="form-control form-control-sm" id="validationCustom01" required>
-                        </div>
-
+                       
 
 
 
@@ -134,7 +114,7 @@
 
                 <div class="bg-subtitulo mt-1 mb-3">
 
-                    <h3>Dados Usuário </h3>
+                    <h3>Dados Resposta </h3>
 
                 </div>
                 
@@ -156,7 +136,7 @@
                            
                             
                         <button type="button"
-                            class="btn btn-sm btn-secondary btn-icon rounded-pill mt-3">
+                            class="btn btn-sm btn-secondary btn-icon rounded-pill mt-2">
                             <span class="btn-inner--icon"><i
                                     class="fas fa-download"></i></span>
                             <span class="btn-inner--text">Anexo Print Margem</span>
@@ -512,7 +492,7 @@
                                                     Averbação Goias
 
                                                 </a>
-                                                <a class="dropdown-item" href="../paginas/autoriinsssms.html">
+                                                <a class="dropdown-item" href="../application/task/autoriinsssms.html">
                                                     Autorização INSS - VIA SMS
                                                 </a>
                                             </div>
@@ -755,7 +735,7 @@
                 <div class="page-title">
                     <div class="row justify-content-between align-items-center">
                         <div class="col-md-12 mb-3 mb-md-0">
-                            <h6 class="h3 font-weight-400 mb-0 text-white">Averbação Goiás</h6>
+                            <h6 class="h3 font-weight-400 mb-0 text-white">Autorização INSS - SMS</h6>
 
                         </div>
                     </div>
@@ -826,7 +806,7 @@
                                     </span>
                                     <span class="btn-inner--text">Buscar</span>
                                     <button type="button" class="btn btn-primary btn-icon-label" data-toggle="modal"
-                                        data-target=".modal-alterar-averbacaogoias" title="Alterar">
+                                        data-target=".modal-alterar-autorizacaosoliinss" title="Alterar">
                                         <span class="btn-inner--icon">
                                             <i class="fas fa-plus"></i>
                                         </span>
@@ -851,20 +831,15 @@
                                 <table class="table table-striped table-hover">
                                     <thead>
                                         <tr>
-                                            <th scope="col" style="text-align: center;"><b>Proposta</b></th>
-                                            <th scope="col" style="text-align: center;"><b>CPF</b></th>
-                                            <th scope="col" style="text-align: center;"><b>Tipo</b></th>
-                                            <th scope="col" style="text-align: center;"><b>Data Cadastro</b></th>
-                                            <th scope="col" style="text-align: center;"><b>Tipo Formalização</b></th>
-                                            <th scope="col" style="text-align: center;"><b>Valor Solicitado</b></th>
-                                            <th scope="col" style="text-align: center;"><b>Prazo</b></th>
-                                            <th scope="col" style="text-align: center;"><b>Parcela</b></th>
+                                            <th scope="col" style="text-align: center;"><b>Nome Cliente</b></th>
+                                            <th scope="col" style="text-align: center;"><b>CPF Cliente</b></th>
                                             <th scope="col" style="text-align: center;"><b>Status</b></th>
+                                            <th scope="col" style="text-align: center;"><b>Data Cadastro</b></th>
+                                            <th scope="col" style="text-align: center;"><b>Telefone</b></th>
                                             <th scope="col" style="text-align: center;"><b>Parceiro</b></th>
-                                            <th scope="col" style="text-align: center;"><b>Senha</b></th>
-                                            <th scope="col" style="text-align: center;"><b>Validade Senha</b></th>
+                                            <th scope="col" style="text-align: center;"><b>Supervisor</b></th>
+                                            <th scope="col" style="text-align: center;"><b>Gerente</b></th>
                                             <th scope="col" style="text-align: center;"><b>Log Alteração</b></th>
-                                            <th scope="col" style="text-align: center;"><b>Data Alteração</b></th>
                                             <th scope="col" style="text-align: center;"><b>Alterar</b></th>
 
 
@@ -881,16 +856,11 @@
                                         <td style="text-align: center;"> XXXXXXXX </td>
                                         <td style="text-align: center;"> XXXXXXXX </td>
                                         <td style="text-align: center;"> XXXXXXXX </td>
-                                        <td style="text-align: center;"> XXXXXXXX </td>
-                                        <td style="text-align: center;"> XXXXXXXX </td>
-                                        <td style="text-align: center;"> XXXXXXXX </td>
-                                        <td style="text-align: center;"> XXXXXXXX </td>
-                                        <td style="text-align: center;"> XXXXXXXX </td>
                                         <td style="text-align: center;">
 
                                             <div class="actions ml-3" style="text-align: center;">
                                                 <a href="#" class="action-item mr-2" data-toggle="modal"
-                                                    data-target=".modal-alterar-averbacaogoias" title="Alterar">
+                                                    data-target=".modal-alterar-autorizacaosoliinss" title="Alterar">
                                                     <i class="fas fa-external-link-alt"></i>
                                                 </a>
 
