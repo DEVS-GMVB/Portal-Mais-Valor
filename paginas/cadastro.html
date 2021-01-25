@@ -2176,11 +2176,11 @@
                                                 <select class="form-control form-control-sm"
                                                     id="status">
                                                     <option> </option>
-                                                    <option value="0">TODOS</option>
-                                                    <option value="1">AGUARDANDO APROVAÇÃO DP</option>
-                                                    <option value="2">ATIVO</option>
-                                                    <option value="3">INATIVO</option>
-                                                    <option value="4">BLOQUEADO</option>
+                                                    <option value=" ">TODOS</option>
+                                                    <option value="AGUARDANDO APROVAÇÃO DP">AGUARDANDO APROVAÇÃO DP</option>
+                                                    <option value="ATIVO">ATIVO</option>
+                                                    <option value="INATIVO">INATIVO</option>
+                                                    <option value="BLOQUEADO">BLOQUEADO</option>
                                                 </select>
                                             </div>
 
@@ -2225,23 +2225,20 @@
                                     <div class="form-row">
                                         <div class="col-md-4 mb-3">
                                             <div class="form-group">
-                                                <label for="exampleFormControlSelect1">Mês Admissão</label>
-                                                <select class="form-control form-control-sm"
+                                                <label for="exampleFormControlSelect1">Data Admissão</label>
+                                                <input type="date" class="form-control form-control-sm"
                                                     id="exampleFormControlMes">
-                                                    <option> </option>
-
-                                                </select>
+                                            </input>
                                             </div>
 
                                         </div>
                                         <div class="col-md-4 mb-2">
                                             <div class="form-group">
-                                                <label for="exampleFormControlSelect1">Mês Demissão</label>
-                                                <select class="form-control form-control-sm"
+                                                <label for="exampleFormControlSelect1">Data Demissão</label>
+                                                <input type="date" class="form-control form-control-sm"
                                                     id="exampleFormControlMesDemissao">
                                                     <option> </option>
-
-                                                </select>
+                                            </input>
                                             </div>
 
                                         </div>
@@ -2251,6 +2248,13 @@
                                                 <select class="form-control form-control-sm"
                                                     id="exampleFormControlTipo">
                                                     <option> </option>
+                                                    <option>FUNCIONARIO</option>
+                                                    <option>GERENTE</option>
+                                                    <option>GERENTE-MEI</option>
+                                                    <option>PROMOTOR</option>
+                                                    <option>PROMOTOR-MEI</option>
+                                                    <option>SUPERVISOR</option>
+                                                    <option>SUPERVISOR-MEI</option>
 
                                                 </select>
                                             </div>
@@ -2260,9 +2264,12 @@
                                             <div class="form-group">
                                                 <label for="exampleFormControlSelect1">Superintendente</label>
                                                 <select class="form-control form-control-sm"
-                                                    id="exampleFormControlSelect1">
+                                                    id="exampleFormControlSelect1Superintendente">
                                                     <option> </option>
-
+                                                    <option>PAULO CATTANEO</option>
+                                                    <option>EDUARDO NASSIPE</option>
+                                                    <option>SILVIA KHICHFY</option>                                                   </option>
+                                                    <option>JOSE LUIS</option>
                                                 </select>
 
 
@@ -2272,15 +2279,12 @@
                                         </div>
 
                                         <div class="col-md-4 mt-4">
-
                                             <button type="button" class="btn btn-primary btn-icon-only btn-sm" id="incluir">
                                                 <span class="btn-inner--icon">
                                                     <i class="fas fa-search"></i>
                                                 </span>
                                             </button>
-
                                         </div>
-
                                     </div>
 
                                     <div class="opcoes-cadastro" style="text-align: center; margin-inline: block;">
@@ -2317,7 +2321,7 @@
                                 <hr>
 
                                 <div class="table-responsive">
-                                    <table class="table align-items-center">
+                                    <table class="table align-items-center" id="table">
                                         <thead>
                                             <tr class="bg-tabeltacad">
                                                 <th scope="col" class="sort" data-sort="filial"
@@ -2346,7 +2350,7 @@
                                             </tr>
                                         </thead>
 
-                                        <tbody class="list" id="id">
+                                        <tbody class="list" id="list">
 
                                             <tr>
 
@@ -2444,7 +2448,7 @@
     <!-- AJAX -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="../assets/js/cadastro.js"></script>
-    <script src="../assets/js/cadastropesquisar.js"></script>
+    <!-- <script src="../assets/js/cadastropesquisar.js"></script> -->
 
 </body>
 
