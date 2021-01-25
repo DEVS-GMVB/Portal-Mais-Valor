@@ -18,6 +18,7 @@
 <link rel="stylesheet" href="../assets/css/purpose.css" id="stylesheet">
 <!-- CSS Personalizado -->
 <link rel="stylesheet" href="../assets/css/personalizado.css" id="stylesheet">
+
 </head>
 
 <style>
@@ -359,7 +360,7 @@
                                 <div class="col-md-2 mb-3">
                                     <div class="form-group">
                                         <label for="exampleFormControlSelect1">Tipo Pagamento</label>
-                                        <select class="form-control form-control-sm" id="exampleFormControlSelect1" required>
+                                        <select class="form-control form-control-sm" id="id-fp-tipopagamento" required>
                                             <option> </option>
 
                                         </select>
@@ -369,24 +370,24 @@
 
                                 <div class="col-md-2 mb-3">
                                     <label for="validationCustom01">Banco</label>
-                                    <input type="text" class="form-control form-control-sm" id="validationCustom01" required>
+                                    <input type="text" class="form-control form-control-sm" id="id-fp-banco" required>
 
                                 </div>
                                 <div class="col-md-2 mb-3">
                                     <label for="validationCustom01">Agência</label>
-                                    <input type="text" class="form-control form-control-sm" id="validationCustom01" required>
+                                    <input type="text" class="form-control form-control-sm" id="id-fp-agencia" required>
 
                                 </div>
 
                                 <div class="col-md-3 mb-3">
                                     <label for="validationCustom01">Conta</label>
-                                    <input type="text" class="form-control form-control-sm" id="validationCustom01" required onkeypress="mascaraMutuario(this,mcc)">
+                                    <input type="text" class="form-control form-control-sm" id="id-fp-conta" required onkeypress="mascaraMutuario(this,mcc)">
 
                                 </div>
 
                                 <div class="col-md-3 mb-3">
                                     <label for="validationCustom01">Número Cartão</label>
-                                    <input type="text" class="form-control form-control-sm" id="validationCustom01" required>
+                                    <input type="text" class="form-control form-control-sm" id="id-fp-numcartao" required>
 
                                 </div>
 
@@ -559,38 +560,38 @@
 
                                 <div class="col-md-6 mb-3">
                                     <label for="validationCustom01">Representante Empresa</label>
-                                    <input type="text" class="form-control form-control-sm" id="validationCustom01" required>
+                                    <input type="text" class="form-control form-control-sm" id="id-p-respempresa" required>
 
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <label for="validationCustom01">CPF Empresa</label>
-                                    <input type="text" class="form-control form-control-sm" id="validationCustom01" onkeypress='mascaraMutuario(this,cpfCnpj)' class="form-control form-control-sm" 
+                                    <input type="text" class="form-control form-control-sm" id="id-p-cppfempresa" onkeypress='mascaraMutuario(this,cpfCnpj)' class="form-control form-control-sm" 
                                     id="cpfcnpj"  minlength="14" maxlength="18" required>
 
                                 </div>
 
                                 <div class="col-md-3 mb-3">
                                     <label for="validationCustom01">Data Validade Certificação</label>
-                                    <input type="date" min="1921-01-01" class="form-control form-control-sm" id="validationCustom01" required>
+                                    <input type="date" min="1921-01-01" class="form-control form-control-sm" id="id-p-dtcertificacao" required>
 
                                 </div>
 
                                 <div class="col-md-3 mb-3">
                                     <label for="validationCustom01">Certificação</label>
-                                    <input type="text" class="form-control form-control-sm" id="validationCustom01" required>
+                                    <input type="text" class="form-control form-control-sm" id="id-p-certificacao" required>
 
                                 </div>
 
                                 <div class="col-md-3 mb-3">
                                     <label for="validationCustom01">Frequência de Pagamento</label>
-                                    <input type="text" class="form-control form-control-sm" id="validationCustom01" required>
+                                    <input type="text" class="form-control form-control-sm" id="id-frePag" required>
 
                                 </div>
 
                                 <div class="col-md-3 mb-3">
                                     <div class="form-group">
                                         <label for="exampleFormControlSelect1">Tipo Certificação</label>
-                                        <select class="form-control form-control-sm" id="exampleFormControlSelect1" required>
+                                        <select class="form-control form-control-sm" id="id-p-tipocerti" required>
                                             <option> </option>
 
                                         </select>
@@ -600,13 +601,13 @@
 
                                 <div class="col-md-4 mb-3">
                                     <label for="validationCustom01">Data Bloqueio</label>
-                                    <input type="date" min="1921-01-01" class="form-control form-control-sm" id="validationCustom01" required>
+                                    <input type="date" min="1921-01-01" class="form-control form-control-sm" id="id-p-dtbloqueio" required>
 
                                 </div>
 
                                 <div class="col-md-4 mb-3">
                                     <label for="validationCustom01">Data Entrega do Contrato</label>
-                                    <input type="text" min="1921-01-01" class="form-control form-control-sm" id="validationCustom01" required>
+                                    <input type="date" min="1921-01-01" class="form-control form-control-sm" id="id-p-dtentregacontrato" required>
 
                                 </div>
 
@@ -638,10 +639,9 @@
                                 <div class="col-md-12 mb-3">
                                     <div class="form-group">
                                         <label for="exampleFormControlSelect1">% Comissão</label>
-                                        <select class="form-control form-control-sm" id="exampleFormControlSelect1">
-                                            <option> </option>
+                                        <input class="form-control form-control-sm"  type="text" id="idPorcComissao">
 
-                                        </select>
+                                    </input>
                                     </div>
 
                                 </div>
@@ -649,7 +649,7 @@
                                 <div class="col-md-6 mb-3">
                                     <div class="form-group">
                                         <label for="exampleFormControlSelect1">Secundário</label>
-                                        <select class="form-control form-control-sm" id="exampleFormControlSelect1">
+                                        <select class="form-control form-control-sm" id="idSecundario">
                                             <option> </option>
 
                                         </select>
@@ -659,14 +659,14 @@
 
                                 <div class="col-md-6 mb-3">
                                     <label for="validationCustom01">% Secundário</label>
-                                    <input type="text" class="form-control form-control-sm" id="validationCustom01">
+                                    <input type="text" class="form-control form-control-sm" id="idPorcSecundario">
 
                                 </div>
 
                                 <div class="col-md-6 mb-3">
                                     <div class="form-group">
                                         <label for="exampleFormControlSelect1">Terceário</label>
-                                        <select class="form-control form-control-sm" id="exampleFormControlSelect1">
+                                        <select class="form-control form-control-sm" id="idTerceario">
                                             <option> </option>
 
                                         </select>
@@ -676,14 +676,14 @@
 
                                 <div class="col-md-6 mb-3">
                                     <label for="validationCustom01">% Terceário</label>
-                                    <input type="text" class="form-control form-control-sm" id="validationCustom01">
+                                    <input type="text" class="form-control form-control-sm" id="idPorcTerceario">
 
                                 </div>
 
                                 <div class="col-md-6 mb-3">
                                     <div class="form-group">
                                         <label for="exampleFormControlSelect1">Quartenário</label>
-                                        <select class="form-control form-control-sm" id="exampleFormControlSelect1">
+                                        <select class="form-control form-control-sm" id="idQuartenario">
                                             <option> </option>
 
                                         </select>
@@ -693,7 +693,7 @@
 
                                 <div class="col-md-6 mb-3">
                                     <label for="validationCustom01">% Quartenário</label>
-                                    <input type="text" class="form-control form-control-sm" id="validationCustom01">
+                                    <input type="text" class="form-control form-control-sm" id="idPorcQuaternario">
 
                                 </div>
 
@@ -724,7 +724,7 @@
                                 <div class="col-md-4 mb-3">
                                     <div class="form-group">
                                         <label for="exampleFormControlSelect1">% Parceiro/Promotor MEI</label>
-                                        <select class="form-control form-control-sm" id="exampleFormControlSelect1">
+                                        <select class="form-control form-control-sm" id="idParceiroPromotor">
                                             <option> </option>
 
                                         </select>
@@ -734,26 +734,26 @@
 
                                 <div class="col-md-4 mb-3">
                                     <label for="validationCustom01">% Supervisor</label>
-                                    <input type="text" class="form-control form-control-sm" id="validationCustom01">
+                                    <input type="text" class="form-control form-control-sm" id="id-porc-supervisor">
 
                                 </div>
 
                                 <div class="col-md-4 mb-3">
                                     <label for="validationCustom01">% Gerente</label>
-                                    <input type="text" class="form-control form-control-sm" id="validationCustom01">
+                                    <input type="text" class="form-control form-control-sm" id="id-porc-gerente">
 
                                 </div>
 
                                 <div class="col-md-3 mb-3">
                                     <label for="validationCustom01">% Quartenário</label>
-                                    <input type="text" class="form-control form-control-sm" id="validationCustom01">
+                                    <input type="text" class="form-control form-control-sm" id="id-porc-quaternario">
 
                                 </div>
 
                                 <div class="col-md-6 mb-3">
                                     <div class="form-group">
                                         <label for="exampleFormControlSelect1">% Máximo Comissão(SUP/GER/QUAT)</label>
-                                        <select class="form-control form-control-sm" id="exampleFormControlSelect1">
+                                        <select class="form-control form-control-sm" id="id-max-comissao">
                                             <option> </option>
 
                                         </select>
@@ -764,7 +764,7 @@
                                 <div class="col-md-3 mb-3">
                                     <div class="form-group">
                                         <label for="exampleFormControlSelect1">Quartenário</label>
-                                        <select class="form-control form-control-sm" id="exampleFormControlSelect1">
+                                        <select class="form-control form-control-sm" id="id-quaternario">
                                             <option> </option>
 
                                         </select>
@@ -794,7 +794,7 @@
                                 <div class="col-md-4 mb-3">
                                     <div class="form-group">
                                         <label for="exampleFormControlSelect1">% Parceiro/Promotor MEI</label>
-                                        <select class="form-control form-control-sm" id="exampleFormControlSelect1">
+                                        <select class="form-control form-control-sm" id="id-ce-parceiro-promotor">
                                             <option> </option>
 
                                         </select>
@@ -804,26 +804,26 @@
 
                                 <div class="col-md-4 mb-3">
                                     <label for="validationCustom01">% Supervisor</label>
-                                    <input type="text" class="form-control form-control-sm" id="validationCustom01">
+                                    <input type="text" class="form-control form-control-sm" id="id-ce-supervisor">
 
                                 </div>
 
                                 <div class="col-md-4 mb-3">
                                     <label for="validationCustom01">% Gerente</label>
-                                    <input type="text" class="form-control form-control-sm" id="validationCustom01">
+                                    <input type="text" class="form-control form-control-sm" id="id-ce-gerente">
 
                                 </div>
 
                                 <div class="col-md-6 mb-3">
                                     <label for="validationCustom01">% Quartenário</label>
-                                    <input type="text" class="form-control form-control-sm" id="validationCustom01">
+                                    <input type="text" class="form-control form-control-sm" id="id-ce-quaternario">
 
                                 </div>
 
                                 <div class="col-md-6 mb-3">
                                     <div class="form-group">
                                         <label for="exampleFormControlSelect1">% Máximo Comissão(SUP/GER/QUAT)</label>
-                                        <select class="form-control form-control-sm" id="exampleFormControlSelect1">
+                                        <select class="form-control form-control-sm" id="id-max-comissao">
                                             <option> </option>
 
                                         </select>
@@ -855,7 +855,7 @@
                                 <div class="col-md-4 mb-3">
                                     <div class="form-group">
                                         <label for="exampleFormControlSelect1">% Parceiro/Promotor MEI</label>
-                                        <select class="form-control form-control-sm" id="exampleFormControlSelect1">
+                                        <select class="form-control form-control-sm" id="id-gmg-parcpromo">
                                             <option> </option>
 
                                         </select>
@@ -865,26 +865,26 @@
 
                                 <div class="col-md-4 mb-3">
                                     <label for="validationCustom01">% Supervisor</label>
-                                    <input type="text" class="form-control form-control-sm" id="validationCustom01">
+                                    <input type="text" class="form-control form-control-sm" id="id-gmg-supervisor">
 
                                 </div>
 
                                 <div class="col-md-4 mb-3">
                                     <label for="validationCustom01">% Gerente</label>
-                                    <input type="text" class="form-control form-control-sm" id="validationCustom01">
+                                    <input type="text" class="form-control form-control-sm" id="id-gmg-gerente">
 
                                 </div>
 
                                 <div class="col-md-6 mb-3">
                                     <label for="validationCustom01">% Quartenário</label>
-                                    <input type="text" class="form-control form-control-sm" id="validationCustom01">
+                                    <input type="text" class="form-control form-control-sm" id="id-gmg-quaternario">
 
                                 </div>
 
                                 <div class="col-md-6 mb-3">
                                     <div class="form-group">
                                         <label for="exampleFormControlSelect1">% Máximo Comissão(SUP/GER/QUAT)</label>
-                                        <select class="form-control form-control-sm" id="exampleFormControlSelect1">
+                                        <select class="form-control form-control-sm" id="id-gmg-max-comissao">
                                             <option> </option>
 
                                         </select>
@@ -916,7 +916,7 @@
                                 <div class="col-md-4 mb-3">
                                     <div class="form-group">
                                         <label for="exampleFormControlSelect1">% Parceiro/Promotor MEI</label>
-                                        <select class="form-control form-control-sm" id="exampleFormControlSelect1">
+                                        <select class="form-control form-control-sm" id="id-grj-parcpromo">
                                             <option> </option>
 
                                         </select>
@@ -926,26 +926,26 @@
 
                                 <div class="col-md-4 mb-3">
                                     <label for="validationCustom01">% Supervisor</label>
-                                    <input type="text" class="form-control form-control-sm" id="validationCustom01">
+                                    <input type="text" class="form-control form-control-sm" id="id-grj-supervisor">
 
                                 </div>
 
                                 <div class="col-md-4 mb-3">
                                     <label for="validationCustom01">% Gerente</label>
-                                    <input type="text" class="form-control form-control-sm" id="validationCustom01">
+                                    <input type="text" class="form-control form-control-sm" id="id-grj-gerente">
 
                                 </div>
 
                                 <div class="col-md-6 mb-3">
                                     <label for="validationCustom01">% Quartenário</label>
-                                    <input type="text" class="form-control form-control-sm" id="validationCustom01">
+                                    <input type="text" class="form-control form-control-sm" id="id-grj-quaternario">
 
                                 </div>
 
                                 <div class="col-md-6 mb-3">
                                     <div class="form-group">
                                         <label for="exampleFormControlSelect1">% Máximo Comissão(SUP/GER/QUAT)</label>
-                                        <select class="form-control form-control-sm" id="exampleFormControlSelect1">
+                                        <select class="form-control form-control-sm" id="id-grj-max-comissao">
                                             <option> </option>
 
                                         </select>
@@ -973,7 +973,7 @@
                             <div class="col-md-12 mb-3">
                                 <div class="form-group">
                                     <label for="exampleFormControlSelect1">% Parceiro/Promotor MEI</label>
-                                    <select class="form-control form-control-sm" id="exampleFormControlSelect1">
+                                    <select class="form-control form-control-sm" id="id-tm-parcpromo">
                                         <option> </option>
 
                                     </select>
@@ -994,7 +994,7 @@
                             <div class="col-md-12 mb-3">
                                 <div class="form-group">
                                     <label for="exampleFormControlSelect1">% Parceiro/Promotor MEI</label>
-                                    <select class="form-control form-control-sm" id="exampleFormControlSelect1">
+                                    <select class="form-control form-control-sm" id="id-ts-parcpromo">
                                         <option> </option>
 
                                     </select>
@@ -1035,32 +1035,32 @@
 
                                 <div class="col-md-6 mb-3">
                                     <label for="validationCustom01">Usuário</label>
-                                    <input type="text" class="form-control form-control-sm" id="validationCustom01">
+                                    <input type="text" class="form-control form-control-sm" id="id-cadusu-usuario">
 
                                 </div>
 
                                 <div class="col-md-6 mb-3">
                                     <label for="validationCustom01">Senha</label>
-                                    <input type="text" class="form-control form-control-sm" id="validationCustom01">
+                                    <input type="text" class="form-control form-control-sm" id="id-cadusu-senha">
 
                                 </div>
 
                                 <div class="col-md-6 mb-3">
                                     <label for="validationCustom01">Login</label>
-                                    <input type="text" class="form-control form-control-sm" id="validationCustom01">
+                                    <input type="text" class="form-control form-control-sm" id="id-cadusu-login">
 
                                 </div>
 
                                 <div class="col-md-6 mb-3">
                                     <label for="validationCustom01">Digite Novamente a Senha</label>
-                                    <input type="text" class="form-control form-control-sm" id="validationCustom01">
+                                    <input type="text" class="form-control form-control-sm" id="id-cadusu-novamentesenha">
 
                                 </div>
 
                                 <div class="col-md-6 mb-3">
                                     <div class="form-group">
                                         <label for="exampleFormControlSelect1">Tipo Usuário</label>
-                                        <select class="form-control form-control-sm" id="exampleFormControlSelect1">
+                                        <select class="form-control form-control-sm" id="id-cadusu-tipousu">
                                             <option> </option>
 
                                         </select>
@@ -1071,7 +1071,7 @@
                                 <div class="col-md-6 mb-3">
                                     <div class="form-group">
                                         <label for="exampleFormControlSelect1">Usuário Master</label>
-                                        <select class="form-control form-control-sm" id="exampleFormControlSelect1">
+                                        <select class="form-control form-control-sm" id="id-cadusu-usumaster">
                                             <option> </option>
 
                                         </select>
@@ -1082,7 +1082,7 @@
                                 <div class="col-md-4 mb-3">
                                     <div class="form-group">
                                         <label for="exampleFormControlSelect1">Classificação</label>
-                                        <select class="form-control form-control-sm" id="exampleFormControlSelect1">
+                                        <select class="form-control form-control-sm" id="id-cadusu-classi">
                                             <option> </option>
 
                                         </select>
@@ -1093,7 +1093,7 @@
                                 <div class="col-md-4 mb-3">
                                     <div class="form-group">
                                         <label for="exampleFormControlSelect1">Empresa</label>
-                                        <select class="form-control form-control-sm" id="exampleFormControlSelect1">
+                                        <select class="form-control form-control-sm" id="id-cadusu-empresa">
                                             <option> </option>
 
                                         </select>
@@ -1103,7 +1103,7 @@
                                 <div class="col-md-4 mb-3">
                                     <div class="form-group">
                                         <label for="exampleFormControlSelect1">Status</label>
-                                        <select class="form-control form-control-sm" id="exampleFormControlSelect1">
+                                        <select class="form-control form-control-sm" id="id-cadusu-status">
                                             <option> </option>
                                             <option value="1">TODOS</option>
                                             <option value="2">AGUARDANDO APROVAÇÃO DP</option>
@@ -1118,26 +1118,26 @@
 
                                 <div class="col-md-4 mb-3">
                                     <label for="validationCustom01">Telefone Celular</label>
-                                    <input type="text" maxlength="14" name="telefone" id="telefone" onKeyDown="fMasc( this, mTelefone );" class="form-control form-control-sm" id="validationCustom01">
+                                    <input type="text" maxlength="14" name="telefone" id="telefone" onKeyDown="fMasc( this, mTelefone );" class="form-control form-control-sm" id="id-cadusu-telcelular">
 
                                 </div>
 
                                 <div class="col-md-4 mb-3">
                                     <label for="validationCustom01">CPF/CNPJ Usuário</label>
-                                    <input type="text" minlength="14" maxlength="18" name='cpfcnpj' onkeypress='mascaraMutuario(this,cpfCnpj)' class="form-control form-control-sm" id="validationCustom01">
+                                    <input type="text" minlength="14" maxlength="18" name='cpfcnpj' onkeypress='mascaraMutuario(this,cpfCnpj)' class="form-control form-control-sm" id="id-cadusu-cpfcnpj">
 
                                 </div>
 
                                 <div class="col-md-4 mb-3">
                                     <label for="validationCustom01">E-mail</label>
-                                    <input type="text" class="form-control form-control-sm" id="email">
+                                    <input type="text" class="form-control form-control-sm" id="id-cadusu-email">
 
                                 </div>
 
                                 <div class="col-md-6 mb-3">
                                     <div class="form-group">
                                         <label for="exampleFormControlSelect1">Motivo Cancelamento</label>
-                                        <select class="form-control form-control-sm" id="exampleFormControlSelect1">
+                                        <select class="form-control form-control-sm" id="id-cadusu-motcancela">
                                             <option> </option>
 
                                         </select>
@@ -1148,7 +1148,7 @@
                                 <div class="col-md-6 mb-3">
                                     <div class="form-group">
                                         <label for="exampleFormControlSelect1">Perfil Acesso</label>
-                                        <select class="form-control form-control-sm" id="exampleFormControlSelect1">
+                                        <select class="form-control form-control-sm" id="id-cadusu-perfilacesso">
                                             <option> </option>
 
                                         </select>
@@ -1159,93 +1159,93 @@
 
                                 <div class="col-md-4 mb-3">
                                     <label for="validationCustom01">Acesso Olé</label>
-                                    <input type="text" class="form-control form-control-sm" id="validationCustom01">
+                                    <input type="text" class="form-control form-control-sm" id="id-cadusu-acessoole">
 
                                 </div>
 
                                 <div class="col-md-4 mb-3">
                                     <label for="validationCustom01">Acesso Pan</label>
-                                    <input type="text" class="form-control form-control-sm" id="validationCustom01">
+                                    <input type="text" class="form-control form-control-sm" id="id-cadusu-acessopan">
 
                                 </div>
 
                                 <div class="col-md-4 mb-3">
                                     <label for="validationCustom01">Acesso Cetelem</label>
-                                    <input type="text" class="form-control form-control-sm" id="validationCustom01">
+                                    <input type="text" class="form-control form-control-sm" id="id-cadusu-acessocetelem">
 
                                 </div>
 
 
                                 <div class="col-md-4 mb-3">
                                     <label for="validationCustom01">Acesso Itaú</label>
-                                    <input type="text" class="form-control form-control-sm" id="validationCustom01">
+                                    <input type="text" class="form-control form-control-sm" id="id-cadusu-acessoitau">
 
                                 </div>
 
                                 <div class="col-md-4 mb-3">
                                     <label for="validationCustom01">Acesso F5 BMG</label>
-                                    <input type="text" class="form-control form-control-sm" id="validationCustom01">
+                                    <input type="text" class="form-control form-control-sm" id="id-cadusu-acef5bmg">
 
                                 </div>
 
                                 <div class="col-md-4 mb-3">
                                     <label for="validationCustom01">Acesso F5 Itaú</label>
-                                    <input type="text" class="form-control form-control-sm" id="validationCustom01">
+                                    <input type="text" class="form-control form-control-sm" id="id-cadusu-acef5itau">
 
                                 </div>
 
 
                                 <div class="col-md-4 mb-3">
                                     <label for="validationCustom01">Acesso Daycoval</label>
-                                    <input type="text" class="form-control form-control-sm" id="validationCustom01">
+                                    <input type="text" class="form-control form-control-sm" id="id-cadusu-acedaycoval">
 
                                 </div>
 
                                 <div class="col-md-4 mb-3">
                                     <label for="validationCustom01">Acesso SIM</label>
-                                    <input type="text" class="form-control form-control-sm" id="validationCustom01">
+                                    <input type="text" class="form-control form-control-sm" id="id-cadusu-acesim">
 
                                 </div>
 
                                 <div class="col-md-4 mb-3">
                                     <label for="validationCustom01">Acesso Safra</label>
-                                    <input type="text" class="form-control form-control-sm" id="validationCustom01">
+                                    <input type="text" class="form-control form-control-sm" id="id-cadusu-acesafra">
 
                                 </div>
 
                                 <div class="col-md-4 mb-3">
                                     <label for="validationCustom01">Acesso Bradesco</label>
-                                    <input type="text" class="form-control form-control-sm" id="validationCustom01">
+                                    <input type="text" class="form-control form-control-sm" id="id-cadusu-acebradesco">
 
                                 </div>
 
                                 <div class="col-md-4 mb-3">
                                     <label for="validationCustom01">Acesso Paraná</label>
-                                    <input type="text" class="form-control form-control-sm" id="validationCustom01">
+                                    <input type="text" class="form-control form-control-sm" id="id-cadusu-aceparana">
 
                                 </div>
 
                                 <div class="col-md-4 mb-3">
                                     <label for="validationCustom01">Acesso Crefisa</label>
-                                    <input type="text" class="form-control form-control-sm" id="validationCustom01">
+                                    <input type="text" class="form-control form-control-sm" id="id-cadusu-crefisa">
 
                                 </div>
 
                                 <div class="col-md-4 mb-3">
                                     <label for="validationCustom01">Acesso Consórcio BB</label>
-                                    <input type="text" class="form-control form-control-sm" id="validationCustom01">
+                                    <input type="text" class="form-control form-control-sm" id="id-cadusu-aceconsorciobb">
 
                                 </div>
 
                                 <div class="col-md-4 mb-3">
                                     <label for="validationCustom01">Acesso Consórcio Caixa</label>
-                                    <input type="text" class="form-control form-control-sm" id="validationCustom01">
+                                    <input type="text" class="form-control form-control-sm" id="ace-cadusu-conscaixa">
 
                                 </div>
 
                                 <div class="col-md-4 mb-3">
                                     <label for="validationCustom01">Acesso Consórcio Itaú</label>
-                                    <input type="text" class="form-control form-control-sm" id="validationCustom01">
+                                    <input type="text" class="form-control form-control-sm" id="id-cadusu-aceconsitau">
 
                                 </div>
 
@@ -2448,7 +2448,13 @@
     <!-- AJAX -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="../assets/js/cadastro.js"></script>
+<<<<<<< HEAD
     <!-- <script src="../assets/js/cadastropesquisar.js"></script> -->
+=======
+    <script src="../assets/js/cadastropesquisar.js"></script>
+    <script src="../assets/js/incluirComissao.js"></script>
+    <script src="../assets/js/acesso.js"></script>
+>>>>>>> b2d3d5a32b521e7ef09754c914f957d3d426ecd9
 
 </body>
 

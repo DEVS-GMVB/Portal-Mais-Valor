@@ -1,10 +1,19 @@
 // VARS
+<<<<<<< HEAD
 let gerente = document.getElementById('exampleFormControlSelectGerente');
 let filial = document.getElementById('exampleFormControlFilial');
 let supervisor = document.getElementById('exampleFormControlSupervisor');
 let mes = document.getElementById('exampleFormControlMes');
 let mesDemissao = document.getElementById('exampleFormControlMesDemissao');
 window.onload = function () {
+=======
+var gerente = document.getElementById('exampleFormControlSelectGerente');
+var filial = document.getElementById('exampleFormControlFilial');
+var f = document.getElementById('exampleFormControlSelect1')
+var supervisor = document.getElementById('exampleFormControlSupervisor');
+var mes = document.getElementById('exampleFormControlMes');
+var mesDemissao = document.getElementById('exampleFormControlMesDemissao');
+>>>>>>> b2d3d5a32b521e7ef09754c914f957d3d426ecd9
 
 var requestOptions = {
     method: 'GET',
@@ -25,6 +34,15 @@ var requestOptions = {
     .then(function(data){
         for(let i = 0; i < data.length; i++){
             filial.innerHTML += '<option value="'+data[i].filial+'">'+data[i].filial+'</option>;'
+        }
+    }))
+    .catch(error => console.log('error', error));
+
+    fetch("http://172.16.0.197:3000/user/filial", requestOptions)
+    .then(response => response.json()
+    .then(function(data){
+        for(let i = 0; i < data.length; i++){
+            f.innerHTML += '<option value="'+i+'">'+data[i].filial+'</option>;'
         }
     }))
     .catch(error => console.log('error', error));

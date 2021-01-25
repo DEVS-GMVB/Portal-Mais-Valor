@@ -32,6 +32,7 @@ colocar.addEventListener('click', () => {
     //     redirect: 'follow'
     // };
 
+<<<<<<< HEAD
     console.log(raw)
 //     fetch("http://172.16.0.197:3000/user/search", requestOptions)
 //     .then(response => response.json()
@@ -44,5 +45,21 @@ colocar.addEventListener('click', () => {
 //         document.getElementById('id').appendChild(row);
 //     }))
 //     .catch(error => console.log('error', error));
+=======
+    fetch("http://172.16.0.197:3000/user/search", requestOptions)
+    .then(response => response.json()
+    .then(function(data){
+        console.log(data);
+        var row = document.createElement('tr');
+        row.insertCell(0).innerHTML = filal.options[filal.selectedIndex].text;
+        row.insertCell(1).innerHTML = func.value;
+        row.insertCell(2).innerHTML = cpfcnpj.value;
+        row.insertCell(3).innerHTML = sel.options[sel.selectedIndex].text;
+        row.insertCell(4).innerHTML = supervisor.options[supervisor.selectedIndex].text;
+        row.insertCell(5).innerHTML = gere.options[gere.selectedIndex].text;
+        document.getElementById('id').appendChild(row);
+    }))
+    .catch(error => console.log('error', error));
+>>>>>>> b2d3d5a32b521e7ef09754c914f957d3d426ecd9
 })
 
