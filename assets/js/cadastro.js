@@ -1,10 +1,10 @@
 // VARS
-
 let gerente = document.getElementById('exampleFormControlSelectGerente');
 let filial = document.getElementById('exampleFormControlFilial');
 let supervisor = document.getElementById('exampleFormControlSupervisor');
 let mes = document.getElementById('exampleFormControlMes');
 let mesDemissao = document.getElementById('exampleFormControlMesDemissao');
+let Tbody = document.getElementById('list');
 window.onload = function () {
 
 var gerente = document.getElementById('exampleFormControlSelectGerente');
@@ -38,23 +38,13 @@ var requestOptions = {
     }))
     .catch(error => console.log('error', error));
 
-    fetch("http://172.16.0.197:3000/user/filial", requestOptions)
-    .then(response => response.json()
-    .then(function(data){
-        for(let i = 0; i < data.length; i++){
-            f.innerHTML += '<option value="'+i+'">'+data[i].filial+'</option>;'
-        }
-    }))
-    .catch(error => console.log('error', error));
-
     fetch("http://172.16.0.197:3000/user/supervisor", requestOptions)
-    .then(response => response.json()
+    .then(response => response.json())
     .then(function(data){
         for(let i = 0; i < data.length; i++){
             supervisor.innerHTML += '<option value="'+data[i].parceiro+'">'+data[i].parceiro+'</option>;'
         }
-    }))
-    .catch(error => console.log('error', error));
+    }).catch(error => console.log('error', error));
 }
 const colocar = document.getElementById('incluir');
 
@@ -83,7 +73,8 @@ colocar.addEventListener('click', () => {
         filial:filial,
         mes_admissao:mes_admissao,
         mes_demissao:mes_demissao,
-        tipo:tipo
+        tipo:tipo,
+        superintendente:superintendente
     })
       
     var requestOptions = {
@@ -99,22 +90,57 @@ colocar.addEventListener('click', () => {
     .then(result => {
         
         for (const value of result) {
-            console.log(value);
-            var x = document.createElement("tr");
-            x.setAttribute("id", "myTr");
-            document.getElementById("table").appendChild(x);
 
-           
-          }
+            let specific_tbody = document.getElementById('list');
+            let row = specific_tbody.insertRow(-1);
+            let filial = row.insertCell(-1);
+            let funcionario = row.insertCell(-1);
+            let cnpj = row.insertCell(-1);
+            let status = row.insertCell(-1);
+            let supervisor = row.insertCell(-1);
+            let gerente = row.insertCell(-1);
+            let data_admissao = row.insertCell(-1);
+            let data_inativacao = row.insertCell(-1);
+            let responsavel = row.insertCell(-1);
+            let data_alteracao = row.insertCell(-1);
+
+
+            
+
+            let filialText = document.createTextNode(`${value.filial}`);
+            filial.appendChild(filialText);
+
+            let funcionarioText = document.createTextNode(`${value.parceiro}`);
+            funcionario.appendChild(funcionarioText)
+
+            let cnpjText = document.createTextNode(`${value.cnpj}`);
+            cnpj.appendChild(cnpjText);
+
+
+            let statusText = document.createTextNode(`${value.status}`);
+            status.appendChild(statusText)
+
+            let supervisorText = document.createTextNode(`${value.supervisor}`);
+            supervisor.appendChild(supervisorText)
+
+            let gerenteText = document.createTextNode(`${value.gerente}`);
+            gerente.appendChild(gerenteText)
+
+            let data_admissaoText = document.createTextNode(`${value.data_admissao}`);
+            data_admissao.appendChild(data_admissaoText);
+
+            let data_inativacaoText = document.createTextNode(`${value.data_inativacao}`);
+            data_inativacao.appendChild(data_inativacaoText);
+
+            let responsavelText = document.createTextNode(`${value.responsavel}`);
+            responsavel.appendChild(responsavelText);
+
+            let data_alteracaoText = document.createTextNode(`${value.data_alteracao}`);
+            data_alteracao.appendChild(data_alteracaoText)
+        }
 
     })
     .catch(error => console.log('error', error));
 })
 
 
- // 
-        
-        // row.insertCell(1).innerHTML = func.value;
-        // row.insertCell(2).innerHTML = cpfcnpj.value;
-        // row.insertCell(3).in
-        // document.getElementById('id').appendChild(row);
