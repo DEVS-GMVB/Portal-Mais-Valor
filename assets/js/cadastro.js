@@ -42,6 +42,13 @@ const colocar = document.getElementById('incluir');
 
 
 colocar.addEventListener('click', () => {
+
+    var node = document.getElementById("list");
+    while (node.hasChildNodes()) {
+      node.removeChild(node.lastChild);
+    }
+
+
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
   
@@ -95,9 +102,8 @@ colocar.addEventListener('click', () => {
             let data_inativacao = row.insertCell(-1);
             let responsavel = row.insertCell(-1);
             let data_alteracao = row.insertCell(-1);
+            let alteraVisualiza = row.insertCell(-1);
 
-
-            
 
             let filialText = document.createTextNode(`${value.filial}`);
             filial.appendChild(filialText);
@@ -107,7 +113,6 @@ colocar.addEventListener('click', () => {
 
             let cnpjText = document.createTextNode(`${value.cnpj}`);
             cnpj.appendChild(cnpjText);
-
 
             let statusText = document.createTextNode(`${value.status}`);
             status.appendChild(statusText)
@@ -129,8 +134,19 @@ colocar.addEventListener('click', () => {
 
             let data_alteracaoText = document.createTextNode(`${value.data_alteracao}`);
             data_alteracao.appendChild(data_alteracaoText)
-        }
 
+            alteraVisualiza.innerHTML=` <div class="actions ml-3" style="text-align: center;">
+            <a href="#" class="action-item mr-2 "data-nome=${value} data-toggle="modal"
+                data-target=".modalteladecadastro" title="Alterar">
+                <i class="fas fa-external-link-alt"></i>
+            </a>
+            <a href="#" class="action-item mr-2" data-toggle="modal"
+                data-target=".modalteladecadastro" data-name="oi" title="Visualizar">
+                <i class="fas fa-eye"></i>
+            </a>
+        </div>`;
+        }
+            
     })
     .catch(error => console.log('error', error));
 })
