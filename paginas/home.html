@@ -17,6 +17,36 @@
 <link rel="stylesheet" href="../assets/css/purpose.css" id="stylesheet">
 </head>
 
+<!-- MODAL CONSULTA INSS-->
+
+<div class="modal fade" id="modal-consultainss" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modal-consultainss">Consulta INSS</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form class="form-inline">
+          <div class="form-group mx-sm-4">
+            <input type="email" class="form-control" id="buscarconsultainss" placeholder="Consulta INSS">
+          </div>
+          <button type="button" class="btn btn-primary">
+            Pesquisar
+        </button>
+          
+
+        </form>
+      </div>
+ 
+    </div>
+  </div>
+</div>
+
+<!-- FIM MODAL CONSULTA INSS-->
+
 
 
 <body class="application application-offset">
@@ -393,9 +423,9 @@
                     <div class="dropdown dropdown-animate dropdown-submenu" data-toggle="hover">
                       <a href="#" class="dropdown-item dropdown-toggle" role="button" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">
-                        Integração
+                        Integrações
                       </a>
-                      <div class="dropdown-menu"><a class="dropdown-item" href="../paginas/consultainss.html">
+                      <div class="dropdown-menu"><a class="dropdown-item" href="../paginas/consultainss.html" data-toggle="modal" data-target="#modal-consultainss">
                           Consulta INSS
                         </a>
                         <a class="dropdown-item" href="../paginas/naopertube.html">
