@@ -1,19 +1,19 @@
 // VARS
-<<<<<<< HEAD
+
 let gerente = document.getElementById('exampleFormControlSelectGerente');
 let filial = document.getElementById('exampleFormControlFilial');
 let supervisor = document.getElementById('exampleFormControlSupervisor');
 let mes = document.getElementById('exampleFormControlMes');
 let mesDemissao = document.getElementById('exampleFormControlMesDemissao');
 window.onload = function () {
-=======
+
 var gerente = document.getElementById('exampleFormControlSelectGerente');
 var filial = document.getElementById('exampleFormControlFilial');
 var f = document.getElementById('exampleFormControlSelect1')
 var supervisor = document.getElementById('exampleFormControlSupervisor');
 var mes = document.getElementById('exampleFormControlMes');
 var mesDemissao = document.getElementById('exampleFormControlMesDemissao');
->>>>>>> b2d3d5a32b521e7ef09754c914f957d3d426ecd9
+
 
 var requestOptions = {
     method: 'GET',
