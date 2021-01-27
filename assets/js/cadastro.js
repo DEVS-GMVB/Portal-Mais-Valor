@@ -7,6 +7,14 @@ let mesDemissao = document.getElementById('exampleFormControlMesDemissao');
 let Tbody = document.getElementById('list');
 window.onload = function () {
 
+var gerente = document.getElementById('exampleFormControlSelectGerente');
+var filial = document.getElementById('exampleFormControlFilial');
+var f = document.getElementById('exampleFormControlSelect1')
+var supervisor = document.getElementById('exampleFormControlSupervisor');
+var mes = document.getElementById('exampleFormControlMes');
+var mesDemissao = document.getElementById('exampleFormControlMesDemissao');
+
+
 var requestOptions = {
     method: 'GET',
     redirect: 'follow'

@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="../assets/css/personalizado.css" id="stylesheet">
 </head>
 
-
+<body >
 <style>
     .bg-titulo {
 
@@ -3890,28 +3890,28 @@
 
                                             <tr>
 
-                                                <td style="text-align: center;">XXXXXXX XXXXXX XXXX</td>
-                                                <td style="text-align: center;">XXXXXXXXXX</td>
-                                                <td style="text-align: center;">323.323.323.32</td>
-                                                <td style="text-align: center;">00/00/0000</td>
-                                                <td style="text-align: center;">XXXXXXXX XXXXX XXXXXXXX</td>
-                                                <td style="text-align: center;">R$ 289483,92</td>
-                                                <td style="text-align: center;">R$ 9483,92</td>
-                                                <td style="text-align: center;">XXXXXXX XXXXXX XXXXX</td>
-                                                <td style="text-align: center;">Banco Santander</td>
-                                                <td style="text-align: center;">CONSIGNADO</td>
-                                                <td style="text-align: center;">XXXXXXXX</td>
-                                                <td style="text-align: center;">XXXXXXXX</td>
-                                                <td style="text-align: center;">XXXXXXXX</td>
-                                                <td style="text-align: center;">XX/XX/XXXX</td>
-                                                <td style="text-align: center;">XXXXXXXX</td>
-                                                <td style="text-align: center;">XXXXXXXX</td>
-                                                <td style="text-align: center;"> XXXXXXXX</td>
-                                                <td style="text-align: center;">XXXXXXXX</td>
-                                                <td style="text-align: center;">XXXXXXXX</td>
-                                                <td style="text-align: center;">XXXXXXXX</td>
-                                                <td style="text-align: center;">(XX)XXXX-XXXX</td>
-                                                <td class="text-right" style="text-align: center;">
+                                                <td id='proposta' style="text-align: center;">XXXXXXX XXXXXX XXXX</td>
+                                                <td id='cliente' style="text-align: center;">XXXXXXXXXX</td>
+                                                <td id='cpf_cliente' style="text-align: center;">323.323.323.32</td>
+                                                <td id='data_cadastro' style="text-align: center;">00/00/0000</td>
+                                                <td id='parceiro' style="text-align: center;">XXXXXXXX XXXXX XXXXXXXX</td>
+                                                <td id='valor_entregue' style="text-align: center;">R$ 289483,92</td>
+                                                <td id='valor_troco' style="text-align: center;">R$ 9483,92</td>
+                                                <td id='convenio' style="text-align: center;">XXXXXXX XXXXXX XXXXX</td>
+                                                <td id='banco' style="text-align: center;">Banco Santander</td>
+                                                <td id='produto' style="text-align: center;">CONSIGNADO</td>
+                                                <td id='tipo' style="text-align: center;">XXXXXXXX</td>
+                                                <td id='status' style="text-align: center;">XXXXXXXX</td>
+                                                <td id='substatus' style="text-align: center;">XXXXXXXX</td>
+                                                <td id='data_atualizacao' style="text-align: center;">XX/XX/XXXX</td>
+                                                <td id='qtd_consulta_robo' style="text-align: center;">XXXXXXXX</td>
+                                                <td id='log_alteracao' style="text-align: center;">XXXXXXXX</td>
+                                                <td id='previsao_saldo' style="text-align: center;"> XXXXXXXX</td>
+                                                <td id='indica_vendas' style="text-align: center;">XXXXXXXX</td>
+                                                <td id='api_sim' style="text-align: center;">XXXXXXXX</td>
+                                                <td id='gravacao' style="text-align: center;">XXXXXXXX</td>
+                                                <td id='telefoneconstanotfc' style="text-align: center;">sim ou não</td>
+                                                <td id='' class="text-right" style="text-align: center;">
                                                     <!-- Actions -->
                                                     <div class="actions ml-3" style="text-align: center;">
                                                         <a href="#" class="action-item mr-2 " data-toggle="modal"
@@ -3957,6 +3957,7 @@
 
         </div>
     </div>
+    
     <!-- Scripts -->
     <!-- Core JS - includes jquery, bootstrap, popper, in-view and sticky-kit -->
     <script src="../assets/js/purpose.core.js"></script>
@@ -3972,7 +3973,9 @@
     <!-- Mascaras -->
     <script src="../assets/js/mascaras.js"></script>
     <script src="../assets/js/mascarasvalores.js"></script>
+    <!-- Import Get para popular campos -->
     <script src="../assets/js/cadastro.js"></script>
+    <script src="../assets/js/propostas.js"></script>
 </body>
 
 </html>
