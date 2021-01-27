@@ -144,12 +144,12 @@ colocar.addEventListener('click', () => {
             data_alteracao.appendChild(data_alteracaoText)
 
             alteraVisualiza.innerHTML=` <div class="actions ml-3" style="text-align: center;">
-            <a "id=buttonalterar" href="#" class="action-item mr-2" data-nome="marcos" data-toggle="modal"
+            <a "id=buttonalterar" href="#" class="action-item mr-2" data-bs-whatever="marcos" data-toggle="modal"
                 data-target=".modalteladecadastro" title="Alterar">
-                <i id = "buttonalterar" class="fas fa-external-link-alt" onclick="editar(this)"></i>
+                <i id = "buttonalterar" class="fas fa-external-link-alt" onclick="editar(${value})"></i>
             </a>
             <a href="#" class="action-item mr-2" data-toggle="modal"
-                data-target=".modalteladecadastro" data-name="oi" title="Visualizar">
+                data-target=".modalteladecadastro" data-id="oi" title="Visualizar">
                 <i class="fas fa-eye"></i>
             </a>
         </div>`;
