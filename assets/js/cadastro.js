@@ -146,7 +146,7 @@ colocar.addEventListener('click', () => {
             alteraVisualiza.innerHTML=` <div class="actions ml-3" style="text-align: center;">
             <a "id=buttonalterar" href="#" class="action-item mr-2" data-bs-whatever="marcos" data-toggle="modal"
                 data-target=".modalteladecadastro" title="Alterar">
-                <i id = "buttonalterar" class="fas fa-external-link-alt"></i>
+                <i id = "buttonalterar" class="fas fa-external-link-alt" onclick="editar(this)"></i>
             </a>
             <a href="#" class="action-item mr-2" data-toggle="modal"
                 data-target=".modalteladecadastro" data-id="oi" title="Visualizar">
@@ -156,10 +156,33 @@ colocar.addEventListener('click', () => {
         }
             
     })
+
+
     .catch(error => console.log('error', error));
+
+    
 })
 
+<<<<<<< HEAD
 
 
 
 
+=======
+function editar(e){
+
+    var linha = $(e).closest("tr");
+    var filial = linha.find("td:eq(0)").text().trim(); // texto da primeira coluna
+    var func  = linha.find("td:eq(1)").text().trim(); // texto da segunda coluna
+    var cnpj = linha.find("td:eq(2)").text().trim(); // texto da terceira coluna
+    var status   = linha.find("td:eq(3)").text().trim(); // texto da quarta coluna
+    var data_admissaoo = linha.find("td:eq(6)").text().trim();
+    $("#exampleFormFilial").val(filial);
+    $("#funcionario").val(func);
+    $("#validationCpf").val(cnpj);
+    $("#exampleFormControlStatus").val(status);
+    // date = new SimpleDateFormat("YYYY-MM-DD").parse("08/12/2017");
+    //$("#validationDA").value(data_admissaoo);
+ 
+}
+>>>>>>> 470caf419d7bd24f57e2fb8ad9fc7805391d37ab

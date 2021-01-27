@@ -100,10 +100,9 @@
                                 <div class="col-md-2 mb-3">
                                     <div class="form-group">
                                         <label for="exampleFormControlSelect1">Filial</label>
-                                        <select class="form-control form-control-sm" id="exampleFormControlSelect1" required>
-                                            <option> </option>
+                                        <input type="text" class="form-control form-control-sm" id="exampleFormFilial" required>
+                                            
 
-                                        </select>
                                     </div>
 
                                 </div>
@@ -134,17 +133,15 @@
                                 <div class="col-md-4 mb-3">
                                     <div class="form-group">
                                         <label for="exampleFormControlSelect1">Status</label>
-                                        <select class="form-control form-control-sm" id="exampleFormControlSelect1" required>
-                                            <option> </option>
+                                        <input type="text" class="form-control form-control-sm" id="exampleFormControlStatus" required>
 
-                                        </select>
                                     </div>
 
                                 </div>
 
                                 <div class="col-md-3 mb-3">
                                     <label for="validationCustom01">Data Admissão</label>
-                                    <input type="date" min="1921-01-01" class="form-control form-control-sm" id="validationCustom01" required>
+                                    <input type="date" min="1921-01-01" class="form-control form-control-sm" id="validationDA" required>
 
                                 </div>
 
@@ -197,7 +194,7 @@
 
                                 <div class="col-md-4 mb-3">
                                     <label for="validationCustom01">CPF / CNPJ</label>
-                                    <input type="text" minlength="14" maxlength="18" name='cpfcnpj' onkeypress='mascaraMutuario(this,cpfCnpj)' class="form-control form-control-sm" id="validationCustom01" required>
+                                    <input type="text" minlength="14" maxlength="18" name='cpfcnpj' onkeypress='mascaraMutuario(this,cpfCnpj)' class="form-control form-control-sm" id="validationCpf" required>
 
                                 </div>
 
@@ -1089,7 +1086,14 @@
                                         <label for="exampleFormControlSelect1">Tipo Usuário</label>
                                         <select class="form-control form-control-sm" id="id-cadusu-tipousu">
                                             <option> </option>
-
+                                            <option>PROMOTOR/PARCEIRO</option>
+                                            <option>SUPERVISOR</option>
+                                            <option>GERENTE</option>
+                                            <option>SUPERINTENDENTE</option>
+                                            <option>ADM</option>
+                                            <option>MESA</option>
+                                            <option>CADASTRO</option>
+                                            <option>BKO</option>
                                         </select>
                                     </div>
 
@@ -1100,7 +1104,14 @@
                                         <label for="exampleFormControlSelect1">Usuário Master</label>
                                         <select class="form-control form-control-sm" id="id-cadusu-usumaster">
                                             <option> </option>
-
+                                            <option>VAZOLI</option>
+                                            <option>CONSIGACRED</option>
+                                            <option>FACTA</option>
+                                            <option>CREDFACIL</option>
+                                            <option>BANNEG</option>
+                                            <option>CIA DO CREDITO</option>
+                                            <option>ISOCRED</option>
+                                            <option>DEMAIS PARCEIROS</option>
                                         </select>
                                     </div>
 
@@ -1111,7 +1122,8 @@
                                         <label for="exampleFormControlSelect1">Classificação</label>
                                         <select class="form-control form-control-sm" id="id-cadusu-classi">
                                             <option> </option>
-
+                                            <option>CONFIAVEL</option>
+                                            <option>NOVO FLUXO</option>
                                         </select>
                                     </div>
 
@@ -1120,7 +1132,7 @@
                                 <div class="col-md-4 mb-3">
                                     <div class="form-group">
                                         <label for="exampleFormControlSelect1">Empresa</label>
-                                        <select class="form-control form-control-sm" id="id-cadusu-empresa">
+                                        <select class="form-control form-control-sm" id="id-cad-usu-empresa">
                                             <option> </option>
 
                                         </select>
@@ -1132,8 +1144,6 @@
                                         <label for="exampleFormControlSelect1">Status</label>
                                         <select class="form-control form-control-sm" id="id-cadusu-status">
                                             <option> </option>
-                                            <option value="1">TODOS</option>
-                                            <option value="2">AGUARDANDO APROVAÇÃO DP</option>
                                             <option value="3">ATIVO</option>
                                             <option value="inativo">INATIVO</option>
                                             <option value="5">BLOQUEADO</option>
@@ -1166,7 +1176,12 @@
                                         <label for="exampleFormControlSelect1">Motivo Cancelamento</label>
                                         <select class="form-control form-control-sm" id="id-cadusu-motcancela">
                                             <option> </option>
-
+                                            <option>FALTA PRODUCAO</option>
+                                            <option>FRAUDE</option>
+                                            <option>PEDIDO GERENTE</option>
+                                            <option>PEDIDO NASSIPE</option>
+                                            <option>PEDIDO PARCEIRO</option>
+                                            <option>PEDIDO SUPERVISOR</option>
                                         </select>
                                     </div>
 
@@ -1177,7 +1192,8 @@
                                         <label for="exampleFormControlSelect1">Perfil Acesso</label>
                                         <select class="form-control form-control-sm" id="id-cadusu-perfilacesso">
                                             <option> </option>
-
+                                            <option>MATRIZ</option>
+                                            <option>SUB ACESSO</option>
                                         </select>
                                     </div>
 
@@ -2469,6 +2485,7 @@
     <!-- AJAX -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="../assets/js/cadastro.js"></script>
+    <script src="../assets/js/acesso.js"></script>
     <!-- <script src="../assets/js/cadastropesquisar.js"></script> -->
 
 </body>
