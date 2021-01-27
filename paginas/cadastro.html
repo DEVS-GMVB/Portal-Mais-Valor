@@ -105,17 +105,16 @@
                                 <div class="col-md-2 mb-3">
                                     <div class="form-group">
                                         <label for="exampleFormControlSelect1">Filial</label>
-                                        <select class="form-control form-control-sm" id="exampleFormControlSelect1" required>
-                                            <option> </option>
+                                        <input type="text" class="form-control form-control-sm" id="exampleFormFilial" required>
+                                            
 
-                                        </select>
                                     </div>
 
                                 </div>
 
                                 <div class="col-md-5 mb-3">
                                     <label for="validationCustom01">Funcionário</label>
-                                    <input type="text" class="form-control form-control-sm" id="validationCustom01" required>
+                                    <input type="text" class="form-control form-control-sm" id="funcionario" required>
 
                                 </div>
                                 <div class="col-md-5 mb-3">
@@ -139,17 +138,15 @@
                                 <div class="col-md-4 mb-3">
                                     <div class="form-group">
                                         <label for="exampleFormControlSelect1">Status</label>
-                                        <select class="form-control form-control-sm" id="exampleFormControlSelect1" required>
-                                            <option> </option>
+                                        <input type="text" class="form-control form-control-sm" id="exampleFormControlStatus" required>
 
-                                        </select>
                                     </div>
 
                                 </div>
 
                                 <div class="col-md-3 mb-3">
                                     <label for="validationCustom01">Data Admissão</label>
-                                    <input type="date" min="1921-01-01" class="form-control form-control-sm" id="validationCustom01" required>
+                                    <input type="date" min="1921-01-01" class="form-control form-control-sm" id="validationDA" required>
 
                                 </div>
 
@@ -202,7 +199,7 @@
 
                                 <div class="col-md-4 mb-3">
                                     <label for="validationCustom01">CPF / CNPJ</label>
-                                    <input type="text" minlength="14" maxlength="18" name='cpfcnpj' onkeypress='mascaraMutuario(this,cpfCnpj)' class="form-control form-control-sm" id="validationCustom01" required>
+                                    <input type="text" minlength="14" maxlength="18" name='cpfcnpj' onkeypress='mascaraMutuario(this,cpfCnpj)' class="form-control form-control-sm" id="validationCpf" required>
 
                                 </div>
 
@@ -1094,7 +1091,14 @@
                                         <label for="exampleFormControlSelect1">Tipo Usuário</label>
                                         <select class="form-control form-control-sm" id="id-cadusu-tipousu">
                                             <option> </option>
-
+                                            <option>PROMOTOR/PARCEIRO</option>
+                                            <option>SUPERVISOR</option>
+                                            <option>GERENTE</option>
+                                            <option>SUPERINTENDENTE</option>
+                                            <option>ADM</option>
+                                            <option>MESA</option>
+                                            <option>CADASTRO</option>
+                                            <option>BKO</option>
                                         </select>
                                     </div>
 
@@ -1105,7 +1109,14 @@
                                         <label for="exampleFormControlSelect1">Usuário Master</label>
                                         <select class="form-control form-control-sm" id="id-cadusu-usumaster">
                                             <option> </option>
-
+                                            <option>VAZOLI</option>
+                                            <option>CONSIGACRED</option>
+                                            <option>FACTA</option>
+                                            <option>CREDFACIL</option>
+                                            <option>BANNEG</option>
+                                            <option>CIA DO CREDITO</option>
+                                            <option>ISOCRED</option>
+                                            <option>DEMAIS PARCEIROS</option>
                                         </select>
                                     </div>
 
@@ -1116,7 +1127,8 @@
                                         <label for="exampleFormControlSelect1">Classificação</label>
                                         <select class="form-control form-control-sm" id="id-cadusu-classi">
                                             <option> </option>
-
+                                            <option>CONFIAVEL</option>
+                                            <option>NOVO FLUXO</option>
                                         </select>
                                     </div>
 
@@ -1125,7 +1137,7 @@
                                 <div class="col-md-4 mb-3">
                                     <div class="form-group">
                                         <label for="exampleFormControlSelect1">Empresa</label>
-                                        <select class="form-control form-control-sm" id="id-cadusu-empresa">
+                                        <select class="form-control form-control-sm" id="id-cad-usu-empresa">
                                             <option> </option>
 
                                         </select>
@@ -1137,8 +1149,6 @@
                                         <label for="exampleFormControlSelect1">Status</label>
                                         <select class="form-control form-control-sm" id="id-cadusu-status">
                                             <option> </option>
-                                            <option value="1">TODOS</option>
-                                            <option value="2">AGUARDANDO APROVAÇÃO DP</option>
                                             <option value="3">ATIVO</option>
                                             <option value="inativo">INATIVO</option>
                                             <option value="5">BLOQUEADO</option>
@@ -1171,7 +1181,12 @@
                                         <label for="exampleFormControlSelect1">Motivo Cancelamento</label>
                                         <select class="form-control form-control-sm" id="id-cadusu-motcancela">
                                             <option> </option>
-
+                                            <option>FALTA PRODUCAO</option>
+                                            <option>FRAUDE</option>
+                                            <option>PEDIDO GERENTE</option>
+                                            <option>PEDIDO NASSIPE</option>
+                                            <option>PEDIDO PARCEIRO</option>
+                                            <option>PEDIDO SUPERVISOR</option>
                                         </select>
                                     </div>
 
@@ -1182,7 +1197,8 @@
                                         <label for="exampleFormControlSelect1">Perfil Acesso</label>
                                         <select class="form-control form-control-sm" id="id-cadusu-perfilacesso">
                                             <option> </option>
-
+                                            <option>MATRIZ</option>
+                                            <option>SUB ACESSO</option>
                                         </select>
                                     </div>
 
@@ -2389,45 +2405,38 @@
                                             <tr>
 
                                                 <td>
-                                                    SIM
                                                 </td>
 
                                                 <td>
                                                     <span class="badge badge-dot mr-4">
 
-                                                        <span class="status">Arnaldo Junior Pereira</span>
+                                                        <span class="status"></span>
                                                     </span>
                                                 </td>
                                                 <td>
-                                                    992.983.626.-22
-                                                </td>
-                                                <td>
-                                                    INATIVO
-                                                </td>
-                                                <td>
-
-                                                    RONALDO BEZERRA ALVES
 
                                                 </td>
                                                 <td>
 
-                                                    LOURIVAL SANTOS AUGUSTO DE SOUZA
+                                                </td>
+                                                <td>
+
+
+                                                </td>
+                                                <td>
 
                                                 </td>
                                                 <td style="text-align: center;">
-                                                    12/12/2020
                                                 </td>
                                                 <td style="text-align: center;">
-                                                    05/01/2021
+                                            
                                                 </td>
 
                                                 <td>
-                                                    APARICIO JOSE LOPES
                                                 </td>
 
                                                 <td style="text-align: center;">
-                                                    <li>06/12/2020</li>
-                                                    <li>16:34:04</li>
+                                             
                                                 </td>
 
                                                 <td class="text-right" style="text-align: center;">
@@ -2465,6 +2474,7 @@
 
         </div>
     </div>
+    
     <!-- Scripts -->
     <!-- Core JS - includes jquery, bootstrap, popper, in-view and sticky-kit -->
     <script src="../assets/js/purpose.core.js"></script>
@@ -2472,7 +2482,7 @@
     <script src="../assets/libs/progressbar.js/dist/progressbar.min.js"></script>
     <script src="../assets/libs/apexcharts/dist/apexcharts.min.js"></script>
     <script src="../assets/libs/moment/min/moment.min.js"></script>
-    <script src="../assets/libs/fullcalendar/dist/fullcalendar.min.js"></script>
+    <!-- <script src="../assets/libs/fullcalendar/dist/fullcalendar.min.js"></script> -->
     <!-- Purpose JS -->
     <script src="../assets/js/purpose.js"></script>
     <!-- Mascaras -->
@@ -2482,6 +2492,7 @@
     <!-- AJAX -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="../assets/js/cadastro.js"></script>
+    <script src="../assets/js/acesso.js"></script>
     <!-- <script src="../assets/js/cadastropesquisar.js"></script> -->
 
 </body>

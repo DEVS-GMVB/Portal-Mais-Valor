@@ -50,6 +50,13 @@ const colocar = document.getElementById('incluir');
 
 
 colocar.addEventListener('click', () => {
+
+    var node = document.getElementById("list");
+    while (node.hasChildNodes()) {
+      node.removeChild(node.lastChild);
+    }
+
+
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
   
@@ -85,7 +92,7 @@ colocar.addEventListener('click', () => {
       };
 
     // console.log(raw);
-    fetch("http://localhost:3000/user/search", requestOptions)
+    fetch("http://172.16.0.197:3000/user/search", requestOptions)
     .then(response => response.json())
     .then(result => {
         
@@ -103,9 +110,8 @@ colocar.addEventListener('click', () => {
             let data_inativacao = row.insertCell(-1);
             let responsavel = row.insertCell(-1);
             let data_alteracao = row.insertCell(-1);
+            let alteraVisualiza = row.insertCell(-1);
 
-
-            
 
             let filialText = document.createTextNode(`${value.filial}`);
             filial.appendChild(filialText);
@@ -115,7 +121,6 @@ colocar.addEventListener('click', () => {
 
             let cnpjText = document.createTextNode(`${value.cnpj}`);
             cnpj.appendChild(cnpjText);
-
 
             let statusText = document.createTextNode(`${value.status}`);
             status.appendChild(statusText)
@@ -137,10 +142,40 @@ colocar.addEventListener('click', () => {
 
             let data_alteracaoText = document.createTextNode(`${value.data_alteracao}`);
             data_alteracao.appendChild(data_alteracaoText)
-        }
 
+            alteraVisualiza.innerHTML=` <div class="actions ml-3" style="text-align: center;">
+            <a "id=buttonalterar" href="#" class="action-item mr-2" data-nome="marcos" data-toggle="modal"
+                data-target=".modalteladecadastro" title="Alterar">
+                <i id = "buttonalterar" class="fas fa-external-link-alt" onclick="editar(this)"></i>
+            </a>
+            <a href="#" class="action-item mr-2" data-toggle="modal"
+                data-target=".modalteladecadastro" data-name="oi" title="Visualizar">
+                <i class="fas fa-eye"></i>
+            </a>
+        </div>`;
+        }
+            
     })
+
+
     .catch(error => console.log('error', error));
+
+    
 })
 
+function editar(e){
 
+    var linha = $(e).closest("tr");
+    var filial = linha.find("td:eq(0)").text().trim(); // texto da primeira coluna
+    var func  = linha.find("td:eq(1)").text().trim(); // texto da segunda coluna
+    var cnpj = linha.find("td:eq(2)").text().trim(); // texto da terceira coluna
+    var status   = linha.find("td:eq(3)").text().trim(); // texto da quarta coluna
+    var data_admissaoo = linha.find("td:eq(6)").text().trim();
+    $("#exampleFormFilial").val(filial);
+    $("#funcionario").val(func);
+    $("#validationCpf").val(cnpj);
+    $("#exampleFormControlStatus").val(status);
+    // date = new SimpleDateFormat("YYYY-MM-DD").parse("08/12/2017");
+    //$("#validationDA").value(data_admissaoo);
+ 
+}
