@@ -175,7 +175,7 @@ function editar(e){
     $("#funcionario").val(func);
     $("#validationCpf").val(cnpj);
     $("#exampleFormControlStatus").val(status);
-    // Date date = new SimpleDateFormat("dd/MM/yyyy").parse("08/12/2017");
-    $("#validationDA").val(data_admissaoo);
+    // date = new SimpleDateFormat("YYYY-MM-DD").parse("08/12/2017");
+    //$("#validationDA").value(data_admissaoo);
  
 }
