@@ -65,10 +65,13 @@
                         <a class="nav-link" id="comissao-tab" data-toggle="tab" href="#comissao" role="tab"
                             aria-controls="comissao" aria-selected="false">Comissão</a>
                     </li>
+
                     <li class="nav-item">
-                        <a class="nav-link" id="acesso-tab" data-toggle="tab" href="#acesso" role="tab"
-                            aria-controls="acesso" aria-selected="false">Acesso</a>
+                        <a class="nav-link" id="siglae-tab" data-toggle="tab" href="#siglae" role="tab"
+                            aria-controls="siglae" aria-selected="false">Sigla E</a>
                     </li>
+
+                    
 
                     <li class="nav-item">
                         <a class="nav-link" id="chavej-tab" data-toggle="tab" href="#chavej" role="tab"
@@ -76,9 +79,11 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" id="siglae-tab" data-toggle="tab" href="#siglae" role="tab"
-                            aria-controls="siglae" aria-selected="false">Sigla E</a>
+                        <a class="nav-link" id="acesso-tab" data-toggle="tab" href="#acesso" role="tab"
+                            aria-controls="acesso" aria-selected="false">Acesso</a>
                     </li>
+
+                   
 
                 </ul>
                 <div class="tab-content" id="myTabContent">
@@ -1153,23 +1158,31 @@
 
                                 </div>
 
-                                <div class="col-md-4 mb-3">
+                                <div class="col-md-3 mb-3">
                                     <label for="validationCustom01">Telefone Celular</label>
                                     <input type="text" maxlength="14" name="telefone" id="telefone" onKeyDown="fMasc( this, mTelefone );" class="form-control form-control-sm" id="id-cadusu-telcelular">
 
                                 </div>
 
-                                <div class="col-md-4 mb-3">
+                                <div class="col-md-3 mb-3">
                                     <label for="validationCustom01">CPF/CNPJ Usuário</label>
                                     <input type="text" minlength="14" maxlength="18" name='cpfcnpj' onkeypress='mascaraMutuario(this,cpfCnpj)' class="form-control form-control-sm" id="id-cadusu-cpfcnpj">
 
                                 </div>
 
-                                <div class="col-md-4 mb-3">
+                                <div class="col-md-3 mb-3">
+                                    <label for="validationCustom01">CNPJ Matriz</label>
+                                    <input type="text" minlength="14" maxlength="18" name='cpfcnpj' onkeypress='mascaraMutuario(this,cpfCnpj)' class="form-control form-control-sm" id="id-cadusu-cpfcnpj">
+
+                                </div>
+
+                                <div class="col-md-3 mb-3">
                                     <label for="validationCustom01">E-mail</label>
                                     <input type="text" class="form-control form-control-sm" id="id-cadusu-email">
 
                                 </div>
+
+                                
 
                                 <div class="col-md-6 mb-3">
                                     <div class="form-group">
@@ -1458,12 +1471,12 @@
                         <div class="opcoes-cadastro mt-1" style="text-align: center; margin-inline: block;">
                             <button type="button" class="btn btn-primary btn-icon-label">
                                 <span class="btn-inner--icon">
-                                    <i class="fas fa-arrow-right"></i>
+                                    <i class="fas fa-plus"></i>
                                 </span>
-                                <span class="btn-inner--text">Prosseguir</span>
+                                <span class="btn-inner--text">Finalizar</span>
                             </button>
 
-                        </div>
+                        </div>  
 
 
 
@@ -1608,12 +1621,14 @@
                         <div class="opcoes-cadastro mt-1" style="text-align: center; margin-inline: block;">
                             <button type="button" class="btn btn-primary btn-icon-label">
                                 <span class="btn-inner--icon">
-                                    <i class="fas fa-plus"></i>
+                                    <i class="fas fa-arrow-right"></i>
                                 </span>
-                                <span class="btn-inner--text">Finalizar</span>
+                                <span class="btn-inner--text">Prosseguir</span>
                             </button>
 
-                        </div>  
+                        </div>
+
+                
 
                     </div>
 
