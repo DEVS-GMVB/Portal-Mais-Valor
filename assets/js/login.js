@@ -62,7 +62,7 @@ const Email = () => {
     redirect: 'follow'
     };
 
-    fetch("http://localhost:3000/user/email", requestOptions)
+    fetch("http://172.16.0.197:3000/user/email", requestOptions)
     .then(function(response){
         response.json().then(function(data){
       

@@ -92,7 +92,7 @@ colocar.addEventListener('click', () => {
       };
 
     // console.log(raw);
-    fetch("http://localhost:3000/user/search", requestOptions)
+    fetch("http://172.16.0.197:3000/user/search", requestOptions)
     .then(response => response.json())
     .then(result => {
         
