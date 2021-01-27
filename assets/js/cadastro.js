@@ -146,7 +146,7 @@ colocar.addEventListener('click', () => {
             alteraVisualiza.innerHTML=` <div class="actions ml-3" style="text-align: center;">
             <a "id=buttonalterar" href="#" class="action-item mr-2" data-bs-whatever="marcos" data-toggle="modal"
                 data-target=".modalteladecadastro" title="Alterar">
-                <i id = "buttonalterar" class="fas fa-external-link-alt" onclick="editar(this)"></i>
+                <i id = "buttonalterar" class="fas fa-external-link-alt" onclick="editar(${value})"></i>
             </a>
             <a href="#" class="action-item mr-2" data-toggle="modal"
                 data-target=".modalteladecadastro" data-id="oi" title="Visualizar">
@@ -163,12 +163,6 @@ colocar.addEventListener('click', () => {
     
 })
 
-<<<<<<< HEAD
-
-
-
-
-=======
 function editar(e){
 
     var linha = $(e).closest("tr");
@@ -185,4 +179,3 @@ function editar(e){
     //$("#validationDA").value(data_admissaoo);
  
 }
->>>>>>> 470caf419d7bd24f57e2fb8ad9fc7805391d37ab
