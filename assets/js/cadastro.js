@@ -136,9 +136,9 @@ colocar.addEventListener('click', () => {
             data_alteracao.appendChild(data_alteracaoText)
 
             alteraVisualiza.innerHTML=` <div class="actions ml-3" style="text-align: center;">
-            <a href="#" class="action-item mr-2 "data-nome=${value} data-toggle="modal"
+            <a "id=buttonalterar" href="#" class="action-item mr-2" data-nome="marcos" data-toggle="modal"
                 data-target=".modalteladecadastro" title="Alterar">
-                <i class="fas fa-external-link-alt"></i>
+                <i id = "buttonalterar" class="fas fa-external-link-alt"></i>
             </a>
             <a href="#" class="action-item mr-2" data-toggle="modal"
                 data-target=".modalteladecadastro" data-name="oi" title="Visualizar">
@@ -149,4 +149,14 @@ colocar.addEventListener('click', () => {
             
     })
     .catch(error => console.log('error', error));
+})
+$('.modalteladecadastro').on('show.bs.modal', function (event) {
+    var button = $(event.relatedTarget) // Button that triggered the modal
+    var recipient = button.data('name') // Extract info from data-* attributes
+    // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+    // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+    var modal = $(this)
+    // modal.find('.modal-title').text('New message to ' + recipient)
+    modal.find('#funcionario').val(recipient)
+
 })
