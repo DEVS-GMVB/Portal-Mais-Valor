@@ -92,7 +92,7 @@ colocar.addEventListener('click', () => {
       };
 
     // console.log(raw);
-    fetch("http://localhost:3000/user/search", requestOptions)
+    fetch("http://172.16.0.197:3000/user/search", requestOptions)
     .then(response => response.json())
     .then(result => {
         
@@ -146,7 +146,7 @@ colocar.addEventListener('click', () => {
             alteraVisualiza.innerHTML=` <div class="actions ml-3" style="text-align: center;">
             <a "id=buttonalterar" href="#" class="action-item mr-2" data-nome="marcos" data-toggle="modal"
                 data-target=".modalteladecadastro" title="Alterar">
-                <i id = "buttonalterar" class="fas fa-external-link-alt"></i>
+                <i id = "buttonalterar" class="fas fa-external-link-alt" onclick="editar(this)"></i>
             </a>
             <a href="#" class="action-item mr-2" data-toggle="modal"
                 data-target=".modalteladecadastro" data-name="oi" title="Visualizar">
@@ -156,15 +156,26 @@ colocar.addEventListener('click', () => {
         }
             
     })
-    .catch(error => console.log('error', error));
-})
-$('.modalteladecadastro').on('show.bs.modal', function (event) {
-    var button = $(event.relatedTarget) // Button that triggered the modal
-    var recipient = button.data('name') // Extract info from data-* attributes
-    // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
-    // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
-    var modal = $(this)
-    // modal.find('.modal-title').text('New message to ' + recipient)
-    modal.find('#funcionario').val(recipient)
 
+
+    .catch(error => console.log('error', error));
+
+    
 })
+
+function editar(e){
+
+    var linha = $(e).closest("tr");
+    var filial = linha.find("td:eq(0)").text().trim(); // texto da primeira coluna
+    var func  = linha.find("td:eq(1)").text().trim(); // texto da segunda coluna
+    var cnpj = linha.find("td:eq(2)").text().trim(); // texto da terceira coluna
+    var status   = linha.find("td:eq(3)").text().trim(); // texto da quarta coluna
+    var data_admissaoo = linha.find("td:eq(6)").text().trim();
+    $("#exampleFormFilial").val(filial);
+    $("#funcionario").val(func);
+    $("#validationCpf").val(cnpj);
+    $("#exampleFormControlStatus").val(status);
+    // Date date = new SimpleDateFormat("dd/MM/yyyy").parse("08/12/2017");
+    $("#validationDA").val(data_admissaoo);
+ 
+}
