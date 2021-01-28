@@ -1,6 +1,6 @@
 // VARS
-let gerente = document.getElementById('exampleFormControlSelectGerente');
 let filial = document.getElementById('exampleFormControlFilial');
+let gerente = document.getElementById('exampleFormControlSelectGerente');
 let supervisor = document.getElementById('exampleFormControlSupervisor');
 let mes = document.getElementById('exampleFormControlMes');
 let mesDemissao = document.getElementById('exampleFormControlMesDemissao');
@@ -14,7 +14,146 @@ var supervisor = document.getElementById('exampleFormControlSupervisor');
 var mes = document.getElementById('exampleFormControlMes');
 var mesDemissao = document.getElementById('exampleFormControlMesDemissao');
 
+// ------------------------------
+const prosseguir = document.getElementById('prosseguirBtn');
+prosseguir.addEventListener('click', () => {
+    var myHeaders = new Headers();
 
+    myHeaders.append("Content-Type", "application/json").value;
+    let filialcad = document.getElementById('exampleFormControlSelect1Filial').value;
+    let funcionarioo = document.getElementById('funcionario').value;
+    let nomeComp = document.getElementById('validationCustom01NomeComp').value;
+    let tipoFunc = document.getElementById('validationCustom01TipoFunc').value;
+    let status = document.getElementById('exampleFormControlSelectStatus').value;
+    let dtAdmissao = document.getElementById('validationCustom01DtAdmissao').value;
+    let dtDemissao = document.getElementById('validationCustom01DtDemissao').value;
+    let motCancel = document.getElementById('exampleFormControlSelect1MotCancel').value;
+    let primExperi = document.getElementById('validationCustom0PrimExperi').value;
+    let segExperi = document.getElementById('validationCustom01SegExperi').value;
+    let dtNasci = document.getElementById('validationCustom0DtNasci').value;
+    let cpfcnpj = document.getElementById('validationCustomCPFCNPJ').value;
+    let tipoDoc = document.getElementById('exampleFormControlSelectTipoDoc').value;
+    let dtDoc = document.getElementById('validationCustomDtDoc').value;
+    let orgDoc = document.getElementById('validationCustomOrgDoc').value;
+    let NmMae = document.getElementById('validationCustomNmMae').value;
+    let nCartTrab = document.getElementById('validationCustomNCarTrab').value;
+    let seCartTrab = document.getElementById('validationCustomSeCartTrab').value;
+    let uf = document.getElementById('validationCustom01Uf').value;
+    let pis = document.getElementById('validationCustom01Pis').value;
+    let nContrato = document.getElementById('validationCustomNContrato').value;
+    let telefone = document.getElementById('telefone').value;
+    let email = document.getElementById('email').value;
+    let cep = document.getElementById('cep').value;
+    let rua = document.getElementById('validationCustomRua').value;
+    let numero = document.getElementById('validationCustomNumero').value;
+    let complemento = document.getElementById('validationCustomComplemento').value;
+    let bairro = document.getElementById('validationCustomBairro').value;
+    let cidade = document.getElementById('validationCustomCidade').value;
+    let estado = document.getElementById('validationCustomEstado').value;
+    let cpfFav = document.getElementById('id-fp-cpfFav').value;
+    let nomeFav = document.getElementById('id-fp-nomeFav').value;
+    let tipoPag = document.getElementById('id-fp-tipopagamento').value;
+    let banco = document.getElementById('id-fp-banco').value;
+    let agencia = document.getElementById('id-fp-agencia').value;
+    let conta = document.getElementById('id-fp-conta').value;
+    let numCartao = document.getElementById('id-fp-numcartao').value;
+    let supervisorBB = document.getElementById('exampleFormControlSelectsupBB').value;
+    let gerenteBB = document.getElementById('exampleFormControlSelectGerBB').value;
+    let servMultBanc = document.getElementById('exampleFormControlSelectSerMultBanc').value;
+    let gerMultBanc = document.getElementById('exampleFormControlSelectGerMultBanc').value;
+    let superintendentecad = document.getElementById('exampleFormControlSelectSuperi').value;
+    let projeto = document.getElementById('exampleFormControlSelectProjeto').value;
+    let codFunc = document.getElementById('exampleFormControlSelectCodFunc').value;
+    let cargo = document.getElementById('exampleFormControlSelectCargo').value;
+    let setor = document.getElementById('exampleFormControlSelectSetor').value;
+    let codigo = document.getElementById('validationCustomCod').value;
+    let matricula = document.getElementById('validationCustomMatricula').value;
+    let empReg = document.getElementById('validationCustomEmpReg').value;
+    let repEmpresa = document.getElementById('id-p-repempresa').value;
+    let cpfEmpresa = document.getElementById('id-p-cpfempresa').value;
+    let dtValCert = document.getElementById('id-p-dtcertificacao').value;
+    let certificacao = document.getElementById('id-p-certificacao').value;
+    let freqPag = document.getElementById('id-frePag').value;
+    let dtBloqueio = document.getElementById('id-p-dtbloqueio').value;
+    let dtEntrContr = document.getElementById('id-p-dtentregacontrato').value;
+
+    var raw = JSON.stringify({
+
+        filial:filialcad,
+        parceiro:funcionarioo,
+        nome_completo: nomeComp,
+        tipo: tipoFunc,
+        status: status,
+        data_admissao: dtAdmissao,
+        data_inativacao: dtDemissao,
+        motivo_cancelamento: motCancel,
+        experiencia1: primExperi,
+        experiencia2: segExperi,
+        data_nascimento: dtNasci,
+        cnpj: cpfcnpj,
+        tipo_documento: tipoDoc,
+        data_rg: dtDoc,
+        orgao_emissao: orgDoc,
+        nome_mae: NmMae,
+        carteira: nCartTrab,
+        serie_carteira: seCartTrab,
+        uf_carteira: uf,
+        pis: pis,
+        contrato: nContrato,
+        telefone: telefone,
+        email: email,
+        cep: cep,
+        logradouro: rua,
+        numero_l: numero,
+        complemento: complemento,
+        bairro: bairro,
+        cidade: cidade,
+        naturalidade: estado,
+        cpf: cpfFav,
+        favorecido: nomeFav,
+        tipo_pagamento: tipoPag,
+        banco: banco,
+        agencia: agencia,
+        conta: conta,
+        numero_cartao: numCartao,
+        supervisor: supervisorBB,
+        gerente: gerenteBB,
+        supervisor_sant:servMultBanc,
+        gerente_sant:gerMultBanc,
+        superintendente: superintendentecad,
+        projeto: projeto,
+        cod_funcao: codFunc,
+        cargo:cargo,
+        setor:setor,
+        codigo: codigo,
+        matricula: matricula,
+        registro_clt:empReg,
+        repre: repEmpresa,
+        cpf_repre: cpfEmpresa,
+        data_certificacao:dtValCert,
+        certificacao:certificacao, 
+        regra_pagamento:freqPag,
+        data_bloqueio: dtBloqueio,
+        data_contrato: dtEntrContr
+
+    })
+
+    var requestOptions = {
+        method: 'POST',
+        headers: myHeaders,
+        body: raw,                                                                      
+        redirect: 'follow'
+      };  
+      
+      fetch("http://172.16.0.197:3000/user/cadastro/inclusao", requestOptions)
+      .then(response => response.json())
+    //   console.log(response)
+      .then(result => console.log(result))
+      .catch(error => console.log('error', error));
+
+})
+
+// ------------------------------
 var requestOptions = {
     method: 'GET',
     redirect: 'follow'
