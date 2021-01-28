@@ -100,9 +100,9 @@
                                 <div class="col-md-2 mb-3">
                                     <div class="form-group">
                                         <label for="exampleFormControlSelect1">Filial</label>
-                                        <input type="text" class="form-control form-control-sm" id="exampleFormFilial" required>
-                                            
-
+                                        <select class="form-control form-control-sm" id="exampleFormFilial" required>
+                                                <option value=""></option>
+                                        </select>
                                     </div>
 
                                 </div>
@@ -114,7 +114,7 @@
                                 </div>
                                 <div class="col-md-5 mb-3">
                                     <label for="validationCustom01">Nome Completo</label>
-                                    <input type="text" class="form-control form-control-sm" id="validationCustom01" required>
+                                    <input type="text" class="form-control form-control-sm" id="validationNomeCompleto" required>
 
                                 </div>
 
@@ -126,28 +126,34 @@
 
                                 <div class="col-md-2 mb-3">
                                     <label for="validationCustom01">Tipo Funcionário</label>
-                                    <input type="text" class="form-control form-control-sm" id="validationCustom01" required>
+                                    <input type="text" class="form-control form-control-sm" id="validationTipoFuncionario" required>
 
                                 </div>
 
                                 <div class="col-md-4 mb-3">
                                     <div class="form-group">
                                         <label for="exampleFormControlSelect1">Status</label>
-                                        <input type="text" class="form-control form-control-sm" id="exampleFormControlStatus" required>
-
+                                        <select class="form-control form-control-sm" id="exampleFormControlStatus" required>
+                                            <option> </option>
+                                            <option value="TODOS">TODOS</option>
+                                            <option value="AGUARDANDO APROVAÇÃO DP">AGUARDANDO APROVAÇÃO DP</option>
+                                            <option value="ATIVO">ATIVO</option>
+                                            <option value="INATIVO">INATIVO</option>
+                                            <option value="BLOQUEADO">BLOQUEADO</option>
+                                        </select>
                                     </div>
 
                                 </div>
 
                                 <div class="col-md-3 mb-3">
                                     <label for="validationCustom01">Data Admissão</label>
-                                    <input type="date" min="1921-01-01" class="form-control form-control-sm" id="validationDA" required>
+                                    <input type="text" min="1921-01-01" class="form-control form-control-sm" id="validationDA" onKeyDown="fMasc( this, data );" maxlength="10" required >
 
                                 </div>
 
                                 <div class="col-md-3 mb-3">
                                     <label for="validationCustom01">Data Demissão</label>
-                                    <input type="date" min="1921-01-01" max="now();" class="form-control form-control-sm" id="validationCustom01" required>
+                                    <input type="text" min="1921-01-01" max="now();" class="form-control form-control-sm" id="validationDE" onKeyDown="fMasc( this, data );" required>
 
                                 </div>
                             </div>
@@ -170,13 +176,13 @@
 
                                 <div class="col-md-3 mb-3">
                                     <label for="validationCustom01">Primeira Experiência</label>
-                                    <input type="text" class="form-control form-control-sm" id="validationCustom01" required>
+                                    <input type="text" class="form-control form-control-sm" id="validationPrimeiraE" onKeyDown="fMasc( this, data );" maxlength="10" required>
 
                                 </div>
 
                                 <div class="col-md-3 mb-3">
                                     <label for="validationCustom01">Segunda Experiência</label>
-                                    <input type="text" class="form-control form-control-sm" id="validationCustom01" required>
+                                    <input type="text" class="form-control form-control-sm" id="validationSegundaE" onKeyDown="fMasc( this, data );" maxlength="10" required>
 
                                 </div>
                             </div>
@@ -188,7 +194,7 @@
 
                                 <div class="col-md-2 mb-3">
                                     <label for="validationCustom01">Data de Nascimento</label>
-                                    <input type="date" min="1921-01-01" class="form-control form-control-sm" id="validationCustom01" required>
+                                    <input type="text" min="1921-01-01" class="form-control form-control-sm" id="validationNasc" onKeyDown="fMasc( this, data );" maxlength="10" required>
 
                                 </div>
 
@@ -217,7 +223,7 @@
 
                                 <div class="col-md-2 mb-3">
                                     <label for="validationCustom01">Orgão Documento</label>
-                                    <input type="text" class="form-control form-control-sm" id="validationCustom01" required>
+                                    <input type="text" class="form-control form-control-sm" id="validationOD" required>
 
                                 </div>
 
@@ -230,32 +236,32 @@
 
                                 <div class="col-md-3 mb-3">
                                     <label for="validationCustom01">Nome da Mãe</label>
-                                    <input type="text" class="form-control form-control-sm" id="validationCustom01" required>
+                                    <input type="text" class="form-control form-control-sm" id="validationMae" required>
 
                                 </div>
 
                                 <div class="col-md-3 mb-3">
                                     <label for="validationCustom01">Número Carteira de Trabalho</label>
-                                    <input type="text" class="form-control form-control-sm" id="validationCustom01" required>
+                                    <input type="text" class="form-control form-control-sm" id="validationNCT" required>
 
                                 </div>
 
 
                                 <div class="col-md-3 mb-3">
                                     <label for="validationCustom01">Série Carteira de Trabalho</label>
-                                    <input type="text" class="form-control form-control-sm" id="validationCustom01" required>
+                                    <input type="text" class="form-control form-control-sm" id="validationSerieCarteira" required>
 
                                 </div>
 
                                 <div class="col-md-1 mb-3">
                                     <label for="validationCustom01">UF</label>
-                                    <input type="text" maxlength="2" class="form-control form-control-sm" id="validationCustom01" required>
+                                    <input type="text" maxlength="2" class="form-control form-control-sm" id="validationUF" required>
 
                                 </div>
 
                                 <div class="col-md-2 mb-3">
                                     <label for="validationCustom01">PIS</label>
-                                    <input type="text" class="form-control form-control-sm" id="validationCustom01"  onkeyup="mascaraMutuario(this, pispasep);" maxlength="14"required>
+                                    <input type="text" class="form-control form-control-sm" id="validationPis"  onkeyup="mascaraMutuario(this, pispasep);" maxlength="14"required>
 
                                 </div>
 
@@ -268,13 +274,13 @@
 
                                 <div class="col-md-4 mb-3">
                                     <label for="validationCustom01">Número Contrato</label>
-                                    <input type="text" class="form-control form-control-sm" id="validationCustom01" required>
+                                    <input type="text" class="form-control form-control-sm" id="validationNumeroContrato" required>
 
                                 </div>
 
                                 <div class="col-md-3 mb-3">
                                     <label for="validationCustom01">Telefone</label>
-                                    <input type="text" maxlength="14" name="telefone" id="telefone" onKeyDown="fMasc( this, mTelefone );" class="form-control form-control-sm" id="validationCustom01" required>
+                                    <input type="text" maxlength="14" name="telefone" id="telefone" onKeyDown="fMasc( this, mTelefone );" class="form-control form-control-sm" id="validationTelefone" required>
 
                                 </div>
 
@@ -293,32 +299,32 @@
 
                                 <div class="col-md-2 mb-3">
                                     <label for="validationCustom01">CEP</label>
-                                    <input type="text" maxlength="9" name="cep" id="cep" onKeyDown="fMasc( this, mCEP );" class="form-control form-control-sm" id="validationCustom01" required>
+                                    <input type="text" maxlength="9" name="cep" id="cep" onKeyDown="fMasc( this, mCEP );" class="form-control form-control-sm"  required>
 
                                 </div>
 
                                 <div class="col-md-2 mb-3">
                                     <label for="validationCustom01">Rua</label>
-                                    <input type="text" class="form-control form-control-sm" id="validationCustom01" required>
+                                    <input type="text" class="form-control form-control-sm" id="validationLogradouro" required>
 
                                 </div>
 
                                 <div class="col-md-1 mb-3">
                                     <label for="validationCustom01">Número</label>
-                                    <input type="text" class="form-control form-control-sm" id="validationCustom01" required> 
+                                    <input type="text" class="form-control form-control-sm" id="validationNL" required> 
 
                                 </div>
 
 
                                 <div class="col-md-2 mb-3">
                                     <label for="validationCustom01">Complemento</label>
-                                    <input type="text" class="form-control form-control-sm" id="validationCustom01" required>
+                                    <input type="text" class="form-control form-control-sm" id="validationComplemento" required>
 
                                 </div>
 
                                 <div class="col-md-2 mb-3">
                                     <label for="validationCustom01">Bairro</label>
-                                    <input type="text" class="form-control form-control-sm" id="validationCustom01" required>
+                                    <input type="text" class="form-control form-control-sm" id="validationBairro" required>
 
                                 </div>
 
@@ -326,13 +332,13 @@
 
                                 <div class="col-md-2 mb-3">
                                     <label for="validationCustom01">Cidade</label>
-                                    <input type="text" class="form-control form-control-sm" id="validationCustom01" required>
+                                    <input type="text" class="form-control form-control-sm" id="validationCidade" required>
 
                                 </div>
 
                                 <div class="col-md-1 mb-3">
                                     <label for="validationCustom01">Estado</label>
-                                    <input type="text" class="form-control form-control-sm" id="validationCustom01" required>
+                                    <input type="text" class="form-control form-control-sm" id="validationEstado" required>
 
                                 </div>
 
@@ -380,7 +386,7 @@
 
                                 <div class="col-md-2 mb-3">
                                     <label for="validationCustom01">Banco</label>
-                                    <input type="text" class="form-control form-control-sm" id="id-fp-banco" required>
+                                    <input type="text" class="form-control form-control-sm" id="id-fp-bancoN" required>
 
                                 </div>
                                 <div class="col-md-2 mb-3">
@@ -466,8 +472,12 @@
                                 <div class="col-md-4 mb-3">
                                     <div class="form-group">
                                         <label for="exampleFormControlSelect1">Superintendente</label>
-                                        <select class="form-control form-control-sm" id="exampleFormControlSelect1" required>
+                                        <select class="form-control form-control-sm" id="exampleFormControlSuperintendente" required>
                                             <option> </option>
+                                            <option value="PAULO CATTANEO">PAULO CATTANEO</option>
+                                            <option value="EDUARDO NASSIPE">EDUARDO NASSIPE</option>
+                                            <option value="SILVIA KHICHFY">SILVIA KHICHFY</option>                                                   
+                                            <option value="JOSE LUIS">JOSE LUIS</option>
 
                                         </select>
                                     </div>
@@ -531,7 +541,7 @@
 
                                 <div class="col-md-2 mb-3">
                                     <label for="validationCustom01">Código</label>
-                                    <input type="text" class="form-control form-control-sm" id="validationCustom01" required>
+                                    <input type="text" class="form-control form-control-sm" id="validationCodigo" required>
 
                                 </div>
 
@@ -539,7 +549,7 @@
 
                                 <div class="col-md-2 mb-3">
                                     <label for="validationCustom01">Matrícula</label>
-                                    <input type="text" class="form-control form-control-sm" id="validationCustom01" required>
+                                    <input type="text" class="form-control form-control-sm" id="validationMatricula" required>
 
                                 </div>
 
@@ -2290,10 +2300,10 @@
                                                 <select class="form-control form-control-sm"
                                                     id="exampleFormControlSelect1Superintendente">
                                                     <option> </option>
-                                                    <option>PAULO CATTANEO</option>
-                                                    <option>EDUARDO NASSIPE</option>
-                                                    <option>SILVIA KHICHFY</option>                                                   </option>
-                                                    <option>JOSE LUIS</option>
+                                                    <option value="PAULO CATTANEO">PAULO CATTANEO</option>
+                                                    <option value="EDUARDO NASSIPE">EDUARDO NASSIPE</option>
+                                                    <option value="SILVIA KHICHFY">SILVIA KHICHFY</option>                                                   
+                                                    <option value="JOSE LUIS">JOSE LUIS</option>
                                                 </select>
 
 
