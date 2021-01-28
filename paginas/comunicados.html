@@ -7,7 +7,7 @@
     <meta name="description"
         content="Purpose Application UI is the following chapter we've finished in order to create a complete and robust solution next to the already known Purpose Website UI.">
     <meta name="author" content="Webpixels">
-    <title>Simulação Santander - Portal Mais Valor</title>
+    <title>Comunicados - Portal Mais Valor</title>
     <!-- Favicon -->
     <link rel="icon" href="../assets/img/brand/favicon.png" type="image/png">
     <!-- Font Awesome 5 -->
@@ -20,7 +20,6 @@
     <link rel="stylesheet" href="../assets/css/personalizado.css" id="stylesheet">
 </head>
 
-<body >
 <style>
     .bg-titulo {
 
@@ -44,6 +43,124 @@
         ;
     }
 </style>
+
+<!-- Large modal -->
+
+
+<div class="modal fade moda-alterar-comunicados" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <img src="logocolorido.png" style="height: 70px; right: 70px;">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+
+
+                <form class="needs-validation" novalidate>
+
+
+
+                    <div class="form-row mt-2 mx-6">
+
+
+                        <div class="col-md-12 mb-3">
+                            <label for="validationCustom01">Título Comunicado</label>
+                            <input type="text" class="form-control form-control-sm" id="validationCustom01" required>
+
+                        </div>
+                        <div class="col-md-12 mb-3">
+                            <label for="exampleFormControlTextarea1">Texto</label>
+                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                        </div>
+
+                        <div class="col-md-4 mb-3">
+                            <label for="exampleFormControlTextarea1">Imagem:</label>
+                            <input type="file" name="file-1[]" id="file-1" class="custom-input-file"
+                                data-multiple-caption="{count} files selected" multiple />
+                            <label for="file-1">
+                                <i class="fa fa-upload"></i>
+                                <span>Choose a file…</span>
+                            </label>
+
+                        </div>
+
+                        <div class="col-md-4 mb-3">
+                            <label for="exampleFormControlTextarea1">Imagem 2:</label>
+                            <input type="file" name="file-1[]" id="file-1" class="custom-input-file"
+                                data-multiple-caption="{count} files selected" multiple />
+                            <label for="file-1">
+                                <i class="fa fa-upload"></i>
+                                <span>Choose a file…</span>
+                            </label>
+
+                        </div>
+
+                        <div class="col-md-4 mb-3">
+                            <label for="exampleFormControlTextarea1">Imagem 3:</label>
+                            <input type="file" name="file-1[]" id="file-1" class="custom-input-file"
+                                data-multiple-caption="{count} files selected" multiple />
+                            <label for="file-1">
+                                <i class="fa fa-upload"></i>
+                                <span>Choose a file…</span>
+                            </label>
+
+                        </div>
+
+                        <div class="col-md-12 mb-3">
+                            <div class="form-group">
+                                <label for="exampleFormControlSelect1">Status</label>
+                                <select class="form-control form-control-sm" id="exampleFormControlSelect1" required>
+                                    <option> </option>
+                                    <option> ATIVO </option>
+                                    <option> INATIVO </option>
+
+                                </select>
+                            </div>
+
+                        </div>
+
+                        
+
+                   
+
+
+
+
+
+                    </div>
+
+
+                </form>
+
+                <div class="opcoes-cadastro" style="text-align: center; margin-inline: block;">
+
+                    <button type="button" class="btn btn-primary btn-icon-label" title="Analisar"
+                        data-toggle="modal" data-target=".moda-alterar-comunicados">
+
+                        <span class="btn-inner--icon">
+                            <i class="fas fa-plus"></i>
+                        </span>
+                        <span class="btn-inner--text">Incluir / Alterar</span>
+                    </button>
+
+
+
+
+                </div>
+
+
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
 
 
 <body class="application application-offset">
@@ -521,7 +638,8 @@
                                                     <!-- Media body -->
                                                     <div class="media-body ml-3">
                                                         <h6 class="mb-1">Documentation</h6>
-                                                        <p class="mb-0">Awesome section examples for any scenario.</p>
+                                                        <p class="mb-0">Awesome section examples for any scenario.
+                                                        </p>
                                                     </div>
                                                 </div>
                                             </a>
@@ -710,7 +828,7 @@
                 <div class="page-title">
                     <div class="row justify-content-between align-items-center">
                         <div class="col-md-12 mb-3 mb-md-0">
-                            <h6 class="h3 font-weight-400 mb-0 text-white">Simulação Santander </h6>
+                            <h6 class="h3 font-weight-400 mb-0 text-white">Comunicados </h6>
 
                         </div>
                     </div>
@@ -722,15 +840,107 @@
 
                             <div class="card-body">
 
-                                <div class="bg-titulo mt-0">
+                                <div class="opcoes-cadastro" style="text-align: center; margin-inline: block;">
 
-                                    <h3>Dados Iniciais</h3>
-        
+                                    <button type="button" class="btn btn-primary btn-icon-label" title="Analisar"
+                                        data-toggle="modal" data-target=".moda-alterar-comunicados">
+
+                                        <span class="btn-inner--icon">
+                                            <i class="fas fa-plus"></i>
+                                        </span>
+                                        <span class="btn-inner--text">Incluir Novo Comunicado</span>
+                                    </button>
+
+
+
+
+                                </div>
+
+                                <div class="table-responsive mt-4">
+                                    <table class="table align-items-center">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col" style="text-align: center;"><b>Título Chamado</b></th>
+                                                <th scope="col" style="text-align: center;"><b>Descrição do Chamado</b>
+                                                </th>
+                                                <th scope="col" style="text-align: center;"><b></b></th>
+                                                <th scope="col" style="text-align: center;"><b>Downloads</b></th>
+                                                <th scope="col" style="text-align: center;"><b></b></th>
+                                                <th scope="col" style="text-align: center;"><b>Ações</b></th>
+
+
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+
+                                            <tr>
+                                                <td>
+                                                    XXXXXXXXXX
+                                                </td>
+                                                <td>
+                                                    XXXXXXXXXXXXXXXX
+                                                </td>
+                                                <th scope="row">
+                                                    <button type="button"
+                                                        class="btn btn-sm btn-secondary btn-icon rounded-pill">
+                                                        <span class="btn-inner--icon"><i
+                                                                class="far fa-download"></i></span>
+                                                        <span class="btn-inner--text">Download</span>
+                                                    </button>
+                                                </th>
+                                                <th scope="row">
+                                                    <button type="button"
+                                                        class="btn btn-sm btn-secondary btn-icon rounded-pill">
+                                                        <span class="btn-inner--icon"><i
+                                                                class="far fa-download"></i></span>
+                                                        <span class="btn-inner--text">Download</span>
+                                                    </button>
+                                                </th>
+                                                <th scope="row">
+                                                    <button type="button"
+                                                        class="btn btn-sm btn-secondary btn-icon rounded-pill">
+                                                        <span class="btn-inner--icon"><i
+                                                                class="far fa-download"></i></span>
+                                                        <span class="btn-inner--text">Download</span>
+                                                    </button>
+                                                </th>
+                                                <td>
+                                                    <div class="d-flex align-items-center justify-content-end">
+
+
+                                                        <!-- Actions -->
+                                                        <div class="actions ml-3">
+                                                            <a href="#" class="action-item mr-2" title="Alterar"
+                                                                data-toggle="modal"
+                                                                data-target=".moda-alterar-comunicados">
+                                                                <i class="far fa-pencil-alt"></i>
+                                                            </a>
+                                                            <a href="#" class="action-item mr-2" data-toggle="tooltip"
+                                                                title="Archive">
+                                                                <i class="fas fa-trash-alt"></i>
+                                                            </a>
+
+                                                        </div>
+                                                    </div>
+
+                                                </td>
+                                            </tr>
+
+
+                                        </tbody>
+                                    </table>
                                 </div>
 
 
 
-                            
+
+
+
+
+
+
+
+
 
                             </div>
 
@@ -738,18 +948,27 @@
                         </div>
 
 
-                    </div>
 
+
+
+                    </div>
 
 
                 </div>
 
+
             </div>
 
 
+
         </div>
+
     </div>
-    
+
+
+    </div>
+    </div>
+
     <!-- Scripts -->
     <!-- Core JS - includes jquery, bootstrap, popper, in-view and sticky-kit -->
     <script src="../assets/js/purpose.core.js"></script>

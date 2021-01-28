@@ -5,7 +5,7 @@ var novamenteSenha = document.getElementById('id-cadusu-novamentesenha');
 var tipoUsuario = document.getElementById('id-cadusu-tipousu');
 var usuMaster= document.getElementById('id-cadusu-usumaster');
 var classi= document.getElementById('id-cadusu-classi');
-var empresa = document.getElementById('id-cadusu-empresa');
+var empresa = document.getElementById('id-cad-usu-empresa');
 var status = document.getElementById('id-cadusu-status');
 var telCelular = document.getElementById('id-cadusu-telcelular');
 var cpfcnpj = document.getElementById('id-cadusu-cpfcnpj');
@@ -27,4 +27,16 @@ var aceCrefisa = document.getElementById('id-cadusu-crefisa');
 var aceConsorcio = document.getElementById('id-cadusu-aceconsorciobb');
 var aceConsCaixa = document.getElementById('ace-cadusu-conscaixa');
 var aceConsCaixa = document.getElementById('id-cadusu-aceconsitau');
+
+var requestOptions = {
+    method: 'GET',
+    redirect: 'follow'
+  };
+
+  fetch("http://172.16.0.197:3000/user/proposta/empresas", requestOptions)
+  .then(response => response.json().then(function(data){
+    for(let i = 0; i < data.length; i++){
+        empresa.innerHTML += '<option value="'+data[i].empresa+'">'+data[i].empresa+'</option>;'
+    }
+})).catch(error => console.log('error', error));
 
