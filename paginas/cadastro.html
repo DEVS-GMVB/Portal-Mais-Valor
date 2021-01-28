@@ -91,14 +91,9 @@
                                 <div class="col-md-2 mb-3">
                                     <div class="form-group">
                                         <label for="exampleFormControlSelect1">Filial</label>
-<<<<<<< HEAD
+
                                         <select class="form-control form-control-sm" id="exampleFormFilial" required>
                                                 <option value=""></option>
-=======
-                                        <select class="form-control form-control-sm" id="exampleFormControlSelect1" required>
-                                            <option> </option>
-
->>>>>>> 47290d1f5836a626b59d12a20058d9f6f2f0f161
                                         </select>
                                     </div>
 
@@ -130,7 +125,6 @@
                                 <div class="col-md-4 mb-3">
                                     <div class="form-group">
                                         <label for="exampleFormControlSelect1">Status</label>
-<<<<<<< HEAD
                                         <select class="form-control form-control-sm" id="exampleFormControlStatus" required>
                                             <option> </option>
                                             <option value="TODOS">TODOS</option>
@@ -138,11 +132,6 @@
                                             <option value="ATIVO">ATIVO</option>
                                             <option value="INATIVO">INATIVO</option>
                                             <option value="BLOQUEADO">BLOQUEADO</option>
-=======
-                                        <select class="form-control form-control-sm" id="exampleFormControlSelect1" required>
-                                            <option> </option>
-
->>>>>>> 47290d1f5836a626b59d12a20058d9f6f2f0f161
                                         </select>
                                     </div>
 
@@ -150,11 +139,7 @@
 
                                 <div class="col-md-3 mb-3">
                                     <label for="validationCustom01">Data Admissão</label>
-<<<<<<< HEAD
                                     <input type="text" min="1921-01-01" class="form-control form-control-sm" id="validationDA" onKeyDown="fMasc( this, data );" maxlength="10" required >
-=======
-                                    <input type="date" min="1921-01-01" class="form-control form-control-sm" id="validationCustom01" required>
->>>>>>> 47290d1f5836a626b59d12a20058d9f6f2f0f161
 
                                 </div>
 
@@ -169,7 +154,7 @@
                                 <div class="col-md-6 mb-3">
                                     <div class="form-group">
                                         <label for="exampleFormControlSelect1">Motivo Cancelamento</label>
-                                        <select class="form-control form-control-sm" id="exampleFormControlSelect1" required>
+                                        <select class="form-control form-control-sm" id="exampleFormControlMotivoCancelamento" required>
                                             <option> </option>
 
                                         </select>
@@ -198,14 +183,14 @@
 
                                 <div class="col-md-4 mb-3">
                                     <label for="validationCustom01">CPF / CNPJ</label>
-                                    <input type="text" minlength="14" maxlength="18" name='cpfcnpj' onkeypress='mascaraMutuario(this,cpfCnpj)' class="form-control form-control-sm" id="validationCustom01" required>
+                                    <input type="text" minlength="14" maxlength="18" name='cpfcnpj' onkeypress='mascaraMutuario(this,cpfCnpj)' class="form-control form-control-sm" id="validationCpfCadastro" required>
 
                                 </div>
 
                                 <div class="col-md-2 mb-3">
                                     <div class="form-group">
                                         <label for="exampleFormControlSelect1">Tipo de Documento</label>
-                                        <select class="form-control form-control-sm" id="exampleFormControlSelect1" required>
+                                        <select class="form-control form-control-sm" id="exampleFormControlTipoDocumento" required>
                                             <option> </option>
 
                                         </select>
@@ -215,7 +200,7 @@
 
                                 <div class="col-md-2 mb-3">
                                     <label for="validationCustom01">Data Documento</label>
-                                    <input type="date" min="1921-01-01" class="form-control form-control-sm" id="validationCustom01" required>
+                                    <input type="text" class="form-control form-control-sm" id="validationCustomDataDocumento" required>
 
                                 </div>
 
@@ -366,7 +351,7 @@
 
                             <div class="col-md-6 mb-3">
                                 <label for="validationCustom01">Nome do Favorecido</label>
-                                <input type="text" class="form-control form-control-sm" id="id-fp-banco" required>
+                                <input type="text" class="form-control form-control-sm" id="id-fp-favorecido" required>
 
                             </div>
 
@@ -424,7 +409,7 @@
                                 <div class="col-md-6 mb-3">
                                     <div class="form-group">
                                         <label for="exampleFormControlSelect1">Supervisor BB</label>
-                                        <select class="form-control form-control-sm" id="exampleFormControlSelect1" required>
+                                        <select class="form-control form-control-sm" id="exampleFormControlSupervisorBB" required>
                                             <option> </option>
 
                                         </select>
@@ -436,7 +421,7 @@
                                 <div class="col-md-6 mb-3">
                                     <div class="form-group">
                                         <label for="exampleFormControlSelect1">Gerente BB</label>
-                                        <select class="form-control form-control-sm" id="exampleFormControlSelect1" required>
+                                        <select class="form-control form-control-sm" id="exampleFormControlGerenteBB" required>
                                             <option> </option>
 
                                         </select>
@@ -553,7 +538,7 @@
 
                                 <div class="col-md-2 mb-3">
                                     <label for="validationCustom01">Empresa Registro</label>
-                                    <select class="form-control form-control-sm" id="validationCustom01" required>
+                                    <select class="form-control form-control-sm" id="validationER" required>
                                         <option value=""></option>
                                         <option value="GMVB">GMVB</option>    
                                         <option value="ACNJ">ACNJ</option>
@@ -1036,7 +1021,7 @@
                         </div>
 
                         <div class="opcoes-cadastro mt-1" style="text-align: center; margin-inline: block;">
-                            <button type="button" class="btn btn-primary btn-icon-label">
+                            <button type="button" class="btn btn-primary btn-icon-label" id="comissao">
                                 <span class="btn-inner--icon">
                                     <i class="fas fa-arrow-right"></i>
                                 </span>
@@ -1072,7 +1057,7 @@
 
                                 <div class="col-md-6 mb-3">
                                     <label for="validationCustom01">Senha</label>
-                                    <input type="text" class="form-control form-control-sm" id="id-cadusu-senha">
+                                    <input type="password" class="form-control form-control-sm" id="id-cadusu-senha">
 
                                 </div>
 
@@ -1084,7 +1069,7 @@
 
                                 <div class="col-md-6 mb-3">
                                     <label for="validationCustom01">Digite Novamente a Senha</label>
-                                    <input type="text" class="form-control form-control-sm" id="id-cadusu-novamentesenha">
+                                    <input type="password" class="form-control form-control-sm" id="id-cadusu-novamentesenha">
 
                                 </div>
 
@@ -1474,26 +1459,26 @@
 
                                 <div class="col-md-4 mb-3">
                                     <label for="validationCustom01">SIGLA</label>
-                                    <input type="text" class="form-control form-control-sm" id="validationCustom01">
+                                    <input type="text" class="form-control form-control-sm" id="validationSigla">
 
                                 </div>
 
                                 <div class="col-md-4 mb-3">
                                     <label for="validationCustom01">Código Escritório</label>
-                                    <input type="text" class="form-control form-control-sm" id="validationCustom01">
+                                    <input type="text" class="form-control form-control-sm" id="validationCodigoEscritorio">
 
                                 </div>
 
                                 <div class="col-md-4 mb-3">
                                     <label for="validationCustom01">Nome Escritório</label>
-                                    <input type="text" class="form-control form-control-sm" id="validationCustom01">
+                                    <input type="text" class="form-control form-control-sm" id="validationNomeEscritorio">
 
                                 </div>
 
                                 <div class="col-md-2 mb-3">
                                     <div class="form-group">
                                         <label for="exampleFormControlSelect1">Status Siglas</label>
-                                        <select class="form-control form-control-sm" id="exampleFormControlSelect1">
+                                        <select class="form-control form-control-sm" id="exampleFormControlStatusSiglas">
                                             <option> </option>
 
                                         </select>
@@ -1503,13 +1488,13 @@
 
                                 <div class="col-md-2 mb-3">
                                     <label for="validationCustom01">Data Inativação</label>
-                                    <input type="date" min="1921-01-01" class="form-control form-control-sm" id="validationCustom01">
+                                    <input type="date" min="1921-01-01" class="form-control form-control-sm" id="validationDataInativacao">
 
                                 </div>
 
                                 <div class="col-md-5 mb-3">
                                     <label for="validationCustom01">Motivo Pendência</label>
-                                    <input type="text" class="form-control form-control-sm" id="validationCustom01">
+                                    <input type="text" class="form-control form-control-sm" id="validationMotivoPendencia">
 
                                 </div>
 
@@ -1518,7 +1503,7 @@
 
                                 <div class="col-md-3 mb-3">
                                     <label for="validationCustom01">Sigla Propesct</label>
-                                    <input type="text" class="form-control form-control-sm" id="validationCustom01">
+                                    <input type="text" class="form-control form-control-sm" id="validationSiglaPropesct">
 
                                 </div>
 
@@ -1541,22 +1526,22 @@
 
                                 <div class="col-md-6 mb-3">
                                     <label for="validationCustom01">CPF/CNPJ</label>
-                                    <input type="text" minlength="14" maxlength="18" name='cpfcnpj' onkeypress='mascaraMutuario(this,cpfCnpj)' class="form-control form-control-sm" id="validationCustom01">
+                                    <input type="text" minlength="14" maxlength="18" name='cpfcnpj' onkeypress='mascaraMutuario(this,cpfCnpj)' class="form-control form-control-sm" id="validationCpfCnpf">
 
                                 </div>
 
                                 <div class="col-md-6 mb-3">
                                     <label for="validationCustom01">Parceiro/Promotor</label>
-                                    <input type="text" class="form-control form-control-sm" id="validationCustom01">
+                                    <input type="text" class="form-control form-control-sm" id="validationParceiroPromotor">
 
                                 </div>
 
                                 <div class="col-md-6 mb-3">
                                     <div class="form-group">
                                         <label for="exampleFormControlSelect1">Usa Sigla E?</label>
-                                        <select class="form-control form-control-sm" id="exampleFormControlSelect1">
-                                            <option> SIM </option>
-                                            <option> NÃO </option>
+                                        <select class="form-control form-control-sm" id="exampleFormControlUsaSigla">
+                                            <option value="sim"> SIM </option>
+                                            <option value="nao"> NÃO </option>
 
                                         </select>
                                     </div>
@@ -1567,8 +1552,8 @@
                                     <div class="form-group">
                                         <label for="exampleFormControlSelect1">Usa Sigla I?</label>
                                         <select class="form-control form-control-sm" id="exampleFormControlSelect1">
-                                            <option> SIM </option>
-                                            <option> NÃO </option>
+                                            <option value="sim"> SIM </option>
+                                            <option value="nao"> NÃO </option>
 
                                         </select>
                                     </div>
@@ -1578,7 +1563,7 @@
                                 <div class="col-md-12 mb-3">
                                 <div class="form-group">
                                     <label for="exampleFormControlTextarea1">Observação</label>
-                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                    <textarea class="form-control" id="exampleFormControlObs" rows="3"></textarea>
                                   </div>
                                 </div>
 
@@ -1591,7 +1576,7 @@
                         </form>
 
                         <div class="opcoes-cadastro mt-1" style="text-align: center; margin-inline: block;">
-                            <button type="button" class="btn btn-primary btn-icon-label">
+                            <button type="button" class="btn btn-primary btn-icon-label" id="incluirSilgasE">
                                 <span class="btn-inner--icon">
                                     <i class="fas fa-plus"></i>
                                 </span>
@@ -2241,7 +2226,7 @@
                                             <div class="form-group">
                                                 <label for="exampleFormControlSelect1">Filial</label>
                                                 <select class="form-control form-control-sm"
-                                                    id="exampleFormControlFilial">
+                                                    id="exampleFormControlFilialCadastro">
                                                     <option> </option>
 
                                                 </select>
@@ -2321,7 +2306,7 @@
                                             <span class="btn-inner--icon">
                                                 <i class="fas fa-plus"></i>
                                             </span>
-                                            <span class="btn-inner--text">Incluir</span>
+                                            <span class="btn-inner--text" id="test">Incluir</span>
                                         </button>
 
                                         <button type="button" class="btn btn-primary btn-icon-label">
@@ -2471,6 +2456,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="../assets/js/cadastro.js"></script>
     <!-- <script src="../assets/js/cadastropesquisar.js"></script> -->
+    <script src="../assets/js/incluirComissao.js"></script>
+    <script src="../assets/js/incluirSiglaE.js"></script>
 
 </body>
 
