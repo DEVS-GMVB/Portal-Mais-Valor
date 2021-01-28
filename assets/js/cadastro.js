@@ -55,8 +55,6 @@ colocar.addEventListener('click', () => {
     while (node.hasChildNodes()) {
       node.removeChild(node.lastChild);
     }
-
-
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
   
