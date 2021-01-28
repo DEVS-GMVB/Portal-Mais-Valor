@@ -174,7 +174,11 @@ colocar.addEventListener('click', () => {
                 alteraVisualiza.innerHTML = ` <div class="actions ml-3" style="text-align: center;">
             <a "id=buttonalterar" href="#" class="action-item mr-2" data-nome="marcos" data-toggle="modal"
                 data-target=".modalteladecadastro" title="Alterar">
+<<<<<<< HEAD
                 <i id = "${cont}" class="fas fa-external-link-alt" onclick="editar(array[${cont}].cnpj)"></i>
+=======
+                <i id = "${cont}" class="fas fa-external-link-alt" onclick="editar(this,array[${cont}])"></i>
+>>>>>>> f23c2de8631e5deab109bab5bc37221cab268bfc
             </a>
             <a href="#" class="action-item mr-2" data-toggle="modal"
                 data-target=".modalteladecadastro" data-id="oi" title="Visualizar">
@@ -195,6 +199,7 @@ colocar.addEventListener('click', () => {
 
 function editar(v) {
     console.log(v);
+<<<<<<< HEAD
     // $("#exampleFormFilial").val(globalResult.filial)
     // $("#cep").val(globalResult.cep);
     // $("#funcionario").val(globalResult.parceiro);
@@ -285,4 +290,53 @@ function editar(v) {
     // $("#id-grj-supervisor").val(globalResult.prefeitura_rio_sup);
     // $("#id-grj-gerente").val(globalResult.prefeitura_rio_ger);
     // $("#id-grj-quaternario").val(globalResult.prefeitura_rio_quat)
+=======
+    $("#exampleFormFilial").val(globalResult.filial)
+    $("#cep").val(globalResult.cep);
+    $("#funcionario").val(globalResult.parceiro);
+    $("#validationCpf").val(globalResult.cpf);
+    $("#validationNomeCompleto").val(globalResult.nome_completo);
+    $("#exampleFormControlStatus").val(globalResult.status);
+    $("#validationMae").val(globalResult.nome_mae);
+    $("#validationNCT").val(globalResult.carteira);
+    $("#validationSerieCarteira").val(globalResult.serie_carteira);
+    $("#validationUF").val(globalResult.uf_carteira);
+    $("#validationPis").val(globalResult.pis);
+    $("#validationNumeroContrato").val(globalResult.numero_contrato);
+    $("#validationTelefone").val(globalResult.telefone);
+    $("#email").val(globalResult.email);
+    $("#validationLogradouro").val(globalResult.logradouro);
+    $("#validationNL").val(globalResult.numero_l);
+    $("#validationComplemento").val(globalResult.complemento);
+    $("#validationBairro").val(globalResult.bairro);
+    $("#validationCidade").val(globalResult.cidade);
+    $("#validationEstado").val(globalResult.estado);
+    $("#validationOD").val(globalResult.orgao_emissao);
+    $("#validationTipoFuncionario").val(globalResult.tipo_func);
+    $("#validationPrimeiraE").val(globalResult.experiencia1);
+    $("#validationSegundaE").val(globalResult.experiencia2);
+    // console.log(globalResult.data_admissao)
+    $("#validationDA").val(globalResult.data_admissao);
+    $("#validationDE").val(globalResult.data);
+    $("#validationNasc").val(globalResult.data_nascimento)
+
+    //Formas de Pagamento
+
+    $("#id-fp-banco").val(globalResult.cpf);
+    $("#id-fp-bancoN").val(globalResult.banco);
+    $("#id-fp-agencia").val(globalResult.agencia);
+    $("#id-fp-conta").val(globalResult.conta);
+    $("#id-fp-numcartao").val(globalResult.numero_cartao);
+
+    //Gestores
+    $("#exampleFormControlSuperintendente").val(globalResult.superintendente);
+    $("#validationMatricula").val(globalResult.matricula);
+    $("#validationCodigo").val(globalResult.codigo)
+
+    //Parceiro;
+    $("#id-p-respempresa").val(globalResult.repre);
+    $("#id-p-cppfempresa").val(globalResult.cpf_repre);
+    $("#id-p-certificacao").val(globalResult.certificacao);
+
+>>>>>>> f23c2de8631e5deab109bab5bc37221cab268bfc
 }
