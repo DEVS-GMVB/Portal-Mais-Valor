@@ -163,13 +163,20 @@ colocar.addEventListener('click', () => {
                 
                 cont++;
 
+<<<<<<< HEAD
                 alteraVisualiza.innerHTML = ` <div class="actions ml-3" style="text-align: center;">
             <a "id=buttonalterar" href="#" class="action-item mr-2" data-nome="marcos" data-toggle="modal"
                 data-target=".modalteladecadastro" title="Alterar">
                 <i id = "${cont}" class="fas fa-external-link-alt" onclick="editar(this,array[${cont}])"></i>
+=======
+            alteraVisualiza.innerHTML=` <div class="actions ml-3" style="text-align: center;">
+            <a "id=buttonalterar" href="#" class="action-item mr-2" data-bs-whatever="marcos" data-toggle="modal"
+                data-target=".modalteladecadastro" title="Alterar">
+                <i id = "buttonalterar" class="fas fa-external-link-alt" onclick="editar(${value})"></i>
+>>>>>>> 47290d1f5836a626b59d12a20058d9f6f2f0f161
             </a>
             <a href="#" class="action-item mr-2" data-toggle="modal"
-                data-target=".modalteladecadastro" data-name="oi" title="Visualizar">
+                data-target=".modalteladecadastro" data-id="oi" title="Visualizar">
                 <i class="fas fa-eye"></i>
             </a>
         </div>`;
@@ -183,6 +190,7 @@ colocar.addEventListener('click', () => {
 
 })
 
+<<<<<<< HEAD
 
 
 function editar(v,globalResult) {
@@ -234,4 +242,21 @@ function editar(v,globalResult) {
     $("#id-p-cppfempresa").val(globalResult.cpf_repre);
     $("#id-p-certificacao").val(globalResult.certificacao);
 
+=======
+function editar(e){
+
+    var linha = $(e).closest("tr");
+    var filial = linha.find("td:eq(0)").text().trim(); // texto da primeira coluna
+    var func  = linha.find("td:eq(1)").text().trim(); // texto da segunda coluna
+    var cnpj = linha.find("td:eq(2)").text().trim(); // texto da terceira coluna
+    var status   = linha.find("td:eq(3)").text().trim(); // texto da quarta coluna
+    var data_admissaoo = linha.find("td:eq(6)").text().trim();
+    $("#exampleFormFilial").val(filial);
+    $("#funcionario").val(func);
+    $("#validationCpf").val(cnpj);
+    $("#exampleFormControlStatus").val(status);
+    // date = new SimpleDateFormat("YYYY-MM-DD").parse("08/12/2017");
+    //$("#validationDA").value(data_admissaoo);
+ 
+>>>>>>> 47290d1f5836a626b59d12a20058d9f6f2f0f161
 }

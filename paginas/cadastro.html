@@ -9,15 +9,15 @@
 <meta name="author" content="Webpixels">
 <title>Cadastro - Portal Mais Valor</title>
 <!-- Favicon -->
-<link rel="icon" href="../assets/img/brand/favicon.png" type="image/png">
-<!-- Font Awesome 5 -->
-<link rel="stylesheet" href="../assets/libs/@fortawesome/fontawesome-free/css/all.min.css">
-<!-- Page CSS -->
-<link rel="stylesheet" href="../assets/libs/fullcalendar/dist/fullcalendar.min.css">
-<!-- Purpose CSS -->
-<link rel="stylesheet" href="../assets/css/purpose.css" id="stylesheet">
-<!-- CSS Personalizado -->
-<link rel="stylesheet" href="../assets/css/personalizado.css" id="stylesheet">
+    <link rel="icon" href="../assets/img/brand/favicon.png" type="image/png">
+    <!-- Font Awesome 5 -->
+    <link rel="stylesheet" href="../assets/libs/@fortawesome/fontawesome-free/css/all.min.css">
+    <!-- Page CSS -->
+    <link rel="stylesheet" href="../assets/libs/fullcalendar/dist/fullcalendar.min.css">
+    <!-- Purpose CSS -->
+    <link rel="stylesheet" href="../assets/css/purpose.css" id="stylesheet">
+    <!-- CSS Personalizado -->
+    <link rel="stylesheet" href="../assets/css/personalizado.css" id="stylesheet">
 
 </head>
 
@@ -43,7 +43,7 @@
 <!-----MODAL DA TELA CADASTRO/COMISSÃO/ACESSOS-->
 
 
-<div class="modal fade modalteladecadastro" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel"
+<div class="modal fade modalteladecadastro" id="modalCadastro" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel"
     aria-hidden="true">
     <div class="modal-dialog modal-xl">
         <div class="modal-content">
@@ -66,11 +66,6 @@
                             aria-controls="comissao" aria-selected="false">Comissão</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" id="acesso-tab" data-toggle="tab" href="#acesso" role="tab"
-                            aria-controls="acesso" aria-selected="false">Acesso</a>
-                    </li>
-
-                    <li class="nav-item">
                         <a class="nav-link" id="chavej-tab" data-toggle="tab" href="#chavej" role="tab"
                             aria-controls="chavej" aria-selected="false">Chave J</a>
                     </li>
@@ -79,29 +74,31 @@
                         <a class="nav-link" id="siglae-tab" data-toggle="tab" href="#siglae" role="tab"
                             aria-controls="siglae" aria-selected="false">Sigla E</a>
                     </li>
-
+                    <li class="nav-item">
+                        <a class="nav-link" id="acesso-tab" data-toggle="tab" href="#acesso" role="tab"
+                            aria-controls="acesso" aria-selected="false">Acesso</a>
+                    </li>
                 </ul>
                 <div class="tab-content" id="myTabContent">
-
                     <div class="tab-pane fade show active" id="cadastro" role="tabpanel" aria-labelledby="cadastro-tab">
-
                         <div class="bg-titulo mt-4">
-
                             <h3>Dados Cadastrais</h3>
 
                         </div>
 
                         <form class="needs-validation" novalidate>
-
-
-
                             <div class="form-row mt-4">
-
                                 <div class="col-md-2 mb-3">
                                     <div class="form-group">
                                         <label for="exampleFormControlSelect1">Filial</label>
+<<<<<<< HEAD
                                         <select class="form-control form-control-sm" id="exampleFormFilial" required>
                                                 <option value=""></option>
+=======
+                                        <select class="form-control form-control-sm" id="exampleFormControlSelect1" required>
+                                            <option> </option>
+
+>>>>>>> 47290d1f5836a626b59d12a20058d9f6f2f0f161
                                         </select>
                                     </div>
 
@@ -133,6 +130,7 @@
                                 <div class="col-md-4 mb-3">
                                     <div class="form-group">
                                         <label for="exampleFormControlSelect1">Status</label>
+<<<<<<< HEAD
                                         <select class="form-control form-control-sm" id="exampleFormControlStatus" required>
                                             <option> </option>
                                             <option value="TODOS">TODOS</option>
@@ -140,6 +138,11 @@
                                             <option value="ATIVO">ATIVO</option>
                                             <option value="INATIVO">INATIVO</option>
                                             <option value="BLOQUEADO">BLOQUEADO</option>
+=======
+                                        <select class="form-control form-control-sm" id="exampleFormControlSelect1" required>
+                                            <option> </option>
+
+>>>>>>> 47290d1f5836a626b59d12a20058d9f6f2f0f161
                                         </select>
                                     </div>
 
@@ -147,7 +150,11 @@
 
                                 <div class="col-md-3 mb-3">
                                     <label for="validationCustom01">Data Admissão</label>
+<<<<<<< HEAD
                                     <input type="text" min="1921-01-01" class="form-control form-control-sm" id="validationDA" onKeyDown="fMasc( this, data );" maxlength="10" required >
+=======
+                                    <input type="date" min="1921-01-01" class="form-control form-control-sm" id="validationCustom01" required>
+>>>>>>> 47290d1f5836a626b59d12a20058d9f6f2f0f161
 
                                 </div>
 
@@ -159,10 +166,6 @@
                             </div>
 
                             <div class="form-row mt-0">
-
-
-
-
                                 <div class="col-md-6 mb-3">
                                     <div class="form-group">
                                         <label for="exampleFormControlSelect1">Motivo Cancelamento</label>
@@ -186,12 +189,7 @@
 
                                 </div>
                             </div>
-
-
                             <div class="form-row mt-0">
-
-
-
                                 <div class="col-md-2 mb-3">
                                     <label for="validationCustom01">Data de Nascimento</label>
                                     <input type="text" min="1921-01-01" class="form-control form-control-sm" id="validationNasc" onKeyDown="fMasc( this, data );" maxlength="10" required>
@@ -200,7 +198,7 @@
 
                                 <div class="col-md-4 mb-3">
                                     <label for="validationCustom01">CPF / CNPJ</label>
-                                    <input type="text" minlength="14" maxlength="18" name='cpfcnpj' onkeypress='mascaraMutuario(this,cpfCnpj)' class="form-control form-control-sm" id="validationCpf" required>
+                                    <input type="text" minlength="14" maxlength="18" name='cpfcnpj' onkeypress='mascaraMutuario(this,cpfCnpj)' class="form-control form-control-sm" id="validationCustom01" required>
 
                                 </div>
 
@@ -553,17 +551,24 @@
 
                                 </div>
 
-
-
-
-
-
+                                <div class="col-md-2 mb-3">
+                                    <label for="validationCustom01">Empresa Registro</label>
+                                    <select class="form-control form-control-sm" id="validationCustom01" required>
+                                        <option value=""></option>
+                                        <option value="GMVB">GMVB</option>    
+                                        <option value="ACNJ">ACNJ</option>
+                                        <option value="SMK">SMK</option>   
+                                        <option value="DAJFP">DAJFP</option>   
+                                        <option value="AJS">AJS</option>    
+                                        <option value="SMM">SMM</option>    
+                                        <option value="UCGG">UCGG</option>    
+                                        <option value="SPBF">SPBF</option>
+                                        <option value="AOF">AOF</option>   
+                                        <option value="AR MORON">AR MORON</option>   
+                                    </select>
+                                </div>
                             </div>
-
                         </form>
-
-
-
                         <div class="bg-titulo mt-0">
 
                             <h3>Parceiro</h3>
@@ -571,13 +576,7 @@
                         </div>
 
                         <form class="needs-validation" novalidate>
-
-
-
-                            <div class="form-row mt-4">
-
-
-
+                          <div class="form-row mt-4">
                                 <div class="col-md-6 mb-3">
                                     <label for="validationCustom01">Representante Empresa</label>
                                     <input type="text" class="form-control form-control-sm" id="id-p-respempresa" required>
@@ -611,10 +610,8 @@
                                 <div class="col-md-3 mb-3">
                                     <div class="form-group">
                                         <label for="exampleFormControlSelect1">Tipo Certificação</label>
-                                        <select class="form-control form-control-sm" id="id-p-tipocerti" required>
-                                            <option> </option>
-
-                                        </select>
+                                        <input type="text" class="form-control form-control-sm" id="id-frePag" required>
+                                        
                                     </div>
 
                                 </div>
@@ -1414,7 +1411,8 @@
 
                                 <div class="col-md-4 mb-3">
                                     <div class="form-group">
-                                        <label for="exampleFormControlSelect1">Tipo Chave</label>
+                                       
+                                        <label for="validationCustom01">Motivo Cancelamento</label>
                                         <select class="form-control form-control-sm" id="exampleFormControlSelect1">
                                             <option> </option>
 
@@ -1422,13 +1420,9 @@
                                     </div>
 
                                 </div>
-
-
-
                                 <div class="col-md-8 mb-3">
-                                    <label for="validationCustom01">Motivo Cancelamento</label>
+                                    <label for="exampleFormControlSelect1">Tipo Chave</label>
                                     <input type="text" class="form-control form-control-sm" id="validationCustom01">
-
                                 </div>
 
                                 <div class="col-md-4 mb-3">
