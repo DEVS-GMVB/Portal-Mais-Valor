@@ -1,10 +1,7 @@
 // VARS
 let filial = document.getElementById('exampleFormControlFilial');
 let gerente = document.getElementById('exampleFormControlSelectGerente');
-<<<<<<< HEAD
 let filialCadastro = document.getElementById('exampleFormControlFilialCadastro');
-=======
->>>>>>> 8e55118e3b54281fed22011d6da5d1fc4ffbf202
 let supervisor = document.getElementById('exampleFormControlSupervisor');
 let mes = document.getElementById('exampleFormControlMes');
 let mesDemissao = document.getElementById('exampleFormControlMesDemissao');
@@ -18,11 +15,7 @@ var teste;
 
 window.onload = function () {
 
-<<<<<<< HEAD
 // ------------------------------
-=======
-
->>>>>>> 8e55118e3b54281fed22011d6da5d1fc4ffbf202
 const prosseguir = document.getElementById('prosseguirBtn');
 prosseguir.addEventListener('click', () => {
     var myHeaders = new Headers();
@@ -340,11 +333,7 @@ colocar.addEventListener('click', () => {
 
 function editar(v) {
     console.log(v);
-<<<<<<< HEAD
     // $("#exampleFormFilial").val(globalResult.filial);
-=======
-    // $("#exampleFormFilial").val(globalResult.filial)
->>>>>>> 8e55118e3b54281fed22011d6da5d1fc4ffbf202
     // $("#cep").val(globalResult.cep);
     // $("#funcionario").val(globalResult.parceiro);
     // $("#validationCpfCadastro").val(globalResult.cnpj);
@@ -433,9 +422,5 @@ function editar(v) {
     // $("#id-grj-parcpromo").val(globalResult.prefeitura_rio);
     // $("#id-grj-supervisor").val(globalResult.prefeitura_rio_sup);
     // $("#id-grj-gerente").val(globalResult.prefeitura_rio_ger);
-<<<<<<< HEAD
     // $("#id-grj-quaternario").val(globalResult.prefeitura_rio_quat);
-=======
-    // $("#id-grj-quaternario").val(globalResult.prefeitura_rio_quat)
->>>>>>> 8e55118e3b54281fed22011d6da5d1fc4ffbf202
 }
