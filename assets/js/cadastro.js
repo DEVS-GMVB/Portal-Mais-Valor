@@ -1,12 +1,11 @@
 // VARS
-let filial = document.getElementById('exampleFormControlFilial');
+let fi = document.getElementById('exampleFormControlFilial');
 let gerente = document.getElementById('exampleFormControlSelectGerente');
 let filialCadastro = document.getElementById('exampleFormControlFilialCadastro');
 let supervisor = document.getElementById('exampleFormControlSupervisor');
 let mes = document.getElementById('exampleFormControlMes');
 let mesDemissao = document.getElementById('exampleFormControlMesDemissao');
 let Tbody = document.getElementById('list');
-let fi = document.getElementById('exampleFormFilial');
 let supervisorBB = document.getElementById('exampleFormControlSupervisorBB');
 let gerenteBB = document.getElementById('exampleFormControlGerenteBB');
 var cont = -1;
@@ -21,7 +20,7 @@ prosseguir.addEventListener('click', () => {
     var myHeaders = new Headers();
 
     myHeaders.append("Content-Type", "application/json").value;
-    let filialcad = document.getElementById('exampleFormFilial').value;
+    let filialcad = document.getElementById('exampleFormControlFilialCadastro').value;
     let funcionarioo = document.getElementById('funcionario').value;
     let nomeComp = document.getElementById('validationNomeCompleto').value;
     let tipoFunc = document.getElementById('validationTipoFuncionario').value;
@@ -312,7 +311,7 @@ colocar.addEventListener('click', () => {
                 alteraVisualiza.innerHTML = ` <div class="actions ml-3" style="text-align: center;">
             <a "id=buttonalterar" href="#" class="action-item mr-2" data-nome="marcos" data-toggle="modal"
                 data-target=".modalteladecadastro" title="Alterar">
-                <i id = "${cont}" class="fas fa-external-link-alt" onclick="editar(array[${cont}].cnpj)"></i>
+                <i id = "${cont}" class="fas fa-external-link-alt" onclick="editar(array[${cont}].cpf)"></i>
             </a>
             <a href="#" class="action-item mr-2" data-toggle="modal"
                 data-target=".modalteladecadastro" data-id="oi" title="Visualizar">
@@ -331,96 +330,130 @@ colocar.addEventListener('click', () => {
 
 
 
-function editar(v) {
-    console.log(v);
-    // $("#exampleFormFilial").val(globalResult.filial);
-    // $("#cep").val(globalResult.cep);
-    // $("#funcionario").val(globalResult.parceiro);
-    // $("#validationCpfCadastro").val(globalResult.cnpj);
-    // $("#validationNomeCompleto").val(globalResult.nome_completo);
-    // $("#exampleFormControlStatus").val(globalResult.status);
-    // $("#validationMae").val(globalResult.nome_mae);
-    // $("#validationNCT").val(globalResult.carteira);
-    // $("#validationSerieCarteira").val(globalResult.serie_carteira);
-    // $("#validationUF").val(globalResult.uf_carteira);
-    // $("#validationPiss").val(globalResult.pis);
-    // $("#validationNumeroContrato").val(globalResult.numero_contrato);
-    // $("#validationTelefone").val(globalResult.telefone);
-    // $("#email").val(globalResult.email);
-    // $("#validationLogradouro").val(globalResult.logradouro);
-    // $("#validationNL").val(globalResult.numero_l);
-    // $("#validationComplemento").val(globalResult.complemento);
-    // $("#validationBairro").val(globalResult.bairro);
-    // $("#validationCidade").val(globalResult.cidade);
-    // $("#validationEstado").val(globalResult.estado);
-    // $("#validationOD").val(globalResult.orgao_emissao);
-    // $("#validationTipoFuncionario").val(globalResult.tipo_func);
-    // $("#validationPrimeiraE").val(globalResult.experiencia1);
-    // $("#validationSegundaE").val(globalResult.experiencia2);
-    // $("#validationDA").val(globalResult.data_admissao);
-    // $("#validationDE").val(globalResult.data);
-    // $("#validationNasc").val(globalResult.data_nascimento)
-    // $("#validationEstado").val(globalResult.naturalidade)
-    // $("#exampleFormControlMotivoCancelamento").val(globalResult.motivo_cancelamento);
-    // $("#exampleFormControlTipoDocumento").val(globalResult.tipo_documento);
-    // $("#validationCustomDataDocumento").val(globalResult.data_rg);
-    // $("#id-fp-favorecido").val(globalResult.favorecido)
-    // $("#id-fp-tipopagamento").val(globalResult.tipo_pagamento);
-    
+function editar(cpf) {
+    // console.log(cpf);
 
-    // //Formas de Pagamento
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
 
-    // $("#id-fp-banco").val(globalResult.cpf);
-    // $("#id-fp-bancoN").val(globalResult.banco);
-    // $("#id-fp-agencia").val(globalResult.agencia);
-    // $("#id-fp-conta").val(globalResult.conta);
-    // $("#id-fp-numcartao").val(globalResult.numero_cartao);
+    var raw = JSON.stringify({
+        cpf: "201.807.301-00"
+    })
 
-    // //Gestores
-    // $("#exampleFormControlSuperintendente").val(globalResult.superintendente);
-    // $("#validationMatricula").val(globalResult.matricula);
-    // $("#validationCodigo").val(globalResult.codigo);
-    // $("#validationER").val(globalResult.filial);
-    // $("#exampleFormControlSupervisorBB").val(globalResult.supervisor);
-    // $("#exampleFormControlGerenteBB").val(globalResult.gerente);
+    var requestOptions = {
+        method: 'POST',
+        headers: myHeaders,
+        body: raw,
+        redirect: 'follow'
+    }
 
-    // //Parceiro;
-    // $("#id-p-respempresa").val(globalResult.repre);
-    // $("#id-p-cppfempresa").val(globalResult.cpf_repre);
-    // $("#id-p-certificacao").val(globalResult.certificacao);
+    fetch("http://172.16.0.197:3000/user/cadastro/modal", requestOptions)
+    .then(response => response.json())
+    .then(function(data){
+        // console.log(data);
+        $("#exampleFormControlFilialCadastro").val(data.dados_cadastro.filial);
+        $("#cep").val(data.dados_cadastro.cep);
+        $("#funcionario").val(data.dados_cadastro.parceiro);
+        $("#validationCpfCadastro").val(data.dados_cadastro.cnpj);
+        $("#validationNomeCompleto").val(data.dados_cadastro.nome_completo);
+        $("#exampleFormControlStatus").val(data.dados_cadastro.status);
+        $("#validationMae").val(data.dados_cadastro.nome_mae);
+        $("#validationNCT").val(data.dados_cadastro.carteira);
+        $("#validationSerieCarteira").val(data.dados_cadastro.serie_carteira);
+        $("#validationUF").val(data.dados_cadastro.uf_carteira);
+        $("#validationPis").val(data.dados_cadastro.pis);
+        $("#validationNumeroContrato").val(data.dados_cadastro.numero_contrato);
+        $("#validationTelefone").val(data.dados_cadastro.telefone);
+        $("#email").val(data.dados_cadastro.email);
+        $("#validationLogradouro").val(data.dados_cadastro.logradouro);
+        $("#validationNL").val(data.dados_cadastro.numero_l);
+        $("#validationComplemento").val(data.dados_cadastro.complemento);
+        $("#validationBairro").val(data.dados_cadastro.bairro);
+        $("#validationCidade").val(data.dados_cadastro.cidade);
+        $("#validationEstado").val(data.dados_cadastro.estado);
+        $("#validationOD").val(data.dados_cadastro.orgao_emissao);
+        $("#validationTipoFuncionario").val(data.dados_cadastro.tipo_func);
+        $("#validationPrimeiraE").val(data.dados_cadastro.experiencia1);
+        $("#validationSegundaE").val(data.dados_cadastro.experiencia2);
+        $("#validationDA").val(data.dados_cadastro.data_admissao);
+        $("#validationDE").val(data.dados_cadastro.data);
+        $("#validationNasc").val(data.dados_cadastro.data_nascimento)
+        $("#validationEstado").val(data.dados_cadastro.naturalidade)
+        $("#exampleFormControlMotivoCancelamento").val(data.dados_cadastro.motivo_cancelamento);
+        $("#exampleFormControlTipoDocumento").val(data.dados_cadastro.tipo_documento);
+        $("#validationCustomDataDocumento").val(data.dados_cadastro.data_rg);
+        $("#id-fp-favorecido").val(data.dados_cadastro.favorecido)
+        $("#id-fp-tipopagamento").val(data.dados_cadastro.tipo_pagamento);
+        
+
+        //Formas de Pagamento
+
+        $("#id-fp-banco").val(data.dados_cadastro.cpf);
+        $("#id-fp-bancoN").val(data.dados_cadastro.banco);
+        $("#id-fp-agencia").val(data.dados_cadastro.agencia);
+        $("#id-fp-conta").val(data.dados_cadastro.conta);
+        $("#id-fp-numcartao").val(data.dados_cadastro.numero_cartao);
+        $("#id-fp-cpfFav").val(data.dados_cadastro.cpf)
+
+        //Gestores
+        $("#exampleFormControlSuperintendente").val(data.dados_cadastro.superintendente);
+        $("#validationMatricula").val(data.dados_cadastro.matricula);
+        $("#validationCodigo").val(data.dados_cadastro.codigo);
+        $("#validationER").val(data.dados_cadastro.filial);
+        $("#exampleFormControlSupervisorBB").val(data.dados_cadastro.supervisor);
+        $("#exampleFormControlGerenteBB").val(data.dados_cadastro.gerente);
+
+        //Parceiro;
+        $("#id-p-repempresa").val(data.dados_cadastro.repre);
+        $("#cpfcnpj").val(data.dados_cadastro.cpf_repre);
+        $("#id-p-certificacao").val(data.dados_cadastro.certificacao);
 
 
-    // // Comissão
-    // $("#idPorcComissao").val(globalResult.comissao);
-    // $("#idSecundario").val(globalResult.secundario);
-    // $("#idPorcSecundario").val(globalResult.pct_secundario);
-    // $("#idTerceario").val(globalResult.terceario);
-    // $("#idPorcTerceario").val(globalResult.pct_terceario);
-    // $("#idQuartenario").val(globalResult.quaternario);
-    // $("#idPorcQuaternario").val(globalResult.pct_quaternario);
+        // Comissão
+        $("#idPorcComissao").val(data.dados_cadastro.comissao);
+        $("#idSecundario").val(data.dados_cadastro.secundario);
+        $("#idPorcSecundario").val(data.dados_cadastro.pct_secundario);
+        $("#idTerceario").val(data.dados_cadastro.terceario);
+        $("#idPorcTerceario").val(data.dados_cadastro.pct_terceario);
+        $("#idQuartenario").val(data.dados_cadastro.quaternario);
+        $("#idPorcQuaternario").val(data.dados_cadastro.pct_quaternario);
 
-    // //Dados Comissão - Santander % Comissão Novo Refin / Portabilidade
-    // $("#idParceiroPromotor").val(globalResult.comissao_novo);
-    // $("#id-porc-supervisor").val(globalResult.comissao_novo_sup);
-    // $("#id-porc-gerente").val(globalResult.comissao_novo_ger);
-    // $("#id-porc-quaternario").val(globalResult.comissao_novo_quat);
-    // $("#id-quaternario").val(globalResult.qua_sant2)
+        //Dados Comissão - Santander % Comissão Novo Refin / Portabilidade
+        $("#idParceiroPromotor").val(data.dados_cadastro.comissao_novo);
+        $("#id-porc-supervisor").val(data.dados_cadastro.comissao_novo_sup);
+        $("#id-porc-gerente").val(data.dados_cadastro.comissao_novo_ger);
+        $("#id-porc-quaternario").val(data.dados_cadastro.comissao_novo_quat);
+        $("#id-quaternario").val(data.dados_cadastro.qua_sant2)
 
-    // //% Convênios Especiais
-    // $("#id-ce-parceiro-promotor").val(globalResult.comissao_inss);
-    // $("#id-ce-supervisor").val(globalResult.comissao_inss_sup);
-    // $("#id-ce-gerente").val(globalResult.comissao_inss_ger);
-    // $("#id-ce-quaternario").val(globalResult.comissao_inss_quat);
+        //% Convênios Especiais
+        $("#id-ce-parceiro-promotor").val(data.dados_cadastro.comissao_inss);
+        $("#id-ce-supervisor").val(data.dados_cadastro.comissao_inss_sup);
+        $("#id-ce-gerente").val(data.dados_cadastro.comissao_inss_ger);
+        $("#id-ce-quaternario").val(data.dados_cadastro.comissao_inss_quat);
 
-    // ////Grupo Minas Gerais
-    // $("#id-gmg-parcpromo").val(globalResult.governo_minas);
-    // $("#id-gmg-supervisor").val(globalResult.governo_minas_sup)
-    // $("#id-gmg-gerente").val(globalResult.governo_minas_ger);
-    // $("#id-gmg-quaternario").val(globalResult.governo_minas_quat)
-    
-    // //% Grupo Rio de Janeiro
-    // $("#id-grj-parcpromo").val(globalResult.prefeitura_rio);
-    // $("#id-grj-supervisor").val(globalResult.prefeitura_rio_sup);
-    // $("#id-grj-gerente").val(globalResult.prefeitura_rio_ger);
-    // $("#id-grj-quaternario").val(globalResult.prefeitura_rio_quat);
+        ////Grupo Minas Gerais
+        $("#id-gmg-parcpromo").val(data.dados_cadastro.governo_minas);
+        $("#id-gmg-supervisor").val(data.dados_cadastro.governo_minas_sup)
+        $("#id-gmg-gerente").val(data.dados_cadastro.governo_minas_ger);
+        $("#id-gmg-quaternario").val(data.dados_cadastro.governo_minas_quat)
+        
+        //% Grupo Rio de Janeiro
+        $("#id-grj-parcpromo").val(data.dados_cadastro.prefeitura_rio);
+        $("#id-grj-supervisor").val(data.dados_cadastro.prefeitura_rio_sup);
+        $("#id-grj-gerente").val(data.dados_cadastro.prefeitura_rio_ger);
+        $("#id-grj-quaternario").val(data.dados_cadastro.prefeitura_rio_quat);
+
+
+        //CHAVE J
+        $("#validationChaveJ").val(data.dados_chave.chave);
+        $("#StatusChavej").val(data.dados_chave.status);
+        $("#chavejEmpresa").val(data.dados_chave.empresa);
+        // $("#")
+
+        //SILGLA E
+        $("#validationSigla").val(data.dados_sigla.sigla)
+
+        })
+        .catch(error => console.log('error', error))
+
 }

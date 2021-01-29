@@ -92,7 +92,7 @@
                                     <div class="form-group">
                                         <label for="exampleFormControlSelect1">Filial</label>
 
-                                            <select class="form-control form-control-sm" id="exampleFormControlSelect1Filial"
+                                            <select class="form-control form-control-sm" id="exampleFormControlFilialCadastro"
                                                 required>
                                                 <option value=""></option>
                                             </select>
@@ -286,7 +286,7 @@
 
                                 <div class="col-md-3 mb-3">
                                     <label for="validationCustom01">Telefone</label>
-                                    <input type="text" maxlength="14" name="telefone" id="telefone"
+                                    <input type="text" maxlength="14" name="telefone"
                                         onKeyDown="fMasc( this, mTelefone );" class="form-control form-control-sm"
                                         id="validationTelefone" required>
 
@@ -615,7 +615,7 @@
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <label for="validationCustom01">CPF Empresa</label>
-                                    <input type="text" class="form-control form-control-sm" id="id-p-cpfempresa"
+                                    <input type="text" class="form-control form-control-sm"
                                         onkeypress='mascaraMutuario(this,cpfCnpj)' class="form-control form-control-sm"
                                         id="cpfcnpj" minlength="14" maxlength="18" required>
 
@@ -1432,7 +1432,7 @@
                                 <div class="col-md-3 mb-3">
                                     <div class="form-group">
                                         <label for="validationCustom01"> Chave J</label>
-                                        <input type="text" class="form-control form-control-sm" id="validationCustom01">
+                                        <input type="text" class="form-control form-control-sm" id="validationChaveJ">
                                     </div>
 
                                 </div>
@@ -1442,6 +1442,11 @@
                                         <label for="exampleFormControlSelect1">Status da Chave</label>
                                         <select class="form-control form-control-sm" id="StatusChavej">
                                             <option> </option>
+                                            <option value="Todos">TODOS</option>
+                                            <option value="Aguardando aprovação dp">AGUARDANDO APROVAÇÃO DP</option>
+                                            <option value="Ativo">ATIVO</option>
+                                            <option value="Inativo">INATIVO</option>
+                                            <option value="Bloqueado">BLOQUEADO</option>
 
                                         </select>
                                     </div>
@@ -2335,7 +2340,7 @@
                                             <div class="form-group">
                                                 <label for="exampleFormControlSelect1">Filial</label>
                                                 <select class="form-control form-control-sm"
-                                                    id="exampleFormControlFilialCadastro">
+                                                    id="exampleFormControlFilial">
                                                     <option> </option>
 
                                                 </select>
@@ -2568,6 +2573,7 @@
     <!-- <script src="../assets/js/cadastropesquisar.js"></script> -->
     <script src="../assets/js/incluirComissao.js"></script>
     <script src="../assets/js/incluirSiglaE.js"></script>
+    <script src="../assets/js/acesso.js"></script>
 
 </body>
 
