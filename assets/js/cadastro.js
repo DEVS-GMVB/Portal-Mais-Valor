@@ -1,11 +1,7 @@
 // VARS
-<<<<<<< HEAD
 let filial = document.getElementById('exampleFormControlFilial');
 let gerente = document.getElementById('exampleFormControlSelectGerente');
-=======
-let gerente = document.getElementById('exampleFormControlSelectGerente');
 let filialCadastro = document.getElementById('exampleFormControlFilialCadastro');
->>>>>>> f5a29ce402dda4e5be1ef6b9c5fbe0db88545a96
 let supervisor = document.getElementById('exampleFormControlSupervisor');
 let mes = document.getElementById('exampleFormControlMes');
 let mesDemissao = document.getElementById('exampleFormControlMesDemissao');
@@ -25,55 +21,55 @@ prosseguir.addEventListener('click', () => {
     var myHeaders = new Headers();
 
     myHeaders.append("Content-Type", "application/json").value;
-    let filialcad = document.getElementById('exampleFormControlSelect1Filial').value;
+    let filialcad = document.getElementById('exampleFormFilial').value;
     let funcionarioo = document.getElementById('funcionario').value;
-    let nomeComp = document.getElementById('validationCustom01NomeComp').value;
-    let tipoFunc = document.getElementById('validationCustom01TipoFunc').value;
-    let status = document.getElementById('exampleFormControlSelectStatus').value;
-    let dtAdmissao = document.getElementById('validationCustom01DtAdmissao').value;
-    let dtDemissao = document.getElementById('validationCustom01DtDemissao').value;
-    let motCancel = document.getElementById('exampleFormControlSelect1MotCancel').value;
-    let primExperi = document.getElementById('validationCustom0PrimExperi').value;
-    let segExperi = document.getElementById('validationCustom01SegExperi').value;
-    let dtNasci = document.getElementById('validationCustom0DtNasci').value;
-    let cpfcnpj = document.getElementById('validationCustomCPFCNPJ').value;
-    let tipoDoc = document.getElementById('exampleFormControlSelectTipoDoc').value;
-    let dtDoc = document.getElementById('validationCustomDtDoc').value;
-    let orgDoc = document.getElementById('validationCustomOrgDoc').value;
-    let NmMae = document.getElementById('validationCustomNmMae').value;
-    let nCartTrab = document.getElementById('validationCustomNCarTrab').value;
-    let seCartTrab = document.getElementById('validationCustomSeCartTrab').value;
-    let uf = document.getElementById('validationCustom01Uf').value;
-    let pis = document.getElementById('validationCustom01Pis').value;
-    let nContrato = document.getElementById('validationCustomNContrato').value;
+    let nomeComp = document.getElementById('validationNomeCompleto').value;
+    let tipoFunc = document.getElementById('validationTipoFuncionario').value;
+    let status = document.getElementById('exampleFormControlStatus').value;
+    let dtAdmissao = document.getElementById('validationDA').value;
+    let dtDemissao = document.getElementById('validationDE').value;
+    let motCancel = document.getElementById('exampleFormControlMotivoCancelamento').value;
+    let primExperi = document.getElementById('validationPrimeiraE').value;
+    let segExperi = document.getElementById('validationSegundaE').value;
+    let dtNasci = document.getElementById('validationNasc').value;
+    let cpfcnpj = document.getElementById('validationCpfCadastro').value;
+    let tipoDoc = document.getElementById('exampleFormControlTipoDocumento').value;
+    let dtDoc = document.getElementById('validationCustomDataDocumento').value;
+    let orgDoc = document.getElementById('validationOD').value;
+    let NmMae = document.getElementById('validationMae').value;
+    let nCartTrab = document.getElementById('validationNCT').value;
+    let seCartTrab = document.getElementById('validationSerieCarteira').value;
+    let uf = document.getElementById('validationUF').value;
+    let pis = document.getElementById('validationPis').value;
+    let nContrato = document.getElementById('validationNumeroContrato').value;
     let telefone = document.getElementById('telefone').value;
     let email = document.getElementById('email').value;
     let cep = document.getElementById('cep').value;
-    let rua = document.getElementById('validationCustomRua').value;
-    let numero = document.getElementById('validationCustomNumero').value;
-    let complemento = document.getElementById('validationCustomComplemento').value;
-    let bairro = document.getElementById('validationCustomBairro').value;
-    let cidade = document.getElementById('validationCustomCidade').value;
-    let estado = document.getElementById('validationCustomEstado').value;
+    let rua = document.getElementById('validationLogradouro').value;
+    let numero = document.getElementById('validationNL').value;
+    let complemento = document.getElementById('validationComplemento').value;
+    let bairro = document.getElementById('validationBairro').value;
+    let cidade = document.getElementById('validationCidade').value;
+    let estado = document.getElementById('validationEstado').value;
     let cpfFav = document.getElementById('id-fp-cpfFav').value;
-    let nomeFav = document.getElementById('id-fp-nomeFav').value;
+    let nomeFav = document.getElementById('id-fp-favorecido').value;
     let tipoPag = document.getElementById('id-fp-tipopagamento').value;
-    let banco = document.getElementById('id-fp-banco').value;
+    let banco = document.getElementById('id-fp-bancoN').value;
     let agencia = document.getElementById('id-fp-agencia').value;
     let conta = document.getElementById('id-fp-conta').value;
     let numCartao = document.getElementById('id-fp-numcartao').value;
-    let supervisorBB = document.getElementById('exampleFormControlSelectsupBB').value;
-    let gerenteBB = document.getElementById('exampleFormControlSelectGerBB').value;
+    let supervisorBB = document.getElementById('exampleFormControlSupervisorBB').value;
+    let gerenteBB = document.getElementById('exampleFormControlGerenteBB').value;
     let servMultBanc = document.getElementById('exampleFormControlSelectSerMultBanc').value;
     let gerMultBanc = document.getElementById('exampleFormControlSelectGerMultBanc').value;
-    let superintendentecad = document.getElementById('exampleFormControlSelectSuperi').value;
+    let superintendentecad = document.getElementById('exampleFormControlSuperintendente').value;
     let projeto = document.getElementById('exampleFormControlSelectProjeto').value;
     let codFunc = document.getElementById('exampleFormControlSelectCodFunc').value;
     let cargo = document.getElementById('exampleFormControlSelectCargo').value;
     let setor = document.getElementById('exampleFormControlSelectSetor').value;
-    let codigo = document.getElementById('validationCustomCod').value;
-    let matricula = document.getElementById('validationCustomMatricula').value;
-    let empReg = document.getElementById('validationCustomEmpReg').value;
+    let codigo = document.getElementById('validationCodigo').value;
+    let matricula = document.getElementById('validationMatricula').value;
+    let empReg = document.getElementById('validationER').value;
     let repEmpresa = document.getElementById('id-p-repempresa').value;
     let cpfEmpresa = document.getElementById('id-p-cpfempresa').value;
     let dtValCert = document.getElementById('id-p-dtcertificacao').value;
@@ -316,11 +312,7 @@ colocar.addEventListener('click', () => {
                 alteraVisualiza.innerHTML = ` <div class="actions ml-3" style="text-align: center;">
             <a "id=buttonalterar" href="#" class="action-item mr-2" data-nome="marcos" data-toggle="modal"
                 data-target=".modalteladecadastro" title="Alterar">
-<<<<<<< HEAD
                 <i id = "${cont}" class="fas fa-external-link-alt" onclick="editar(array[${cont}].cnpj)"></i>
-=======
-                <i id = "${cont}" class="fas fa-external-link-alt" onclick="editar(this,array[${cont}])"></i>
->>>>>>> f23c2de8631e5deab109bab5bc37221cab268bfc
             </a>
             <a href="#" class="action-item mr-2" data-toggle="modal"
                 data-target=".modalteladecadastro" data-id="oi" title="Visualizar">
@@ -341,8 +333,7 @@ colocar.addEventListener('click', () => {
 
 function editar(v) {
     console.log(v);
-<<<<<<< HEAD
-    // $("#exampleFormFilial").val(globalResult.filial)
+    // $("#exampleFormFilial").val(globalResult.filial);
     // $("#cep").val(globalResult.cep);
     // $("#funcionario").val(globalResult.parceiro);
     // $("#validationCpfCadastro").val(globalResult.cnpj);
@@ -431,54 +422,5 @@ function editar(v) {
     // $("#id-grj-parcpromo").val(globalResult.prefeitura_rio);
     // $("#id-grj-supervisor").val(globalResult.prefeitura_rio_sup);
     // $("#id-grj-gerente").val(globalResult.prefeitura_rio_ger);
-    // $("#id-grj-quaternario").val(globalResult.prefeitura_rio_quat)
-=======
-    $("#exampleFormFilial").val(globalResult.filial)
-    $("#cep").val(globalResult.cep);
-    $("#funcionario").val(globalResult.parceiro);
-    $("#validationCpf").val(globalResult.cpf);
-    $("#validationNomeCompleto").val(globalResult.nome_completo);
-    $("#exampleFormControlStatus").val(globalResult.status);
-    $("#validationMae").val(globalResult.nome_mae);
-    $("#validationNCT").val(globalResult.carteira);
-    $("#validationSerieCarteira").val(globalResult.serie_carteira);
-    $("#validationUF").val(globalResult.uf_carteira);
-    $("#validationPis").val(globalResult.pis);
-    $("#validationNumeroContrato").val(globalResult.numero_contrato);
-    $("#validationTelefone").val(globalResult.telefone);
-    $("#email").val(globalResult.email);
-    $("#validationLogradouro").val(globalResult.logradouro);
-    $("#validationNL").val(globalResult.numero_l);
-    $("#validationComplemento").val(globalResult.complemento);
-    $("#validationBairro").val(globalResult.bairro);
-    $("#validationCidade").val(globalResult.cidade);
-    $("#validationEstado").val(globalResult.estado);
-    $("#validationOD").val(globalResult.orgao_emissao);
-    $("#validationTipoFuncionario").val(globalResult.tipo_func);
-    $("#validationPrimeiraE").val(globalResult.experiencia1);
-    $("#validationSegundaE").val(globalResult.experiencia2);
-    // console.log(globalResult.data_admissao)
-    $("#validationDA").val(globalResult.data_admissao);
-    $("#validationDE").val(globalResult.data);
-    $("#validationNasc").val(globalResult.data_nascimento)
-
-    //Formas de Pagamento
-
-    $("#id-fp-banco").val(globalResult.cpf);
-    $("#id-fp-bancoN").val(globalResult.banco);
-    $("#id-fp-agencia").val(globalResult.agencia);
-    $("#id-fp-conta").val(globalResult.conta);
-    $("#id-fp-numcartao").val(globalResult.numero_cartao);
-
-    //Gestores
-    $("#exampleFormControlSuperintendente").val(globalResult.superintendente);
-    $("#validationMatricula").val(globalResult.matricula);
-    $("#validationCodigo").val(globalResult.codigo)
-
-    //Parceiro;
-    $("#id-p-respempresa").val(globalResult.repre);
-    $("#id-p-cppfempresa").val(globalResult.cpf_repre);
-    $("#id-p-certificacao").val(globalResult.certificacao);
-
->>>>>>> f23c2de8631e5deab109bab5bc37221cab268bfc
+    // $("#id-grj-quaternario").val(globalResult.prefeitura_rio_quat);
 }

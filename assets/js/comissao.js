@@ -1,4 +1,4 @@
-const prosseguir = document.getElementById('prosseguirComissaoBtn');
+const prosseguir = document.getElementById('comissao');
 prosseguir.addEventListener('click', () => {
 
     var myHeaders = new Headers();

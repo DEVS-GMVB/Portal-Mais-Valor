@@ -1,20 +1,20 @@
-const prosseguir = document.getElementById('prosseguirBtnSigla');
+const prosseguir = document.getElementById('incluirSilgasE');
 prosseguir.addEventListener('click', () => {
 
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json").value;
-    let sigla = document.getElementById('validationCustomSigla').value;
-    let codEscritorio = document.getElementById('codEscritorio').value;
-    let nmEscritorio = document.getElementById('nomeEscritorio').value;
-    let status = document.getElementById('statusSigla').value;
-    let dtInativacao = document.getElementById('dataInativacao').value;
-    let motPendencia = document.getElementById('motivoPendencia').value;
-    let siglaPorsp = document.getElementById('siglaProspesct').value;
-    let cpfcnpjSigla = document.getElementById('cpfCnpjSigla').value;
-    let parcPromoSigla = document.getElementById('parcPromoSigla').value;
-    let usaSiglaE = document.getElementById('usaSiglaE').value;
-    let usaSilgaI = document.getElementById('usaSiglaI').value;
-    let observ = document.getElementById('observSigla').value;
+    let sigla = document.getElementById('validationSigla').value;
+    let codEscritorio = document.getElementById('validationCodigoEscritorio').value;
+    let nmEscritorio = document.getElementById('validationNomeEscritorio').value;
+    let status = document.getElementById('exampleFormControlStatusSiglas').value;
+    let dtInativacao = document.getElementById('validationDataInativacao').value;
+    let motPendencia = document.getElementById('validationMotivoPendencia').value;
+    let siglaPorsp = document.getElementById('validationSiglaPropesct').value;
+    let cpfcnpjSigla = document.getElementById('validationCpfCnpf').value;
+    let parcPromoSigla = document.getElementById('validationParceiroPromotor').value;
+    let usaSiglaE = document.getElementById('exampleFormControlUsaSigla').value;
+    let usaSilgaI = document.getElementById('exampleFormControlSelect1').value;
+    let observ = document.getElementById('exampleFormControlObs').value;
 
     var raw = JSON.stringify({
 
