@@ -1,6 +1,11 @@
 // VARS
+<<<<<<< HEAD
 let gerente = document.getElementById('exampleFormControlSelectGerente');
 let filialCadastro = document.getElementById('exampleFormControlFilialCadastro');
+=======
+let filial = document.getElementById('exampleFormControlFilial');
+let gerente = document.getElementById('exampleFormControlSelectGerente');
+>>>>>>> 8e55118e3b54281fed22011d6da5d1fc4ffbf202
 let supervisor = document.getElementById('exampleFormControlSupervisor');
 let mes = document.getElementById('exampleFormControlMes');
 let mesDemissao = document.getElementById('exampleFormControlMesDemissao');
@@ -14,7 +19,11 @@ var teste;
 
 window.onload = function () {
 
+<<<<<<< HEAD
 // ------------------------------
+=======
+
+>>>>>>> 8e55118e3b54281fed22011d6da5d1fc4ffbf202
 const prosseguir = document.getElementById('prosseguirBtn');
 prosseguir.addEventListener('click', () => {
     var myHeaders = new Headers();
@@ -77,7 +86,7 @@ prosseguir.addEventListener('click', () => {
     let dtBloqueio = document.getElementById('id-p-dtbloqueio').value;
     let dtEntrContr = document.getElementById('id-p-dtentregacontrato').value;
 
-    var raw = JSON.stringify({
+    var raw = JSON.stringify({ 
 
         filial:filialcad,
         parceiro:funcionarioo,
