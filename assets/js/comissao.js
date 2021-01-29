@@ -3,7 +3,7 @@ prosseguir.addEventListener('click', () => {
 
     var myHeaders = new Headers();
 
-    myHeaders.append("Content-Type", "application/json").value;
+    myHeaders.append("Content-Type", "application/json");
     let bbComissao = document.getElementById('idPorcComissao').value;
     let bbSecuncario = document.getElementById('idSecundario').value;
     let bbPorcSecundario = document.getElementById('idPorcSecundario').value;
@@ -89,3 +89,136 @@ prosseguir.addEventListener('click', () => {
       .catch(error => console.log('error', error));
 
 })
+
+var sec = document.getElementById('idSecundario')
+
+var requestOptions = {
+    method: 'GET',
+    redirect: 'follow'
+  };
+
+  fetch("http://172.16.0.197:3000/user/supervisor", requestOptions)
+  .then(response => response.json().then(function(data){
+    for(let i = 0; i < data.length; i++){
+        sec.innerHTML += '<option value="'+data[i].parceiro+'">'+data[i].parceiro+'</option>;'
+    }
+})).catch(error => console.log('error', error));
+
+
+
+var ger = document.getElementById('idTerceario')
+
+var requestOptions = {
+    method: 'GET',
+    redirect: 'follow'
+  };
+
+  fetch("http://172.16.0.197:3000/user/gerente", requestOptions)
+  .then(response => response.json().then(function(data){
+      console.log(data)
+    for(let i = 0; i < data.length; i++){
+        ger.innerHTML += '<option value="'+data[i].gerente+'">'+data[i].gerente+'</option>;'
+    }
+})).catch(error => console.log('error', error));
+
+
+// Mascaras
+window.onload = function(){
+    
+    //Santander
+    var campo = document.querySelector('#idParceiroPromotor');
+    campo.addEventListener('keyup', function(){
+      var d = campo.value.replace(/\D/g,""); 
+      d = d.replace(/(\d{2,3})(\d{2,3})$/,"$1.$2"); 
+      this.value = d; 
+      if (campo.value.length < 5) { 
+        campo.classList.add("invalido");
+      } else {
+        campo.classList.remove("invalido");
+      }
+    });
+
+    //Convenios especiais
+    var campo1 = document.querySelector('#id-ce-parceiro-promotor');
+    campo1.addEventListener('keyup', function(){
+      var d1 = campo1.value.replace(/\D/g,""); 
+      d1 = d1.replace(/(\d{2,3})(\d{2,3})$/,"$1.$2"); 
+      this.value = d1; 
+      if (campo1.value.length < 5) { 
+        campo1.classList.add("invalido");
+      } else {
+        campo1.classList.remove("invalido");
+      }
+    });
+
+    //Minas gerais
+    var campo2 = document.querySelector('#id-gmg-parcpromo');
+    campo2.addEventListener('keyup', function(){
+      var d2 = campo2.value.replace(/\D/g,""); 
+      d2 = d2.replace(/(\d{2,3})(\d{2,3})$/,"$1.$2"); 
+      this.value = d2; 
+      if (campo2.value.length < 5) { 
+        campo2.classList.add("invalido");
+      } else {
+        campo2.classList.remove("invalido");
+      }
+    });
+
+    //Rio de janeiro
+    var campo3 = document.querySelector('#id-grj-parcpromo');
+    campo3.addEventListener('keyup', function(){
+      var d3 = campo3.value.replace(/\D/g,""); 
+      d3 = d3.replace(/(\d{2,3})(\d{2,3})$/,"$1.$2"); 
+      this.value = d3; 
+      if (campo3.value.length < 5) { 
+        campo3.classList.add("invalido");
+      } else {
+        campo3.classList.remove("invalido");
+      }
+    });
+
+    //Tabela multi banco
+    var campo4 = document.querySelector('#id-tm-parcpromo');
+    campo4.addEventListener('keyup', function(){
+      var d4 = campo4.value.replace(/\D/g,""); 
+      d4 = d4.replace(/(\d{2,3})(\d{2,3})$/,"$1.$2"); 
+      this.value = d4; 
+      if (campo4.value.length < 5) { 
+        campo4.classList.add("invalido");
+      } else {
+        campo4.classList.remove("invalido");
+      }
+    });
+
+    //Tabela sim
+    var campo5 = document.querySelector('#id-ts-parcpromo');
+    campo5.addEventListener('keyup', function(){
+      var d5 = campo5.value.replace(/\D/g,""); 
+      d5 = d5.replace(/(\d{2,3})(\d{2,3})$/,"$1.$2"); 
+      this.value = d5; 
+      if (campo5.value.length < 5) { 
+        campo5.classList.add("invalido");
+      } else {
+        campo5.classList.remove("invalido");
+      }
+    });
+
+    //Tabela crefisa
+    var campo6 = document.querySelector('#id-tc-parcpromo');
+    campo6.addEventListener('keyup', function(){
+      var d6 = campo6.value.replace(/\D/g,""); 
+      d6 = d6.replace(/(\d{2,3})(\d{2,3})$/,"$1.$2"); 
+      this.value = d6; 
+      if (campo6.value.length < 5) { 
+        campo6.classList.add("invalido");
+      } else {
+        campo6.classList.remove("invalido");
+      }
+    });
+    
+  }
+  
+
+  
+
+  

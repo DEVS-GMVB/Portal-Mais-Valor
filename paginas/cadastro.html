@@ -92,7 +92,7 @@
                                     <div class="form-group">
                                         <label for="exampleFormControlSelect1">Filial</label>
 
-                                            <select class="form-control form-control-sm" id="exampleFormFilial"
+                                            <select class="form-control form-control-sm" id="exampleFormControlFilialCadastro"
                                                 required>
                                                 <option value=""></option>
                                             </select>
@@ -716,7 +716,7 @@
                                 <div class="col-md-6 mb-3">
                                     <div class="form-group">
                                         <label for="exampleFormControlSelect1">Secundário</label>
-                                        <select class="form-control form-control-sm" id="idSecundario">
+                                        <select class="form-control form-control-sm" id="idSecundario" required> 
                                             <option> </option>
 
                                         </select>
@@ -791,10 +791,7 @@
                                 <div class="col-md-4 mb-3">
                                     <div class="form-group">
                                         <label for="exampleFormControlSelect1">% Parceiro/Promotor MEI</label>
-                                        <select class="form-control form-control-sm" id="idParceiroPromotor">
-                                            <option> </option>
-
-                                        </select>
+                                        <input type="text" class="form-control form-control-sm" name="idParceiroPromotor" id="idParceiroPromotor" maxlength="6">
                                     </div>
 
                                 </div>
@@ -861,10 +858,7 @@
                                 <div class="col-md-4 mb-3">
                                     <div class="form-group">
                                         <label for="exampleFormControlSelect1">% Parceiro/Promotor MEI</label>
-                                        <select class="form-control form-control-sm" id="id-ce-parceiro-promotor">
-                                            <option> </option>
-
-                                        </select>
+                                        <input class="form-control form-control-sm" name="id-ce-parceiro-promotor" id="id-ce-parceiro-promotor" maxlength="6">
                                     </div>
 
                                 </div>
@@ -922,10 +916,7 @@
                                 <div class="col-md-4 mb-3">
                                     <div class="form-group">
                                         <label for="exampleFormControlSelect1">% Parceiro/Promotor MEI</label>
-                                        <select class="form-control form-control-sm" id="id-gmg-parcpromo">
-                                            <option> </option>
-
-                                        </select>
+                                        <input class="form-control form-control-sm" id="id-gmg-parcpromo" name="id-gmg-parcpromo" maxlength="6">
                                     </div>
 
                                 </div>
@@ -983,10 +974,8 @@
                                 <div class="col-md-4 mb-3">
                                     <div class="form-group">
                                         <label for="exampleFormControlSelect1">% Parceiro/Promotor MEI</label>
-                                        <select class="form-control form-control-sm" id="id-grj-parcpromo">
-                                            <option> </option>
-
-                                        </select>
+                                        <input class="form-control form-control-sm" id="id-grj-parcpromo" name="id-grj-parcpromo" maxlength="6">
+                                        
                                     </div>
 
                                 </div>
@@ -1040,10 +1029,7 @@
                             <div class="col-md-12 mb-3">
                                 <div class="form-group">
                                     <label for="exampleFormControlSelect1">% Parceiro/Promotor MEI</label>
-                                    <select class="form-control form-control-sm" id="id-tm-parcpromo">
-                                        <option> </option>
-
-                                    </select>
+                                    <input class="form-control form-control-sm" id="id-tm-parcpromo" name="id-tm-parcpromo" maxlength="6">
                                 </div>
 
                             </div>
@@ -1061,10 +1047,7 @@
                             <div class="col-md-12 mb-3">
                                 <div class="form-group">
                                     <label for="exampleFormControlSelect1">% Parceiro/Promotor MEI</label>
-                                    <select class="form-control form-control-sm" id="id-ts-parcpromo">
-                                        <option> </option>
-
-                                    </select>
+                                    <input class="form-control form-control-sm" id="id-ts-parcpromo" name="id-ts-parcpromo" maxlength="6">
                                 </div>
 
                             </div>
@@ -1081,10 +1064,8 @@
                             <div class="col-md-12 mb-3">
                                 <div class="form-group">
                                     <label for="exampleFormControlSelect1">% Parceiro/Promotor MEI</label>
-                                    <select class="form-control form-control-sm" id="id-ts-parcpromo">
-                                        <option> </option>
+                                    <input class="form-control form-control-sm" id="id-tc-parcpromo" name="id-tc-parcpromo" maxlength="6">
 
-                                    </select>
                                 </div>
 
                             </div>
@@ -1150,7 +1131,13 @@
                                         <label for="exampleFormControlSelect1">Tipo Usuário</label>
                                         <select class="form-control form-control-sm" id="id-cadusu-tipousu">
                                             <option> </option>
-
+                                            <option>PROMOTOR/PARCEIRO</option>
+                                            <option>SUPERVISOR</option>
+                                            <option>GERENTE</option>
+                                            <option>ADM</option>
+                                            <option>MESA</option>
+                                            <option>CADASTRO</option>
+                                            <option>BKO</option>
                                         </select>
                                     </div>
 
@@ -1161,7 +1148,14 @@
                                         <label for="exampleFormControlSelect1">Usuário Master</label>
                                         <select class="form-control form-control-sm" id="id-cadusu-usumaster">
                                             <option> </option>
-
+                                            <option>VAZOLI</option>
+                                            <option>CONSIGACRED</option>
+                                            <option>FACTA</option>
+                                            <option>CREDFACIL</option>
+                                            <option>BANNEG</option>
+                                            <option>CIA DO CREDITO</option>
+                                            <option>ISOCRED</option>
+                                            <option>DEMAIS PARCEIROS</option>
                                         </select>
                                     </div>
 
@@ -1172,7 +1166,8 @@
                                         <label for="exampleFormControlSelect1">Classificação</label>
                                         <select class="form-control form-control-sm" id="id-cadusu-classi">
                                             <option> </option>
-
+                                            <option>CONFIAVEL</option>
+                                            <option>NOVO FLUXO</option>
                                         </select>
                                     </div>
 
@@ -1231,7 +1226,12 @@
                                         <label for="exampleFormControlSelect1">Motivo Cancelamento</label>
                                         <select class="form-control form-control-sm" id="id-cadusu-motcancela">
                                             <option> </option>
-
+                                            <option>FALTA PRODUÇÃO</option>
+                                            <option>FRAUDE</option>
+                                            <option>PEDIDO GERENTE</option>
+                                            <option>PEDIDO NASSIPE</option>
+                                            <option>PEDIDO PARCEIRO</option>
+                                            <option>PEDIDO SUPERVISOR</option>
                                         </select>
                                     </div>
 
@@ -1242,7 +1242,8 @@
                                         <label for="exampleFormControlSelect1">Perfil Acesso</label>
                                         <select class="form-control form-control-sm" id="id-cadusu-perfilacesso">
                                             <option> </option>
-
+                                            <option>MATRIZ</option>
+                                            <option>SUB ACESSO</option>
                                         </select>
                                     </div>
 
@@ -1442,7 +1443,9 @@
                                         <label for="exampleFormControlSelect1">Status da Chave</label>
                                         <select class="form-control form-control-sm" id="StatusChavej">
                                             <option> </option>
-
+                                            <option>ATIVO</option>
+                                            <option>INATIVO</option>
+                                            <option>BLOQUEADO</option>
                                         </select>
                                     </div>
 
@@ -1452,7 +1455,14 @@
                                     <label for="validationCustom01">Função</label>
                                     <select class="form-control form-control-sm" id="chavejFuncao">
                                         <option> </option>
-
+                                        <option>ADMINISTRATIVO</option>
+                                        <option>PARCEIRO</option>
+                                        <option>GERENTE</option>
+                                        <option>PROMOTOR</option>
+                                        <option>SUPERVISOR</option>
+                                        <option>PROMOTORMEI</option>
+                                        <option>CHAVE MASTER</option>
+                                        <option>CREDITO IMOBILIARIO</option>
                                     </select>
                                 </div>
 
@@ -1486,7 +1496,13 @@
                                         <label for="validationCustom01">Motivo Cancelamento</label>
                                         <select class="form-control form-control-sm" id="motCancelChaveJ">
                                             <option> </option>
-
+                                            <option>CHAVE CANCELADA PELO BANCO</option>
+                                            <option>FALTA PRODUÇÃO</option>
+                                            <option>FRAUDE</option>
+                                            <option>PEDIDO GERENTE</option>
+                                            <option>PEDIDO NASSIPE</option>
+                                            <option>PEDIDO PARCEIRO</option>
+                                            <option>PEDIDO SUPERVISOR</option>
                                         </select>
                                     </div>
 
@@ -1495,7 +1511,10 @@
                                     <label for="exampleFormControlSelect1">Tipo Chave</label>
                                     <select class="form-control form-control-sm" id="exampleFormControlSelect1">
                                         <option> </option>
-
+                                        <option>PRODUÇÃO</option>
+                                        <option>CHAVE IMOBILIARIO</option>
+                                        <option>INDICA VENDAS</option>
+                                        <option>SIMULAÇÃO</option>
                                     </select>
                                 </div>
 
@@ -1573,7 +1592,9 @@
                                         <select class="form-control form-control-sm"
                                             id="exampleFormControlStatusSiglas">
                                             <option> </option>
-
+                                            <option>ATIVO</option>
+                                            <option>INATIVO</option>
+                                            <option>BLOQUEADO</option>
                                         </select>
                                     </div>
 
@@ -2335,7 +2356,7 @@
                                             <div class="form-group">
                                                 <label for="exampleFormControlSelect1">Filial</label>
                                                 <select class="form-control form-control-sm"
-                                                    id="exampleFormControlFilialCadastro">
+                                                    id="exampleFormControlFilial">
                                                     <option> </option>
 
                                                 </select>
@@ -2569,6 +2590,7 @@
     <script src="../assets/js/comissao.js"></script>
     <script src="../assets/js/chavej.js"></script>
     <script src="../assets/js/siglae.js"></script>
+    <script src="../assets/js/acesso.js"></script>
 
 </body>
 

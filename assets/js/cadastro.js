@@ -1,16 +1,11 @@
 // VARS
-<<<<<<< HEAD
+let fi = document.getElementById('exampleFormControlFilial');
 let gerente = document.getElementById('exampleFormControlSelectGerente');
-let filialCadastro = document.getElementById('exampleFormControlFilialCadastro');
-=======
-let filial = document.getElementById('exampleFormControlFilial');
-let gerente = document.getElementById('exampleFormControlSelectGerente');
->>>>>>> 8e55118e3b54281fed22011d6da5d1fc4ffbf202
+let filialCadastro = document.getElementById("exampleFormControlFilialCadastro")
 let supervisor = document.getElementById('exampleFormControlSupervisor');
 let mes = document.getElementById('exampleFormControlMes');
 let mesDemissao = document.getElementById('exampleFormControlMesDemissao');
 let Tbody = document.getElementById('list');
-let fi = document.getElementById('exampleFormFilial');
 let supervisorBB = document.getElementById('exampleFormControlSupervisorBB');
 let gerenteBB = document.getElementById('exampleFormControlGerenteBB');
 var cont = -1;
@@ -19,17 +14,13 @@ var teste;
 
 window.onload = function () {
 
-<<<<<<< HEAD
-// ------------------------------
-=======
-
->>>>>>> 8e55118e3b54281fed22011d6da5d1fc4ffbf202
+//--------------
 const prosseguir = document.getElementById('prosseguirBtn');
 prosseguir.addEventListener('click', () => {
     var myHeaders = new Headers();
 
     myHeaders.append("Content-Type", "application/json").value;
-    let filialcad = document.getElementById('exampleFormFilial').value;
+    let filialcad = document.getElementById('exampleFormControlFilialCadastro').value;
     let funcionarioo = document.getElementById('funcionario').value;
     let nomeComp = document.getElementById('validationNomeCompleto').value;
     let tipoFunc = document.getElementById('validationTipoFuncionario').value;
@@ -162,7 +153,6 @@ prosseguir.addEventListener('click', () => {
 
 })
 
-// ------------------------------
 var requestOptions = {
     method: 'GET',
     redirect: 'follow'
