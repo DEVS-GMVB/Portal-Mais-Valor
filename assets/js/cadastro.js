@@ -19,7 +19,6 @@ var teste;
 
 window.onload = function () {
 
-<<<<<<< HEAD
 // ------------------------------
 const prosseguir = document.getElementById('prosseguirBtn');
 prosseguir.addEventListener('click', () => {
@@ -164,13 +163,6 @@ var requestOptions = {
     method: 'GET',
     redirect: 'follow'
   };
-=======
-    var requestOptions = {
-        method: 'GET',
-        redirect: 'follow'
-    };
-
->>>>>>> f5a29ce402dda4e5be1ef6b9c5fbe0db88545a96
 
     fetch("http://172.16.0.197:3000/user/gerente", requestOptions)
         .then(response => response.json().then(function (data) {
