@@ -90,6 +90,7 @@ prosseguir.addEventListener('click', () => {
 
 })
 
+// Secundario/Supervisor
 var sec = document.getElementById('idSecundario')
 
 var requestOptions = {
@@ -105,7 +106,7 @@ var requestOptions = {
 })).catch(error => console.log('error', error));
 
 
-
+// Terceario/Gerente
 var ger = document.getElementById('idTerceario')
 
 var requestOptions = {
@@ -120,6 +121,25 @@ var requestOptions = {
         ger.innerHTML += '<option value="'+data[i].gerente+'">'+data[i].gerente+'</option>;'
     }
 })).catch(error => console.log('error', error));
+
+// Quaternario
+var quat = document.getElementById('idQuartenario')
+var qua = document.getElementById('id-quaternario')
+
+var requestOptions = {
+  method: 'GET',
+  redirect: 'follow'
+};
+
+fetch("http://172.16.0.197:3000/user/quaternario", requestOptions)
+.then(response => response.json().then(function(data){
+  console.log(data)
+for(let i = 0; i < data.length; i++){
+  quat.innerHTML += '<option value="'+data[i].parceiro+'">'+data[i].parceiro+'</option>;'
+  qua.innerHTML += '<option value="'+data[i].parceiro+'">'+data[i].parceiro+'</option>;'
+}
+})).catch(error => console.log('error', error));
+
 
 
 // Mascaras
@@ -144,11 +164,6 @@ window.onload = function(){
       var d1 = campo1.value.replace(/\D/g,""); 
       d1 = d1.replace(/(\d{2,3})(\d{2,3})$/,"$1.$2"); 
       this.value = d1; 
-      if (campo1.value.length < 5) { 
-        campo1.classList.add("invalido");
-      } else {
-        campo1.classList.remove("invalido");
-      }
     });
 
     //Minas gerais
@@ -157,11 +172,6 @@ window.onload = function(){
       var d2 = campo2.value.replace(/\D/g,""); 
       d2 = d2.replace(/(\d{2,3})(\d{2,3})$/,"$1.$2"); 
       this.value = d2; 
-      if (campo2.value.length < 5) { 
-        campo2.classList.add("invalido");
-      } else {
-        campo2.classList.remove("invalido");
-      }
     });
 
     //Rio de janeiro
@@ -170,11 +180,6 @@ window.onload = function(){
       var d3 = campo3.value.replace(/\D/g,""); 
       d3 = d3.replace(/(\d{2,3})(\d{2,3})$/,"$1.$2"); 
       this.value = d3; 
-      if (campo3.value.length < 5) { 
-        campo3.classList.add("invalido");
-      } else {
-        campo3.classList.remove("invalido");
-      }
     });
 
     //Tabela multi banco
@@ -183,11 +188,6 @@ window.onload = function(){
       var d4 = campo4.value.replace(/\D/g,""); 
       d4 = d4.replace(/(\d{2,3})(\d{2,3})$/,"$1.$2"); 
       this.value = d4; 
-      if (campo4.value.length < 5) { 
-        campo4.classList.add("invalido");
-      } else {
-        campo4.classList.remove("invalido");
-      }
     });
 
     //Tabela sim
@@ -196,11 +196,6 @@ window.onload = function(){
       var d5 = campo5.value.replace(/\D/g,""); 
       d5 = d5.replace(/(\d{2,3})(\d{2,3})$/,"$1.$2"); 
       this.value = d5; 
-      if (campo5.value.length < 5) { 
-        campo5.classList.add("invalido");
-      } else {
-        campo5.classList.remove("invalido");
-      }
     });
 
     //Tabela crefisa
@@ -209,11 +204,6 @@ window.onload = function(){
       var d6 = campo6.value.replace(/\D/g,""); 
       d6 = d6.replace(/(\d{2,3})(\d{2,3})$/,"$1.$2"); 
       this.value = d6; 
-      if (campo6.value.length < 5) { 
-        campo6.classList.add("invalido");
-      } else {
-        campo6.classList.remove("invalido");
-      }
     });
     
   }
