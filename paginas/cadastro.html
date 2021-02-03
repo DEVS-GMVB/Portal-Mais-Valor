@@ -156,7 +156,7 @@
                                     <label for="validationCustom01">Data Demissão</label>
                                     <input type="text" min="1921-01-01" max="now();"
                                         class="form-control form-control-sm" id="validationDE"
-                                        onKeyDown="fMasc( this, data );" required>
+                                        onKeyDown="fMasc( this, data );" maxlength="10" required>
 
                                 </div>
                             </div>
@@ -168,6 +168,12 @@
                                         <select class="form-control form-control-sm"
                                             id="exampleFormControlMotivoCancelamento" required>
                                             <option> </option>
+                                            <option value="FRAUDE">FRAUDE</option>
+                                            <option value="PEDIDO PARCEIRO">PEDIDO PARCEIRO</option>
+                                            <option value="PEDIDO GERENTE">PEDIDO GERENTE</option>
+                                            <option value="PEDIDO NASSIPE">PEDIDO NASSIPE</option>
+                                            <option value="PEDIDO SUPERVISOR">PEDIDO SUPERVISOR</option>
+                                            <option value="FALTA DE PRODUÇÃO">FALTA DE PRODUÇÃO</option>
 
                                         </select>
                                     </div>
@@ -210,6 +216,8 @@
                                         <select class="form-control form-control-sm"
                                             id="exampleFormControlTipoDocumento" required>
                                             <option> </option>
+                                            <option value="RG - REGISTRO GERAL">RG - REGISTRO GERAL</option>
+                                            <option value="CNH- CARTEIRA NACIONAL DE HABILITAÇÃO">CNH- CARTEIRA NACIONAL DE HABILITAÇÃO</option>
 
                                         </select>
                                     </div>
@@ -219,7 +227,7 @@
                                 <div class="col-md-2 mb-3">
                                     <label for="validationCustom01">Data Documento</label>
                                     <input type="text" class="form-control form-control-sm"
-                                        id="validationCustomDataDocumento" required>
+                                        id="validationCustomDataDocumento"  onKeyDown="fMasc( this, data );" maxlength="10" required >
 
                                 </div>
 
@@ -286,11 +294,7 @@
 
                                 <div class="col-md-3 mb-3">
                                     <label for="validationCustom01">Telefone</label>
-<<<<<<< HEAD
-                                    <input type="text" maxlength="14" name="telefone" id="telefone"
-=======
                                     <input type="text" maxlength="14" name="telefone"
->>>>>>> 81261b2b513322d6139cddcc6020798b89a88343
                                         onKeyDown="fMasc( this, mTelefone );" class="form-control form-control-sm"
                                         id="validationTelefone" required>
 
@@ -397,6 +401,8 @@
                                         <label for="exampleFormControlSelect1">Tipo Pagamento</label>
                                         <select class="form-control form-control-sm" id="id-fp-tipopagamento" required>
                                             <option> </option>
+                                            <option value="CP CONTA POUPANÇA">CP CONTA POUPANÇA</option>
+                                            <option value="CC CONTA CORRENTE">CC CONTA CORRENTE</option>
 
                                         </select>
                                     </div>
@@ -527,6 +533,18 @@
                                         <select class="form-control form-control-sm"
                                             id="exampleFormControlSelectProjeto" required>
                                             <option> </option>
+                                            <option value="BB CONSORCIOS">BB CONSORCIOS</option>
+                                            <option value="CRÉDITO IMOBILIÁRIO">CRÉDITO IMOBILIÁRIO</option>
+                                            <option value="BRADESCO">BRADESCO</option>
+                                            <option value="CETELEM">CETELEM</option>
+                                            <option value="F5 PROMOTORA">F5 PROMOTORA</option>
+                                            <option value="OLE CONSIGNADO">OLE CONSIGNADO</option>
+                                            <option value="BANCO PAN">BANCO PAN</option>
+                                            <option value="PARANA BANCO">PARANA BANCO</option>
+                                            <option value="DAYCOVAL">DAYCOVAL</option>
+                                            <option value="SANTANDER CONTAS">SANTANDER CONTAS</option>
+                                            <option value="SANTANDER SEGURO PREST">SANTANDER SEGURO PREST</option>
+                                            <option value="CARTÃO OLÉ">CARTÃO OLÉ</option>
 
                                         </select>
                                     </div>
@@ -539,6 +557,75 @@
                                         <select class="form-control form-control-sm"
                                             id="exampleFormControlSelectCodFunc" required>
                                             <option> </option>
+                                            <option value="PROMOTOR">PROMOTOR</option>
+                                            <option value="SUPERVISOR">SUPERVISOR</option>
+                                            <option value="GERENTE COMERCIAL">GERENTE COMERCIAL</option>
+                                            <option value="SUPERINTENDENTE">SUPERINTENDENTE</option>
+                                            <option value="ASSIST COORD">ASSIST COORD</option>
+                                            <option value="AUX ADMINISTRATIVO">AUX ADMINISTRATIVO</option>
+                                            <option value="ANAL DE PRODUTOS">ANAL DE PRODUTOS</option>
+                                            <option value="COORDENADOR">COORDENADOR</option>
+                                            <option value="OP TELEMARKETING">OP TELEMARKETING</option>
+                                            <option value="BACKOFFICE">BACKOFFICE</option>
+                                            <option value="ASSIST ADM">ASSIST ADM</option>
+                                            <option value="AUX SERV GERAIS">AUX SERV GERAIS</option>
+                                            <option value="RECEPCIONISTA">RECEPCIONISTA</option>
+                                            <option value="SUPER COMERCIAL">SUPER COMERCIAL</option>
+                                            <option value="AUX COORD">AUX COORD</option>
+                                            <option value="ANAL FINANCEIRO">ANAL FINANCEIRO</option>
+                                            <option value="ANAL DPTO PESSOAL JR">ANAL DPTO PESSOAL JR</option>
+                                            <option value="DIRETOR">DIRETOR</option>
+                                            <option value="PROMOTOR I">PROMOTOR I</option>
+                                            <option value="COORD ADM">COORD ADM</option>
+                                            <option value="OP ATENDIMENTO">OP ATENDIMENTO</option>
+                                            <option value="COORD DE COMPRAS">COORD DE COMPRAS</option>
+                                            <option value="ANAL DE CONC/PROD">ANAL DE CONC/PROD</option>
+                                            <option value="ANAL DPTO PESSOAL PL">ANAL DPTO PESSOAL PL</option>
+                                            <option value="COORD RH">COORD RH</option>
+                                            <option value="AUX ADMINISTRATIVO I">AUX ADMINISTRATIVO I</option>
+                                            <option value="CONSULT IMOBILIARIO">CONSULT IMOBILIARIO</option>
+                                            <option value="ASSIST ADM I">ASSIST ADM I</option>
+                                            <option value="ASSIST ADM II">ASSIST ADM II</option>
+                                            <option value="ASSIST ADM III">ASSIST ADM III</option>
+                                            <option value="COORDENADOR I">COORDENADOR I</option>
+                                            <option value="COORDENADOR II">COORDENADOR II</option>
+                                            <option value="COORDENADOR III">COORDENADOR III</option>
+                                            <option value="COORDENADOR IV">COORDENADOR IV</option>
+                                            <option value="GERENTE">GERENTE</option>
+                                            <option value="GERENTE I">GERENTE I</option>
+                                            <option value="GERENTE II">GERENTE II</option>
+                                            <option value="GERENTE III">GERENTE III</option>
+                                            <option value="PROMOTOR II">PROMOTOR II</option>
+                                            <option value="PROMOTOR III">PROMOTOR III</option>
+                                            <option value="PROMOTOR IV">PROMOTOR IV</option>
+                                            <option value="SUPERVISOR I">SUPERVISOR I</option>
+                                            <option value="SUPERVISOR II">SUPERVISOR II</option>
+                                            <option value="SUPERVISOR III">SUPERVISOR III</option>
+                                            <option value="SUPERVISOR IV">SUPERVISOR IV</option>
+                                            <option value="SUPERVISOR V">SUPERVISOR V</option>
+                                            <option value="COORD CALL CENTER">COORD CALL CENTER</option>
+                                            <option value="AUX DE FORMALIZACAO">AUX DE FORMALIZACAO</option>
+                                            <option value="ANAL DE FORMALIZCAO">ANAL DE FORMALIZCAO</option>
+                                            <option value="PROMOTOR IMOBILIARIO">PROMOTOR IMOBILIARIO</option>
+                                            <option value="PROMOTOR DE VEICULOS">PROMOTOR DE VEICULOS</option>
+                                            <option value="ANALISTA DE RH JR">ANALISTA DE RH JR</option>
+                                            <option value="COORDENADOR TI">COORDENADOR TI</option>
+                                            <option value="AUXILIAR TI">AUXILIAR TI</option>
+                                            <option value="CONTROL DESK">CONTROL DESK</option>
+                                            <option value="BACKOFFICE">BACKOFFICE</option>
+                                            <option value="MONITOR DE QUALIDADE">MONITOR DE QUALIDADE</option>
+                                            <option value="CUIDADOR DE IDOSO">CUIDADOR DE IDOSO</option>
+                                            <option value="EMPREGADA DOMESTICA">EMPREGADA DOMESTICA</option>
+                                            <option value="OP DE ATENDIMENTO SN">OP DE ATENDIMENTO SN</option>
+                                            <option value="COORDENADOR DE TREIN">COORDENADOR DE TREIN</option>
+                                            <option value="OP DE ATENDIMENTO">OP DE ATENDIMENTO</option>
+                                            <option value="ANALISTA DE TI">ANALISTA DE TI</option>
+                                            <option value="BACKUP">BACKUP</option>
+                                            <option value="ANALISTA DE TI PL">ANALISTA DE TI PL</option>
+                                            <option value="ANALISTA DE RH PLENO">ANALISTA DE RH PLENO</option>
+                                            <option value="CUIDADORA">CUIDADORA</option>
+                                            <option value="PROMOTOR - PARCEIRO">PROMOTOR - PARCEIRO</option>
+                                            <option value="ESTAGIARIO">ESTAGIARIO</option>
                                           
                                         </select>
                                     </div>
@@ -551,6 +638,69 @@
                                         <select class="form-control form-control-sm" id="exampleFormControlSelectCargo"
                                             required>
                                             <option> </option>
+                                            <option value="PROMOTOR">PROMOTOR</option>
+                                            <option value="SUPERVISOR">SUPERVISOR</option>
+                                            <option value="GERENTE COMERCIAL">GERENTE COMERCIAL</option>
+                                            <option value="SUPERINTENDENTE">SUPERINTENDENTE</option>
+                                            <option value="ASSIST COORD">ASSIST COORD</option>
+                                            <option value="AUX ADMINISTRATIVO">AUX ADMINISTRATIVO</option>
+                                            <option value="ANAL DE PRODUTOS">ANAL DE PRODUTOS</option>
+                                            <option value="COORDENADOR">COORDENADOR</option>
+                                            <option value="OP TELEMARKETING">OP TELEMARKETING</option>
+                                            <option value="BACKOFFICE">BACKOFFICE</option>
+                                            <option value="ASSIST ADM">ASSIST ADM</option>
+                                            <option value="AUX SERV GERAIS">AUX SERV GERAIS</option>
+                                            <option value="RECEPCIONISTA">RECEPCIONISTA</option>
+                                            <option value="SUPER COMERCIAL">SUPER COMERCIAL</option>
+                                            <option value="AUX COORD">AUX COORD</option>
+                                            <option value="ANAL FINANCEIRO">ANAL FINANCEIRO</option>
+                                            <option value="ANAL DPTO PESSOAL JR">ANAL DPTO PESSOAL JR</option>
+                                            <option value="DIRETOR">DIRETOR</option>
+                                            <option value="PROMOTOR I">PROMOTOR I</option>
+                                            <option value="COORD ADM">COORD ADM</option>
+                                            <option value="OP ATENDIMENTO">OP ATENDIMENTO</option>
+                                            <option value="COORD DE COMPRAS">COORD DE COMPRAS</option>
+                                            <option value="ANAL DE CONC/PROD">ANAL DE CONC/PROD</option>
+                                            <option value="ANAL DPTO PESSOAL PL">ANAL DPTO PESSOAL PL</option>
+                                            <option value="COORD RH">COORD RH</option>
+                                            <option value="AUX ADMINISTRATIVO I">AUX ADMINISTRATIVO I</option>
+                                            <option value="CONSULT IMOBILIARIO">CONSULT IMOBILIARIO</option>
+                                            <option value="ASSIST ADM I">ASSIST ADM I</option>
+                                            <option value="ASSIST ADM II">ASSIST ADM II</option>
+                                            <option value="ASSIST ADM III">ASSIST ADM III</option>
+                                            <option value="COORDENADOR I">COORDENADOR I</option>
+                                            <option value="COORDENADOR II">COORDENADOR II</option>
+                                            <option value="COORDENADOR III">COORDENADOR III</option>
+                                            <option value="COORDENADOR IV">COORDENADOR IV</option>
+                                            <option value="GERENTE">GERENTE</option>
+                                            <option value="GERENTE I">GERENTE I</option>
+                                            <option value="GERENTE II">GERENTE II</option>
+                                            <option value="GERENTE III">GERENTE III</option>
+                                            <option value="PROMOTOR II">PROMOTOR II</option>
+                                            <option value="PROMOTOR III">PROMOTOR III</option>
+                                            <option value="PROMOTOR IV">PROMOTOR IV</option>
+                                            <option value="SUPERVISOR I">SUPERVISOR I</option>
+                                            <option value="SUPERVISOR II">SUPERVISOR II</option>
+                                            <option value="SUPERVISOR III">SUPERVISOR III</option>
+                                            <option value="SUPERVISOR IV">SUPERVISOR IV</option>
+                                            <option value="SUPERVISOR V">SUPERVISOR V</option>
+                                            <option value="COORD CALL CENTER">COORD CALL CENTER</option>
+                                            <option value="AUXILIAR TI">AUXILIAR TI</option>
+                                            <option value="CONTROL DESK">CONTROL DESK</option>
+                                            <option value="BACKOFFICE">BACKOFFICE</option>
+                                            <option value="MONITOR DE QUALIDADE">MONITOR DE QUALIDADE</option>
+                                            <option value="CUIDADOR DE IDOSO">CUIDADOR DE IDOSO</option>
+                                            <option value="EMPREGADA DOMESTICA">EMPREGADA DOMESTICA</option>
+                                            <option value="OP DE ATENDIMENTO SN">OP DE ATENDIMENTO SN</option>
+                                            <option value="COORDENADOR DE TREIN">COORDENADOR DE TREIN</option>
+                                            <option value="OP DE ATENDIMENTO">OP DE ATENDIMENTO</option>
+                                            <option value="ANALISTA DE TI">ANALISTA DE TI</option>
+                                            <option value="BACKUP">BACKUP</option>
+                                            <option value="ANALISTA DE TI PL">ANALISTA DE TI PL</option>
+                                            <option value="ANALISTA DE RH PLENO">ANALISTA DE RH PLENO</option>
+                                            <option value="CUIDADORA">CUIDADORA</option>
+                                            <option value="PROMOTOR - PARCEIRO">PROMOTOR - PARCEIRO</option>
+                                            <option value="ESTAGIARIO">ESTAGIARIO</option>
 
                                         </select>
                                     </div>
@@ -563,7 +713,31 @@
                                         <select class="form-control form-control-sm" id="exampleFormControlSelectSetor"
                                             required>
                                             <option> </option>
-
+                                            <option value="TREINAMENTO">TREINAMENTO</option>
+                                            <option value="TODOS">TODOS</option>
+                                            <option value="TI">TI</option>
+                                            <option value="SERVIÇOS GERIAS">SERVIÇOS GERIAS</option>
+                                            <option value="RH">RH</option>
+                                            <option value="RELATORIOS GERENCIAIS">RELATORIOS GERENCIAIS</option>
+                                            <option value="PRODUTOS">PRODUTOS</option>
+                                            <option value="PARTICULAR">PARTICULAR</option>
+                                            <option value="OUTROS">OUTROS</option>
+                                            <option value="MONITORIA">MONITORIA</option>
+                                            <option value="MESA DE APOIO SMS">MESA DE APOIO SMS</option>
+                                            <option value="MESA DE APOIO ESTEIRA">MESA DE APOIO ESTEIRA</option>
+                                            <option value="MESA DE APOIO CHAT">MESA DE APOIO CHAT</option>
+                                            <option value="MESA DE APOIO">MESA DE APOIO</option>
+                                            <option value="MANAGERIAL REPORT">MANAGERIAL REPORT</option>
+                                            <option value="IMOBILIARIO">IMOBILIARIO</option>
+                                            <option value="FORMALIZACAO">FORMALIZACAO</option>
+                                            <option value="FINANCEIRO">FINANCEIRO</option>
+                                            <option value="CONTROLES / ACESSOS">CONTROLES / ACESSOS</option>
+                                            <option value="CONTAS CORRENTES">CONTAS CORRENTES</option>
+                                            <option value="CONSIGNADO">CONSIGNADO</option>
+                                            <option value="CALL CENTER">CALL CENTER</option>
+                                            <option value="BACKOFFICE ">BACKOFFICE </option>
+                                            <option value="APOIO PARCEIROS">APOIO PARCEIROS</option>
+                                            <option value="ADM">ADM</option>
                                         </select>
                                     </div>
 
@@ -619,11 +793,7 @@
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <label for="validationCustom01">CPF Empresa</label>
-<<<<<<< HEAD
-                                    <input type="text" class="form-control form-control-sm" id="id-p-cpfempresa"
-=======
                                     <input type="text" class="form-control form-control-sm"
->>>>>>> 81261b2b513322d6139cddcc6020798b89a88343
                                         onkeypress='mascaraMutuario(this,cpfCnpj)' class="form-control form-control-sm"
                                         id="cpfcnpj" minlength="14" maxlength="18" required>
 
@@ -631,8 +801,8 @@
 
                                 <div class="col-md-3 mb-3">
                                     <label for="validationCustom01">Data Validade Certificação</label>
-                                    <input type="date" min="1921-01-01" class="form-control form-control-sm"
-                                        id="id-p-dtcertificacao" required>
+                                    <input type="text" min="1921-01-01" class="form-control form-control-sm"
+                                        id="id-p-dtcertificacao" onKeyDown="fMasc( this, data );" maxlength="10"required>
 
                                 </div>
 
@@ -660,15 +830,15 @@
 
                                 <div class="col-md-4 mb-3">
                                     <label for="validationCustom01">Data Bloqueio</label>
-                                    <input type="date" min="1921-01-01" class="form-control form-control-sm"
-                                        id="id-p-dtbloqueio" required>
+                                    <input type="text" min="1921-01-01" class="form-control form-control-sm"
+                                        id="id-p-dtbloqueio" onKeyDown="fMasc( this, data );" maxlength="10" required>
 
                                 </div>
 
                                 <div class="col-md-4 mb-3">
                                     <label for="validationCustom01">Data Entrega do Contrato</label>
-                                    <input type="date" min="1921-01-01" class="form-control form-control-sm"
-                                        id="id-p-dtentregacontrato" required>
+                                    <input type="text" min="1921-01-01" class="form-control form-control-sm"
+                                        id="id-p-dtentregacontrato" onKeyDown="fMasc( this, data );" maxlength="10" required>
 
                                 </div>
 
@@ -681,14 +851,13 @@
 
                         </form>
 
-                        <div class="opcoes-cadastro mt-1" style="text-align: center; margin-inline: block;">
-                            <button type="button" class="btn btn-primary btn-icon-label" id="prosseguirBtn">
-                                <span class="btn-inner--icon">
-                                    <i class="fas fa-arrow-right"></i>
-                                </span>
-                                <span class="btn-inner--text">Prosseguir</span>
-                            </button>
-
+                        <div class="opcoes-cadastro mt-1" style="text-align: center; margin-inline: block;">  
+                                <button type="button" class="btn btn-primary btn-icon-label" id="prosseguirBtn">
+                                    <span class="btn-inner--icon">
+                                        <i class="fas fa-arrow-right"></i>
+                                    </span>
+                                    <span class="btn-inner--text">Prosseguir</span>
+                                </button>
                         </div>
 
 
@@ -1081,7 +1250,7 @@
                         </div>
 
                         <div class="opcoes-cadastro mt-1" style="text-align: center; margin-inline: block;">
-                            <button type="button" class="btn btn-primary btn-icon-label" id="comissao">
+                            <button type="button" class="btn btn-primary btn-icon-label" id="comissao" >
                                 <span class="btn-inner--icon">
                                     <i class="fas fa-arrow-right"></i>
                                 </span>
@@ -1451,18 +1620,9 @@
                                         <label for="exampleFormControlSelect1">Status da Chave</label>
                                         <select class="form-control form-control-sm" id="StatusChavej">
                                             <option> </option>
-<<<<<<< HEAD
-                                            <option>ATIVO</option>
-                                            <option>INATIVO</option>
-                                            <option>BLOQUEADO</option>
-=======
-                                            <option value="Todos">TODOS</option>
-                                            <option value="Aguardando aprovação dp">AGUARDANDO APROVAÇÃO DP</option>
                                             <option value="Ativo">ATIVO</option>
                                             <option value="Inativo">INATIVO</option>
                                             <option value="Bloqueado">BLOQUEADO</option>
-
->>>>>>> 81261b2b513322d6139cddcc6020798b89a88343
                                         </select>
                                     </div>
 
@@ -1470,18 +1630,6 @@
 
                                 <div class="col-md-4 mb-3">
                                     <label for="validationCustom01">Função</label>
-<<<<<<< HEAD
-                                    <select class="form-control form-control-sm" id="chavejFuncao">
-                                        <option> </option>
-                                        <option>ADMINISTRATIVO</option>
-                                        <option>PARCEIRO</option>
-                                        <option>GERENTE</option>
-                                        <option>PROMOTOR</option>
-                                        <option>SUPERVISOR</option>
-                                        <option>PROMOTORMEI</option>
-                                        <option>CHAVE MASTER</option>
-                                        <option>CREDITO IMOBILIARIO</option>
-=======
                                     <select class="form-control form-control-sm" id="exampleFormControlFuncao">
                                         <option value=""> </option>
                                         <option value="ADMINISTRATIVO">ADMINISTRATIVO</option>
@@ -1494,7 +1642,6 @@
                                         <option value="CREDITO IMOBILIARIO">CREDITO IMOBILIARIO</option>
 
 
->>>>>>> 81261b2b513322d6139cddcc6020798b89a88343
                                     </select>
                                 </div>
 
@@ -1506,13 +1653,8 @@
 
                                 <div class="col-md-3 mb-3">
                                     <label for="validationCustom01">Data Envio Chave J</label>
-<<<<<<< HEAD
-                                    <input type="date" min="1921-01-01" class="form-control form-control-sm"
-                                        id="dtEnvioChavej">
-=======
                                     <input type="text" min="1921-01-01" class="form-control form-control-sm"
                                         id="dtEnvioChavej" onKeyDown="fMasc( this, data );" maxlength="10">
->>>>>>> 81261b2b513322d6139cddcc6020798b89a88343
 
                                 </div>
 
@@ -1533,15 +1675,6 @@
                                         <label for="validationCustom01">Motivo Cancelamento</label>
                                         <select class="form-control form-control-sm" id="motCancelChaveJ">
                                             <option> </option>
-<<<<<<< HEAD
-                                            <option>CHAVE CANCELADA PELO BANCO</option>
-                                            <option>FALTA PRODUÇÃO</option>
-                                            <option>FRAUDE</option>
-                                            <option>PEDIDO GERENTE</option>
-                                            <option>PEDIDO NASSIPE</option>
-                                            <option>PEDIDO PARCEIRO</option>
-                                            <option>PEDIDO SUPERVISOR</option>
-=======
                                             <option value="CHAVE CANCELADA PELO BANCO">CHAVE CANCELADA PELO BANCO</option>
                                             <option value="FALTA PRODUÇÃO">FALTA PRODUÇÃO</option>
                                             <option value="FRAUDE">FRAUDE</option>
@@ -1550,7 +1683,6 @@
                                             <option value="PEDIDO PARCEIRO">PEDIDO PARCEIRO</option>
                                             <option value="PEDIDO SUPERVISOR">PEDIDO SUPERVISOR</option>
 
->>>>>>> 81261b2b513322d6139cddcc6020798b89a88343
                                         </select>
                                     </div>
 
@@ -1559,30 +1691,18 @@
                                     <label for="exampleFormControlSelect1">Tipo Chave</label>
                                     <select class="form-control form-control-sm" id="exampleFormControlTipoChave">
                                         <option> </option>
-<<<<<<< HEAD
-                                        <option>PRODUÇÃO</option>
-                                        <option>CHAVE IMOBILIARIO</option>
-                                        <option>INDICA VENDAS</option>
-                                        <option>SIMULAÇÃO</option>
-=======
                                         <option value="PRODUÇÃO">PRODUÇÃO</option>
                                         <option value="CHAVE IMOBILIARIO">CHAVE IMOBILIARIO</option>
                                         <option value="INDICA VENDAS">INDICA VENDAS</option>
                                         <option value="SIMULAÇÃO">SIMULAÇÃO</option>
 
->>>>>>> 81261b2b513322d6139cddcc6020798b89a88343
                                     </select>
                                 </div>
 
                                 <div class="col-md-4 mb-3">
                                     <label for="validationCustom01">Data Cancelamento</label>
-<<<<<<< HEAD
-                                    <input type="date" min="1921-01-01" class="form-control form-control-sm"
-                                        id="dtCancelamentoChavej">
-=======
                                     <input type="text" min="1921-01-01" class="form-control form-control-sm"
                                         id="dtCancelamentoChavej" maxlength="19" size="19" onKeyPress="DataHora(event, this)">
->>>>>>> 81261b2b513322d6139cddcc6020798b89a88343
 
                                 </div>
 
@@ -1651,20 +1771,12 @@
                                     <div class="form-group">
                                         <label for="exampleFormControlSelect1">Status Siglas</label>
                                         <select class="form-control form-control-sm"
-<<<<<<< HEAD
-                                            id="exampleFormControlStatusSiglas">
-                                            <option> </option>
-                                            <option>ATIVO</option>
-                                            <option>INATIVO</option>
-                                            <option>BLOQUEADO</option>
-=======
                                         id="exampleFormControlStatusSiglas">
                                         <option> </option>
                                         <option value="ATIVO">ATIVO</option>
                                         <option value="INATIVO">INATIVO</option>
                                         <option value="BLOQUEADO">BLOQUEADO</option>
                                         <option value="DESATIVADO">DESATIVADO</option>
->>>>>>> 81261b2b513322d6139cddcc6020798b89a88343
                                         </select>
                                     </div>
 
@@ -1672,11 +1784,7 @@
 
                                 <div class="col-md-2 mb-3">
                                     <label for="validationCustom01">Data Inativação</label>
-<<<<<<< HEAD
-                                    <input type="date" min="1921-01-01" class="form-control form-control-sm"
-=======
                                     <input type="text" min="1921-01-01" class="form-control form-control-sm" onKeyDown="fMasc( this, data );" maxlength="10"
->>>>>>> 81261b2b513322d6139cddcc6020798b89a88343
                                         id="validationDataInativacao">
 
                                 </div>
@@ -1734,13 +1842,8 @@
                                     <div class="form-group">
                                         <label for="exampleFormControlSelect1">Usa Sigla E?</label>
                                         <select class="form-control form-control-sm" id="exampleFormControlUsaSigla">
-<<<<<<< HEAD
-                                            <option value="sim"> SIM </option>
-                                            <option value="nao"> NÃO </option>
-=======
                                             <option value="SIM UTILIZA A ESTEIRA GMVB"> SIM </option>
                                             <option value="NÃO UTILIZA A ESTEIRA GMVB"> NÃO </option>
->>>>>>> 81261b2b513322d6139cddcc6020798b89a88343
 
                                         </select>
                                     </div>
@@ -1750,15 +1853,9 @@
                                 <div class="col-md-6 mb-3">
                                     <div class="form-group">
                                         <label for="exampleFormControlSelect1">Usa Sigla I?</label>
-<<<<<<< HEAD
-                                        <select class="form-control form-control-sm" id="exampleFormControlSelect1">
-                                            <option value="sim"> SIM </option>
-                                            <option value="nao"> NÃO </option>
-=======
                                         <select class="form-control form-control-sm" id="exampleFormControlSiglaI">
                                             <option value="SIM"> SIM </option>
                                             <option value="NÃO"> NÃO </option>
->>>>>>> 81261b2b513322d6139cddcc6020798b89a88343
 
                                         </select>
                                     </div>
@@ -1781,7 +1878,7 @@
                         </form>
 
                         <div class="opcoes-cadastro mt-1" style="text-align: center; margin-inline: block;">
-                            <button type="button" class="btn btn-primary btn-icon-label" id="incluirSilgasE">
+                            <button type="button" class="btn btn-primary btn-icon-label" id="incluirCadastro">
                                 <span class="btn-inner--icon">
                                     <i class="fas fa-plus"></i>
                                 </span>
@@ -2518,7 +2615,7 @@
 
                                     <div class="opcoes-cadastro" style="text-align: center; margin-inline: block;">
                                         <button type="button" class="btn btn-primary btn-icon-label" data-toggle="modal"
-                                            data-target=".modalteladecadastro" title="Alterar">
+                                            data-target=".modalteladecadastro" title="Alterar" id="buttonIncluir">
                                             <span class="btn-inner--icon">
                                                 <i class="fas fa-plus"></i>
                                             </span>
@@ -2670,16 +2767,10 @@
     <script src="../assets/js/demo.js"></script>
     <!-- AJAX -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="../assets/js/comissao.js"></script>
     <script src="../assets/js/cadastro.js"></script>
     <!-- <script src="../assets/js/cadastropesquisar.js"></script> -->
-<<<<<<< HEAD
-    <script src="../assets/js/comissao.js"></script>
-    <script src="../assets/js/chavej.js"></script>
-    <script src="../assets/js/siglae.js"></script>
-=======
-    <script src="../assets/js/incluirComissao.js"></script>
-    <script src="../assets/js/incluirSiglaE.js"></script>
->>>>>>> 81261b2b513322d6139cddcc6020798b89a88343
+    
     <script src="../assets/js/acesso.js"></script>
 
 </body>
