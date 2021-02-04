@@ -3,7 +3,7 @@ var quat = document.getElementById('idQuartenario')
 var qua = document.getElementById('id-quaternario')
 var sec = document.getElementById('idSecundario')
 var ger = document.getElementById('idTerceario')
-var teste = document.getElementById("idPorcComissao")
+var cpfSecundario = document.getElementById("cpfSecundario");
 
 //Santander
 var campo = document.querySelector('#idParceiroPromotor');
@@ -194,27 +194,13 @@ fetch("http://172.16.0.197:3000/user/gerente", requestOptions)
     }
   })).catch(error => console.log('error', error));
 
-// Quaternario
 
-
-// fetch("http://172.16.0.197:3000/user/quaternario", requestOptions)
-//   .then(response => response.json().then(function (data) {
-//     // console.log(data)
-//     for (let i = 0; i < data.length; i++) {
-//       quat.innerHTML += '<option value="' + data[i].parceiro + '">' + data[i].parceiro + '</option>;'
-//       qua.innerHTML += '<option value="' + data[i].parceiro + '">' + data[i].parceiro + '</option>;'
-//     }
-//   })).catch(error => console.log('error', error));
-
-
-
-// Mascaras
 
 
 
 
 // Logica para fazer carregar o cnpj nos campos
 
-teste.addEventListener('blur', () =>{
-  alert("testetetete")
+cpfSecundario.addEventListener('blur', () =>{
+  
 })

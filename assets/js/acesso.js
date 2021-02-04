@@ -140,7 +140,7 @@ incluirAcesso.addEventListener('click', () => {
           date.appendChild(dateText)
 
           cpfIncluirAcesso++;
-
+          alert("Usuário cadastrado com sucesso")
           alteraVisualizar.innerHTML = `
           <div class="actions ml-3 text-center">
               <a href="#" class="action-item mr-0" data-toggle="tooltip" title="Alterar">
