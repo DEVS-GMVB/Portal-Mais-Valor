@@ -72,8 +72,8 @@ campo6.addEventListener('keyup', function () {
 // }
 
 
-const prosseguir = document.getElementById('comissao');
-prosseguir.addEventListener('click', () => {
+const prosse = document.getElementById('comissao');
+prosse.addEventListener('click', () => {
 
   var myHeaders = new Headers();
 

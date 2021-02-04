@@ -41,6 +41,14 @@
 </style>
 
 <!-----MODAL DA TELA CADASTRO/COMISSÃO/ACESSOS-->
+<!-- <script>
+    console.log(sessionStorage.getItem('cnpj_matriz', 'cnpj_matriz'));
+    console.log(sessionStorage.getItem('data_nascimento', 'data_nascimento'));
+    console.log(sessionStorage.getItem('id_acesso', 'id_acesso'));
+    console.log(sessionStorage.getItem('nome', 'nome'));
+    console.log(sessionStorage.getItem('perfil', 'perfil'));
+    console.log(sessionStorage.getItem('status', 'status'));
+  </script> -->
 
 
 <div class="modal fade modalteladecadastro" id="modalCadastro" tabindex="-1" role="dialog"
@@ -1272,7 +1280,7 @@
                         </div>
 
 
-                        <form class="needs-validation" novalidate>
+                        <form class="needs-validation" id="form-acesso-incluir" novalidate>
 
 
 
@@ -1308,13 +1316,13 @@
                                         <label for="exampleFormControlSelect1">Tipo Usuário</label>
                                         <select class="form-control form-control-sm" id="id-cadusu-tipousu">
                                             <option> </option>
-                                            <option>PROMOTOR/PARCEIRO</option>
-                                            <option>SUPERVISOR</option>
-                                            <option>GERENTE</option>
-                                            <option>ADM</option>
-                                            <option>MESA</option>
-                                            <option>CADASTRO</option>
-                                            <option>BKO</option>
+                                            <option value="PROMOTOR/PARCEIRO">PROMOTOR/PARCEIRO</option>
+                                            <option value="SUPERVISOR">SUPERVISOR</option>
+                                            <option value="GERENTE">GERENTE</option>
+                                            <option value="ADM">ADM</option>
+                                            <option value="MESA">MESA</option>
+                                            <option value="CADASTRO">CADASTRO</option>
+                                            <option value="BKO">BKO</option>
                                         </select>
                                     </div>
 
@@ -1389,10 +1397,18 @@
                                     <input type="text" minlength="14" maxlength="18" name='cpfcnpj'
                                         onkeypress='mascaraMutuario(this,cpfCnpj)' class="form-control form-control-sm"
                                         id="id-cadusu-cpfcnpj">
+                                        
+                                        
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <label for="validationCustom01">CNPJ Matriz</label>
+                                    <input type="text" minlength="14" maxlength="18" name='cpfcnpj'
+                                        onkeypress='mascaraMutuario(this,cpfCnpj)' class="form-control form-control-sm"
+                                        id="id-cadusu-cnpjMatriz">
 
                                 </div>
 
-                                <div class="col-md-4 mb-3">
+                                <div class="col-md-6 mb-3">
                                     <label for="validationCustom01">E-mail</label>
                                     <input type="text" class="form-control form-control-sm" id="id-cadusu-email">
 
@@ -1403,12 +1419,12 @@
                                         <label for="exampleFormControlSelect1">Motivo Cancelamento</label>
                                         <select class="form-control form-control-sm" id="id-cadusu-motcancela">
                                             <option> </option>
-                                            <option>FALTA PRODUÇÃO</option>
-                                            <option>FRAUDE</option>
-                                            <option>PEDIDO GERENTE</option>
-                                            <option>PEDIDO NASSIPE</option>
-                                            <option>PEDIDO PARCEIRO</option>
-                                            <option>PEDIDO SUPERVISOR</option>
+                                            <option value="FALTA PRODUÇÃO">FALTA PRODUÇÃO</option>
+                                            <option value="FRAUDE">FRAUDE</option>
+                                            <option value="PEDIDO GERENTE">PEDIDO GERENTE</option>
+                                            <option value="PEDIDO NASSIPE">PEDIDO NASSIPE</option>
+                                            <option value="PEDIDO PARCEIRO">PEDIDO PARCEIRO</option>
+                                            <option value="PEDIDO SUPERVISOR">PEDIDO SUPERVISOR</option>
                                         </select>
                                     </div>
 
@@ -1419,15 +1435,15 @@
                                         <label for="exampleFormControlSelect1">Perfil Acesso</label>
                                         <select class="form-control form-control-sm" id="id-cadusu-perfilacesso">
                                             <option> </option>
-                                            <option>MATRIZ</option>
-                                            <option>SUB ACESSO</option>
+                                            <option value="MATRIZ">MATRIZ</option>
+                                            <option value="SUB ACESSO">SUB ACESSO</option>
                                         </select>
                                     </div>
 
                                 </div>
 
 
-                                <div class="col-md-4 mb-3">
+                                <div class="col-md-6 mb-3">
                                     <label for="validationCustom01">Acesso Olé</label>
                                     <input type="text" class="form-control form-control-sm" id="id-cadusu-acessoole">
 
@@ -1529,11 +1545,11 @@
                         </form>
 
                         <div class="opcoes-cadastro mt-1" style="text-align: center; margin-inline: block;">
-                            <button type="button" class="btn btn-primary btn-icon-label">
+                            <button type="button" class="btn btn-primary btn-icon-label" id="incluirAcesso">
                                 <span class="btn-inner--icon">
                                     <i class="fas fa-plus"></i>
                                 </span>
-                                <span class="btn-inner--text">Incluir Cadastro</span>
+                                <span class="btn-inner--text">Incluir / Alterar</span>
                             </button>
 
                         </div>
@@ -1545,13 +1561,13 @@
                                         <th scope="col" class="sort" data-sort="nome">Nome</th>
                                         <th scope="col" class="sort" data-sort="cpf">CPF</th>
                                         <th scope="col" class="sort" data-sort="cnpjmatricula">CNPJ da Matrícula</th>
-                                        <th scope="col" class="sort" data-sort="supervisor">Supervisor</th>
-                                        <th scope="col" class="sort" data-sort="gerente">Gerente</th>
+                                        <th scope="col" class="sort" data-sort="supervisor">Responsável</th>
+                                        <th scope="col" class="sort" data-sort="gerente">Data Alteração</th>
                                         <th scope="col" class="sort" data-sort="acoes" style="text-align: center;">Ação
                                         </th>
                                     </tr>
                                 </thead>
-                                <tbody class="list">
+                                <tbody class="list" id="lista">
 
                                     <tr>
                                         <th>
@@ -1567,19 +1583,15 @@
                                             PATATI PATATA AUGUSTO
                                         </td>
                                         <td class="total">
-                                            MICHEL SANTOS SILVA
+                                            10/10/2020
                                         </td>
                                         <td class="text-center">
                                             <!-- Actions -->
                                             <div class="actions ml-3">
-                                                <a href="#" class="action-item mr-0" data-toggle="tooltip"
-                                                    title="Alterar">
+                                                <a href="#" class="action-item mr-0" data-toggle="tooltip" title="Alterar">
                                                     <i class="fas fa-external-link-alt"></i>
                                                 </a>
-                                                <a href="#" class="action-item mr-0" data-toggle="tooltip"
-                                                    title="Visualizar">
-                                                    <i class="fas fa-eye"></i>
-                                                </a>
+                                                
                                             </div>
                                         </td>
                                     </tr>
@@ -1878,7 +1890,7 @@
                         </form>
 
                         <div class="opcoes-cadastro mt-1" style="text-align: center; margin-inline: block;">
-                            <button type="button" class="btn btn-primary btn-icon-label" id="incluirCadastro">
+                            <button type="button" class="btn btn-primary btn-icon-label" id="incluirSilgasE">
                                 <span class="btn-inner--icon">
                                     <i class="fas fa-plus"></i>
                                 </span>
@@ -2491,7 +2503,7 @@
                                             <label for="validationCustom02">CPF / CPNJ</label>
                                             <input type="text" minlength="14" maxlength="18" name='cpfcnpj'
                                                 onkeypress='mascaraMutuario(this,cpfCnpj)'
-                                                class="form-control form-control-sm" id="cpfcnpj"
+                                                class="form-control form-control-sm" id="cpfcnpjj"
                                                 placeholder="Ex: 000.000.000-00">
 
                                         </div>
@@ -2500,7 +2512,7 @@
                                                 <label for="exampleFormControlSelect1">Status</label>
                                                 <select class="form-control form-control-sm" id="status">
                                                     <option> </option>
-                                                    <option value=" ">TODOS</option>
+                                                    <option value="TODOS">TODOS</option>
                                                     <option value="AGUARDANDO APROVAÇÃO DP">AGUARDANDO APROVAÇÃO DP
                                                     </option>
                                                     <option value="ATIVO">ATIVO</option>
@@ -2767,11 +2779,13 @@
     <script src="../assets/js/demo.js"></script>
     <!-- AJAX -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="../assets/js/siglae.js"></script>
     <script src="../assets/js/comissao.js"></script>
     <script src="../assets/js/cadastro.js"></script>
-    <!-- <script src="../assets/js/cadastropesquisar.js"></script> -->
     
+    <!-- <script src="../assets/js/cadastropesquisar.js"></script> -->
     <script src="../assets/js/acesso.js"></script>
+    
 
 </body>
 

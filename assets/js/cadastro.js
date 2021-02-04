@@ -1,4 +1,6 @@
 // VARS
+
+
 let fi = document.getElementById('exampleFormControlFilial');
 let filialCadastro = document.getElementById('exampleFormControlFilialCadastro');
 let supervisor = document.getElementById('exampleFormControlSupervisor');
@@ -9,7 +11,6 @@ let supervisorBB = document.getElementById('exampleFormControlSupervisorBB');
 let gerenteBB = document.getElementById('exampleFormControlGerenteBB');
 let gerente = document.getElementById('exampleFormControlSelectGerente');
 let buttonIncluir = document.getElementById("buttonIncluir");
-let cpfCnpjSigla = document.getElementById("validationCpfCnpf");
 let supervisorMulti = document.getElementById("exampleFormControlSelectSerMultBanc");
 let gerenteMulti = document.getElementById('exampleFormControlSelectGerMultBanc');
 var cont = -1;
@@ -215,7 +216,7 @@ colocar.addEventListener('click', () => {
     myHeaders.append("Content-Type", "application/json");
 
     let parceiro = document.getElementById('validationCustomFuncionario').value;
-    let cnpj = document.getElementById('cpfcnpj').value;
+    let cnpj = document.getElementById('cpfcnpjj').value;
     let supervisor = document.getElementById('exampleFormControlSupervisor').value;
     let status = document.getElementById('status').value;
     let gerente = document.getElementById('exampleFormControlSelectGerente').value;
@@ -323,7 +324,6 @@ colocar.addEventListener('click', () => {
 })
 
 
-
 function editar(cpf) {
     // console.log(cpf);
 
@@ -347,6 +347,8 @@ function editar(cpf) {
             // data = ""
             // console.log(data);
             // console.log(document.getElementById('modalAlterar'))
+            $("#validationParceiroPromotor").val("");
+            $("#validationCpfCnpf").val("");
             if (document.getElementById('modalAlterar')) {
                 $("#exampleFormControlFilialCadastro").val(data.dados_cadastro.filial);
                 $("#cep").val(data.dados_cadastro.cep);
@@ -383,7 +385,7 @@ function editar(cpf) {
                 $("#id-fp-tipopagamento").val(data.dados_cadastro.tipo_pagamento);
                 $("#exampleFormControlSelectCodFunc").val(data.dados_cadastro.cod_funcao)
                 $("#exampleFormControlSelectCargo").val(data.dados_cadastro.cargo);
-                $("#exampleFormControlSelectSetor").val(data.dados_cadastro.setor)
+                $("#exampleFormControlSelectSetor").val(data.dados_cadastro.setor);
                 //Formas de Pagamento
 
                 $("#id-fp-banco").val(data.dados_cadastro.cpf);
@@ -406,7 +408,7 @@ function editar(cpf) {
                 $("#exampleFormControlSelectProjeto").val(data.dados_cadastro.projeto);
                 $("#exampleFormControlSelectCodFunc").val(data.dados_cadastro.cod_funcao);
                 $("#exampleFormControlSelectCargo").val(data.dados_cadastro.cargo);
-                $("#exampleFormControlSelectSetor").val(data.dados_cadastro.setor)
+                $("#exampleFormControlSelectSetor").val(data.dados_cadastro.setor);
 
                 //Parceiro;
                 $("#id-p-repempresa").val(data.dados_cadastro.repre);
@@ -482,38 +484,7 @@ function editar(cpf) {
         .catch(error => console.log('error', error))
 }
 
-cpfCnpjSigla.addEventListener('blur', () => {
-    var myHeaders = new Headers();
-    myHeaders.append("Content-Type", "application/json");
-  
-    var raw = JSON.stringify({ "cnpj": cpfCnpjSigla.value });
-  
-    var requestOptions = {
-        method: 'POST',
-        headers: myHeaders,
-        body: raw,
-        redirect: 'follow'
-    };
-  
-    fetch("http://172.16.0.197:3000/user/parceiros", requestOptions)
-        .then(response => response.json())
-        .then(function (data) {
-            if (data[0].parceiro === "NAO INFORMADO NA INSERA‡A?O") {
-                $("#validationParceiroPromotor").val("");
-            } else {
-                $("#validationParceiroPromotor").val(data[0].parceiro);
-            }
-        })
-        .catch(error => console.log('error', error));
-  })
-  
-  cpfCnpjSigla.addEventListener('keyup', () => {
-    let promotor = document.getElementById("validationParceiroPromotor");
-    if (promotor.value.length > 0) {
-        $("#validationParceiroPromotor").val("")
-    }
-    // if($("#validationParceiroPromotor").val())
-  })
+
   
 
 
@@ -526,67 +497,67 @@ buttonIncluir.addEventListener('click', () => {
 })
 
 // Incluir Cadastro comissao chave j siglae
-let incluirCadastro = document.getElementById("incluirCadastro");
-incluirCadastro.addEventListener('click', () => {
-    //MODAL CADASTRO
-    let fili = document.getElementById('exampleFormControlFilialCadastro').value;
-    let funcionario = document.getElementById('funcionario').value;
-    let nomeCompleto = document.getElementById('validationNomeCompleto').value;
-    let tipoFunc = document.getElementById('validationTipoFuncionario').value;
-    let status = document.getElementById('exampleFormControlStatus').value;
-    let da = document.getElementById('validationDA').value;
-    let de = document.getElementById('validationDE').value;
-    let mitivoCancelamento = document.getElementById('exampleFormControlMotivoCancelamento').value;
-    let primeiraE = document.getElementById('validationPrimeiraE').value;
-    let segundaE = document.getElementById('validationSegundaE').value;
-    let nasc = document.getElementById('validationNasc').value;
-    let cpfCadastro = document.getElementById('validationCpfCadastro').value;
-    let tipoDocumento = document.getElementById('exampleFormControlTipoDocumento').value;
-    let dataDocumento = document.getElementById('validationCustomDataDocumento').value;
-    let od = document.getElementById('validationOD').value;
-    let mae = document.getElementById('validationMae').value;
-    let nct = document.getElementById('validationNCT').value;
-    let serieCarteira = document.getElementById('validationSerieCarteira').value;
-    let uf = document.getElementById('validationUF').value;
-    let pis = document.getElementById('validationPis').value;
-    let nContrato = document.getElementById('validationNumeroContrato').value;
-    let telefone = document.getElementById('telefone').value;
-    let email = document.getElementById('email').value;
-    let cep = document.getElementById('cep').value;
-    let logradouro = document.getElementById('validationLogradouro').value;
-    let nl = document.getElementById('validationNL').value;
-    let complemento = document.getElementById('validationComplemento').value;
-    let bairro = document.getElementById('validationBairro').value;
-    let cidade = document.getElementById('validationCidade').value;
-    let estado = document.getElementById('validationEstado').value;
-    let cpfFav = document.getElementById('id-fp-cpfFav').value;
-    let nomeFav = document.getElementById('id-fp-favorecido').value;
-    let tipoPag = document.getElementById('id-fp-tipopagamento').value;
-    let banco = document.getElementById('id-fp-bancoN').value;
-    let agencia = document.getElementById('id-fp-agencia').value;
-    let conta = document.getElementById('id-fp-conta').value;
-    let numCartao = document.getElementById('id-fp-numcartao').value;
-    let supervisorBB = document.getElementById('exampleFormControlSupervisorBB').value;
-    let gerenteBB = document.getElementById('exampleFormControlGerenteBB').value;
-    let servMultBanc = document.getElementById('exampleFormControlSelectSerMultBanc').value;
-    let gerMultBanc = document.getElementById('exampleFormControlSelectGerMultBanc').value;
-    let superintendentecad = document.getElementById('exampleFormControlSuperintendente').value;
-    let projeto = document.getElementById('exampleFormControlSelectProjeto').value;
-    let codFunc = document.getElementById('exampleFormControlSelectCodFunc').value;
-    let cargo = document.getElementById('exampleFormControlSelectCargo').value;
-    let setor = document.getElementById('exampleFormControlSelectSetor').value;
-    let codigo = document.getElementById('validationCodigo').value;
-    let matricula = document.getElementById('validationMatricula').value;
-    let empReg = document.getElementById('validationER').value;
-    let repEmpresa = document.getElementById('id-p-repempresa').value;
-    let cpfEmpresa = document.getElementById('cpfcnpj').value;
-    let dtValCert = document.getElementById('id-p-dtcertificacao').value;
-    let certificacao = document.getElementById('id-p-certificacao').value;
-    let freqPag = document.getElementById('id-frePag').value;
-    let dtBloqueio = document.getElementById('id-p-dtbloqueio').value;
-    let dtEntrContr = document.getElementById('id-p-dtentregacontrato').value;
+// let incluirCadastro = document.getElementById("incluirCadastro");
+// incluirCadastro.addEventListener('click', () => {
+//     //MODAL CADASTRO
+//     let fili = document.getElementById('exampleFormControlFilialCadastro').value;
+//     let funcionario = document.getElementById('funcionario').value;
+//     let nomeCompleto = document.getElementById('validationNomeCompleto').value;
+//     let tipoFunc = document.getElementById('validationTipoFuncionario').value;
+//     let status = document.getElementById('exampleFormControlStatus').value;
+//     let da = document.getElementById('validationDA').value;
+//     let de = document.getElementById('validationDE').value;
+//     let mitivoCancelamento = document.getElementById('exampleFormControlMotivoCancelamento').value;
+//     let primeiraE = document.getElementById('validationPrimeiraE').value;
+//     let segundaE = document.getElementById('validationSegundaE').value;
+//     let nasc = document.getElementById('validationNasc').value;
+//     let cpfCadastro = document.getElementById('validationCpfCadastro').value;
+//     let tipoDocumento = document.getElementById('exampleFormControlTipoDocumento').value;
+//     let dataDocumento = document.getElementById('validationCustomDataDocumento').value;
+//     let od = document.getElementById('validationOD').value;
+//     let mae = document.getElementById('validationMae').value;
+//     let nct = document.getElementById('validationNCT').value;
+//     let serieCarteira = document.getElementById('validationSerieCarteira').value;
+//     let uf = document.getElementById('validationUF').value;
+//     let pis = document.getElementById('validationPis').value;
+//     let nContrato = document.getElementById('validationNumeroContrato').value;
+//     let telefone = document.getElementById('telefone').value;
+//     let email = document.getElementById('email').value;
+//     let cep = document.getElementById('cep').value;
+//     let logradouro = document.getElementById('validationLogradouro').value;
+//     let nl = document.getElementById('validationNL').value;
+//     let complemento = document.getElementById('validationComplemento').value;
+//     let bairro = document.getElementById('validationBairro').value;
+//     let cidade = document.getElementById('validationCidade').value;
+//     let estado = document.getElementById('validationEstado').value;
+//     let cpfFav = document.getElementById('id-fp-cpfFav').value;
+//     let nomeFav = document.getElementById('id-fp-favorecido').value;
+//     let tipoPag = document.getElementById('id-fp-tipopagamento').value;
+//     let banco = document.getElementById('id-fp-bancoN').value;
+//     let agencia = document.getElementById('id-fp-agencia').value;
+//     let conta = document.getElementById('id-fp-conta').value;
+//     let numCartao = document.getElementById('id-fp-numcartao').value;
+//     let supervisorBB = document.getElementById('exampleFormControlSupervisorBB').value;
+//     let gerenteBB = document.getElementById('exampleFormControlGerenteBB').value;
+//     let servMultBanc = document.getElementById('exampleFormControlSelectSerMultBanc').value;
+//     let gerMultBanc = document.getElementById('exampleFormControlSelectGerMultBanc').value;
+//     let superintendentecad = document.getElementById('exampleFormControlSuperintendente').value;
+//     let projeto = document.getElementById('exampleFormControlSelectProjeto').value;
+//     let codFunc = document.getElementById('exampleFormControlSelectCodFunc').value;
+//     let cargo = document.getElementById('exampleFormControlSelectCargo').value;
+//     let setor = document.getElementById('exampleFormControlSelectSetor').value;
+//     let codigo = document.getElementById('validationCodigo').value;
+//     let matricula = document.getElementById('validationMatricula').value;
+//     let empReg = document.getElementById('validationER').value;
+//     let repEmpresa = document.getElementById('id-p-repempresa').value;
+//     let cpfEmpresa = document.getElementById('cpfcnpj').value;
+//     let dtValCert = document.getElementById('id-p-dtcertificacao').value;
+//     let certificacao = document.getElementById('id-p-certificacao').value;
+//     let freqPag = document.getElementById('id-frePag').value;
+//     let dtBloqueio = document.getElementById('id-p-dtbloqueio').value;
+//     let dtEntrContr = document.getElementById('id-p-dtentregacontrato').value;
 
 
 
-})
+// })
 

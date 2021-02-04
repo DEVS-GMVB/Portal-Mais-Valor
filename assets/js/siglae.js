@@ -1,3 +1,6 @@
+
+
+
 const prosseguir = document.getElementById('incluirSilgasE');
 prosseguir.addEventListener('click', () => {
 
@@ -47,5 +50,38 @@ prosseguir.addEventListener('click', () => {
 
 })
 
+let cpfCnpjSigla = document.getElementById("validationCpfCnpf");
 
 
+cpfCnpjSigla.addEventListener('blur', () => {
+  var myHeaders = new Headers();
+  myHeaders.append("Content-Type", "application/json");
+
+  var raw = JSON.stringify({ "cnpj": cpfCnpjSigla.value });
+
+  var requestOptions = {
+      method: 'POST',
+      headers: myHeaders,
+      body: raw,
+      redirect: 'follow'
+  };
+
+  fetch("http://172.16.0.197:3000/user/parceiros", requestOptions)
+      .then(response => response.json())
+      .then(function (data) {
+          if (data[0].parceiro === "NAO INFORMADO NA INSERA‡A?O") {
+              $("#validationParceiroPromotor").val("");
+          } else {
+              $("#validationParceiroPromotor").val(data[0].parceiro);
+          }
+      })
+      .catch(error => console.log('error', error));
+})
+
+cpfCnpjSigla.addEventListener('keyup', () => {
+  let promotor = document.getElementById("validationParceiroPromotor");
+  if (promotor.value.length > 0) {
+      $("#validationParceiroPromotor").val("")
+  }
+  // if($("#validationParceiroPromotor").val())
+})
