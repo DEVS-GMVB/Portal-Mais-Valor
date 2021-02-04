@@ -80,10 +80,10 @@ pross.addEventListener('click', () => {
 
   myHeaders.append("Content-Type", "application/json");
   let bbComissao = document.getElementById('idPorcComissao').value;
-  let bbSecuncario = document.getElementById('idSecundario').value;
-  let bbPorcSecundario = document.getElementById('idPorcSecundario').value;
-  let bbTerciario = document.getElementById('idTerceario').value;
-  let bbPorcTerceario = document.getElementById('idPorcTerceario').value;
+  //let bbSecuncario = document.getElementById('idSecundario').value;
+  //let bbPorcSecundario = document.getElementById('idPorcSecundario').value;
+  //let bbTerciario = document.getElementById('idTerceario').value;
+  //let bbPorcTerceario = document.getElementById('idPorcTerceario').value;
   let bbQuaternario = document.getElementById('idQuartenario').value;
   let bbPorcQaternario = document.getElementById('idPorcQuaternario').value;
   let santParcPromo = document.getElementById('idParceiroPromotor').value;
@@ -113,10 +113,10 @@ pross.addEventListener('click', () => {
   var raw = JSON.stringify({
 
     comissao: bbComissao,
-    secundario: bbSecuncario,
-    pct_secundario: bbPorcSecundario,
-    terceario: bbTerciario,
-    pct_terceario: bbPorcTerceario,
+   // secundario: bbSecuncario,
+    //pct_secundario: bbPorcSecundario,
+    //terceario: bbTerciario,
+   // pct_terceario: bbPorcTerceario,
     quaternario: bbQuaternario,
     pct_quaternario: bbPorcQaternario,
     comissao_novo: santParcPromo,
@@ -166,7 +166,6 @@ pross.addEventListener('click', () => {
 })
 
 // Secundario/Supervisor
-
 var requestOptions = {
   method: 'GET',
   redirect: 'follow'
@@ -181,7 +180,6 @@ fetch("http://172.16.0.197:3000/user/supervisor", requestOptions)
 
 
 // Terceario/Gerente
-
 var requestOptions = {
   method: 'GET',
   redirect: 'follow'
@@ -195,25 +193,44 @@ fetch("http://172.16.0.197:3000/user/gerente", requestOptions)
     }
   })).catch(error => console.log('error', error));
 
-  /*let cpfComissao = document.getElementById('...')
-  cpfComissao.addEventListener('blur',() =>{
-
+  // ----------------------------------------------------
+  let cpfComissaoTerc = document.getElementById('cpfTerceario')
+  
+  cpfComissaoTerc.addEventListener('blur',() =>{
     var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
 
-    var raw = JSON.stringify({"":cpfComissao.value})
+    var raw = JSON.stringify({"cnpj":cpfComissaoTerc.value})
       
     var requestOptions = {
       method: 'POST',
       headers: myHeaders,
       body: raw,
-      "...":cpfComissao,
       redirect: 'follow'
     };
+   
+    //http://172.16.0.197:3000/user/supervisor
 
-    fetch("http://172.16.0.197:3000/user/supervisor", requestOptions)
-    .then(response => response.json().then(function (data) {
-      $("#idPorcSecundario").val(data[0].pct_secundario)
-    }))
-   })*/
+    fetch("http://172.16.0.197:3000/user/parceiros", requestOptions)
+    .then(response => response.json())
+    .then(function (data) {
+      console.log(data)
+      if (data[0].parceiro === "NAO INFORMADO NA INSERA‡A?O") {
+        $("#idTerc").val("");
+    } else {
+        $("#idTerc").val(data[0].parceiro);
+    }
+    })
+    .catch(error => console.log('error', error));
+    })
+
+    cpfComissaoTerc.addEventListener('keyup', () => {
+      let terc = document.getElementById("idTerc");
+      if (terc.value.length > 0) {
+          $("#idTerc").val("")
+      }
+      // if($("#validationParceiroPromotor").val())
+    })
+   
   
 

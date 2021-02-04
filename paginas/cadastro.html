@@ -100,10 +100,10 @@
                                     <div class="form-group">
                                         <label for="exampleFormControlSelect1">Filial</label>
 
-                                            <select class="form-control form-control-sm" id="exampleFormControlFilialCadastro"
-                                                required>
-                                                <option value=""></option>
-                                            </select>
+                                        <select class="form-control form-control-sm"
+                                            id="exampleFormControlFilialCadastro" required>
+                                            <option value=""></option>
+                                        </select>
                                     </div>
 
                                 </div>
@@ -299,6 +299,8 @@
                                         id="validationNumeroContrato" required>
 
                                 </div>
+
+
 
                                 <div class="col-md-3 mb-3">
                                     <label for="validationCustom01">Telefone</label>
@@ -898,52 +900,65 @@
 
                                 </div>
 
-                                <div class="col-md-6 mb-3">
+                                <div class="col-md-4 mb-3">
+                                    <label for="validationCustom01">CPF Secundário</label>
+                                    <input type="text" class="form-control form-control-sm" id="cpfSecundario">
+
+                                </div>
+
+                                <div class="col-md-4 mb-3">
                                     <div class="form-group">
                                         <label for="exampleFormControlSelect1">Secundário</label>
-                                        <select class="form-control form-control-sm" id="idSecundario" required> 
-                                            <option> </option>
-
-                                        </select>
+                                        <input type="text" class="form-control form-control-sm" id="idSec">
+                                    </input>
                                     </div>
 
                                 </div>
 
-                                <div class="col-md-6 mb-3">
+                                <div class="col-md-4 mb-3">
                                     <label for="validationCustom01">% Secundário</label>
                                     <input type="text" class="form-control form-control-sm" id="idPorcSecundario">
 
                                 </div>
 
-                                <div class="col-md-6 mb-3">
+                                <div class="col-md-4 mb-3">
+                                    <label for="validationCustom01">CPF Terceário</label>
+                                    <input type="text" class="form-control form-control-sm" id="cpfTerceario">
+
+                                </div>
+
+                                <div class="col-md-4 mb-3">
                                     <div class="form-group">
                                         <label for="exampleFormControlSelect1">Terceário</label>
-                                        <select class="form-control form-control-sm" id="idTerceario">
-                                            <option> </option>
-
-                                        </select>
+                                        <input type="text" class="form-control form-control-sm" id="idTerc">
+                                    </input>
                                     </div>
 
                                 </div>
 
-                                <div class="col-md-6 mb-3">
+                                <div class="col-md-4 mb-3">
                                     <label for="validationCustom01">% Terceário</label>
                                     <input type="text" class="form-control form-control-sm" id="idPorcTerceario">
 
                                 </div>
 
-                                <div class="col-md-6 mb-3">
+                                <div class="col-md-4 mb-3">
+                                    <label for="validationCustom01">CPF Quartenário</label>
+                                    <input type="text" class="form-control form-control-sm">
+
+                                </div>
+
+                                <div class="col-md-4 mb-3">
                                     <div class="form-group">
                                         <label for="exampleFormControlSelect1">Quartenário</label>
-                                        <select class="form-control form-control-sm" id="idQuartenario">
-                                            <option> </option>
+                                        <input type="text" class="form-control form-control-sm" id="idQuartenario">
+                                        </input>
 
-                                        </select>
                                     </div>
 
                                 </div>
 
-                                <div class="col-md-6 mb-3">
+                                <div class="col-md-4 mb-3">
                                     <label for="validationCustom01">% Quartenário</label>
                                     <input type="text" class="form-control form-control-sm" id="idPorcQuaternario">
 
@@ -976,7 +991,8 @@
                                 <div class="col-md-4 mb-3">
                                     <div class="form-group">
                                         <label for="exampleFormControlSelect1">% Parceiro/Promotor MEI</label>
-                                        <input type="text" class="form-control form-control-sm" name="idParceiroPromotor" id="idParceiroPromotor" maxlength="6">
+                                        <input type="text" class="form-control form-control-sm"
+                                            name="idParceiroPromotor" id="idParceiroPromotor" maxlength="6">
                                     </div>
 
                                 </div>
@@ -1043,7 +1059,8 @@
                                 <div class="col-md-4 mb-3">
                                     <div class="form-group">
                                         <label for="exampleFormControlSelect1">% Parceiro/Promotor MEI</label>
-                                        <input class="form-control form-control-sm" name="id-ce-parceiro-promotor" id="id-ce-parceiro-promotor" maxlength="6">
+                                        <input class="form-control form-control-sm" name="id-ce-parceiro-promotor"
+                                            id="id-ce-parceiro-promotor" maxlength="6">
                                     </div>
 
                                 </div>
@@ -1101,7 +1118,8 @@
                                 <div class="col-md-4 mb-3">
                                     <div class="form-group">
                                         <label for="exampleFormControlSelect1">% Parceiro/Promotor MEI</label>
-                                        <input class="form-control form-control-sm" id="id-gmg-parcpromo" name="id-gmg-parcpromo" maxlength="6">
+                                        <input class="form-control form-control-sm" id="id-gmg-parcpromo"
+                                            name="id-gmg-parcpromo" maxlength="6">
                                     </div>
 
                                 </div>
@@ -1159,8 +1177,9 @@
                                 <div class="col-md-4 mb-3">
                                     <div class="form-group">
                                         <label for="exampleFormControlSelect1">% Parceiro/Promotor MEI</label>
-                                        <input class="form-control form-control-sm" id="id-grj-parcpromo" name="id-grj-parcpromo" maxlength="6">
-                                        
+                                        <input class="form-control form-control-sm" id="id-grj-parcpromo"
+                                            name="id-grj-parcpromo" maxlength="6">
+
                                     </div>
 
                                 </div>
@@ -1214,7 +1233,8 @@
                             <div class="col-md-12 mb-3">
                                 <div class="form-group">
                                     <label for="exampleFormControlSelect1">% Parceiro/Promotor MEI</label>
-                                    <input class="form-control form-control-sm" id="id-tm-parcpromo" name="id-tm-parcpromo" maxlength="6">
+                                    <input class="form-control form-control-sm" id="id-tm-parcpromo"
+                                        name="id-tm-parcpromo" maxlength="6">
                                 </div>
 
                             </div>
@@ -1232,7 +1252,8 @@
                             <div class="col-md-12 mb-3">
                                 <div class="form-group">
                                     <label for="exampleFormControlSelect1">% Parceiro/Promotor MEI</label>
-                                    <input class="form-control form-control-sm" id="id-ts-parcpromo" name="id-ts-parcpromo" maxlength="6">
+                                    <input class="form-control form-control-sm" id="id-ts-parcpromo"
+                                        name="id-ts-parcpromo" maxlength="6">
                                 </div>
 
                             </div>
@@ -1249,7 +1270,8 @@
                             <div class="col-md-12 mb-3">
                                 <div class="form-group">
                                     <label for="exampleFormControlSelect1">% Parceiro/Promotor MEI</label>
-                                    <input class="form-control form-control-sm" id="id-tc-parcpromo" name="id-tc-parcpromo" maxlength="6">
+                                    <input class="form-control form-control-sm" id="id-tc-parcpromo"
+                                        name="id-tc-parcpromo" maxlength="6">
 
                                 </div>
 
@@ -1627,7 +1649,7 @@
 
 
                             <div class="form-row mt-4">
-                                <div class="col-md-3 mb-3">
+                                <div class="col-md-4 mb-3">
                                     <div class="form-group">
                                         <label for="validationCustom01"> Chave J</label>
                                         <input type="text" class="form-control form-control-sm" id="validationChaveJ">
@@ -1635,14 +1657,17 @@
 
                                 </div>
 
-                                <div class="col-md-3 mb-3">
+                                <div class="col-md-4 mb-3">
                                     <div class="form-group">
                                         <label for="exampleFormControlSelect1">Status da Chave</label>
                                         <select class="form-control form-control-sm" id="StatusChavej">
                                             <option> </option>
+                                            <option value="Todos">TODOS</option>
+                                            <option value="Aguardando aprovação dp">AGUARDANDO APROVAÇÃO DP</option>
                                             <option value="Ativo">ATIVO</option>
                                             <option value="Inativo">INATIVO</option>
                                             <option value="Bloqueado">BLOQUEADO</option>
+
                                         </select>
                                     </div>
 
@@ -1665,20 +1690,20 @@
                                     </select>
                                 </div>
 
-                                <div class="col-md-5 mb-3">
+                                <div class="col-md-7 mb-3">
                                     <label for="validationCustom01">Empresa</label>
                                     <input type="text" class="form-control form-control-sm" id="chavejEmpresa">
 
                                 </div>
 
-                                <div class="col-md-3 mb-3">
+                                <div class="col-md-5 mb-3">
                                     <label for="validationCustom01">Data Envio Chave J</label>
                                     <input type="text" min="1921-01-01" class="form-control form-control-sm"
                                         id="dtEnvioChavej" onKeyDown="fMasc( this, data );" maxlength="10">
 
                                 </div>
 
-                                <div class="col-md-5 mb-3">
+                                <div class="col-md-6 mb-3">
                                     <div class="form-group">
                                         <label for="exampleFormControlSelect1">Senha Chave J</label>
                                         <select class="form-control form-control-sm" id="senhaChavej">
@@ -1689,7 +1714,7 @@
 
                                 </div>
 
-                                <div class="col-md-4 mb-3">
+                                <div class="col-md-6 mb-3">
                                     <div class="form-group">
 
                                         <label for="validationCustom01">Motivo Cancelamento</label>
@@ -1725,11 +1750,6 @@
                                         id="dtCancelamentoChavej" maxlength="19" size="19" onKeyPress="DataHora(event, this)">
 
                                 </div>
-
-
-
-
-
 
                             </div>
 
@@ -1877,7 +1897,7 @@
                                             <option value="SIM"> SIM </option>
                                             <option value="NÃO"> NÃO </option>
 
-                                        </select>
+                                            </select>
                                     </div>
 
                                 </div>
@@ -2739,7 +2759,8 @@
                                                     <!-- Actions -->
                                                     <div class="actions ml-3" style="text-align: center;">
                                                         <a href="#" class="action-item mr-2 " data-toggle="modal"
-                                                            data-target=".modalteladecadastro" title="Alterar" id="modalAlterar">
+                                                            data-target=".modalteladecadastro" title="Alterar"
+                                                            id="modalAlterar">
                                                             <i class="fas fa-external-link-alt"></i>
                                                         </a>
                                                         <a href="#" class="action-item mr-2" data-toggle="modal"
