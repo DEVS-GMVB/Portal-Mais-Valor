@@ -5,16 +5,14 @@
 var ger = document.getElementById('idTerceario')
 
 //Santander
-var campo = document.querySelector('#idParceiroPromotor');
+var campo = document.querySelectorAll('.mascara');
 campo.addEventListener('keyup', function () {
-  var d = campo.value.replace(/\D/g, "");
-  d = d.replace(/(\d{2,3})(\d{2,3})$/, "$1.$2");
-  this.value = d;
-  if (campo.value.length < 5) {
-    campo.classList.add("invalido");
-  } else {
-    campo.classList.remove("invalido");
-  }
+  campo.forEach(element => {
+    var d = campo.value.replace(/\D/g, "");
+    d = d.replace(/(\d{2,3})(\d{2,3})$/, "$1.$2");
+    this.value = d;
+  })
+  
 });
 
 //Convenios especiais
@@ -65,6 +63,12 @@ campo6.addEventListener('keyup', function () {
   this.value = d6;
 });
 
+var campo7 = document.querySelector('#id-porc-supervisor');
+campo7.addEventListener('keyup', function () {
+  var d7 = campo7.value.replace(/\D/g, "");
+  d7 = d7.replace(/(\d{2,3})(\d{2,3})$/, "$1.$2");
+  this.value = d7;
+});
 
 // window.onload = function () {
 
