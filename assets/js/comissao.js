@@ -65,6 +65,101 @@ campo6.addEventListener('keyup', function () {
   this.value = d6;
 });
 
+//%Supervisor
+var campo7 = document.querySelector('#id-porc-supervisor');
+campo7.addEventListener('keyup', function () {
+  var d7 = campo7.value.replace(/\D/g, "");
+  d7 = d7.replace(/(\d{2,3})(\d{2,3})$/, "$1.$2");
+  this.value = d7;
+});
+
+//%Gerente
+var campo8 = document.querySelector('#id-porc-gerente');
+campo8.addEventListener('keyup', function () {
+  var d8 = campo8.value.replace(/\D/g, "");
+  d8 = d8.replace(/(\d{2,3})(\d{2,3})$/, "$1.$2");
+  this.value = d8;
+});
+
+//%Quaternario
+var campo9 = document.querySelector('#id-porc-quaternario');
+campo9.addEventListener('keyup', function () {
+  var d9 = campo9.value.replace(/\D/g, "");
+  d9 = d9.replace(/(\d{2,3})(\d{2,3})$/, "$1.$2");
+  this.value = d9;
+});
+
+//%Supervisor
+var campo10 = document.querySelector('#id-ce-supervisor');
+campo10.addEventListener('keyup', function () {
+  var d10 = campo10.value.replace(/\D/g, "");
+  d10 = d10.replace(/(\d{2,3})(\d{2,3})$/, "$1.$2");
+  this.value = d10;
+});
+
+//%Gerente
+var campo11 = document.querySelector('#id-ce-gerente');
+campo11.addEventListener('keyup', function () {
+  var d11 = campo11.value.replace(/\D/g, "");
+  d11 = d11.replace(/(\d{2,3})(\d{2,3})$/, "$1.$2");
+  this.value = d11;
+});
+
+//%Quaternario
+var campo12 = document.querySelector('#id-ce-quaternario');
+campo12.addEventListener('keyup', function () {
+  var d12 = campo12.value.replace(/\D/g, "");
+  d12 = d12.replace(/(\d{2,3})(\d{2,3})$/, "$1.$2");
+  this.value = d12;
+});
+
+//%Supervisor
+var campo122 = document.querySelector('#id-gmg-supervisor');
+campo122.addEventListener('keyup', function () {
+  var d122 = campo122.value.replace(/\D/g, "");
+  d122 = d122.replace(/(\d{2,3})(\d{2,3})$/, "$1.$2");
+  this.value = d122;
+});
+
+//%Gerente
+var campo13 = document.querySelector('#id-gmg-gerente');
+campo13.addEventListener('keyup', function () {
+  var d13 = campo13.value.replace(/\D/g, "");
+  d13 = d13.replace(/(\d{2,3})(\d{2,3})$/, "$1.$2");
+  this.value = d13;
+});
+
+//%Quaternario
+var campo14 = document.querySelector('#id-gmg-quaternario');
+campo14.addEventListener('keyup', function () {
+  var d14 = campo14.value.replace(/\D/g, "");
+  d14 = d14.replace(/(\d{2,3})(\d{2,3})$/, "$1.$2");
+  this.value = d14;
+});
+
+//%Supervisor
+var campo15 = document.querySelector('#id-grj-supervisor');
+campo15.addEventListener('keyup', function () {
+  var d15 = campo15.value.replace(/\D/g, "");
+  d15 = d15.replace(/(\d{2,3})(\d{2,3})$/, "$1.$2");
+  this.value = d15;
+});
+
+//%Gerente
+var campo16 = document.querySelector('#id-grj-gerente');
+campo16.addEventListener('keyup', function () {
+  var d16 = campo16.value.replace(/\D/g, "");
+  d16 = d16.replace(/(\d{2,3})(\d{2,3})$/, "$1.$2");
+  this.value = d16;
+});
+
+//%Quaternario
+var campo17 = document.querySelector('#id-grj-quaternario');
+campo17.addEventListener('keyup', function () {
+  var d17 = campo17.value.replace(/\D/g, "");
+  d17 = d17.replace(/(\d{2,3})(\d{2,3})$/, "$1.$2");
+  this.value = d17;
+});
 
 // window.onload = function () {
     
@@ -195,29 +290,104 @@ prosse.addEventListener('click', () => {
 
 
 // Logica para fazer carregar o cnpj nos campos
-
-cpfSecundario.addEventListener('blur', () =>{
-  var cpfSecundario = document.getElementById("cpfSecundario");
-  
-  var myHeaders = new Headers();
+//Secundario
+let cpfSecundario = document.getElementById("cpfSecundario");
+cpfSecundario.addEventListener('blur', () => {
+    
+    var myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/json");
 
-  var raw = JSON.stringify({
-    "cnpj": cpfSecundario.value
-  })
-    
-  
+  var raw = JSON.stringify({ "cnpj": cpfSecundario.value });
 
   var requestOptions = {
-    method: 'POST',
-    headers : myHeaders,
-    body: raw,
-    redirect: 'follow'
-  }
+      method: 'POST',
+      headers: myHeaders,
+      body: raw,
+      redirect: 'follow'
+  };
+  fetch("http://172.16.0.197:3000/user/parceiros", requestOptions)
+  .then(response => response.json())
+  .then(function (data) {
+      if (data[0].parceiro === "NAO INFORMADO NA INSERA‡A?O") {
+          $("#idSec").val("");
+      } else {
+          $("#idSec").val(data[0].parceiro);
+      }
+  })
+  .catch(error => console.log('error', error));
+})
 
-  fetch("http://172.16.0.197:3000/user/parceiros", requestOptions).
-  then(result => result.json().then(function(data){
-    $("#idSec").val(data[0].parceiro)
-  })).catch(error => console.log('error', error))
+cpfSecundario.addEventListener('keyup', () => {
+let sec = document.getElementById("idSec");
+if (sec.value.length > 0) {
+  $("#idSec").val("")
+}
+})
 
+//Terceario
+let cpfTerceario = document.getElementById("cpfTerceario");
+cpfTerceario.addEventListener('blur', () => {
+    
+    var myHeaders = new Headers();
+  myHeaders.append("Content-Type", "application/json");
+
+  var raw = JSON.stringify({ "cnpj": cpfTerceario.value });
+
+  var requestOptions = {
+      method: 'POST',
+      headers: myHeaders,
+      body: raw,
+      redirect: 'follow'
+  };
+  fetch("http://172.16.0.197:3000/user/parceiros", requestOptions)
+  .then(response => response.json())
+  .then(function (data) {
+      if (data[0].parceiro === "NAO INFORMADO NA INSERA‡A?O") {
+          $("#idTerc").val("");
+      } else {
+          $("#idTerc").val(data[0].parceiro);
+      }
+  })
+  .catch(error => console.log('error', error));
+})
+
+cpfTerceario.addEventListener('keyup', () => {
+let ter = document.getElementById("idTerc");
+if (ter.value.length > 0) {
+  $("#idTerc").val("")
+}
+})
+
+  //Quaternario
+  let cpfQuaternario = document.getElementById("quaternario");
+  cpfQuaternario.addEventListener('blur', () => {
+    
+    var myHeaders = new Headers();
+  myHeaders.append("Content-Type", "application/json");
+
+  var raw = JSON.stringify({ "cnpj": cpfQuaternario.value });
+
+  var requestOptions = {
+      method: 'POST',
+      headers: myHeaders,
+      body: raw,
+      redirect: 'follow'
+  };
+  fetch("http://172.16.0.197:3000/user/parceiros", requestOptions)
+  .then(response => response.json())
+  .then(function (data) {
+      if (data[0].parceiro === "NAO INFORMADO NA INSERA‡A?O") {
+          $("#idQuartenario").val("");
+      } else {
+          $("#idQuartenario").val(data[0].parceiro);
+      }
+  })
+  .catch(error => console.log('error', error));
+})
+
+cpfQuaternario.addEventListener('keyup', () => {
+let quat = document.getElementById("idQuartenario");
+if (quat.value.length > 0) {
+  $("#idQuartenario").val("")
+}
 })

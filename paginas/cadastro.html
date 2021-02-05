@@ -944,7 +944,7 @@
 
                                 <div class="col-md-4 mb-3">
                                     <label for="validationCustom01">CPF Quartenário</label>
-                                    <input type="text" class="form-control form-control-sm" onkeypress='mascaraMutuario(this,cpfCnpj)' minlength="14" maxlength="18">
+                                    <input type="text" class="form-control form-control-sm" onkeypress='mascaraMutuario(this,cpfCnpj)' minlength="14" maxlength="18" id="quaternario">
 
                                 </div>
 
@@ -999,29 +999,30 @@
 
                                 <div class="col-md-4 mb-3">
                                     <label for="validationCustom01">% Supervisor</label>
-                                    <input type="text" class="form-control form-control-sm" id="id-porc-supervisor">
+                                    <input type="text" class="form-control form-control-sm" id="id-porc-supervisor"
+                                    name="id-porc-supervisor" maxlength="6">
 
                                 </div>
 
                                 <div class="col-md-4 mb-3">
                                     <label for="validationCustom01">% Gerente</label>
-                                    <input type="text" class="form-control form-control-sm" id="id-porc-gerente">
+                                    <input type="text" class="form-control form-control-sm" id="id-porc-gerente"
+                                    name="id-porc-gerente" maxlength="6">
 
                                 </div>
 
                                 <div class="col-md-3 mb-3">
                                     <label for="validationCustom01">% Quartenário</label>
-                                    <input type="text" class="form-control form-control-sm" id="id-porc-quaternario">
+                                    <input type="text" class="form-control form-control-sm" id="id-porc-quaternario"
+                                    name="id-porc-quaternario" maxlength="6">
 
                                 </div>
 
                                 <div class="col-md-6 mb-3">
                                     <div class="form-group">
-                                        <label for="exampleFormControlSelect1">% Máximo Comissão(SUP/GER/QUAT)</label>
-                                        <select class="form-control form-control-sm" id="id-max-comissao">
-                                            <option> </option>
-
-                                        </select>
+                                        <label for="exampleFormControlSelect1">CPF Quartenário</label>
+                                        <input type="text" class="form-control form-control-sm" id="cpfQuartenarioDC" onkeypress='mascaraMutuario(this,cpfCnpj)' minlength="14" maxlength="18">
+                                            
                                     </div>
 
                                 </div>
@@ -1038,7 +1039,16 @@
                                 </div>
 
 
+                                <div class="col-md-6 mb-3">
+                                    <div class="form-group">
+                                        <label for="exampleFormControlSelect1">% Máximo Comissão(SUP/GER/QUAT)</label>
+                                        <select class="form-control form-control-sm" id="id-max-comissao">
+                                            <option> </option>
 
+                                        </select>
+                                    </div>
+
+                                </div>
 
                             </div>
 
@@ -1067,19 +1077,22 @@
 
                                 <div class="col-md-4 mb-3">
                                     <label for="validationCustom01">% Supervisor</label>
-                                    <input type="text" class="form-control form-control-sm" id="id-ce-supervisor">
+                                    <input type="text" class="form-control form-control-sm" id="id-ce-supervisor"
+                                    name="id-ce-supervisor" maxlength="6">
 
                                 </div>
 
                                 <div class="col-md-4 mb-3">
                                     <label for="validationCustom01">% Gerente</label>
-                                    <input type="text" class="form-control form-control-sm" id="id-ce-gerente">
+                                    <input type="text" class="form-control form-control-sm" id="id-ce-gerente"
+                                    name="id-ce-gerente" maxlength="6">
 
                                 </div>
 
                                 <div class="col-md-6 mb-3">
                                     <label for="validationCustom01">% Quartenário</label>
-                                    <input type="text" class="form-control form-control-sm" id="id-ce-quaternario">
+                                    <input type="text" class="form-control form-control-sm" id="id-ce-quaternario"
+                                    name="id-ce-quaternario" maxlength="6">
 
                                 </div>
 
@@ -1126,19 +1139,22 @@
 
                                 <div class="col-md-4 mb-3">
                                     <label for="validationCustom01">% Supervisor</label>
-                                    <input type="text" class="form-control form-control-sm" id="id-gmg-supervisor">
+                                    <input type="text" class="form-control form-control-sm" id="id-gmg-supervisor"
+                                    name="id-gmg-supervisor" maxlength="6">
 
                                 </div>
 
                                 <div class="col-md-4 mb-3">
                                     <label for="validationCustom01">% Gerente</label>
-                                    <input type="text" class="form-control form-control-sm" id="id-gmg-gerente">
+                                    <input type="text" class="form-control form-control-sm" id="id-gmg-gerente"
+                                    name="id-gmg-gerente" maxlength="6">
 
                                 </div>
 
                                 <div class="col-md-6 mb-3">
                                     <label for="validationCustom01">% Quartenário</label>
-                                    <input type="text" class="form-control form-control-sm" id="id-gmg-quaternario">
+                                    <input type="text" class="form-control form-control-sm" id="id-gmg-quaternario"
+                                    name="id-gmg-quaternario" maxlength="6">
 
                                 </div>
 
@@ -1186,19 +1202,22 @@
 
                                 <div class="col-md-4 mb-3">
                                     <label for="validationCustom01">% Supervisor</label>
-                                    <input type="text" class="form-control form-control-sm" id="id-grj-supervisor">
+                                    <input type="text" class="form-control form-control-sm" id="id-grj-supervisor"
+                                    name="id-grj-supervisor" maxlength="6">
 
                                 </div>
 
                                 <div class="col-md-4 mb-3">
                                     <label for="validationCustom01">% Gerente</label>
-                                    <input type="text" class="form-control form-control-sm" id="id-grj-gerente">
+                                    <input type="text" class="form-control form-control-sm" id="id-grj-gerente"
+                                    name="id-grj-gerente" maxlength="6">
 
                                 </div>
 
                                 <div class="col-md-6 mb-3">
                                     <label for="validationCustom01">% Quartenário</label>
-                                    <input type="text" class="form-control form-control-sm" id="id-grj-quaternario">
+                                    <input type="text" class="form-control form-control-sm" id="id-grj-quaternario"
+                                    name="id-grj-quaternario" maxlength="6">
 
                                 </div>
 
@@ -1874,7 +1893,7 @@
                                 <div class="col-md-6 mb-3">
                                     <label for="validationCustom01">Parceiro/Promotor</label>
                                     <input type="text" class="form-control form-control-sm"
-                                        id="validationParceiroPromotor">
+                                        id="validationParceiroPromotor" readonly='true'>
 
                                 </div>
 

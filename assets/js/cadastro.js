@@ -347,7 +347,38 @@ function editar(cpfCnpj) {
     then(response => response.json().then(function(data){
         // console.log(data[0]);
         for(const value of data) {
-            
+            let tbody = document.getElementById("lista");
+            let row = tbody.insertRow(-1);
+            let nome = row.insertCell(-1);
+            let cpf = row.insertCell(-1);
+            let cnpjMa = row.insertCell(-1);
+            let respo = row.insertCell(-1);
+            let data_altera = row.insertCell(-1);
+            let altera = row.insertCell(-1);
+
+            let nomeTexto = document.createTextNode(`${value.nome}`);
+            nome.appendChild(nomeTexto);
+
+            let cpfTexto = document.createTextNode(`${value.cpf_usuario}`);
+            cpf.appendChild(cpfTexto);
+
+            let cnpjMaTexto = document.createTextNode(`${value.cnpj_matriz}`);
+            cnpjMa.appendChild(cnpjMaTexto);
+
+            let respoTexto = document.createTextNode(`${value.responsavel}`);
+            respo.appendChild(respoTexto);
+
+            let dtTexto = document.createTextNode(`${value.data_atualizacao}`);
+            data_altera.appendChild(dtTexto);
+
+            cpfIncluirAcesso++;
+
+            altera.innerHTML = `
+          <div class="actions ml-3 text-center">
+              <a href="#" class="action-item mr-0" data-toggle="tooltip" title="Alterar">
+                  <i class="fas fa-external-link-alt"></i>
+              </a>
+          </div>`
         }
     }))
 
