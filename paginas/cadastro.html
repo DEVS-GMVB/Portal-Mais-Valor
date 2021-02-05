@@ -41,6 +41,14 @@
 </style>
 
 <!-----MODAL DA TELA CADASTRO/COMISSÃO/ACESSOS-->
+<!-- <script>
+    console.log(sessionStorage.getItem('cnpj_matriz', 'cnpj_matriz'));
+    console.log(sessionStorage.getItem('data_nascimento', 'data_nascimento'));
+    console.log(sessionStorage.getItem('id_acesso', 'id_acesso'));
+    console.log(sessionStorage.getItem('nome', 'nome'));
+    console.log(sessionStorage.getItem('perfil', 'perfil'));
+    console.log(sessionStorage.getItem('status', 'status'));
+  </script> -->
 
 
 <div class="modal fade modalteladecadastro" id="modalCadastro" tabindex="-1" role="dialog"
@@ -156,7 +164,7 @@
                                     <label for="validationCustom01">Data Demissão</label>
                                     <input type="text" min="1921-01-01" max="now();"
                                         class="form-control form-control-sm" id="validationDE"
-                                        onKeyDown="fMasc( this, data );" required>
+                                        onKeyDown="fMasc( this, data );" maxlength="10" required>
 
                                 </div>
                             </div>
@@ -168,6 +176,12 @@
                                         <select class="form-control form-control-sm"
                                             id="exampleFormControlMotivoCancelamento" required>
                                             <option> </option>
+                                            <option value="FRAUDE">FRAUDE</option>
+                                            <option value="PEDIDO PARCEIRO">PEDIDO PARCEIRO</option>
+                                            <option value="PEDIDO GERENTE">PEDIDO GERENTE</option>
+                                            <option value="PEDIDO NASSIPE">PEDIDO NASSIPE</option>
+                                            <option value="PEDIDO SUPERVISOR">PEDIDO SUPERVISOR</option>
+                                            <option value="FALTA DE PRODUÇÃO">FALTA DE PRODUÇÃO</option>
 
                                         </select>
                                     </div>
@@ -210,6 +224,8 @@
                                         <select class="form-control form-control-sm"
                                             id="exampleFormControlTipoDocumento" required>
                                             <option> </option>
+                                            <option value="RG - REGISTRO GERAL">RG - REGISTRO GERAL</option>
+                                            <option value="CNH- CARTEIRA NACIONAL DE HABILITAÇÃO">CNH- CARTEIRA NACIONAL DE HABILITAÇÃO</option>
 
                                         </select>
                                     </div>
@@ -219,7 +235,7 @@
                                 <div class="col-md-2 mb-3">
                                     <label for="validationCustom01">Data Documento</label>
                                     <input type="text" class="form-control form-control-sm"
-                                        id="validationCustomDataDocumento" required>
+                                        id="validationCustomDataDocumento"  onKeyDown="fMasc( this, data );" maxlength="10" required >
 
                                 </div>
 
@@ -288,13 +304,16 @@
 
                                 <div class="col-md-3 mb-3">
                                     <label for="validationCustom01">Telefone</label>
-<<<<<<< Updated upstream
+
                                     <input type="text" class="form-control form-control-sm" id="#" required>
-=======
-                                    <input type="text" maxlength="14" name="telefone" id="telefone"
+                                 <input type="text" maxlength="14" name="telefone" id="telefone"
                                         onKeyDown="fMasc( this, mTelefone );" class="form-control form-control-sm"
                                         id="validationTelefone" required>
->>>>>>> Stashed changes
+
+                                    <input type="text" maxlength="14" name="telefone"
+                                        onKeyDown="fMasc( this, mTelefone );" class="form-control form-control-sm"
+                                        id="validationTelefone" required>
+
 
                                 </div>
 
@@ -399,6 +418,8 @@
                                         <label for="exampleFormControlSelect1">Tipo Pagamento</label>
                                         <select class="form-control form-control-sm" id="id-fp-tipopagamento" required>
                                             <option> </option>
+                                            <option value="CP CONTA POUPANÇA">CP CONTA POUPANÇA</option>
+                                            <option value="CC CONTA CORRENTE">CC CONTA CORRENTE</option>
 
                                         </select>
                                     </div>
@@ -529,6 +550,18 @@
                                         <select class="form-control form-control-sm"
                                             id="exampleFormControlSelectProjeto" required>
                                             <option> </option>
+                                            <option value="BB CONSORCIOS">BB CONSORCIOS</option>
+                                            <option value="CRÉDITO IMOBILIÁRIO">CRÉDITO IMOBILIÁRIO</option>
+                                            <option value="BRADESCO">BRADESCO</option>
+                                            <option value="CETELEM">CETELEM</option>
+                                            <option value="F5 PROMOTORA">F5 PROMOTORA</option>
+                                            <option value="OLE CONSIGNADO">OLE CONSIGNADO</option>
+                                            <option value="BANCO PAN">BANCO PAN</option>
+                                            <option value="PARANA BANCO">PARANA BANCO</option>
+                                            <option value="DAYCOVAL">DAYCOVAL</option>
+                                            <option value="SANTANDER CONTAS">SANTANDER CONTAS</option>
+                                            <option value="SANTANDER SEGURO PREST">SANTANDER SEGURO PREST</option>
+                                            <option value="CARTÃO OLÉ">CARTÃO OLÉ</option>
 
                                         </select>
                                     </div>
@@ -541,7 +574,76 @@
                                         <select class="form-control form-control-sm"
                                             id="exampleFormControlSelectCodFunc" required>
                                             <option> </option>
-
+                                            <option value="PROMOTOR">PROMOTOR</option>
+                                            <option value="SUPERVISOR">SUPERVISOR</option>
+                                            <option value="GERENTE COMERCIAL">GERENTE COMERCIAL</option>
+                                            <option value="SUPERINTENDENTE">SUPERINTENDENTE</option>
+                                            <option value="ASSIST COORD">ASSIST COORD</option>
+                                            <option value="AUX ADMINISTRATIVO">AUX ADMINISTRATIVO</option>
+                                            <option value="ANAL DE PRODUTOS">ANAL DE PRODUTOS</option>
+                                            <option value="COORDENADOR">COORDENADOR</option>
+                                            <option value="OP TELEMARKETING">OP TELEMARKETING</option>
+                                            <option value="BACKOFFICE">BACKOFFICE</option>
+                                            <option value="ASSIST ADM">ASSIST ADM</option>
+                                            <option value="AUX SERV GERAIS">AUX SERV GERAIS</option>
+                                            <option value="RECEPCIONISTA">RECEPCIONISTA</option>
+                                            <option value="SUPER COMERCIAL">SUPER COMERCIAL</option>
+                                            <option value="AUX COORD">AUX COORD</option>
+                                            <option value="ANAL FINANCEIRO">ANAL FINANCEIRO</option>
+                                            <option value="ANAL DPTO PESSOAL JR">ANAL DPTO PESSOAL JR</option>
+                                            <option value="DIRETOR">DIRETOR</option>
+                                            <option value="PROMOTOR I">PROMOTOR I</option>
+                                            <option value="COORD ADM">COORD ADM</option>
+                                            <option value="OP ATENDIMENTO">OP ATENDIMENTO</option>
+                                            <option value="COORD DE COMPRAS">COORD DE COMPRAS</option>
+                                            <option value="ANAL DE CONC/PROD">ANAL DE CONC/PROD</option>
+                                            <option value="ANAL DPTO PESSOAL PL">ANAL DPTO PESSOAL PL</option>
+                                            <option value="COORD RH">COORD RH</option>
+                                            <option value="AUX ADMINISTRATIVO I">AUX ADMINISTRATIVO I</option>
+                                            <option value="CONSULT IMOBILIARIO">CONSULT IMOBILIARIO</option>
+                                            <option value="ASSIST ADM I">ASSIST ADM I</option>
+                                            <option value="ASSIST ADM II">ASSIST ADM II</option>
+                                            <option value="ASSIST ADM III">ASSIST ADM III</option>
+                                            <option value="COORDENADOR I">COORDENADOR I</option>
+                                            <option value="COORDENADOR II">COORDENADOR II</option>
+                                            <option value="COORDENADOR III">COORDENADOR III</option>
+                                            <option value="COORDENADOR IV">COORDENADOR IV</option>
+                                            <option value="GERENTE">GERENTE</option>
+                                            <option value="GERENTE I">GERENTE I</option>
+                                            <option value="GERENTE II">GERENTE II</option>
+                                            <option value="GERENTE III">GERENTE III</option>
+                                            <option value="PROMOTOR II">PROMOTOR II</option>
+                                            <option value="PROMOTOR III">PROMOTOR III</option>
+                                            <option value="PROMOTOR IV">PROMOTOR IV</option>
+                                            <option value="SUPERVISOR I">SUPERVISOR I</option>
+                                            <option value="SUPERVISOR II">SUPERVISOR II</option>
+                                            <option value="SUPERVISOR III">SUPERVISOR III</option>
+                                            <option value="SUPERVISOR IV">SUPERVISOR IV</option>
+                                            <option value="SUPERVISOR V">SUPERVISOR V</option>
+                                            <option value="COORD CALL CENTER">COORD CALL CENTER</option>
+                                            <option value="AUX DE FORMALIZACAO">AUX DE FORMALIZACAO</option>
+                                            <option value="ANAL DE FORMALIZCAO">ANAL DE FORMALIZCAO</option>
+                                            <option value="PROMOTOR IMOBILIARIO">PROMOTOR IMOBILIARIO</option>
+                                            <option value="PROMOTOR DE VEICULOS">PROMOTOR DE VEICULOS</option>
+                                            <option value="ANALISTA DE RH JR">ANALISTA DE RH JR</option>
+                                            <option value="COORDENADOR TI">COORDENADOR TI</option>
+                                            <option value="AUXILIAR TI">AUXILIAR TI</option>
+                                            <option value="CONTROL DESK">CONTROL DESK</option>
+                                            <option value="BACKOFFICE">BACKOFFICE</option>
+                                            <option value="MONITOR DE QUALIDADE">MONITOR DE QUALIDADE</option>
+                                            <option value="CUIDADOR DE IDOSO">CUIDADOR DE IDOSO</option>
+                                            <option value="EMPREGADA DOMESTICA">EMPREGADA DOMESTICA</option>
+                                            <option value="OP DE ATENDIMENTO SN">OP DE ATENDIMENTO SN</option>
+                                            <option value="COORDENADOR DE TREIN">COORDENADOR DE TREIN</option>
+                                            <option value="OP DE ATENDIMENTO">OP DE ATENDIMENTO</option>
+                                            <option value="ANALISTA DE TI">ANALISTA DE TI</option>
+                                            <option value="BACKUP">BACKUP</option>
+                                            <option value="ANALISTA DE TI PL">ANALISTA DE TI PL</option>
+                                            <option value="ANALISTA DE RH PLENO">ANALISTA DE RH PLENO</option>
+                                            <option value="CUIDADORA">CUIDADORA</option>
+                                            <option value="PROMOTOR - PARCEIRO">PROMOTOR - PARCEIRO</option>
+                                            <option value="ESTAGIARIO">ESTAGIARIO</option>
+                                          
                                         </select>
                                     </div>
 
@@ -553,6 +655,69 @@
                                         <select class="form-control form-control-sm" id="exampleFormControlSelectCargo"
                                             required>
                                             <option> </option>
+                                            <option value="PROMOTOR">PROMOTOR</option>
+                                            <option value="SUPERVISOR">SUPERVISOR</option>
+                                            <option value="GERENTE COMERCIAL">GERENTE COMERCIAL</option>
+                                            <option value="SUPERINTENDENTE">SUPERINTENDENTE</option>
+                                            <option value="ASSIST COORD">ASSIST COORD</option>
+                                            <option value="AUX ADMINISTRATIVO">AUX ADMINISTRATIVO</option>
+                                            <option value="ANAL DE PRODUTOS">ANAL DE PRODUTOS</option>
+                                            <option value="COORDENADOR">COORDENADOR</option>
+                                            <option value="OP TELEMARKETING">OP TELEMARKETING</option>
+                                            <option value="BACKOFFICE">BACKOFFICE</option>
+                                            <option value="ASSIST ADM">ASSIST ADM</option>
+                                            <option value="AUX SERV GERAIS">AUX SERV GERAIS</option>
+                                            <option value="RECEPCIONISTA">RECEPCIONISTA</option>
+                                            <option value="SUPER COMERCIAL">SUPER COMERCIAL</option>
+                                            <option value="AUX COORD">AUX COORD</option>
+                                            <option value="ANAL FINANCEIRO">ANAL FINANCEIRO</option>
+                                            <option value="ANAL DPTO PESSOAL JR">ANAL DPTO PESSOAL JR</option>
+                                            <option value="DIRETOR">DIRETOR</option>
+                                            <option value="PROMOTOR I">PROMOTOR I</option>
+                                            <option value="COORD ADM">COORD ADM</option>
+                                            <option value="OP ATENDIMENTO">OP ATENDIMENTO</option>
+                                            <option value="COORD DE COMPRAS">COORD DE COMPRAS</option>
+                                            <option value="ANAL DE CONC/PROD">ANAL DE CONC/PROD</option>
+                                            <option value="ANAL DPTO PESSOAL PL">ANAL DPTO PESSOAL PL</option>
+                                            <option value="COORD RH">COORD RH</option>
+                                            <option value="AUX ADMINISTRATIVO I">AUX ADMINISTRATIVO I</option>
+                                            <option value="CONSULT IMOBILIARIO">CONSULT IMOBILIARIO</option>
+                                            <option value="ASSIST ADM I">ASSIST ADM I</option>
+                                            <option value="ASSIST ADM II">ASSIST ADM II</option>
+                                            <option value="ASSIST ADM III">ASSIST ADM III</option>
+                                            <option value="COORDENADOR I">COORDENADOR I</option>
+                                            <option value="COORDENADOR II">COORDENADOR II</option>
+                                            <option value="COORDENADOR III">COORDENADOR III</option>
+                                            <option value="COORDENADOR IV">COORDENADOR IV</option>
+                                            <option value="GERENTE">GERENTE</option>
+                                            <option value="GERENTE I">GERENTE I</option>
+                                            <option value="GERENTE II">GERENTE II</option>
+                                            <option value="GERENTE III">GERENTE III</option>
+                                            <option value="PROMOTOR II">PROMOTOR II</option>
+                                            <option value="PROMOTOR III">PROMOTOR III</option>
+                                            <option value="PROMOTOR IV">PROMOTOR IV</option>
+                                            <option value="SUPERVISOR I">SUPERVISOR I</option>
+                                            <option value="SUPERVISOR II">SUPERVISOR II</option>
+                                            <option value="SUPERVISOR III">SUPERVISOR III</option>
+                                            <option value="SUPERVISOR IV">SUPERVISOR IV</option>
+                                            <option value="SUPERVISOR V">SUPERVISOR V</option>
+                                            <option value="COORD CALL CENTER">COORD CALL CENTER</option>
+                                            <option value="AUXILIAR TI">AUXILIAR TI</option>
+                                            <option value="CONTROL DESK">CONTROL DESK</option>
+                                            <option value="BACKOFFICE">BACKOFFICE</option>
+                                            <option value="MONITOR DE QUALIDADE">MONITOR DE QUALIDADE</option>
+                                            <option value="CUIDADOR DE IDOSO">CUIDADOR DE IDOSO</option>
+                                            <option value="EMPREGADA DOMESTICA">EMPREGADA DOMESTICA</option>
+                                            <option value="OP DE ATENDIMENTO SN">OP DE ATENDIMENTO SN</option>
+                                            <option value="COORDENADOR DE TREIN">COORDENADOR DE TREIN</option>
+                                            <option value="OP DE ATENDIMENTO">OP DE ATENDIMENTO</option>
+                                            <option value="ANALISTA DE TI">ANALISTA DE TI</option>
+                                            <option value="BACKUP">BACKUP</option>
+                                            <option value="ANALISTA DE TI PL">ANALISTA DE TI PL</option>
+                                            <option value="ANALISTA DE RH PLENO">ANALISTA DE RH PLENO</option>
+                                            <option value="CUIDADORA">CUIDADORA</option>
+                                            <option value="PROMOTOR - PARCEIRO">PROMOTOR - PARCEIRO</option>
+                                            <option value="ESTAGIARIO">ESTAGIARIO</option>
 
                                         </select>
                                     </div>
@@ -565,7 +730,31 @@
                                         <select class="form-control form-control-sm" id="exampleFormControlSelectSetor"
                                             required>
                                             <option> </option>
-
+                                            <option value="TREINAMENTO">TREINAMENTO</option>
+                                            <option value="TODOS">TODOS</option>
+                                            <option value="TI">TI</option>
+                                            <option value="SERVIÇOS GERIAS">SERVIÇOS GERIAS</option>
+                                            <option value="RH">RH</option>
+                                            <option value="RELATORIOS GERENCIAIS">RELATORIOS GERENCIAIS</option>
+                                            <option value="PRODUTOS">PRODUTOS</option>
+                                            <option value="PARTICULAR">PARTICULAR</option>
+                                            <option value="OUTROS">OUTROS</option>
+                                            <option value="MONITORIA">MONITORIA</option>
+                                            <option value="MESA DE APOIO SMS">MESA DE APOIO SMS</option>
+                                            <option value="MESA DE APOIO ESTEIRA">MESA DE APOIO ESTEIRA</option>
+                                            <option value="MESA DE APOIO CHAT">MESA DE APOIO CHAT</option>
+                                            <option value="MESA DE APOIO">MESA DE APOIO</option>
+                                            <option value="MANAGERIAL REPORT">MANAGERIAL REPORT</option>
+                                            <option value="IMOBILIARIO">IMOBILIARIO</option>
+                                            <option value="FORMALIZACAO">FORMALIZACAO</option>
+                                            <option value="FINANCEIRO">FINANCEIRO</option>
+                                            <option value="CONTROLES / ACESSOS">CONTROLES / ACESSOS</option>
+                                            <option value="CONTAS CORRENTES">CONTAS CORRENTES</option>
+                                            <option value="CONSIGNADO">CONSIGNADO</option>
+                                            <option value="CALL CENTER">CALL CENTER</option>
+                                            <option value="BACKOFFICE ">BACKOFFICE </option>
+                                            <option value="APOIO PARCEIROS">APOIO PARCEIROS</option>
+                                            <option value="ADM">ADM</option>
                                         </select>
                                     </div>
 
@@ -621,21 +810,25 @@
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <label for="validationCustom01">CPF Empresa</label>
-<<<<<<< Updated upstream
+
                                     <input type="text" class="form-control form-control-sm" id="id-p-cpfempresa" input
                                         type="text" class="form-control form-control-sm">
-=======
+
                                     <input type="text" class="form-control form-control-sm"
                                         onkeypress='mascaraMutuario(this,cpfCnpj)' class="form-control form-control-sm"
                                         id="cpfcnpj" minlength="14" maxlength="18" required>
->>>>>>> Stashed changes
+
+                                    <input type="text" class="form-control form-control-sm"
+                                        onkeypress='mascaraMutuario(this,cpfCnpj)' class="form-control form-control-sm"
+                                        id="cpfcnpj" minlength="14" maxlength="18" required>
+
 
                                 </div>
 
                                 <div class="col-md-3 mb-3">
                                     <label for="validationCustom01">Data Validade Certificação</label>
-                                    <input type="date" min="1921-01-01" class="form-control form-control-sm"
-                                        id="id-p-dtcertificacao" required>
+                                    <input type="text" min="1921-01-01" class="form-control form-control-sm"
+                                        id="id-p-dtcertificacao" onKeyDown="fMasc( this, data );" maxlength="10"required>
 
                                 </div>
 
@@ -663,15 +856,15 @@
 
                                 <div class="col-md-4 mb-3">
                                     <label for="validationCustom01">Data Bloqueio</label>
-                                    <input type="date" min="1921-01-01" class="form-control form-control-sm"
-                                        id="id-p-dtbloqueio" required>
+                                    <input type="text" min="1921-01-01" class="form-control form-control-sm"
+                                        id="id-p-dtbloqueio" onKeyDown="fMasc( this, data );" maxlength="10" required>
 
                                 </div>
 
                                 <div class="col-md-4 mb-3">
                                     <label for="validationCustom01">Data Entrega do Contrato</label>
-                                    <input type="date" min="1921-01-01" class="form-control form-control-sm"
-                                        id="id-p-dtentregacontrato" required>
+                                    <input type="text" min="1921-01-01" class="form-control form-control-sm"
+                                        id="id-p-dtentregacontrato" onKeyDown="fMasc( this, data );" maxlength="10" required>
 
                                 </div>
 
@@ -684,14 +877,13 @@
 
                         </form>
 
-                        <div class="opcoes-cadastro mt-1" style="text-align: center; margin-inline: block;">
-                            <button type="button" class="btn btn-primary btn-icon-label" id="prosseguirBtn">
-                                <span class="btn-inner--icon">
-                                    <i class="fas fa-arrow-right"></i>
-                                </span>
-                                <span class="btn-inner--text">Prosseguir</span>
-                            </button>
-
+                        <div class="opcoes-cadastro mt-1" style="text-align: center; margin-inline: block;">  
+                                <button type="button" class="btn btn-primary btn-icon-label" id="prosseguirBtn">
+                                    <span class="btn-inner--icon">
+                                        <i class="fas fa-arrow-right"></i>
+                                    </span>
+                                    <span class="btn-inner--text">Prosseguir</span>
+                                </button>
                         </div>
 
 
@@ -726,14 +918,14 @@
 
                                 <div class="col-md-4 mb-3">
                                     <label for="validationCustom01">CPF Secundário</label>
-                                    <input type="text" class="form-control form-control-sm">
+                                    <input type="text" class="form-control form-control-sm" id="cpfSecundario" onkeypress='mascaraMutuario(this,cpfCnpj)' minlength="14" maxlength="18">
 
                                 </div>
 
                                 <div class="col-md-4 mb-3">
                                     <div class="form-group">
                                         <label for="exampleFormControlSelect1">Secundário</label>
-                                        <input type="text" class="form-control form-control-sm" id="idQuartenario">
+                                        <input type="text" class="form-control form-control-sm" id="idSec" readonly="true"> 
                                     </input>
                                     </div>
 
@@ -747,14 +939,14 @@
 
                                 <div class="col-md-4 mb-3">
                                     <label for="validationCustom01">CPF Terceário</label>
-                                    <input type="text" class="form-control form-control-sm">
+                                    <input type="text" class="form-control form-control-sm" id="cpfTerceario" onkeypress='mascaraMutuario(this,cpfCnpj)' minlength="14" maxlength="18">
 
                                 </div>
 
                                 <div class="col-md-4 mb-3">
                                     <div class="form-group">
                                         <label for="exampleFormControlSelect1">Terceário</label>
-                                        <input type="text" class="form-control form-control-sm" id="idQuartenario">
+                                        <input type="text" class="form-control form-control-sm" id="idTerc"  readonly="true">
                                     </input>
                                     </div>
 
@@ -768,14 +960,14 @@
 
                                 <div class="col-md-4 mb-3">
                                     <label for="validationCustom01">CPF Quartenário</label>
-                                    <input type="text" class="form-control form-control-sm">
+                                    <input type="text" class="form-control form-control-sm" onkeypress='mascaraMutuario(this,cpfCnpj)' minlength="14" maxlength="18">
 
                                 </div>
 
                                 <div class="col-md-4 mb-3">
                                     <div class="form-group">
                                         <label for="exampleFormControlSelect1">Quartenário</label>
-                                        <input type="text" class="form-control form-control-sm" id="idQuartenario">
+                                        <input type="text" class="form-control form-control-sm" id="idQuartenario" readonly="true">
                                         </input>
 
                                     </div>
@@ -1104,7 +1296,7 @@
                         </div>
 
                         <div class="opcoes-cadastro mt-1" style="text-align: center; margin-inline: block;">
-                            <button type="button" class="btn btn-primary btn-icon-label" id="comissao">
+                            <button type="button" class="btn btn-primary btn-icon-label" id="comissao" >
                                 <span class="btn-inner--icon">
                                     <i class="fas fa-arrow-right"></i>
                                 </span>
@@ -1126,7 +1318,7 @@
                         </div>
 
 
-                        <form class="needs-validation" novalidate>
+                        <form class="needs-validation" id="form-acesso-incluir" novalidate>
 
 
 
@@ -1162,13 +1354,13 @@
                                         <label for="exampleFormControlSelect1">Tipo Usuário</label>
                                         <select class="form-control form-control-sm" id="id-cadusu-tipousu">
                                             <option> </option>
-                                            <option>PROMOTOR/PARCEIRO</option>
-                                            <option>SUPERVISOR</option>
-                                            <option>GERENTE</option>
-                                            <option>ADM</option>
-                                            <option>MESA</option>
-                                            <option>CADASTRO</option>
-                                            <option>BKO</option>
+                                            <option value="PARCEIRO">PROMOTOR/PARCEIRO</option>
+                                            <option value="SUPERVISOR">SUPERVISOR</option>
+                                            <option value="GERENTE">GERENTE</option>
+                                            <option value="ADM">ADM</option>
+                                            <option value="MESA">MESA</option>
+                                            <option value="CADASTRO">CADASTRO</option>
+                                            <option value="BKO">BKO</option>
                                         </select>
                                     </div>
 
@@ -1179,14 +1371,14 @@
                                         <label for="exampleFormControlSelect1">Usuário Master</label>
                                         <select class="form-control form-control-sm" id="id-cadusu-usumaster">
                                             <option> </option>
-                                            <option>VAZOLI</option>
-                                            <option>CONSIGACRED</option>
-                                            <option>FACTA</option>
-                                            <option>CREDFACIL</option>
-                                            <option>BANNEG</option>
-                                            <option>CIA DO CREDITO</option>
-                                            <option>ISOCRED</option>
-                                            <option>DEMAIS PARCEIROS</option>
+                                            <option value="VAZOLI">VAZOLI</option>
+                                            <option value="CONSIGACRED">CONSIGACRED</option>
+                                            <option value="FACTA">FACTA</option>
+                                            <option value="CREDFACIL">CREDFACIL</option>
+                                            <option value="BANNEG">BANNEG</option>
+                                            <option value="CIA DO CREDITO">CIA DO CREDITO</option>
+                                            <option value="ISOCRED">ISOCRED</option>
+                                            <option value="DEMAIS PARCEIROS">DEMAIS PARCEIROS</option>
                                         </select>
                                     </div>
 
@@ -1197,8 +1389,8 @@
                                         <label for="exampleFormControlSelect1">Classificação</label>
                                         <select class="form-control form-control-sm" id="id-cadusu-classi">
                                             <option> </option>
-                                            <option>CONFIAVEL</option>
-                                            <option>NOVO FLUXO</option>
+                                            <option value="CONFIAVEL">CONFIAVEL</option>
+                                            <option value="NOVO FLUXO">NOVO FLUXO</option>
                                         </select>
                                     </div>
 
@@ -1219,11 +1411,11 @@
                                         <label for="exampleFormControlSelect1">Status</label>
                                         <select class="form-control form-control-sm" id="id-cadusu-status">
                                             <option> </option>
-                                            <option value="1">TODOS</option>
-                                            <option value="2">AGUARDANDO APROVAÇÃO DP</option>
-                                            <option value="3">ATIVO</option>
-                                            <option value="inativo">INATIVO</option>
-                                            <option value="5">BLOQUEADO</option>
+                                            <option value="TODOS">TODOS</option>
+                                            <option value="AGUARDANDO APROVAÇÃO DP">AGUARDANDO APROVAÇÃO DP</option>
+                                            <option value="ATIVO">ATIVO</option>
+                                            <option value="INATIVO">INATIVO</option>
+                                            <option value="BLOQUEADO">BLOQUEADO</option>
 
                                         </select>
                                     </div>
@@ -1232,7 +1424,7 @@
 
                                 <div class="col-md-4 mb-3">
                                     <label for="validationCustom01">Telefone Celular</label>
-                                    <input type="text" maxlength="14" name="telefone" id="telefone"
+                                    <input type="text" maxlength="14" name="telefone" 
                                         onKeyDown="fMasc( this, mTelefone );" class="form-control form-control-sm"
                                         id="id-cadusu-telcelular">
 
@@ -1243,10 +1435,18 @@
                                     <input type="text" minlength="14" maxlength="18" name='cpfcnpj'
                                         onkeypress='mascaraMutuario(this,cpfCnpj)' class="form-control form-control-sm"
                                         id="id-cadusu-cpfcnpj">
+                                        
+                                        
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <label for="validationCustom01">CNPJ Matriz</label>
+                                    <input type="text" minlength="14" maxlength="18" name='cpfcnpj'
+                                        onkeypress='mascaraMutuario(this,cpfCnpj)' class="form-control form-control-sm"
+                                        id="id-cadusu-cnpjMatriz" readonly="true">
 
                                 </div>
 
-                                <div class="col-md-4 mb-3">
+                                <div class="col-md-6 mb-3">
                                     <label for="validationCustom01">E-mail</label>
                                     <input type="text" class="form-control form-control-sm" id="id-cadusu-email">
 
@@ -1257,12 +1457,12 @@
                                         <label for="exampleFormControlSelect1">Motivo Cancelamento</label>
                                         <select class="form-control form-control-sm" id="id-cadusu-motcancela">
                                             <option> </option>
-                                            <option>FALTA PRODUÇÃO</option>
-                                            <option>FRAUDE</option>
-                                            <option>PEDIDO GERENTE</option>
-                                            <option>PEDIDO NASSIPE</option>
-                                            <option>PEDIDO PARCEIRO</option>
-                                            <option>PEDIDO SUPERVISOR</option>
+                                            <option value="FALTA PRODUÇÃO">FALTA PRODUÇÃO</option>
+                                            <option value="FRAUDE">FRAUDE</option>
+                                            <option value="PEDIDO GERENTE">PEDIDO GERENTE</option>
+                                            <option value="PEDIDO NASSIPE">PEDIDO NASSIPE</option>
+                                            <option value="PEDIDO PARCEIRO">PEDIDO PARCEIRO</option>
+                                            <option value="PEDIDO SUPERVISOR">PEDIDO SUPERVISOR</option>
                                         </select>
                                     </div>
 
@@ -1273,15 +1473,15 @@
                                         <label for="exampleFormControlSelect1">Perfil Acesso</label>
                                         <select class="form-control form-control-sm" id="id-cadusu-perfilacesso">
                                             <option> </option>
-                                            <option>MATRIZ</option>
-                                            <option>SUB ACESSO</option>
+                                            <option value="MATRIZ">MATRIZ</option>
+                                            <option value="SUB ACESSO">SUB ACESSO</option>
                                         </select>
                                     </div>
 
                                 </div>
 
 
-                                <div class="col-md-4 mb-3">
+                                <div class="col-md-6 mb-3">
                                     <label for="validationCustom01">Acesso Olé</label>
                                     <input type="text" class="form-control form-control-sm" id="id-cadusu-acessoole">
 
@@ -1383,11 +1583,11 @@
                         </form>
 
                         <div class="opcoes-cadastro mt-1" style="text-align: center; margin-inline: block;">
-                            <button type="button" class="btn btn-primary btn-icon-label">
+                            <button type="button" class="btn btn-primary btn-icon-label" id="incluirAcesso">
                                 <span class="btn-inner--icon">
                                     <i class="fas fa-plus"></i>
                                 </span>
-                                <span class="btn-inner--text">Incluir Cadastro</span>
+                                <span class="btn-inner--text">Incluir / Alterar</span>
                             </button>
 
                         </div>
@@ -1398,14 +1598,14 @@
                                     <tr>
                                         <th scope="col" class="sort" data-sort="nome">Nome</th>
                                         <th scope="col" class="sort" data-sort="cpf">CPF</th>
-                                        <th scope="col" class="sort" data-sort="cnpjmatricula">CNPJ da Matrícula</th>
-                                        <th scope="col" class="sort" data-sort="supervisor">Supervisor</th>
-                                        <th scope="col" class="sort" data-sort="gerente">Gerente</th>
+                                        <th scope="col" class="sort" data-sort="cnpjmatricula">CNPJ da Matriz</th>
+                                        <th scope="col" class="sort" data-sort="supervisor">Responsável</th>
+                                        <th scope="col" class="sort" data-sort="gerente">Data Alteração</th>
                                         <th scope="col" class="sort" data-sort="acoes" style="text-align: center;">Ação
                                         </th>
                                     </tr>
                                 </thead>
-                                <tbody class="list">
+                                <tbody class="list" id="lista">
 
                                     <tr>
                                         <th>
@@ -1421,19 +1621,23 @@
                                             PATATI PATATA AUGUSTO
                                         </td>
                                         <td class="total">
-                                            MICHEL SANTOS SILVA
+                                            10/10/2020
                                         </td>
                                         <td class="text-center">
                                             <!-- Actions -->
-                                            <div class="actions ml-3">
+                                            <div class="actions ml-3" style="text-align: center;">
+                                                <a href="#" class="action-item mr-0" data-toggle="modal"
+                                                data-target=".modalteladeacesso" title="Alterar" id="modalAlterarAcesso">
+                                                    <i class="fas fa-external-link-alt"></i>
+                                                </a>
+                                                <!--
+                                                    <div class="actions ml-3">
                                                 <a href="#" class="action-item mr-0" data-toggle="tooltip"
                                                     title="Alterar">
                                                     <i class="fas fa-external-link-alt"></i>
                                                 </a>
-                                                <a href="#" class="action-item mr-0" data-toggle="tooltip"
-                                                    title="Visualizar">
-                                                    <i class="fas fa-eye"></i>
-                                                </a>
+                                                -->
+                                                
                                             </div>
                                         </td>
                                     </tr>
@@ -1474,12 +1678,10 @@
                                         <label for="exampleFormControlSelect1">Status da Chave</label>
                                         <select class="form-control form-control-sm" id="StatusChavej">
                                             <option> </option>
-<<<<<<< Updated upstream
+
                                             <option>ATIVO</option>
                                             <option>INATIVO</option>
                                             <option>BLOQUEADO</option>
-=======
->>>>>>> Stashed changes
                                             <option value="Todos">TODOS</option>
                                             <option value="Aguardando aprovação dp">AGUARDANDO APROVAÇÃO DP</option>
                                             <option value="Ativo">ATIVO</option>
@@ -1493,7 +1695,7 @@
 
                                 <div class="col-md-4 mb-3">
                                     <label for="validationCustom01">Função</label>
-<<<<<<< Updated upstream
+<
                                     <select class="form-control form-control-sm" id="chavejFuncao">
                                         <option> </option>
                                         <option>ADMINISTRATIVO</option>
@@ -1518,7 +1720,7 @@
 
 
                                         </select>
-=======
+
                                     <select class="form-control form-control-sm" id="exampleFormControlFuncao">
                                         <option value=""> </option>
                                         <option value="ADMINISTRATIVO">ADMINISTRATIVO</option>
@@ -1532,7 +1734,21 @@
 
 
                                     </select>
->>>>>>> Stashed changes
+
+                                    <select class="form-control form-control-sm" id="exampleFormControlFuncao">
+                                        <option value=""> </option>
+                                        <option value="ADMINISTRATIVO">ADMINISTRATIVO</option>
+                                        <option value="PARCEIRO">PARCEIRO</option>
+                                        <option value="GERENTE">GERENTE</option>
+                                        <option value="PROMOTOR">PROMOTOR</option>
+                                        <option value="SUPERVISOR">SUPERVISOR</option>
+                                        <option value="PROMOTORMEI">PROMOTORMEI</option>
+                                        <option value="CHAVE MASTER">CHAVE MASTER</option>
+                                        <option value="CREDITO IMOBILIARIO">CREDITO IMOBILIARIO</option>
+
+
+                                    </select>
+
                                 </div>
 
                                 <div class="col-md-7 mb-3">
@@ -1543,13 +1759,17 @@
 
                                 <div class="col-md-5 mb-3">
                                     <label for="validationCustom01">Data Envio Chave J</label>
-<<<<<<< Updated upstream
+
                                     <input type="date" min="1921-01-01" class="form-control form-control-sm"
                                         id="dtEnvioChavej">
-=======
+
                                     <input type="text" min="1921-01-01" class="form-control form-control-sm"
                                         id="dtEnvioChavej" onKeyDown="fMasc( this, data );" maxlength="10">
->>>>>>> Stashed changes
+
+
+                                    <input type="text" min="1921-01-01" class="form-control form-control-sm"
+                                        id="dtEnvioChavej" onKeyDown="fMasc( this, data );" maxlength="10">
+
 
                                 </div>
 
@@ -1570,7 +1790,7 @@
                                         <label for="validationCustom01">Motivo Cancelamento</label>
                                         <select class="form-control form-control-sm" id="motCancelChaveJ">
                                             <option> </option>
-<<<<<<< Updated upstream
+
                                             <option>CHAVE CANCELADA PELO BANCO</option>
                                             <option>FALTA PRODUÇÃO</option>
                                             <option>FRAUDE</option>
@@ -1581,9 +1801,11 @@
 
                                             <option value="CHAVE CANCELADA PELO BANCO">CHAVE CANCELADA PELO BANCO
                                             </option>
-=======
+
                                             <option value="CHAVE CANCELADA PELO BANCO">CHAVE CANCELADA PELO BANCO</option>
->>>>>>> Stashed changes
+
+                                            <option value="CHAVE CANCELADA PELO BANCO">CHAVE CANCELADA PELO BANCO</option>
+
                                             <option value="FALTA PRODUÇÃO">FALTA PRODUÇÃO</option>
                                             <option value="FRAUDE">FRAUDE</option>
                                             <option value="PEDIDO GERENTE">PEDIDO GERENTE</option>
@@ -1591,10 +1813,7 @@
                                             <option value="PEDIDO PARCEIRO">PEDIDO PARCEIRO</option>
                                             <option value="PEDIDO SUPERVISOR">PEDIDO SUPERVISOR</option>
 
-<<<<<<< Updated upstream
 
-=======
->>>>>>> Stashed changes
                                         </select>
                                     </div>
 
@@ -1603,44 +1822,39 @@
                                     <label for="exampleFormControlSelect1">Tipo Chave</label>
                                     <select class="form-control form-control-sm" id="exampleFormControlTipoChave">
                                         <option> </option>
-<<<<<<< Updated upstream
+
                                         <option>PRODUÇÃO</option>
                                         <option>CHAVE IMOBILIARIO</option>
                                         <option>INDICA VENDAS</option>
                                         <option>SIMULAÇÃO</option>
 
-=======
->>>>>>> Stashed changes
-                                        <option value="PRODUÇÃO">PRODUÇÃO</option>
+                                      <option value="PRODUÇÃO">PRODUÇÃO</option>
                                         <option value="CHAVE IMOBILIARIO">CHAVE IMOBILIARIO</option>
                                         <option value="INDICA VENDAS">INDICA VENDAS</option>
                                         <option value="SIMULAÇÃO">SIMULAÇÃO</option>
 
-<<<<<<< Updated upstream
+
  
-=======
->>>>>>> Stashed changes
+
                                     </select>
                                 </div>
 
                                 <div class="col-md-4 mb-3">
                                     <label for="validationCustom01">Data Cancelamento</label>
-<<<<<<< Updated upstream
+
                                    <input type="date" min="1921-01-01"
                                         class="form-control form-control-sm" id="dtCancelamentoChavej">
                                  
                                         
-=======
+
                                     <input type="text" min="1921-01-01" class="form-control form-control-sm"
                                         id="dtCancelamentoChavej" maxlength="19" size="19" onKeyPress="DataHora(event, this)">
->>>>>>> Stashed changes
+
+                                    <input type="text" min="1921-01-01" class="form-control form-control-sm"
+                                        id="dtCancelamentoChavej" maxlength="19" size="19" onKeyPress="DataHora(event, this)">
+
 
                                 </div>
-
-
-
-
-
 
                             </div>
 
@@ -1702,7 +1916,7 @@
                                     <div class="form-group">
                                         <label for="exampleFormControlSelect1">Status Siglas</label>
                                         <select class="form-control form-control-sm"
-<<<<<<< Updated upstream
+
                                             id="exampleFormControlStatusSiglas">
                                             <option> </option>
                                             <option>ATIVO</option>
@@ -1715,14 +1929,14 @@
                                             <option value="BLOQUEADO">BLOQUEADO</option>
                                             <option value="DESATIVADO">DESATIVADO</option>
                                            
-=======
+
                                         id="exampleFormControlStatusSiglas">
                                         <option> </option>
                                         <option value="ATIVO">ATIVO</option>
                                         <option value="INATIVO">INATIVO</option>
                                         <option value="BLOQUEADO">BLOQUEADO</option>
                                         <option value="DESATIVADO">DESATIVADO</option>
->>>>>>> Stashed changes
+
                                         </select>
                                     </div>
 
@@ -1730,14 +1944,17 @@
 
                                 <div class="col-md-2 mb-3">
                                     <label for="validationCustom01">Data Inativação</label>
-<<<<<<< Updated upstream
+
                                   <input type="date" min="1921-01-01"
                                         class="form-control form-control-sm">
                                     
-=======
+
                                     <input type="text" min="1921-01-01" class="form-control form-control-sm" onKeyDown="fMasc( this, data );" maxlength="10"
                                         id="validationDataInativacao">
->>>>>>> Stashed changes
+
+                                    <input type="text" min="1921-01-01" class="form-control form-control-sm" onKeyDown="fMasc( this, data );" maxlength="10"
+                                        id="validationDataInativacao">
+
 
                                 </div>
 
@@ -1794,17 +2011,20 @@
                                     <div class="form-group">
                                         <label for="exampleFormControlSelect1">Usa Sigla E?</label>
                                         <select class="form-control form-control-sm" id="exampleFormControlUsaSigla">
-<<<<<<< Updated upstream
+
                                             <option value="sim"> SIM </option>
                                                 <option value="nao"> NÃO </option>
                                              
                                                 <option value="SIM UTILIZA A ESTEIRA GMVB"> SIM </option>
                                                 <option value="NÃO UTILIZA A ESTEIRA GMVB"> NÃO </option>
                                              
-=======
+
                                             <option value="SIM UTILIZA A ESTEIRA GMVB"> SIM </option>
                                             <option value="NÃO UTILIZA A ESTEIRA GMVB"> NÃO </option>
->>>>>>> Stashed changes
+
+                                            <option value="SIM UTILIZA A ESTEIRA GMVB"> SIM </option>
+                                            <option value="NÃO UTILIZA A ESTEIRA GMVB"> NÃO </option>
+
 
                                         </select>
                                     </div>
@@ -1814,7 +2034,7 @@
                                 <div class="col-md-6 mb-3">
                                     <div class="form-group">
                                         <label for="exampleFormControlSelect1">Usa Sigla I?</label>
-<<<<<<< Updated upstream
+
                                          <select class="form-control form-control-sm"
                                             id="exampleFormControlSelect1">
                                             <option value="sim"> SIM </option>
@@ -1824,11 +2044,16 @@
                                                 <option value="SIM"> SIM </option>
                                                 <option value="NÃO"> NÃO </option>
                                                 
-=======
+
                                         <select class="form-control form-control-sm" id="exampleFormControlSiglaI">
                                             <option value="SIM"> SIM </option>
                                             <option value="NÃO"> NÃO </option>
->>>>>>> Stashed changes
+
+
+                                        <select class="form-control form-control-sm" id="exampleFormControlSiglaI">
+                                            <option value="SIM"> SIM </option>
+                                            <option value="NÃO"> NÃO </option>
+
 
                                             </select>
                                     </div>
@@ -2464,7 +2689,7 @@
                                             <label for="validationCustom02">CPF / CPNJ</label>
                                             <input type="text" minlength="14" maxlength="18" name='cpfcnpj'
                                                 onkeypress='mascaraMutuario(this,cpfCnpj)'
-                                                class="form-control form-control-sm" id="cpfcnpj"
+                                                class="form-control form-control-sm" id="cpfcnpjj"
                                                 placeholder="Ex: 000.000.000-00">
 
                                         </div>
@@ -2473,7 +2698,7 @@
                                                 <label for="exampleFormControlSelect1">Status</label>
                                                 <select class="form-control form-control-sm" id="status">
                                                     <option> </option>
-                                                    <option value=" ">TODOS</option>
+                                                    <option value="TODOS">TODOS</option>
                                                     <option value="AGUARDANDO APROVAÇÃO DP">AGUARDANDO APROVAÇÃO DP
                                                     </option>
                                                     <option value="ATIVO">ATIVO</option>
@@ -2588,7 +2813,7 @@
 
                                     <div class="opcoes-cadastro" style="text-align: center; margin-inline: block;">
                                         <button type="button" class="btn btn-primary btn-icon-label" data-toggle="modal"
-                                            data-target=".modalteladecadastro" title="Alterar">
+                                            data-target=".modalteladecadastro" title="Alterar" id="buttonIncluir">
                                             <span class="btn-inner--icon">
                                                 <i class="fas fa-plus"></i>
                                             </span>
@@ -2741,23 +2966,27 @@
     <script src="../assets/js/demo.js"></script>
     <!-- AJAX -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="../assets/js/siglae.js"></script>
+    <script src="../assets/js/comissao.js"></script>
     <script src="../assets/js/cadastro.js"></script>
+    
     <!-- <script src="../assets/js/cadastropesquisar.js"></script> -->
-<<<<<<< Updated upstream
-    <<<<<<< HEAD <script src="../assets/js/comissao.js">
+ <script src="../assets/js/comissao.js">
         </script>
         <script src="../assets/js/chavej.js"></script>
         <script src="../assets/js/siglae.js"></script>
-        =======
+
         <script src="../assets/js/incluirComissao.js"></script>
         <script src="../assets/js/incluirSiglaE.js"></script>
-        >>>>>>> 81261b2b513322d6139cddcc6020798b89a88343
+
         <script src="../assets/js/acesso.js"></script>
-=======
+
     <script src="../assets/js/incluirComissao.js"></script>
     <script src="../assets/js/incluirSiglaE.js"></script>
     <script src="../assets/js/acesso.js"></script>
->>>>>>> Stashed changes
+   <script src="../assets/js/acesso.js"></script>
+    
+
 
 </body>
 
