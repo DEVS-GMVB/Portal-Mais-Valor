@@ -902,14 +902,14 @@
 
                                 <div class="col-md-4 mb-3">
                                     <label for="validationCustom01">CPF Secundário</label>
-                                    <input type="text" class="form-control form-control-sm" id="cpfSecundario">
+                                    <input type="text" class="form-control form-control-sm" id="cpfSecundario" onkeypress='mascaraMutuario(this,cpfCnpj)' minlength="14" maxlength="18">
 
                                 </div>
 
                                 <div class="col-md-4 mb-3">
                                     <div class="form-group">
                                         <label for="exampleFormControlSelect1">Secundário</label>
-                                        <input type="text" class="form-control form-control-sm" id="idQuartenario">
+                                        <input type="text" class="form-control form-control-sm" id="idSec" readonly="true"> 
                                     </input>
                                     </div>
 
@@ -923,14 +923,14 @@
 
                                 <div class="col-md-4 mb-3">
                                     <label for="validationCustom01">CPF Terceário</label>
-                                    <input type="text" class="form-control form-control-sm">
+                                    <input type="text" class="form-control form-control-sm" id="cpfTerceario" onkeypress='mascaraMutuario(this,cpfCnpj)' minlength="14" maxlength="18">
 
                                 </div>
 
                                 <div class="col-md-4 mb-3">
                                     <div class="form-group">
                                         <label for="exampleFormControlSelect1">Terceário</label>
-                                        <input type="text" class="form-control form-control-sm" id="idQuartenario">
+                                        <input type="text" class="form-control form-control-sm" id="idTerc"  readonly="true">
                                     </input>
                                     </div>
 
@@ -944,14 +944,14 @@
 
                                 <div class="col-md-4 mb-3">
                                     <label for="validationCustom01">CPF Quartenário</label>
-                                    <input type="text" class="form-control form-control-sm">
+                                    <input type="text" class="form-control form-control-sm" onkeypress='mascaraMutuario(this,cpfCnpj)' minlength="14" maxlength="18">
 
                                 </div>
 
                                 <div class="col-md-4 mb-3">
                                     <div class="form-group">
                                         <label for="exampleFormControlSelect1">Quartenário</label>
-                                        <input type="text" class="form-control form-control-sm" id="idQuartenario">
+                                        <input type="text" class="form-control form-control-sm" id="idQuartenario" readonly="true">
                                         </input>
 
                                     </div>
@@ -1338,7 +1338,7 @@
                                         <label for="exampleFormControlSelect1">Tipo Usuário</label>
                                         <select class="form-control form-control-sm" id="id-cadusu-tipousu">
                                             <option> </option>
-                                            <option value="PROMOTOR/PARCEIRO">PROMOTOR/PARCEIRO</option>
+                                            <option value="PARCEIRO">PROMOTOR/PARCEIRO</option>
                                             <option value="SUPERVISOR">SUPERVISOR</option>
                                             <option value="GERENTE">GERENTE</option>
                                             <option value="ADM">ADM</option>
@@ -1355,14 +1355,14 @@
                                         <label for="exampleFormControlSelect1">Usuário Master</label>
                                         <select class="form-control form-control-sm" id="id-cadusu-usumaster">
                                             <option> </option>
-                                            <option>VAZOLI</option>
-                                            <option>CONSIGACRED</option>
-                                            <option>FACTA</option>
-                                            <option>CREDFACIL</option>
-                                            <option>BANNEG</option>
-                                            <option>CIA DO CREDITO</option>
-                                            <option>ISOCRED</option>
-                                            <option>DEMAIS PARCEIROS</option>
+                                            <option value="VAZOLI">VAZOLI</option>
+                                            <option value="CONSIGACRED">CONSIGACRED</option>
+                                            <option value="FACTA">FACTA</option>
+                                            <option value="CREDFACIL">CREDFACIL</option>
+                                            <option value="BANNEG">BANNEG</option>
+                                            <option value="CIA DO CREDITO">CIA DO CREDITO</option>
+                                            <option value="ISOCRED">ISOCRED</option>
+                                            <option value="DEMAIS PARCEIROS">DEMAIS PARCEIROS</option>
                                         </select>
                                     </div>
 
@@ -1373,8 +1373,8 @@
                                         <label for="exampleFormControlSelect1">Classificação</label>
                                         <select class="form-control form-control-sm" id="id-cadusu-classi">
                                             <option> </option>
-                                            <option>CONFIAVEL</option>
-                                            <option>NOVO FLUXO</option>
+                                            <option value="CONFIAVEL">CONFIAVEL</option>
+                                            <option value="NOVO FLUXO">NOVO FLUXO</option>
                                         </select>
                                     </div>
 
@@ -1395,11 +1395,11 @@
                                         <label for="exampleFormControlSelect1">Status</label>
                                         <select class="form-control form-control-sm" id="id-cadusu-status">
                                             <option> </option>
-                                            <option value="1">TODOS</option>
-                                            <option value="2">AGUARDANDO APROVAÇÃO DP</option>
-                                            <option value="3">ATIVO</option>
-                                            <option value="inativo">INATIVO</option>
-                                            <option value="5">BLOQUEADO</option>
+                                            <option value="TODOS">TODOS</option>
+                                            <option value="AGUARDANDO APROVAÇÃO DP">AGUARDANDO APROVAÇÃO DP</option>
+                                            <option value="ATIVO">ATIVO</option>
+                                            <option value="INATIVO">INATIVO</option>
+                                            <option value="BLOQUEADO">BLOQUEADO</option>
 
                                         </select>
                                     </div>
@@ -1408,7 +1408,7 @@
 
                                 <div class="col-md-4 mb-3">
                                     <label for="validationCustom01">Telefone Celular</label>
-                                    <input type="text" maxlength="14" name="telefone" id="telefone"
+                                    <input type="text" maxlength="14" name="telefone" 
                                         onKeyDown="fMasc( this, mTelefone );" class="form-control form-control-sm"
                                         id="id-cadusu-telcelular">
 
@@ -1426,7 +1426,7 @@
                                     <label for="validationCustom01">CNPJ Matriz</label>
                                     <input type="text" minlength="14" maxlength="18" name='cpfcnpj'
                                         onkeypress='mascaraMutuario(this,cpfCnpj)' class="form-control form-control-sm"
-                                        id="id-cadusu-cnpjMatriz">
+                                        id="id-cadusu-cnpjMatriz" readonly="true">
 
                                 </div>
 
@@ -1582,7 +1582,7 @@
                                     <tr>
                                         <th scope="col" class="sort" data-sort="nome">Nome</th>
                                         <th scope="col" class="sort" data-sort="cpf">CPF</th>
-                                        <th scope="col" class="sort" data-sort="cnpjmatricula">CNPJ da Matrícula</th>
+                                        <th scope="col" class="sort" data-sort="cnpjmatricula">CNPJ da Matriz</th>
                                         <th scope="col" class="sort" data-sort="supervisor">Responsável</th>
                                         <th scope="col" class="sort" data-sort="gerente">Data Alteração</th>
                                         <th scope="col" class="sort" data-sort="acoes" style="text-align: center;">Ação
@@ -1609,10 +1609,18 @@
                                         </td>
                                         <td class="text-center">
                                             <!-- Actions -->
-                                            <div class="actions ml-3">
-                                                <a href="#" class="action-item mr-0" data-toggle="tooltip" title="Alterar">
+                                            <div class="actions ml-3" style="text-align: center;">
+                                                <a href="#" class="action-item mr-0" data-toggle="modal"
+                                                data-target=".modalteladeacesso" title="Alterar" id="modalAlterarAcesso">
                                                     <i class="fas fa-external-link-alt"></i>
                                                 </a>
+                                                <!--
+                                                    <div class="actions ml-3">
+                                                <a href="#" class="action-item mr-0" data-toggle="tooltip"
+                                                    title="Alterar">
+                                                    <i class="fas fa-external-link-alt"></i>
+                                                </a>
+                                                -->
                                                 
                                             </div>
                                         </td>
@@ -1742,11 +1750,6 @@
                                         id="dtCancelamentoChavej" maxlength="19" size="19" onKeyPress="DataHora(event, this)">
 
                                 </div>
-
-
-
-
-
 
                             </div>
 

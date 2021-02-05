@@ -1,9 +1,8 @@
 // VARS
-var quat = document.getElementById('idQuartenario')
-var qua = document.getElementById('id-quaternario')
-var sec = document.getElementById('idSecundario')
+// var quat = document.getElementById('idQuartenario')
+// var qua = document.getElementById('id-quaternario')
+// var sec = document.getElementById('idSecundario')
 var ger = document.getElementById('idTerceario')
-var cpfSecundario = document.getElementById("cpfSecundario");
 
 //Santander
 var campo = document.querySelector('#idParceiroPromotor');
@@ -79,9 +78,9 @@ prosse.addEventListener('click', () => {
 
   myHeaders.append("Content-Type", "application/json");
   let bbComissao = document.getElementById('idPorcComissao').value;
-  let bbSecuncario = document.getElementById('idSecundario').value;
+  // let bbSecuncario = document.getElementById('idSecundario').value;
   let bbPorcSecundario = document.getElementById('idPorcSecundario').value;
-  let bbTerciario = document.getElementById('idTerceario').value;
+  //let bbTerciario = document.getElementById('idTerceario').value;
   let bbPorcTerceario = document.getElementById('idPorcTerceario').value;
   let bbQuaternario = document.getElementById('idQuartenario').value;
   let bbPorcQaternario = document.getElementById('idPorcQuaternario').value;
@@ -112,9 +111,9 @@ prosse.addEventListener('click', () => {
   var raw = JSON.stringify({
 
     comissao: bbComissao,
-    secundario: bbSecuncario,
+    // secundario: bbSecuncario,
     pct_secundario: bbPorcSecundario,
-    terceario: bbTerciario,
+    //terceario: bbTerciario,
     pct_terceario: bbPorcTerceario,
     quaternario: bbQuaternario,
     pct_quaternario: bbPorcQaternario,
@@ -166,33 +165,29 @@ prosse.addEventListener('click', () => {
 
 // Secundario/Supervisor
 
-var requestOptions = {
-  method: 'GET',
-  redirect: 'follow'
-};
+// var requestOptions = {
+//   method: 'GET',
+//   redirect: 'follow'
+// };
 
-fetch("http://172.16.0.197:3000/user/supervisor", requestOptions)
-  .then(response => response.json().then(function (data) {
-    for (let i = 0; i < data.length; i++) {
-      sec.innerHTML += '<option value="' + data[i].parceiro + '">' + data[i].parceiro + '</option>;'
-    }
-  })).catch(error => console.log('error', error));
+// fetch("http://172.16.0.197:3000/user/supervisor", requestOptions)
+//   .then(response => response.json().then(function (data) {
+//     for (let i = 0; i < data.length; i++) {
+//       sec.innerHTML += '<option value="' + data[i].parceiro + '">' + data[i].parceiro + '</option>;'
+//     }
+//   })).catch(error => console.log('error', error));
 
 
-// Terceario/Gerente
+// // Terceario/Gerente
 
-var requestOptions = {
-  method: 'GET',
-  redirect: 'follow'
-};
 
-fetch("http://172.16.0.197:3000/user/gerente", requestOptions)
-  .then(response => response.json().then(function (data) {
-    // console.log(data)
-    for (let i = 0; i < data.length; i++) {
-      ger.innerHTML += '<option value="' + data[i].gerente + '">' + data[i].gerente + '</option>;'
-    }
-  })).catch(error => console.log('error', error));
+// fetch("http://172.16.0.197:3000/user/gerente", requestOptions)
+//   .then(response => response.json().then(function (data) {
+//     // console.log(data)
+//     for (let i = 0; i < data.length; i++) {
+//       ger.innerHTML += '<option value="' + data[i].gerente + '">' + data[i].gerente + '</option>;'
+//     }
+//   })).catch(error => console.log('error', error));
 
 
 
@@ -202,5 +197,27 @@ fetch("http://172.16.0.197:3000/user/gerente", requestOptions)
 // Logica para fazer carregar o cnpj nos campos
 
 cpfSecundario.addEventListener('blur', () =>{
+  var cpfSecundario = document.getElementById("cpfSecundario");
   
+  var myHeaders = new Headers();
+  myHeaders.append("Content-Type", "application/json");
+
+  var raw = JSON.stringify({
+    "cnpj": cpfSecundario.value
+  })
+    
+  
+
+  var requestOptions = {
+    method: 'POST',
+    headers : myHeaders,
+    body: raw,
+    redirect: 'follow'
+  }
+
+  fetch("http://172.16.0.197:3000/user/parceiros", requestOptions).
+  then(result => result.json().then(function(data){
+    $("#idSec").val(data[0].parceiro)
+  })).catch(error => console.log('error', error))
+
 })

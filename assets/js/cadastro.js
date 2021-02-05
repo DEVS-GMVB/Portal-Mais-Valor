@@ -1,6 +1,4 @@
 // VARS
-
-
 let fi = document.getElementById('exampleFormControlFilial');
 let filialCadastro = document.getElementById('exampleFormControlFilialCadastro');
 let supervisor = document.getElementById('exampleFormControlSupervisor');
@@ -13,6 +11,8 @@ let gerente = document.getElementById('exampleFormControlSelectGerente');
 let buttonIncluir = document.getElementById("buttonIncluir");
 let supervisorMulti = document.getElementById("exampleFormControlSelectSerMultBanc");
 let gerenteMulti = document.getElementById('exampleFormControlSelectGerMultBanc');
+let cpfcnpjParceiro = [];
+
 var cont = -1;
 var array;
 var teste;
@@ -188,17 +188,17 @@ window.onload = function () {
             }))
         .catch(error => console.log('error', error));
 
-    
+
 
     fetch("http://172.16.0.197:3000/user/supervisor", requestOptions)
-            .then(response => response.json())
-            .then(function (data) {
-                for (let i = 0; i < data.length; i++) {
-                    supervisor.innerHTML += '<option value="' + data[i].parceiro + '">' + data[i].parceiro + '</option>;'
-                    supervisorBB.innerHTML += '<option value="' + data[i].parceiro + '">' + data[i].parceiro + '</option>;'
-                    supervisorMulti.innerHTML += '<option value="' + data[i].parceiro + '">' + data[i].parceiro + '</option>;'
-                }
-            }).catch(error => console.log('error', error));
+        .then(response => response.json())
+        .then(function (data) {
+            for (let i = 0; i < data.length; i++) {
+                supervisor.innerHTML += '<option value="' + data[i].parceiro + '">' + data[i].parceiro + '</option>;'
+                supervisorBB.innerHTML += '<option value="' + data[i].parceiro + '">' + data[i].parceiro + '</option>;'
+                supervisorMulti.innerHTML += '<option value="' + data[i].parceiro + '">' + data[i].parceiro + '</option>;'
+            }
+        }).catch(error => console.log('error', error));
 
 
 
@@ -207,6 +207,7 @@ const colocar = document.getElementById('incluir');
 
 
 colocar.addEventListener('click', () => {
+
 
     var node = document.getElementById("list");
     while (node.hasChildNodes()) {
@@ -252,7 +253,7 @@ colocar.addEventListener('click', () => {
         .then(result => {
             cont = -1;
             array = result;
-
+            
             for (const value of result) {
                 teste = value.cnpj;
                 let specific_tbody = document.getElementById('list');
@@ -324,9 +325,14 @@ colocar.addEventListener('click', () => {
 })
 
 
+
 function editar(cpf) {
     // console.log(cpf);
 
+
+
+
+    // POPULANDO OS CAMPOS DO MODAL DE ACORDO COM ESSA REQUEST
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
 
@@ -344,12 +350,15 @@ function editar(cpf) {
     fetch("http://172.16.0.197:3000/user/cadastro/modal", requestOptions)
         .then(response => response.json())
         .then(function (data) {
-            // data = ""
-            // console.log(data);
-            // console.log(document.getElementById('modalAlterar'))
+
+            $('.needs-validation').each(function () {
+                this.reset();
+            });
+            
             $("#validationParceiroPromotor").val("");
             $("#validationCpfCnpf").val("");
             if (document.getElementById('modalAlterar')) {
+
                 $("#exampleFormControlFilialCadastro").val(data.dados_cadastro.filial);
                 $("#cep").val(data.dados_cadastro.cep);
                 $("#funcionario").val(data.dados_cadastro.parceiro);
@@ -485,7 +494,7 @@ function editar(cpf) {
 }
 
 
-  
+
 
 
 
