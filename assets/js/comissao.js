@@ -131,14 +131,14 @@ var requestOptions = {
   redirect: 'follow'
 };
 
-fetch("http://172.16.0.197:3000/user/quaternario", requestOptions)
-.then(response => response.json().then(function(data){
-  console.log(data)
-for(let i = 0; i < data.length; i++){
-  quat.innerHTML += '<option value="'+data[i].parceiro+'">'+data[i].parceiro+'</option>;'
-  qua.innerHTML += '<option value="'+data[i].parceiro+'">'+data[i].parceiro+'</option>;'
-}
-})).catch(error => console.log('error', error));
+// fetch("http://172.16.0.197:3000/user/quaternario", requestOptions)
+// .then(response => response.json().then(function(data){
+//   console.log(data)
+// for(let i = 0; i < data.length; i++){
+//   quat.innerHTML += '<option value="'+data[i].parceiro+'">'+data[i].parceiro+'</option>;'
+//   qua.innerHTML += '<option value="'+data[i].parceiro+'">'+data[i].parceiro+'</option>;'
+// }
+// })).catch(error => console.log('error', error));
 
 
 
