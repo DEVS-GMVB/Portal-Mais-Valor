@@ -326,18 +326,35 @@ colocar.addEventListener('click', () => {
 
 
 
-function editar(cpf) {
-    // console.log(cpf);
-
-
-
-
-    // POPULANDO OS CAMPOS DO MODAL DE ACORDO COM ESSA REQUEST
+function editar(cpfCnpj) {
+    //Cabeçalho
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
 
+    //LISTANDO OS ACESSOS
+    var corpo = JSON.stringify({
+        cnpj_matriz: cpfCnpj
+    })
+
+    var request = {
+        method: 'POST',
+        headers: myHeaders,
+        body: corpo,
+        redirect: 'follow'
+    }
+
+    fetch("http://172.16.0.197:3000/user/cadastro/buscar", request).
+    then(response => response.json().then(function(data){
+        // console.log(data[0]);
+        for(const value of data) {
+            
+        }
+    }))
+
+
+    // POPULANDO OS CAMPOS DO MODAL DE ACORDO COM ESSA REQUEST
     var raw = JSON.stringify({
-        cpf: cpf
+        cpf: cpfCnpj
     })
 
     var requestOptions = {
