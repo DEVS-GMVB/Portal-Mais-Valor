@@ -70,18 +70,18 @@ cpfCnpjSigla.addEventListener('blur', () => {
       .then(response => response.json())
       .then(function (data) {
           if (data[0].parceiro === "NAO INFORMADO NA INSERA‡A?O") {
-              $("#validationParceiroPromotor").val("");
+              $("#idQuartenario").val("");
           } else {
-              $("#validationParceiroPromotor").val(data[0].parceiro);
+              $("#idQuartenario").val(data[0].parceiro);
           }
       })
       .catch(error => console.log('error', error));
 })
 
 cpfCnpjSigla.addEventListener('keyup', () => {
-  let promotor = document.getElementById("validationParceiroPromotor");
+  let promotor = document.getElementById("idQuartenario");
   if (promotor.value.length > 0) {
-      $("#validationParceiroPromotor").val("")
+      $("#idQuartenario").val("")
   }
   // if($("#validationParceiroPromotor").val())
 })

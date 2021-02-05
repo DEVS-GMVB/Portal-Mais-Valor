@@ -944,7 +944,7 @@
 
                                 <div class="col-md-4 mb-3">
                                     <label for="validationCustom01">CPF Quartenário</label>
-                                    <input type="text" class="form-control form-control-sm" onkeypress='mascaraMutuario(this,cpfCnpj)' minlength="14" maxlength="18">
+                                    <input type="text" class="form-control form-control-sm" onkeypress='mascaraMutuario(this,cpfCnpj)' minlength="14" maxlength="18" id="quaternario">
 
                                 </div>
 
@@ -1017,11 +1017,9 @@
 
                                 <div class="col-md-6 mb-3">
                                     <div class="form-group">
-                                        <label for="exampleFormControlSelect1">% Máximo Comissão(SUP/GER/QUAT)</label>
-                                        <select class="form-control form-control-sm" id="id-max-comissao">
-                                            <option> </option>
-
-                                        </select>
+                                        <label for="exampleFormControlSelect1">CPF Quartenário</label>
+                                        <input type="text" class="form-control form-control-sm" id="cpfQuartenarioDC" onkeypress='mascaraMutuario(this,cpfCnpj)' minlength="14" maxlength="18">
+                                            
                                     </div>
 
                                 </div>
@@ -1038,7 +1036,16 @@
                                 </div>
 
 
+                                <div class="col-md-6 mb-3">
+                                    <div class="form-group">
+                                        <label for="exampleFormControlSelect1">% Máximo Comissão(SUP/GER/QUAT)</label>
+                                        <select class="form-control form-control-sm" id="id-max-comissao">
+                                            <option> </option>
 
+                                        </select>
+                                    </div>
+
+                                </div>
 
                             </div>
 
@@ -1596,7 +1603,7 @@
                                             <p><b>José ALbertino Silva</b></p>
                                         </th>
                                         <td>
-                                            626.983.323-22
+                                            626.983.323-2
                                         </td>
                                         <td>
                                             15.359.515/0001-50
