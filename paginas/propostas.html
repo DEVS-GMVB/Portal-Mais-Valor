@@ -47,7 +47,6 @@
 
 <!--MODAL FILTROS DE PESQUISA-->
 
-
 <div class="modal fade modal-filtroproposta " tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
     aria-hidden="true">
     <div class="modal-dialog modal-lg">
@@ -491,10 +490,10 @@
 
 <!--FIM DO MODAL FILTROS DE PESQUISA-->
 
-<!--MODAL NOVA PROPOSTA-->
+<!--MODAL ALTERAR PROPOSTA-->
 
 
-<div class="modal fade modalincluirpropostas" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel"
+<div class="modal fade modalalterarpropostas" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel"
     aria-hidden="true">
     <div class="modal-dialog modal-xl">
         <div class="modal-content">
@@ -3130,7 +3129,427 @@
 </div>
 
 
-<!--FINAL MODAL NOVA PROPOSTA-->
+<!--FINAL MODAL ALTERAR PROPOSTA-->
+
+<!-- MODAL INCLUIR PROPOSTA PARCEIRO -->
+
+<div class="modal fade modal-incluirproposta-parc" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <img src="logocolorido.png" style="height: 70px; right: 70px;">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        
+        <div class="bg-titulo mt-0">
+
+            <h3>Dados da Proposta</h3>
+
+        </div>
+
+        <form class="needs-validation" novalidate>
+
+            <div class="form-row mt-4">
+
+
+                <div class="col-md-3 mb-3">
+                    <label for="validationCustom01">Número da Proposta</label>
+                    <input type="text" class="form-control form-control-sm" id="validationCustom01">
+
+                </div>
+
+                <div class="col-md-3 mb-3">
+                    <label for="validationCustom01">Data Cadastro</label>
+                    <input type="text" class="form-control form-control-sm" id="validationCustom01">
+
+                </div>
+
+                <div class="col-md-3 mb-3">
+                    <label for="validationCustom01">Banco</label>
+                    <input type="text" class="form-control form-control-sm" id="validationCustom01">
+
+                </div>
+
+                <div class="col-md-3 mb-3">
+                    <label for="validationCustom01">Status</label>
+                    <input type="text" class="form-control form-control-sm" id="validationCustom01">
+
+                </div>
+
+                <div class="col-md-3 mb-3">
+                    <div class="form-group">
+                        <label for="exampleFormControlSelect1">Produto</label>
+                        <select class="form-control form-control-sm" id="exampleFormControlSelect1">
+                            <option> </option>
+                    
+
+
+                        </select>
+                    </div>
+
+                </div>
+
+                <div class="col-md-3 mb-3">
+                    <div class="form-group">
+                        <label for="exampleFormControlSelect1">Tipo de Operação</label>
+                        <select class="form-control form-control-sm" id="exampleFormControlSelect1">
+                            <option> </option>
+                    
+
+
+                        </select>
+                    </div>
+
+                </div>
+               
+
+                <div class="col-md-3 mb-3">
+                    <label for="validationCustom01">Valor Entregue</label>
+                    <input type="text" class="form-control form-control-sm" id="validationCustom01">
+
+                </div>
+
+                <div class="col-md-3 mb-3">
+                    <label for="validationCustom01">Valor Troco</label>
+                    <input type="text" class="form-control form-control-sm" id="validationCustom01">
+
+                </div>
+
+           
+
+                <div class="col-md-6 mb-3">
+                    <div class="form-group">
+                        <label for="exampleFormControlSelect1">Convênio</label>
+                        <select class="form-control form-control-sm" id="exampleFormControlSelectMes">
+                            <option> </option>
+
+
+                        </select>
+                    </div>
+
+                </div>
+
+                <div class="col-md-6 mb-3">
+                    <div class="form-group">
+                        <label for="exampleFormControlSelect1">Banco Portador</label>
+                        <select class="form-control form-control-sm" id="exampleFormControlSelectMes">
+                            <option> </option>
+
+
+                        </select>
+                    </div>
+
+                </div>
+
+                <div class="col-md-3 mb-3">
+                    <label for="validationCustom01">Portabilidade</label>
+                    <input type="date" class="form-control form-control-sm" id="validationCustom01">
+
+                </div>
+
+                <div class="col-md-3 mb-3">
+                    <label for="validationCustom01">Valor Parcela</label>
+                    <input type="text" class="form-control form-control-sm" id="validationCustom01">
+
+                </div>
+
+                <div class="col-md-3 mb-3">
+                    <div class="form-group">
+                        <label for="exampleFormControlSelect1">Seguro</label>
+                        <select class="form-control form-control-sm" id="exampleFormControlSelectMes">
+                            <option> </option>
+
+
+                        </select>
+                    </div>
+
+                </div>
+
+
+                <div class="col-md-3 mb-3">
+                    <label for="validationCustom01">Parcelas Pagas (PORT/REFIN)</label>
+                    <input type="text" class="form-control form-control-sm" id="validationCustom01">
+
+                </div>
+
+
+
+
+
+            </div>
+
+        </form>
+
+        <div class="bg-titulo mt-0">
+
+            <h3>Dados do Cliente</h3>
+
+        </div>
+
+
+        <form class="needs-validation" novalidate>
+
+            <div class="form-row mt-4">
+
+
+                <div class="col-md-4 mb-3">
+                    <label for="validationCustom01">Nome Cliente</label>
+                    <input type="text" class="form-control form-control-sm" id="validationCustom01">
+
+                </div>
+
+                <div class="col-md-4 mb-3">
+                    <label for="validationCustom01">CPF Cliente</label>
+                    <input type="text" class="form-control form-control-sm" id="validationCustom01">
+
+                </div>
+
+                <div class="col-md-1 mb-3">
+                    <label for="validationCustom01">DDD</label>
+                    <input type="text" class="form-control form-control-sm" id="validationCustom01">
+
+                </div>
+
+                <div class="col-md-3 mb-3">
+                    <label for="validationCustom01">Telefone Cliente</label>
+                    <input type="text" class="form-control form-control-sm" id="validationCustom01">
+
+                </div>
+
+                <div class="col-md-4 mb-1">
+                    <div class="form-group">
+                        <label for="exampleFormControlSelect1">Correntista?</label>
+                        <select class="form-control form-control-sm" id="exampleFormControlSelect1">
+                            <option> </option>
+                            <option> SIM </option>
+                            <option> NÃO </option>
+                    
+
+
+                        </select>
+                    </div>
+
+                </div>
+
+                <div class="col-md-4 mb-1">
+                    <label for="validationCustom01">Telefone SMS Cliente</label>
+                    <input type="text" class="form-control form-control-sm" id="validationCustom01">
+
+                </div>
+
+
+                <div class="col-md-4 mb-1">
+                    <label for="validationCustom01">Matrícula (NB/RA)</label>
+                    <input type="text" class="form-control form-control-sm" id="validationCustom01">
+
+                </div>
+
+                <div class="col-md-5 mb-1">
+                    <div class="form-group">
+                        <label for="exampleFormControlSelect1">Deseja Agendar Horário Para Confirmação?</label>
+                        <select class="form-control form-control-sm" id="exampleFormControlSelect1">
+                            <option> </option>
+                    
+
+
+                        </select>
+                    </div>
+
+                </div>
+               
+
+                <div class="col-md-3 mb-1">
+                    <label for="validationCustom01">Melhor Data - Confirmação Cliente</label>
+                    <input type="text" class="form-control form-control-sm" id="validationCustom01">
+
+                </div>
+
+             
+                <div class="col-md-4 mb-1">
+                    <div class="form-group">
+                        <label for="exampleFormControlSelect1">Melhor Horário - Confirmação Cliente</label>
+                        <select class="form-control form-control-sm" id="exampleFormControlSelect1">
+                            <option> </option>
+                    
+
+
+                        </select>
+                    </div>
+
+                </div>
+
+                <div class="col-md-3 mb-1">
+                    <div class="form-group">
+                        <label for="exampleFormControlSelect1">Exército Temporário</label>
+                        <select class="form-control form-control-sm" id="exampleFormControlSelectMes">
+                            <option> </option>
+
+
+                        </select>
+                    </div>
+
+                </div>
+
+                <div class="col-md-3 mb-1">
+                    <label for="validationCustom01">Código Único Exército</label>
+                    <input type="date" class="form-control form-control-sm" id="validationCustom01">
+
+                </div>
+
+                <div class="col-md-3 mb-1">
+                    <div class="form-group">
+                        <label for="exampleFormControlSelect1">Sexo</label>
+                        <select class="form-control form-control-sm" id="exampleFormControlSelectMes">
+                            <option> </option>
+
+
+                        </select>
+                    </div>
+
+                </div>
+
+
+                <div class="col-md-3 mb-1">
+                    <label for="validationCustom01">Data Nascimento</label>
+                    <input type="text" class="form-control form-control-sm" id="validationCustom01">
+
+                </div>
+
+                <div class="col-md-8 mb-3">
+                    <label for="validationCustom01">E-mail</label>
+                    <input type="text" class="form-control form-control-sm" id="validationCustom01">
+
+                </div>
+
+
+                <div class="col-md-4 mb-3">
+                    <div class="form-group">
+                        <label for="exampleFormControlSelect1">UF</label>
+                        <select class="form-control form-control-sm" id="exampleFormControlSelectMes">
+                            <option> </option>
+
+
+                        </select>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </form>
+
+        <div class="bg-titulo mt-0">
+
+            <h3>Observação</h3>
+
+        </div>
+
+        <div class="observacao mt-3" style="text-align: center;">
+            <label for="exampleFormControlSelect1">Observação</label>
+            <textarea class="form-control" placeholder="" rows="3"></textarea>
+        </div>
+
+
+        <div class="bg-titulo mt-3">
+
+            <h3>Anexos</h3>
+
+        </div>
+
+
+        <form class="needs-validation" novalidate>
+
+            <div class="form-row mt-4 mx-6">
+
+
+                <div class="col-md-6 mb-3">
+                    <label for="exampleFormControlFile1"><b>Proposta:</b></label>
+                    <input type="file" class="form-control-file" id="exampleFormControlFile1">
+
+                </div>
+
+
+                <div class="col-md-6 mb-3">
+                    <label for="exampleFormControlFile1"><b>Identificação:</b></label>
+                    <input type="file" class="form-control-file" id="exampleFormControlFile1">
+
+                </div>
+
+                <div class="col-md-6 mb-3 mt-2">
+                    <label for="exampleFormControlFile1"><b>Endereço:</b></label>
+                    <input type="file" class="form-control-file" id="exampleFormControlFile1">
+
+                </div>
+
+                <div class="col-md-6 mb-3 mt-2">
+                    <label for="exampleFormControlFile1"><b>Renda:</b></label>
+                    <input type="file" class="form-control-file" id="exampleFormControlFile1">
+
+                </div>
+
+                <div class="col-md-6 mb-0">
+                    <label for="exampleFormControlFile1"><b>Extrato INSS:</b></label>
+                    <input type="file" class="form-control-file" id="exampleFormControlFile1">
+
+                </div>
+
+            </div>
+
+            <hr>
+
+            <div class="form-row mt-0 mx-6">
+
+
+
+                <div class="col-md-6 mb-3">
+                    <label for="exampleFormControlFile1"><b>Outros 1:</b></label>
+                    <input type="file" class="form-control-file" id="exampleFormControlFile1">
+
+                </div>
+
+                <div class="col-md-6 mb-3">
+                    <label for="exampleFormControlFile1"><b>Outros 2:</b></label>
+                    <input type="file" class="form-control-file" id="exampleFormControlFile1">
+
+                </div>
+
+                <div class="col-md-6 mb-3">
+                    <label for="exampleFormControlFile1"><b>Outros 3:</b></label>
+                    <input type="file" class="form-control-file" id="exampleFormControlFile1">
+
+                </div>
+
+                <div class="col-md-6 mb-3">
+                    <label for="exampleFormControlFile1"><b>Outros 4:</b></label>
+                    <input type="file" class="form-control-file" id="exampleFormControlFile1">
+
+                </div>
+
+            </div>
+
+        </form>
+
+        <div class="opcoes-cadastro mt-4" style="text-align: center; margin-inline: block;">
+            <button type="button" class="btn btn-primary btn-icon-label">
+                <span class="btn-inner--icon">
+                    <i class="fas fa-plus"></i>
+                </span>
+                <span class="btn-inner--text">Incluir</span>
+            </button>
+
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FINAL MODAL INCLUIR PROPOSTA PARCEIRO-->
 
 
 <body class="application application-offset">
@@ -3811,8 +4230,7 @@
 
                                 <div class="opcoes-cadastro mt-1" style="text-align: center; margin-inline: block;">
 
-                                    <button type="button" class="btn btn-primary btn-icon-label" data-toggle="modal"
-                                        data-target=".modalincluirpropostas">
+                                    <button type="button" class="btn btn-primary btn-icon-label" data-toggle="modal" data-target=".modal-incluirproposta-parc">
                                         <span class="btn-inner--icon">
                                             <i class="fas fa-plus"></i>
                                         </span>

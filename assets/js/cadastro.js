@@ -11,6 +11,7 @@ let gerente = document.getElementById('exampleFormControlSelectGerente');
 let buttonIncluir = document.getElementById("buttonIncluir");
 let supervisorMulti = document.getElementById("exampleFormControlSelectSerMultBanc");
 let gerenteMulti = document.getElementById('exampleFormControlSelectGerMultBanc');
+let supervisorComissao = document.getElementById("exampleSupervisor");
 let cpfcnpjParceiro = [];
 
 var cont = -1;
@@ -328,7 +329,7 @@ colocar.addEventListener('click', () => {
 
 
 function editar(cpfCnpj) {
-    
+    // document.getElementById("acesso-tab").disabled = true;
     //Cabeçalho
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
@@ -552,6 +553,7 @@ buttonIncluir.addEventListener('click', () => {
     // $('#cadastro-tab').modal('show');
     (function ($) {
         $(function () {
+
             //codigo
             $('#cadastro').modal('show');
         })(jQuery);
