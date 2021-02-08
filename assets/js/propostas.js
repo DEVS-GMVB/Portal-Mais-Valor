@@ -2,7 +2,7 @@ let numeroProp = document.getElementById('validationNumeroProp');
 let dtCadastro = document.getElementById('validationDtCadastro');
 let mesReferencia = document.getElementById('validationMesReferencia');
 let nRefinPort = document.getElementById('validationNRefinPort');
-let tipoOperacao = document.getElementById('exampleFormTipoOperacao');
+let tipoOperacao = document.getElementById('tipoOperacao');
 let valorEntregue = document.getElementById('validationCustomVE');
 let valorTroco = document.getElementById('validationCustomVT');
 let quantidadeParcela = document.getElementById('validationCustomQT');
@@ -88,6 +88,9 @@ let email = document.getElementById('validationCustomE');
 let solicitouAg = document.getElementById('validationCustomSA');
 let MDConfirmCliente = document.getElementById('validationCustomMDCC');
 let MHConfirmCliente = document.getElementById('exampleFormMHCC');
+let bancoPortado = document.getElementById("bancoPortador");
+let banc = document.getElementById("examploBanco");
+let prod = document.getElementById("exampleProduto")
 
 window.onload = function () {
 
@@ -99,13 +102,39 @@ window.onload = function () {
     redirect: 'follow'
   };
 
+  fetch("http://172.16.0.197:3000/user/proposta/tipo", requestOptions)
+    .then(response => response.json())
+    .then(function (data) {
+      for (let i = 0; i < data.length; i++) {
+        tipoOperacao.innerHTML += '<option value="' + data[i].tipo + '">' + data[i].tipo + '</option>;'
+      }
+    })
+
+    fetch("http://172.16.0.197:3000/user/proposta/bancos", requestOptions)
+    .then(response => response.json())
+    .then(function (data) {
+      for (let i = 0; i < data.length; i++) {
+        bancoPortado.innerHTML += '<option value="' + data[i].banco + '">' + data[i].banco + '</option>;'
+        banc.innerHTML += '<option value="' + data[i].banco + '">' + data[i].banco + '</option>;'
+
+      }
+    })
+
+    fetch("http://172.16.0.197:3000/user/proposta/produto", requestOptions)
+    .then(response => response.json())
+    .then(function (data) {
+      for (let i = 0; i < data.length; i++) {
+        prod.innerHTML += '<option value="' + data[i].produto + '">' + data[i].produto + '</option>;'
+      }
+    })
+
 
   fetch("http://localhost:3000/user/proposta/parceiro", requestOptions) //pegar esse id acesso do login get session storage
     .then(response => response.json())
     .then(result => {
 
       for (const value of result) {
-        
+
         let specific_tbody = document.getElementById('list');
         let row = specific_tbody.insertRow(-1);
         let proposta = row.insertCell(-1);
@@ -175,7 +204,7 @@ window.onload = function () {
 
 
 
-    anexos.innerHTML=`<td id="" class="text-right" style="text-align: center;">
+        anexos.innerHTML = `<td id="" class="text-right" style="text-align: center;">
                                <div class="actions ml-3" style="text-align: center;">
                                 <a href="#" class="action-item mr-2 " data-toggle="modal" data-target=".modalteladecadastro" title="Alterar">
                                   <i class="fas fa-download"></i>
@@ -183,7 +212,7 @@ window.onload = function () {
                                </div>
                              </td>`;
 
-    alteraVisualiza.innerHTML=` <div class="actions ml-3" style="text-align: center;">
+        alteraVisualiza.innerHTML = ` <div class="actions ml-3" style="text-align: center;">
                                 <a href="#" class="action-item mr-2 " data-toggle="modal" data-target=".modal-filtroproposta" title="Alterar">
                                     <i class="fas fa-external-link-alt"></i>
                                 </a>
@@ -191,7 +220,7 @@ window.onload = function () {
                                     <i class="fas fa-eye"></i>
                                 </a>
                             </div>`;
-                                 
+
       }
 
     })

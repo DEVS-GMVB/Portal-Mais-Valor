@@ -109,7 +109,7 @@ prosseguir.addEventListener('click', () => {
     let dtEnvio = document.getElementById('dtEnvioChavej').value;
     let senha = document.getElementById('senhaChavej').value;
     let motCance = document.getElementById('motCancelChaveJ').value;
-    let tipoChave = document.getElementById('exampleFormControlTipoChave').value;
+    let tipoChave = document.getElementById('tipoChavej').value;
     let dtCancelamento = document.getElementById('dtCancelamentoChavej').value;
 
     //Siglae
@@ -224,14 +224,14 @@ prosseguir.addEventListener('click', () => {
         //% Parceiro/Promotor MEI - tabela sim
 
         //Chave J
-        status:statu,
-        funcao:funcao,
-        empresa:empresa,
-        data_envio:dtEnvio,
-        senha:senha,
-        motivo_cancelamento:motCance,
-        tipo_chave:tipoChave,
-        data_inativacao:dtCancelamento,
+        status: statu,
+        funcao: funcao,
+        empresa: empresa,
+        data_envio: dtEnvio,
+        senha: senha,
+        motivo_cancelamento: motCance,
+        tipo_chave: tipoChave,
+        data_inativacao: dtCancelamento,
 
         //Siglae
         siglae: sigla,
@@ -258,7 +258,7 @@ prosseguir.addEventListener('click', () => {
     fetch("http://localhost:3000/user/cadastro/inclusao", requestOptions)
         .then(response => response.json())
         //   console.log(response)
-        .then(function(data){
+        .then(function (data) {
             alert("Cadastro incluido com sucesso!")
             console.log(data)
         })

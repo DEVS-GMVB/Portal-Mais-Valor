@@ -236,3 +236,12 @@ function DataHora(evento, objeto){
 		event.returnValue = false;
 }
 
+// function mHora(v) {
+//     v = ([01][0-9]|2[0-3]):[0-5][0-9];
+//     return v;
+// }
+
+function mQtde(v) {
+    v = /d{3}-\d{3}-\d{4}/
+    return v;
+}

@@ -329,7 +329,7 @@ colocar.addEventListener('click', () => {
 
 
 function editar(cpfCnpj) {
-    // document.getElementById("acesso-tab").disabled = true;
+    document.getElementById("acesso-tab").disabled = false;
     //Cabeçalho
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
