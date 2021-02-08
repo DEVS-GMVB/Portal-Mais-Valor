@@ -197,6 +197,7 @@ window.onload = function () {
                 supervisor.innerHTML += '<option value="' + data[i].parceiro + '">' + data[i].parceiro + '</option>;'
                 supervisorBB.innerHTML += '<option value="' + data[i].parceiro + '">' + data[i].parceiro + '</option>;'
                 supervisorMulti.innerHTML += '<option value="' + data[i].parceiro + '">' + data[i].parceiro + '</option>;'
+                
             }
         }).catch(error => console.log('error', error));
 
@@ -253,7 +254,7 @@ colocar.addEventListener('click', () => {
         .then(result => {
             cont = -1;
             array = result;
-            
+
             for (const value of result) {
                 teste = value.cnpj;
                 let specific_tbody = document.getElementById('list');
@@ -327,6 +328,7 @@ colocar.addEventListener('click', () => {
 
 
 function editar(cpfCnpj) {
+    
     //Cabeçalho
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
@@ -344,9 +346,9 @@ function editar(cpfCnpj) {
     }
 
     fetch("http://172.16.0.197:3000/user/cadastro/buscar", request).
-    then(response => response.json().then(function(data){
+    then(response => response.json().then(function (data) {
         // console.log(data[0]);
-        for(const value of data) {
+        for (const value of data) {
             let tbody = document.getElementById("lista");
             let row = tbody.insertRow(-1);
             let nome = row.insertCell(-1);
@@ -402,7 +404,7 @@ function editar(cpfCnpj) {
             $('.needs-validation').each(function () {
                 this.reset();
             });
-            
+
             $("#validationParceiroPromotor").val("");
             $("#validationCpfCnpf").val("");
             if (document.getElementById('modalAlterar')) {
@@ -545,9 +547,20 @@ function editar(cpfCnpj) {
 
 
 
-
 //RESET APÓS TROCAR DE MODAL ENTRE O ALTERAR E O INCLUIR 
 buttonIncluir.addEventListener('click', () => {
+    // $('#cadastro-tab').modal('show');
+    (function ($) {
+        $(function () {
+            //codigo
+            $('#cadastro').modal('show');
+        })(jQuery);
+    })
+
+
+
+    document.getElementById("acesso-tab").disabled = true;
+
     $('.needs-validation').each(function () {
         this.reset();
     });
@@ -617,4 +630,3 @@ buttonIncluir.addEventListener('click', () => {
 
 
 // })
-

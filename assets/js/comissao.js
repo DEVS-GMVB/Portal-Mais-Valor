@@ -250,39 +250,10 @@ prosse.addEventListener('click', () => {
     redirect: 'follow'
   };
 
-  // fetch("", requestOptions)
-  //   .then(response => response.json())
-  //   //.then(response => response.text())
-  //   .then(result => console.log(result))
-  //   .catch(error => console.log('error', error));
+  
 
 })
 
-// Secundario/Supervisor
-
-// var requestOptions = {
-//   method: 'GET',
-//   redirect: 'follow'
-// };
-
-// fetch("http://172.16.0.197:3000/user/supervisor", requestOptions)
-//   .then(response => response.json().then(function (data) {
-//     for (let i = 0; i < data.length; i++) {
-//       sec.innerHTML += '<option value="' + data[i].parceiro + '">' + data[i].parceiro + '</option>;'
-//     }
-//   })).catch(error => console.log('error', error));
-
-
-// // Terceario/Gerente
-
-
-// fetch("http://172.16.0.197:3000/user/gerente", requestOptions)
-//   .then(response => response.json().then(function (data) {
-//     // console.log(data)
-//     for (let i = 0; i < data.length; i++) {
-//       ger.innerHTML += '<option value="' + data[i].gerente + '">' + data[i].gerente + '</option>;'
-//     }
-//   })).catch(error => console.log('error', error));
 
 
 
