@@ -304,9 +304,16 @@
 
                                 <div class="col-md-3 mb-3">
                                     <label for="validationCustom01">Telefone</label>
+
+                                    <input type="text" class="form-control form-control-sm" id="#" required>
+                                 <input type="text" maxlength="14" name="telefone" id="telefone"
+                                        onKeyDown="fMasc( this, mTelefone );" class="form-control form-control-sm"
+                                        id="validationTelefone" required>
+
                                     <input type="text" maxlength="14" name="telefone"
                                         onKeyDown="fMasc( this, mTelefone );" class="form-control form-control-sm"
                                         id="validationTelefone" required>
+
 
                                 </div>
 
@@ -803,9 +810,18 @@
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <label for="validationCustom01">CPF Empresa</label>
+
+                                    <input type="text" class="form-control form-control-sm" id="id-p-cpfempresa" input
+                                        type="text" class="form-control form-control-sm">
+
                                     <input type="text" class="form-control form-control-sm"
                                         onkeypress='mascaraMutuario(this,cpfCnpj)' class="form-control form-control-sm"
                                         id="cpfcnpj" minlength="14" maxlength="18" required>
+
+                                    <input type="text" class="form-control form-control-sm"
+                                        onkeypress='mascaraMutuario(this,cpfCnpj)' class="form-control form-control-sm"
+                                        id="cpfcnpj" minlength="14" maxlength="18" required>
+
 
                                 </div>
 
@@ -944,7 +960,7 @@
 
                                 <div class="col-md-4 mb-3">
                                     <label for="validationCustom01">CPF Quartenário</label>
-                                    <input type="text" class="form-control form-control-sm" onkeypress='mascaraMutuario(this,cpfCnpj)' minlength="14" maxlength="18">
+                                    <input type="text" class="form-control form-control-sm" onkeypress='mascaraMutuario(this,cpfCnpj)' minlength="14" maxlength="18" id="quaternario">
 
                                 </div>
 
@@ -999,29 +1015,30 @@
 
                                 <div class="col-md-4 mb-3">
                                     <label for="validationCustom01">% Supervisor</label>
-                                    <input type="text" class="form-control form-control-sm" id="id-porc-supervisor">
+                                    <input type="text" class="form-control form-control-sm" id="id-porc-supervisor"
+                                    name="id-porc-supervisor" maxlength="6">
 
                                 </div>
 
                                 <div class="col-md-4 mb-3">
                                     <label for="validationCustom01">% Gerente</label>
-                                    <input type="text" class="form-control form-control-sm" id="id-porc-gerente">
+                                    <input type="text" class="form-control form-control-sm" id="id-porc-gerente"
+                                    name="id-porc-gerente" maxlength="6">
 
                                 </div>
 
                                 <div class="col-md-3 mb-3">
                                     <label for="validationCustom01">% Quartenário</label>
-                                    <input type="text" class="form-control form-control-sm" id="id-porc-quaternario">
+                                    <input type="text" class="form-control form-control-sm" id="id-porc-quaternario"
+                                    name="id-porc-quaternario" maxlength="6">
 
                                 </div>
 
                                 <div class="col-md-6 mb-3">
                                     <div class="form-group">
-                                        <label for="exampleFormControlSelect1">% Máximo Comissão(SUP/GER/QUAT)</label>
-                                        <select class="form-control form-control-sm" id="id-max-comissao">
-                                            <option> </option>
-
-                                        </select>
+                                        <label for="exampleFormControlSelect1">CPF Quartenário</label>
+                                        <input type="text" class="form-control form-control-sm" id="cpfQuartenarioDC" onkeypress='mascaraMutuario(this,cpfCnpj)' minlength="14" maxlength="18">
+                                            
                                     </div>
 
                                 </div>
@@ -1038,7 +1055,16 @@
                                 </div>
 
 
+                                <div class="col-md-6 mb-3">
+                                    <div class="form-group">
+                                        <label for="exampleFormControlSelect1">% Máximo Comissão(SUP/GER/QUAT)</label>
+                                        <select class="form-control form-control-sm" id="id-max-comissao">
+                                            <option> </option>
 
+                                        </select>
+                                    </div>
+
+                                </div>
 
                             </div>
 
@@ -1067,19 +1093,22 @@
 
                                 <div class="col-md-4 mb-3">
                                     <label for="validationCustom01">% Supervisor</label>
-                                    <input type="text" class="form-control form-control-sm" id="id-ce-supervisor">
+                                    <input type="text" class="form-control form-control-sm" id="id-ce-supervisor"
+                                    name="id-ce-supervisor" maxlength="6">
 
                                 </div>
 
                                 <div class="col-md-4 mb-3">
                                     <label for="validationCustom01">% Gerente</label>
-                                    <input type="text" class="form-control form-control-sm" id="id-ce-gerente">
+                                    <input type="text" class="form-control form-control-sm" id="id-ce-gerente"
+                                    name="id-ce-gerente" maxlength="6">
 
                                 </div>
 
                                 <div class="col-md-6 mb-3">
                                     <label for="validationCustom01">% Quartenário</label>
-                                    <input type="text" class="form-control form-control-sm" id="id-ce-quaternario">
+                                    <input type="text" class="form-control form-control-sm" id="id-ce-quaternario"
+                                    name="id-ce-quaternario" maxlength="6">
 
                                 </div>
 
@@ -1126,19 +1155,22 @@
 
                                 <div class="col-md-4 mb-3">
                                     <label for="validationCustom01">% Supervisor</label>
-                                    <input type="text" class="form-control form-control-sm" id="id-gmg-supervisor">
+                                    <input type="text" class="form-control form-control-sm" id="id-gmg-supervisor"
+                                    name="id-gmg-supervisor" maxlength="6">
 
                                 </div>
 
                                 <div class="col-md-4 mb-3">
                                     <label for="validationCustom01">% Gerente</label>
-                                    <input type="text" class="form-control form-control-sm" id="id-gmg-gerente">
+                                    <input type="text" class="form-control form-control-sm" id="id-gmg-gerente"
+                                    name="id-gmg-gerente" maxlength="6">
 
                                 </div>
 
                                 <div class="col-md-6 mb-3">
                                     <label for="validationCustom01">% Quartenário</label>
-                                    <input type="text" class="form-control form-control-sm" id="id-gmg-quaternario">
+                                    <input type="text" class="form-control form-control-sm" id="id-gmg-quaternario"
+                                    name="id-gmg-quaternario" maxlength="6">
 
                                 </div>
 
@@ -1186,19 +1218,22 @@
 
                                 <div class="col-md-4 mb-3">
                                     <label for="validationCustom01">% Supervisor</label>
-                                    <input type="text" class="form-control form-control-sm" id="id-grj-supervisor">
+                                    <input type="text" class="form-control form-control-sm" id="id-grj-supervisor"
+                                    name="id-grj-supervisor" maxlength="6">
 
                                 </div>
 
                                 <div class="col-md-4 mb-3">
                                     <label for="validationCustom01">% Gerente</label>
-                                    <input type="text" class="form-control form-control-sm" id="id-grj-gerente">
+                                    <input type="text" class="form-control form-control-sm" id="id-grj-gerente"
+                                    name="id-grj-gerente" maxlength="6">
 
                                 </div>
 
                                 <div class="col-md-6 mb-3">
                                     <label for="validationCustom01">% Quartenário</label>
-                                    <input type="text" class="form-control form-control-sm" id="id-grj-quaternario">
+                                    <input type="text" class="form-control form-control-sm" id="id-grj-quaternario"
+                                    name="id-grj-quaternario" maxlength="6">
 
                                 </div>
 
@@ -1662,6 +1697,10 @@
                                         <label for="exampleFormControlSelect1">Status da Chave</label>
                                         <select class="form-control form-control-sm" id="StatusChavej">
                                             <option> </option>
+
+                                            <option>ATIVO</option>
+                                            <option>INATIVO</option>
+                                            <option>BLOQUEADO</option>
                                             <option value="Todos">TODOS</option>
                                             <option value="Aguardando aprovação dp">AGUARDANDO APROVAÇÃO DP</option>
                                             <option value="Ativo">ATIVO</option>
@@ -1675,6 +1714,32 @@
 
                                 <div class="col-md-4 mb-3">
                                     <label for="validationCustom01">Função</label>
+<
+                                    <select class="form-control form-control-sm" id="chavejFuncao">
+                                        <option> </option>
+                                        <option>ADMINISTRATIVO</option>
+                                        <option>PARCEIRO</option>
+                                        <option>GERENTE</option>
+                                        <option>PROMOTOR</option>
+                                        <option>SUPERVISOR</option>
+                                        <option>PROMOTORMEI</option>
+                                        <option>CHAVE MASTER</option>
+                                        <option>CREDITO IMOBILIARIO</option>
+
+                                        <select class="form-control form-control-sm" id="exampleFormControlFuncao">
+                                            <option value=""> </option>
+                                            <option value="ADMINISTRATIVO">ADMINISTRATIVO</option>
+                                            <option value="PARCEIRO">PARCEIRO</option>
+                                            <option value="GERENTE">GERENTE</option>
+                                            <option value="PROMOTOR">PROMOTOR</option>
+                                            <option value="SUPERVISOR">SUPERVISOR</option>
+                                            <option value="PROMOTORMEI">PROMOTORMEI</option>
+                                            <option value="CHAVE MASTER">CHAVE MASTER</option>
+                                            <option value="CREDITO IMOBILIARIO">CREDITO IMOBILIARIO</option>
+
+
+                                        </select>
+
                                     <select class="form-control form-control-sm" id="exampleFormControlFuncao">
                                         <option value=""> </option>
                                         <option value="ADMINISTRATIVO">ADMINISTRATIVO</option>
@@ -1688,6 +1753,21 @@
 
 
                                     </select>
+
+                                    <select class="form-control form-control-sm" id="exampleFormControlFuncao">
+                                        <option value=""> </option>
+                                        <option value="ADMINISTRATIVO">ADMINISTRATIVO</option>
+                                        <option value="PARCEIRO">PARCEIRO</option>
+                                        <option value="GERENTE">GERENTE</option>
+                                        <option value="PROMOTOR">PROMOTOR</option>
+                                        <option value="SUPERVISOR">SUPERVISOR</option>
+                                        <option value="PROMOTORMEI">PROMOTORMEI</option>
+                                        <option value="CHAVE MASTER">CHAVE MASTER</option>
+                                        <option value="CREDITO IMOBILIARIO">CREDITO IMOBILIARIO</option>
+
+
+                                    </select>
+
                                 </div>
 
                                 <div class="col-md-7 mb-3">
@@ -1698,8 +1778,17 @@
 
                                 <div class="col-md-5 mb-3">
                                     <label for="validationCustom01">Data Envio Chave J</label>
+
+                                    <input type="date" min="1921-01-01" class="form-control form-control-sm"
+                                        id="dtEnvioChavej">
+
                                     <input type="text" min="1921-01-01" class="form-control form-control-sm"
                                         id="dtEnvioChavej" onKeyDown="fMasc( this, data );" maxlength="10">
+
+
+                                    <input type="text" min="1921-01-01" class="form-control form-control-sm"
+                                        id="dtEnvioChavej" onKeyDown="fMasc( this, data );" maxlength="10">
+
 
                                 </div>
 
@@ -1720,13 +1809,29 @@
                                         <label for="validationCustom01">Motivo Cancelamento</label>
                                         <select class="form-control form-control-sm" id="motCancelChaveJ">
                                             <option> </option>
+
+                                            <option>CHAVE CANCELADA PELO BANCO</option>
+                                            <option>FALTA PRODUÇÃO</option>
+                                            <option>FRAUDE</option>
+                                            <option>PEDIDO GERENTE</option>
+                                            <option>PEDIDO NASSIPE</option>
+                                            <option>PEDIDO PARCEIRO</option>
+                                            <option>PEDIDO SUPERVISOR</option>
+
+                                            <option value="CHAVE CANCELADA PELO BANCO">CHAVE CANCELADA PELO BANCO
+                                            </option>
+
                                             <option value="CHAVE CANCELADA PELO BANCO">CHAVE CANCELADA PELO BANCO</option>
+
+                                            <option value="CHAVE CANCELADA PELO BANCO">CHAVE CANCELADA PELO BANCO</option>
+
                                             <option value="FALTA PRODUÇÃO">FALTA PRODUÇÃO</option>
                                             <option value="FRAUDE">FRAUDE</option>
                                             <option value="PEDIDO GERENTE">PEDIDO GERENTE</option>
                                             <option value="PEDIDO NASSIPE">PEDIDO NASSIPE</option>
                                             <option value="PEDIDO PARCEIRO">PEDIDO PARCEIRO</option>
                                             <option value="PEDIDO SUPERVISOR">PEDIDO SUPERVISOR</option>
+
 
                                         </select>
                                     </div>
@@ -1736,18 +1841,37 @@
                                     <label for="exampleFormControlSelect1">Tipo Chave</label>
                                     <select class="form-control form-control-sm" id="exampleFormControlTipoChave">
                                         <option> </option>
-                                        <option value="PRODUÇÃO">PRODUÇÃO</option>
+
+                                        <option>PRODUÇÃO</option>
+                                        <option>CHAVE IMOBILIARIO</option>
+                                        <option>INDICA VENDAS</option>
+                                        <option>SIMULAÇÃO</option>
+
+                                      <option value="PRODUÇÃO">PRODUÇÃO</option>
                                         <option value="CHAVE IMOBILIARIO">CHAVE IMOBILIARIO</option>
                                         <option value="INDICA VENDAS">INDICA VENDAS</option>
                                         <option value="SIMULAÇÃO">SIMULAÇÃO</option>
+
+
+ 
 
                                     </select>
                                 </div>
 
                                 <div class="col-md-4 mb-3">
                                     <label for="validationCustom01">Data Cancelamento</label>
+
+                                   <input type="date" min="1921-01-01"
+                                        class="form-control form-control-sm" id="dtCancelamentoChavej">
+                                 
+                                        
+
                                     <input type="text" min="1921-01-01" class="form-control form-control-sm"
                                         id="dtCancelamentoChavej" maxlength="19" size="19" onKeyPress="DataHora(event, this)">
+
+                                    <input type="text" min="1921-01-01" class="form-control form-control-sm"
+                                        id="dtCancelamentoChavej" maxlength="19" size="19" onKeyPress="DataHora(event, this)">
+
 
                                 </div>
 
@@ -1811,12 +1935,27 @@
                                     <div class="form-group">
                                         <label for="exampleFormControlSelect1">Status Siglas</label>
                                         <select class="form-control form-control-sm"
+
+                                            id="exampleFormControlStatusSiglas">
+                                            <option> </option>
+                                            <option>ATIVO</option>
+                                            <option>INATIVO</option>
+                                            <option>BLOQUEADO</option>
+                                            
+                                            <option> </option>
+                                            <option value="ATIVO">ATIVO</option>
+                                            <option value="INATIVO">INATIVO</option>
+                                            <option value="BLOQUEADO">BLOQUEADO</option>
+                                            <option value="DESATIVADO">DESATIVADO</option>
+                                           
+
                                         id="exampleFormControlStatusSiglas">
                                         <option> </option>
                                         <option value="ATIVO">ATIVO</option>
                                         <option value="INATIVO">INATIVO</option>
                                         <option value="BLOQUEADO">BLOQUEADO</option>
                                         <option value="DESATIVADO">DESATIVADO</option>
+
                                         </select>
                                     </div>
 
@@ -1824,8 +1963,17 @@
 
                                 <div class="col-md-2 mb-3">
                                     <label for="validationCustom01">Data Inativação</label>
+
+                                  <input type="date" min="1921-01-01"
+                                        class="form-control form-control-sm">
+                                    
+
                                     <input type="text" min="1921-01-01" class="form-control form-control-sm" onKeyDown="fMasc( this, data );" maxlength="10"
                                         id="validationDataInativacao">
+
+                                    <input type="text" min="1921-01-01" class="form-control form-control-sm" onKeyDown="fMasc( this, data );" maxlength="10"
+                                        id="validationDataInativacao">
+
 
                                 </div>
 
@@ -1874,7 +2022,7 @@
                                 <div class="col-md-6 mb-3">
                                     <label for="validationCustom01">Parceiro/Promotor</label>
                                     <input type="text" class="form-control form-control-sm"
-                                        id="validationParceiroPromotor">
+                                        id="validationParceiroPromotor" readonly='true'>
 
                                 </div>
 
@@ -1882,8 +2030,20 @@
                                     <div class="form-group">
                                         <label for="exampleFormControlSelect1">Usa Sigla E?</label>
                                         <select class="form-control form-control-sm" id="exampleFormControlUsaSigla">
+
+                                            <option value="sim"> SIM </option>
+                                                <option value="nao"> NÃO </option>
+                                             
+                                                <option value="SIM UTILIZA A ESTEIRA GMVB"> SIM </option>
+                                                <option value="NÃO UTILIZA A ESTEIRA GMVB"> NÃO </option>
+                                             
+
                                             <option value="SIM UTILIZA A ESTEIRA GMVB"> SIM </option>
                                             <option value="NÃO UTILIZA A ESTEIRA GMVB"> NÃO </option>
+
+                                            <option value="SIM UTILIZA A ESTEIRA GMVB"> SIM </option>
+                                            <option value="NÃO UTILIZA A ESTEIRA GMVB"> NÃO </option>
+
 
                                         </select>
                                     </div>
@@ -1893,9 +2053,26 @@
                                 <div class="col-md-6 mb-3">
                                     <div class="form-group">
                                         <label for="exampleFormControlSelect1">Usa Sigla I?</label>
+
+                                         <select class="form-control form-control-sm"
+                                            id="exampleFormControlSelect1">
+                                            <option value="sim"> SIM </option>
+                                            <option value="nao"> NÃO </option>
+                                            
+                                            <select class="form-control form-control-sm" id="exampleFormControlSiglaI">
+                                                <option value="SIM"> SIM </option>
+                                                <option value="NÃO"> NÃO </option>
+                                                
+
                                         <select class="form-control form-control-sm" id="exampleFormControlSiglaI">
                                             <option value="SIM"> SIM </option>
                                             <option value="NÃO"> NÃO </option>
+
+
+                                        <select class="form-control form-control-sm" id="exampleFormControlSiglaI">
+                                            <option value="SIM"> SIM </option>
+                                            <option value="NÃO"> NÃO </option>
+
 
                                             </select>
                                     </div>
@@ -2813,8 +2990,22 @@
     <script src="../assets/js/cadastro.js"></script>
     
     <!-- <script src="../assets/js/cadastropesquisar.js"></script> -->
+ <script src="../assets/js/comissao.js">
+        </script>
+        <script src="../assets/js/chavej.js"></script>
+        <script src="../assets/js/siglae.js"></script>
+
+        <script src="../assets/js/incluirComissao.js"></script>
+        <script src="../assets/js/incluirSiglaE.js"></script>
+
+        <script src="../assets/js/acesso.js"></script>
+
+    <script src="../assets/js/incluirComissao.js"></script>
+    <script src="../assets/js/incluirSiglaE.js"></script>
     <script src="../assets/js/acesso.js"></script>
+   <script src="../assets/js/acesso.js"></script>
     
+
 
 </body>
 
