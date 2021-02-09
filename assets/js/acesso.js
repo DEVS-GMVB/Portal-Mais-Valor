@@ -188,6 +188,49 @@ cpfcnpjIncluir.addEventListener('blur', () => {
 
 })
 
+  var requestOptions = {
+    method: 'POST',
+    headers: myHeaders,
+    body: raw,
+    redirect: 'follow'
+  }
+
+  fetch("http://172.16.0.197:3000/user/cadastro/busca/acesso", requestOptions).
+  then(response => response.json().then(function (data){    
+    // console.log("Resposta do alterar", data);
+    $("#id-cadusu-usuario").val(data.usuario);
+    $("#id-cadusu-login").val(data.nome);
+    $("#id-cadusu-senha").val(data.senha);
+    $("id-cadusu-novamentesenha").val(data.senha);
+    $("#id-cadusu-tipousu").val(data.tipo);
+    $("#id-cadusu-usumaster").val(data.usuario_master);
+    $("#id-cadusu-classi").val(data.classificacao);
+    $("#id-cadusu-empresa").val(data.empresa);
+    $("#id-cadusu-status").val(data.status);
+    $("#id-cadusu-telcelular").val(data.telefone);
+    $("#id-cadusu-cpfcnpj").val(data.cpf_usuario)
+    $("#id-cadusu-cnpjMatriz").val(data.cnpj_matriz);
+    $("#id-cadusu-email").val(data.email);
+    $("#id-cadusu-motcancela").val(data.motivo_cancelamento);
+    $("#id-cadusu-perfilacesso").val(data.perfil);
+    $("#id-cadusu-acessoole").val(data.ole);
+    $("#id-cadusu-acessopan").val(data.pan);
+    $("#id-cadusu-acessocetelem").val(data.cetelem);
+    $("#id-cadusu-acessoitau").val(data.itau);
+    $("#id-cadusu-acef5bmg").val(data.f5_bmg);
+    $("#id-cadusu-acef5itau").val(data.f5_itau);
+    $("#id-cadusu-acedaycoval").val(data.daycoval);
+    $("#id-cadusu-acesim").val(data.sim);
+    $("#id-cadusu-acesafra").val(data.safra);
+    $("#id-cadusu-acebradesco").val(data.bradesco);
+    $("#id-cadusu-aceparana").val(data.parana);
+    $("#id-cadusu-crefisa").val(data.crefisa);
+    $("#id-cadusu-aceconsorciobb").val(data.consorcio_bb);
+    $("#ace-cadusu-conscaixa").val(data.consorcio_caixa);
+    $("#id-cadusu-aceconsitau").val(data.consorcio_itau);
+
+
+  })).catch(error => console.log('error', error))
 
 function editarCpfAcesso(e) {
   console.log(e);

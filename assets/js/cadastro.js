@@ -13,6 +13,9 @@ let gerente = document.getElementById('exampleFormControlSelectGerente');
 let buttonIncluir = document.getElementById("buttonIncluir");
 let supervisorMulti = document.getElementById("exampleFormControlSelectSerMultBanc");
 let gerenteMulti = document.getElementById('exampleFormControlSelectGerMultBanc');
+let supervisorComissao = document.getElementById("exampleSupervisor");
+let cpfcnpjParceiro = [];
+
 var cont = -1;
 var array;
 var teste;
@@ -167,12 +170,6 @@ window.onload = function () {
 
 
 
-var requestOptions = {
-    method: 'GET',
-    redirect: 'follow'
-  };
-
-
     fetch("http://172.16.0.197:3000/user/gerente", requestOptions)
         .then(response => response.json().then(function (data) {
             for (let i = 0; i < data.length; i++) {
@@ -203,8 +200,9 @@ var requestOptions = {
                 supervisor.innerHTML += '<option value="' + data[i].parceiro + '">' + data[i].parceiro + '</option>;'
                 supervisorBB.innerHTML += '<option value="' + data[i].parceiro + '">' + data[i].parceiro + '</option>;'
                 supervisorMulti.innerHTML += '<option value="' + data[i].parceiro + '">' + data[i].parceiro + '</option>;'
+                
             }
-        }).catch(error => console.log('error', error))
+        }).catch(error => console.log('error', error));
 
 
     fetch("http://172.16.0.197:3000/user/supervisor", requestOptions)
@@ -216,9 +214,6 @@ var requestOptions = {
                     supervisorMulti.innerHTML += '<option value="' + data[i].parceiro + '">' + data[i].parceiro + '</option>;'
                 }
             }).catch(error => console.log('error', error));
-
-
-
 
 }
 const colocar = document.getElementById('incluir');
@@ -271,7 +266,7 @@ colocar.addEventListener('click', () => {
         .then(result => {
             cont = -1;
             array = result;
-            
+
             for (const value of result) {
                 teste = value.cnpj;
                 let specific_tbody = document.getElementById('list');
@@ -346,6 +341,9 @@ colocar.addEventListener('click', () => {
 function editar(cpf) {
     // console.log(cpf);
 
+function editar(cpfCnpj) {
+    document.getElementById("acesso-tab").disabled = false;
+    //Cabeçalho
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
 
@@ -362,9 +360,9 @@ function editar(cpf) {
     }
 
     fetch("http://172.16.0.197:3000/user/cadastro/buscar", request).
-    then(response => response.json().then(function(data){
+    then(response => response.json().then(function (data) {
         // console.log(data[0]);
-        for(const value of data) {
+        for (const value of data) {
             let tbody = document.getElementById("lista");
             let row = tbody.insertRow(-1);
             let nome = row.insertCell(-1);
@@ -416,9 +414,11 @@ function editar(cpf) {
     fetch("http://172.16.0.197:3000/user/cadastro/modal", requestOptions)
         .then(response => response.json())
         .then(function (data) {
-            // data = ""
-            console.log(data);
-            // console.log(document.getElementById('modalAlterar'))
+
+            $('.needs-validation').each(function () {
+                this.reset();
+            });
+
             $("#validationParceiroPromotor").val("");
             $("#validationCpfCnpf").val("");
             if (document.getElementById('modalAlterar')) {
@@ -561,14 +561,25 @@ function editar(cpf) {
 
 
 
-
 //RESET APÓS TROCAR DE MODAL ENTRE O ALTERAR E O INCLUIR 
 buttonIncluir.addEventListener('click', () => {
+    // $('#cadastro-tab').modal('show');
+    (function ($) {
+        $(function () {
+
+            //codigo
+            $('#cadastro').modal('show');
+        })(jQuery);
+    })
+
+
+
+    document.getElementById("acesso-tab").disabled = true;
+
     $('.needs-validation').each(function () {
         this.reset();
     });
 })
-
 
 // Incluir Cadastro comissao chave j siglae
 // let incluirCadastro = document.getElementById("incluirCadastro");
@@ -634,33 +645,3 @@ buttonIncluir.addEventListener('click', () => {
 
 
 // })
-
-
-
-// let elements = document.getElementsByTagName("input");
-    // let selects = document.getElementsByTagName("select");
-    // let textarea = document.getElementsByTagName("textarea");
-
-    // for (const element of elements) {
-    //     if (element.type == "text") {
-    //         element.value = "";
-    //     }
-    //     else if (element.type == "radio") {
-    //         element.checked = false;
-    //     }
-    //     else if (element.type == "checkbox") {
-    //         element.checked = false;
-    //     }
-    //     else if (element.type == "select") {
-    //         element.selectedIndex = -1;
-    //     }
-    // }
-
-    // for(const select of selects) {
-    //     select.value = ""
-    // }
-
-    // for(const texts of textarea) {
-    //     texts.value = "";
-    // }
-

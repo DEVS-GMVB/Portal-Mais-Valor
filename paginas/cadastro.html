@@ -67,7 +67,7 @@
                 <ul class="nav nav-tabs" id="myTab" role="tablist">
                     <li class="nav-item">
                         <a class="nav-link active" id="cadastro-tab" data-toggle="tab" href="#cadastro" role="tab"
-                            aria-controls="cadastro" aria-selected="true">Cadastro</a>
+                            aria-controls="cadastro" aria-selected="true" >Cadastro</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" id="comissao-tab" data-toggle="tab" href="#comissao" role="tab"
@@ -401,7 +401,7 @@
 
                                 <div class="col-md-6 mb-3">
                                     <label for="validationCustom01">CPF do Favorecido</label>
-                                    <input type="text" class="form-control form-control-sm" id="id-fp-cpfFav" required>
+                                    <input type="text" class="form-control form-control-sm" id="id-fp-cpfFav" required onkeypress='mascaraMutuario(this,cpfCnpj)' minlength="14" maxlength="18">
 
                                 </div>
 
@@ -1839,7 +1839,7 @@
                                 </div>
                                 <div class="col-md-8 mb-3">
                                     <label for="exampleFormControlSelect1">Tipo Chave</label>
-                                    <select class="form-control form-control-sm" id="exampleFormControlTipoChave">
+                                    <select class="form-control form-control-sm" id="tipoChavej">
                                         <option> </option>
 
                                         <option>PRODUÇÃO</option>
