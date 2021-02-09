@@ -2,10 +2,10 @@ const prosseguir = document.getElementById('prosseguirChavejBtn');
 prosseguir.addEventListener('click', () => {
 
     var myHeaders = new Headers();
-    myHeaders.append("Content-Type", "application/json").value;
+    myHeaders.append("Content-Type", "application/json");
 
     let status = document.getElementById('StatusChavej').value;
-    let funcao = document.getElementById('chavejFuncao').value;
+    let funcao = document.getElementById('exampleFormControlFuncao').value;
     let empresa = document.getElementById('chavejEmpresa').value;
     let dtEnvio = document.getElementById('dtEnvioChavej').value;
     let senha = document.getElementById('senhaChavej').value;

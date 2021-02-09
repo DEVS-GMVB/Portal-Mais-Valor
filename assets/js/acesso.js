@@ -191,7 +191,7 @@ function editarCpfAcesso(e) {
 
   fetch("http://172.16.0.197:3000/user/cadastro/busca/acesso", requestOptions).
   then(response => response.json().then(function (data){    
-    console.log("Resposta do alterar", data);
+    // console.log("Resposta do alterar", data);
     $("#id-cadusu-usuario").val(data.usuario);
     $("#id-cadusu-login").val(data.nome);
     $("#id-cadusu-senha").val(data.senha);
