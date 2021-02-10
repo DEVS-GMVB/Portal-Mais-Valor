@@ -102,15 +102,9 @@ window.onload = function () {
         gerenteProposta.innerHTML += '<option value="' + data[i].gerente + '">' + data[i].gerente + '</option>;'
       }
     })).catch(error => console.log('error', error));
-<<<<<<< HEAD
 
     
 
-=======
-
-    
-
->>>>>>> kainan
   fetch("http://localhost:3000/user/proposta/filtro", requestOptions) //pegar esse id acesso do login get session storage
     .then(response => response.json())
     .then(result => {
@@ -255,11 +249,7 @@ filtros.addEventListener('click', () => {
 
   // let cnpj_matriz = 
   var raw = JSON.stringify({
-<<<<<<< HEAD
-    cnpj_matriz:"",
-=======
     cnpj_matriz:" ",
->>>>>>> kainan
     tipo_usuario:"PARCEIRO",
     perfil:"MATRIZ",  
     nome:"GERENTEMEI FERNANDO BRUNO",
@@ -313,8 +303,6 @@ filtros.addEventListener('click', () => {
     console.log(data);
   }).catch(error => console.log('error' , error))
 
-<<<<<<< HEAD
-=======
 })
 
 
@@ -322,5 +310,4 @@ const buttonIncluir = document.getElementById("button-incluir");
 
 buttonIncluir.addEventListener('click', () => {
   console.log('pogou');
->>>>>>> kainan
 })
