@@ -44,20 +44,21 @@ function mCEP(cep) {
 }
 
 function moeda(a, e, r, t) {
-    let n = ""
-        , h = j = 0
-        , u = tamanho2 = 0
-        , l = ajd2 = ""
-        , o = window.Event ? t.which : t.keyCode;
+    let n = "",
+        h = j = 0,
+        u = tamanho2 = 0,
+        l = ajd2 = "",
+        o = window.Event ? t.which : t.keyCode;
     a.value = a.value.replace('R$ ', '');
     if (n = String.fromCharCode(o),
         -1 == "0123456789".indexOf(n))
         return !1;
     for (u = a.value.replace('R$ ', '').length,
         h = 0; h < u && ("0" == a.value.charAt(h) || a.value.charAt(h) == r); h++)
-        ;
+    ;
     for (l = ""; h < u; h++)
-        -1 != "0123456789".indexOf(a.value.charAt(h)) && (l += a.value.charAt(h));
+        -
+        1 != "0123456789".indexOf(a.value.charAt(h)) && (l += a.value.charAt(h));
     if (l += n,
         0 == (u = l.length) && (a.value = ""),
         1 == u && (a.value = "R$ 0" + r + "0" + l),
@@ -68,8 +69,8 @@ function moeda(a, e, r, t) {
             h = u - 3; h >= 0; h--)
             3 == j && (ajd2 += e,
                 j = 0),
-                ajd2 += l.charAt(h),
-                j++;
+            ajd2 += l.charAt(h),
+            j++;
         for (a.value = "R$ ",
             tamanho2 = ajd2.length,
             h = tamanho2 - 1; h >= 0; h--)
@@ -156,15 +157,21 @@ function FormataConta(campo, tammax, pos, teclapres) {
     } else if (teclapres.target) {
         keyCode = teclapres.which;
     }
-    if (keyCode == 0 || keyCode == 8) { return true; }
-    if ((keyCode < 48 || keyCode > 57) && keyCode != 88 && (keyCode != 120)) { return false; }
+    if (keyCode == 0 || keyCode == 8) {
+        return true;
+    }
+    if ((keyCode < 48 || keyCode > 57) && keyCode != 88 && (keyCode != 120)) {
+        return false;
+    }
     var tecla = keyCode;
     vr = campo.value;
     vr = vr.replace("-", "");
     vr = vr.replace("/", "");
 
     tam = vr.length;
-    if (tam < tammax && tecla != 8) { tam = vr.length + 1; }
+    if (tam < tammax && tecla != 8) {
+        tam = vr.length + 1;
+    }
     if (tecla == 8) {
         tam = tam - 1;
     }
@@ -176,63 +183,114 @@ function FormataConta(campo, tammax, pos, teclapres) {
             campo.value = vr.substr(0, tam - pos) + "-" + vr.substr(tam - pos, tam);
         }
     }
-} 
+}
 
-function mcc(v){
-    v = v.replace(/\D/g,""); // Permite apenas dígitos
+function mcc(v) {
+    v = v.replace(/\D/g, ""); // Permite apenas dígitos
     v = v.replace(/(\d{4})/g, "$1."); // Coloca um ponto a cada 4 caracteres
     v = v.replace(/\.$/, ""); // Remove o ponto se estiver sobrando
-    v = v.substring(0, 19)// Limita o tamanho
-  
+    v = v.substring(0, 19) // Limita o tamanho
+
     return v;
 }
 
 function pispasep(v) {
-    v = v.replace(/\D/g, "")                                      //Remove tudo o que não é dígito
-    v = v.replace(/^(\d{3})(\d)/, "$1.$2")                        //Coloca ponto entre o terceiro e o quarto dígitos
-    v = v.replace(/^(\d{3})\.(\d{5})(\d)/, "$1.$2.$3")            //Coloca ponto entre o quinto e o sexto dígitos
+    v = v.replace(/\D/g, "") //Remove tudo o que não é dígito
+    v = v.replace(/^(\d{3})(\d)/, "$1.$2") //Coloca ponto entre o terceiro e o quarto dígitos
+    v = v.replace(/^(\d{3})\.(\d{5})(\d)/, "$1.$2.$3") //Coloca ponto entre o quinto e o sexto dígitos
     v = v.replace(/(\d{3})\.(\d{5})\.(\d{2})(\d)/, "$1.$2.$3.$4") //Coloca ponto entre o décimo e o décimo primeiro dígitos
     return v
 }
 
-function data(v){
-    v=v.replace(/\D/g,"") 
-    v=v.replace(/(\d{2})(\d)/,"$1/$2") 
-    v=v.replace(/(\d{2})(\d)/,"$1/$2") 
+function data(v) {
+    v = v.replace(/\D/g, "")
+    v = v.replace(/(\d{2})(\d)/, "$1/$2")
+    v = v.replace(/(\d{2})(\d)/, "$1/$2")
     return v
 }
 
-function DataHora(evento, objeto){
-	var keypress=(window.event)?event.keyCode:evento.which;
-	campo = eval (objeto);
-	if (campo.value == '00/00/0000 00:00:00')
-	{
-		campo.value=""
-	}
- 
-	caracteres = '0123456789';
-	separacao1 = '/';
-	separacao2 = ' ';
-	separacao3 = ':';
-	conjunto1 = 2;
-	conjunto2 = 5;
-	conjunto3 = 10;
-	conjunto4 = 13;
-	conjunto5 = 16;
-	if ((caracteres.search(String.fromCharCode (keypress))!=-1) && campo.value.length < (19))
-	{
-		if (campo.value.length == conjunto1 )
-		campo.value = campo.value + separacao1;
-		else if (campo.value.length == conjunto2)
-		campo.value = campo.value + separacao1;
-		else if (campo.value.length == conjunto3)
-		campo.value = campo.value + separacao2;
-		else if (campo.value.length == conjunto4)
-		campo.value = campo.value + separacao3;
-		else if (campo.value.length == conjunto5)
-		campo.value = campo.value + separacao3;
-	}
-	else
-		event.returnValue = false;
+function DataHora(evento, objeto) {
+    var keypress = (window.event) ? event.keyCode : evento.which;
+    campo = eval(objeto);
+    if (campo.value == '00/00/0000 00:00:00') {
+        campo.value = ""
+    }
+
+    caracteres = '0123456789';
+    separacao1 = '/';
+    separacao2 = ' ';
+    separacao3 = ':';
+    conjunto1 = 2;
+    conjunto2 = 5;
+    conjunto3 = 10;
+    conjunto4 = 13;
+    conjunto5 = 16;
+    if ((caracteres.search(String.fromCharCode(keypress)) != -1) && campo.value.length < (19)) {
+        if (campo.value.length == conjunto1)
+            campo.value = campo.value + separacao1;
+        else if (campo.value.length == conjunto2)
+            campo.value = campo.value + separacao1;
+        else if (campo.value.length == conjunto3)
+            campo.value = campo.value + separacao2;
+        else if (campo.value.length == conjunto4)
+            campo.value = campo.value + separacao3;
+        else if (campo.value.length == conjunto5)
+            campo.value = campo.value + separacao3;
+    } else
+        event.returnValue = false;
 }
 
+// function mHora(val) {
+//     val = val.split(":");
+//     return (parseInt(val[0]) > 19)? "HZ:M0" : "H0:M0"
+// }
+
+function mQtde(v) {
+    v = /d{3}-\d{3}-\d{4}/
+    return v;
+}
+
+
+// $(document).ready(function(){
+//     $("#horarioPropostas").inputmask("h:s",{ "placeholder": "hh/mm" });
+// });
+
+
+
+// function Mascara_Hora(Hora) {
+//     var hora01 = '';
+//     hora01 = hora01 + Hora;
+//     if (hora01.length == 2) {
+//         hora01 = hora01 + ':';
+//         document.forms[0].Hora.value = hora01;
+//     }
+//     if (hora01.length == 5) {
+//         Verifica_Hora();
+//     }
+// }
+
+// function Verifica_Hora() {
+//     hrs = (document.forms[0].Hora.value.substring(0, 2));
+//     min = (document.forms[0].Hora.value.substring(3, 5));
+
+//     estado = "";
+//     if ((hrs < 00) || (hrs > 23) || (min < 00) || (min > 59)) {
+//         estado = "errada";
+//     }
+
+//     if (document.forms[0].Hora.value == "") {
+//         estado = "errada";
+//     }
+
+//     if (estado == "errada") {
+//         alert("Hora inválida!");
+//         document.forms[0].Hora.focus();
+//     }
+// }
+
+var campo3 = document.querySelector('#testandoMascara');
+campo3.addEventListener('keyup', function () {
+    var d3 = campo3.value.replace(/\D/g, "");
+    d3 = d3.replace(/(\d{2,2})(\d{2,2})(\d{2,2})(\d{2,2})$/,"$1:$2 ás $3:$4");
+    this.value = d3;
+  });
