@@ -247,9 +247,9 @@ filtros.addEventListener('click', () => {
   var myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/json")
 
-  let cnpj_matriz = 
+  // let cnpj_matriz = 
   var raw = JSON.stringify({
-    cnpj_matriz:,
+    cnpj_matriz:" ",
     tipo_usuario:"PARCEIRO",
     perfil:"MATRIZ",  
     nome:"GERENTEMEI FERNANDO BRUNO",
@@ -303,4 +303,11 @@ filtros.addEventListener('click', () => {
     console.log(data);
   }).catch(error => console.log('error' , error))
 
+})
+
+
+const buttonIncluir = document.getElementById("button-incluir");
+
+buttonIncluir.addEventListener('click', () => {
+  console.log('pogou');
 })
