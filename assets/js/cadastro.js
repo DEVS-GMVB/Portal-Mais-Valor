@@ -74,6 +74,10 @@ window.onload = function () {
                 supervisor.innerHTML += '<option value="' + data[i].parceiro + '">' + data[i].parceiro + '</option>;'
                 supervisorBB.innerHTML += '<option value="' + data[i].parceiro + '">' + data[i].parceiro + '</option>;'
                 supervisorMulti.innerHTML += '<option value="' + data[i].parceiro + '">' + data[i].parceiro + '</option>;'
+<<<<<<< HEAD
+=======
+
+>>>>>>> kainan
             }
         }).catch(error => console.log('error', error));
 
@@ -459,6 +463,10 @@ apagar.addEventListener('click', () => {
     $("#apagarFiltros").each(function () {
         this.reset();
     })
+<<<<<<< HEAD
 
 })
 }
+=======
+})
+>>>>>>> kainan

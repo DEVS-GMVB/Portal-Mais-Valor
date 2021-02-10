@@ -243,6 +243,7 @@ function DataHora(evento, objeto) {
 // function mHora(val) {
 //     val = val.split(":");
 //     return (parseInt(val[0]) > 19)? "HZ:M0" : "H0:M0"
+<<<<<<< HEAD
 // }
 
 function mQtde(v) {
@@ -254,13 +255,19 @@ function mQtde(v) {
 // function mHora(v) {
 //     v = ([01][0-9]|2[0-3]):[0-5][0-9];
 //     return v;
+=======
+>>>>>>> kainan
 // }
 
 function mQtde(v) {
     v = /d{3}-\d{3}-\d{4}/
     return v;
 }
+<<<<<<< HEAD
 =======
+=======
+
+>>>>>>> kainan
 
 // $(document).ready(function(){
 //     $("#horarioPropostas").inputmask("h:s",{ "placeholder": "hh/mm" });
@@ -304,5 +311,9 @@ campo3.addEventListener('keyup', function () {
     var d3 = campo3.value.replace(/\D/g, "");
     d3 = d3.replace(/(\d{2,2})(\d{2,2})(\d{2,2})(\d{2,2})$/,"$1:$2 ás $3:$4");
     this.value = d3;
+<<<<<<< HEAD
   });
 >>>>>>> master
+=======
+  });
+>>>>>>> kainan
