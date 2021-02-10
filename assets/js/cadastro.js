@@ -13,6 +13,12 @@ let gerente = document.getElementById('exampleFormControlSelectGerente');
 let buttonIncluir = document.getElementById("buttonIncluir");
 let supervisorMulti = document.getElementById("exampleFormControlSelectSerMultBanc");
 let gerenteMulti = document.getElementById('exampleFormControlSelectGerMultBanc');
+<<<<<<< HEAD
+=======
+let supervisorComissao = document.getElementById("exampleSupervisor");
+let cpfcnpjParceiro = [];
+
+>>>>>>> master
 var cont = -1;
 var array;
 var teste;
@@ -22,6 +28,7 @@ window.onload = function () {
     // ------------------------------
     const prosseguir = document.getElementById('prosseguirBtn');
     prosseguir.addEventListener('click', () => {
+<<<<<<< HEAD
         // $('#comissao').modal('toggle'); 
         var myHeaders = new Headers();
 
@@ -157,6 +164,17 @@ window.onload = function () {
             .then(result => console.log(result))
             .catch(error => console.log('error', error));
 
+=======
+        // $(window).load(function() {
+        //     $("#comissao").modal('show');
+        // });
+        // document.getElementById("comissao").classList.add("active");
+
+        // document.getElementById("comissao").classList.add("show");
+        // if($("#comissao").hasClass("active")){
+        //     document.getElementById("comissao").classList.remove('show')
+        // }
+>>>>>>> master
     })
 
     // ------------------------------
@@ -166,12 +184,15 @@ window.onload = function () {
     };
 
 
+<<<<<<< HEAD
 
 var requestOptions = {
     method: 'GET',
     redirect: 'follow'
   };
 
+=======
+>>>>>>> master
 
     fetch("http://172.16.0.197:3000/user/gerente", requestOptions)
         .then(response => response.json().then(function (data) {
@@ -203,8 +224,9 @@ var requestOptions = {
                 supervisor.innerHTML += '<option value="' + data[i].parceiro + '">' + data[i].parceiro + '</option>;'
                 supervisorBB.innerHTML += '<option value="' + data[i].parceiro + '">' + data[i].parceiro + '</option>;'
                 supervisorMulti.innerHTML += '<option value="' + data[i].parceiro + '">' + data[i].parceiro + '</option>;'
+
             }
-        }).catch(error => console.log('error', error))
+        }).catch(error => console.log('error', error));
 
 
     fetch("http://172.16.0.197:3000/user/supervisor", requestOptions)
@@ -219,7 +241,10 @@ var requestOptions = {
 
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> master
 }
 const colocar = document.getElementById('incluir');
 
@@ -271,7 +296,7 @@ colocar.addEventListener('click', () => {
         .then(result => {
             cont = -1;
             array = result;
-            
+
             for (const value of result) {
                 teste = value.cnpj;
                 let specific_tbody = document.getElementById('list');
@@ -346,6 +371,12 @@ colocar.addEventListener('click', () => {
 function editar(cpf) {
     // console.log(cpf);
 
+<<<<<<< HEAD
+=======
+function editar(cpfCnpj) {
+    document.getElementById("acesso-tab").disabled = false;
+    //Cabeçalho
+>>>>>>> master
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
 
@@ -362,9 +393,9 @@ function editar(cpf) {
     }
 
     fetch("http://172.16.0.197:3000/user/cadastro/buscar", request).
-    then(response => response.json().then(function(data){
+    then(response => response.json().then(function (data) {
         // console.log(data[0]);
-        for(const value of data) {
+        for (const value of data) {
             let tbody = document.getElementById("lista");
             let row = tbody.insertRow(-1);
             let nome = row.insertCell(-1);
@@ -416,9 +447,17 @@ function editar(cpf) {
     fetch("http://172.16.0.197:3000/user/cadastro/modal", requestOptions)
         .then(response => response.json())
         .then(function (data) {
+<<<<<<< HEAD
             // data = ""
             console.log(data);
             // console.log(document.getElementById('modalAlterar'))
+=======
+
+            $('.needs-validation').each(function () {
+                this.reset();
+            });
+
+>>>>>>> master
             $("#validationParceiroPromotor").val("");
             $("#validationCpfCnpf").val("");
             if (document.getElementById('modalAlterar')) {
@@ -561,14 +600,27 @@ function editar(cpf) {
 
 
 
-
 //RESET APÓS TROCAR DE MODAL ENTRE O ALTERAR E O INCLUIR 
 buttonIncluir.addEventListener('click', () => {
+    // $('#cadastro-tab').modal('show');
+    (function ($) {
+        $(function () {
+
+            //codigo
+            $('#cadastro').modal('show');
+        })(jQuery);
+    })
+
+
+
+    document.getElementById("acesso-tab").disabled = true;
+
     $('.needs-validation').each(function () {
         this.reset();
     });
 })
 
+<<<<<<< HEAD
 
 // Incluir Cadastro comissao chave j siglae
 // let incluirCadastro = document.getElementById("incluirCadastro");
@@ -664,3 +716,11 @@ buttonIncluir.addEventListener('click', () => {
     //     texts.value = "";
     // }
 
+=======
+let apagar = document.getElementById("apagarFiltrosCadastro")
+apagar.addEventListener('click', () => {
+    $("#apagarFiltros").each(function () {
+        this.reset();
+    })
+})
+>>>>>>> master

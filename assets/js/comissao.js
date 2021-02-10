@@ -164,7 +164,7 @@ campo17.addEventListener('keyup', function () {
 });
 
 // window.onload = function () {
-    
+
 // }
 
 
@@ -252,6 +252,7 @@ pross.addEventListener('click', () => {
     redirect: 'follow'
   };
 
+<<<<<<< HEAD
   fetch("", requestOptions)
     .then(response => response.json())
     //.then(response => response.text())
@@ -286,6 +287,12 @@ pross.addEventListener('click', () => {
 //       ger.innerHTML += '<option value="' + data[i].gerente + '">' + data[i].gerente + '</option>;'
 //     }
 //   })).catch(error => console.log('error', error));
+=======
+  
+
+})
+
+>>>>>>> master
 
 
 
@@ -294,15 +301,19 @@ pross.addEventListener('click', () => {
 
 // Logica para fazer carregar o cnpj nos campos
 //Secundario
+
 let cpfSecundario = document.getElementById("cpfSecundario");
 cpfSecundario.addEventListener('blur', () => {
-    
-    var myHeaders = new Headers();
+
+  var myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/json");
 
-  var raw = JSON.stringify({ "cnpj": cpfSecundario.value });
+  var raw = JSON.stringify({
+    "cnpj": cpfSecundario.value
+  });
 
   var requestOptions = {
+<<<<<<< HEAD
 =======
 var requestOptions = {
   method: 'GET',
@@ -347,88 +358,99 @@ fetch("http://172.16.0.197:3000/user/gerente", requestOptions)
       body: raw,
       redirect: 'follow'
 <<<<<<< HEAD
+=======
+    method: 'POST',
+    headers: myHeaders,
+    body: raw,
+    redirect: 'follow'
+>>>>>>> master
   };
   fetch("http://172.16.0.197:3000/user/parceiros", requestOptions)
-  .then(response => response.json())
-  .then(function (data) {
+    .then(response => response.json())
+    .then(function (data) {
       if (data[0].parceiro === "NAO INFORMADO NA INSERA‡A?O") {
-          $("#idSec").val("");
+        $("#idSec").val("");
       } else {
-          $("#idSec").val(data[0].parceiro);
+        $("#idSec").val(data[0].parceiro);
       }
-  })
-  .catch(error => console.log('error', error));
+    })
+    .catch(error => console.log('error', error));
 })
 
 cpfSecundario.addEventListener('keyup', () => {
-let sec = document.getElementById("idSec");
-if (sec.value.length > 0) {
-  $("#idSec").val("")
-}
+  let sec = document.getElementById("idSec");
+  if (sec.value.length > 0) {
+    $("#idSec").val("")
+  }
 })
 
 //Terceario
 let cpfTerceario = document.getElementById("cpfTerceario");
 cpfTerceario.addEventListener('blur', () => {
-    
-    var myHeaders = new Headers();
+
+  var myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/json");
 
-  var raw = JSON.stringify({ "cnpj": cpfTerceario.value });
+  var raw = JSON.stringify({
+    "cnpj": cpfTerceario.value
+  });
 
   var requestOptions = {
-      method: 'POST',
-      headers: myHeaders,
-      body: raw,
-      redirect: 'follow'
+    method: 'POST',
+    headers: myHeaders,
+    body: raw,
+    redirect: 'follow'
   };
   fetch("http://172.16.0.197:3000/user/parceiros", requestOptions)
-  .then(response => response.json())
-  .then(function (data) {
+    .then(response => response.json())
+    .then(function (data) {
       if (data[0].parceiro === "NAO INFORMADO NA INSERA‡A?O") {
-          $("#idTerc").val("");
+        $("#idTerc").val("");
       } else {
-          $("#idTerc").val(data[0].parceiro);
+        $("#idTerc").val(data[0].parceiro);
       }
-  })
-  .catch(error => console.log('error', error));
+    })
+    .catch(error => console.log('error', error));
 })
 
 cpfTerceario.addEventListener('keyup', () => {
-let ter = document.getElementById("idTerc");
-if (ter.value.length > 0) {
-  $("#idTerc").val("")
-}
+  let ter = document.getElementById("idTerc");
+  if (ter.value.length > 0) {
+    $("#idTerc").val("")
+  }
 })
 
-  //Quaternario
-  let cpfQuaternario = document.getElementById("quaternario");
-  cpfQuaternario.addEventListener('blur', () => {
-    
-    var myHeaders = new Headers();
+//Quaternario
+let cpfQuaternario = document.getElementById("quaternario");
+cpfQuaternario.addEventListener('blur', () => {
+
+  var myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/json");
 
-  var raw = JSON.stringify({ "cnpj": cpfQuaternario.value });
+  var raw = JSON.stringify({
+    "cnpj": cpfQuaternario.value
+  });
 
   var requestOptions = {
-      method: 'POST',
-      headers: myHeaders,
-      body: raw,
-      redirect: 'follow'
+    method: 'POST',
+    headers: myHeaders,
+    body: raw,
+    redirect: 'follow'
   };
   fetch("http://172.16.0.197:3000/user/parceiros", requestOptions)
-  .then(response => response.json())
-  .then(function (data) {
+    .then(response => response.json())
+    .then(function (data) {
       if (data[0].parceiro === "NAO INFORMADO NA INSERA‡A?O") {
-          $("#idQuartenario").val("");
+        $("#idQuartenario").val("");
       } else {
-          $("#idQuartenario").val(data[0].parceiro);
+        $("#idQuartenario").val(data[0].parceiro);
       }
-  })
-  .catch(error => console.log('error', error));
+    })
+    .catch(error => console.log('error', error));
 })
 
 cpfQuaternario.addEventListener('keyup', () => {
+<<<<<<< HEAD
 let quat = document.getElementById("idQuartenario");
 if (quat.value.length > 0) {
   $("#idQuartenario").val("")
@@ -463,3 +485,10 @@ if (quat.value.length > 0) {
   
 
 >>>>>>> 9eaf361... merge caue
+=======
+  let quat = document.getElementById("idQuartenario");
+  if (quat.value.length > 0) {
+    $("#idQuartenario").val("")
+  }
+})
+>>>>>>> master

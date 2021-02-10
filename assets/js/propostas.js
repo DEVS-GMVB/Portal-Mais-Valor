@@ -1,95 +1,50 @@
-let numeroProp = document.getElementById('validationNumeroProp');
-let dtCadastro = document.getElementById('validationDtCadastro');
-let mesReferencia = document.getElementById('validationMesReferencia');
-let nRefinPort = document.getElementById('validationNRefinPort');
-let tipoOperacao = document.getElementById('exampleFormTipoOperacao');
-let valorEntregue = document.getElementById('validationCustomVE');
-let valorTroco = document.getElementById('validationCustomVT');
-let quantidadeParcela = document.getElementById('validationCustomQT');
-let previsaoSaldo = document.getElementById('validationCustomPS');
-let portabilidade = document.getElementById('validationCustomP');
-let retornoCIP = document.getElementById('exampleFormRC');
-let bancoPortador = document.getElementById('exampleFormBP');
-let dtCorte = document.getElementById('validationCustomDC');
-let salarioVencimento = document.getElementById('validationCustomSV');
-let margemNegativa = document.getElementById('validationCustomMN');
-let numeroChamado = document.getElementById('validationCustomNC');
-let chamadoResolvido = document.getElementById('exampleFormCR');
-let banco = document.getElementById('exampleFormB');
-let produto = document.getElementById('exampleFormP');
-let vendaSMS = document.getElementById('exampleFormVS');
-let auditoriaSMS = document.getElementById('exampleFormAS');
-let acessoCetelem = document.getElementById('validationCustomAC');
-let parcelaDescontoCetelem = document.getElementById('validationCustomPDC');
-let status = document.getElementById('exampleFormStaus');
-let subStatus = document.getElementById('exampleFormSS');
-let convenio = document.getElementById('validationCustomC');
-let regraConvenio = document.getElementById('validationCustomRC');
-let empresaSMS = document.getElementById('exampleFormES');
-let especie = document.getElementById('exampleFormE');
-let validadeContrato = document.getElementById('validationCustomVC');
-let siglaChamado = document.getElementById('validationCustomSC');
-let novaProposta = document.getElementById('validationCustomNP');
-let telefoneTFC = document.getElementById('exampleFormTT');
-let nomePrmoCont = document.getElementById('validationCustomNPC');
-let codigoAverbacao = document.getElementById('validationCustomCA');
-let senhaExercito = document.getElementById('validationCustomSE');
-let pilotoOla = document.getElementById('exampleFormPO');
-let seguro = document.getElementById('exampleFormS');
-let parcelaPaga = document.getElementById('exampleFormPP');
-let agendarHorario = document.getElementById('exampleFormAH');
-let exercitoTemporario = document.getElementById('exampleFormET');
-let codUniExer = document.getElementById('validationCustomCUE');
-let vendaS = document.getElementById('exampleFormVS');
-let auditoriaS = document.getElementById('exampleFormASMS');
-let MotNewSpace = document.getElementById('validationCustomMNS');
-let dtAtNewSpace = document.getElementById('validationCustoDANS');
+let filtros = document.getElementById("filtrosPes");
+let empresaProposta = document.getElementById("empresaPropostas");
+let tipoOperacao = document.getElementById('tipoOperacao');
+let bancoPortado = document.getElementById('exampleFormBP');
+let banc = document.getElementById("bancoPortabilidade");
+let prod = document.getElementById("exampleProduto")
+let produtoComissao = document.getElementById("exampleFormProduto");
+let supervisorProposta = document.getElementById("supervisorProposta");
+let gerenteProposta = document.getElementById("gerenteProposta")
 
-let nomeCliente = document.getElementById('validationNC');
-let cpfCliente = document.getElementById('validationCustomCpf');
-let ddd = document.getElementById('validationCustomDDD');
-let telefoneCliente = document.getElementById('validationCustomTC');
-let genero = document.getElementById('exampleFormG');
-let sexo = document.getElementById('exampleFormS');
-let telefoneConfirm = document.getElementById('validationCustomTelC');
-let nvCttInformado = document.getElementById('validationCustomNCI');
-let matricula = document.getElementById('validationCustomM');
-let dtNascimento = document.getElementById('validationCustomDN');
-let ufNaturalidade = document.getElementById('validationCustomUN');
-let naturalidade = document.getElementById('validationCustomN');
-let rg = document.getElementById('validationCustomRG');
-let dtEmissaoRg = document.getElementById('validationCustomDER');
-let orgaoExpedidor = document.getElementById('validationCustomOE');
-let nomePai = document.getElementById('validationCustomNomeP');
-let nomeMae = document.getElementById('validationCustomNM');
-let dtAdmissao = document.getElementById('validationCustomDA');
-let ufEndereco = document.getElementById('validationCustomUE');
-let cidadeEndereco = document.getElementById('validationCustomCE');
-let cep = document.getElementById('validationCustomC');
-let endereco = document.getElementById('validationCustomE')
-let bairro = document.getElementById('validationCustomB');
-let numeroEndereco = document.getElementById('validationCustomNE');
-let complemento = document.getElementById('validationCustomComp');
-let tipoContaCli = document.getElementById('exampleFormTCC');
-let bancoCliente = document.getElementById('validationCustomBC');
-let agenciaCliente = document.getElementById('validationCustomAgeC');
-let ContaCliente = document.getElementById('validationCustomCC');
-let DigitoConta = document.getElementById('validationCustomDigC');
-let correntista = document.getElementById('exampleFormC');
-let telSMSCliente = document.getElementById('validationCustomTSC');
-let estadoCivil = document.getElementById('validationCustomEC');
-let conjuge = document.getElementById('validationCustomConj');
-let telProcedente = document.getElementById('exampleFormTP');
-let sistemaTel = document.getElementById('exampleFormST');
-let telCompleto = document.getElementById('validationCustomTelCom');
-let digitado = document.getElementById('exampleFormD');
-let generoDC = document.getElementById('validationCustomGDC');
-let email = document.getElementById('validationCustomE');
-let solicitouAg = document.getElementById('validationCustomSA');
-let MDConfirmCliente = document.getElementById('validationCustomMDCC');
-let MHConfirmCliente = document.getElementById('exampleFormMHCC');
+
+//Nova proposta
+let numeroPrp = document.getElementById('validationNprop')
+let dtCadastro = document.getElementById('validationDtCad')
+//let bancoo = document.getElementById('examploBanco')
+let status = document.getElementById('validationStatus')
+//let produtoo = document.getElementById('exampleProduto')
+//let tpOperacao = document.getElementById('tipoOperacao')
+let vlEntregue = document.getElementById('validationVlEntregue')
+let vlTroco = document.getElementById('validationVlTroco')
+let convenio = document.getElementById('exampleFormControlSelectMes')
+//let bancoPort = document.getElementById('bancoPortador')
+let portabilidade = document.getElementById('validationPortabilidade')
+let vlParcela = document.getElementById('validationvlParcela')
+let seguro = document.getElementById('exampleSeguro')
+let parcPagas = document.getElementById('exampleFormPP')
+let nmCliente = document.getElementById('validationNmCliente')
+let cpfCliente = document.getElementById('validationCpfCliente')
+let ddd = document.getElementById('validationDDD')
+let tlCliente = document.getElementById('validationTelCliente')
+let correntista = document.getElementById('exampleCorrentista')
+let telSmsCliente = document.getElementById('validationTelSmsCliente')
+let matrNBRA = document.getElementById('validationMatrNBRA')
+let alteraHr = document.getElementById('exampleAlteraHr')
+let MdtConfirma = document.getElementById('validationMdt')
+let MHCC = document.getElementById('validationMHCC')
+let exeritotemp = document.getElementById('exampleExercito')
+let codUnic = document.getElementById('validationCodInic')
+let sexo = document.getElementById('exampleSexo')
+let dtNascimento = document.getElementById('validationDtNasc')
+let email = document.getElementById('validationEmail')
+let UF = document.getElementById('exampleUF')
+
 
 window.onload = function () {
+  
+
 
   var myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/json");
@@ -99,13 +54,63 @@ window.onload = function () {
     redirect: 'follow'
   };
 
+  fetch("http://172.16.0.197:3000/user/proposta/empresas", requestOptions)
+    .then(response => response.json().then(function (data) {
+      for (let i = 0; i < data.length; i++) {
+        empresaProposta.innerHTML += '<option value="' + data[i].empresa + '">' + data[i].empresa + '</option>;'
+      }
+    })).catch(error => console.log('error', error));
 
-  fetch("http://localhost:3000/user/proposta/parceiro", requestOptions) //pegar esse id acesso do login get session storage
+  fetch("http://172.16.0.197:3000/user/proposta/tipo", requestOptions)
+    .then(response => response.json())
+    .then(function (data) {
+      for (let i = 0; i < data.length; i++) {
+        tipoOperacao.innerHTML += '<option value="' + data[i].tipo + '">' + data[i].tipo + '</option>;'
+      }
+    })
+
+  fetch("http://172.16.0.197:3000/user/proposta/bancos", requestOptions)
+    .then(response => response.json())
+    .then(function (data) {
+      for (let i = 0; i < data.length; i++) {
+        bancoPortado.innerHTML += '<option value="' + data[i].banco + '">' + data[i].banco + '</option>;'
+        banc.innerHTML += '<option value="' + data[i].banco + '">' + data[i].banco + '</option>;'
+
+      }
+    })
+
+  fetch("http://172.16.0.197:3000/user/proposta/produto", requestOptions)
+    .then(response => response.json())
+    .then(function (data) {
+      for (let i = 0; i < data.length; i++) {
+        prod.innerHTML += '<option value="' + data[i].produto + '">' + data[i].produto + '</option>;'
+        produtoComissao.innerHTML += '<option value="' + data[i].produto + '">' + data[i].produto + '</option>;'
+      }
+    })
+
+  fetch("http://172.16.0.197:3000/user/supervisor", requestOptions)
+    .then(response => response.json())
+    .then(function (data) {
+      for (let i = 0; i < data.length; i++) {
+        supervisorProposta.innerHTML += '<option value="' + data[i].parceiro + '">' + data[i].parceiro + '</option>;'
+      }
+    }).catch(error => console.log('error', error));
+
+  fetch("http://172.16.0.197:3000/user/gerente", requestOptions)
+    .then(response => response.json().then(function (data) {
+      for (let i = 0; i < data.length; i++) {
+        gerenteProposta.innerHTML += '<option value="' + data[i].gerente + '">' + data[i].gerente + '</option>;'
+      }
+    })).catch(error => console.log('error', error));
+
+    
+
+  fetch("http://localhost:3000/user/proposta/filtro", requestOptions) //pegar esse id acesso do login get session storage
     .then(response => response.json())
     .then(result => {
 
       for (const value of result) {
-        
+
         let specific_tbody = document.getElementById('list');
         let row = specific_tbody.insertRow(-1);
         let proposta = row.insertCell(-1);
@@ -175,7 +180,7 @@ window.onload = function () {
 
 
 
-    anexos.innerHTML=`<td id="" class="text-right" style="text-align: center;">
+        anexos.innerHTML = `<td id="" class="text-right" style="text-align: center;">
                                <div class="actions ml-3" style="text-align: center;">
                                 <a href="#" class="action-item mr-2 " data-toggle="modal" data-target=".modalteladecadastro" title="Alterar">
                                   <i class="fas fa-download"></i>
@@ -183,7 +188,7 @@ window.onload = function () {
                                </div>
                              </td>`;
 
-    alteraVisualiza.innerHTML=` <div class="actions ml-3" style="text-align: center;">
+        alteraVisualiza.innerHTML = ` <div class="actions ml-3" style="text-align: center;">
                                 <a href="#" class="action-item mr-2 " data-toggle="modal" data-target=".modal-filtroproposta" title="Alterar">
                                     <i class="fas fa-external-link-alt"></i>
                                 </a>
@@ -191,10 +196,111 @@ window.onload = function () {
                                     <i class="fas fa-eye"></i>
                                 </a>
                             </div>`;
-                                 
+
       }
 
     })
     .catch(error => console.log('error', error));
 
 }
+
+filtros.addEventListener('click', () => {
+  // VARS
+  let usuario = document.getElementById("validationUsuario");
+  let tipoUsuario = document.getElementById("selectTipoUsuario");
+  let proposta = document.getElementById("proposta");
+  let statusProposta = document.getElementById("statusProposta");
+  let tipo = document.getElementById("tipo");
+  let cpfFiltro = document.getElementById("cpfFiltro");
+  let empresaPropostas = document.getElementById("empresaPropostas");
+  let mes = document.getElementById('exampleFormControlSelectMes');
+  let previsaoSaldo = document.getElementById("previsaoSaldo");
+  let novaProposta = document.getElementById("novaProposta")
+  let bancoPortabilidade = document.getElementById("bancoPortabilidade");
+  let ordenar = document.getElementById("ordenar");
+  let dataCadastro = document.getElementById('dataCadastro');
+  let dataAtualizacao = document.getElementById('dataAtualizacao');
+  let correntista = document.getElementById("correntista");
+  let sub_status = document.getElementById("sub-status");
+  let classificacao = document.getElementById("classificacao");
+  let situacaoStatus = document.getElementById('situacaoStatus');
+  let convenioMaster = document.getElementById("convenioMaster");
+  let faseStatus = document.getElementById("faseStatus");
+  let banco = document.getElementById("banco");
+  let produto = document.getElementById("exampleFormProduto");
+  let class2 = document.getElementById("class2");
+  let user_master = document.getElementById("user_master");
+  let supervisorProposta = document.getElementById("supervisorProposta");
+  let produtoMaster = document.getElementById('produtoMaster');
+  let gerenteProposta = document.getElementById("gerenteProposta");
+  let tipoUsuarioMaster = document.getElementById("tipoUsuarioMaster");
+  let dataDeCorte = document.getElementById("dataDeCorte");
+  let empresaSMS = document.getElementById("empresaSMS");
+  let convenio = document.getElementById("convenio");
+  let vinculo = document.getElementById("vinculo")
+  let horarioAgendamento = document.getElementById("horarioAgendamento");
+  let validadeContrato = document.getElementById("validadeContrato");
+  let etapaSMS = document.getElementById("etapaSMS");
+  let bancoMaster = document.getElementById("bancoMaster");
+
+
+  var myHeaders = new Headers();
+  myHeaders.append("Content-Type", "application/json")
+
+  let cnpj_matriz = 
+  var raw = JSON.stringify({
+    cnpj_matriz:,
+    tipo_usuario:"PARCEIRO",
+    perfil:"MATRIZ",  
+    nome:"GERENTEMEI FERNANDO BRUNO",
+    parceiro:"",
+    tipo_parceiro:"",
+    proposta:"",
+    status:"CANCELADO",
+    tipo:"",
+    cpf:"",
+    empresa:"",
+    mês:"",
+    previsao_retorno:"",
+    novo_proposta:"",
+    banco:"",
+    data_envio:"",
+    data_atualizacao:"",
+    correntista:"",
+    sub_estatus:"",
+    situacao:"",
+    master:"",
+    tipo_fase:"",
+    banco_origi:"",
+    propduto:"",
+    classificacao:"",
+    usuario_master:"",
+    supervisor:"",
+    sms:"",
+    gerente:"",
+    tipo_parceiro2:"",
+    data_corte:"",
+    empresa_sms:"",
+    convenio:"20991 - INSS",
+    data_vinculo:"",
+    horario:"",
+    validade_contrato:"",
+    etapa_sms:"",
+    tipo_banco:""
+  }) 
+
+  
+  var requestOptions = {
+    method: 'POST',
+    headers: myHeaders,
+    body: raw,
+    redirect: 'follow'
+  }
+
+  fetch("http://localhost:3000/user/proposta/filtro", requestOptions).
+  then(response => response.json()).
+  then(function(data) {
+    console.log(data);
+  }).catch(error => console.log('error' , error))
+
+})
