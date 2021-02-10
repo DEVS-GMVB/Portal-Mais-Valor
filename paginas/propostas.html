@@ -65,14 +65,14 @@
 
                             <div class="col-md-5 mb-3">
                                 <label for="validationCustom01">Usuário</label>
-                                <input type="text" class="form-control form-control-sm" id="validationCustom01">
+                                <input type="text" class="form-control form-control-sm" id="validationUsuario">
 
                             </div>
 
                             <div class="col-md-3 mb-3">
                                 <div class="form-group">
                                     <label for="exampleFormControlSelect1">Tipo de Usuário</label>
-                                    <select class="form-control form-control-sm" id="exampleFormControlSelect1">
+                                    <select class="form-control form-control-sm" id="selectTipoUsuario">
                                         <option> </option>
 
 
@@ -83,20 +83,20 @@
 
                             <div class="col-md-4 mb-3">
                                 <label for="validationCustom01">Proposta</label>
-                                <input type="text" class="form-control form-control-sm" id="validationCustom01">
+                                <input type="text" class="form-control form-control-sm" id="proposta">
 
                             </div>
 
                             <div class="col-md-4 mb-3">
                                 <div class="form-group">
                                     <label for="exampleFormControlSelect1">Status</label>
-                                    <select class="form-control form-control-sm" id="exampleFormControlSelect1">
+                                    <select class="form-control form-control-sm" id="statusProposta">
                                         <option> </option>
-                                        <option>TODOS</option>
-                                        <option>AGUARDANDO APROVAÇÃO DP</option>
-                                        <option>ATIVO</option>
-                                        <option>INATIVO</option>
-                                        <option>BLOQUEADO</option>
+                                        <option value="TODOS">TODOS</option>
+                                        <option value="AGUARDANDO APROVAÇÃO DP">AGUARDANDO APROVAÇÃO DP</option>
+                                        <option value="ATIVO">ATIVO</option>
+                                        <option value="INATIVO">INATIVO</option>
+                                        <option value="BLOQUEADO">BLOQUEADO</option>
 
 
                                     </select>
@@ -107,15 +107,15 @@
                             <div class="col-md-3 mb-3">
                                 <div class="form-group">
                                     <label for="exampleFormControlSelect1">Tipo</label>
-                                    <select class="form-control form-control-sm" id="exampleFormControlSelect1">
+                                    <select class="form-control form-control-sm" id="tipo">
                                         <option> </option>
-                                        <option>FUNCIONARIO</option>
-                                        <option>GERENTE</option>
-                                        <option>GERENTE-MEI</option>
-                                        <option>PROMOTOR</option>
-                                        <option>PROMOTOR-MEI</option>
-                                        <option>SUPERVISOR</option>
-                                        <option>SUPERVISOR-MEI</option>
+                                        <option value="FUNCIONARIO">FUNCIONARIO</option>
+                                        <option value="GERENTE">GERENTE</option>
+                                        <option value="GERENTE-MEI">GERENTE-MEI</option>
+                                        <option value="PROMOTOR">PROMOTOR</option>
+                                        <option value="PROMOTOR-MEI">PROMOTOR-MEI</option>
+                                        <option value="SUPERVISOR">SUPERVISOR</option>
+                                        <option value="SUPERVISOR-MEI">SUPERVISOR-MEI</option>
 
 
                                     </select>
@@ -125,7 +125,7 @@
 
                             <div class="col-md-5 mb-3">
                                 <label for="validationCustom01">CPF</label>
-                                <input type="text" class="form-control form-control-sm" id="validationCustom01"
+                                <input type="text" class="form-control form-control-sm" id="cpfFiltro"
                                     onkeypress='mascaraMutuario(this,cpfCnpj)' placeholder="Ex: 000.000.000-00"
                                     maxlength="14">
 
@@ -134,7 +134,7 @@
                             <div class="col-md-5 mb-3">
                                 <div class="form-group">
                                     <label for="exampleFormControlSelect1">Empresa</label>
-                                    <select class="form-control form-control-sm" id="exampleFormControlSelect1">
+                                    <select class="form-control form-control-sm" id="empresaPropostas">
                                         <option> </option>
 
 
@@ -148,8 +148,18 @@
                                     <label for="exampleFormControlSelect1">Mês</label>
                                     <select class="form-control form-control-sm" id="exampleFormControlSelectMes">
                                         <option> </option>
-
-
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                        <option>6</option>
+                                        <option>7</option>
+                                        <option>8</option>
+                                        <option>9</option>
+                                        <option>10</option>
+                                        <option>11</option>
+                                        <option>12</option>
                                     </select>
                                 </div>
 
@@ -157,20 +167,20 @@
 
                             <div class="col-md-4 mb-3">
                                 <label for="validationCustom01">Previsão Saldo</label>
-                                <input type="date" class="form-control form-control-sm" id="validationCustom01">
+                                <input type="date" class="form-control form-control-sm" id="previsaoSaldo">
 
                             </div>
 
                             <div class="col-md-3 mb-3">
                                 <label for="validationCustom01">Nova Proposta</label>
-                                <input type="text" class="form-control form-control-sm" id="validationCustom01">
+                                <input type="text" class="form-control form-control-sm" id="novaProposta">
 
                             </div>
 
                             <div class="col-md-5 mb-3">
                                 <div class="form-group">
                                     <label for="exampleFormControlSelect1">Banco Portabilidade</label>
-                                    <select class="form-control form-control-sm" id="exampleFormControlSelect1">
+                                    <select class="form-control form-control-sm" id="bancoPortabilidade">
                                         <option> </option>
 
 
@@ -182,7 +192,7 @@
                             <div class="col-md-4 mb-3">
                                 <div class="form-group">
                                     <label for="exampleFormControlSelect1">Ordenar</label>
-                                    <select class="form-control form-control-sm" id="exampleFormControlSelect1">
+                                    <select class="form-control form-control-sm" id="ordenar">
                                         <option> </option>
 
 
@@ -193,22 +203,22 @@
 
                             <div class="col-md-4 mb-3">
                                 <label for="validationCustom01">Data Cadastro</label>
-                                <input type="date" class="form-control form-control-sm" id="validationCustom01">
+                                <input type="date" class="form-control form-control-sm" id="dataCadastro">
 
                             </div>
 
                             <div class="col-md-4 mb-3">
                                 <label for="validationCustom01">Data Atualização</label>
-                                <input type="date" class="form-control form-control-sm" id="validationCustom01">
+                                <input type="date" class="form-control form-control-sm" id="dataAtualizacao">
 
                             </div>
 
                             <div class="col-md-4 mb-3">
                                 <div class="form-group">
                                     <label for="exampleFormControlSelect1">Correntista?</label>
-                                    <select class="form-control form-control-sm" id="exampleFormControlSelect1">
-                                        <option> SIM </option>
-                                        <option> NÃO </option>
+                                    <select class="form-control form-control-sm" id="correntista">
+                                        <option value="SIM"> SIM </option>
+                                        <option value="NÃO"> NÃO </option>
 
 
                                     </select>
@@ -219,7 +229,7 @@
                             <div class="col-md-5 mb-3">
                                 <div class="form-group">
                                     <label for="exampleFormControlSelect1">Sub-Status</label>
-                                    <select class="form-control form-control-sm" id="exampleFormControlSelect1">
+                                    <select class="form-control form-control-sm" id="sub-status">
                                         <option> </option>
 
 
@@ -232,9 +242,10 @@
                             <div class="col-md-4 mb-3">
                                 <div class="form-group">
                                     <label for="exampleFormControlSelect1">Classificação</label>
-                                    <select class="form-control form-control-sm" id="exampleFormControlSelect1">
+                                    <select class="form-control form-control-sm" id="classificacao">
                                         <option> </option>
-
+                                        <option value="CONFIAVEL">CONFIAVEL</option>
+                                        <option value="NOVO FLUXO">NOVO FLUXO</option>
 
 
                                     </select>
@@ -245,7 +256,7 @@
                             <div class="col-md-3 mb-3">
                                 <div class="form-group">
                                     <label for="exampleFormControlSelect1">Situação Status</label>
-                                    <select class="form-control form-control-sm" id="exampleFormControlSelect1">
+                                    <select class="form-control form-control-sm" id="situacaoStatus">
                                         <option> </option>
 
 
@@ -258,7 +269,7 @@
                             <div class="col-md-4 mb-3">
                                 <div class="form-group">
                                     <label for="exampleFormControlSelect1">Convênio Master</label>
-                                    <select class="form-control form-control-sm" id="exampleFormControlSelect1">
+                                    <select class="form-control form-control-sm" id="convenioMaster">
                                         <option> </option>
 
 
@@ -271,7 +282,7 @@
                             <div class="col-md-4 mb-3">
                                 <div class="form-group">
                                     <label for="exampleFormControlSelect1">Fase - Status</label>
-                                    <select class="form-control form-control-sm" id="exampleFormControlSelect1">
+                                    <select class="form-control form-control-sm" id="faseStatus">
                                         <option> </option>
 
 
@@ -284,7 +295,7 @@
                             <div class="col-md-4 mb-3">
                                 <div class="form-group">
                                     <label for="exampleFormControlSelect1">Banco</label>
-                                    <select class="form-control form-control-sm" id="exampleFormControlSelect1">
+                                    <select class="form-control form-control-sm" id="banco">
                                         <option> </option>
 
 
@@ -297,7 +308,7 @@
                             <div class="col-md-5 mb-3">
                                 <div class="form-group">
                                     <label for="exampleFormControlSelect1">Produto</label>
-                                    <select class="form-control form-control-sm" id="exampleFormControlSelect1">
+                                    <select class="form-control form-control-sm" id="exampleFormProduto">
                                         <option> </option>
 
 
@@ -310,7 +321,7 @@
                             <div class="col-md-4 mb-3">
                                 <div class="form-group">
                                     <label for="exampleFormControlSelect1">Classificação</label>
-                                    <select class="form-control form-control-sm" id="exampleFormControlSelect1">
+                                    <select class="form-control form-control-sm" id="class2">
                                         <option> </option>
 
 
@@ -323,16 +334,16 @@
                             <div class="col-md-3 mb-3">
                                 <div class="form-group">
                                     <label for="exampleFormControlSelect1">Usuário Master</label>
-                                    <select class="form-control form-control-sm" id="exampleFormControlSelect1">
+                                    <select class="form-control form-control-sm" id="user_master">
                                         <option> </option>
-                                        <option>BANNEG</option>
-                                        <option>CIA DO CREDITO</option>
-                                        <option>CONSIGACRED</option>
-                                        <option>CREDFACIL</option>
-                                        <option>DEMAIS PARCEIROS</option>
-                                        <option>FACTA</option>
-                                        <option>ISOCRED</option>
-                                        <option>VAZOLI</option>
+                                        <option value="BANNEG">BANNEG</option>
+                                        <option value="CIA DO CREDITO">CIA DO CREDITO</option>
+                                        <option value="CONSIGAGRED">CONSIGACRED</option>
+                                        <option value="CREDFACIL">CREDFACIL</option>
+                                        <option value="DEMAIS PARCEIROS">DEMAIS PARCEIROS</option>
+                                        <option value="FACTA">FACTA</option>
+                                        <option value="ISOCRED">ISOCRED</option>
+                                        <option value="VAZOLI">VAZOLI</option>
                                     </select>
                                 </div>
 
@@ -341,7 +352,7 @@
                             <div class="col-md-5 mb-3">
                                 <div class="form-group">
                                     <label for="exampleFormControlSelect1">Supervisor</label>
-                                    <select class="form-control form-control-sm" id="exampleFormControlSupervisor">
+                                    <select class="form-control form-control-sm" id="supervisorProposta">
                                         <option> </option>
 
 
@@ -354,12 +365,12 @@
                             <div class="col-md-2 mb-3">
                                 <div class="form-group">
                                     <label for="exampleFormControlSelect1">Produto Master</label>
-                                    <select class="form-control form-control-sm" id="exampleFormControlSelect1">
+                                    <select class="form-control form-control-sm" id="produtoMaster">
                                         <option> </option>
-                                        <option>CONSIGNADO</option>
-                                        <option>SMS</option>
-                                        <option>CARTAO OLE</option>
-                                        <option>MOBILE</option>
+                                        <option value="CONSIGNADO">CONSIGNADO</option>
+                                        <option value="SMS">SMS</option>
+                                        <option value="CARTAO OLE">CARTAO OLE</option>
+                                        <option value="MOBILE">MOBILE</option>
                                     </select>
                                 </div>
 
@@ -368,7 +379,7 @@
                             <div class="col-md-5 mb-3">
                                 <div class="form-group">
                                     <label for="exampleFormControlSelect1">Gerente</label>
-                                    <select class="form-control form-control-sm" id="exampleFormControlSelectGerente">
+                                    <select class="form-control form-control-sm" id="gerenteProposta">
                                         <option> </option>
 
 
@@ -381,10 +392,10 @@
                             <div class="col-md-4 mb-3">
                                 <div class="form-group">
                                     <label for="exampleFormControlSelect1">Tipo Usuário Master</label>
-                                    <select class="form-control form-control-sm" id="exampleFormControlSelect1">
+                                    <select class="form-control form-control-sm" id="tipoUsuarioMaster">
                                         <option> </option>
-                                        <option>PARCEIRO</option>
-                                        <option>PROMOTOR</option>
+                                        <option value="PARCEIRO">PARCEIRO</option>
+                                        <option value="PROMOTOR">PROMOTOR</option>
                                     </select>
                                 </div>
 
@@ -393,7 +404,7 @@
                             <div class="col-md-4 mb-3">
                                 <div class="form-group">
                                     <label for="exampleFormControlSelect1">Data de Corte</label>
-                                    <select class="form-control form-control-sm" id="exampleFormControlSelect1">
+                                    <select class="form-control form-control-sm" id="dataDeCorte">
                                         <option> </option>
 
 
@@ -406,10 +417,10 @@
                             <div class="col-md-4 mb-3">
                                 <div class="form-group">
                                     <label for="exampleFormControlSelect1">Empresa SMS</label>
-                                    <select class="form-control form-control-sm" id="exampleFormControlSelect1">
+                                    <select class="form-control form-control-sm" id="empresaSMS">
                                         <option> </option>
-                                        <option>VIC</option>
-                                        <option>ZENVIA</option>
+                                        <option value="VIC">VIC</option>
+                                        <option value="ZENVIA">ZENVIA</option>
                                     </select>
                                 </div>
 
@@ -417,14 +428,14 @@
 
                             <div class="col-md-4 mb-3">
                                 <label for="validationCustom01">Convênio</label>
-                                <input type="text" class="form-control form-control-sm" id="validationCustom01">
+                                <input type="text" class="form-control form-control-sm" id="convenio">
 
                             </div>
 
                             <div class="col-md-4 mb-3">
                                 <div class="form-group">
                                     <label for="exampleFormControlSelect1">Vínculo</label>
-                                    <select class="form-control form-control-sm" id="exampleFormControlSelect1">
+                                    <select class="form-control form-control-sm" id="vinculo">
                                         <option> </option>
 
 
@@ -437,7 +448,7 @@
                             <div class="col-md-4 mb-3">
                                 <div class="form-group">
                                     <label for="exampleFormControlSelect1">Horário Agendamento</label>
-                                    <select class="form-control form-control-sm" id="exampleFormControlSelect1">
+                                    <select class="form-control form-control-sm" id="horarioAgendamento">
                                         <option> </option>
 
 
@@ -449,17 +460,17 @@
 
                             <div class="col-md-4 mb-3">
                                 <label for="validationCustom01">Validade Contrato</label>
-                                <input type="date" class="form-control form-control-sm" id="validationCustom01">
+                                <input type="date" class="form-control form-control-sm" id="validadeContrato">
 
                             </div>
 
                             <div class="col-md-4 mb-3">
                                 <div class="form-group">
                                     <label for="exampleFormControlSelect1">Etapa SMS</label>
-                                    <select class="form-control form-control-sm" id="exampleFormControlSelect1">
+                                    <select class="form-control form-control-sm" id="etapaSMS">
                                         <option> </option>
-                                        <option>VENDA</option>
-                                        <option>AUDITORIA</option>
+                                        <option value="VENDA">VENDA</option>
+                                        <option value="AUDITORIA">AUDITORIA</option>
                                     </select>
                                 </div>
 
@@ -468,10 +479,10 @@
                             <div class="col-md-4 mb-3">
                                 <div class="form-group">
                                     <label for="exampleFormControlSelect1">Banco Master</label>
-                                    <select class="form-control form-control-sm" id="exampleFormControlSelect1">
+                                    <select class="form-control form-control-sm" id="bancoMaster">
                                         <option> </option>
-                                        <option>SANTANDER</option>
-                                        <option>MULTI BANCOS</option>
+                                        <option value="SANTANDER">SANTANDER</option>
+                                        <option value="MULTI BANCOS">MULTI BANCOS</option>
                                     </select>
                                 </div>
 
@@ -483,14 +494,14 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                    <button type="button" class="btn btn-primary">Filtrar Busca</button>
+                    <button type="button" class="btn btn-primary" id="filtrosPes">Filtrar Busca</button>
                 </div>
             </div>
         </div>
     </div>
 
 
-    <!--FIM DO MODAL FILTROS DE PESQUISA-->
+    <!-- FIM DO MODAL FILTROS DE PESQUISA -->
 
     <!--MODAL ALTERAR PROPOSTA-->
 
@@ -547,13 +558,19 @@
 
                             </div>
 
+                            <form class="needs-validation" novalidate>
 
                             <form class="needs-validation" novalidate>
 
 
+                                <div class="form-row mt-4">
 
                                 <div class="form-row mt-4">
 
+                                    <div class="col-md-4 mb-3">
+                                        <label for="validationCustom01">Número da Proposta</label>
+                                        <input type="text" class="form-control form-control-sm"
+                                            id="validationNumeroProp" required>
 
                                     <div class="col-md-4 mb-3">
                                         <label for="validationCustom01">Número da Proposta</label>
@@ -645,7 +662,7 @@
                                     <div class="col-md-4 mb-3">
                                         <div class="form-group">
                                             <label for="exampleFormControlSelect1">Banco Portador</label>
-                                            <select class="form-control form-control-sm" id="exampleFormBP">
+                                            <select class="form-control form-control-sm">
                                                 <option> </option>
 
                                             </select>
@@ -788,6 +805,10 @@
                                         <select class="form-control form-control-sm" id="exampleFormES">
                                             <option> </option>
 
+                                    <div class="col-md-5 mb-3">
+                                        <label for="validationCustom01">Regra Convênio</label>
+                                        <input type="text" class="form-control form-control-sm" id="validationCustomRC"
+                                            required>
 
                                         </select>
 
@@ -798,6 +819,7 @@
                                         <select class="form-control form-control-sm" id="exampleFormE">
                                             <option> </option>
 
+                                        </select>
 
                                         </select>
 
@@ -866,6 +888,10 @@
                                             <option> SIM </option>
                                             <option> NÃO </option>
 
+                                    <div class="col-md-3 mb-3">
+                                        <label for="validationCustom01">Senha Exército</label>
+                                        <input type="password" class="form-control form-control-sm"
+                                            id="validationCustomSE" required>
 
                                         </select>
 
@@ -915,6 +941,7 @@
                                             <option> SIM </option>
                                             <option> NÃO </option>
 
+                                        </select>
 
                                         </select>
 
@@ -933,6 +960,10 @@
                                         <select class="form-control form-control-sm" id="exampleFormVS">
                                             <option> </option>
 
+                                    <div class="col-md-4 mb-3">
+                                        <label for="validationCustom01">Código Único Exercito</label>
+                                        <input type="text" class="form-control form-control-sm" id="validationCustomCUE"
+                                            required>
 
 
                                         </select>
@@ -944,6 +975,7 @@
                                         <select class="form-control form-control-sm" id="exampleFormASMS">
                                             <option> </option>
 
+                                        </select>
 
 
                                         </select>
@@ -968,7 +1000,6 @@
 
 
 
-                                </div>
 
                             </form>
 
@@ -976,7 +1007,7 @@
 
                                 <h3>Dados do Cliente</h3>
 
-                            </div>
+                            </form>
 
                             <form class="needs-validation" novalidate>
 
@@ -1219,6 +1250,10 @@
                                             <option> SIM </option>
                                             <option> NÃO </option>
 
+                                    <div class="col-md-2 mb-3">
+                                        <label for="validationCustom01">Dígito Conta</label>
+                                        <input type="text" class="form-control form-control-sm"
+                                            id="validationCustomDigC" required maxlength="1">
 
                                         </select>
 
@@ -1296,7 +1331,7 @@
 
                                     <div class="col-md-8 mb-3">
                                         <label for="validationCustom01">E-mail</label>
-                                        <input type="email" class="form-control form-control-sm" id="validationCustomE"
+                                        <input type="email" class="form-control form-control-sm" id="validationCustomE" onkeypress="mascaraMutuario(this,validateEmail)"
                                             required>
 
                                     </div>
@@ -1323,12 +1358,21 @@
                                             <option> SIM </option>
                                             <option> NÃO </option>
 
+                                    <div class="col-md-4 mb-3">
+                                        <label for="validationCustom01">Melhor Data - Confirmação Cliente</label>
+                                        <input type="date" class="form-control form-control-sm"
+                                            id="validationCustomMDCC" required>
 
                                         </select>
 
                                     </div>
 
-                                </div>
+                                    <div class="col-md-4 mb-3">
+                                        <label for="validationCustom01">Melhor Horário - Confirmação Cliente</label>
+                                        <select class="form-control form-control-sm" id="exampleFormMHCC">
+                                            <option> </option>
+                                            <option> SIM </option>
+                                            <option> NÃO </option>
 
                                 <div class="opcoes-cadastro mt-1" style="text-align: center; margin-inline: block;">
                                     <button type="button" class="btn btn-primary btn-icon-label">
@@ -1391,7 +1435,7 @@
 
                                         </div>
 
-                                    </div>
+                                        </div>
 
                                     <hr>
 
@@ -1423,7 +1467,9 @@
 
                                         </div>
 
-                                    </div>
+                                        <div class="col-md-6 mb-3">
+                                            <label for="exampleFormControlFile1"><b>Outros 3:</b></label>
+                                            <input type="file" class="form-control-file" id="exampleFormControlFile1">
 
                                 </form>
 
@@ -1431,7 +1477,7 @@
 
                                     <h3>Anexar Arquivos</h3>
 
-                                </div>
+                                </form>
 
                                 <form class="needs-validation" novalidate>
 
@@ -1463,7 +1509,9 @@
 
                                         </div>
 
-                                    </div>
+                                        <div class="col-md-6 mb-3">
+                                            <label for="exampleFormControlFile1"><b>Outros 8 (SMS):</b></label>
+                                            <input type="file" class="form-control-file" id="exampleFormControlFile1">
 
                                 </form>
 
@@ -1492,8 +1540,6 @@
                                         </div>
 
 
-
-                                    </div>
 
                                 </form>
 
@@ -3072,6 +3118,8 @@
 
 
 
+                        <div class="tab-pane fade" id="nav-dadosusuarios" role="tabpanel"
+                            aria-labelledby="nav-dadosusuarios-tab">
 
                         </div>
 
@@ -3147,6 +3195,11 @@
 
                     </div>
 
+                <div class="modal-header">
+                    <img src="logocolorido.png" style="height: 70px; right: 70px;">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
                 </div>
             </div>
         </div>
@@ -3264,7 +3317,7 @@
                             <div class="col-md-6 mb-3">
                                 <div class="form-group">
                                     <label for="exampleFormControlSelect1">Banco Portador</label>
-                                    <select class="form-control form-control-sm" id="bancoPortador">
+                                    <select class="form-control form-control-sm" id="exampleFormBP">
                                         <option> </option>
 
 
@@ -3298,6 +3351,13 @@
 
                             </div>
 
+                        </div>
+
+                    </form>
+
+                    <div class="bg-titulo mt-0">
+
+                        <h3>Dados do Cliente</h3>
 
                             <div class="col-md-3 mb-3">
                                 <label for="validationCustom01">Parcelas Pagas (PORT/REFIN)</label>
@@ -3408,12 +3468,8 @@
                             <div class="col-md-4 mb-1">
                                 <div class="form-group">
                                     <label for="exampleFormControlSelect1">Melhor Horário - Confirmação Cliente</label>
-                                    <select class="form-control form-control-sm" id="exampleFormControlSelect1">
-                                        <option> </option>
+                                    <input type="text" class="form-control form-control-sm" id="testandoMascara" maxlength="12">
 
-
-
-                                    </select>
                                 </div>
 
                             </div>
@@ -3432,7 +3488,7 @@
 
                             <div class="col-md-3 mb-1">
                                 <label for="validationCustom01">Código Único Exército</label>
-                                <input type="date" class="form-control form-control-sm" id="validationCustom01">
+                                <input type="text" class="form-control form-control-sm" id="validationCustom01">
 
                             </div>
 
@@ -3446,7 +3502,9 @@
                                     </select>
                                 </div>
 
-                            </div>
+                <div class="col-md-6 mb-3">
+                    <label for="exampleFormControlFile1"><b>Proposta:</b></label>
+                    <input type="file" name = proposta class="form-control-file" id="exampleFormControlFile1">
 
 
                             <div class="col-md-3 mb-1">
@@ -3454,7 +3512,9 @@
                                 <input type="text" class="form-control form-control-sm" id="validationCustom01"
                                     onkeypress="mascaraMutuario(this, mData)" maxlength="10">
 
-                            </div>
+                <div class="col-md-6 mb-3">
+                    <label for="exampleFormControlFile1"><b>Identificação:</b></label>
+                    <input type="file" name="identificacao" class="form-control-file" id="exampleFormControlFile1">
 
                             <div class="col-md-8 mb-3">
                                 <label for="validationCustom01">E-mail</label>
@@ -4395,6 +4455,8 @@
         <script src="../assets/js/purpose.js"></script>
         <!-- Demo JS - remove it when starting your project -->
         <script src="../assets/js/demo.js"></script>
+        
+
         <!-- Mascaras -->
         <script src="../assets/js/mascaras.js"></script>
         <script src="../assets/js/mascarasvalores.js"></script>

@@ -285,6 +285,10 @@ cpfCnpjSigla.addEventListener('blur', () => {
         body: raw,
         redirect: 'follow'
     };
+<<<<<<< HEAD
+=======
+
+>>>>>>> master
     fetch("http://172.16.0.197:3000/user/parceiros", requestOptions)
         .then(response => response.json())
         .then(function (data) {
