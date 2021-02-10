@@ -676,7 +676,7 @@
                         <div class="card card-fluid">
 
                             <div class="card-body">
-                                <form class="needs-validation" novalidate>
+                                <form class="needs-validation" id="apagarFiltro" novalidate>
 
 
 
@@ -693,7 +693,7 @@
                                         <div class="col-md-6 mb-3">
                                             <label for="validationCustom02">Proposta</label>
                                             <input type="text" minlength="14" maxlength="18"
-                                                class="form-control form-control-sm" id="validationCustom02">
+                                                class="form-control form-control-sm" id="validationProposta">
 
                                         </div>
                                         <div class="col-md-6 mb-3">
@@ -788,7 +788,7 @@
                                     </div>
 
                                     <div class="opcoes-cadastro" style="text-align: center; margin-inline: block;">
-                                        <button type="button" class="btn btn-primary btn-icon-label" data-toggle="modal"
+                                        <button type="button" class="btn btn-primary btn-icon-label" data-toggle="modal" id="incluirComissao"
                                             data-target="#" title="Alterar">
                                             <span class="btn-inner--icon">
                                                 <i class="fas fa-plus"></i>
@@ -796,11 +796,11 @@
                                             <span class="btn-inner--text">Incluir</span>
                                         </button>
 
-                                        <button type="button" class="btn btn-primary btn-icon-label">
+                                        <button type="button" class="btn btn-primary btn-icon-label" id="btnApagarFiltro">
                                             <span class="btn-inner--icon">
                                                 <i class="fas fa-trash-alt"></i>
                                             </span>
-                                            <span class="btn-inner--text">Apagar Filtros</span>
+                                            <span class="btn-inner--text" >Apagar Filtros</span>
                                         </button>
 
                                         <button type="button" class="btn btn-primary btn-icon-label">

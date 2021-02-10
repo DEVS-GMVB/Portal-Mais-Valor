@@ -5,7 +5,7 @@ let status = document.getElementById("exampleStatus");
 let dtGerente = document.getElementById("exampleDtGerente");
 let dtSupervisor = document.getElementById("exampledtSupervisor")
 let compPag = document.getElementById("exampleCompPag")
-
+let incluirComissao = document.getElementById("incluirComissao")
 
 window.onload = function () {
     var requestOptions = {
@@ -75,3 +75,39 @@ window.onload = function () {
 
 }
 
+//Inclusão de Comissão
+incluirComissao.addEventListener('click', () =>{
+  let parcPromo = document.getElementById('exampleParcPromo')
+  let proposta = document.getElementById('validationProposta')
+  let supervisor = document.getElementById('exampleSupervisor')
+  let status = document.getElementById('exampleStatus')
+  let gerente = document.getElementById('exampleGerente')
+  let dtPagSupervisor = document.getElementById('exampledtSupervisor')
+  let dtPagGerente = document.getElementById('exampleDtGerente')
+  let competenciaPag = document.getElementById('exampleCompPag')
+  let cpfPromotor = document.getElementById('cpfPromo')
+
+  var myHeaders = new Headers()
+  myHeaders.append("Content-Type", "application/json");
+
+  var raw = JSON.stringify({})
+
+  var requestOptions = {
+    method: 'POST',
+    headers: myHeaders,
+    body: raw,
+    redirect: 'follow'
+  }
+
+  fetch("", requestOptions)
+    .then(response => response.json())
+    .then(result => {})
+})
+
+//Apagar Filtro
+let apagar = document.getElementById("btnApagarFiltro")
+apagar.addEventListener('click', () => {
+    $("#apagarFiltro").each(function () {
+        this.reset();
+    })
+})

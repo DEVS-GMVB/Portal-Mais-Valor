@@ -20,7 +20,9 @@ const Logar = () => {
     fetch("http://172.16.0.197:3000/user/login", requestOptions) 
     .then(function(response){
         response.json().then(function(data){
-      
+
+           
+
             if(!response.ok)
                 return alert(data.erro);
 
@@ -31,6 +33,7 @@ const Logar = () => {
             const nome = user.nome;
             const perfil = user.perfil;
             const status = user.status;
+            const tipo_parceiro2 = user.tipo_usuario;
 
             sessionStorage.setItem('cnpj_matriz',matriz);
             sessionStorage.setItem('data_nascimento',data_nascimento);
@@ -38,6 +41,7 @@ const Logar = () => {
             sessionStorage.setItem('nome',nome);
             sessionStorage.setItem('perfil',perfil);
             sessionStorage.setItem('status',status);
+            sessionStorage.setItem('tipo_parceiro2',tipo_parceiro2)
 
             window.location.href = "../../paginas/home.html";
         

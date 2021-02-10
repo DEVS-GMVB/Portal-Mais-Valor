@@ -12,7 +12,7 @@ let gerenteProposta = document.getElementById("gerenteProposta")
 //Nova proposta
 let numeroPrp = document.getElementById('validationNprop')
 let dtCadastro = document.getElementById('validationDtCad')
-//let bancoo = document.getElementById('examploBanco')
+let bancoo = document.getElementById('examploBanco')
 let status = document.getElementById('validationStatus')
 //let produtoo = document.getElementById('exampleProduto')
 //let tpOperacao = document.getElementById('tipoOperacao')
@@ -43,7 +43,6 @@ let UF = document.getElementById('exampleUF')
 
 
 window.onload = function () {
-  
 
 
   var myHeaders = new Headers();
@@ -75,7 +74,7 @@ window.onload = function () {
       for (let i = 0; i < data.length; i++) {
         bancoPortado.innerHTML += '<option value="' + data[i].banco + '">' + data[i].banco + '</option>;'
         banc.innerHTML += '<option value="' + data[i].banco + '">' + data[i].banco + '</option>;'
-
+        bancoo.innerHTML += '<option value="' + data[i].banco + '">' + data[i].banco + '</option>;'
       }
     })
 
@@ -103,193 +102,98 @@ window.onload = function () {
       }
     })).catch(error => console.log('error', error));
 
-    
-
-  fetch("http://localhost:3000/user/proposta/filtro", requestOptions) //pegar esse id acesso do login get session storage
-    .then(response => response.json())
-    .then(result => {
-
-      for (const value of result) {
-
-        let specific_tbody = document.getElementById('list');
-        let row = specific_tbody.insertRow(-1);
-        let proposta = row.insertCell(-1);
-        let nome = row.insertCell(-1);
-        let cpf = row.insertCell(-1);
-        let data_cadastro = row.insertCell(-1);
-        let parceiro = row.insertCell(-1);
-        let valor_entregue = row.insertCell(-1);
-        let valor_troco = row.insertCell(-1);
-        let convenio = row.insertCell(-1);
-        let banco = row.insertCell(-1);
-        let produto = row.insertCell(-1);
-        let tipo = row.insertCell(-1);
-        let status = row.insertCell(-1);
-        let substatus = row.insertCell(-1);
-        let data_atualizacao = row.insertCell(-1);
-        let qtd_consulta_robo = row.insertCell(-1);
-        let log_alteracao = row.insertCell(-1);
-        let previsao_saldo = row.insertCell(-1);
-        let api_sim = row.insertCell(-1);
-        let gravacao = row.insertCell(-1);
-        let telefoneconstanotfc = row.insertCell(-1);
-        let anexos = row.insertCell(-1);
-        let alteraVisualiza = row.insertCell(-1);
-
-
-        let propostaText = document.createTextNode(`${value.proposta}`);
-        proposta.appendChild(propostaText);
-        let nomeText = document.createTextNode(`${value.nome}`);
-        nome.appendChild(nomeText);
-        let cpfText = document.createTextNode(`${value.cpf}`);
-        cpf.appendChild(cpfText);
-        let data_cadastroText = document.createTextNode(`${value.data_envio}`);
-        data_cadastro.appendChild(data_cadastroText);
-        let parceiroText = document.createTextNode(`${value.parceiro}`);
-        parceiro.appendChild(parceiroText);
-        let valor_entregueText = document.createTextNode(`${value.entregue}`);
-        valor_entregue.appendChild(valor_entregueText);
-        let valor_trocoText = document.createTextNode(`${value.valor_troco}`);
-        valor_troco.appendChild(valor_trocoText);
-        let convenioText = document.createTextNode(`${value.convenio}`);
-        convenio.appendChild(convenioText);
-        let bancoText = document.createTextNode(`${value.banco}`);
-        banco.appendChild(bancoText);
-        let produtoText = document.createTextNode(`${value.produto}`);
-        produto.appendChild(produtoText);
-        let tipoText = document.createTextNode(`${value.tipo}`);
-        tipo.appendChild(tipoText);
-        let statusText = document.createTextNode(`${value.status}`);
-        status.appendChild(statusText);
-        let substatusText = document.createTextNode(`${value.sub_status}`);
-        substatus.appendChild(substatusText);
-        let data_atualizacaoText = document.createTextNode(`${value.data_atualizacao}`);
-        data_atualizacao.appendChild(data_atualizacaoText);
-        let qtd_consulta_roboText = document.createTextNode(`${value.qtd_robo}`);
-        qtd_consulta_robo.appendChild(qtd_consulta_roboText);
-        let log_alteracaoText = document.createTextNode(`${value.data_log1}`);
-        log_alteracao.appendChild(log_alteracaoText);
-        let previsao_saldoText = document.createTextNode(`${value.previsao_retorno}`);
-        previsao_saldo.appendChild(previsao_saldoText);
-        let api_simText = document.createTextNode(`${value.id_sim}`);
-        api_sim.appendChild(api_simText);
-        let gravacaoText = document.createTextNode(`${value.gravacao}`);
-        gravacao.appendChild(gravacaoText);
-        let telefoneconstanotfcText = document.createTextNode(`${value.tfc}`);
-        telefoneconstanotfc.appendChild(telefoneconstanotfcText);
-
-
-
-        anexos.innerHTML = `<td id="" class="text-right" style="text-align: center;">
-                               <div class="actions ml-3" style="text-align: center;">
-                                <a href="#" class="action-item mr-2 " data-toggle="modal" data-target=".modalteladecadastro" title="Alterar">
-                                  <i class="fas fa-download"></i>
-                                </a>
-                               </div>
-                             </td>`;
-
-        alteraVisualiza.innerHTML = ` <div class="actions ml-3" style="text-align: center;">
-                                <a href="#" class="action-item mr-2 " data-toggle="modal" data-target=".modal-filtroproposta" title="Alterar">
-                                    <i class="fas fa-external-link-alt"></i>
-                                </a>
-                                <a href="#" class="action-item mr-2" data-toggle="modal" data-target=".modal-filtroproposta" title="Visualizar">
-                                    <i class="fas fa-eye"></i>
-                                </a>
-                            </div>`;
-
-      }
-
-    })
-    .catch(error => console.log('error', error));
-
 }
 
 filtros.addEventListener('click', () => {
   // VARS
-  let usuario = document.getElementById("validationUsuario");
-  let tipoUsuario = document.getElementById("selectTipoUsuario");
-  let proposta = document.getElementById("proposta");
-  let statusProposta = document.getElementById("statusProposta");
-  let tipo = document.getElementById("tipo");
-  let cpfFiltro = document.getElementById("cpfFiltro");
-  let empresaPropostas = document.getElementById("empresaPropostas");
-  let mes = document.getElementById('exampleFormControlSelectMes');
-  let previsaoSaldo = document.getElementById("previsaoSaldo");
-  let novaProposta = document.getElementById("novaProposta")
-  let bancoPortabilidade = document.getElementById("bancoPortabilidade");
-  let ordenar = document.getElementById("ordenar");
-  let dataCadastro = document.getElementById('dataCadastro');
-  let dataAtualizacao = document.getElementById('dataAtualizacao');
-  let correntista = document.getElementById("correntista");
-  let sub_status = document.getElementById("sub-status");
-  let classificacao = document.getElementById("classificacao");
-  let situacaoStatus = document.getElementById('situacaoStatus');
-  let convenioMaster = document.getElementById("convenioMaster");
-  let faseStatus = document.getElementById("faseStatus");
-  let banco = document.getElementById("banco");
-  let produto = document.getElementById("exampleFormProduto");
-  let class2 = document.getElementById("class2");
-  let user_master = document.getElementById("user_master");
-  let supervisorProposta = document.getElementById("supervisorProposta");
-  let produtoMaster = document.getElementById('produtoMaster');
-  let gerenteProposta = document.getElementById("gerenteProposta");
-  let tipoUsuarioMaster = document.getElementById("tipoUsuarioMaster");
-  let dataDeCorte = document.getElementById("dataDeCorte");
-  let empresaSMS = document.getElementById("empresaSMS");
-  let convenio = document.getElementById("convenio");
-  let vinculo = document.getElementById("vinculo")
-  let horarioAgendamento = document.getElementById("horarioAgendamento");
-  let validadeContrato = document.getElementById("validadeContrato");
-  let etapaSMS = document.getElementById("etapaSMS");
-  let bancoMaster = document.getElementById("bancoMaster");
+  let usuario = document.getElementById("validationUsuario").value;
+  let tipoUsuario = document.getElementById("selectTipoUsuario").value;
+  let proposta = document.getElementById("proposta").value;
+  let statusProposta = document.getElementById("statusProposta").value;
+  let tipo = document.getElementById("tipo").value;
+  let cpfFiltro = document.getElementById("cpfFiltro").value;
+  let empresaPropostas = document.getElementById("empresaPropostas").value;
+  let mes = document.getElementById('exampleFormControlSelectMes').value;
+  let previsaoSaldo = document.getElementById("previsaoSaldo").value;
+  let novaProposta = document.getElementById("novaProposta").value
+  let bancoPortabilidade = document.getElementById("bancoPortabilidade").value;
+  let ordenar = document.getElementById("ordenar").value;
+  let dataCadastro = document.getElementById('dataCadastro').value;
+  let dataAtualizacao = document.getElementById('dataAtualizacao').value;
+  let correntista = document.getElementById("correntista").value;
+  let sub_status = document.getElementById("sub-status").value;
+  let classificacao = document.getElementById("classificacao").value;
+  let situacaoStatus = document.getElementById('situacaoStatus').value;
+  let convenioMaster = document.getElementById("convenioMaster").value;
+  let faseStatus = document.getElementById("faseStatus").value;
+  let banco = document.getElementById("banco").value;
+  let produto = document.getElementById("exampleFormProduto").value;
+  let class2 = document.getElementById("class2").value;
+  let user_master = document.getElementById("user_master").value;
+  let supervisorProposta = document.getElementById("supervisorProposta").value;
+  let produtoMaster = document.getElementById('produtoMaster').value;
+  let gerenteProposta = document.getElementById("gerenteProposta").value;
+  let tipoUsuarioMaster = document.getElementById("tipoUsuarioMaster").value;
+  let dataDeCorte = document.getElementById("dataDeCorte").value;
+  let empresaSMS = document.getElementById("empresaSMS").value;
+  let convenio = document.getElementById("convenio").value;
+  let vinculo = document.getElementById("vinculo").value
+  let horarioAgendamento = document.getElementById("horarioAgendamento").value;
+  let validadeContrato = document.getElementById("validadeContrato").value;
+  let etapaSMS = document.getElementById("etapaSMS").value;
+  let bancoMaster = document.getElementById("bancoMaster").value;
 
 
   var myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/json")
 
-  let cnpj_matriz = 
-  var raw = JSON.stringify({
-    cnpj_matriz:,
-    tipo_usuario:"PARCEIRO",
-    perfil:"MATRIZ",  
-    nome:"GERENTEMEI FERNANDO BRUNO",
-    parceiro:"",
-    tipo_parceiro:"",
-    proposta:"",
-    status:"CANCELADO",
-    tipo:"",
-    cpf:"",
-    empresa:"",
-    mês:"",
-    previsao_retorno:"",
-    novo_proposta:"",
-    banco:"",
-    data_envio:"",
-    data_atualizacao:"",
-    correntista:"",
-    sub_estatus:"",
-    situacao:"",
-    master:"",
-    tipo_fase:"",
-    banco_origi:"",
-    propduto:"",
-    classificacao:"",
-    usuario_master:"",
-    supervisor:"",
-    sms:"",
-    gerente:"",
-    tipo_parceiro2:"",
-    data_corte:"",
-    empresa_sms:"",
-    convenio:"20991 - INSS",
-    data_vinculo:"",
-    horario:"",
-    validade_contrato:"",
-    etapa_sms:"",
-    tipo_banco:""
-  }) 
+  let tipo_usuario = sessionStorage.getItem('tipo_parceiro2', 'tipo_parceiro2');
+  let cnpj_matr = sessionStorage.getItem('cnpj_matriz', 'cnpj_matriz');
+  let perfil = sessionStorage.getItem('perfil', 'perfil');
+  let nome = sessionStorage.getItem('nome', 'nome');
 
-  
+  var raw = JSON.stringify({
+    cnpj_matriz: cnpj_matr,
+    tipo_usuario: tipo_usuario,
+    perfil: perfil,
+    nome: nome,
+    parceiro: "",
+    tipo_parceiro: "",
+    proposta: "",
+    status: "CANCELADO",
+    tipo: "",
+    cpf: "",
+    empresa: "",
+    mês: "",
+    previsao_retorno: "",
+    novo_proposta: "",
+    banco: "",
+    data_envio: "",
+    data_atualizacao: "",
+    correntista: "",
+    sub_estatus: "",
+    situacao: "",
+    master: "",
+    tipo_fase: "",
+    banco_origi: "",
+    propduto: "",
+    classificacao: "",
+    usuario_master: "",
+    supervisor: "",
+    sms: "",
+    gerente: "",
+    tipo_parceiro2: "",
+    data_corte: "",
+    empresa_sms: "",
+    convenio: "20991 - INSS",
+    data_vinculo: "",
+    horario: "",
+    validade_contrato: "",
+    etapa_sms: "",
+    tipo_banco: ""
+  })
+
+
   var requestOptions = {
     method: 'POST',
     headers: myHeaders,
@@ -297,10 +201,99 @@ filtros.addEventListener('click', () => {
     redirect: 'follow'
   }
 
-  fetch("http://localhost:3000/user/proposta/filtro", requestOptions).
+  fetch("http://172.16.0.197:3000/user/proposta/filtro", requestOptions).
   then(response => response.json()).
-  then(function(data) {
-    console.log(data);
-  }).catch(error => console.log('error' , error))
+  then(function (data) {
+
+    for (const value of data) {
+
+      let specific_tbody = document.getElementById('list');
+      let row = specific_tbody.insertRow(-1);
+      let proposta = row.insertCell(-1);
+      let nome = row.insertCell(-1);
+      let cpf = row.insertCell(-1);
+      let data_cadastro = row.insertCell(-1);
+      let parceiro = row.insertCell(-1);
+      let valor_entregue = row.insertCell(-1);
+      let valor_troco = row.insertCell(-1);
+      let convenio = row.insertCell(-1);
+      let banco = row.insertCell(-1);
+      let produto = row.insertCell(-1);
+      let tipo = row.insertCell(-1);
+      let status = row.insertCell(-1);
+      let substatus = row.insertCell(-1);
+      let data_atualizacao = row.insertCell(-1);
+      let qtd_consulta_robo = row.insertCell(-1);
+      let log_alteracao = row.insertCell(-1);
+      let previsao_saldo = row.insertCell(-1);
+      let api_sim = row.insertCell(-1);
+      let gravacao = row.insertCell(-1);
+      let telefoneconstanotfc = row.insertCell(-1);
+      let anexos = row.insertCell(-1);
+      let alteraVisualiza = row.insertCell(-1);
+
+
+      let propostaText = document.createTextNode(`${value.proposta}`);
+      proposta.appendChild(propostaText);
+      let nomeText = document.createTextNode(`${value.nome}`);
+      nome.appendChild(nomeText);
+      let cpfText = document.createTextNode(`${value.cpf}`);
+      cpf.appendChild(cpfText);
+      let data_cadastroText = document.createTextNode(`${value.data_envio}`);
+      data_cadastro.appendChild(data_cadastroText);
+      let parceiroText = document.createTextNode(`${value.parceiro}`);
+      parceiro.appendChild(parceiroText);
+      let valor_entregueText = document.createTextNode(`${value.entregue}`);
+      valor_entregue.appendChild(valor_entregueText);
+      let valor_trocoText = document.createTextNode(`${value.valor_troco}`);
+      valor_troco.appendChild(valor_trocoText);
+      let convenioText = document.createTextNode(`${value.convenio}`);
+      convenio.appendChild(convenioText);
+      let bancoText = document.createTextNode(`${value.banco}`);
+      banco.appendChild(bancoText);
+      let produtoText = document.createTextNode(`${value.produto}`);
+      produto.appendChild(produtoText);
+      let tipoText = document.createTextNode(`${value.tipo}`);
+      tipo.appendChild(tipoText);
+      let statusText = document.createTextNode(`${value.status}`);
+      status.appendChild(statusText);
+      let substatusText = document.createTextNode(`${value.sub_status}`);
+      substatus.appendChild(substatusText);
+      let data_atualizacaoText = document.createTextNode(`${value.data_atualizacao}`);
+      data_atualizacao.appendChild(data_atualizacaoText);
+      let qtd_consulta_roboText = document.createTextNode(`${value.qtd_robo}`);
+      qtd_consulta_robo.appendChild(qtd_consulta_roboText);
+      let log_alteracaoText = document.createTextNode(`${value.data_log1}`);
+      log_alteracao.appendChild(log_alteracaoText);
+      let previsao_saldoText = document.createTextNode(`${value.previsao_retorno}`);
+      previsao_saldo.appendChild(previsao_saldoText);
+      let api_simText = document.createTextNode(`${value.id_sim}`);
+      api_sim.appendChild(api_simText);
+      let gravacaoText = document.createTextNode(`${value.gravacao}`);
+      gravacao.appendChild(gravacaoText);
+      let telefoneconstanotfcText = document.createTextNode(`${value.tfc}`);
+      telefoneconstanotfc.appendChild(telefoneconstanotfcText);
+
+
+
+      anexos.innerHTML = `<td id="" class="text-right" style="text-align: center;">
+                             <div class="actions ml-3" style="text-align: center;">
+                              <a href="#" class="action-item mr-2 " data-toggle="modal" data-target=".modalteladecadastro" title="Alterar">
+                                <i class="fas fa-download"></i>
+                              </a>
+                             </div>
+                           </td>`;
+
+      alteraVisualiza.innerHTML = ` <div class="actions ml-3" style="text-align: center;">
+                              <a href="#" class="action-item mr-2 " data-toggle="modal" data-target=".modal-filtroproposta" title="Alterar">
+                                  <i class="fas fa-external-link-alt"></i>
+                              </a>
+                              <a href="#" class="action-item mr-2" data-toggle="modal" data-target=".modal-filtroproposta" title="Visualizar">
+                                  <i class="fas fa-eye"></i>
+                              </a>
+                          </div>`;
+
+    }
+  }).catch(error => console.log('error', error))
 
 })

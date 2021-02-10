@@ -12,6 +12,8 @@ let buttonIncluir = document.getElementById("buttonIncluir");
 let supervisorMulti = document.getElementById("exampleFormControlSelectSerMultBanc");
 let gerenteMulti = document.getElementById('exampleFormControlSelectGerMultBanc');
 let supervisorComissao = document.getElementById("exampleSupervisor");
+let arrayAcessoAlterar;
+let contAcessoAlterar = -1;
 let cpfcnpjParceiro = [];
 
 var cont = -1;
@@ -223,7 +225,9 @@ function editar(cpfCnpj) {
     fetch("http://172.16.0.197:3000/user/cadastro/buscar", request).
     then(response => response.json().then(function (data) {
         // console.log(data[0]);
+        arrayAcessoAlterar = data
         for (const value of data) {
+            
             let tbody = document.getElementById("lista");
             let row = tbody.insertRow(-1);
             let nome = row.insertCell(-1);
@@ -248,17 +252,16 @@ function editar(cpfCnpj) {
             let dtTexto = document.createTextNode(`${value.data_atualizacao}`);
             data_altera.appendChild(dtTexto);
 
-            cpfIncluirAcesso++;
+            contAcessoAlterar++
 
             altera.innerHTML = `
           <div class="actions ml-3 text-center">
-              <a href="#" class="action-item mr-0" data-toggle="tooltip" title="Alterar">
+              <a href="#" class="action-item mr-0" data-toggle="tooltip" onclick="funcCadastroAcessoAlterar(arrayAcessoAlterar[${contAcessoAlterar}])"   title="Alterar">
                   <i class="fas fa-external-link-alt"></i>
               </a>
           </div>`
         }
     }))
-
 
     // POPULANDO OS CAMPOS DO MODAL DE ACORDO COM ESSA REQUEST
     var raw = JSON.stringify({
@@ -418,6 +421,39 @@ function editar(cpfCnpj) {
         .catch(error => console.log('error', error))
 }
 
+function funcCadastroAcessoAlterar(data) {
+    // console.log(v);
+    $("#id-cadusu-usuario").val(data.usuario);
+    $("#id-cadusu-login").val(data.nome);
+    $("#id-cadusu-senha").val(data.senha);
+    $("id-cadusu-novamentesenha").val(data.senha);
+    $("#id-cadusu-tipousu").val(data.tipo);
+    $("#id-cadusu-usumaster").val(data.usuario_master);
+    $("#id-cadusu-classi").val(data.classificacao);
+    $("#id-cadusu-empresa").val(data.empresa);
+    $("#id-cadusu-status").val(data.status);
+    $("#id-cadusu-telcelular").val(data.telefone);
+    $("#id-cadusu-cpfcnpj").val(data.cpf_usuario)
+    $("#id-cadusu-cnpjMatriz").val(data.cnpj_matriz);
+    $("#id-cadusu-email").val(data.email);
+    $("#id-cadusu-motcancela").val(data.motivo_cancelamento);
+    $("#id-cadusu-perfilacesso").val(data.perfil);
+    $("#id-cadusu-acessoole").val(data.ole);
+    $("#id-cadusu-acessopan").val(data.pan);
+    $("#id-cadusu-acessocetelem").val(data.cetelem);
+    $("#id-cadusu-acessoitau").val(data.itau);
+    $("#id-cadusu-acef5bmg").val(data.f5_bmg);
+    $("#id-cadusu-acef5itau").val(data.f5_itau);
+    $("#id-cadusu-acedaycoval").val(data.daycoval);
+    $("#id-cadusu-acesim").val(data.sim);
+    $("#id-cadusu-acesafra").val(data.safra);
+    $("#id-cadusu-acebradesco").val(data.bradesco);
+    $("#id-cadusu-aceparana").val(data.parana);
+    $("#id-cadusu-crefisa").val(data.crefisa);
+    $("#id-cadusu-aceconsorciobb").val(data.consorcio_bb);
+    $("#ace-cadusu-conscaixa").val(data.consorcio_caixa);
+    $("#id-cadusu-aceconsitau").val(data.consorcio_itau);
+}
 
 
 
@@ -425,6 +461,8 @@ function editar(cpfCnpj) {
 //RESET APÓS TROCAR DE MODAL ENTRE O ALTERAR E O INCLUIR 
 buttonIncluir.addEventListener('click', () => {
     // $('#cadastro-tab').modal('show');
+    $( "td" ).remove();
+
     (function ($) {
         $(function () {
 

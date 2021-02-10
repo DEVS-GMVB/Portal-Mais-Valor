@@ -255,7 +255,7 @@ prosseguir.addEventListener('click', () => {
         redirect: 'follow'
     };
 
-    fetch("http://localhost:3000/user/cadastro/inclusao", requestOptions)
+    fetch("http://172.16.0.197:3000/user/cadastro/inclusao", requestOptions)
         .then(response => response.json())
         //   console.log(response)
         .then(function (data) {
@@ -290,18 +290,18 @@ cpfCnpjSigla.addEventListener('blur', () => {
         .then(response => response.json())
         .then(function (data) {
             if (data[0].parceiro === "NAO INFORMADO NA INSERA‡A?O") {
-                $("#idQuartenario").val("");
+                $("#validationParceiroPromotor").val("");
             } else {
-                $("#idQuartenario").val(data[0].parceiro);
+                $("#validationParceiroPromotor").val(data[0].parceiro);
             }
         })
         .catch(error => console.log('error', error));
 })
 
 cpfCnpjSigla.addEventListener('keyup', () => {
-    let promotor = document.getElementById("idQuartenario");
+    let promotor = document.getElementById("validationParceiroPromotor");
     if (promotor.value.length > 0) {
-        $("#idQuartenario").val("")
+        $("#validationParceiroPromotor").val("")
     }
     // if($("#validationParceiroPromotor").val())
 })

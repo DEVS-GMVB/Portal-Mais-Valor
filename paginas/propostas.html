@@ -74,6 +74,7 @@
                                     <label for="exampleFormControlSelect1">Tipo de Usuário</label>
                                     <select class="form-control form-control-sm" id="selectTipoUsuario">
                                         <option> </option>
+                                        <option value="PARCEIRO">PARCEIRO</option>
 
 
                                     </select>
@@ -97,7 +98,7 @@
                                         <option value="ATIVO">ATIVO</option>
                                         <option value="INATIVO">INATIVO</option>
                                         <option value="BLOQUEADO">BLOQUEADO</option>
-
+                                        <option value="CANCELADO">CANCELADO</option>
 
                                     </select>
                                 </div>
@@ -1307,8 +1308,8 @@
 
                                     <div class="col-md-8 mb-3">
                                         <label for="validationCustom01">E-mail</label>
-                                        <input type="email" class="form-control form-control-sm" id="validationCustomE" onkeypress="mascaraMutuario(this,validateEmail)"
-                                            required>
+                                        <input type="email" class="form-control form-control-sm" id="validationCustomE"
+                                            onkeypress="mascaraMutuario(this,validateEmail)" required>
 
                                     </div>
 
@@ -3312,7 +3313,7 @@
 
                             <div class="col-md-3 mb-3">
                                 <label for="validationCustom01">Parcelas Pagas (PORT/REFIN)</label>
-                                <input type="text" class="form-control form-control-sm" id="exampleFormPP" >
+                                <input type="text" class="form-control form-control-sm" id="exampleFormPP">
 
                             </div>
 
@@ -3419,7 +3420,19 @@
                             <div class="col-md-4 mb-1">
                                 <div class="form-group">
                                     <label for="exampleFormControlSelect1">Melhor Horário - Confirmação Cliente</label>
-                                    <input type="text" class="form-control form-control-sm" id="testandoMascara" maxlength="12">
+                                    <select class="form-control form-control-sm">
+                                        <option value=""> </option>
+                                        <option value="08:00 as 08:59">08:00 as 08:59</option>
+                                        <option value="09:00 as 09:59">09:00 as 09:59</option>
+                                        <option value="10:00 as 10:59">10:00 as 10:59</option>
+                                        <option value="11:00 as 11:59">11:00 as 11:59</option>
+                                        <option value="12:00 as 12:59">12:00 as 12:59</option>
+                                        <option value="13:00 as 13:59">13:00 as 13:59</option>
+                                        <option value="14:00 as 14:59">14:00 as 14:59</option>
+                                        <option value="16:00 as 16:59">16:00 as 16:59</option>
+                                        <option value="17:00 as 17:59">17:00 as 17:59</option>
+                                        <option value="18:00 as 18:59">18:00 as 18:59</option>
+                                    </select>
 
                                 </div>
 
@@ -4360,7 +4373,7 @@
                                                     <th scope="col" class="sort" data-sort="anexos"
                                                         style="text-align: center;">Anexos</th>
                                                     <th scope="col" class="sort" data-sort="visualizar"
-                                                        style="text-align: center;">Visualizar/Alterar</th>
+                                                        style="text-align: center;">Alterar/Visualizar</th>
 
 
                                                 </tr>
@@ -4402,7 +4415,7 @@
         <script src="../assets/js/purpose.js"></script>
         <!-- Demo JS - remove it when starting your project -->
         <script src="../assets/js/demo.js"></script>
-        
+
 
         <!-- Mascaras -->
         <script src="../assets/js/mascaras.js"></script>

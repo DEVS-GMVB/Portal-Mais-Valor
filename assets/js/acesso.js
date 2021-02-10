@@ -111,6 +111,7 @@ incluirAcesso.addEventListener('click', () => {
       console.log("Resposta da inclusão",result);
 
       if (!(result.erro === 'usuario já tem acesso cadastrado')) {
+
         lista.pop();
         lista.push(result);
         tempArray.push(result);
@@ -138,7 +139,8 @@ incluirAcesso.addEventListener('click', () => {
           resp.appendChild(respText);
 
           let dateText = document.createTextNode(`${element.data_atualizacao}`)
-          date.appendChild(dateText)
+          date.appendChild(dateText);
+         
 
           cpfIncluirAcesso++;
           alert("Usuário cadastrado com sucesso");
@@ -174,10 +176,12 @@ incluirAcesso.addEventListener('click', () => {
 })
 
 function editarCpfAcesso(e) {
+  console.log(e);
 
   var myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/json");
 
+  // console.log(e)
   var raw = JSON.stringify({
     id_acesso: e
   })
@@ -190,8 +194,10 @@ function editarCpfAcesso(e) {
   }
 
   fetch("http://172.16.0.197:3000/user/cadastro/busca/acesso", requestOptions).
-  then(response => response.json().then(function (data){    
+  then(response => response.json().then(function (data){  
+
     // console.log("Resposta do alterar", data);
+
     $("#id-cadusu-usuario").val(data.usuario);
     $("#id-cadusu-login").val(data.nome);
     $("#id-cadusu-senha").val(data.senha);
