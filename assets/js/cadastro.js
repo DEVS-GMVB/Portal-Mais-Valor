@@ -1,4 +1,6 @@
 // VARS
+
+
 let fi = document.getElementById('exampleFormControlFilial');
 let filialCadastro = document.getElementById('exampleFormControlFilialCadastro');
 let supervisor = document.getElementById('exampleFormControlSupervisor');
@@ -11,8 +13,6 @@ let gerente = document.getElementById('exampleFormControlSelectGerente');
 let buttonIncluir = document.getElementById("buttonIncluir");
 let supervisorMulti = document.getElementById("exampleFormControlSelectSerMultBanc");
 let gerenteMulti = document.getElementById('exampleFormControlSelectGerMultBanc');
-let cpfcnpjParceiro = [];
-
 var cont = -1;
 var array;
 var teste;
@@ -166,13 +166,12 @@ window.onload = function () {
     };
 
 
-<<<<<<< Updated upstream
-=======
+
 var requestOptions = {
     method: 'GET',
     redirect: 'follow'
   };
->>>>>>> Stashed changes
+
 
     fetch("http://172.16.0.197:3000/user/gerente", requestOptions)
         .then(response => response.json().then(function (data) {
@@ -208,8 +207,20 @@ var requestOptions = {
         }).catch(error => console.log('error', error))
 
 
+    fetch("http://172.16.0.197:3000/user/supervisor", requestOptions)
+            .then(response => response.json())
+            .then(function (data) {
+                for (let i = 0; i < data.length; i++) {
+                    supervisor.innerHTML += '<option value="' + data[i].parceiro + '">' + data[i].parceiro + '</option>;'
+                    supervisorBB.innerHTML += '<option value="' + data[i].parceiro + '">' + data[i].parceiro + '</option>;'
+                    supervisorMulti.innerHTML += '<option value="' + data[i].parceiro + '">' + data[i].parceiro + '</option>;'
+                }
+            }).catch(error => console.log('error', error));
 
-})
+
+
+
+}
 const colocar = document.getElementById('incluir');
 
 
@@ -332,9 +343,9 @@ colocar.addEventListener('click', () => {
 })
 
 
+function editar(cpf) {
+    // console.log(cpf);
 
-function editar(cpfCnpj) {
-    //Cabeçalho
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
 
@@ -405,11 +416,9 @@ function editar(cpfCnpj) {
     fetch("http://172.16.0.197:3000/user/cadastro/modal", requestOptions)
         .then(response => response.json())
         .then(function (data) {
-
-            $('.needs-validation').each(function () {
-                this.reset();
-            });
-            
+            // data = ""
+            console.log(data);
+            // console.log(document.getElementById('modalAlterar'))
             $("#validationParceiroPromotor").val("");
             $("#validationCpfCnpf").val("");
             if (document.getElementById('modalAlterar')) {
@@ -560,7 +569,7 @@ buttonIncluir.addEventListener('click', () => {
     });
 })
 
-<<<<<<< Updated upstream
+
 // Incluir Cadastro comissao chave j siglae
 // let incluirCadastro = document.getElementById("incluirCadastro");
 // incluirCadastro.addEventListener('click', () => {
@@ -626,8 +635,8 @@ buttonIncluir.addEventListener('click', () => {
 
 // })
 
-=======
-}
+
+
 // let elements = document.getElementsByTagName("input");
     // let selects = document.getElementsByTagName("select");
     // let textarea = document.getElementsByTagName("textarea");
@@ -654,4 +663,4 @@ buttonIncluir.addEventListener('click', () => {
     // for(const texts of textarea) {
     //     texts.value = "";
     // }
->>>>>>> Stashed changes
+
