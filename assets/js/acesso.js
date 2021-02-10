@@ -4,7 +4,6 @@ var lista = [];
 let cpfIncluirAcesso = -1;
 let tempArray = [];
 
-
 var requestOptions = {
   method: 'GET',
   redirect: 'follow'
@@ -108,8 +107,7 @@ incluirAcesso.addEventListener('click', () => {
   fetch("http://172.16.0.197:3000/user/cadastro/acesso", requestOptions)
     .then(response => response.json())
     .then(result => {
-      console.log("Resposta da inclusão",result);
-
+    
       if (!(result.erro === 'usuario já tem acesso cadastrado')) {
         lista.pop();
         lista.push(result);
@@ -141,47 +139,57 @@ incluirAcesso.addEventListener('click', () => {
           date.appendChild(dateText)
 
           cpfIncluirAcesso++;
-          alert("Usuário cadastrado com sucesso");
+
+          window.alert("Usuario cadastrado com sucesso")
+
           alteraVisualizar.innerHTML = `
           <div class="actions ml-3 text-center">
               <a href="#" class="action-item mr-0" data-toggle="tooltip" title="Alterar">
-                  <i class="fas fa-external-link-alt"  onclick="editarCpfAcesso(tempArray[${cpfIncluirAcesso}].id_acesso)"></i>
+                  <i class="fas fa-external-link-alt"  onclick="editarCpfAcesso(tempArray[${cpfIncluirAcesso}].cpf_usuario)"></i>
               </a>
           </div>`
-
+    
 
         });
       }
-      else if (result.erro === 'usuario já tem acesso cadastrado') {
-        if ($("#id-cadusu-cpfcnpj").val() === "") {
-          alert("Preencha os dados");
+      else if(result.erro === 'usuario já tem acesso cadastrado'){
+        if($("#id-cadusu-cpfcnpj").val() === "") { 
+          alert("Preencha o cpf");
         } else {
           alert("Usuário já existente")
         }
-        while (lista.length !== 0) {
-          lista.pop();
+        while(lista.length !== 0) {
+          lista.pop()
         }
       }
 
-      // $("#form-acesso-incluir").each(function () {
-      //   this.reset();
-      // })
+      if (element.cpf_usuario == empty) {
+        window.alert("Usuario ja tem cadastro")
+      }
+        //window.alert("Usuario cadastrado com sucesso")
+      
 
+      $("#form-acesso-incluir").each(function () {
+        this.reset();
+      })
+      // console.log(array)
+      // console.log(result)
 
     })
     .catch(error => console.log('error', error));
 
 })
 
-function editarCpfAcesso(e) {
 
-  var myHeaders = new Headers();
-  myHeaders.append("Content-Type", "application/json");
+let cpfcnpjIncluir = document.getElementById("validationCpfCadastro");
+cpfcnpjIncluir.addEventListener('blur', () => {
+  $("#id-cadusu-cnpjMatriz").val(cpfcnpjIncluir.value)
+  document.getElementById("id-cadusu-cnpjMatriz").readOnly = true;
 
-  var raw = JSON.stringify({
-    id_acesso: e
-  })
+})
 
+<<<<<<< HEAD
+=======
   var requestOptions = {
     method: 'POST',
     headers: myHeaders,
@@ -225,12 +233,8 @@ function editarCpfAcesso(e) {
 
 
   })).catch(error => console.log('error', error))
+>>>>>>> master
 
+function editarCpfAcesso(e) {
+  console.log(e);
 }
-
-
-
-let cpfcnpjIncluir = document.getElementById("validationCpfCadastro");
-cpfcnpjIncluir.addEventListener('blur', () => {
-  $("#id-cadusu-cnpjMatriz").val(cpfcnpjIncluir.value);
-})

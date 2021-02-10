@@ -17,7 +17,7 @@ const Logar = () => {
     redirect: 'follow'
     };
 
-    fetch("http://172.16.0.197:3000/user/login", requestOptions) 
+    fetch("http://localhost:3000/user/login", requestOptions) 
     .then(function(response){
         response.json().then(function(data){
       
@@ -39,7 +39,8 @@ const Logar = () => {
             sessionStorage.setItem('perfil',perfil);
             sessionStorage.setItem('status',status);
 
-            window.location.href = "../../paginas/home.html";
+            // window.location.href = "../../paginas/home.html";
+            console.log(user)
         
         });
     }).catch(error => console.log('error', error));

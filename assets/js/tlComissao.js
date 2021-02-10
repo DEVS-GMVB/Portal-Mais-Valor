@@ -1,10 +1,13 @@
 let supervisorComissao = document.getElementById("exampleSupervisor");
 let gerenteComissao = document.getElementById("exampleGerente");
+<<<<<<< HEAD
+=======
 let parceiropromotor = document.getElementById("exampleParcPromo");
 let status = document.getElementById("exampleStatus");
 let dtGerente = document.getElementById("exampleDtGerente");
 let dtSupervisor = document.getElementById("exampledtSupervisor")
 let compPag = document.getElementById("exampleCompPag")
+>>>>>>> master
 
 
 window.onload = function () {
@@ -13,7 +16,10 @@ window.onload = function () {
         redirect: 'follow'
     };
 
+<<<<<<< HEAD
+=======
     //Supervisor
+>>>>>>> master
     fetch("http://172.16.0.197:3000/user/supervisor", requestOptions)
         .then(response => response.json())
         .then(function (data) {
@@ -24,7 +30,10 @@ window.onload = function () {
             }
         }).catch(error => console.log('error', error));
 
+<<<<<<< HEAD
+=======
         //Gerente
+>>>>>>> master
     fetch("http://172.16.0.197:3000/user/gerente", requestOptions)
         .then(response => response.json().then(function (data) {
             for (let i = 0; i < data.length; i++) {
@@ -33,6 +42,9 @@ window.onload = function () {
             }
         })).catch(error => console.log('error', error));
 
+<<<<<<< HEAD
+}
+=======
         //Parceiro Promotor
 //   fetch("http://172.16.0.197:3000/user/comissao/promotor", requestOptions)
 //   .then(response => response.json().then(function (data) {
@@ -75,3 +87,4 @@ window.onload = function () {
 
 }
 
+>>>>>>> master
