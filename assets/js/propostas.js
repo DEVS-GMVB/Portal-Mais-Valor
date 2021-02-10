@@ -1,98 +1,3 @@
-<<<<<<< HEAD
-let numeroProp = document.getElementById('validationNumeroProp');
-let dtCadastro = document.getElementById('validationDtCadastro');
-let mesReferencia = document.getElementById('validationMesReferencia');
-let nRefinPort = document.getElementById('validationNRefinPort');
-let tipoOperacao = document.getElementById('tipoOperacao');
-let valorEntregue = document.getElementById('validationCustomVE');
-let valorTroco = document.getElementById('validationCustomVT');
-let quantidadeParcela = document.getElementById('validationCustomQT');
-let previsaoSaldo = document.getElementById('validationCustomPS');
-let portabilidade = document.getElementById('validationCustomP');
-let retornoCIP = document.getElementById('exampleFormRC');
-let bancoPortador = document.getElementById('exampleFormBP');
-let dtCorte = document.getElementById('validationCustomDC');
-let salarioVencimento = document.getElementById('validationCustomSV');
-let margemNegativa = document.getElementById('validationCustomMN');
-let numeroChamado = document.getElementById('validationCustomNC');
-let chamadoResolvido = document.getElementById('exampleFormCR');
-let banco = document.getElementById('exampleFormB');
-let produto = document.getElementById('exampleFormP');
-let vendaSMS = document.getElementById('exampleFormVS');
-let auditoriaSMS = document.getElementById('exampleFormAS');
-let acessoCetelem = document.getElementById('validationCustomAC');
-let parcelaDescontoCetelem = document.getElementById('validationCustomPDC');
-let status = document.getElementById('exampleFormStaus');
-let subStatus = document.getElementById('exampleFormSS');
-let convenio = document.getElementById('validationCustomC');
-let regraConvenio = document.getElementById('validationCustomRC');
-let empresaSMS = document.getElementById('exampleFormES');
-let especie = document.getElementById('exampleFormE');
-let validadeContrato = document.getElementById('validationCustomVC');
-let siglaChamado = document.getElementById('validationCustomSC');
-let novaProposta = document.getElementById('validationCustomNP');
-let telefoneTFC = document.getElementById('exampleFormTT');
-let nomePrmoCont = document.getElementById('validationCustomNPC');
-let codigoAverbacao = document.getElementById('validationCustomCA');
-let senhaExercito = document.getElementById('validationCustomSE');
-let pilotoOla = document.getElementById('exampleFormPO');
-let seguro = document.getElementById('exampleFormS');
-let parcelaPaga = document.getElementById('exampleFormPP');
-let agendarHorario = document.getElementById('exampleFormAH');
-let exercitoTemporario = document.getElementById('exampleFormET');
-let codUniExer = document.getElementById('validationCustomCUE');
-let vendaS = document.getElementById('exampleFormVS');
-let auditoriaS = document.getElementById('exampleFormASMS');
-let MotNewSpace = document.getElementById('validationCustomMNS');
-let dtAtNewSpace = document.getElementById('validationCustoDANS');
-
-let nomeCliente = document.getElementById('validationNC');
-let cpfCliente = document.getElementById('validationCustomCpf');
-let ddd = document.getElementById('validationCustomDDD');
-let telefoneCliente = document.getElementById('validationCustomTC');
-let genero = document.getElementById('exampleFormG');
-let sexo = document.getElementById('exampleFormS');
-let telefoneConfirm = document.getElementById('validationCustomTelC');
-let nvCttInformado = document.getElementById('validationCustomNCI');
-let matricula = document.getElementById('validationCustomM');
-let dtNascimento = document.getElementById('validationCustomDN');
-let ufNaturalidade = document.getElementById('validationCustomUN');
-let naturalidade = document.getElementById('validationCustomN');
-let rg = document.getElementById('validationCustomRG');
-let dtEmissaoRg = document.getElementById('validationCustomDER');
-let orgaoExpedidor = document.getElementById('validationCustomOE');
-let nomePai = document.getElementById('validationCustomNomeP');
-let nomeMae = document.getElementById('validationCustomNM');
-let dtAdmissao = document.getElementById('validationCustomDA');
-let ufEndereco = document.getElementById('validationCustomUE');
-let cidadeEndereco = document.getElementById('validationCustomCE');
-let cep = document.getElementById('validationCustomC');
-let endereco = document.getElementById('validationCustomE')
-let bairro = document.getElementById('validationCustomB');
-let numeroEndereco = document.getElementById('validationCustomNE');
-let complemento = document.getElementById('validationCustomComp');
-let tipoContaCli = document.getElementById('exampleFormTCC');
-let bancoCliente = document.getElementById('validationCustomBC');
-let agenciaCliente = document.getElementById('validationCustomAgeC');
-let ContaCliente = document.getElementById('validationCustomCC');
-let DigitoConta = document.getElementById('validationCustomDigC');
-let correntista = document.getElementById('exampleFormC');
-let telSMSCliente = document.getElementById('validationCustomTSC');
-let estadoCivil = document.getElementById('validationCustomEC');
-let conjuge = document.getElementById('validationCustomConj');
-let telProcedente = document.getElementById('exampleFormTP');
-let sistemaTel = document.getElementById('exampleFormST');
-let telCompleto = document.getElementById('validationCustomTelCom');
-let digitado = document.getElementById('exampleFormD');
-let generoDC = document.getElementById('validationCustomGDC');
-let email = document.getElementById('validationCustomE');
-let solicitouAg = document.getElementById('validationCustomSA');
-let MDConfirmCliente = document.getElementById('validationCustomMDCC');
-let MHConfirmCliente = document.getElementById('exampleFormMHCC');
-let bancoPortado = document.getElementById("bancoPortador");
-let banc = document.getElementById("examploBanco");
-let prod = document.getElementById("exampleProduto")
-=======
 let filtros = document.getElementById("filtrosPes");
 let empresaProposta = document.getElementById("empresaPropostas");
 let tipoOperacao = document.getElementById('tipoOperacao');
@@ -136,7 +41,6 @@ let dtNascimento = document.getElementById('validationDtNasc')
 let email = document.getElementById('validationEmail')
 let UF = document.getElementById('exampleUF')
 
->>>>>>> master
 
 window.onload = function () {
   
@@ -150,8 +54,6 @@ window.onload = function () {
     redirect: 'follow'
   };
 
-<<<<<<< HEAD
-=======
   fetch("http://172.16.0.197:3000/user/proposta/empresas", requestOptions)
     .then(response => response.json().then(function (data) {
       for (let i = 0; i < data.length; i++) {
@@ -159,7 +61,6 @@ window.onload = function () {
       }
     })).catch(error => console.log('error', error));
 
->>>>>>> master
   fetch("http://172.16.0.197:3000/user/proposta/tipo", requestOptions)
     .then(response => response.json())
     .then(function (data) {
@@ -168,11 +69,7 @@ window.onload = function () {
       }
     })
 
-<<<<<<< HEAD
-    fetch("http://172.16.0.197:3000/user/proposta/bancos", requestOptions)
-=======
   fetch("http://172.16.0.197:3000/user/proposta/bancos", requestOptions)
->>>>>>> master
     .then(response => response.json())
     .then(function (data) {
       for (let i = 0; i < data.length; i++) {
@@ -182,24 +79,14 @@ window.onload = function () {
       }
     })
 
-<<<<<<< HEAD
-    fetch("http://172.16.0.197:3000/user/proposta/produto", requestOptions)
-=======
   fetch("http://172.16.0.197:3000/user/proposta/produto", requestOptions)
->>>>>>> master
     .then(response => response.json())
     .then(function (data) {
       for (let i = 0; i < data.length; i++) {
         prod.innerHTML += '<option value="' + data[i].produto + '">' + data[i].produto + '</option>;'
-<<<<<<< HEAD
-      }
-    })
-
-=======
         produtoComissao.innerHTML += '<option value="' + data[i].produto + '">' + data[i].produto + '</option>;'
       }
     })
->>>>>>> master
 
   fetch("http://172.16.0.197:3000/user/supervisor", requestOptions)
     .then(response => response.json())
@@ -360,9 +247,9 @@ filtros.addEventListener('click', () => {
   var myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/json")
 
-  let cnpj_matriz = 
+  // let cnpj_matriz = 
   var raw = JSON.stringify({
-    cnpj_matriz:,
+    cnpj_matriz:"",
     tipo_usuario:"PARCEIRO",
     perfil:"MATRIZ",  
     nome:"GERENTEMEI FERNANDO BRUNO",
