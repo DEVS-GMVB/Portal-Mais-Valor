@@ -1,10 +1,11 @@
 // VARS
-var quat = document.getElementById('idQuartenario')
-var qua = document.getElementById('id-quaternario')
-var sec = document.getElementById('idSecundario')
+// var quat = document.getElementById('idQuartenario')
+// var qua = document.getElementById('id-quaternario')
+// var sec = document.getElementById('idSecundario')
 var ger = document.getElementById('idTerceario')
-
-// Mascaras
+let comissaoo_tab = document.getElementById("comissao-tab");
+let chavej_tab = document.getElementById("chave-tab");
+let testeCont = 0;
 
 //Santander
 var campo = document.querySelector('#idParceiroPromotor');
@@ -163,142 +164,6 @@ campo17.addEventListener('keyup', function () {
   this.value = d17;
 });
 
-// window.onload = function () {
-
-// }
-
-
-const pross = document.getElementById('comissao');
-pross.addEventListener('click', () => {
-
-  var myHeaders = new Headers();
-
-  myHeaders.append("Content-Type", "application/json");
-  let bbComissao = document.getElementById('idPorcComissao').value;
-  //let bbSecuncario = document.getElementById('idSecundario').value;
-  //let bbPorcSecundario = document.getElementById('idPorcSecundario').value;
-  //let bbTerciario = document.getElementById('idTerceario').value;
-  //let bbPorcTerceario = document.getElementById('idPorcTerceario').value;
-  let bbQuaternario = document.getElementById('idQuartenario').value;
-  let bbPorcQaternario = document.getElementById('idPorcQuaternario').value;
-  let santParcPromo = document.getElementById('idParceiroPromotor').value;
-  let santSupervisor = document.getElementById('id-porc-supervisor').value;
-  let santGerente = document.getElementById('id-porc-gerente').value;
-  let santPorcQuaternario = document.getElementById('id-porc-quaternario').value;
-  let santMaxComissao = document.getElementById('id-max-comissao').value;
-  let santQuaternario = document.getElementById('id-quaternario').value;
-  let ceParcPromo = document.getElementById('id-ce-parceiro-promotor').value;
-  let ceSupervisor = document.getElementById('id-ce-supervisor').value;
-  let ceGerente = document.getElementById('id-ce-gerente').value;
-  let ceQuaternario = document.getElementById('id-ce-quaternario').value;
-  let MaxComissao = document.getElementById('id-max-comissao').value;
-  let gmgParcPromo = document.getElementById('id-gmg-parcpromo').value;
-  let gmgSupervisor = document.getElementById('id-gmg-supervisor').value;
-  let gmgGerente = document.getElementById('id-gmg-gerente').value;
-  let gmgQuaternario = document.getElementById('id-gmg-quaternario').value;
-  let gmgMaxComissao = document.getElementById('id-gmg-max-comissao').value;
-  let grjParcPromo = document.getElementById('id-grj-parcpromo').value;
-  let grjSupervisor = document.getElementById('id-grj-supervisor').value;
-  let grjGerente = document.getElementById('id-grj-gerente').value;
-  let grjQuaternario = document.getElementById('id-grj-quaternario').value;
-  let grjMaxComissao = document.getElementById('id-grj-max-comissao').value;
-  let tnParcPromo = document.getElementById('id-tm-parcpromo').value;
-  let tsParcPromo = document.getElementById('id-ts-parcpromo').value;
-
-  var raw = JSON.stringify({
-
-    comissao: bbComissao,
-   // secundario: bbSecuncario,
-    //pct_secundario: bbPorcSecundario,
-    //terceario: bbTerciario,
-   // pct_terceario: bbPorcTerceario,
-    quaternario: bbQuaternario,
-    pct_quaternario: bbPorcQaternario,
-    comissao_novo: santParcPromo,
-    comissao_novo_sup: santSupervisor,
-    comissao_novo_ger: santGerente,
-    comissao_novo_quat: santPorcQuaternario,
-    //% Máximo Comissão(SUP/GER/QUAT)
-
-    qua_sant2: santQuaternario,
-    comissao_inss: ceParcPromo,
-    comissao_inss_sup: ceSupervisor,
-    comissao_inss_ger: ceGerente,
-    comissao_inss_quat: ceQuaternario,
-    //% Máximo Comissão(SUP/GER/QUAT)
-
-    governo_minas: gmgParcPromo,
-    governo_minas_sup: gmgSupervisor,
-    governo_minas_ger: gmgGerente,
-    governo_minas_quat: gmgQuaternario,
-    //% Máximo Comissão(SUP/GER/QUAT)
-
-    prefeitura_rio: grjParcPromo,
-    prefeitura_rio_sup: grjSupervisor,
-    prefeitura_rio_ger: grjGerente,
-    prefeitura_rio_quat: grjQuaternario,
-    //% Máximo Comissão(SUP/GER/QUAT)
-
-    //% Parceiro/Promotor MEI - tabela multi bancos 
-
-    //% Parceiro/Promotor MEI - tabela sim
-
-  })
-
-  var requestOptions = {
-    method: 'POST',
-    headers: myHeaders,
-    body: raw,
-    redirect: 'follow'
-  };
-
-<<<<<<< HEAD
-  fetch("", requestOptions)
-    .then(response => response.json())
-    //.then(response => response.text())
-    .then(result => console.log(result))
-    .catch(error => console.log('error', error));
-
-})
-
-// Secundario/Supervisor
-<<<<<<< HEAD
-
-// var requestOptions = {
-//   method: 'GET',
-//   redirect: 'follow'
-// };
-
-// fetch("http://172.16.0.197:3000/user/supervisor", requestOptions)
-//   .then(response => response.json().then(function (data) {
-//     for (let i = 0; i < data.length; i++) {
-//       sec.innerHTML += '<option value="' + data[i].parceiro + '">' + data[i].parceiro + '</option>;'
-//     }
-//   })).catch(error => console.log('error', error));
-
-
-// // Terceario/Gerente
-
-
-// fetch("http://172.16.0.197:3000/user/gerente", requestOptions)
-//   .then(response => response.json().then(function (data) {
-//     // console.log(data)
-//     for (let i = 0; i < data.length; i++) {
-//       ger.innerHTML += '<option value="' + data[i].gerente + '">' + data[i].gerente + '</option>;'
-//     }
-//   })).catch(error => console.log('error', error));
-=======
-  
-
-})
-
->>>>>>> master
-
-
-
-
-
-
 // Logica para fazer carregar o cnpj nos campos
 //Secundario
 
@@ -313,57 +178,10 @@ cpfSecundario.addEventListener('blur', () => {
   });
 
   var requestOptions = {
-<<<<<<< HEAD
-=======
-var requestOptions = {
-  method: 'GET',
-  redirect: 'follow'
-};
-
-fetch("http://172.16.0.197:3000/user/supervisor", requestOptions)
-  .then(response => response.json().then(function (data) {
-    for (let i = 0; i < data.length; i++) {
-      sec.innerHTML += '<option value="' + data[i].parceiro + '">' + data[i].parceiro + '</option>;'
-    }
-  })).catch(error => console.log('error', error));
-
-
-// Terceario/Gerente
-var requestOptions = {
-  method: 'GET',
-  redirect: 'follow'
-};
-
-fetch("http://172.16.0.197:3000/user/gerente", requestOptions)
-  .then(response => response.json().then(function (data) {
-    // console.log(data)
-    for (let i = 0; i < data.length; i++) {
-      ger.innerHTML += '<option value="' + data[i].gerente + '">' + data[i].gerente + '</option>;'
-    }
-  })).catch(error => console.log('error', error));
-
-  // ----------------------------------------------------
-  let cpfComissaoTerc = document.getElementById('cpfTerceario')
-  
-  cpfComissaoTerc.addEventListener('blur',() =>{
-    var myHeaders = new Headers();
-    myHeaders.append("Content-Type", "application/json");
-
-    var raw = JSON.stringify({"cnpj":cpfComissaoTerc.value})
-      
-    var requestOptions = {
->>>>>>> 9eaf361... merge caue
-      method: 'POST',
-      headers: myHeaders,
-      body: raw,
-      redirect: 'follow'
-<<<<<<< HEAD
-=======
     method: 'POST',
     headers: myHeaders,
     body: raw,
     redirect: 'follow'
->>>>>>> master
   };
   fetch("http://172.16.0.197:3000/user/parceiros", requestOptions)
     .then(response => response.json())
@@ -450,45 +268,42 @@ cpfQuaternario.addEventListener('blur', () => {
 })
 
 cpfQuaternario.addEventListener('keyup', () => {
-<<<<<<< HEAD
-let quat = document.getElementById("idQuartenario");
-if (quat.value.length > 0) {
-  $("#idQuartenario").val("")
-}
-})
-=======
-    };
-   
-    //http://172.16.0.197:3000/user/supervisor
-
-    fetch("http://172.16.0.197:3000/user/parceiros", requestOptions)
-    .then(response => response.json())
-    .then(function (data) {
-      console.log(data)
-      if (data[0].parceiro === "NAO INFORMADO NA INSERA‡A?O") {
-        $("#idTerc").val("");
-    } else {
-        $("#idTerc").val(data[0].parceiro);
-    }
-    })
-    .catch(error => console.log('error', error));
-    })
-
-    cpfComissaoTerc.addEventListener('keyup', () => {
-      let terc = document.getElementById("idTerc");
-      if (terc.value.length > 0) {
-          $("#idTerc").val("")
-      }
-      // if($("#validationParceiroPromotor").val())
-    })
-   
-  
-
->>>>>>> 9eaf361... merge caue
-=======
   let quat = document.getElementById("idQuartenario");
   if (quat.value.length > 0) {
     $("#idQuartenario").val("")
   }
 })
->>>>>>> master
+
+
+//Trocar de tela
+const prosseguirr = document.getElementById('comissaoCadastro');
+    prosseguirr.addEventListener('click', () => {
+        testeCont++;
+        if(testeCont === 1) {
+            if (comissaoo_tab.getAttribute("aria-selected") == "true") {
+              comissaoo_tab.setAttribute('aria-selected', false);
+            }
+
+            chavej_tab.setAttribute('aria-selected', true);
+            chavej_tab.classList.add('active');
+            comissaoo_tab.classList.remove('active');
+        }
+        else if(testeCont > 1) {
+            // alert("etetdsasadadsf")
+            chavej_tab.setAttribute('aria-selected', true);
+            chavej_tab.classList.add('active');
+            comissaoo_tab.classList.remove('active');
+
+            testando.classList.remove('active');
+
+        }
+
+    })
+    let testando = document.getElementById("comissao-tabb");
+    chavej_tab.addEventListener('blur', () => {
+        // comissao_tab.setAttribute('aria-selected', false);
+        // alert("fdsfsdsdfs")
+        chavej_tab.classList.remove('active');
+        
+
+    })

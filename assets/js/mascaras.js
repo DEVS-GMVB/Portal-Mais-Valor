@@ -287,10 +287,3 @@ function mQtde(v) {
 //         document.forms[0].Hora.focus();
 //     }
 // }
-
-var campo3 = document.querySelector('#testandoMascara');
-campo3.addEventListener('keyup', function () {
-    var d3 = campo3.value.replace(/\D/g, "");
-    d3 = d3.replace(/(\d{2,2})(\d{2,2})(\d{2,2})(\d{2,2})$/,"$1:$2 ás $3:$4");
-    this.value = d3;
-  });

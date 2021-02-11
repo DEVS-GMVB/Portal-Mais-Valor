@@ -40,7 +40,7 @@
     }
 </style>
 
-<!-----MODAL DA TELA CADASTRO/COMISSÃO/ACESSOS-->
+<!-- ---MODAL DA TELA CADASTRO/COMISSÃO/ACESSOS-->
 <!-- <script>
     console.log(sessionStorage.getItem('cnpj_matriz', 'cnpj_matriz'));
     console.log(sessionStorage.getItem('data_nascimento', 'data_nascimento'));
@@ -48,7 +48,8 @@
     console.log(sessionStorage.getItem('nome', 'nome'));
     console.log(sessionStorage.getItem('perfil', 'perfil'));
     console.log(sessionStorage.getItem('status', 'status'));
-  </script> -->
+    console.log(sessionStorage.getItem('tipo_parceiro2', 'tipo_parceiro2'));
+</script> -->
 
 
 <div class="modal fade modalteladecadastro" id="modalCadastro" tabindex="-1" role="dialog"
@@ -867,12 +868,15 @@
                         </form>
 
                         <div class="opcoes-cadastro mt-1" style="text-align: center; margin-inline: block;">
+                            <a class="nav-link" id="comissao-tabb" data-toggle="tab" href="#comissao" role="tab"
+                            aria-controls="comissao" aria-selected="false">
                                 <button type="button" class="btn btn-primary btn-icon-label" id="prosseguirBtn">
                                     <span class="btn-inner--icon">
                                         <i class="fas fa-arrow-right"></i>
                                     </span>
-                                    <span class="btn-inner--text">Prosseguir</span>
+                                    <span class="btn-inner--text">ProsseguirCadastro</span>
                                 </button>
+                            </a>
                         </div>
 
 
@@ -907,26 +911,17 @@
 
                                 <div class="col-md-4 mb-3">
                                     <label for="validationCustom01">CPF Secundário</label>
-<<<<<<< HEAD
-                                    <input type="text" class="form-control form-control-sm" id="cpfSecundario">
-=======
                                     <input type="text" class="form-control form-control-sm" id="cpfSecundario"
                                         onkeypress='mascaraMutuario(this,cpfCnpj)' minlength="14" maxlength="18">
->>>>>>> master
 
                                 </div>
 
                                 <div class="col-md-4 mb-3">
                                     <div class="form-group">
                                         <label for="exampleFormControlSelect1">Secundário</label>
-<<<<<<< HEAD
-                                        <input type="text" class="form-control form-control-sm" id="idSec">
-                                    </input>
-=======
                                         <input type="text" class="form-control form-control-sm" id="idSec"
                                             readonly="true">
                                         </input>
->>>>>>> master
                                     </div>
 
                                 </div>
@@ -939,26 +934,17 @@
 
                                 <div class="col-md-4 mb-3">
                                     <label for="validationCustom01">CPF Terceário</label>
-<<<<<<< HEAD
-                                    <input type="text" class="form-control form-control-sm" id="cpfTerceario">
-=======
                                     <input type="text" class="form-control form-control-sm" id="cpfTerceario"
                                         onkeypress='mascaraMutuario(this,cpfCnpj)' minlength="14" maxlength="18">
->>>>>>> master
 
                                 </div>
 
                                 <div class="col-md-4 mb-3">
                                     <div class="form-group">
                                         <label for="exampleFormControlSelect1">Terceário</label>
-<<<<<<< HEAD
-                                        <input type="text" class="form-control form-control-sm" id="idTerc">
-                                    </input>
-=======
                                         <input type="text" class="form-control form-control-sm" id="idTerc"
                                             readonly="true">
                                         </input>
->>>>>>> master
                                     </div>
 
                                 </div>
@@ -1330,12 +1316,15 @@
                         </div>
 
                         <div class="opcoes-cadastro mt-1" style="text-align: center; margin-inline: block;">
+                            <a class="nav-link" id="chavej-tabb" data-toggle="tab" href="#chavej" role="tab"
+                            aria-controls="chavej" aria-selected="false">
                             <button type="button" class="btn btn-primary btn-icon-label" id="comissaoCadastro">
                                 <span class="btn-inner--icon">
                                     <i class="fas fa-arrow-right"></i>
                                 </span>
-                                <span class="btn-inner--text">Prosseguir</span>
+                                <span class="btn-inner--text">ProsseguirComissao</span>
                             </button>
+                            </a>
 
                         </div>
 
@@ -1388,7 +1377,7 @@
                                         <label for="exampleFormControlSelect1">Tipo Usuário</label>
                                         <select class="form-control form-control-sm" id="id-cadusu-tipousu">
                                             <option> </option>
-                                            <option value="PROMOTOR/PARCEIRO">PROMOTOR/PARCEIRO</option>
+                                            <option value="PARCEIRO">PROMOTOR/PARCEIRO</option>
                                             <option value="SUPERVISOR">SUPERVISOR</option>
                                             <option value="GERENTE">GERENTE</option>
                                             <option value="ADM">ADM</option>
@@ -1476,7 +1465,7 @@
                                     <label for="validationCustom01">CNPJ Matriz</label>
                                     <input type="text" minlength="14" maxlength="18" name='cpfcnpj'
                                         onkeypress='mascaraMutuario(this,cpfCnpj)' class="form-control form-control-sm"
-                                        id="id-cadusu-cnpjMatriz">
+                                        id="id-cadusu-cnpjMatriz" readonly="true">
 
                                 </div>
 
@@ -1664,7 +1653,7 @@
                                                     data-target=".modalteladeacesso" title="Alterar"
                                                     id="modalAlterarAcesso">
                                                     <i class="fas fa-external-link-alt"></i>
-                                                </a>
+                                                </a>    
                                                 <!--
                                                     <div class="actions ml-3">
                                                 <a href="#" class="action-item mr-0" data-toggle="tooltip"
@@ -1809,13 +1798,15 @@
                         </form>
 
                         <div class="opcoes-cadastro mt-1" style="text-align: center; margin-inline: block;">
+                            <a class="nav-link" id="siglae-tabb" data-toggle="tab" href="#siglae" role="tab"
+                            aria-controls="siglae" aria-selected="false">
                             <button type="button" class="btn btn-primary btn-icon-label" id="prosseguirChavejBtn">
                                 <span class="btn-inner--icon">
                                     <i class="fas fa-arrow-right"></i>
                                 </span>
-                                <span class="btn-inner--text">Prosseguir</span>
+                                <span class="btn-inner--text">ProsseguirChaveJ</span>
                             </button>
-
+                            </a>
                         </div>
 
 
@@ -2840,7 +2831,6 @@
                 </div>
 
             </div>
-            
 
 
         </div>
