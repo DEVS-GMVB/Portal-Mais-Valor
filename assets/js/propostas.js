@@ -7,7 +7,8 @@ let prod = document.getElementById("exampleProduto")
 let produtoComissao = document.getElementById("exampleFormProduto");
 let supervisorProposta = document.getElementById("supervisorProposta");
 let gerenteProposta = document.getElementById("gerenteProposta")
-
+let bancco = document.getElementById("banco");
+let sub_status = document.getElementById("sub-status")
 
 //Nova proposta
 let numeroPrp = document.getElementById('validationNprop')
@@ -75,6 +76,8 @@ window.onload = function () {
         bancoPortado.innerHTML += '<option value="' + data[i].banco + '">' + data[i].banco + '</option>;'
         banc.innerHTML += '<option value="' + data[i].banco + '">' + data[i].banco + '</option>;'
         bancoo.innerHTML += '<option value="' + data[i].banco + '">' + data[i].banco + '</option>;'
+        bancco.innerHTML += '<option value="' + data[i].banco + '">' + data[i].banco + '</option>;'
+
       }
     })
 
@@ -102,6 +105,13 @@ window.onload = function () {
       }
     })).catch(error => console.log('error', error));
 
+  fetch("http://localhost:3000/user/proposta/substatus", requestOptions)
+    .then(response => response.json().then(function (data) {
+      for (let i = 0; i < data.length; i++) {
+        sub_status.innerHTML += '<option value="' + data[i].sub_status + '">' + data[i].sub_status + '</option>;'
+      }
+    })).catch(error => console.log('error', error))
+
 }
 
 filtros.addEventListener('click', () => {
@@ -117,7 +127,7 @@ filtros.addEventListener('click', () => {
   let previsaoSaldo = document.getElementById("previsaoSaldo").value;
   let novaProposta = document.getElementById("novaProposta").value
   let bancoPortabilidade = document.getElementById("bancoPortabilidade").value;
-  let ordenar = document.getElementById("ordenar").value;
+  // let ordenar = document.getElementById("ordenar").value;
   let dataCadastro = document.getElementById('dataCadastro').value;
   let dataAtualizacao = document.getElementById('dataAtualizacao').value;
   let correntista = document.getElementById("correntista").value;

@@ -369,3 +369,39 @@ cpfQuaternario.addEventListener('keyup', () => {
     $("#idQuartenario").val("")
   }
 })
+let comissao_tab = document.getElementById("comissao-tab");
+let testando = document.getElementById("comissao-tabb");
+let cadastro_tab = document.getElementById("cadastro-tab");
+let comissao_tab = document.getElementById("comissao-tab");
+
+window.onload = function () {
+  const prosseguir = document.getElementById('prosseguirBtn');
+    prosseguir.addEventListener('click', () => {
+        testeCont++;
+        if (testeCont === 1) {
+            if (cadastro_tab.getAttribute("aria-selected") == "true") {
+                cadastro_tab.setAttribute('aria-selected', false);
+            }
+
+            comissao_tab.setAttribute('aria-selected', true);
+            comissao_tab.classList.add('active');
+            cadastro_tab.classList.remove('active');
+        } else if (testeCont > 1) {
+            // alert("etetdsasadadsf")
+            comissao_tab.setAttribute('aria-selected', true);
+            comissao_tab.classList.add('active');
+            cadastro_tab.classList.remove('active');
+
+            testando.classList.remove('active');
+
+        }
+
+    })
+    comissao_tab.addEventListener('blur', () => {
+        // comissao_tab.setAttribute('aria-selected', false);
+        // alert("fdsfsdsdfs")
+        comissao_tab.classList.remove('active');
+
+
+    })
+}

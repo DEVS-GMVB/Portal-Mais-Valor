@@ -1,3 +1,47 @@
+let chaveJ_tab = document.getElementById("chavej-tab");
+let testando2 = document.getElementById("chavej-tabb");
+let comissao_tab = document.getElementById("comissao-tab");
+let testando = document.getElementById("comissao-tabb");
+
+window.onload = function () {
+  
+    // //--------------------------------
+    // //Prosseguir chaveJ
+    const prosseguirChaveJ = document.getElementById("prosseguirChaveJ");
+    let contChavej = 0;
+    prosseguirChaveJ.addEventListener("click", () => {
+
+        contChavej++;
+        if (contChavej === 1) {
+            if (comissao_tab.getAttribute("aria-selected") == "true") {
+                comissao_tab.setAttribute('aria-selected', false);
+            }
+
+            chaveJ_tab.setAttribute('aria-selected', true);
+            chaveJ_tab.classList.add('active');
+            comissao_tab.classList.remove('active');
+        } else if (contChavej > 1) {
+            // alert("etetdsasadadsf")
+            chaveJ_tab.setAttribute('aria-selected', true);
+            chaveJ_tab.classList.add('active');
+            comissao_tab.classList.remove('active');
+
+            testando2.classList.remove('active');
+
+        }
+
+    })
+
+    chaveJ_tab.addEventListener('blur', () => {
+        // comissao_tab.setAttribute('aria-selected', false);
+        // alert("fdsfsdsdfs")
+        chaveJ_tab.classList.remove('active');
+
+
+    })
+}
+
+
 const prosseguir = document.getElementById('prosseguirChavejBtn');
 prosseguir.addEventListener('click', () => {
 

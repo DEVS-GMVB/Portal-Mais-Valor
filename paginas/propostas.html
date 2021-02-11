@@ -74,9 +74,13 @@
                                     <label for="exampleFormControlSelect1">Tipo de Usuário</label>
                                     <select class="form-control form-control-sm" id="selectTipoUsuario">
                                         <option> </option>
-                                        <option value="PARCEIRO">PARCEIRO</option>
-
-
+                                        <option value="CIADOCREDITO">CIADOCREDITO</option>
+                                        <option value="PARCEIRO EXTERNO">PARCEIRO EXTERNO</option>
+                                        <option value="PARCEIRO EXTERNO CONFIRMAÇÃO">PARCEIRO EXTERNO CONFIRMAÇÃO
+                                        </option>
+                                        <option value="PARCEIRO INTERNO">PARCEIRO INTERNO</option>
+                                        <option value="PROMOTOR">PROMOTOR</option>
+                                        <option value="PROMOTOR INTERNO">PROMOTOR INTERNO</option>
                                     </select>
                                 </div>
 
@@ -192,12 +196,7 @@
 
                             <div class="col-md-4 mb-3">
                                 <div class="form-group">
-                                    <label for="exampleFormControlSelect1">Ordenar</label>
-                                    <select class="form-control form-control-sm" id="ordenar">
-                                        <option> </option>
 
-
-                                    </select>
                                 </div>
 
                             </div>
@@ -258,7 +257,11 @@
                                 <div class="form-group">
                                     <label for="exampleFormControlSelect1">Situação Status</label>
                                     <select class="form-control form-control-sm" id="situacaoStatus">
-                                        <option> </option>
+                                        <option value="">-</option>
+                                        <option value="ATUAÇÃO PROMOTOR">ATUAÇÃO PROMOTOR</option>
+                                        <option value="CANCELADO">CANCELADO</option>
+                                        <option value="INICIADO">INICIADO</option>
+                                        <option value="INTEGRADO">INTEGRADO</option>
 
 
 
@@ -271,7 +274,14 @@
                                 <div class="form-group">
                                     <label for="exampleFormControlSelect1">Convênio Master</label>
                                     <select class="form-control form-control-sm" id="convenioMaster">
-                                        <option> </option>
+                                        <option value="">-</option>
+                                        <option value="20991 - INSS">20991 - INSS</option>
+                                        <option value="2345 - MINISTERIO DO EXERCITO">2345 - MINISTERIO DO EXERCITO
+                                        </option>
+                                        <option value="35783 - SIAPE">35783 - SIAPE</option>
+                                        <option value="DEMAIS CONVENIOS">DEMAIS CONVENIOS </option>
+                                        <option value="2000 - MINISTERIO DA MARINHA">2000 - MINISTERIO DA MARINHA
+                                        </option>
 
 
 
@@ -284,7 +294,15 @@
                                 <div class="form-group">
                                     <label for="exampleFormControlSelect1">Fase - Status</label>
                                     <select class="form-control form-control-sm" id="faseStatus">
-                                        <option> </option>
+                                        <option value="">-</option>
+                                        <option value="ACOMPANHAMENTO">ACOMPANHAMENTO</option>
+                                        <option value="CONFIRMACAO">CONFIRMACAO</option>
+                                        <option value="DIGITACAO">DIGITACAO</option>
+                                        <option value="FINALIZACAO">FINALIZACAO</option>
+                                        <option value="PORTABILIDADE MESA">PORTABILIDADE MESA</option>
+                                        <option value="PRE ANALISE">PRE ANALISE</option>
+                                        <option value="REGULARIZACAO">REGULARIZACAO</option>
+                                        <option value="SALDO">SALDO</option>
 
 
 
@@ -323,7 +341,9 @@
                                 <div class="form-group">
                                     <label for="exampleFormControlSelect1">Classificação</label>
                                     <select class="form-control form-control-sm" id="class2">
-                                        <option> </option>
+                                        <option value=""></option>
+                                        <option value="CONFIAVEL">CONFIAVEL</option>
+                                        <option value="NOVO FLUXO">NOVO FLUXO</option>
 
 
 
@@ -405,12 +425,11 @@
                             <div class="col-md-4 mb-3">
                                 <div class="form-group">
                                     <label for="exampleFormControlSelect1">Data de Corte</label>
-                                    <select class="form-control form-control-sm" id="dataDeCorte">
-                                        <option> </option>
+                                    <input type="text" class="form-control form-control-sm" id="dataDeCorte">
 
 
 
-                                    </select>
+
                                 </div>
 
                             </div>
@@ -450,7 +469,18 @@
                                 <div class="form-group">
                                     <label for="exampleFormControlSelect1">Horário Agendamento</label>
                                     <select class="form-control form-control-sm" id="horarioAgendamento">
-                                        <option> </option>
+                                        <option value=""></option>
+                                        <option value="08:00 as 08:59">08:00 as 08:59</option>
+                                        <option value="09:00 as 09:59">09:00 as 09:59</option>
+                                        <option value="10:00 as 10:59">10:00 as 10:59</option>
+                                        <option value="11:00 as 11:59">11:00 as 11:59</option>
+                                        <option value="12:00 as 12:59">12:00 as 12:59</option>
+                                        <option value="13:00 as 13:59">13:00 as 13:59</option>
+                                        <option value="14:00 as 14:59">14:00 as 14:59</option>
+                                        <option value="15:00 as 15:59">15:00 as 15:59</option>
+                                        <option value="16:00 as 16:59">16:00 as 16:59</option>
+                                        <option value="17:00 as 17:59">17:00 as 17:59</option>
+                                        <option value="18:00 as 18:59">18:00 as 18:59</option>
 
 
 
@@ -775,7 +805,7 @@
 
                                     <div class="col-md-2 mb-3">
                                         <label for="validationCustom01">Sub-Status</label>
-                                        <select class="form-control form-control-sm" id="exampleFormSS">
+                                        <select class="form-control form-control-sm" id="sub_status">
                                             <option> </option>
                                         </select>
 
