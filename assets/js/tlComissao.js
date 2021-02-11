@@ -2,6 +2,10 @@ let supervisorComissao = document.getElementById("exampleSupervisor");
 let gerenteComissao = document.getElementById("exampleGerente");
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> kainan
 =======
 =======
 >>>>>>> kainan
@@ -11,8 +15,12 @@ let dtGerente = document.getElementById("exampleDtGerente");
 let dtSupervisor = document.getElementById("exampledtSupervisor")
 let compPag = document.getElementById("exampleCompPag")
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> master
 =======
+>>>>>>> kainan
+=======
+>>>>>>> master
 >>>>>>> kainan
 
 
@@ -24,11 +32,17 @@ window.onload = function () {
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     //Supervisor
 >>>>>>> master
 =======
     //Supervisor
+>>>>>>> kainan
+=======
+=======
+    //Supervisor
+>>>>>>> master
 >>>>>>> kainan
     fetch("http://172.16.0.197:3000/user/supervisor", requestOptions)
         .then(response => response.json())
@@ -42,11 +56,17 @@ window.onload = function () {
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         //Gerente
 >>>>>>> master
 =======
         //Gerente
+>>>>>>> kainan
+=======
+=======
+        //Gerente
+>>>>>>> master
 >>>>>>> kainan
     fetch("http://172.16.0.197:3000/user/gerente", requestOptions)
         .then(response => response.json().then(function (data) {
@@ -58,8 +78,13 @@ window.onload = function () {
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 }
 =======
+=======
+>>>>>>> kainan
+=======
+}
 =======
 >>>>>>> kainan
         //Parceiro Promotor
@@ -105,6 +130,10 @@ window.onload = function () {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> master
 =======
+>>>>>>> kainan
+=======
+>>>>>>> master
 >>>>>>> kainan

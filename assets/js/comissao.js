@@ -252,10 +252,47 @@ pross.addEventListener('click', () => {
     redirect: 'follow'
   };
 
+<<<<<<< HEAD
+  fetch("", requestOptions)
+    .then(response => response.json())
+    //.then(response => response.text())
+    .then(result => console.log(result))
+    .catch(error => console.log('error', error));
+
+})
+
+// Secundario/Supervisor
+<<<<<<< HEAD
+
+// var requestOptions = {
+//   method: 'GET',
+//   redirect: 'follow'
+// };
+
+// fetch("http://172.16.0.197:3000/user/supervisor", requestOptions)
+//   .then(response => response.json().then(function (data) {
+//     for (let i = 0; i < data.length; i++) {
+//       sec.innerHTML += '<option value="' + data[i].parceiro + '">' + data[i].parceiro + '</option>;'
+//     }
+//   })).catch(error => console.log('error', error));
+
+
+// // Terceario/Gerente
+
+
+// fetch("http://172.16.0.197:3000/user/gerente", requestOptions)
+//   .then(response => response.json().then(function (data) {
+//     // console.log(data)
+//     for (let i = 0; i < data.length; i++) {
+//       ger.innerHTML += '<option value="' + data[i].gerente + '">' + data[i].gerente + '</option>;'
+//     }
+//   })).catch(error => console.log('error', error));
+=======
   
 
 })
 
+>>>>>>> master
 
 
 
@@ -276,10 +313,57 @@ cpfSecundario.addEventListener('blur', () => {
   });
 
   var requestOptions = {
+<<<<<<< HEAD
+=======
+var requestOptions = {
+  method: 'GET',
+  redirect: 'follow'
+};
+
+fetch("http://172.16.0.197:3000/user/supervisor", requestOptions)
+  .then(response => response.json().then(function (data) {
+    for (let i = 0; i < data.length; i++) {
+      sec.innerHTML += '<option value="' + data[i].parceiro + '">' + data[i].parceiro + '</option>;'
+    }
+  })).catch(error => console.log('error', error));
+
+
+// Terceario/Gerente
+var requestOptions = {
+  method: 'GET',
+  redirect: 'follow'
+};
+
+fetch("http://172.16.0.197:3000/user/gerente", requestOptions)
+  .then(response => response.json().then(function (data) {
+    // console.log(data)
+    for (let i = 0; i < data.length; i++) {
+      ger.innerHTML += '<option value="' + data[i].gerente + '">' + data[i].gerente + '</option>;'
+    }
+  })).catch(error => console.log('error', error));
+
+  // ----------------------------------------------------
+  let cpfComissaoTerc = document.getElementById('cpfTerceario')
+  
+  cpfComissaoTerc.addEventListener('blur',() =>{
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+
+    var raw = JSON.stringify({"cnpj":cpfComissaoTerc.value})
+      
+    var requestOptions = {
+>>>>>>> 9eaf361... merge caue
+      method: 'POST',
+      headers: myHeaders,
+      body: raw,
+      redirect: 'follow'
+<<<<<<< HEAD
+=======
     method: 'POST',
     headers: myHeaders,
     body: raw,
     redirect: 'follow'
+>>>>>>> master
   };
   fetch("http://172.16.0.197:3000/user/parceiros", requestOptions)
     .then(response => response.json())
@@ -366,8 +450,45 @@ cpfQuaternario.addEventListener('blur', () => {
 })
 
 cpfQuaternario.addEventListener('keyup', () => {
+<<<<<<< HEAD
+let quat = document.getElementById("idQuartenario");
+if (quat.value.length > 0) {
+  $("#idQuartenario").val("")
+}
+})
+=======
+    };
+   
+    //http://172.16.0.197:3000/user/supervisor
+
+    fetch("http://172.16.0.197:3000/user/parceiros", requestOptions)
+    .then(response => response.json())
+    .then(function (data) {
+      console.log(data)
+      if (data[0].parceiro === "NAO INFORMADO NA INSERA‡A?O") {
+        $("#idTerc").val("");
+    } else {
+        $("#idTerc").val(data[0].parceiro);
+    }
+    })
+    .catch(error => console.log('error', error));
+    })
+
+    cpfComissaoTerc.addEventListener('keyup', () => {
+      let terc = document.getElementById("idTerc");
+      if (terc.value.length > 0) {
+          $("#idTerc").val("")
+      }
+      // if($("#validationParceiroPromotor").val())
+    })
+   
+  
+
+>>>>>>> 9eaf361... merge caue
+=======
   let quat = document.getElementById("idQuartenario");
   if (quat.value.length > 0) {
     $("#idQuartenario").val("")
   }
 })
+>>>>>>> master

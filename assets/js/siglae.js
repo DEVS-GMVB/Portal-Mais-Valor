@@ -253,6 +253,19 @@ prosseguir.addEventListener('click', () => {
         headers: myHeaders,
         body: raw,
         redirect: 'follow'
+<<<<<<< HEAD
+      };  
+      
+      fetch("http://172.16.0.197:3000/user/cadastro/inclusao", requestOptions)
+      .then(response => response.json())
+    //   console.log(response)
+      .then(result => console.log(result))
+      .catch(error => console.log('error', error));
+})
+
+// Cpf
+let cpfCnpjSigla = document.getElementById('validationCpfCnpf')
+=======
     };
 
     fetch("http://localhost:3000/user/cadastro/inclusao", requestOptions)
@@ -270,15 +283,22 @@ prosseguir.addEventListener('click', () => {
 // Função para parceiros 
 let cpfCnpjSigla = document.getElementById("validationCpfCnpf");
 
+>>>>>>> master
 
 cpfCnpjSigla.addEventListener('blur', () => {
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
+<<<<<<< HEAD
+  
+    var raw = JSON.stringify({ "cnpj": cpfCnpjSigla.value });
+  
+=======
 
     var raw = JSON.stringify({
         "cnpj": cpfCnpjSigla.value
     });
 
+>>>>>>> master
     var requestOptions = {
         method: 'POST',
         headers: myHeaders,
@@ -286,6 +306,10 @@ cpfCnpjSigla.addEventListener('blur', () => {
         redirect: 'follow'
     };
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+  
+>>>>>>> kainan
 =======
 
 >>>>>>> master
@@ -293,6 +317,25 @@ cpfCnpjSigla.addEventListener('blur', () => {
         .then(response => response.json())
         .then(function (data) {
             if (data[0].parceiro === "NAO INFORMADO NA INSERA‡A?O") {
+<<<<<<< HEAD
+                $("#validationParceiroPromotor").val("");
+            } else {
+                $("#validationParceiroPromotor").val(data[0].parceiro);
+            }
+        })
+        .catch(error => console.log('error', error));
+  })
+  
+  cpfCnpjSigla.addEventListener('keyup', () => {
+    let promotor = document.getElementById("validationParceiroPromotor");
+    if (promotor.value.length > 0) {
+        $("#validationParceiroPromotor").val("")
+    }
+    // if($("#validationParceiroPromotor").val())
+  })
+
+
+=======
                 $("#idQuartenario").val("");
             } else {
                 $("#idQuartenario").val(data[0].parceiro);
@@ -308,3 +351,4 @@ cpfCnpjSigla.addEventListener('keyup', () => {
     }
     // if($("#validationParceiroPromotor").val())
 })
+>>>>>>> master

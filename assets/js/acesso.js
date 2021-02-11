@@ -188,6 +188,8 @@ cpfcnpjIncluir.addEventListener('blur', () => {
 
 })
 
+<<<<<<< HEAD
+=======
   var requestOptions = {
     method: 'POST',
     headers: myHeaders,
@@ -231,6 +233,7 @@ cpfcnpjIncluir.addEventListener('blur', () => {
 
 
   })).catch(error => console.log('error', error))
+>>>>>>> master
 
 function editarCpfAcesso(e) {
   console.log(e);
