@@ -1,6 +1,6 @@
 // VARS
 
-
+const URL = 'http://localhost:3000';
 let fi = document.getElementById('exampleFormControlFilial');
 let filialCadastro = document.getElementById('exampleFormControlFilialCadastro');
 let supervisor = document.getElementById('exampleFormControlSupervisor');
@@ -154,7 +154,7 @@ window.onload = function () {
             redirect: 'follow'
         };
 
-        fetch("http://172.16.0.197:3000/user/cadastro/inclusao", requestOptions)
+        fetch(URL+"/user/cadastro/inclusao", requestOptions)
             .then(response => response.json())
             //   console.log(response)
             .then(result => console.log(result))
@@ -179,7 +179,7 @@ window.onload = function () {
 
 
 
-    fetch("http://172.16.0.197:3000/user/gerente", requestOptions)
+    fetch(URL+"/user/gerente", requestOptions)
         .then(response => response.json().then(function (data) {
             for (let i = 0; i < data.length; i++) {
                 gerenteBB.innerHTML += '<option value="' + data[i].gerente + '">' + data[i].gerente + '</option>;'
@@ -190,7 +190,7 @@ window.onload = function () {
 
 
 
-    fetch("http://172.16.0.197:3000/user/filial", requestOptions)
+    fetch(URL+"/user/filial", requestOptions)
         .then(response => response.json()
             .then(function (data) {
                 for (let i = 0; i < data.length; i++) {
@@ -202,7 +202,7 @@ window.onload = function () {
 
 
 
-    fetch("http://172.16.0.197:3000/user/supervisor", requestOptions)
+    fetch(URL+"/user/supervisor", requestOptions)
         .then(response => response.json())
         .then(function (data) {
             for (let i = 0; i < data.length; i++) {
@@ -213,7 +213,7 @@ window.onload = function () {
         }).catch(error => console.log('error', error));
 
 
-    fetch("http://172.16.0.197:3000/user/supervisor", requestOptions)
+    fetch(URL+"/user/supervisor", requestOptions)
             .then(response => response.json())
             .then(function (data) {
                 for (let i = 0; i < data.length; i++) {
@@ -271,7 +271,7 @@ colocar.addEventListener('click', () => {
     };
 
     // console.log(raw);
-    fetch("http://172.16.0.197:3000/user/search", requestOptions)
+    fetch(URL+"/user/search", requestOptions)
         .then(response => response.json())
         .then(result => {
             cont = -1;
@@ -369,7 +369,7 @@ function editar(cpfCnpj) {
         redirect: 'follow'
     }
 
-    fetch("http://172.16.0.197:3000/user/cadastro/buscar", request).
+    fetch(URL+"/user/cadastro/buscar", request).
     then(response => response.json().then(function (data) {
         // console.log(data[0]);
         for (const value of data) {
@@ -421,7 +421,7 @@ function editar(cpfCnpj) {
         redirect: 'follow'
     }
 
-    fetch("http://172.16.0.197:3000/user/cadastro/modal", requestOptions)
+    fetch(URL+"/user/cadastro/modal", requestOptions)
         .then(response => response.json())
         .then(function (data) {
 
@@ -694,4 +694,4 @@ apagar.addEventListener('click', () => {
         this.reset();
     })
 })
-
+}

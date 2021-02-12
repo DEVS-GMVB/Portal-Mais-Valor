@@ -1,3 +1,7 @@
+
+const URL = `http://localhost:3000`;
+
+
 let filtros = document.getElementById("filtrosPes");
 let empresaProposta = document.getElementById("empresaPropostas");
 let tipoOperacao = document.getElementById('tipoOperacao');
@@ -10,9 +14,9 @@ let gerenteProposta = document.getElementById("gerenteProposta")
 
 
 //Nova proposta
-let numeroPrp = document.getElementById('validationNprop')
-let dtCadastro = document.getElementById('validationDtCad')
-//let bancoo = document.getElementById('examploBanco')
+const numeroPrp = document.getElementById('validationNprop')
+const dtCadastro = document.getElementById('validationDtCad')
+
 let status = document.getElementById('validationStatus')
 //let produtoo = document.getElementById('exampleProduto')
 //let tpOperacao = document.getElementById('tipoOperacao')
@@ -54,14 +58,14 @@ window.onload = function () {
     redirect: 'follow'
   };
 
-  fetch("http://172.16.0.197:3000/user/proposta/empresas", requestOptions)
+  fetch(URL+"/user/proposta/empresas", requestOptions)
     .then(response => response.json().then(function (data) {
       for (let i = 0; i < data.length; i++) {
         empresaProposta.innerHTML += '<option value="' + data[i].empresa + '">' + data[i].empresa + '</option>;'
       }
     })).catch(error => console.log('error', error));
 
-  fetch("http://172.16.0.197:3000/user/proposta/tipo", requestOptions)
+  fetch(URL+"/user/proposta/tipo", requestOptions)
     .then(response => response.json())
     .then(function (data) {
       for (let i = 0; i < data.length; i++) {
@@ -69,7 +73,7 @@ window.onload = function () {
       }
     })
 
-  fetch("http://172.16.0.197:3000/user/proposta/bancos", requestOptions)
+  fetch(URL+"/user/proposta/bancos", requestOptions)
     .then(response => response.json())
     .then(function (data) {
       for (let i = 0; i < data.length; i++) {
@@ -79,7 +83,7 @@ window.onload = function () {
       }
     })
 
-  fetch("http://172.16.0.197:3000/user/proposta/produto", requestOptions)
+  fetch(URL+"/user/proposta/produto", requestOptions)
     .then(response => response.json())
     .then(function (data) {
       for (let i = 0; i < data.length; i++) {
@@ -88,7 +92,7 @@ window.onload = function () {
       }
     })
 
-  fetch("http://172.16.0.197:3000/user/supervisor", requestOptions)
+  fetch(URL+"/user/supervisor", requestOptions)
     .then(response => response.json())
     .then(function (data) {
       for (let i = 0; i < data.length; i++) {
@@ -96,7 +100,7 @@ window.onload = function () {
       }
     }).catch(error => console.log('error', error));
 
-  fetch("http://172.16.0.197:3000/user/gerente", requestOptions)
+  fetch(URL+"/user/gerente", requestOptions)
     .then(response => response.json().then(function (data) {
       for (let i = 0; i < data.length; i++) {
         gerenteProposta.innerHTML += '<option value="' + data[i].gerente + '">' + data[i].gerente + '</option>;'
@@ -105,7 +109,7 @@ window.onload = function () {
 
     
 
-  fetch("http://localhost:3000/user/proposta/filtro", requestOptions) //pegar esse id acesso do login get session storage
+  fetch(URL+"/user/proposta/filtro", requestOptions) //pegar esse id acesso do login get session storage
     .then(response => response.json())
     .then(result => {
 
