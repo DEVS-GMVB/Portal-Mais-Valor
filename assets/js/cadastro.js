@@ -1,10 +1,5 @@
 // VARS
 
-<<<<<<< HEAD
-const URL = 'http://localhost:3000';
-=======
-
->>>>>>> kainan
 let fi = document.getElementById('exampleFormControlFilial');
 let filialCadastro = document.getElementById('exampleFormControlFilialCadastro');
 let supervisor = document.getElementById('exampleFormControlSupervisor');
@@ -17,12 +12,9 @@ let gerente = document.getElementById('exampleFormControlSelectGerente');
 let buttonIncluir = document.getElementById("buttonIncluir");
 let supervisorMulti = document.getElementById("exampleFormControlSelectSerMultBanc");
 let gerenteMulti = document.getElementById('exampleFormControlSelectGerMultBanc');
-<<<<<<< HEAD
-=======
 let supervisorComissao = document.getElementById("exampleSupervisor");
 let cpfcnpjParceiro = [];
 
->>>>>>> master
 var cont = -1;
 var array;
 var teste;
@@ -32,10 +24,7 @@ window.onload = function () {
     // ------------------------------
     const prosseguir = document.getElementById('prosseguirBtn');
     prosseguir.addEventListener('click', () => {
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> kainan
+
         // $('#comissao').modal('toggle'); 
         var myHeaders = new Headers();
 
@@ -165,20 +154,13 @@ window.onload = function () {
             redirect: 'follow'
         };
 
-<<<<<<< HEAD
-        fetch(URL+"/user/cadastro/inclusao", requestOptions)
-=======
         fetch("http://172.16.0.197:3000/user/cadastro/inclusao", requestOptions)
->>>>>>> kainan
             .then(response => response.json())
             //   console.log(response)
             .then(result => console.log(result))
             .catch(error => console.log('error', error));
 
-<<<<<<< HEAD
-=======
-=======
->>>>>>> kainan
+
         // $(window).load(function() {
         //     $("#comissao").modal('show');
         // });
@@ -188,7 +170,7 @@ window.onload = function () {
         // if($("#comissao").hasClass("active")){
         //     document.getElementById("comissao").classList.remove('show')
         // }
->>>>>>> master
+
     })
 
     // ------------------------------
@@ -198,15 +180,6 @@ window.onload = function () {
     };
 
 
-<<<<<<< HEAD
-
-var requestOptions = {
-    method: 'GET',
-    redirect: 'follow'
-  };
-
-=======
->>>>>>> master
 
     fetch(URL+"/user/gerente", requestOptions)
         .then(response => response.json().then(function (data) {
@@ -242,11 +215,7 @@ var requestOptions = {
         }).catch(error => console.log('error', error));
 
 
-<<<<<<< HEAD
-    fetch(URL+"/user/supervisor", requestOptions)
-=======
     fetch("http://172.16.0.197:3000/user/supervisor", requestOptions)
->>>>>>> kainan
             .then(response => response.json())
             .then(function (data) {
                 for (let i = 0; i < data.length; i++) {
@@ -255,18 +224,9 @@ var requestOptions = {
                     supervisorMulti.innerHTML += '<option value="' + data[i].parceiro + '">' + data[i].parceiro + '</option>;'
                 }
             }).catch(error => console.log('error', error));
-<<<<<<< HEAD
-
-
-=======
->>>>>>> kainan
 
 
 
-<<<<<<< HEAD
-
-=======
->>>>>>> master
 }
 const colocar = document.getElementById('incluir');
 
@@ -393,12 +353,11 @@ colocar.addEventListener('click', () => {
 function editar(cpf) {
     // console.log(cpf);
 
-<<<<<<< HEAD
-=======
+
 function editar(cpfCnpj) {
     document.getElementById("acesso-tab").disabled = false;
     //Cabeçalho
->>>>>>> master
+
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
 
@@ -469,17 +428,17 @@ function editar(cpfCnpj) {
     fetch(URL+"/user/cadastro/modal", requestOptions)
         .then(response => response.json())
         .then(function (data) {
-<<<<<<< HEAD
+
             // data = ""
             console.log(data);
             // console.log(document.getElementById('modalAlterar'))
-=======
+
 
             $('.needs-validation').each(function () {
                 this.reset();
             });
 
->>>>>>> master
+
             $("#validationParceiroPromotor").val("");
             $("#validationCpfCnpf").val("");
             if (document.getElementById('modalAlterar')) {
@@ -742,19 +701,12 @@ buttonIncluir.addEventListener('click', () => {
     //     texts.value = "";
     // }
 
-<<<<<<< HEAD
-
-=======
-=======
->>>>>>> kainan
 let apagar = document.getElementById("apagarFiltrosCadastro")
 apagar.addEventListener('click', () => {
     $("#apagarFiltros").each(function () {
         this.reset();
     })
 })
-<<<<<<< HEAD
+
 }
-=======
->>>>>>> master
->>>>>>> kainan
+
