@@ -263,7 +263,8 @@
 
                                 <div class="col-md-3 mb-3">
                                     <label for="validationCustom01">Número Carteira de Trabalho</label>
-                                    <input type="text" class="form-control form-control-sm" id="validationNCT" required>
+                                    <input type="text" class="form-control form-control-sm" id="validationNCT"
+                                        onKeyDown="fMasc( this, nCartTrab );" required>
 
                                 </div>
 
@@ -271,7 +272,7 @@
                                 <div class="col-md-3 mb-3">
                                     <label for="validationCustom01">Série Carteira de Trabalho</label>
                                     <input type="text" class="form-control form-control-sm" id="validationSerieCarteira"
-                                        required>
+                                        onKeyDown="fMasc( this, sCartTrab );" required>
 
                                 </div>
 
@@ -299,7 +300,7 @@
                                 <div class="col-md-4 mb-3">
                                     <label for="validationCustom01">Número Contrato</label>
                                     <input type="text" class="form-control form-control-sm"
-                                        id="validationNumeroContrato" required>
+                                        id="validationNumeroContrato" onKeyDown="fMasc( this, nContrtato );" required>
 
                                 </div>
 
@@ -366,17 +367,16 @@
                                 <div class="col-md-2 mb-3">
                                     <label for="validationCustom01">Cidade</label>
                                     <input type="text" class="form-control form-control-sm" id="validationCidade"
-                                        required>
+                                        onkeypress="return ApenasLetras(event,this);" required>
 
                                 </div>
 
                                 <div class="col-md-1 mb-3">
                                     <label for="validationCustom01">Estado</label>
                                     <input type="text" class="form-control form-control-sm" id="validationEstado"
-                                        required>
+                                        onkeypress="return ApenasLetras(event,this);" required>
 
                                 </div>
-
 
                             </div>
 
@@ -769,7 +769,7 @@
                                 <div class="col-md-2 mb-3">
                                     <label for="validationCustom01">Matrícula</label>
                                     <input type="text" class="form-control form-control-sm" id="validationMatricula"
-                                        required>
+                                    onKeyDown="fMasc( this, nContrtato );" required>
 
                                 </div>
 
@@ -1008,7 +1008,7 @@
                                     <div class="form-group">
                                         <label for="exampleFormControlSelect1">% Parceiro/Promotor MEI</label>
                                         <input type="text" class="form-control form-control-sm"
-                                            name="idParceiroPromotor" id="idParceiroPromotor" maxlength="6">
+                                            name="idParceiroPromotor" id="idParceiroPromotor" onkeyup="mascaraMutuario(this,mComissao)" maxlength="6">
                                     </div>
 
                                 </div>
@@ -1087,7 +1087,7 @@
                                     <div class="form-group">
                                         <label for="exampleFormControlSelect1">% Parceiro/Promotor MEI</label>
                                         <input class="form-control form-control-sm" name="id-ce-parceiro-promotor"
-                                            id="id-ce-parceiro-promotor" maxlength="6">
+                                            id="id-ce-parceiro-promotor" onkeyup="mascaraMutuario(this,mComissao)" maxlength="6">
                                     </div>
 
                                 </div>
@@ -1149,7 +1149,7 @@
                                     <div class="form-group">
                                         <label for="exampleFormControlSelect1">% Parceiro/Promotor MEI</label>
                                         <input class="form-control form-control-sm" id="id-gmg-parcpromo"
-                                            name="id-gmg-parcpromo" maxlength="6">
+                                            name="id-gmg-parcpromo" onkeyup="mascaraMutuario(this,mComissao)"maxlength="6">
                                     </div>
 
                                 </div>
@@ -1211,7 +1211,7 @@
                                     <div class="form-group">
                                         <label for="exampleFormControlSelect1">% Parceiro/Promotor MEI</label>
                                         <input class="form-control form-control-sm" id="id-grj-parcpromo"
-                                            name="id-grj-parcpromo" maxlength="6">
+                                            name="id-grj-parcpromo" onkeyup="mascaraMutuario(this,mComissao)" maxlength="6">
 
                                     </div>
 
@@ -1270,7 +1270,7 @@
                                 <div class="form-group">
                                     <label for="exampleFormControlSelect1">% Parceiro/Promotor MEI</label>
                                     <input class="form-control form-control-sm" id="id-tm-parcpromo"
-                                        name="id-tm-parcpromo" maxlength="6">
+                                        name="id-tm-parcpromo" onkeyup="mascaraMutuario(this,mComissao)" maxlength="6">
                                 </div>
 
                             </div>
@@ -1289,7 +1289,7 @@
                                 <div class="form-group">
                                     <label for="exampleFormControlSelect1">% Parceiro/Promotor MEI</label>
                                     <input class="form-control form-control-sm" id="id-ts-parcpromo"
-                                        name="id-ts-parcpromo" maxlength="6">
+                                        name="id-ts-parcpromo" onkeyup="mascaraMutuario(this,mComissao)" maxlength="6">
                                 </div>
 
                             </div>
@@ -1307,7 +1307,7 @@
                                 <div class="form-group">
                                     <label for="exampleFormControlSelect1">% Parceiro/Promotor MEI</label>
                                     <input class="form-control form-control-sm" id="id-tc-parcpromo"
-                                        name="id-tc-parcpromo" maxlength="6">
+                                        name="id-tc-parcpromo" onkeyup="mascaraMutuario(this,mComissao)" maxlength="6">
 
                                 </div>
 
@@ -1746,10 +1746,8 @@
                                 <div class="col-md-6 mb-3">
                                     <div class="form-group">
                                         <label for="exampleFormControlSelect1">Senha Chave J</label>
-                                        <select class="form-control form-control-sm" id="senhaChavej">
-                                            <option> </option>
+                                        <input type="password" class="form-control form-control-sm" id="senhaChavej">
 
-                                        </select>
                                     </div>
 
                                 </div>
@@ -1841,7 +1839,7 @@
                                 <div class="col-md-4 mb-3">
                                     <label for="validationCustom01">Código Escritório</label>
                                     <input type="text" class="form-control form-control-sm"
-                                        id="validationCodigoEscritorio">
+                                    onKeyDown="fMasc( this, nContrtato );" id="validationCodigoEscritorio">
 
                                 </div>
 
