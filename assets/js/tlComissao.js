@@ -1,36 +1,11 @@
 let supervisorComissao = document.getElementById("exampleSupervisor");
 let gerenteComissao = document.getElementById("exampleGerente");
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> kainan
-=======
-=======
->>>>>>> kainan
-=======
-=======
->>>>>>> kainan
 let parceiropromotor = document.getElementById("exampleParcPromo");
 let status = document.getElementById("exampleStatus");
 let dtGerente = document.getElementById("exampleDtGerente");
 let dtSupervisor = document.getElementById("exampledtSupervisor")
 let compPag = document.getElementById("exampleCompPag")
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> master
-=======
->>>>>>> kainan
-=======
->>>>>>> master
->>>>>>> kainan
-=======
->>>>>>> master
->>>>>>> kainan
-
+let incluirComissao = document.getElementById("incluirComissao")
 
 window.onload = function () {
     var requestOptions = {
@@ -38,26 +13,7 @@ window.onload = function () {
         redirect: 'follow'
     };
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
     //Supervisor
->>>>>>> master
-=======
-    //Supervisor
->>>>>>> kainan
-=======
-=======
-    //Supervisor
->>>>>>> master
->>>>>>> kainan
-=======
-=======
-    //Supervisor
->>>>>>> master
->>>>>>> kainan
     fetch("http://172.16.0.197:3000/user/supervisor", requestOptions)
         .then(response => response.json())
         .then(function (data) {
@@ -68,26 +24,7 @@ window.onload = function () {
             }
         }).catch(error => console.log('error', error));
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
         //Gerente
->>>>>>> master
-=======
-        //Gerente
->>>>>>> kainan
-=======
-=======
-        //Gerente
->>>>>>> master
->>>>>>> kainan
-=======
-=======
-        //Gerente
->>>>>>> master
->>>>>>> kainan
     fetch("http://172.16.0.197:3000/user/gerente", requestOptions)
         .then(response => response.json().then(function (data) {
             for (let i = 0; i < data.length; i++) {
@@ -96,22 +33,6 @@ window.onload = function () {
             }
         })).catch(error => console.log('error', error));
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-}
-=======
-=======
->>>>>>> kainan
-=======
-}
-=======
->>>>>>> kainan
-=======
-}
-=======
->>>>>>> kainan
         //Parceiro Promotor
 //   fetch("http://172.16.0.197:3000/user/comissao/promotor", requestOptions)
 //   .then(response => response.json().then(function (data) {
@@ -154,15 +75,39 @@ window.onload = function () {
 
 }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> master
-=======
->>>>>>> kainan
-=======
->>>>>>> master
->>>>>>> kainan
-=======
->>>>>>> master
->>>>>>> kainan
+//Inclusão de Comissão
+incluirComissao.addEventListener('click', () =>{
+  let parcPromo = document.getElementById('exampleParcPromo')
+  let proposta = document.getElementById('validationProposta')
+  let supervisor = document.getElementById('exampleSupervisor')
+  let status = document.getElementById('exampleStatus')
+  let gerente = document.getElementById('exampleGerente')
+  let dtPagSupervisor = document.getElementById('exampledtSupervisor')
+  let dtPagGerente = document.getElementById('exampleDtGerente')
+  let competenciaPag = document.getElementById('exampleCompPag')
+  let cpfPromotor = document.getElementById('cpfPromo')
+
+  var myHeaders = new Headers()
+  myHeaders.append("Content-Type", "application/json");
+
+  var raw = JSON.stringify({})
+
+  var requestOptions = {
+    method: 'POST',
+    headers: myHeaders,
+    body: raw,
+    redirect: 'follow'
+  }
+
+  fetch("", requestOptions)
+    .then(response => response.json())
+    .then(result => {})
+})
+
+//Apagar Filtro
+let apagar = document.getElementById("btnApagarFiltro")
+apagar.addEventListener('click', () => {
+    $("#apagarFiltro").each(function () {
+        this.reset();
+    })
+})
