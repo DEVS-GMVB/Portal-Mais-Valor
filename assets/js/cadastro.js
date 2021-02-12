@@ -12,24 +12,30 @@ let buttonIncluir = document.getElementById("buttonIncluir");
 let supervisorMulti = document.getElementById("exampleFormControlSelectSerMultBanc");
 let gerenteMulti = document.getElementById('exampleFormControlSelectGerMultBanc');
 let supervisorComissao = document.getElementById("exampleSupervisor");
+let cadastro_tab = document.getElementById("cadastro-tab");
+let comissao_tab = document.getElementById("comissao-tab");
+let chaveJ_tab = document.getElementById("chavej-tab");
+let siglae_tab = document.getElementById("siglae-tab");
+let testando = document.getElementById("comissao-tabb");
+let testando2 = document.getElementById("chavej-tabb");
+let testando3 = document.getElementById("siglae-tabb");
+
+let testeCont = 0;
 let arrayAcessoAlterar;
 let contAcessoAlterar = -1;
 let cpfcnpjParceiro = [];
-let cadastro_tab = document.getElementById("cadastro-tab");
-let comissao_tab = document.getElementById("comissao-tab");
-let testeCont = 0;
 
-var cont = -1;
-var array;
-var teste;
+
+let cont = -1;
+let array;
+
 
 window.onload = function () {
-
     // ------------------------------
     const prosseguir = document.getElementById('prosseguirBtn');
     prosseguir.addEventListener('click', () => {
         testeCont++;
-        if(testeCont === 1) {
+        if (testeCont === 1) {
             if (cadastro_tab.getAttribute("aria-selected") == "true") {
                 cadastro_tab.setAttribute('aria-selected', false);
             }
@@ -37,8 +43,7 @@ window.onload = function () {
             comissao_tab.setAttribute('aria-selected', true);
             comissao_tab.classList.add('active');
             cadastro_tab.classList.remove('active');
-        }
-        else if(testeCont > 1) {
+        } else if (testeCont > 1) {
             // alert("etetdsasadadsf")
             comissao_tab.setAttribute('aria-selected', true);
             comissao_tab.classList.add('active');
@@ -49,14 +54,85 @@ window.onload = function () {
         }
 
     })
-    let testando = document.getElementById("comissao-tabb");
     comissao_tab.addEventListener('blur', () => {
         // comissao_tab.setAttribute('aria-selected', false);
         // alert("fdsfsdsdfs")
         comissao_tab.classList.remove('active');
-        
+
 
     })
+
+    // //--------------------------------
+    // //Prosseguir chaveJ
+    const prosseguirChaveJ = document.getElementById("prosseguirChaveJ");
+    let contChavej = 0;
+    prosseguirChaveJ.addEventListener("click", () => {
+
+        contChavej++;
+        if (contChavej === 1) {
+            if (comissao_tab.getAttribute("aria-selected") == "true") {
+                comissao_tab.setAttribute('aria-selected', false);
+            }
+
+            chaveJ_tab.setAttribute('aria-selected', true);
+            chaveJ_tab.classList.add('active');
+            comissao_tab.classList.remove('active');
+        } else if (contChavej > 1) {
+            // alert("etetdsasadadsf")
+            chaveJ_tab.setAttribute('aria-selected', true);
+            chaveJ_tab.classList.add('active');
+            comissao_tab.classList.remove('active');
+
+            testando2.classList.remove('active');
+
+        }
+
+    })
+
+    chaveJ_tab.addEventListener('blur', () => {
+        // comissao_tab.setAttribute('aria-selected', false);
+        // alert("fdsfsdsdfs")
+        chaveJ_tab.classList.remove('active');
+
+
+    })
+    //------------
+    //Prosseguir siglae
+
+    const prosseguirSiglae = document.getElementById("prosseguirSiglaE");
+    let contSiglae = 0;
+    prosseguirSiglae.addEventListener("click", () => {
+
+        contSiglae++;
+        if (contSiglae === 1) {
+            if (chaveJ_tab.getAttribute("aria-selected") == "true") {
+                chaveJ_tab.setAttribute('aria-selected', false);
+            }
+
+            siglae_tab.setAttribute('aria-selected', true);
+            siglae_tab.classList.add('active');
+            chaveJ_tab.classList.remove('active');
+        } else if (contSiglae > 1) {
+            // alert("etetdsasadadsf")
+            siglae_tab.setAttribute('aria-selected', true);
+            siglae_tab.classList.add('active');
+            chaveJ_tab.classList.remove('active');
+
+            testando3.classList.remove('active');
+
+        }
+
+    })
+
+    siglae_tab.addEventListener('blur', () => {
+        // comissao_tab.setAttribute('aria-selected', false);
+        // alert("fdsfsdsdfs")
+        siglae_tab.classList.remove('active');
+
+
+    })
+
+
 
     // ------------------------------
     var requestOptions = {
@@ -155,7 +231,6 @@ colocar.addEventListener('click', () => {
             array = result;
 
             for (const value of result) {
-                teste = value.cnpj;
                 let specific_tbody = document.getElementById('list');
                 let row = specific_tbody.insertRow(-1);
                 let filial = row.insertCell(-1);
@@ -249,7 +324,7 @@ function editar(cpfCnpj) {
         // console.log(data[0]);
         arrayAcessoAlterar = data
         for (const value of data) {
-            
+
             let tbody = document.getElementById("lista");
             let row = tbody.insertRow(-1);
             let nome = row.insertCell(-1);
@@ -483,17 +558,15 @@ function funcCadastroAcessoAlterar(data) {
 //RESET APÓS TROCAR DE MODAL ENTRE O ALTERAR E O INCLUIR 
 buttonIncluir.addEventListener('click', () => {
     // $('#cadastro-tab').modal('show');
-    $( "td" ).remove();
+    $("td").remove();
 
-    (function ($) {
-        $(function () {
+    // (function ($) {
+    //     $(function () {
 
-            //codigo
-            $('#cadastro').modal('show');
-        })(jQuery);
-    })
-
-
+    //         //codigo
+    //         $('#cadastro').modal('show');
+    //     })(jQuery);
+    // })
 
     document.getElementById("acesso-tab").disabled = true;
 
@@ -508,4 +581,3 @@ apagar.addEventListener('click', () => {
         this.reset();
     })
 })
-

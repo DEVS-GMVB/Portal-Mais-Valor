@@ -3,9 +3,6 @@
 // var qua = document.getElementById('id-quaternario')
 // var sec = document.getElementById('idSecundario')
 var ger = document.getElementById('idTerceario')
-let comissaoo_tab = document.getElementById("comissao-tab");
-let chavej_tab = document.getElementById("chave-tab");
-let testeCont = 0;
 
 //Santander
 var campo = document.querySelector('#idParceiroPromotor');
@@ -274,36 +271,3 @@ cpfQuaternario.addEventListener('keyup', () => {
   }
 })
 
-
-//Trocar de tela
-const prosseguirr = document.getElementById('comissaoCadastro');
-    prosseguirr.addEventListener('click', () => {
-        testeCont++;
-        if(testeCont === 1) {
-            if (comissaoo_tab.getAttribute("aria-selected") == "true") {
-              comissaoo_tab.setAttribute('aria-selected', false);
-            }
-
-            chavej_tab.setAttribute('aria-selected', true);
-            chavej_tab.classList.add('active');
-            comissaoo_tab.classList.remove('active');
-        }
-        else if(testeCont > 1) {
-            // alert("etetdsasadadsf")
-            chavej_tab.setAttribute('aria-selected', true);
-            chavej_tab.classList.add('active');
-            comissaoo_tab.classList.remove('active');
-
-            testando.classList.remove('active');
-
-        }
-
-    })
-    let testando = document.getElementById("comissao-tabb");
-    chavej_tab.addEventListener('blur', () => {
-        // comissao_tab.setAttribute('aria-selected', false);
-        // alert("fdsfsdsdfs")
-        chavej_tab.classList.remove('active');
-        
-
-    })
