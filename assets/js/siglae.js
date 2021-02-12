@@ -307,6 +307,10 @@ cpfCnpjSigla.addEventListener('blur', () => {
     };
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+  
+>>>>>>> kainan
 =======
   
 >>>>>>> kainan

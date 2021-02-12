@@ -3,6 +3,10 @@ let gerenteComissao = document.getElementById("exampleGerente");
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> kainan
 =======
 =======
 >>>>>>> kainan
@@ -16,8 +20,12 @@ let dtSupervisor = document.getElementById("exampledtSupervisor")
 let compPag = document.getElementById("exampleCompPag")
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> master
 =======
+>>>>>>> kainan
+=======
+>>>>>>> master
 >>>>>>> kainan
 =======
 >>>>>>> master
@@ -33,11 +41,17 @@ window.onload = function () {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     //Supervisor
 >>>>>>> master
 =======
     //Supervisor
+>>>>>>> kainan
+=======
+=======
+    //Supervisor
+>>>>>>> master
 >>>>>>> kainan
 =======
 =======
@@ -57,11 +71,17 @@ window.onload = function () {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         //Gerente
 >>>>>>> master
 =======
         //Gerente
+>>>>>>> kainan
+=======
+=======
+        //Gerente
+>>>>>>> master
 >>>>>>> kainan
 =======
 =======
@@ -79,8 +99,13 @@ window.onload = function () {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 }
 =======
+=======
+>>>>>>> kainan
+=======
+}
 =======
 >>>>>>> kainan
 =======
@@ -131,8 +156,12 @@ window.onload = function () {
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> master
 =======
+>>>>>>> kainan
+=======
+>>>>>>> master
 >>>>>>> kainan
 =======
 >>>>>>> master

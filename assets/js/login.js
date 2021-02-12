@@ -39,7 +39,8 @@ const Logar = () => {
             sessionStorage.setItem('perfil',perfil);
             sessionStorage.setItem('status',status);
 
-            window.location.href = "../../paginas/home.html";
+            // window.location.href = "../../paginas/home.html";
+            console.log(user)
         
         });
     }).catch(error => console.log('error', error));
