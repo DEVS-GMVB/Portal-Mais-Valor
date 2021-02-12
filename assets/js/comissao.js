@@ -1,3 +1,4 @@
+// const URL = "http://localhost:3000"
 // VARS
 // var quat = document.getElementById('idQuartenario')
 // var qua = document.getElementById('id-quaternario')
@@ -279,7 +280,7 @@ cpfSecundario.addEventListener('blur', () => {
     body: raw,
     redirect: 'follow'
   };
-  fetch("http://172.16.0.197:3000/user/parceiros", requestOptions)
+  fetch(URL+"/user/parceiros", requestOptions)
     .then(response => response.json())
     .then(function (data) {
       if (data[0].parceiro === "NAO INFORMADO NA INSERA‡A?O") {
@@ -315,7 +316,7 @@ cpfTerceario.addEventListener('blur', () => {
     body: raw,
     redirect: 'follow'
   };
-  fetch("http://172.16.0.197:3000/user/parceiros", requestOptions)
+  fetch(URL+"/user/parceiros", requestOptions)
     .then(response => response.json())
     .then(function (data) {
       if (data[0].parceiro === "NAO INFORMADO NA INSERA‡A?O") {
@@ -351,7 +352,7 @@ cpfQuaternario.addEventListener('blur', () => {
     body: raw,
     redirect: 'follow'
   };
-  fetch("http://172.16.0.197:3000/user/parceiros", requestOptions)
+  fetch(URL+"/user/parceiros", requestOptions)
     .then(response => response.json())
     .then(function (data) {
       if (data[0].parceiro === "NAO INFORMADO NA INSERA‡A?O") {
