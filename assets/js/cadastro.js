@@ -1,4 +1,8 @@
 // VARS
+<<<<<<< Updated upstream
+=======
+const URL = "http://localhost:3000";
+>>>>>>> Stashed changes
 
 let fi = document.getElementById('exampleFormControlFilial');
 let filialCadastro = document.getElementById('exampleFormControlFilialCadastro');
@@ -12,19 +16,44 @@ let gerente = document.getElementById('exampleFormControlSelectGerente');
 let buttonIncluir = document.getElementById("buttonIncluir");
 let supervisorMulti = document.getElementById("exampleFormControlSelectSerMultBanc");
 let gerenteMulti = document.getElementById('exampleFormControlSelectGerMultBanc');
+<<<<<<< HEAD
+=======
 let supervisorComissao = document.getElementById("exampleSupervisor");
+let cadastro_tab = document.getElementById("cadastro-tab");
+let comissao_tab = document.getElementById("comissao-tab");
+let chaveJ_tab = document.getElementById("chavej-tab");
+let siglae_tab = document.getElementById("siglae-tab");
+let testando = document.getElementById("comissao-tabb");
+let testando2 = document.getElementById("chavej-tabb");
+let testando3 = document.getElementById("siglae-tabb");
+
+let testeCont = 0;
+let arrayAcessoAlterar;
+let contAcessoAlterar = -1;
 let cpfcnpjParceiro = [];
 
+<<<<<<< Updated upstream
+>>>>>>> master
 var cont = -1;
 var array;
 var teste;
+=======
+>>>>>>> Stashed changes
+
+let cont = -1;
+let array;
+
 
 window.onload = function () {
-
     // ------------------------------
     const prosseguir = document.getElementById('prosseguirBtn');
     prosseguir.addEventListener('click', () => {
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
 
+=======
+<<<<<<< HEAD
+>>>>>>> Stashed changes
         // $('#comissao').modal('toggle'); 
         var myHeaders = new Headers();
 
@@ -144,23 +173,101 @@ window.onload = function () {
             regra_pagamento: freqPag,
             data_bloqueio: dtBloqueio,
             data_contrato: dtEntrContr
+=======
+        testeCont++;
+        if (testeCont === 1) {
+            if (cadastro_tab.getAttribute("aria-selected") == "true") {
+                cadastro_tab.setAttribute('aria-selected', false);
+            }
+>>>>>>> Stashed changes
 
-        })
+            comissao_tab.setAttribute('aria-selected', true);
+            comissao_tab.classList.add('active');
+            cadastro_tab.classList.remove('active');
+        } else if (testeCont > 1) {
+            // alert("etetdsasadadsf")
+            comissao_tab.setAttribute('aria-selected', true);
+            comissao_tab.classList.add('active');
+            cadastro_tab.classList.remove('active');
 
-        var requestOptions = {
-            method: 'POST',
-            headers: myHeaders,
-            body: raw,
-            redirect: 'follow'
-        };
+            testando.classList.remove('active');
 
-        fetch("http://172.16.0.197:3000/user/cadastro/inclusao", requestOptions)
-            .then(response => response.json())
-            //   console.log(response)
-            .then(result => console.log(result))
-            .catch(error => console.log('error', error));
+        }
+
+    })
+    comissao_tab.addEventListener('blur', () => {
+        // comissao_tab.setAttribute('aria-selected', false);
+        // alert("fdsfsdsdfs")
+        comissao_tab.classList.remove('active');
 
 
+    })
+
+    // //--------------------------------
+    // //Prosseguir chaveJ
+    const prosseguirChaveJ = document.getElementById("prosseguirChaveJ");
+    let contChavej = 0;
+    prosseguirChaveJ.addEventListener("click", () => {
+
+        contChavej++;
+        if (contChavej === 1) {
+            if (comissao_tab.getAttribute("aria-selected") == "true") {
+                comissao_tab.setAttribute('aria-selected', false);
+            }
+
+            chaveJ_tab.setAttribute('aria-selected', true);
+            chaveJ_tab.classList.add('active');
+            comissao_tab.classList.remove('active');
+        } else if (contChavej > 1) {
+            // alert("etetdsasadadsf")
+            chaveJ_tab.setAttribute('aria-selected', true);
+            chaveJ_tab.classList.add('active');
+            comissao_tab.classList.remove('active');
+
+            testando2.classList.remove('active');
+
+        }
+
+    })
+
+    chaveJ_tab.addEventListener('blur', () => {
+        // comissao_tab.setAttribute('aria-selected', false);
+        // alert("fdsfsdsdfs")
+        chaveJ_tab.classList.remove('active');
+
+
+    })
+    //------------
+    //Prosseguir siglae
+
+    const prosseguirSiglae = document.getElementById("prosseguirSiglaE");
+    let contSiglae = 0;
+    prosseguirSiglae.addEventListener("click", () => {
+
+        contSiglae++;
+        if (contSiglae === 1) {
+            if (chaveJ_tab.getAttribute("aria-selected") == "true") {
+                chaveJ_tab.setAttribute('aria-selected', false);
+            }
+
+            siglae_tab.setAttribute('aria-selected', true);
+            siglae_tab.classList.add('active');
+            chaveJ_tab.classList.remove('active');
+        } else if (contSiglae > 1) {
+            // alert("etetdsasadadsf")
+            siglae_tab.setAttribute('aria-selected', true);
+            siglae_tab.classList.add('active');
+            chaveJ_tab.classList.remove('active');
+
+            testando3.classList.remove('active');
+
+        }
+
+<<<<<<< Updated upstream
+
+=======
+=======
+>>>>>>> Stashed changes
         // $(window).load(function() {
         //     $("#comissao").modal('show');
         // });
@@ -170,8 +277,22 @@ window.onload = function () {
         // if($("#comissao").hasClass("active")){
         //     document.getElementById("comissao").classList.remove('show')
         // }
+<<<<<<< Updated upstream
+
+=======
+>>>>>>> master
+>>>>>>> Stashed changes
+    })
+
+    siglae_tab.addEventListener('blur', () => {
+        // comissao_tab.setAttribute('aria-selected', false);
+        // alert("fdsfsdsdfs")
+        siglae_tab.classList.remove('active');
+
 
     })
+
+
 
     // ------------------------------
     var requestOptions = {
@@ -215,6 +336,7 @@ window.onload = function () {
         }).catch(error => console.log('error', error));
 
 
+<<<<<<< Updated upstream
     fetch("http://172.16.0.197:3000/user/supervisor", requestOptions)
             .then(response => response.json())
             .then(function (data) {
@@ -226,6 +348,8 @@ window.onload = function () {
             }).catch(error => console.log('error', error));
 
 
+=======
+>>>>>>> Stashed changes
 
 }
 const colocar = document.getElementById('incluir');
@@ -280,7 +404,6 @@ colocar.addEventListener('click', () => {
             array = result;
 
             for (const value of result) {
-                teste = value.cnpj;
                 let specific_tbody = document.getElementById('list');
                 let row = specific_tbody.insertRow(-1);
                 let filial = row.insertCell(-1);
@@ -350,14 +473,18 @@ colocar.addEventListener('click', () => {
 })
 
 
-function editar(cpf) {
-    // console.log(cpf);
 
+<<<<<<< Updated upstream
 
 function editar(cpfCnpj) {
     document.getElementById("acesso-tab").disabled = false;
     //Cabeçalho
 
+=======
+function editar(cpfCnpj) {
+    document.getElementById("acesso-tab").disabled = false;
+    //Cabeçalho
+>>>>>>> Stashed changes
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
 
@@ -376,7 +503,9 @@ function editar(cpfCnpj) {
     fetch(URL+"/user/cadastro/buscar", request).
     then(response => response.json().then(function (data) {
         // console.log(data[0]);
+        arrayAcessoAlterar = data
         for (const value of data) {
+
             let tbody = document.getElementById("lista");
             let row = tbody.insertRow(-1);
             let nome = row.insertCell(-1);
@@ -401,17 +530,16 @@ function editar(cpfCnpj) {
             let dtTexto = document.createTextNode(`${value.data_atualizacao}`);
             data_altera.appendChild(dtTexto);
 
-            cpfIncluirAcesso++;
+            contAcessoAlterar++
 
             altera.innerHTML = `
           <div class="actions ml-3 text-center">
-              <a href="#" class="action-item mr-0" data-toggle="tooltip" title="Alterar">
+              <a href="#" class="action-item mr-0" data-toggle="tooltip" onclick="funcCadastroAcessoAlterar(arrayAcessoAlterar[${contAcessoAlterar}])"   title="Alterar">
                   <i class="fas fa-external-link-alt"></i>
               </a>
           </div>`
         }
     }))
-
 
     // POPULANDO OS CAMPOS DO MODAL DE ACORDO COM ESSA REQUEST
     var raw = JSON.stringify({
@@ -428,17 +556,23 @@ function editar(cpfCnpj) {
     fetch(URL+"/user/cadastro/modal", requestOptions)
         .then(response => response.json())
         .then(function (data) {
+<<<<<<< Updated upstream
 
             // data = ""
             console.log(data);
             // console.log(document.getElementById('modalAlterar'))
 
+=======
+>>>>>>> Stashed changes
 
             $('.needs-validation').each(function () {
                 this.reset();
             });
 
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
             $("#validationParceiroPromotor").val("");
             $("#validationCpfCnpf").val("");
             if (document.getElementById('modalAlterar')) {
@@ -577,6 +711,39 @@ function editar(cpfCnpj) {
         .catch(error => console.log('error', error))
 }
 
+function funcCadastroAcessoAlterar(data) {
+    // console.log(v);
+    $("#id-cadusu-usuario").val(data.usuario);
+    $("#id-cadusu-login").val(data.nome);
+    $("#id-cadusu-senha").val(data.senha);
+    $("id-cadusu-novamentesenha").val(data.senha);
+    $("#id-cadusu-tipousu").val(data.tipo);
+    $("#id-cadusu-usumaster").val(data.usuario_master);
+    $("#id-cadusu-classi").val(data.classificacao);
+    $("#id-cadusu-empresa").val(data.empresa);
+    $("#id-cadusu-status").val(data.status);
+    $("#id-cadusu-telcelular").val(data.telefone);
+    $("#id-cadusu-cpfcnpj").val(data.cpf_usuario)
+    $("#id-cadusu-cnpjMatriz").val(data.cnpj_matriz);
+    $("#id-cadusu-email").val(data.email);
+    $("#id-cadusu-motcancela").val(data.motivo_cancelamento);
+    $("#id-cadusu-perfilacesso").val(data.perfil);
+    $("#id-cadusu-acessoole").val(data.ole);
+    $("#id-cadusu-acessopan").val(data.pan);
+    $("#id-cadusu-acessocetelem").val(data.cetelem);
+    $("#id-cadusu-acessoitau").val(data.itau);
+    $("#id-cadusu-acef5bmg").val(data.f5_bmg);
+    $("#id-cadusu-acef5itau").val(data.f5_itau);
+    $("#id-cadusu-acedaycoval").val(data.daycoval);
+    $("#id-cadusu-acesim").val(data.sim);
+    $("#id-cadusu-acesafra").val(data.safra);
+    $("#id-cadusu-acebradesco").val(data.bradesco);
+    $("#id-cadusu-aceparana").val(data.parana);
+    $("#id-cadusu-crefisa").val(data.crefisa);
+    $("#id-cadusu-aceconsorciobb").val(data.consorcio_bb);
+    $("#ace-cadusu-conscaixa").val(data.consorcio_caixa);
+    $("#id-cadusu-aceconsitau").val(data.consorcio_itau);
+}
 
 
 
@@ -584,15 +751,15 @@ function editar(cpfCnpj) {
 //RESET APÓS TROCAR DE MODAL ENTRE O ALTERAR E O INCLUIR 
 buttonIncluir.addEventListener('click', () => {
     // $('#cadastro-tab').modal('show');
-    (function ($) {
-        $(function () {
+    $("td").remove();
 
-            //codigo
-            $('#cadastro').modal('show');
-        })(jQuery);
-    })
+    // (function ($) {
+    //     $(function () {
 
-
+    //         //codigo
+    //         $('#cadastro').modal('show');
+    //     })(jQuery);
+    // })
 
     document.getElementById("acesso-tab").disabled = true;
 
@@ -601,11 +768,8 @@ buttonIncluir.addEventListener('click', () => {
     });
 })
 
-<<<<<<< HEAD
+<<<<<<< Updated upstream
 
-=======
-<<<<<<< HEAD
->>>>>>> kainan
 
 // Incluir Cadastro comissao chave j siglae
 // let incluirCadastro = document.getElementById("incluirCadastro");
@@ -701,6 +865,8 @@ buttonIncluir.addEventListener('click', () => {
     //     texts.value = "";
     // }
 
+=======
+>>>>>>> Stashed changes
 let apagar = document.getElementById("apagarFiltrosCadastro")
 apagar.addEventListener('click', () => {
     $("#apagarFiltros").each(function () {
@@ -708,5 +874,8 @@ apagar.addEventListener('click', () => {
     })
 })
 
+<<<<<<< Updated upstream
 }
 
+=======
+>>>>>>> Stashed changes
