@@ -14,11 +14,11 @@ let gerenteMulti = document.getElementById('exampleFormControlSelectGerMultBanc'
 let supervisorComissao = document.getElementById("exampleSupervisor");
 let cadastro_tab = document.getElementById("cadastro-tab");
 let comissao_tab = document.getElementById("comissao-tab");
-// let chaveJ_tab = document.getElementById("chavej-tab");
-// let siglae_tab = document.getElementById("siglae-tab");
+let chaveJ_tab = document.getElementById("chavej-tab");
+let siglae_tab = document.getElementById("siglae-tab");
 let testando = document.getElementById("comissao-tabb");
-// let testando2 = document.getElementById("chavej-tabb");
-// let testando3 = document.getElementById("siglae-tabb");
+let testando2 = document.getElementById("chavej-tabb");
+let testando3 = document.getElementById("siglae-tabb");
 
 let testeCont = 0;
 let arrayAcessoAlterar;
@@ -61,76 +61,76 @@ window.onload = function () {
 
 
     })
-    
+
     // //--------------------------------
     // //Prosseguir chaveJ
-    // const prosseguirChaveJ = document.getElementById("prosseguirChaveJ");
-    // let contChavej = 0;
-    // prosseguirChaveJ.addEventListener("click", () => {
+    const prosseguirChaveJ = document.getElementById("prosseguirChaveJ");
+    let contChavej = 0;
+    prosseguirChaveJ.addEventListener("click", () => {
 
-    //     contChavej++;
-    //     if (contChavej === 1) {
-    //         if (comissao_tab.getAttribute("aria-selected") == "true") {
-    //             comissao_tab.setAttribute('aria-selected', false);
-    //         }
+        contChavej++;
+        if (contChavej === 1) {
+            if (comissao_tab.getAttribute("aria-selected") == "true") {
+                comissao_tab.setAttribute('aria-selected', false);
+            }
 
-    //         chaveJ_tab.setAttribute('aria-selected', true);
-    //         chaveJ_tab.classList.add('active');
-    //         comissao_tab.classList.remove('active');
-    //     } else if (contChavej > 1) {
-    //         // alert("etetdsasadadsf")
-    //         chaveJ_tab.setAttribute('aria-selected', true);
-    //         chaveJ_tab.classList.add('active');
-    //         comissao_tab.classList.remove('active');
+            chaveJ_tab.setAttribute('aria-selected', true);
+            chaveJ_tab.classList.add('active');
+            comissao_tab.classList.remove('active');
+        } else if (contChavej > 1) {
+            // alert("etetdsasadadsf")
+            chaveJ_tab.setAttribute('aria-selected', true);
+            chaveJ_tab.classList.add('active');
+            comissao_tab.classList.remove('active');
 
-    //         testando2.classList.remove('active');
+            testando2.classList.remove('active');
 
-    //     }
+        }
 
-    // })
+    })
 
-    // chaveJ_tab.addEventListener('blur', () => {
-    //     // comissao_tab.setAttribute('aria-selected', false);
-    //     // alert("fdsfsdsdfs")
-    //     chaveJ_tab.classList.remove('active');
-
-
-    // })
-    // //------------
-    // //Prosseguir siglae
-    
-    // const prosseguirSiglae = document.getElementById("prosseguirSiglaE");
-    // let contSiglae = 0;
-    // prosseguirSiglae.addEventListener("click", () => {
-
-    //     contSiglae++;
-    //     if (contSiglae === 1) {
-    //         if (chaveJ_tab.getAttribute("aria-selected") == "true") {
-    //             chaveJ_tab.setAttribute('aria-selected', false);
-    //         }
-
-    //         siglae_tab.setAttribute('aria-selected', true);
-    //         siglae_tab.classList.add('active');
-    //         chaveJ_tab.classList.remove('active');
-    //     } else if (contSiglae > 1) {
-    //         // alert("etetdsasadadsf")
-    //         siglae_tab.setAttribute('aria-selected', true);
-    //         siglae_tab.classList.add('active');
-    //         chaveJ_tab.classList.remove('active');
-
-    //         testando3.classList.remove('active');
-
-    //     }
-
-    // })
-
-    // siglae_tab.addEventListener('blur', () => {
-    //     // comissao_tab.setAttribute('aria-selected', false);
-    //     // alert("fdsfsdsdfs")
-    //     siglae_tab.classList.remove('active');
+    chaveJ_tab.addEventListener('blur', () => {
+        // comissao_tab.setAttribute('aria-selected', false);
+        // alert("fdsfsdsdfs")
+        chaveJ_tab.classList.remove('active');
 
 
-    // })
+    })
+    //------------
+    //Prosseguir siglae
+
+    const prosseguirSiglae = document.getElementById("prosseguirSiglaE");
+    let contSiglae = 0;
+    prosseguirSiglae.addEventListener("click", () => {
+
+        contSiglae++;
+        if (contSiglae === 1) {
+            if (chaveJ_tab.getAttribute("aria-selected") == "true") {
+                chaveJ_tab.setAttribute('aria-selected', false);
+            }
+
+            siglae_tab.setAttribute('aria-selected', true);
+            siglae_tab.classList.add('active');
+            chaveJ_tab.classList.remove('active');
+        } else if (contSiglae > 1) {
+            // alert("etetdsasadadsf")
+            siglae_tab.setAttribute('aria-selected', true);
+            siglae_tab.classList.add('active');
+            chaveJ_tab.classList.remove('active');
+
+            testando3.classList.remove('active');
+
+        }
+
+    })
+
+    siglae_tab.addEventListener('blur', () => {
+        // comissao_tab.setAttribute('aria-selected', false);
+        // alert("fdsfsdsdfs")
+        siglae_tab.classList.remove('active');
+
+
+    })
 
 
 
@@ -581,3 +581,4 @@ apagar.addEventListener('click', () => {
         this.reset();
     })
 })
+
