@@ -164,12 +164,6 @@ incluirAcesso.addEventListener('click', () => {
           lista.pop();
         }
       }
-
-      // $("#form-acesso-incluir").each(function () {
-      //   this.reset();
-      // })
-
-
     })
     .catch(error => console.log('error', error));
 
@@ -181,7 +175,6 @@ function editarCpfAcesso(e) {
   var myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/json");
 
-  // console.log(e)
   var raw = JSON.stringify({
     id_acesso: e
   })
@@ -195,9 +188,6 @@ function editarCpfAcesso(e) {
 
   fetch("http://172.16.0.197:3000/user/cadastro/busca/acesso", requestOptions).
   then(response => response.json().then(function (data){  
-
-    // console.log("Resposta do alterar", data);
-
     $("#id-cadusu-usuario").val(data.usuario);
     $("#id-cadusu-login").val(data.nome);
     $("#id-cadusu-senha").val(data.senha);
@@ -233,8 +223,6 @@ function editarCpfAcesso(e) {
   })).catch(error => console.log('error', error))
 
 }
-
-
 
 let cpfcnpjIncluir = document.getElementById("validationCpfCadastro");
 cpfcnpjIncluir.addEventListener('blur', () => {

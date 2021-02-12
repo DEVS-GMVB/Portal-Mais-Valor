@@ -213,7 +213,7 @@
 
                                 <div class="col-md-4 mb-3">
                                     <label for="validationCustom01">CPF / CNPJ</label>
-                                    <input type="text" minlength="14" maxlength="18" name='cpfcnpj'
+                                    <input type="text" minlength="14" maxlength="18" name='cpfcnpj' placeholder="Ex: 000.000.000-00"
                                         onkeypress='mascaraMutuario(this,cpfCnpj)' class="form-control form-control-sm"
                                         id="validationCpfCadastro" required>
 
@@ -263,7 +263,8 @@
 
                                 <div class="col-md-3 mb-3">
                                     <label for="validationCustom01">Número Carteira de Trabalho</label>
-                                    <input type="text" class="form-control form-control-sm" id="validationNCT" required>
+                                    <input type="text" class="form-control form-control-sm" id="validationNCT" 
+                                    onKeyDown="fMasc( this, nCartTrab );" required>
 
                                 </div>
 
@@ -271,7 +272,7 @@
                                 <div class="col-md-3 mb-3">
                                     <label for="validationCustom01">Série Carteira de Trabalho</label>
                                     <input type="text" class="form-control form-control-sm" id="validationSerieCarteira"
-                                        required>
+                                    onKeyDown="fMasc( this, sCartTrab );"  required>
 
                                 </div>
 
@@ -299,7 +300,7 @@
                                 <div class="col-md-4 mb-3">
                                     <label for="validationCustom01">Número Contrato</label>
                                     <input type="text" class="form-control form-control-sm"
-                                        id="validationNumeroContrato" required>
+                                        id="validationNumeroContrato" onKeyDown="fMasc( this, nContrtato );" required>
 
                                 </div>
 
@@ -316,7 +317,8 @@
 
                                 <div class="col-md-5 mb-3">
                                     <label for="validationCustom01">E-mail</label>
-                                    <input type="text" class="form-control form-control-sm" id="email" required>
+                                    <input type="text" class="form-control form-control-sm" id="email" name="email" 
+                                     required>
 
                                 </div>
 
@@ -342,7 +344,8 @@
 
                                 <div class="col-md-1 mb-3">
                                     <label for="validationCustom01">Número</label>
-                                    <input type="text" class="form-control form-control-sm" id="validationNL" required>
+                                    <input type="text" class="form-control form-control-sm" id="validationNL"
+                                    onKeyDown="fMasc( this, sCartTrab );" required>
 
                                 </div>
 
@@ -366,14 +369,14 @@
                                 <div class="col-md-2 mb-3">
                                     <label for="validationCustom01">Cidade</label>
                                     <input type="text" class="form-control form-control-sm" id="validationCidade"
-                                        required>
+                                    onkeypress="return ApenasLetras(event,this);" required>
 
                                 </div>
 
                                 <div class="col-md-1 mb-3">
                                     <label for="validationCustom01">Estado</label>
                                     <input type="text" class="form-control form-control-sm" id="validationEstado"
-                                        required>
+                                    onkeypress="return ApenasLetras(event,this);" required>
 
                                 </div>
 
@@ -444,7 +447,7 @@
                                 <div class="col-md-3 mb-3">
                                     <label for="validationCustom01">Número Cartão</label>
                                     <input type="text" class="form-control form-control-sm" id="id-fp-numcartao"
-                                        required>
+                                    onKeyDown="fMasc( this, nContrtato );"   required>
 
                                 </div>
 
@@ -760,7 +763,7 @@
                                 <div class="col-md-2 mb-3">
                                     <label for="validationCustom01">Código</label>
                                     <input type="text" class="form-control form-control-sm" id="validationCodigo"
-                                        required>
+                                    onKeyDown="fMasc( this, nContrtato );"  required>
 
                                 </div>
 
@@ -769,7 +772,7 @@
                                 <div class="col-md-2 mb-3">
                                     <label for="validationCustom01">Matrícula</label>
                                     <input type="text" class="form-control form-control-sm" id="validationMatricula"
-                                        required>
+                                    onKeyDown="fMasc( this, nContrtato );" required>
 
                                 </div>
 
@@ -911,7 +914,7 @@
 
                                 <div class="col-md-4 mb-3">
                                     <label for="validationCustom01">CPF Secundário</label>
-                                    <input type="text" class="form-control form-control-sm" id="cpfSecundario"
+                                    <input type="text" class="form-control form-control-sm" id="cpfSecundario" placeholder="Ex: 000.000.000-00"
                                         onkeypress='mascaraMutuario(this,cpfCnpj)' minlength="14" maxlength="18">
 
                                 </div>
@@ -934,7 +937,7 @@
 
                                 <div class="col-md-4 mb-3">
                                     <label for="validationCustom01">CPF Terceário</label>
-                                    <input type="text" class="form-control form-control-sm" id="cpfTerceario"
+                                    <input type="text" class="form-control form-control-sm" id="cpfTerceario" placeholder="Ex: 000.000.000-00"
                                         onkeypress='mascaraMutuario(this,cpfCnpj)' minlength="14" maxlength="18">
 
                                 </div>
@@ -957,7 +960,7 @@
 
                                 <div class="col-md-4 mb-3">
                                     <label for="validationCustom01">CPF Quartenário</label>
-                                    <input type="text" class="form-control form-control-sm"
+                                    <input type="text" class="form-control form-control-sm" placeholder="Ex: 000.000.000-00"
                                         onkeypress='mascaraMutuario(this,cpfCnpj)' minlength="14" maxlength="18"
                                         id="quaternario">
 
@@ -1008,7 +1011,7 @@
                                     <div class="form-group">
                                         <label for="exampleFormControlSelect1">% Parceiro/Promotor MEI</label>
                                         <input type="text" class="form-control form-control-sm"
-                                            name="idParceiroPromotor" id="idParceiroPromotor" maxlength="6">
+                                        onkeyup="mascaraMutuario(this,mComissao)"   name="idParceiroPromotor" id="idParceiroPromotor" maxlength="6">
                                     </div>
 
                                 </div>
@@ -1016,21 +1019,21 @@
                                 <div class="col-md-4 mb-3">
                                     <label for="validationCustom01">% Supervisor</label>
                                     <input type="text" class="form-control form-control-sm" id="id-porc-supervisor"
-                                        name="id-porc-supervisor" maxlength="6">
+                                    onkeyup="mascaraMutuario(this,mComissao)" name="id-porc-supervisor" maxlength="6">
 
                                 </div>
 
                                 <div class="col-md-4 mb-3">
                                     <label for="validationCustom01">% Gerente</label>
                                     <input type="text" class="form-control form-control-sm" id="id-porc-gerente"
-                                        name="id-porc-gerente" maxlength="6">
+                                    onkeyup="mascaraMutuario(this,mComissao)" name="id-porc-gerente" maxlength="6">
 
                                 </div>
 
                                 <div class="col-md-3 mb-3">
                                     <label for="validationCustom01">% Quartenário</label>
                                     <input type="text" class="form-control form-control-sm" id="id-porc-quaternario"
-                                        name="id-porc-quaternario" maxlength="6">
+                                    onkeyup="mascaraMutuario(this,mComissao)" name="id-porc-quaternario" maxlength="6">
 
                                 </div>
 
@@ -1087,7 +1090,7 @@
                                     <div class="form-group">
                                         <label for="exampleFormControlSelect1">% Parceiro/Promotor MEI</label>
                                         <input class="form-control form-control-sm" name="id-ce-parceiro-promotor"
-                                            id="id-ce-parceiro-promotor" maxlength="6">
+                                        onkeyup="mascaraMutuario(this,mComissao)" id="id-ce-parceiro-promotor" maxlength="6">
                                     </div>
 
                                 </div>
@@ -1095,21 +1098,21 @@
                                 <div class="col-md-4 mb-3">
                                     <label for="validationCustom01">% Supervisor</label>
                                     <input type="text" class="form-control form-control-sm" id="id-ce-supervisor"
-                                        name="id-ce-supervisor" maxlength="6">
+                                    onkeyup="mascaraMutuario(this,mComissao)"  name="id-ce-supervisor" maxlength="6">
 
                                 </div>
 
                                 <div class="col-md-4 mb-3">
                                     <label for="validationCustom01">% Gerente</label>
                                     <input type="text" class="form-control form-control-sm" id="id-ce-gerente"
-                                        name="id-ce-gerente" maxlength="6">
+                                    onkeyup="mascaraMutuario(this,mComissao)"  name="id-ce-gerente" maxlength="6">
 
                                 </div>
 
                                 <div class="col-md-6 mb-3">
                                     <label for="validationCustom01">% Quartenário</label>
                                     <input type="text" class="form-control form-control-sm" id="id-ce-quaternario"
-                                        name="id-ce-quaternario" maxlength="6">
+                                    onkeyup="mascaraMutuario(this,mComissao)" name="id-ce-quaternario" maxlength="6">
 
                                 </div>
 
@@ -1149,7 +1152,7 @@
                                     <div class="form-group">
                                         <label for="exampleFormControlSelect1">% Parceiro/Promotor MEI</label>
                                         <input class="form-control form-control-sm" id="id-gmg-parcpromo"
-                                            name="id-gmg-parcpromo" maxlength="6">
+                                        onkeyup="mascaraMutuario(this,mComissao)"  name="id-gmg-parcpromo" maxlength="6">
                                     </div>
 
                                 </div>
@@ -1157,21 +1160,21 @@
                                 <div class="col-md-4 mb-3">
                                     <label for="validationCustom01">% Supervisor</label>
                                     <input type="text" class="form-control form-control-sm" id="id-gmg-supervisor"
-                                        name="id-gmg-supervisor" maxlength="6">
+                                    onkeyup="mascaraMutuario(this,mComissao)" name="id-gmg-supervisor" maxlength="6">
 
                                 </div>
 
                                 <div class="col-md-4 mb-3">
                                     <label for="validationCustom01">% Gerente</label>
                                     <input type="text" class="form-control form-control-sm" id="id-gmg-gerente"
-                                        name="id-gmg-gerente" maxlength="6">
+                                    onkeyup="mascaraMutuario(this,mComissao)" name="id-gmg-gerente" maxlength="6">
 
                                 </div>
 
                                 <div class="col-md-6 mb-3">
                                     <label for="validationCustom01">% Quartenário</label>
                                     <input type="text" class="form-control form-control-sm" id="id-gmg-quaternario"
-                                        name="id-gmg-quaternario" maxlength="6">
+                                    onkeyup="mascaraMutuario(this,mComissao)"  name="id-gmg-quaternario" maxlength="6">
 
                                 </div>
 
@@ -1211,7 +1214,7 @@
                                     <div class="form-group">
                                         <label for="exampleFormControlSelect1">% Parceiro/Promotor MEI</label>
                                         <input class="form-control form-control-sm" id="id-grj-parcpromo"
-                                            name="id-grj-parcpromo" maxlength="6">
+                                        onkeyup="mascaraMutuario(this,mComissao)"   name="id-grj-parcpromo" maxlength="6">
 
                                     </div>
 
@@ -1220,21 +1223,21 @@
                                 <div class="col-md-4 mb-3">
                                     <label for="validationCustom01">% Supervisor</label>
                                     <input type="text" class="form-control form-control-sm" id="id-grj-supervisor"
-                                        name="id-grj-supervisor" maxlength="6">
+                                    onkeyup="mascaraMutuario(this,mComissao)"  name="id-grj-supervisor" maxlength="6">
 
                                 </div>
 
                                 <div class="col-md-4 mb-3">
                                     <label for="validationCustom01">% Gerente</label>
                                     <input type="text" class="form-control form-control-sm" id="id-grj-gerente"
-                                        name="id-grj-gerente" maxlength="6">
+                                    onkeyup="mascaraMutuario(this,mComissao)"  name="id-grj-gerente" maxlength="6">
 
                                 </div>
 
                                 <div class="col-md-6 mb-3">
                                     <label for="validationCustom01">% Quartenário</label>
                                     <input type="text" class="form-control form-control-sm" id="id-grj-quaternario"
-                                        name="id-grj-quaternario" maxlength="6">
+                                    onkeyup="mascaraMutuario(this,mComissao)"   name="id-grj-quaternario" maxlength="6">
 
                                 </div>
 
@@ -1270,7 +1273,7 @@
                                 <div class="form-group">
                                     <label for="exampleFormControlSelect1">% Parceiro/Promotor MEI</label>
                                     <input class="form-control form-control-sm" id="id-tm-parcpromo"
-                                        name="id-tm-parcpromo" maxlength="6">
+                                    onkeyup="mascaraMutuario(this,mComissao)"  name="id-tm-parcpromo" maxlength="6">
                                 </div>
 
                             </div>
@@ -1289,7 +1292,7 @@
                                 <div class="form-group">
                                     <label for="exampleFormControlSelect1">% Parceiro/Promotor MEI</label>
                                     <input class="form-control form-control-sm" id="id-ts-parcpromo"
-                                        name="id-ts-parcpromo" maxlength="6">
+                                    onkeyup="mascaraMutuario(this,mComissao)"    name="id-ts-parcpromo" maxlength="6">
                                 </div>
 
                             </div>
@@ -1307,7 +1310,7 @@
                                 <div class="form-group">
                                     <label for="exampleFormControlSelect1">% Parceiro/Promotor MEI</label>
                                     <input class="form-control form-control-sm" id="id-tc-parcpromo"
-                                        name="id-tc-parcpromo" maxlength="6">
+                                    onkeyup="mascaraMutuario(this,mComissao)"  name="id-tc-parcpromo" maxlength="6">
 
                                 </div>
 
@@ -1746,10 +1749,7 @@
                                 <div class="col-md-6 mb-3">
                                     <div class="form-group">
                                         <label for="exampleFormControlSelect1">Senha Chave J</label>
-                                        <select class="form-control form-control-sm" id="senhaChavej">
-                                            <option> </option>
-
-                                        </select>
+                                        <input type="password" class="form-control form-control-sm" id="senhaChavej">
                                     </div>
 
                                 </div>
@@ -1841,7 +1841,7 @@
                                 <div class="col-md-4 mb-3">
                                     <label for="validationCustom01">Código Escritório</label>
                                     <input type="text" class="form-control form-control-sm"
-                                        id="validationCodigoEscritorio">
+                                    onKeyDown="fMasc( this, nContrtato );" id="validationCodigoEscritorio">
 
                                 </div>
 
@@ -1910,7 +1910,7 @@
 
                                 <div class="col-md-6 mb-3">
                                     <label for="validationCustom01">CPF/CNPJ</label>
-                                    <input type="text" minlength="14" maxlength="18" name='cpfcnpj'
+                                    <input type="text" minlength="14" maxlength="18" name='cpfcnpj' placeholder="Ex: 000.000.000-00"
                                         onkeypress='mascaraMutuario(this,cpfCnpj)' class="form-control form-control-sm"
                                         id="validationCpfCnpf">
 

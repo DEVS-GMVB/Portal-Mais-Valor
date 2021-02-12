@@ -1,10 +1,8 @@
 const prosseguir = document.getElementById('incluirSilgasE');
 prosseguir.addEventListener('click', () => {
-    // window.location.replace("#cadastro");
 
     //Habilitar o modal acesso somente após clicar no botão finalizar
     document.getElementById("acesso-tab").disabled = false;
-
 
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
@@ -264,13 +262,14 @@ prosseguir.addEventListener('click', () => {
         })
         .catch(error => console.log('error', error));
 
+        if(cpfcnpj == ''){
+            alert('Preencha os campos necessários')
+        }
+        
 })
 
-
-// Função para parceiros 
+// CPF Parceiros
 let cpfCnpjSigla = document.getElementById("validationCpfCnpf");
-
-
 cpfCnpjSigla.addEventListener('blur', () => {
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
@@ -303,5 +302,4 @@ cpfCnpjSigla.addEventListener('keyup', () => {
     if (promotor.value.length > 0) {
         $("#validationParceiroPromotor").val("")
     }
-    // if($("#validationParceiroPromotor").val())
 })

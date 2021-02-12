@@ -240,50 +240,60 @@ function DataHora(evento, objeto) {
         event.returnValue = false;
 }
 
-// function mHora(val) {
-//     val = val.split(":");
-//     return (parseInt(val[0]) > 19)? "HZ:M0" : "H0:M0"
-// }
-
 function mQtde(v) {
     v = /d{3}-\d{3}-\d{4}/
     return v;
 }
 
+function nCartTrab(v) {
+    v = v.replace(/\D/g, ""); // Permite apenas dígitos
+    v = v.substring(0, 7) // Limita o tamanho
 
-// $(document).ready(function(){
-//     $("#horarioPropostas").inputmask("h:s",{ "placeholder": "hh/mm" });
-// });
+    return v;
+}
 
+function sCartTrab(v) {
+    v = v.replace(/\D/g, ""); // Permite apenas dígitos
+    v = v.substring(0, 4) // Limita o tamanho
 
+    return v;
+}
 
-// function Mascara_Hora(Hora) {
-//     var hora01 = '';
-//     hora01 = hora01 + Hora;
-//     if (hora01.length == 2) {
-//         hora01 = hora01 + ':';
-//         document.forms[0].Hora.value = hora01;
-//     }
-//     if (hora01.length == 5) {
-//         Verifica_Hora();
-//     }
-// }
+function nContrtato(v) {
+    v = v.replace(/\D/g, ""); // Permite apenas dígitos
+    return v;
+}
 
-// function Verifica_Hora() {
-//     hrs = (document.forms[0].Hora.value.substring(0, 2));
-//     min = (document.forms[0].Hora.value.substring(3, 5));
+function ApenasLetras(e, t) {
+    try {
+        if (window.event) {
+            var charCode = window.event.keyCode;
+        } else if (e) {
+            var charCode = e.which;
+        } else {
+            return true;
+        }
+        if ((charCode > 64 && charCode < 91) || (charCode > 96 && charCode < 123))
+            return true;
+        else
+            return false;
+    } catch (err) {
+        alert(err.Description);
+    }
+}
 
-//     estado = "";
-//     if ((hrs < 00) || (hrs > 23) || (min < 00) || (min > 59)) {
-//         estado = "errada";
-//     }
+//Numero de cartao
+// function ncc(v){
+//     v = v.replace(/\D/g,""); // Permite apenas dígitos
+//     v = v.replace(/(\d{4})/g, "$1."); // Coloca um ponto a cada 4 caracteres
+//     v = v.replace(/\.$/, ""); // Remove o ponto se estiver sobrando
+//     v = v.substring(0, 19)// Limita o tamanho
+  
+//     return v;
+//   }
 
-//     if (document.forms[0].Hora.value == "") {
-//         estado = "errada";
-//     }
-
-//     if (estado == "errada") {
-//         alert("Hora inválida!");
-//         document.forms[0].Hora.focus();
-//     }
-// }
+function mComissao(v) {
+    var d = v.replace(/\D/g, "");
+    d = d.replace(/(\d{2,3})(\d{2,3})$/, "$1.$2");
+    return d;
+}

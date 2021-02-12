@@ -33,13 +33,13 @@ window.onload = function () {
             }
         })).catch(error => console.log('error', error));
 
-        //Parceiro Promotor
-//   fetch("http://172.16.0.197:3000/user/comissao/promotor", requestOptions)
-//   .then(response => response.json().then(function (data) {
-//     for (let i = 0; i < data.length; i++) {
-//       parceiropromotor.innerHTML += '<option value="' + data[i].parceiro + '">' + data[i].parceiro + '</option>;'
-//     }
-//   })).catch(error => console.log('error', error));
+        /*Parceiro Promotor
+    fetch("http://172.16.0.197:3000/user/comissao/promotor", requestOptions)
+       .then(response => response.json().then(function (data) {
+          for (let i = 0; i < data.length; i++) {
+           parceiropromotor.innerHTML += '<option value="' + data[i].parceiro + '">' + data[i].parceiro + '</option>;'
+       }
+     })).catch(error => console.log('error', error));*/
 
       //Status
       fetch("http://172.16.0.197:3000/user/comissao/status", requestOptions)
@@ -74,7 +74,6 @@ window.onload = function () {
        })).catch(error => console.log('error', error));
 
 }
-
 
 //Apagar Filtro
 let apagar = document.getElementById("btnApagarFiltro")
