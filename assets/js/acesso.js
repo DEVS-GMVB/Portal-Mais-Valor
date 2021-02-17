@@ -177,7 +177,7 @@ incluirAcesso.addEventListener('click', () => {
 })
 
 function editarCpfAcesso(e) {
-  console.log(e);
+  // console.log(e);
 
   var myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/json");
