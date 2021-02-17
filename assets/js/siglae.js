@@ -257,15 +257,26 @@ prosseguir.addEventListener('click', () => {
         .then(response => response.json())
         //   console.log(response)
         .then(function (data) {
-            alert("Cadastro incluido com sucesso!")
+            //alert("Cadastro incluido com sucesso!")
+            $('#alertSucessoCadastro').show();
+            $('#alertSucessoCadastro').fadeIn( 300 ).delay( 9000 ).fadeOut( 400 );
             console.log(data)
         })
         .catch(error => console.log('error', error));
-
-        if(cpfcnpj == ''){
-            alert('Preencha os campos necessários')
-        }
         
+        if(cpfcnpj == ''){
+            // alert('Preencha os campos necessários')
+            $('#alertFalhaCadastro').show();
+         }else{
+            $('#alertFalhaCadastro').remove();
+         }
+
+        //Mascara email
+        if (email.search('@')==-1 || email.search('.com')==-1) {
+            $('#alertEmial').show();
+        } else{
+            $('#alertEmial').remove();
+        }
 })
 
 // CPF Parceiros

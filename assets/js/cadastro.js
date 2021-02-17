@@ -495,6 +495,7 @@ function funcCadastroAcessoAlterar(data) {
     $("#id-cadusu-aceconsorciobb").val(data.consorcio_bb);
     $("#ace-cadusu-conscaixa").val(data.consorcio_caixa);
     $("#id-cadusu-aceconsitau").val(data.consorcio_itau);
+
 }
 
 //RESET APÓS TROCAR DE MODAL ENTRE O ALTERAR E O INCLUIR 

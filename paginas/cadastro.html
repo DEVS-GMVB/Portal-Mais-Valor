@@ -314,13 +314,16 @@
 
                                 </div>
 
-
                                 <div class="col-md-5 mb-3">
                                     <label for="validationCustom01">E-mail</label>
                                     <input type="text" class="form-control form-control-sm" id="email" name="email" 
                                      required>
-
-                                </div>
+                                     <!-- Mascara Email -->
+                                     <div class="hidden alert-danger" id="alertEmial" role="alert">
+                                        Email invalido
+                                      </div>
+                                      <!-- Fim mascara email -->
+                                </div> 
 
 
                             </div>
@@ -1971,6 +1974,16 @@
                             </button>
 
                         </div>
+
+                        <!-- Alert falha cadastro -->
+                        <div class="alert alert-danger" id="alertFalhaCadastro" role="alert">
+                            Preencha os campos necessários 
+                          </div>
+
+                          <!-- Alert sucesso cadastro -->
+                        <div class="alert alert-success" id="alertSucessoCadastro" role="alert">
+                            Cadastro incluido com sucesso! 
+                          </div>
 
                     </div>
 

@@ -18,3 +18,19 @@ input {
   :-ms-input-placeholder {  /* IE */
      text-transform: lowercase; 
   }
+
+  .hidden{
+     display: none;
+  }
+
+  .alert-danger{
+     margin-top: 10px;
+     text-align: center;
+     display: none;
+  }
+
+  .alert-success{
+   margin-top: 10px;
+   text-align: center;
+   display: none;
+}
