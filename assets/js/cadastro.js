@@ -304,8 +304,8 @@ colocar.addEventListener('click', () => {
 
 
 function editar(cpfCnpj) {
+    //javascript para interromper o fluxo dos modais iguais;
     document.getElementById("acesso-tab").disabled = false;
-
 
     //Cabeçalho
     var myHeaders = new Headers();
@@ -844,3 +844,6 @@ apagar.addEventListener('click', () => {
         this.reset();
     })
 })
+
+
+
