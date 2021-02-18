@@ -1,4 +1,9 @@
 // VARS
+
+
+const URL = "http://localhost:3000";
+
+
 let fi = document.getElementById('exampleFormControlFilial');
 let filialCadastro = document.getElementById('exampleFormControlFilialCadastro');
 let supervisor = document.getElementById('exampleFormControlSupervisor');
@@ -19,17 +24,20 @@ let siglae_tab = document.getElementById("siglae-tab");
 let testando = document.getElementById("comissao-tabb");
 let testando2 = document.getElementById("chavej-tabb");
 let testando3 = document.getElementById("siglae-tabb");
+let divButton = document.getElementById("botaoAltIncluir");
+
 let testeCont = 0;
 let arrayAcessoAlterar;
 let contAcessoAlterar = -1;
-let cpfcnpjParceiro = [];
+let cpfcnpjParceiro;
+
+
 let cont = -1;
 let array;
 
-//variavel de ambiente
-const URL = `http://localhost:3000`;
 
 window.onload = function () {
+    // ------------------------------
     const prosseguir = document.getElementById('prosseguirBtn');
     prosseguir.addEventListener('click', () => {
         testeCont++;
@@ -37,21 +45,30 @@ window.onload = function () {
             if (cadastro_tab.getAttribute("aria-selected") == "true") {
                 cadastro_tab.setAttribute('aria-selected', false);
             }
+
             comissao_tab.setAttribute('aria-selected', true);
             comissao_tab.classList.add('active');
             cadastro_tab.classList.remove('active');
         } else if (testeCont > 1) {
+            // alert("etetdsasadadsf")
             comissao_tab.setAttribute('aria-selected', true);
             comissao_tab.classList.add('active');
             cadastro_tab.classList.remove('active');
+
             testando.classList.remove('active');
+
         }
-    })
 
+    })
     comissao_tab.addEventListener('blur', () => {
+        // comissao_tab.setAttribute('aria-selected', false);
+        // alert("fdsfsdsdfs")
         comissao_tab.classList.remove('active');
+
+
     })
 
+    // //--------------------------------
     // //Prosseguir chaveJ
     const prosseguirChaveJ = document.getElementById("prosseguirChaveJ");
     let contChavej = 0;
@@ -79,39 +96,59 @@ window.onload = function () {
     })
 
     chaveJ_tab.addEventListener('blur', () => {
+        // comissao_tab.setAttribute('aria-selected', false);
+        // alert("fdsfsdsdfs")
         chaveJ_tab.classList.remove('active');
+
+
     })
- 
+    //------------
     //Prosseguir siglae
+
     const prosseguirSiglae = document.getElementById("prosseguirSiglaE");
     let contSiglae = 0;
     prosseguirSiglae.addEventListener("click", () => {
+
         contSiglae++;
         if (contSiglae === 1) {
             if (chaveJ_tab.getAttribute("aria-selected") == "true") {
                 chaveJ_tab.setAttribute('aria-selected', false);
             }
+
             siglae_tab.setAttribute('aria-selected', true);
             siglae_tab.classList.add('active');
             chaveJ_tab.classList.remove('active');
         } else if (contSiglae > 1) {
+            // alert("etetdsasadadsf")
             siglae_tab.setAttribute('aria-selected', true);
             siglae_tab.classList.add('active');
             chaveJ_tab.classList.remove('active');
+
             testando3.classList.remove('active');
+
         }
+
     })
 
     siglae_tab.addEventListener('blur', () => {
+        // comissao_tab.setAttribute('aria-selected', false);
+        // alert("fdsfsdsdfs")
         siglae_tab.classList.remove('active');
+
+
     })
 
+
+
+    // ------------------------------
     var requestOptions = {
         method: 'GET',
         redirect: 'follow'
     };
 
-    fetch(URL+"/user/gerente", requestOptions)
+
+
+    fetch(URL + "/user/gerente", requestOptions)
         .then(response => response.json().then(function (data) {
             for (let i = 0; i < data.length; i++) {
                 gerenteBB.innerHTML += '<option value="' + data[i].gerente + '">' + data[i].gerente + '</option>;'
@@ -120,7 +157,9 @@ window.onload = function () {
             }
         })).catch(error => console.log('error', error));
 
-    fetch(URL+"/user/filial", requestOptions)
+
+
+    fetch(URL + "/user/filial", requestOptions)
         .then(response => response.json()
             .then(function (data) {
                 for (let i = 0; i < data.length; i++) {
@@ -130,19 +169,28 @@ window.onload = function () {
             }))
         .catch(error => console.log('error', error));
 
-    fetch(URL+"/user/supervisor", requestOptions)
+
+
+    fetch(URL + "/user/supervisor", requestOptions)
         .then(response => response.json())
         .then(function (data) {
             for (let i = 0; i < data.length; i++) {
                 supervisor.innerHTML += '<option value="' + data[i].parceiro + '">' + data[i].parceiro + '</option>;'
                 supervisorBB.innerHTML += '<option value="' + data[i].parceiro + '">' + data[i].parceiro + '</option>;'
                 supervisorMulti.innerHTML += '<option value="' + data[i].parceiro + '">' + data[i].parceiro + '</option>;'
+
             }
         }).catch(error => console.log('error', error));
-}
 
+
+
+}
 const colocar = document.getElementById('incluir');
+
+
 colocar.addEventListener('click', () => {
+
+
     var node = document.getElementById("list");
     while (node.hasChildNodes()) {
         node.removeChild(node.lastChild);
@@ -181,7 +229,8 @@ colocar.addEventListener('click', () => {
         redirect: 'follow'
     };
 
-    fetch(URL+"/user/search", requestOptions)
+    // console.log(raw);
+    fetch(URL + "/user/search", requestOptions)
         .then(response => response.json())
         .then(result => {
             cont = -1;
@@ -250,10 +299,18 @@ colocar.addEventListener('click', () => {
 
         })
         .catch(error => console.log('error', error));
+
+
+
 })
 
+
+
 function editar(cpfCnpj) {
+    //javascript para interromper o fluxo dos modais iguais;
     document.getElementById("acesso-tab").disabled = false;
+    
+
     //Cabeçalho
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
@@ -270,7 +327,7 @@ function editar(cpfCnpj) {
         redirect: 'follow'
     }
 
-    fetch(URL+"/user/cadastro/buscar", request).
+    fetch(URL + "/user/cadastro/buscar", request).
     then(response => response.json().then(function (data) {
         // console.log(data[0]);
         arrayAcessoAlterar = data
@@ -304,7 +361,7 @@ function editar(cpfCnpj) {
 
             altera.innerHTML = `
           <div class="actions ml-3 text-center">
-              <a href="#" class="action-item mr-0" data-toggle="tooltip" onclick="funcCadastroAcessoAlterar(arrayAcessoAlterar[${contAcessoAlterar}])"   title="Alterar">
+              <a href="#" class="action-item mr-0" data-toggle="tooltip" onclick="funcCadastroAcessoAlterar(arrayAcessoAlterar[${contAcessoAlterar}])" title="Alterar">
                   <i class="fas fa-external-link-alt"></i>
               </a>
           </div>`
@@ -323,9 +380,10 @@ function editar(cpfCnpj) {
         redirect: 'follow'
     }
 
-    fetch(URL+"/user/cadastro/modal", requestOptions)
+    fetch(URL + "/user/cadastro/modal", requestOptions)
         .then(response => response.json())
         .then(function (data) {
+            cpfcnpjParceiro = data.dados_cadastro.id_parceiro
 
             $('.needs-validation').each(function () {
                 this.reset();
@@ -402,6 +460,7 @@ function editar(cpfCnpj) {
                 $("#id-p-dtcertificacao").val(data.dados_cadastro.data_certificacao);
                 $("#id-p-dtbloqueio").val(data.dados_cadastro.data_bloqueio)
 
+
                 // Comissão
                 $("#idPorcComissao").val(data.dados_cadastro.comissao);
                 $("#idSecundario").val(data.dados_cadastro.secundario);
@@ -436,6 +495,7 @@ function editar(cpfCnpj) {
                 $("#id-grj-gerente").val(data.dados_cadastro.prefeitura_rio_ger);
                 $("#id-grj-quaternario").val(data.dados_cadastro.prefeitura_rio_quat);
 
+
                 //CHAVE J
                 $("#validationChaveJ").val(data.dados_chave.chave);
                 $("#StatusChavej").val(data.dados_chave.status);
@@ -459,12 +519,25 @@ function editar(cpfCnpj) {
                 $("#exampleFormControlObs").val(data.dados_sigla.observacao);
                 $("#exampleFormControlStatusSiglas").val(data.dados_sigla.status_e);
             }
+
+
+
+
         })
         .catch(error => console.log('error', error))
+
+
+    divButton.innerHTML = `
+    <button type="button" class="btn btn-primary btn-icon-label" id="idAlterar" onclick="alteracaoCadastro(${cpfcnpjParceiro})">
+        <span class="btn-inner--icon">
+            <i class="fas fa-plus"></i>
+        </span>
+        <span class="btn-inner--text">Alterar</span>
+    </button> ` 
 }
 
 function funcCadastroAcessoAlterar(data) {
-    // console.log(v);
+    // console.log(data);
     $("#id-cadusu-usuario").val(data.usuario);
     $("#id-cadusu-login").val(data.nome);
     $("#id-cadusu-senha").val(data.senha);
@@ -496,12 +569,31 @@ function funcCadastroAcessoAlterar(data) {
     $("#ace-cadusu-conscaixa").val(data.consorcio_caixa);
     $("#id-cadusu-aceconsitau").val(data.consorcio_itau);
 
+
+
+    //-----------------
 }
+
+
+
+
 
 //RESET APÓS TROCAR DE MODAL ENTRE O ALTERAR E O INCLUIR 
 buttonIncluir.addEventListener('click', () => {
+    //RESET NA TABLE QUANDO CLICAR NO BUTTON
+    // incluirCadastro();
+    divButton.innerHTML = `
+    <button type="button" class="btn btn-primary btn-icon-label" id="idIncluir" onclick="incluirCadastro()">
+        <span class="btn-inner--icon">
+            <i class="fas fa-plus"></i>
+        </span>
+        <span class="btn-inner--text">Finalizar</span>
+    </button>`
+
     $("td").remove();
+
     document.getElementById("acesso-tab").disabled = true;
+
     $('.needs-validation').each(function () {
         this.reset();
     });

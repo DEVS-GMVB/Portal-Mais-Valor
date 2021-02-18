@@ -143,7 +143,10 @@ incluirAcesso.addEventListener('click', () => {
          
 
           cpfIncluirAcesso++;
-          alert("Usuário cadastrado com sucesso");
+          //alert("Usuário cadastrado com sucesso");
+          $('#alertSucessoAcesso').show();
+          $('#alertSucessoAcesso').fadeIn(300).delay(3000).fadeOut(400);
+          document.getElementById("alertSucessoAcesso").textContent = "Usuário cadastrado com sucesso"
           alteraVisualizar.innerHTML = `
           <div class="actions ml-3 text-center">
               <a href="#" class="action-item mr-0" data-toggle="tooltip" title="Alterar">
@@ -156,9 +159,15 @@ incluirAcesso.addEventListener('click', () => {
       }
       else if (result.erro === 'usuario já tem acesso cadastrado') {
         if ($("#id-cadusu-cpfcnpj").val() === "") {
-          alert("Preencha os dados");
+          //alert("Preencha os dados");
+          $('#alertFalhaAcesso').show();
+          $('#alertFalhaAcesso').fadeIn(300).delay(3000).fadeOut(400);
+          document.getElementById("alertFalhaAcesso").textContent = "Preencha os campos"
         } else {
-          alert("Usuário já existente")
+          //alert("Usuário já existente")
+          $('#alertFalhaAcesso').show();
+          $('#alertFalhaAcesso').fadeIn(300).delay(3000).fadeOut(400);
+          document.getElementById("alertFalhaAcesso").textContent = "Usuário já existente"
         }
         while (lista.length !== 0) {
           lista.pop();
