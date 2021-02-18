@@ -24,11 +24,12 @@ let siglae_tab = document.getElementById("siglae-tab");
 let testando = document.getElementById("comissao-tabb");
 let testando2 = document.getElementById("chavej-tabb");
 let testando3 = document.getElementById("siglae-tabb");
+let divButton = document.getElementById("botaoAltIncluir");
 
 let testeCont = 0;
 let arrayAcessoAlterar;
 let contAcessoAlterar = -1;
-let cpfcnpjParceiro = [];
+let cpfcnpjParceiro;
 
 
 let cont = -1;
@@ -281,7 +282,6 @@ colocar.addEventListener('click', () => {
                 let data_alteracaoText = document.createTextNode(`${value.data_alteracao}`);
                 data_alteracao.appendChild(data_alteracaoText)
 
-
                 cont++;
 
                 alteraVisualiza.innerHTML = ` <div class="actions ml-3" style="text-align: center;">
@@ -309,9 +309,6 @@ colocar.addEventListener('click', () => {
 function editar(cpfCnpj) {
     //javascript para interromper o fluxo dos modais iguais;
     document.getElementById("acesso-tab").disabled = false;
-    if (document.getElementById("incluirSilgasE")) {
-        document.getElementById("incluirSilgasE").setAttribute('id', 'updateCadastro')
-    }
     
 
     //Cabeçalho
@@ -386,6 +383,7 @@ function editar(cpfCnpj) {
     fetch(URL + "/user/cadastro/modal", requestOptions)
         .then(response => response.json())
         .then(function (data) {
+            cpfcnpjParceiro = data.dados_cadastro.id_parceiro
 
             $('.needs-validation').each(function () {
                 this.reset();
@@ -487,9 +485,9 @@ function editar(cpfCnpj) {
 
                 ////Grupo Minas Gerais
                 $("#id-gmg-parcpromo").val(data.dados_cadastro.governo_minas);
-                $("#id-gmg-supervisor").val(data.dados_cadastro.governo_minas_sup)
+                $("#id-gmg-supervisor").val(data.dados_cadastro.governo_minas_sup);
                 $("#id-gmg-gerente").val(data.dados_cadastro.governo_minas_ger);
-                $("#id-gmg-quaternario").val(data.dados_cadastro.governo_minas_quat)
+                $("#id-gmg-quaternario").val(data.dados_cadastro.governo_minas_quat);
 
                 //% Grupo Rio de Janeiro
                 $("#id-grj-parcpromo").val(data.dados_cadastro.prefeitura_rio);
@@ -527,6 +525,15 @@ function editar(cpfCnpj) {
 
         })
         .catch(error => console.log('error', error))
+
+
+    divButton.innerHTML = `
+    <button type="button" class="btn btn-primary btn-icon-label" id="idAlterar" onclick="alteracaoCadastro(${cpfcnpjParceiro})">
+        <span class="btn-inner--icon">
+            <i class="fas fa-plus"></i>
+        </span>
+        <span class="btn-inner--text">Alterar</span>
+    </button> ` 
 }
 
 function funcCadastroAcessoAlterar(data) {
@@ -574,10 +581,15 @@ function funcCadastroAcessoAlterar(data) {
 //RESET APÓS TROCAR DE MODAL ENTRE O ALTERAR E O INCLUIR 
 buttonIncluir.addEventListener('click', () => {
     //RESET NA TABLE QUANDO CLICAR NO BUTTON
-    
-    if(document.getElementById("updateCadastro")) {
-        document.getElementById("updateCadastro").setAttribute('id', "incluirSilgasE")
-    }
+    // incluirCadastro();
+    divButton.innerHTML = `
+    <button type="button" class="btn btn-primary btn-icon-label" id="idIncluir" onclick="incluirCadastro()">
+        <span class="btn-inner--icon">
+            <i class="fas fa-plus"></i>
+        </span>
+        <span class="btn-inner--text">Finalizar</span>
+    </button>`
+
     $("td").remove();
 
     document.getElementById("acesso-tab").disabled = true;
@@ -593,6 +605,3 @@ apagar.addEventListener('click', () => {
         this.reset();
     })
 })
-
-
-

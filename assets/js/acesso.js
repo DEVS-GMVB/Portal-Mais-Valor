@@ -1,5 +1,6 @@
 let empresa = document.getElementById("id-cadusu-empresa");
 let incluirAcesso = document.getElementById("incluirAcesso");
+let alterarAcessoo = document.getElementById("alterarIncluirAcesso");
 var lista = [];
 let cpfIncluirAcesso = -1;
 let tempArray = [];
@@ -10,7 +11,7 @@ var requestOptions = {
   redirect: 'follow'
 };
 
-fetch(URL+"/user/proposta/empresas", requestOptions)
+fetch(URL + "/user/proposta/empresas", requestOptions)
   .then(response => response.json().then(function (data) {
     for (let i = 0; i < data.length; i++) {
       empresa.innerHTML += '<option value="' + data[i].empresa + '">' + data[i].empresa + '</option>;'
@@ -108,7 +109,7 @@ incluirAcesso.addEventListener('click', () => {
   fetch("http://172.16.0.197:3000/user/cadastro/acesso", requestOptions)
     .then(response => response.json())
     .then(result => {
-      console.log("Resposta da inclusão",result);
+      console.log("Resposta da inclusão", result);
 
       if (!(result.erro === 'usuario já tem acesso cadastrado')) {
 
@@ -140,7 +141,7 @@ incluirAcesso.addEventListener('click', () => {
 
           let dateText = document.createTextNode(`${element.data_atualizacao}`)
           date.appendChild(dateText);
-         
+
 
           cpfIncluirAcesso++;
           alert("Usuário cadastrado com sucesso");
@@ -153,8 +154,7 @@ incluirAcesso.addEventListener('click', () => {
 
 
         });
-      }
-      else if (result.erro === 'usuario já tem acesso cadastrado') {
+      } else if (result.erro === 'usuario já tem acesso cadastrado') {
         // console.log(result.erro)
         if ($("#id-cadusu-cpfcnpj").val() === "") {
           alert("Preencha os dados");
@@ -178,6 +178,14 @@ incluirAcesso.addEventListener('click', () => {
 
 function editarCpfAcesso(e) {
   // console.log(e);
+  document.getElementById("incluirAcesso").style.display = 'none';
+  alterarAcessoo.innerHTML = `
+  <button type="button" class="btn btn-primary btn-icon-label" id="AlterarAcesso" onclick="alterarAcesso(${e})">
+    <span class="btn-inner--icon">
+        <i class="fas fa-plus"></i>
+    </span>
+    <span class="btn-inner--text">Alterar</span>
+  </button>`
 
   var myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/json");
@@ -195,7 +203,7 @@ function editarCpfAcesso(e) {
   }
 
   fetch("http://172.16.0.197:3000/user/cadastro/busca/acesso", requestOptions).
-  then(response => response.json().then(function (data){  
+  then(response => response.json().then(function (data) {
 
     // console.log("Resposta do alterar", data);
 
@@ -235,7 +243,9 @@ function editarCpfAcesso(e) {
 
 }
 
-
+function alterarAcesso(idAcesso) {
+  console.log(idAcesso);
+}
 
 let cpfcnpjIncluir = document.getElementById("validationCpfCadastro");
 cpfcnpjIncluir.addEventListener('blur', () => {
