@@ -1,3 +1,7 @@
+
+const URL = `http://localhost:3000`;
+
+
 let filtros = document.getElementById("filtrosPes");
 let empresaProposta = document.getElementById("empresaPropostas");
 let tipoOperacao = document.getElementById('tipoOperacao');
@@ -54,14 +58,14 @@ window.onload = function () {
     redirect: 'follow'
   };
 
-  fetch("http://172.16.0.197:3000/user/proposta/empresas", requestOptions)
+  fetch(URL+"/user/proposta/empresas", requestOptions)
     .then(response => response.json().then(function (data) {
       for (let i = 0; i < data.length; i++) {
         empresaProposta.innerHTML += '<option value="' + data[i].empresa + '">' + data[i].empresa + '</option>;'
       }
     })).catch(error => console.log('error', error));
 
-  fetch("http://172.16.0.197:3000/user/proposta/tipo", requestOptions)
+  fetch(URL+"/user/proposta/tipo", requestOptions)
     .then(response => response.json())
     .then(function (data) {
       for (let i = 0; i < data.length; i++) {
@@ -69,7 +73,7 @@ window.onload = function () {
       }
     })
 
-  fetch("http://172.16.0.197:3000/user/proposta/bancos", requestOptions)
+  fetch(URL+"/user/proposta/bancos", requestOptions)
     .then(response => response.json())
     .then(function (data) {
       for (let i = 0; i < data.length; i++) {
@@ -79,7 +83,7 @@ window.onload = function () {
       }
     })
 
-  fetch("http://172.16.0.197:3000/user/proposta/produto", requestOptions)
+  fetch(URL+"/user/proposta/produto", requestOptions)
     .then(response => response.json())
     .then(function (data) {
       for (let i = 0; i < data.length; i++) {
@@ -88,7 +92,7 @@ window.onload = function () {
       }
     })
 
-  fetch("http://172.16.0.197:3000/user/supervisor", requestOptions)
+  fetch(URL+"/user/supervisor", requestOptions)
     .then(response => response.json())
     .then(function (data) {
       for (let i = 0; i < data.length; i++) {
@@ -96,7 +100,7 @@ window.onload = function () {
       }
     }).catch(error => console.log('error', error));
 
-  fetch("http://172.16.0.197:3000/user/gerente", requestOptions)
+  fetch(URL+"/user/gerente", requestOptions)
     .then(response => response.json().then(function (data) {
       for (let i = 0; i < data.length; i++) {
         gerenteProposta.innerHTML += '<option value="' + data[i].gerente + '">' + data[i].gerente + '</option>;'
@@ -105,7 +109,7 @@ window.onload = function () {
 
     
 
-  fetch("http://localhost:3000/user/proposta/filtro", requestOptions) //pegar esse id acesso do login get session storage
+  fetch(URL+"/user/proposta/filtro", requestOptions) //pegar esse id acesso do login get session storage
     .then(response => response.json())
     .then(result => {
 
@@ -247,9 +251,9 @@ filtros.addEventListener('click', () => {
   var myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/json")
 
-  let cnpj_matriz = 
+  // let cnpj_matriz = 
   var raw = JSON.stringify({
-    cnpj_matriz:,
+    cnpj_matriz:" ",
     tipo_usuario:"PARCEIRO",
     perfil:"MATRIZ",  
     nome:"GERENTEMEI FERNANDO BRUNO",
@@ -304,3 +308,86 @@ filtros.addEventListener('click', () => {
   }).catch(error => console.log('error' , error))
 
 })
+
+
+const buttonIncluir = document.getElementById("button-incluir");
+
+buttonIncluir.addEventListener('click', () => {
+  console.log('pogou');
+})
+
+
+
+
+
+
+
+
+
+const numeroPrp = document.getElementById('numero-proposta-incluir');
+// const dtCadastro = document.getElementById('validationDtCadastro');
+// const mesReferencia = document.getElementById('validationMesReferencia');
+// const numeroRefinPortabilidade = document.getElementById('validationNRefinPort');
+// const tipoOperacao = document.getElementById('exampleFormTipoOperacao');
+// const valorEntregue = document.getElementById('validationCustomVE');
+// const valorTroco = document.getElementById('validationCustomVT');
+// const valorParcela = document.getElementById('validationCustomVP');
+// const quantidadeParcela = document.getElementById('validationCustomQT');
+// const previsaoSaldo = document.getElementById('validationCustomPS');
+// const portabilidade = document.getElementById('validationCustomP');
+// const retornoCip = document.getElementById('exampleFormRC');
+// const bancoPortador = document.getElementById('exampleFormBP');
+// const dataCorte = document.getElementById('validationCustomDC');
+// const salario = document.getElementById('validationCustomSV');
+// const margemNegativa = document.getElementById('validationCustomMN');
+// const numeroChamado = document.getElementById('validationCustomNC');
+// const chamadoResolvido = document.getElementById('exampleFormCR');
+// const banco = document.getElementById('exampleFormB');
+// const produto = document.getElementById('exampleFormP');
+// const vendaSms = document.getElementById('exampleFormVS');
+// const auditoriaSms = document.getElementById('exampleFormAS');
+// const motivoNewSpace = document.getElementById('validationCustomMNS');
+// const dataAtualizacaoNewSpace = document.getElementById('validationCustoDANS');
+// const nomeCliente = document.getElementById('validationNC');
+// const cpfCliente = document.getElementById('validationCustomCpf');
+// const ddd = document.getElementById('validationCustomDDD');
+// const telefoneCliente = document.getElementById('validationCustomTC');
+// const genero = document.getElementById('exampleFormG');
+// const sexo = document.getElementById('exampleFormS');
+// const telefoneConfirmacao = document.getElementById('validationCustomTelC');
+// const novoConotatoInformado = document.getElementById('validationCustomNCI');
+// const matricula = document.getElementById('validationCustomM');
+// const dataNascimento = document.getElementById('validationCustomDN');
+// const ufNaturalidade = document.getElementById('validationCustomUN');
+// const naturalidade = document.getElementById('validationCustomN');
+// const rg = document.getElementById('validationCustomRG');
+// const dataEmissaoRg = document.getElementById('validationCustomDER');
+// const orgaoExpeditor = document.getElementById('validationCustomOE');
+// const nomePai = document.getElementById('validationCustomNomeP');
+// const nomeMae = document.getElementById('validationCustomNM');
+// const dataAdmissao = document.getElementById('validationCustomDA');
+// const ufEndereco = document.getElementById('validationCustomUE');
+// const cidadeEndereco = document.getElementById('validationCustomCE');
+// const cep = document.getElementById('validationCustomC');
+// const endereco = document.getElementById('validationCustomE');
+// const bairro = document.getElementById('validationCustomB');
+// const numeroEndereco = document.getElementById('validationCustomNE');
+// const complemento  = document.getElementById('validationCustomComp');
+// const tipoDecontaCliente  = document.getElementById('exampleFormTCC');
+// const bancoCliente = document.getElementById('validationCustomBC');
+// const agenciaCliente = document.getElementById('validationCustomAgeC');
+// const contaCliente  = document.getElementById('validationCustomCC');
+// const digitoConta  = document.getElementById('validationCustomDigC');
+// const correntista = document.getElementById('exampleFormC');
+// const telefoneSmsCliente = document.getElementById('validationCustomTSC');
+// const estadoCivil = document.getElementById('validationCustomEC');
+// const conjuge= document.getElementById('validationCustomConj');
+// const telefoneProcedente = document.getElementById('exampleFormTP');
+// const sistemaTelefone = document.getElementById('exampleFormST');
+// const telefoneCompconsto = document.getElementById('validationCustomTelCom');
+// const digitado = document.getElementById('exampleFormD');
+// const generoCliente = document.getElementById('validationCustomGDC');
+// const email = document.getElementById('validationCustomE');
+// const solicitouAgendamento = document.getElementById('validationCustomSA');
+// const melhorDataConfirmacao= document.getElementById('validationCustomMDCC');
+// const melhorHorarioConfirmacao = document.getElementById('exampleFormMHCC');

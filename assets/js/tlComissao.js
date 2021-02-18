@@ -1,14 +1,11 @@
 let supervisorComissao = document.getElementById("exampleSupervisor");
 let gerenteComissao = document.getElementById("exampleGerente");
-<<<<<<< HEAD
-=======
 let parceiropromotor = document.getElementById("exampleParcPromo");
 let status = document.getElementById("exampleStatus");
 let dtGerente = document.getElementById("exampleDtGerente");
 let dtSupervisor = document.getElementById("exampledtSupervisor")
 let compPag = document.getElementById("exampleCompPag")
->>>>>>> master
-
+let incluirComissao = document.getElementById("incluirComissao")
 
 window.onload = function () {
     var requestOptions = {
@@ -16,10 +13,7 @@ window.onload = function () {
         redirect: 'follow'
     };
 
-<<<<<<< HEAD
-=======
     //Supervisor
->>>>>>> master
     fetch("http://172.16.0.197:3000/user/supervisor", requestOptions)
         .then(response => response.json())
         .then(function (data) {
@@ -30,10 +24,7 @@ window.onload = function () {
             }
         }).catch(error => console.log('error', error));
 
-<<<<<<< HEAD
-=======
         //Gerente
->>>>>>> master
     fetch("http://172.16.0.197:3000/user/gerente", requestOptions)
         .then(response => response.json().then(function (data) {
             for (let i = 0; i < data.length; i++) {
@@ -42,9 +33,6 @@ window.onload = function () {
             }
         })).catch(error => console.log('error', error));
 
-<<<<<<< HEAD
-}
-=======
         //Parceiro Promotor
 //   fetch("http://172.16.0.197:3000/user/comissao/promotor", requestOptions)
 //   .then(response => response.json().then(function (data) {
@@ -87,4 +75,39 @@ window.onload = function () {
 
 }
 
->>>>>>> master
+//Inclusão de Comissão
+incluirComissao.addEventListener('click', () =>{
+  let parcPromo = document.getElementById('exampleParcPromo')
+  let proposta = document.getElementById('validationProposta')
+  let supervisor = document.getElementById('exampleSupervisor')
+  let status = document.getElementById('exampleStatus')
+  let gerente = document.getElementById('exampleGerente')
+  let dtPagSupervisor = document.getElementById('exampledtSupervisor')
+  let dtPagGerente = document.getElementById('exampleDtGerente')
+  let competenciaPag = document.getElementById('exampleCompPag')
+  let cpfPromotor = document.getElementById('cpfPromo')
+
+  var myHeaders = new Headers()
+  myHeaders.append("Content-Type", "application/json");
+
+  var raw = JSON.stringify({})
+
+  var requestOptions = {
+    method: 'POST',
+    headers: myHeaders,
+    body: raw,
+    redirect: 'follow'
+  }
+
+  fetch("", requestOptions)
+    .then(response => response.json())
+    .then(result => {})
+})
+
+//Apagar Filtro
+let apagar = document.getElementById("btnApagarFiltro")
+apagar.addEventListener('click', () => {
+    $("#apagarFiltro").each(function () {
+        this.reset();
+    })
+})

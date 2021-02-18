@@ -32,7 +32,7 @@ const Logar = () => {
             const perfil = user.perfil;
             const status = user.status;
             const tipo_usuario = user.tipo_usuario;
-            const tipo_parceiro = user.tipo_parceiro2;
+            const tipo_parceiro2 = user.tipo_parceiro2;
 
             sessionStorage.setItem('cnpj_matriz',matriz);
             sessionStorage.setItem('data_nascimento',data_nascimento);
@@ -41,10 +41,9 @@ const Logar = () => {
             sessionStorage.setItem('perfil',perfil);
             sessionStorage.setItem('status',status);
             sessionStorage.setItem('tipo_usuario',tipo_usuario);
-            sessionStorage.setItem('tipo_parceiro',tipo_parceiro);
+            sessionStorage.setItem('tipo_parceiro',tipo_parceiro2);
 
             window.location.href = "../../paginas/home.html";
-        
         });
     }).catch(error => console.log('error', error));
 };
