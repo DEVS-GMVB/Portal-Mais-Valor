@@ -1,5 +1,8 @@
 // VARS
+
+
 const URL = "http://localhost:3000";
+
 
 let fi = document.getElementById('exampleFormControlFilial');
 let filialCadastro = document.getElementById('exampleFormControlFilialCadastro');
@@ -144,7 +147,7 @@ window.onload = function () {
 
 
 
-    fetch(URL+"/user/gerente", requestOptions)
+    fetch(URL + "/user/gerente", requestOptions)
         .then(response => response.json().then(function (data) {
             for (let i = 0; i < data.length; i++) {
                 gerenteBB.innerHTML += '<option value="' + data[i].gerente + '">' + data[i].gerente + '</option>;'
@@ -155,7 +158,7 @@ window.onload = function () {
 
 
 
-    fetch(URL+"/user/filial", requestOptions)
+    fetch(URL + "/user/filial", requestOptions)
         .then(response => response.json()
             .then(function (data) {
                 for (let i = 0; i < data.length; i++) {
@@ -167,7 +170,7 @@ window.onload = function () {
 
 
 
-    fetch(URL+"/user/supervisor", requestOptions)
+    fetch(URL + "/user/supervisor", requestOptions)
         .then(response => response.json())
         .then(function (data) {
             for (let i = 0; i < data.length; i++) {
@@ -226,7 +229,7 @@ colocar.addEventListener('click', () => {
     };
 
     // console.log(raw);
-    fetch(URL+"/user/search", requestOptions)
+    fetch(URL + "/user/search", requestOptions)
         .then(response => response.json())
         .then(result => {
             cont = -1;
@@ -304,7 +307,13 @@ colocar.addEventListener('click', () => {
 
 
 function editar(cpfCnpj) {
+    //javascript para interromper o fluxo dos modais iguais;
     document.getElementById("acesso-tab").disabled = false;
+    if (document.getElementById("incluirSilgasE")) {
+        document.getElementById("incluirSilgasE").setAttribute('id', 'updateCadastro')
+    }
+    
+
     //Cabeçalho
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
@@ -321,7 +330,7 @@ function editar(cpfCnpj) {
         redirect: 'follow'
     }
 
-    fetch(URL+"/user/cadastro/buscar", request).
+    fetch(URL + "/user/cadastro/buscar", request).
     then(response => response.json().then(function (data) {
         // console.log(data[0]);
         arrayAcessoAlterar = data
@@ -355,7 +364,7 @@ function editar(cpfCnpj) {
 
             altera.innerHTML = `
           <div class="actions ml-3 text-center">
-              <a href="#" class="action-item mr-0" data-toggle="tooltip" onclick="funcCadastroAcessoAlterar(arrayAcessoAlterar[${contAcessoAlterar}])"   title="Alterar">
+              <a href="#" class="action-item mr-0" data-toggle="tooltip" onclick="funcCadastroAcessoAlterar(arrayAcessoAlterar[${contAcessoAlterar}])" title="Alterar">
                   <i class="fas fa-external-link-alt"></i>
               </a>
           </div>`
@@ -374,7 +383,7 @@ function editar(cpfCnpj) {
         redirect: 'follow'
     }
 
-    fetch(URL+"/user/cadastro/modal", requestOptions)
+    fetch(URL + "/user/cadastro/modal", requestOptions)
         .then(response => response.json())
         .then(function (data) {
 
@@ -521,7 +530,7 @@ function editar(cpfCnpj) {
 }
 
 function funcCadastroAcessoAlterar(data) {
-    // console.log(v);
+    // console.log(data);
     $("#id-cadusu-usuario").val(data.usuario);
     $("#id-cadusu-login").val(data.nome);
     $("#id-cadusu-senha").val(data.senha);
@@ -552,23 +561,24 @@ function funcCadastroAcessoAlterar(data) {
     $("#id-cadusu-aceconsorciobb").val(data.consorcio_bb);
     $("#ace-cadusu-conscaixa").val(data.consorcio_caixa);
     $("#id-cadusu-aceconsitau").val(data.consorcio_itau);
+
+
+
+    //-----------------
 }
+
 
 
 
 
 //RESET APÓS TROCAR DE MODAL ENTRE O ALTERAR E O INCLUIR 
 buttonIncluir.addEventListener('click', () => {
-    // $('#cadastro-tab').modal('show');
+    //RESET NA TABLE QUANDO CLICAR NO BUTTON
+    
+    if(document.getElementById("updateCadastro")) {
+        document.getElementById("updateCadastro").setAttribute('id', "incluirSilgasE")
+    }
     $("td").remove();
-
-    // (function ($) {
-    //     $(function () {
-
-    //         //codigo
-    //         $('#cadastro').modal('show');
-    //     })(jQuery);
-    // })
 
     document.getElementById("acesso-tab").disabled = true;
 
@@ -583,4 +593,6 @@ apagar.addEventListener('click', () => {
         this.reset();
     })
 })
+
+
 
