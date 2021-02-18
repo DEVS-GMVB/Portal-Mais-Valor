@@ -44,6 +44,44 @@ const observacao = document.getElementById('observacao-incluir');
 const botaoIncluir = document.getElementById('incluir-button');
 
 
+//inputs filtro proposta
+const usuarioFiltro = document.getElementById("usuario-filtro");
+const tipoUsuarioFiltro = document.getElementById("usuario-filtro");
+const propostaFiltro = document.getElementById("proposta-filtro");
+const statusFiltro = document.getElementById("status-filtro");
+const tipoFiltro = document.getElementById("tipo-filtro");
+const cpfFiltro = document.getElementById("cpf-filtro");
+const empresaFiltro = document.getElementById("empresa-filtro");
+const mes = document.getElementById("mes-filtro");
+const previsaoSaldoFiltro = document.getElementById("previsao-saldo-filtro");
+const novaPropostaFiltro = document.getElementById("nova-proposta-filtro");
+const bancoPortabilidadeFiltro = document.getElementById("banco-portabilidade-filtro");
+const ordenaFiltro = document.getElementById("ordena-filtro");
+const dataCadastroFiltro = document.getElementById("data-cadastro-filtro");
+const dataAtulizacaoFiltro = document.getElementById("data-atualizacao-filtro");
+const correntistaFiltro = document.getElementById("correntista-filtro");
+const substatusFiltros = document.getElementById("substatus-filtro");
+const classificacaoFiltro = document.getElementById("classicacao-filtro");
+const situacaoFiltro = document.getElementById("situacao-filtro");
+const convenioMasterFiltro = document.getElementById("convenio-master-filtro");
+const faseStatusFiltro = document.getElementById("fase-status-filtro");
+const bancoFiltro = document.getElementById("banco-filtro");
+const produtoFiltro = document.getElementById("produto-filtro");
+const classicacaoFiltro = document.getElementById("classicacao-filtro");
+const usuarioMasterFiltro = document.getElementById("usuario-master-filtro");
+const supervisorFiltro = document.getElementById("supervisor-filtro");
+const produtoMasterFiltro = document.getElementById("produto-master-filtro");
+const gerente = document.getElementById("gerente-filtro");
+const tipoUsuarioMasterFiltro = document.getElementById("tipo-usuario-master-filtro");
+const dataCorteFiltro = document.getElementById("data-corte-filtro");
+const empresaSmsFiltro = document.getElementById("empresa-sms-filtro");
+const convenioFiltro = document.getElementById("convenio-filtro");
+const vinculoFiltro = document.getElementById("vinculo-filtro");
+const horarioAgendamentoFiltro = document.getElementById("horario-agendamento-filtro");
+const validadeContratoFiltro = document.getElementById("validade-contrato-filtro");
+const etapaSmsFiltro = document.getElementById("etapa-sms-filtro");
+const bancoMaster = document.getElementById("banco-master-filtro");
+
 //gets para popular options 
 
 window.onload = function () {
@@ -78,8 +116,34 @@ window.onload = function () {
     .then(function (data) {
       data.forEach(element => {
         bancoPortador.innerHTML += `<option value =${element.banco}>${element.banco}</option>`;
+        bancoPortabilidadeFiltro.innerHTML += `<option value =${element.banco}>${element.banco}</option>`;
+        bancoFiltro.innerHTML += `<option value =${element.banco}>${element.banco}</option>`;
       });
     })
+
+  fetch(URL + "/user/proposta/empresas", requestOptions)
+  .then(response => response.json())
+  .then(function (data) {
+    data.forEach(element => {
+     empresaFiltro.innerHTML += `<option value =${element.empresa}>${element.empresa}</option>`;
+    });
+  })
+
+  fetch(URL + "/user/proposta/substatus", requestOptions)
+  .then(response => response.json())
+  .then(function (data) {
+    data.forEach(element => {
+     substatusFiltros.innerHTML += `<option value =${element.sub_status}>${element.sub_status}</option>`;
+    });
+  })
+
+  fetch(URL + "/user/proposta/produto", requestOptions)
+  .then(response => response.json())
+  .then(function (data) {
+    data.forEach(element => {
+     produtoFiltro.innerHTML += `<option value =${element.produto}>${element.produto}</option>`;
+    });
+  })
 
 
 }
@@ -162,5 +226,6 @@ botaoIncluir.addEventListener('click', () => {
         });
 
     }).catch(error => console.log('error' , error))
-
 })
+
+//////modal filtro
