@@ -268,12 +268,12 @@ function incluirCadastro() {
             }
 
              if (data.resp === "não foi possivel cadastrar usuario, cpf existente na base de dados") {
-            //     alert("não foi possivel cadastrar usuario, cpf existente na base de dados");
+                 //alert("não foi possivel cadastrar usuario, cpf existente na base de dados");
 
                 $('#alertFalhaCadastro').show();
                 $('#alertFalhaCadastro').fadeIn( 300 ).delay( 3000 ).fadeOut( 400 );
+                document.getElementById("alertFalhaCadastro").textContent = "Cadastro inválido"
              }
-
         })
         .catch(error => console.log('erro', error));
 
@@ -546,6 +546,7 @@ function alteracaoCadastro(idParceiro) {
         .then(response => response.text())
         .then(function (data) {
             console.log(data)
+
             if(data === "acesso alterado") {
                 //Mensagem
                 $('#alertSucessoCadastro').show();

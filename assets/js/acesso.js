@@ -144,7 +144,8 @@ incluirAcesso.addEventListener('click', () => {
           date.appendChild(dateText);
          
 
-            cpfIncluirAcesso;
+            cpfIncluirAcesso++;
+            //cpfIncluirAcesso;
           //alert("Usuário cadastrado com sucesso");
           $('#alertSucessoAcesso').show();
           $('#alertSucessoAcesso').fadeIn(300).delay(3000).fadeOut(400);

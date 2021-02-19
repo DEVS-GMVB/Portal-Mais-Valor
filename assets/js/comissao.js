@@ -29,23 +29,16 @@ cpfSecundario.addEventListener('blur', () => {
     .catch(error => console.log('error', error));
 })
 
-cpfSecundario.addEventListener('keyup', () => {
-  let sec = document.getElementById("idSec");
-  if (sec.value.length > 0) {
-    $("#idSec").val("")
-  }
-})
+    //Terceario
+    let cpfTerceario = document.getElementById('cpfTerceario')
+    cpfTerceario.addEventListener('blur', () => {
 
-//Terceario
-let cpfTerceario = document.getElementById("cpfTerceario");
-cpfTerceario.addEventListener('blur', () => {
-
-  var myHeaders = new Headers();
-  myHeaders.append("Content-Type", "application/json");
-
-  var raw = JSON.stringify({
-    "cnpj": cpfTerceario.value
-  });
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+  
+    var raw = JSON.stringify({
+      "cnpj": cpfTerceario.value
+    });
 
   var requestOptions = {
     method: 'POST',
