@@ -3,7 +3,7 @@
 
 const URL = "http://localhost:3000";
 
-let incluirAcessoo = document.getElementById("alterarIncluirAcesso")
+// let incluirAcessoo = document.getElementById("alterarIncluirAcesso")
 let fi = document.getElementById('exampleFormControlFilial');
 let filialCadastro = document.getElementById('exampleFormControlFilialCadastro');
 let supervisor = document.getElementById('exampleFormControlSupervisor');
@@ -533,52 +533,9 @@ function editar(cpfCnpj) {
         </span>
         <span class="btn-inner--text">Alterar</span>
     </button> `
-    incluirAcessoo.innerHTML = `
-    <button type="button" class="btn btn-primary btn-icon-label" id="incluirAcesso">
-        <span class="btn-inner--icon">
-            <i class="fas fa-plus"></i>
-        </span>
-    <span class="btn-inner--text">Incluir / Alterar</span>
-    </button>`
+
 }
 
-function funcCadastroAcessoAlterar(data) {
-    // console.log(data);
-    $("#id-cadusu-usuario").val(data.usuario);
-    $("#id-cadusu-login").val(data.nome);
-    $("#id-cadusu-senha").val(data.senha);
-    $("id-cadusu-novamentesenha").val(data.senha);
-    $("#id-cadusu-tipousu").val(data.tipo);
-    $("#id-cadusu-usumaster").val(data.usuario_master);
-    $("#id-cadusu-classi").val(data.classificacao);
-    $("#id-cadusu-empresa").val(data.empresa);
-    $("#id-cadusu-status").val(data.status);
-    $("#id-cadusu-telcelular").val(data.telefone);
-    $("#id-cadusu-cpfcnpj").val(data.cpf_usuario)
-    $("#id-cadusu-cnpjMatriz").val(data.cnpj_matriz);
-    $("#id-cadusu-email").val(data.email);
-    $("#id-cadusu-motcancela").val(data.motivo_cancelamento);
-    $("#id-cadusu-perfilacesso").val(data.perfil);
-    $("#id-cadusu-acessoole").val(data.ole);
-    $("#id-cadusu-acessopan").val(data.pan);
-    $("#id-cadusu-acessocetelem").val(data.cetelem);
-    $("#id-cadusu-acessoitau").val(data.itau);
-    $("#id-cadusu-acef5bmg").val(data.f5_bmg);
-    $("#id-cadusu-acef5itau").val(data.f5_itau);
-    $("#id-cadusu-acedaycoval").val(data.daycoval);
-    $("#id-cadusu-acesim").val(data.sim);
-    $("#id-cadusu-acesafra").val(data.safra);
-    $("#id-cadusu-acebradesco").val(data.bradesco);
-    $("#id-cadusu-aceparana").val(data.parana);
-    $("#id-cadusu-crefisa").val(data.crefisa);
-    $("#id-cadusu-aceconsorciobb").val(data.consorcio_bb);
-    $("#ace-cadusu-conscaixa").val(data.consorcio_caixa);
-    $("#id-cadusu-aceconsitau").val(data.consorcio_itau);
-
-
-
-    //-----------------
-}
 
 
 
@@ -611,6 +568,3 @@ apagar.addEventListener('click', () => {
         this.reset();
     })
 })
-
-
-
