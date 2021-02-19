@@ -1,6 +1,6 @@
 let empresa = document.getElementById("id-cadusu-empresa");
 let incluirAcesso = document.getElementById("incluirAcesso");
-let alterarAcessoo = document.getElementById("alterarIncluirAcesso");
+let alterarAcessoo = document.getElementById("alterarIncluirAcesso")
 var lista = [];
 let cpfIncluirAcesso = -1;
 let tempArray = [];
@@ -178,7 +178,6 @@ incluirAcesso.addEventListener('click', () => {
 
 function editarCpfAcesso(e) {
   // console.log(e);
-  document.getElementById("incluirAcesso").style.display = 'none';
   alterarAcessoo.innerHTML = `
   <button type="button" class="btn btn-primary btn-icon-label" id="AlterarAcesso" onclick="alterarAcesso(${e})">
     <span class="btn-inner--icon">

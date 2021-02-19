@@ -3,7 +3,7 @@
 
 const URL = "http://localhost:3000";
 
-
+let incluirAcessoo = document.getElementById("alterarIncluirAcesso")
 let fi = document.getElementById('exampleFormControlFilial');
 let filialCadastro = document.getElementById('exampleFormControlFilialCadastro');
 let supervisor = document.getElementById('exampleFormControlSupervisor');
@@ -309,7 +309,7 @@ colocar.addEventListener('click', () => {
 function editar(cpfCnpj) {
     //javascript para interromper o fluxo dos modais iguais;
     document.getElementById("acesso-tab").disabled = false;
-    
+
 
     //Cabeçalho
     var myHeaders = new Headers();
@@ -533,7 +533,14 @@ function editar(cpfCnpj) {
             <i class="fas fa-plus"></i>
         </span>
         <span class="btn-inner--text">Alterar</span>
-    </button> ` 
+    </button> `
+    incluirAcessoo.innerHTML = `
+    <button type="button" class="btn btn-primary btn-icon-label" id="incluirAcesso">
+        <span class="btn-inner--icon">
+            <i class="fas fa-plus"></i>
+        </span>
+    <span class="btn-inner--text">Incluir / Alterar</span>
+    </button>`
 }
 
 function funcCadastroAcessoAlterar(data) {
