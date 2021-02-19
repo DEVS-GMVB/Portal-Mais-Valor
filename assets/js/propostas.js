@@ -1,4 +1,10 @@
+<<<<<<< HEAD
 const URL = "http://localhost:3000"
+=======
+
+const URL = `http://localhost:3000`;
+
+>>>>>>> marcos
 
 let filtros = document.getElementById("filtrosPes");
 let empresaProposta = document.getElementById("empresaPropostas");
@@ -107,10 +113,107 @@ window.onload = function () {
       }
     })).catch(error => console.log('error', error));
 
+<<<<<<< HEAD
   fetch(URL+"/user/proposta/substatus", requestOptions)
     .then(response => response.json().then(function (data) {
       for (let i = 0; i < data.length; i++) {
         sub_status.innerHTML += '<option value="' + data[i].sub_status + '">' + data[i].sub_status + '</option>;'
+=======
+    
+
+  fetch(URL+"/user/proposta/filtro", requestOptions) //pegar esse id acesso do login get session storage
+    .then(response => response.json())
+    .then(result => {
+
+      for (const value of result) {
+
+        let specific_tbody = document.getElementById('list');
+        let row = specific_tbody.insertRow(-1);
+        let proposta = row.insertCell(-1);
+        let nome = row.insertCell(-1);
+        let cpf = row.insertCell(-1);
+        let data_cadastro = row.insertCell(-1);
+        let parceiro = row.insertCell(-1);
+        let valor_entregue = row.insertCell(-1);
+        let valor_troco = row.insertCell(-1);
+        let convenio = row.insertCell(-1);
+        let banco = row.insertCell(-1);
+        let produto = row.insertCell(-1);
+        let tipo = row.insertCell(-1);
+        let status = row.insertCell(-1);
+        let substatus = row.insertCell(-1);
+        let data_atualizacao = row.insertCell(-1);
+        let qtd_consulta_robo = row.insertCell(-1);
+        let log_alteracao = row.insertCell(-1);
+        let previsao_saldo = row.insertCell(-1);
+        let api_sim = row.insertCell(-1);
+        let gravacao = row.insertCell(-1);
+        let telefoneconstanotfc = row.insertCell(-1);
+        let anexos = row.insertCell(-1);
+        let alteraVisualiza = row.insertCell(-1);
+
+
+        let propostaText = document.createTextNode(`${value.proposta}`);
+        proposta.appendChild(propostaText);
+        let nomeText = document.createTextNode(`${value.nome}`);
+        nome.appendChild(nomeText);
+        let cpfText = document.createTextNode(`${value.cpf}`);
+        cpf.appendChild(cpfText);
+        let data_cadastroText = document.createTextNode(`${value.data_envio}`);
+        data_cadastro.appendChild(data_cadastroText);
+        let parceiroText = document.createTextNode(`${value.parceiro}`);
+        parceiro.appendChild(parceiroText);
+        let valor_entregueText = document.createTextNode(`${value.entregue}`);
+        valor_entregue.appendChild(valor_entregueText);
+        let valor_trocoText = document.createTextNode(`${value.valor_troco}`);
+        valor_troco.appendChild(valor_trocoText);
+        let convenioText = document.createTextNode(`${value.convenio}`);
+        convenio.appendChild(convenioText);
+        let bancoText = document.createTextNode(`${value.banco}`);
+        banco.appendChild(bancoText);
+        let produtoText = document.createTextNode(`${value.produto}`);
+        produto.appendChild(produtoText);
+        let tipoText = document.createTextNode(`${value.tipo}`);
+        tipo.appendChild(tipoText);
+        let statusText = document.createTextNode(`${value.status}`);
+        status.appendChild(statusText);
+        let substatusText = document.createTextNode(`${value.sub_status}`);
+        substatus.appendChild(substatusText);
+        let data_atualizacaoText = document.createTextNode(`${value.data_atualizacao}`);
+        data_atualizacao.appendChild(data_atualizacaoText);
+        let qtd_consulta_roboText = document.createTextNode(`${value.qtd_robo}`);
+        qtd_consulta_robo.appendChild(qtd_consulta_roboText);
+        let log_alteracaoText = document.createTextNode(`${value.data_log1}`);
+        log_alteracao.appendChild(log_alteracaoText);
+        let previsao_saldoText = document.createTextNode(`${value.previsao_retorno}`);
+        previsao_saldo.appendChild(previsao_saldoText);
+        let api_simText = document.createTextNode(`${value.id_sim}`);
+        api_sim.appendChild(api_simText);
+        let gravacaoText = document.createTextNode(`${value.gravacao}`);
+        gravacao.appendChild(gravacaoText);
+        let telefoneconstanotfcText = document.createTextNode(`${value.tfc}`);
+        telefoneconstanotfc.appendChild(telefoneconstanotfcText);
+
+
+
+        anexos.innerHTML = `<td id="" class="text-right" style="text-align: center;">
+                               <div class="actions ml-3" style="text-align: center;">
+                                <a href="#" class="action-item mr-2 " data-toggle="modal" data-target=".modalteladecadastro" title="Alterar">
+                                  <i class="fas fa-download"></i>
+                                </a>
+                               </div>
+                             </td>`;
+
+        alteraVisualiza.innerHTML = ` <div class="actions ml-3" style="text-align: center;">
+                                <a href="#" class="action-item mr-2 " data-toggle="modal" data-target=".modal-filtroproposta" title="Alterar">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                                <a href="#" class="action-item mr-2" data-toggle="modal" data-target=".modal-filtroproposta" title="Visualizar">
+                                    <i class="fas fa-eye"></i>
+                                </a>
+                            </div>`;
+
+>>>>>>> marcos
       }
     })).catch(error => console.log('error', error))
 
@@ -159,6 +262,7 @@ filtros.addEventListener('click', () => {
   var myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/json")
 
+<<<<<<< HEAD
   let tipo_usuario = sessionStorage.getItem('tipo_parceiro2', 'tipo_parceiro2');
   let cnpj_matr = sessionStorage.getItem('cnpj_matriz', 'cnpj_matriz');
   let perfil = sessionStorage.getItem('perfil', 'perfil');
@@ -206,6 +310,51 @@ filtros.addEventListener('click', () => {
   })
 
 
+=======
+  // let cnpj_matriz = 
+  var raw = JSON.stringify({
+    cnpj_matriz:" ",
+    tipo_usuario:"PARCEIRO",
+    perfil:"MATRIZ",  
+    nome:"GERENTEMEI FERNANDO BRUNO",
+    parceiro:"",
+    tipo_parceiro:"",
+    proposta:"",
+    status:"CANCELADO",
+    tipo:"",
+    cpf:"",
+    empresa:"",
+    mês:"",
+    previsao_retorno:"",
+    novo_proposta:"",
+    banco:"",
+    data_envio:"",
+    data_atualizacao:"",
+    correntista:"",
+    sub_estatus:"",
+    situacao:"",
+    master:"",
+    tipo_fase:"",
+    banco_origi:"",
+    propduto:"",
+    classificacao:"",
+    usuario_master:"",
+    supervisor:"",
+    sms:"",
+    gerente:"",
+    tipo_parceiro2:"",
+    data_corte:"",
+    empresa_sms:"",
+    convenio:"20991 - INSS",
+    data_vinculo:"",
+    horario:"",
+    validade_contrato:"",
+    etapa_sms:"",
+    tipo_banco:""
+  }) 
+
+  
+>>>>>>> marcos
   var requestOptions = {
     method: 'POST',
     headers: myHeaders,
@@ -309,3 +458,86 @@ filtros.addEventListener('click', () => {
   }).catch(error => console.log('error', error))
 
 })
+
+
+const buttonIncluir = document.getElementById("button-incluir");
+
+buttonIncluir.addEventListener('click', () => {
+  console.log('pogou');
+})
+
+
+
+
+
+
+
+
+
+const numeroPrp = document.getElementById('numero-proposta-incluir');
+// const dtCadastro = document.getElementById('validationDtCadastro');
+// const mesReferencia = document.getElementById('validationMesReferencia');
+// const numeroRefinPortabilidade = document.getElementById('validationNRefinPort');
+// const tipoOperacao = document.getElementById('exampleFormTipoOperacao');
+// const valorEntregue = document.getElementById('validationCustomVE');
+// const valorTroco = document.getElementById('validationCustomVT');
+// const valorParcela = document.getElementById('validationCustomVP');
+// const quantidadeParcela = document.getElementById('validationCustomQT');
+// const previsaoSaldo = document.getElementById('validationCustomPS');
+// const portabilidade = document.getElementById('validationCustomP');
+// const retornoCip = document.getElementById('exampleFormRC');
+// const bancoPortador = document.getElementById('exampleFormBP');
+// const dataCorte = document.getElementById('validationCustomDC');
+// const salario = document.getElementById('validationCustomSV');
+// const margemNegativa = document.getElementById('validationCustomMN');
+// const numeroChamado = document.getElementById('validationCustomNC');
+// const chamadoResolvido = document.getElementById('exampleFormCR');
+// const banco = document.getElementById('exampleFormB');
+// const produto = document.getElementById('exampleFormP');
+// const vendaSms = document.getElementById('exampleFormVS');
+// const auditoriaSms = document.getElementById('exampleFormAS');
+// const motivoNewSpace = document.getElementById('validationCustomMNS');
+// const dataAtualizacaoNewSpace = document.getElementById('validationCustoDANS');
+// const nomeCliente = document.getElementById('validationNC');
+// const cpfCliente = document.getElementById('validationCustomCpf');
+// const ddd = document.getElementById('validationCustomDDD');
+// const telefoneCliente = document.getElementById('validationCustomTC');
+// const genero = document.getElementById('exampleFormG');
+// const sexo = document.getElementById('exampleFormS');
+// const telefoneConfirmacao = document.getElementById('validationCustomTelC');
+// const novoConotatoInformado = document.getElementById('validationCustomNCI');
+// const matricula = document.getElementById('validationCustomM');
+// const dataNascimento = document.getElementById('validationCustomDN');
+// const ufNaturalidade = document.getElementById('validationCustomUN');
+// const naturalidade = document.getElementById('validationCustomN');
+// const rg = document.getElementById('validationCustomRG');
+// const dataEmissaoRg = document.getElementById('validationCustomDER');
+// const orgaoExpeditor = document.getElementById('validationCustomOE');
+// const nomePai = document.getElementById('validationCustomNomeP');
+// const nomeMae = document.getElementById('validationCustomNM');
+// const dataAdmissao = document.getElementById('validationCustomDA');
+// const ufEndereco = document.getElementById('validationCustomUE');
+// const cidadeEndereco = document.getElementById('validationCustomCE');
+// const cep = document.getElementById('validationCustomC');
+// const endereco = document.getElementById('validationCustomE');
+// const bairro = document.getElementById('validationCustomB');
+// const numeroEndereco = document.getElementById('validationCustomNE');
+// const complemento  = document.getElementById('validationCustomComp');
+// const tipoDecontaCliente  = document.getElementById('exampleFormTCC');
+// const bancoCliente = document.getElementById('validationCustomBC');
+// const agenciaCliente = document.getElementById('validationCustomAgeC');
+// const contaCliente  = document.getElementById('validationCustomCC');
+// const digitoConta  = document.getElementById('validationCustomDigC');
+// const correntista = document.getElementById('exampleFormC');
+// const telefoneSmsCliente = document.getElementById('validationCustomTSC');
+// const estadoCivil = document.getElementById('validationCustomEC');
+// const conjuge= document.getElementById('validationCustomConj');
+// const telefoneProcedente = document.getElementById('exampleFormTP');
+// const sistemaTelefone = document.getElementById('exampleFormST');
+// const telefoneCompconsto = document.getElementById('validationCustomTelCom');
+// const digitado = document.getElementById('exampleFormD');
+// const generoCliente = document.getElementById('validationCustomGDC');
+// const email = document.getElementById('validationCustomE');
+// const solicitouAgendamento = document.getElementById('validationCustomSA');
+// const melhorDataConfirmacao= document.getElementById('validationCustomMDCC');
+// const melhorHorarioConfirmacao = document.getElementById('exampleFormMHCC');

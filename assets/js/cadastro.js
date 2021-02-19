@@ -310,7 +310,6 @@ function editar(cpfCnpj) {
     //javascript para interromper o fluxo dos modais iguais;
     document.getElementById("acesso-tab").disabled = false;
 
-
     //Cabeçalho
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
@@ -612,3 +611,6 @@ apagar.addEventListener('click', () => {
         this.reset();
     })
 })
+
+
+
