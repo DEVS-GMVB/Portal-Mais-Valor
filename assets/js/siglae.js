@@ -547,29 +547,25 @@ function alteracaoCadastro(idParceiro) {
         .then(function (data) {
             console.log(data)
             if(data === "acesso alterado") {
+                //Mensagem
                 $('#alertSucessoCadastro').show();
                 $('#alertSucessoCadastro').fadeIn(300).delay(9000).fadeOut(400);
                 document.getElementById("alertSucessoCadastro").textContent = "Atualizado com Sucesso"
             }
             else if(data === 'erro cad' || data === "erro chave") {
+                //Mensagem
                 $('#alertFalhaCadastro').show();
                 $('#alertFalhaCadastro').fadeIn(300).delay(9000).fadeOut(400);
                 document.getElementById("alertFalhaCadastro").textContent = "Atualização inválida"
             }
         })
         .catch(error => console.log('erro', error));
-
-    // })
-
-
 }
 
 
 
 // Função para parceiros 
 let cpfCnpjSigla = document.getElementById("validationCpfCnpf");
-
-
 cpfCnpjSigla.addEventListener('blur', () => {
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");

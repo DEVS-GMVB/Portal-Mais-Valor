@@ -1,3 +1,5 @@
+//const { update } = require("autosize");
+
 let empresa = document.getElementById("id-cadusu-empresa");
 let incluirAcesso = document.getElementById("incluirAcesso");
 var lista = [];
@@ -142,7 +144,7 @@ incluirAcesso.addEventListener('click', () => {
           date.appendChild(dateText);
          
 
-          cpfIncluirAcesso++;
+            cpfIncluirAcesso;
           //alert("Usuário cadastrado com sucesso");
           $('#alertSucessoAcesso').show();
           $('#alertSucessoAcesso').fadeIn(300).delay(3000).fadeOut(400);
