@@ -1,5 +1,3 @@
-var ger = document.getElementById('idTerceario')
-
 //Secundario
 let cpfSecundario = document.getElementById("cpfSecundario");
 cpfSecundario.addEventListener('blur', () => {
@@ -17,7 +15,7 @@ cpfSecundario.addEventListener('blur', () => {
     body: raw,
     redirect: 'follow'
   };
-  fetch("http://172.16.0.197:3000/user/parceiros", requestOptions)
+  fetch(URL + "/user/secundario", requestOptions)
     .then(response => response.json())
     .then(function (data) {
       if (data[0].parceiro === "NAO INFORMADO NA INSERA‡A?O") {
@@ -27,6 +25,13 @@ cpfSecundario.addEventListener('blur', () => {
       }
     })
     .catch(error => console.log('error', error));
+})
+
+cpfSecundario.addEventListener('keyup', () => {
+  let secund = document.getElementById('idSec')
+  if (secund.value.length > 0) {
+    $('#idSec').val('')
+  }
 })
 
     //Terceario
@@ -46,13 +51,13 @@ cpfSecundario.addEventListener('blur', () => {
     body: raw,
     redirect: 'follow'
   };
-  fetch("http://172.16.0.197:3000/user/parceiros", requestOptions)
+  fetch(URL + "/user/terceario", requestOptions)
     .then(response => response.json())
     .then(function (data) {
-      if (data[0].parceiro === "NAO INFORMADO NA INSERA‡A?O") {
+      if (data[0].gerente  === "NAO INFORMADO NA INSERA‡A?O") {
         $("#idTerc").val("");
       } else {
-        $("#idTerc").val(data[0].parceiro);
+        $("#idTerc").val(data[0].gerente);
       }
     })
     .catch(error => console.log('error', error));

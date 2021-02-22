@@ -3,7 +3,7 @@
 
 const URL = "http://localhost:3000";
 
-
+// let incluirAcessoo = document.getElementById("alterarIncluirAcesso")
 let fi = document.getElementById('exampleFormControlFilial');
 let filialCadastro = document.getElementById('exampleFormControlFilialCadastro');
 let supervisor = document.getElementById('exampleFormControlSupervisor');
@@ -29,8 +29,11 @@ let divButton = document.getElementById("botaoAltIncluir");
 let testeCont = 0;
 let arrayAcessoAlterar;
 let contAcessoAlterar = -1;
-let cpfcnpjParceiro;
-
+let idParceiro;
+let indexObj = [];
+let arrayIds = [];
+let iIds = -1;
+let objTd;
 
 let cont = -1;
 let array;
@@ -96,15 +99,12 @@ window.onload = function () {
     })
 
     chaveJ_tab.addEventListener('blur', () => {
-        // comissao_tab.setAttribute('aria-selected', false);
-        // alert("fdsfsdsdfs")
         chaveJ_tab.classList.remove('active');
 
 
     })
-    //------------
-    //Prosseguir siglae
 
+    //Prosseguir siglae
     const prosseguirSiglae = document.getElementById("prosseguirSiglaE");
     let contSiglae = 0;
     prosseguirSiglae.addEventListener("click", () => {
@@ -138,6 +138,7 @@ window.onload = function () {
 
     })
 
+    //Fim script buttons prosseguir
 
 
     // ------------------------------
@@ -190,7 +191,6 @@ const colocar = document.getElementById('incluir');
 
 colocar.addEventListener('click', () => {
 
-
     var node = document.getElementById("list");
     while (node.hasChildNodes()) {
         node.removeChild(node.lastChild);
@@ -233,6 +233,7 @@ colocar.addEventListener('click', () => {
     fetch(URL + "/user/search", requestOptions)
         .then(response => response.json())
         .then(result => {
+
             cont = -1;
             array = result;
 
@@ -282,24 +283,23 @@ colocar.addEventListener('click', () => {
                 let data_alteracaoText = document.createTextNode(`${value.data_alteracao}`);
                 data_alteracao.appendChild(data_alteracaoText)
 
+                //Atrr
                 cont++;
+                indexObj.push(row)
 
-                alteraVisualiza.innerHTML = ` <div class="actions ml-3" style="text-align: center;">
-            <a "id=buttonalterar" href="#" class="action-item mr-2" data-nome="marcos" data-toggle="modal"
-                data-target=".modalteladecadastro" title="Alterar" id="modalAlterar">
-                <i id = "${cont}" class="fas fa-external-link-alt" onclick="editar(array[${cont}].cpf)"></i>
-            </a>
-            <a href="#" class="action-item mr-2" data-toggle="modal"
-                data-target=".modalteladecadastro" data-id="oi" title="Visualizar">
-                <i class="fas fa-eye"></i>
-            </a>
-        </div>`;
-
-        // if (cont++) {
-            
-        // }
-
+                alteraVisualiza.innerHTML = `
+                 <div class="actions ml-3" style="text-align: center;">
+                    <a "id=buttonalterar" href="#" class="action-item mr-2" data-nome="marcos" data-toggle="modal"
+                        data-target=".modalteladecadastro" title="Alterar" id="modalAlterar">
+                        <i id = "${cont}" class="fas fa-external-link-alt" onclick="editar(array[${cont}].cpf, indexObj[${cont}])"></i>
+                    </a>
+                    <a href="#" class="action-item mr-2" data-toggle="modal"
+                        data-target=".modalteladecadastro" data-id="oi" title="Visualizar">
+                        <i class="fas fa-eye"></i>
+                    </a>
+                </div>`;
             }
+
 
         })
         .catch(error => console.log('error', error));
@@ -310,10 +310,11 @@ colocar.addEventListener('click', () => {
 
 
 
-function editar(cpfCnpj) {
+function editar(cpfCnpj, indexObj) {
+    // console.log(indexObj);
     //javascript para interromper o fluxo dos modais iguais;
     document.getElementById("acesso-tab").disabled = false;
-    
+    objTd = indexObj;
 
     //Cabeçalho
     var myHeaders = new Headers();
@@ -387,7 +388,17 @@ function editar(cpfCnpj) {
     fetch(URL + "/user/cadastro/modal", requestOptions)
         .then(response => response.json())
         .then(function (data) {
-            cpfcnpjParceiro = data.dados_cadastro.id_parceiro
+            //Alteração de buttons de cadastro, para alterar
+            let idParceiro = data.dados_cadastro.id_parceiro
+            divButton.innerHTML = `
+            <button type="button" class="btn btn-primary btn-icon-label" id="idAlterar" onclick="alteracaoCadastro(${idParceiro}, objTd)">
+                <span class="btn-inner--icon">
+                    <i class="fas fa-plus"></i>
+                </span>
+                <span class="btn-inner--text">Alterar</span>
+            </button> `
+            // arrayIds.push(data.dados_cadastro.id_parceiro)
+            // console.log(data.dados_cadastro.id_parceiro)
 
             $('.needs-validation').each(function () {
                 this.reset();
@@ -489,9 +500,9 @@ function editar(cpfCnpj) {
 
                 ////Grupo Minas Gerais
                 $("#id-gmg-parcpromo").val(data.dados_cadastro.governo_minas);
-                $("#id-gmg-supervisor").val(data.dados_cadastro.governo_minas_sup)
+                $("#id-gmg-supervisor").val(data.dados_cadastro.governo_minas_sup);
                 $("#id-gmg-gerente").val(data.dados_cadastro.governo_minas_ger);
-                $("#id-gmg-quaternario").val(data.dados_cadastro.governo_minas_quat)
+                $("#id-gmg-quaternario").val(data.dados_cadastro.governo_minas_quat);
 
                 //% Grupo Rio de Janeiro
                 $("#id-grj-parcpromo").val(data.dados_cadastro.prefeitura_rio);
@@ -522,99 +533,17 @@ function editar(cpfCnpj) {
                 $("#exampleFormControlSiglaI").val(data.dados_sigla.usa_siglai1);
                 $("#exampleFormControlObs").val(data.dados_sigla.observacao);
                 $("#exampleFormControlStatusSiglas").val(data.dados_sigla.status_e);
-            }
 
+
+            }
 
 
 
         })
         .catch(error => console.log('error', error))
 
-function funcCadastroAcessoAlterar(data) {
-    // console.log(data);
-    $("#id-cadusu-usuario").val(data.usuario);
-    $("#id-cadusu-login").val(data.nome);
-    $("#id-cadusu-senha").val(data.senha);
-    $("id-cadusu-novamentesenha").val(data.senha);
-    $("#id-cadusu-tipousu").val(data.tipo);
-    $("#id-cadusu-usumaster").val(data.usuario_master);
-    $("#id-cadusu-classi").val(data.classificacao);
-    $("#id-cadusu-empresa").val(data.empresa);
-    $("#id-cadusu-status").val(data.status);
-    $("#id-cadusu-telcelular").val(data.telefone);
-    $("#id-cadusu-cpfcnpj").val(data.cpf_usuario)
-    $("#id-cadusu-cnpjMatriz").val(data.cnpj_matriz);
-    $("#id-cadusu-email").val(data.email);
-    $("#id-cadusu-motcancela").val(data.motivo_cancelamento);
-    $("#id-cadusu-perfilacesso").val(data.perfil);
-    $("#id-cadusu-acessoole").val(data.ole);
-    $("#id-cadusu-acessopan").val(data.pan);
-    $("#id-cadusu-acessocetelem").val(data.cetelem);
-    $("#id-cadusu-acessoitau").val(data.itau);
-    $("#id-cadusu-acef5bmg").val(data.f5_bmg);
-    $("#id-cadusu-acef5itau").val(data.f5_itau);
-    $("#id-cadusu-acedaycoval").val(data.daycoval);
-    $("#id-cadusu-acesim").val(data.sim);
-    $("#id-cadusu-acesafra").val(data.safra);
-    $("#id-cadusu-acebradesco").val(data.bradesco);
-    $("#id-cadusu-aceparana").val(data.parana);
-    $("#id-cadusu-crefisa").val(data.crefisa);
-    $("#id-cadusu-aceconsorciobb").val(data.consorcio_bb);
-    $("#ace-cadusu-conscaixa").val(data.consorcio_caixa);
-    $("#id-cadusu-aceconsitau").val(data.consorcio_itau);
-
-
-
-    //-----------------
 }
 
-
-    divButton.innerHTML = `
-    <button type="button" class="btn btn-primary btn-icon-label" id="idAlterar" onclick="alteracaoCadastro(${cpfcnpjParceiro})">
-        <span class="btn-inner--icon">
-            <i class="fas fa-plus"></i>
-        </span>
-        <span class="btn-inner--text">Alterar</span>
-    </button> ` 
-}
-
-function funcCadastroAcessoAlterar(data) {
-    // console.log(data);
-    $("#id-cadusu-usuario").val(data.usuario);
-    $("#id-cadusu-login").val(data.nome);
-    $("#id-cadusu-senha").val(data.senha);
-    $("id-cadusu-novamentesenha").val(data.senha);
-    $("#id-cadusu-tipousu").val(data.tipo);
-    $("#id-cadusu-usumaster").val(data.usuario_master);
-    $("#id-cadusu-classi").val(data.classificacao);
-    $("#id-cadusu-empresa").val(data.empresa);
-    $("#id-cadusu-status").val(data.status);
-    $("#id-cadusu-telcelular").val(data.telefone);
-    $("#id-cadusu-cpfcnpj").val(data.cpf_usuario)
-    $("#id-cadusu-cnpjMatriz").val(data.cnpj_matriz);
-    $("#id-cadusu-email").val(data.email);
-    $("#id-cadusu-motcancela").val(data.motivo_cancelamento);
-    $("#id-cadusu-perfilacesso").val(data.perfil);
-    $("#id-cadusu-acessoole").val(data.ole);
-    $("#id-cadusu-acessopan").val(data.pan);
-    $("#id-cadusu-acessocetelem").val(data.cetelem);
-    $("#id-cadusu-acessoitau").val(data.itau);
-    $("#id-cadusu-acef5bmg").val(data.f5_bmg);
-    $("#id-cadusu-acef5itau").val(data.f5_itau);
-    $("#id-cadusu-acedaycoval").val(data.daycoval);
-    $("#id-cadusu-acesim").val(data.sim);
-    $("#id-cadusu-acesafra").val(data.safra);
-    $("#id-cadusu-acebradesco").val(data.bradesco);
-    $("#id-cadusu-aceparana").val(data.parana);
-    $("#id-cadusu-crefisa").val(data.crefisa);
-    $("#id-cadusu-aceconsorciobb").val(data.consorcio_bb);
-    $("#ace-cadusu-conscaixa").val(data.consorcio_caixa);
-    $("#id-cadusu-aceconsitau").val(data.consorcio_itau);
-
-
-
-    //-----------------
-}
 
 
 

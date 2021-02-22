@@ -261,19 +261,20 @@ function incluirCadastro() {
         //   console.log(response)
         .then(function (data) {
             if (data.sucesso === "usuario cadastrado com sucesso") {
-                // alert("Cadastro incluido com sucesso!")
                 $('#alertSucessoCadastro').show();
-                 $('#alertSucessoCadastro').fadeIn( 300 ).delay( 3000 ).fadeOut( 400 );
+                $('#alertSucessoCadastro').fadeIn(300).delay(9000).fadeOut(400);
+
+                // alert("Cadastro incluido com sucesso!")
                 console.log(data)
             }
 
-             if (data.resp === "não foi possivel cadastrar usuario, cpf existente na base de dados") {
-                 //alert("não foi possivel cadastrar usuario, cpf existente na base de dados");
-
+            if (data.resp === "não foi possivel cadastrar usuario, cpf existente na base de dados") {
+                // alert("não foi possivel cadastrar usuario, cpf existente na base de dados");
                 $('#alertFalhaCadastro').show();
-                $('#alertFalhaCadastro').fadeIn( 300 ).delay( 3000 ).fadeOut( 400 );
-                document.getElementById("alertFalhaCadastro").textContent = "Cadastro inválido"
-             }
+                $('#alertFalhaCadastro').fadeIn(300).delay(4000).fadeOut(400);
+                document.getElementById("alertFalhaCadastro").textContent = "Não foi possivel cadastrar usuario, cpf existente"
+            }
+
         })
         .catch(error => console.log('erro', error));
 
@@ -285,12 +286,15 @@ function incluirCadastro() {
 
 
 
-function alteracaoCadastro(idParceiro) {
+function alteracaoCadastro(idParceiro, td) {
     // const prosser = document.getElementById("idAlterar");
     // prosser.addEventListener('click', () => {
 
     // alert("Entrei aq update")
     // console.log(idParceiro)
+    
+    
+
 
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
@@ -415,7 +419,7 @@ function alteracaoCadastro(idParceiro) {
     var raw = JSON.stringify({
 
         // Cadastro
-        id_parceiro: 33162,
+        id_parceiro: idParceiro,
         filial: filialcad,
         parceiro: funcionarioo,
         nome_completo: nomeComp,
@@ -542,31 +546,47 @@ function alteracaoCadastro(idParceiro) {
         redirect: 'follow'
     };
 
-    fetch(URL+"/user/cadstro/alterar", requestOptions)
+    fetch(URL + "/user/cadstro/alterar", requestOptions)
         .then(response => response.text())
         .then(function (data) {
             console.log(data)
-
             if(data === "acesso alterado") {
-                //Mensagem
+                let cellsObj = td.cells
+                cellsObj[0].textContent = $("#exampleFormControlFilialCadastro").val()
+                cellsObj[1].textContent = $("#funcionario").val()
+                cellsObj[2].textContent = $("#validationCpfCadastro").val()
+                cellsObj[3].textContent = $("#exampleFormControlStatus").val()
+                cellsObj[4].textContent = $("#exampleFormControlSupervisorBB").val()
+                cellsObj[5].textContent = $("#exampleFormControlGerenteBB").val()
+                cellsObj[6].textContent = $("#validationDA").val()
+                cellsObj[7].textContent = $("#validationDE").val()
+
                 $('#alertSucessoCadastro').show();
-                $('#alertSucessoCadastro').fadeIn(300).delay(9000).fadeOut(400);
+                $('#alertSucessoCadastro').fadeIn(300).delay(3000).fadeOut(400);
                 document.getElementById("alertSucessoCadastro").textContent = "Atualizado com Sucesso"
             }
             else if(data === 'erro cad' || data === "erro chave") {
-                //Mensagem
                 $('#alertFalhaCadastro').show();
-                $('#alertFalhaCadastro').fadeIn(300).delay(9000).fadeOut(400);
+                $('#alertFalhaCadastro').fadeIn(300).delay(3000).fadeOut(400);
                 document.getElementById("alertFalhaCadastro").textContent = "Atualização inválida"
             }
+
+            
+
         })
         .catch(error => console.log('erro', error));
+
+    // })
+
+
 }
 
 
 
 // Função para parceiros 
 let cpfCnpjSigla = document.getElementById("validationCpfCnpf");
+
+
 cpfCnpjSigla.addEventListener('blur', () => {
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
