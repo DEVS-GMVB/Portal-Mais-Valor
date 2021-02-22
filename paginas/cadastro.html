@@ -1617,7 +1617,7 @@
                         </form>
 
                         <div class="opcoes-cadastro mt-1" style="text-align: center; margin-inline: block;" id="alterarIncluirAcesso">
-                            <button type="button" class="btn btn-primary btn-icon-label" id="incluirAcesso">
+                            <button type="button" class="btn btn-primary btn-icon-label" id="incluirAcesso" onclick="incluirAcessoFunction()">
                                 <span class="btn-inner--icon">
                                     <i class="fas fa-plus"></i>
                                 </span>
@@ -1625,6 +1625,15 @@
                             </button>
 
                         </div>
+                        <!-- Alert falha acesso -->
+                        <div class="alert alert-danger falha" id="alertFalhaAcesso" role="alert">
+                             
+                        </div> 
+
+                        <!-- Alert sucesso acesso -->
+                       <div class="alert alert-success sucesso" id="alertSucessoAcesso" role="alert">
+                       </div>
+                        
 
                         <div class="table-responsive mt-3">
                             <table class="table align-items-center">
@@ -1977,12 +1986,12 @@
 
                         <!-- Alert falha cadastro -->
                         <div class="alert alert-danger" id="alertFalhaCadastro" role="alert">
-                            Preencha os campos necessários
+                           
                         </div>
 
                         <!-- Alert sucesso cadastro -->
                         <div class="alert alert-success" id="alertSucessoCadastro" role="alert">
-                            Cadastro incluido com sucesso!
+                            
                         </div>
                         
 

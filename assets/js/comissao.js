@@ -125,7 +125,7 @@ cpfSecundario.addEventListener('blur', () => {
     body: raw,
     redirect: 'follow'
   };
-  fetch(URL+"/user/parceiros", requestOptions)
+  fetch(URL + "/user/secundario", requestOptions)
     .then(response => response.json())
     .then(function (data) {
       if (data[0].parceiro === "NAO INFORMADO NA INSERA‡A?O") {
@@ -161,30 +161,35 @@ cpfTerceario.addEventListener('blur', () => {
     body: raw,
     redirect: 'follow'
   };
-  fetch(URL+"/user/parceiros", requestOptions)
+  fetch(URL + "/user/terceario", requestOptions)
     .then(response => response.json())
     .then(function (data) {
-      if (data[0].parceiro === "NAO INFORMADO NA INSERA‡A?O") {
+      if (data[0].gerente === "NAO INFORMADO NA INSERA‡A?O") {
         $("#idTerc").val("");
       } else {
-        $("#idTerc").val(data[0].parceiro);
+        $("#idTerc").val(data[0].gerente);
       }
     })
 
-    var requestOptions = {
-        method: 'POST',
-        headers: myHeaders,
-        body: raw,                                                                      
-        redirect: 'follow'
-      };  
-      
-      fetch("http://172.16.0.197:3000/user/cadastro/inclusao", requestOptions)
-      .then(response => response.json())
-    //   console.log(response)
-      .then(result => console.log(result))
-      .catch(error => console.log('error', error));
-})
+  var requestOptions = {
+    method: 'POST',
+    headers: myHeaders,
+    body: raw,
+    redirect: 'follow'
+  };
 
+  fetch("http://172.16.0.197:3000/user/cadastro/inclusao", requestOptions)
+    .then(response => response.json())
+    //   console.log(response)
+    .then(result => console.log(result))
+    .catch(error => console.log('error', error));
+})
+cpfTerceario.addEventListener('keyup', () => {
+  let ter = document.getElementById("idTerc");
+  if (ter.value.length > 0) {
+    $("#idTerc").val("")
+  }
+})
 //Quaternario
 let cpfQuaternario = document.getElementById("quaternario");
 cpfQuaternario.addEventListener('blur', () => {
@@ -202,7 +207,7 @@ cpfQuaternario.addEventListener('blur', () => {
     body: raw,
     redirect: 'follow'
   };
-  fetch(URL+"/user/parceiros", requestOptions)
+  fetch(URL + "/user/parceiros", requestOptions)
     .then(response => response.json())
     .then(function (data) {
       if (data[0].parceiro === "NAO INFORMADO NA INSERA‡A?O") {
@@ -220,5 +225,3 @@ cpfQuaternario.addEventListener('keyup', () => {
     $("#idQuartenario").val("")
   }
 })
-
-

@@ -144,7 +144,7 @@ function incluirAcessoFunction() {
 
 
             cpfIncluirAcesso++;
-            alert("Usuário cadastrado com sucesso");
+            // alert("Usuário cadastrado com sucesso");
 
             alteraVisualizar.innerHTML = `
               <div class="actions ml-3 text-center">
@@ -153,6 +153,9 @@ function incluirAcessoFunction() {
                   </a>
               </div>`
 
+              $('#alertSucessoAcesso').show();
+              $('#alertSucessoAcesso').fadeIn(300).delay(3000).fadeOut(400);
+              document.getElementById("alertSucessoAcesso").textContent = "Acesso cadastrado com sucesso"
 
           });
         } else if (result.erro === 'usuario já tem acesso cadastrado') {
@@ -165,7 +168,7 @@ function incluirAcessoFunction() {
             //alert("Usuário já existente")
             $('#alertFalhaAcesso').show();
             $('#alertFalhaAcesso').fadeIn(300).delay(3000).fadeOut(400);
-            document.getElementById("alertFalhaAcesso").textContent = "Usuário já existente"
+            document.getElementById("alertFalhaAcesso").textContent = "Acesso já existente"
           }
           while (lista.length !== 0) {
             lista.pop();
@@ -380,8 +383,11 @@ function alterarAcesso(idAcesso) {
   fetch(URL + "/user/cadastro/acesso/alterar", requestOptions).
   then(response => response.text()).
   then(function (data) {
-    alert("Acesso alterado com sucesso");
-    console.log(data);
+    // alert("Acesso alterado com sucesso");
+    // console.log(data);
+    $('#alertSucessoAcesso').show();
+    $('#alertSucessoAcesso').fadeIn(300).delay(3000).fadeOut(400);
+    document.getElementById("alertSucessoAcesso").textContent = "Acesso alterado com sucesso"
 
     // trocar o botão para fazer inclusão
 

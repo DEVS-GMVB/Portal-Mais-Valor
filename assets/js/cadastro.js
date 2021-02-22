@@ -1,6 +1,4 @@
 // VARS
-
-
 const URL = "http://localhost:3000";
 
 // let incluirAcessoo = document.getElementById("alterarIncluirAcesso")
@@ -29,8 +27,11 @@ let divButton = document.getElementById("botaoAltIncluir");
 let testeCont = 0;
 let arrayAcessoAlterar;
 let contAcessoAlterar = -1;
-let cpfcnpjParceiro;
-
+let idParceiro;
+let indexObj = [];
+let arrayIds = [];
+let iIds = -1;
+let objTd;
 
 let cont = -1;
 let array;
@@ -138,6 +139,7 @@ window.onload = function () {
 
     })
 
+    //Fim script buttons prosseguir
 
 
     // ------------------------------
@@ -190,7 +192,6 @@ const colocar = document.getElementById('incluir');
 
 colocar.addEventListener('click', () => {
 
-
     var node = document.getElementById("list");
     while (node.hasChildNodes()) {
         node.removeChild(node.lastChild);
@@ -233,10 +234,14 @@ colocar.addEventListener('click', () => {
     fetch(URL + "/user/search", requestOptions)
         .then(response => response.json())
         .then(result => {
+
             cont = -1;
             array = result;
 
             for (const value of result) {
+
+                // console.log(value.parceiro);
+
                 let specific_tbody = document.getElementById('list');
                 let row = specific_tbody.insertRow(-1);
                 let filial = row.insertCell(-1);
@@ -282,20 +287,24 @@ colocar.addEventListener('click', () => {
                 let data_alteracaoText = document.createTextNode(`${value.data_alteracao}`);
                 data_alteracao.appendChild(data_alteracaoText)
 
+                //Atrr
                 cont++;
+                indexObj.push(row)
 
-                alteraVisualiza.innerHTML = ` <div class="actions ml-3" style="text-align: center;">
-            <a "id=buttonalterar" href="#" class="action-item mr-2" data-nome="marcos" data-toggle="modal"
-                data-target=".modalteladecadastro" title="Alterar" id="modalAlterar">
-                <i id = "${cont}" class="fas fa-external-link-alt" onclick="editar(array[${cont}].cpf)"></i>
-            </a>
-            <a href="#" class="action-item mr-2" data-toggle="modal"
-                data-target=".modalteladecadastro" data-id="oi" title="Visualizar">
-                <i class="fas fa-eye"></i>
-            </a>
-        </div>`;
-
+                alteraVisualiza.innerHTML = `
+                 <div class="actions ml-3" style="text-align: center;">
+                    <a "id=buttonalterar" href="#" class="action-item mr-2" data-nome="marcos" data-toggle="modal"
+                        data-target=".modalteladecadastro" title="Alterar" id="modalAlterar">
+                        <i id = "${cont}" class="fas fa-external-link-alt" onclick="editar(array[${cont}].cpf, indexObj[${cont}])"></i>
+                    </a>
+                    <a href="#" class="action-item mr-2" data-toggle="modal"
+                        data-target=".modalteladecadastro" data-id="oi" title="Visualizar">
+                        <i class="fas fa-eye"></i>
+                    </a>
+                </div>`;
+                // console.log(array[cont].cpf)
             }
+
 
         })
         .catch(error => console.log('error', error));
@@ -306,9 +315,11 @@ colocar.addEventListener('click', () => {
 
 
 
-function editar(cpfCnpj) {
+function editar(cpfCnpj, indexObj) {
+    // console.log(cpfCnpj);
     //javascript para interromper o fluxo dos modais iguais;
     document.getElementById("acesso-tab").disabled = false;
+    objTd = indexObj;
 
     //Cabeçalho
     var myHeaders = new Headers();
@@ -382,7 +393,18 @@ function editar(cpfCnpj) {
     fetch(URL + "/user/cadastro/modal", requestOptions)
         .then(response => response.json())
         .then(function (data) {
-            cpfcnpjParceiro = data.dados_cadastro.id_parceiro
+            // console.log(data.dados_cadastro.id_parceiro);
+            //Alteração de buttons de cadastro, para alterar
+            let idParceiro = data.dados_cadastro.id_parceiro
+            divButton.innerHTML = `
+            <button type="button" class="btn btn-primary btn-icon-label" id="idAlterar" onclick="alteracaoCadastro(${idParceiro}, objTd)">
+                <span class="btn-inner--icon">
+                    <i class="fas fa-plus"></i>
+                </span>
+                <span class="btn-inner--text">Alterar</span>
+            </button> `
+            // arrayIds.push(data.dados_cadastro.id_parceiro)
+            // console.log(data.dados_cadastro.id_parceiro)
 
             $('.needs-validation').each(function () {
                 this.reset();
@@ -517,22 +539,14 @@ function editar(cpfCnpj) {
                 $("#exampleFormControlSiglaI").val(data.dados_sigla.usa_siglai1);
                 $("#exampleFormControlObs").val(data.dados_sigla.observacao);
                 $("#exampleFormControlStatusSiglas").val(data.dados_sigla.status_e);
-            }
 
+
+            }
 
 
 
         })
         .catch(error => console.log('error', error))
-
-
-    divButton.innerHTML = `
-    <button type="button" class="btn btn-primary btn-icon-label" id="idAlterar" onclick="alteracaoCadastro(${cpfcnpjParceiro})">
-        <span class="btn-inner--icon">
-            <i class="fas fa-plus"></i>
-        </span>
-        <span class="btn-inner--text">Alterar</span>
-    </button> `
 
 }
 

@@ -260,18 +260,20 @@ function incluirCadastro() {
         .then(response => response.json())
         //   console.log(response)
         .then(function (data) {
+            console.log(data);
             if (data.sucesso === "usuario cadastrado com sucesso") {
                 $('#alertSucessoCadastro').show();
-                $('#alertSucessoCadastro').fadeIn(300).delay(9000).fadeOut(400);
-
+                $('#alertSucessoCadastro').fadeIn(300).delay(3000).fadeOut(400);
+                document.getElementById("alertSucessoCadastro").textContent = "Cadastro incluido com sucesso"
                 // alert("Cadastro incluido com sucesso!")
-                console.log(data)
+                // console.log(data)
             }
 
             if (data.resp === "não foi possivel cadastrar usuario, cpf existente na base de dados") {
                 // alert("não foi possivel cadastrar usuario, cpf existente na base de dados");
                 $('#alertFalhaCadastro').show();
-                $('#alertFalhaCadastro').fadeIn(300).delay(4000).fadeOut(400);
+                $('#alertFalhaCadastro').fadeIn(300).delay(3000).fadeOut(400);
+                document.getElementById("alertFalhaCadastro").textContent = "Não foi possivel cadastrar usuario, cpf existente"
             }
 
 
@@ -286,12 +288,15 @@ function incluirCadastro() {
 
 
 
-function alteracaoCadastro(idParceiro) {
+function alteracaoCadastro(idParceiro, td) {
     // const prosser = document.getElementById("idAlterar");
     // prosser.addEventListener('click', () => {
 
     // alert("Entrei aq update")
     // console.log(idParceiro)
+    
+    let cellsObj = td.cells
+
 
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
@@ -548,6 +553,18 @@ function alteracaoCadastro(idParceiro) {
         .then(function (data) {
             console.log(data)
             if(data === "acesso alterado") {
+                // Update table
+                
+                cellsObj[0].textContent = $("#exampleFormControlFilialCadastro").val()
+                cellsObj[1].textContent = $("#funcionario").val()
+                cellsObj[2].textContent = $("#validationCpfCadastro").val()
+                cellsObj[3].textContent = $("#exampleFormControlStatus").val();
+                cellsObj[4].textContent = $("#exampleFormControlSupervisorBB").val()
+                cellsObj[5].textContent = $("#exampleFormControlGerenteBB").val()
+                cellsObj[6].textContent = $("#validationDA").val();
+                cellsObj[7].textContent = $("#validationDE").val()
+                
+
                 $('#alertSucessoCadastro').show();
                 $('#alertSucessoCadastro').fadeIn(300).delay(3000).fadeOut(400);
                 document.getElementById("alertSucessoCadastro").textContent = "Atualizado com Sucesso"
@@ -558,10 +575,8 @@ function alteracaoCadastro(idParceiro) {
                 document.getElementById("alertFalhaCadastro").textContent = "Atualização inválida"
             }
 
-            // } else if(data.resp === "atualização inválida") {
-            //     $('#alertFalhaCadastro').show();
-            //     $('#alertFalhaCadastro').fadeIn(300).delay(9000).fadeOut(400);
-            // }
+            
+
         })
         .catch(error => console.log('erro', error));
 
