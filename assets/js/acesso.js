@@ -129,7 +129,7 @@ function incluirAcessoFunction() {
           let date = row.insertCell(-1);
           let alteraVisualizar = row.insertCell(-1);
 
-          let nameTex = document.createTextNode(`${element.nome}`)
+          let nameTex = document.createTextNode(`${element.usuario}`)
           name.appendChild(nameTex);
 
           let cpfText = document.createTextNode(`${element.cpf_usuario}`)
@@ -297,7 +297,7 @@ function funcCadastroAcessoAlterar(data) {
 }
 
 function alterarAcesso(idAcesso, objTr) {
-  let cellsTr = objTr.cells;
+  // let cellsTr = objTr.cells;
 
   const empre = document.getElementById("id-cadusu-empresa").value;
   const usuario = document.getElementById('id-cadusu-usuario').value;
@@ -391,9 +391,9 @@ function alterarAcesso(idAcesso, objTr) {
   then(response => response.text()).
   then(function (data) {
 
-    cellsTr[0].textContent = $("#id-cadusu-usuario").val()
-    cellsTr[1].textContent = $("#id-cadusu-cpfcnpj").val()
-    cellsTr[2].textContent = $("#id-cadusu-cnpjMatriz").val()
+    // cellsTr[0].textContent = $("#id-cadusu-usuario").val()
+    // cellsTr[1].textContent = $("#id-cadusu-cpfcnpj").val()
+    // cellsTr[2].textContent = $("#id-cadusu-cnpjMatriz").val()
 
     $('#alertSucessoAcesso').show();
     $('#alertSucessoAcesso').fadeIn(300).delay(3000).fadeOut(400);

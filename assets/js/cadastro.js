@@ -289,6 +289,7 @@ colocar.addEventListener('click', () => {
 
                 //Atrr
                 cont++;
+                console.log(row);
                 indexObj.push(row)
 
                 alteraVisualiza.innerHTML = `
@@ -316,7 +317,8 @@ colocar.addEventListener('click', () => {
 
 
 function editar(cpfCnpj, indexObj) {
-    // console.log(cpfCnpj);
+    // console.log("Cliquei em Alterar icon me trouxe isso: " + indexObj);
+
     //javascript para interromper o fluxo dos modais iguais;
     document.getElementById("acesso-tab").disabled = false;
     objTd = indexObj;
@@ -568,7 +570,7 @@ buttonIncluir.addEventListener('click', () => {
     </button>`
 
     //Limpar tbody
-    $("td").remove();
+    $("#lista tr td").remove();
 
     //Reset nos campos
     $('.needs-validation').each(function () {

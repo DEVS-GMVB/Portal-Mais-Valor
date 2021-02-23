@@ -289,14 +289,7 @@ function incluirCadastro() {
 
 
 function alteracaoCadastro(idParceiro, td) {
-    // const prosser = document.getElementById("idAlterar");
-    // prosser.addEventListener('click', () => {
-
-    // alert("Entrei aq update")
-    // console.log(idParceiro)
-    
-    let cellsObj = td.cells
-
+    // console.log(td)
 
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
@@ -417,6 +410,8 @@ function alteracaoCadastro(idParceiro, td) {
     let usaSiglaE = document.getElementById('exampleFormControlUsaSigla').value;
     let usaSilgaI = document.getElementById('exampleFormControlSiglaI').value;
     let observ = document.getElementById('exampleFormControlObs').value;
+
+
 
     var raw = JSON.stringify({
 
@@ -551,40 +546,195 @@ function alteracaoCadastro(idParceiro, td) {
     fetch(URL + "/user/cadstro/alterar", requestOptions)
         .then(response => response.text())
         .then(function (data) {
+            // atualizaListaCadastro(td);
             console.log(data)
-            if(data === "acesso alterado") {
-                // Update table
-                
-                cellsObj[0].textContent = $("#exampleFormControlFilialCadastro").val()
-                cellsObj[1].textContent = $("#funcionario").val()
-                cellsObj[2].textContent = $("#validationCpfCadastro").val()
-                cellsObj[3].textContent = $("#exampleFormControlStatus").val();
-                cellsObj[4].textContent = $("#exampleFormControlSupervisorBB").val()
-                cellsObj[5].textContent = $("#exampleFormControlGerenteBB").val()
-                cellsObj[6].textContent = $("#validationDA").val();
-                cellsObj[7].textContent = $("#validationDE").val()
-                
-
+            if (data === "acesso alterado") {
                 $('#alertSucessoCadastro').show();
                 $('#alertSucessoCadastro').fadeIn(300).delay(3000).fadeOut(400);
                 document.getElementById("alertSucessoCadastro").textContent = "Atualizado com Sucesso"
-            }
-            else if(data === 'erro cad' || data === "erro chave") {
+                atualizaListaCadastro();
+                // Update table
+
+            } else if (data === 'erro cad' || data === "erro chave") {
                 $('#alertFalhaCadastro').show();
                 $('#alertFalhaCadastro').fadeIn(300).delay(3000).fadeOut(400);
                 document.getElementById("alertFalhaCadastro").textContent = "Atualização inválida"
             }
 
-            
-
         })
         .catch(error => console.log('erro', error));
 
+
     // })
+
+    // cellsObj[0].textContent = $("#exampleFormControlFilialCadastro").val()
+    // cellsObj[1].textContent = $("#funcionario").val()
+    // cellsObj[2].textContent = $("#validationCpfCadastro").val()
+    // cellsObj[3].textContent = $("#exampleFormControlStatus").val();
+    // cellsObj[4].textContent = $("#exampleFormControlSupervisorBB").val()
+    // cellsObj[5].textContent = $("#exampleFormControlGerenteBB").val()
+    // cellsObj[6].textContent = $("#validationDA").val();
+    // cellsObj[7].textContent = $("#validationDE").val()
+
 
 
 }
 
+
+function atualizaListaCadastro() {
+    var node = document.getElementById("list");
+    while (node.hasChildNodes()) {
+        node.removeChild(node.lastChild);
+    }
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+
+    let parceiro = $("#funcionario").val();
+    let cnpj = $("#validationCpfCadastro").val();
+    let supervisor = document.getElementById('exampleFormControlSupervisor').value;
+    let status = document.getElementById('status').value;
+    let gerente = document.getElementById('exampleFormControlSelectGerente').value;
+    let filial = document.getElementById('exampleFormControlFilialCadastro').value;
+    let mes_admissao = document.getElementById('exampleFormControlMes').value;
+    let mes_demissao = document.getElementById('exampleFormControlMesDemissao').value;
+    let tipo = document.getElementById('exampleFormControlTipo').value;
+    let superintendente = document.getElementById('exampleFormControlSelect1Superintendente').value;
+    // console.log(cnpj,status,supervisor,gerente,filial, mes_admissao, mes_demissao, tipo,superintendente);
+    var raw = JSON.stringify({
+        parceiro: parceiro,
+        cnpj: cnpj,
+        supervisor: supervisor,
+        status: status,
+        gerente: gerente,
+        filial: filial,
+        mes_admissao: mes_admissao,
+        mes_demissao: mes_demissao,
+        tipo: tipo,
+        superintendente: superintendente
+    })
+
+    var requestOptions = {
+        method: 'POST',
+        headers: myHeaders,
+        body: raw,
+        redirect: 'follow'
+    };
+
+    // console.log(raw);
+    fetch(URL + "/user/search", requestOptions)
+        .then(response => response.json())
+        .then(result => {
+            console.log(result)
+
+            cont = -1;
+            array = result;
+
+            for (const value of result) {
+
+                // console.log(value.parceiro);
+
+                let specific_tbody = document.getElementById('list');
+                let row = specific_tbody.insertRow(-1);
+                let filial = row.insertCell(-1);
+                let funcionario = row.insertCell(-1);
+                let cnpj = row.insertCell(-1);
+                let status = row.insertCell(-1);
+                let supervisor = row.insertCell(-1);
+                let gerente = row.insertCell(-1);
+                let data_admissao = row.insertCell(-1);
+                let data_inativacao = row.insertCell(-1);
+                let responsavel = row.insertCell(-1);
+                let data_alteracao = row.insertCell(-1);
+                let alteraVisualiza = row.insertCell(-1);
+
+
+                let filialText = document.createTextNode(`${value.filial}`);
+                filial.appendChild(filialText);
+
+                let funcionarioText = document.createTextNode(`${value.parceiro}`);
+                funcionario.appendChild(funcionarioText)
+
+                let cnpjText = document.createTextNode(`${value.cnpj}`);
+                cnpj.appendChild(cnpjText);
+
+                let statusText = document.createTextNode(`${value.status}`);
+                status.appendChild(statusText)
+
+                let supervisorText = document.createTextNode(`${value.supervisor}`);
+                supervisor.appendChild(supervisorText)
+
+                let gerenteText = document.createTextNode(`${value.gerente}`);
+                gerente.appendChild(gerenteText)
+
+                let data_admissaoText = document.createTextNode(`${value.data_admissao}`);
+                data_admissao.appendChild(data_admissaoText);
+
+                let data_inativacaoText = document.createTextNode(`${value.data_inativacao}`);
+                data_inativacao.appendChild(data_inativacaoText);
+
+                let responsavelText = document.createTextNode(`${value.responsavel}`);
+                responsavel.appendChild(responsavelText);
+
+                let data_alteracaoText = document.createTextNode(`${value.data_alteracao}`);
+                data_alteracao.appendChild(data_alteracaoText)
+
+                //Atrr
+                cont++;
+                console.log(row);
+                indexObj.push(row)
+
+                alteraVisualiza.innerHTML = `
+                 <div class="actions ml-3" style="text-align: center;">
+                    <a "id=buttonalterar" href="#" class="action-item mr-2" data-nome="marcos" data-toggle="modal"
+                        data-target=".modalteladecadastro" title="Alterar" id="modalAlterar">
+                        <i id = "${cont}" class="fas fa-external-link-alt" onclick="editar(array[${cont}].cpf, indexObj[${cont}])"></i>
+                    </a>
+                    <a href="#" class="action-item mr-2" data-toggle="modal"
+                        data-target=".modalteladecadastro" data-id="oi" title="Visualizar">
+                        <i class="fas fa-eye"></i>
+                    </a>
+                </div>`;
+                // console.log(array[cont].cpf)
+            }
+
+
+        })
+        .catch(error => console.log('error', error));
+
+
+
+    // alert("Estou atualizando a lista merda" + linhaCadastro)
+    // if (linhaCadastro != undefined && linhaCadastro != null) {
+    //     linhaCadastro.innerHTML = `
+    // <td>${$("#exampleFormControlFilialCadastro").val()}</td>
+    // <td>${$("#funcionario").val()}</td>
+    // <td>${$("#validationCpfCadastro").val()}</td>
+    // <td>${$("#exampleFormControlStatus").val()}</td>
+    // <td>${$("#exampleFormControlSupervisorBB").val()}</td>
+    // <td>${$("#exampleFormControlGerenteBB").val()}</td>
+    // <td>${$("#validationDA").val()}</td>
+    // <td>${$("#validationDE").val()}</td>
+    // <td></td>
+    // <td></td>
+    // <td> 
+    //     <div class="actions ml-3" style="text-align: center;">
+    //         <a "id=buttonalterar" href="#" class="action-item mr-2" data-nome="marcos" data-toggle="modal"
+    //             data-target=".modalteladecadastro" title="Alterar" id="modalAlterar">
+    //             <i id = "${cont}" class="fas fa-external-link-alt" onclick="editar(array[${cont}].cpf, indexObj[${cont}])"></i>
+    //         </a>
+    //         <a href="#" class="action-item mr-2" data-toggle="modal"
+    //             data-target=".modalteladecadastro" data-id="oi" title="Visualizar">
+    //             <i class="fas fa-eye"></i>
+    //         </a>
+    //     </div>
+    // </td>
+    // `
+    // } 
+
+
+
+
+}
 
 
 // Função para parceiros 
