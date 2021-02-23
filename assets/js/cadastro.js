@@ -493,7 +493,7 @@ buttonIncluir.addEventListener('click', () => {
         <span class="btn-inner--text">Finalizar</span>
     </button>`
 
-    $("td").remove();
+    //$("td").remove();
 
     document.getElementById("acesso-tab").disabled = true;
     $('.needs-validation').each(function () {

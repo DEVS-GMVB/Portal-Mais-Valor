@@ -14,7 +14,8 @@ cpfSecundario.addEventListener('blur', () => {
     headers: myHeaders,
     body: raw,
     redirect: 'follow'
-  };
+  }
+
   fetch(URL + "/user/secundario", requestOptions)
     .then(response => response.json())
     .then(function (data) {

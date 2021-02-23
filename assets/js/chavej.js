@@ -1,9 +1,4 @@
-
-// alert("sdafdsfsdfsdfsfsd")
-
-
-
-const prosseguir = document.getElementById('prosseguirChavejBtn');
+/*const prosseguir = document.getElementById('prosseguirChavejBtn');
 prosseguir.addEventListener('click', () => {
 
     var myHeaders = new Headers();
@@ -40,5 +35,5 @@ prosseguir.addEventListener('click', () => {
       .then(response => response.json())
       .then(result => console.log(result))
       .catch(error => console.log('error', error));
-})
+})*/
 
