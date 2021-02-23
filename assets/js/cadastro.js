@@ -1,9 +1,4 @@
-// VARS
-
-
 const URL = "http://localhost:3000";
-
-// let incluirAcessoo = document.getElementById("alterarIncluirAcesso")
 let fi = document.getElementById('exampleFormControlFilial');
 let filialCadastro = document.getElementById('exampleFormControlFilialCadastro');
 let supervisor = document.getElementById('exampleFormControlSupervisor');
@@ -25,7 +20,6 @@ let testando = document.getElementById("comissao-tabb");
 let testando2 = document.getElementById("chavej-tabb");
 let testando3 = document.getElementById("siglae-tabb");
 let divButton = document.getElementById("botaoAltIncluir");
-
 let testeCont = 0;
 let arrayAcessoAlterar;
 let contAcessoAlterar = -1;
@@ -34,13 +28,11 @@ let indexObj = [];
 let arrayIds = [];
 let iIds = -1;
 let objTd;
-
 let cont = -1;
 let array;
 
-
 window.onload = function () {
-    // ------------------------------
+
     const prosseguir = document.getElementById('prosseguirBtn');
     prosseguir.addEventListener('click', () => {
         testeCont++;
@@ -53,26 +45,18 @@ window.onload = function () {
             comissao_tab.classList.add('active');
             cadastro_tab.classList.remove('active');
         } else if (testeCont > 1) {
-            // alert("etetdsasadadsf")
             comissao_tab.setAttribute('aria-selected', true);
             comissao_tab.classList.add('active');
             cadastro_tab.classList.remove('active');
 
             testando.classList.remove('active');
-
         }
-
     })
     comissao_tab.addEventListener('blur', () => {
-        // comissao_tab.setAttribute('aria-selected', false);
-        // alert("fdsfsdsdfs")
         comissao_tab.classList.remove('active');
-
-
     })
 
-    // //--------------------------------
-    // //Prosseguir chaveJ
+   //Prosseguir chaveJ
     const prosseguirChaveJ = document.getElementById("prosseguirChaveJ");
     let contChavej = 0;
     prosseguirChaveJ.addEventListener("click", () => {
@@ -82,25 +66,20 @@ window.onload = function () {
             if (comissao_tab.getAttribute("aria-selected") == "true") {
                 comissao_tab.setAttribute('aria-selected', false);
             }
-
             chaveJ_tab.setAttribute('aria-selected', true);
             chaveJ_tab.classList.add('active');
             comissao_tab.classList.remove('active');
         } else if (contChavej > 1) {
-            // alert("etetdsasadadsf")
             chaveJ_tab.setAttribute('aria-selected', true);
             chaveJ_tab.classList.add('active');
             comissao_tab.classList.remove('active');
 
             testando2.classList.remove('active');
-
         }
-
     })
 
     chaveJ_tab.addEventListener('blur', () => {
         chaveJ_tab.classList.remove('active');
-
 
     })
 
@@ -114,40 +93,27 @@ window.onload = function () {
             if (chaveJ_tab.getAttribute("aria-selected") == "true") {
                 chaveJ_tab.setAttribute('aria-selected', false);
             }
-
             siglae_tab.setAttribute('aria-selected', true);
             siglae_tab.classList.add('active');
             chaveJ_tab.classList.remove('active');
         } else if (contSiglae > 1) {
-            // alert("etetdsasadadsf")
             siglae_tab.setAttribute('aria-selected', true);
             siglae_tab.classList.add('active');
             chaveJ_tab.classList.remove('active');
 
             testando3.classList.remove('active');
-
         }
-
     })
 
     siglae_tab.addEventListener('blur', () => {
-        // comissao_tab.setAttribute('aria-selected', false);
-        // alert("fdsfsdsdfs")
         siglae_tab.classList.remove('active');
-
-
     })
-
     //Fim script buttons prosseguir
 
-
-    // ------------------------------
     var requestOptions = {
         method: 'GET',
         redirect: 'follow'
     };
-
-
 
     fetch(URL + "/user/gerente", requestOptions)
         .then(response => response.json().then(function (data) {
@@ -157,8 +123,6 @@ window.onload = function () {
                 gerenteMulti.innerHTML += '<option value="' + data[i].gerente + '">' + data[i].gerente + '</option>;'
             }
         })).catch(error => console.log('error', error));
-
-
 
     fetch(URL + "/user/filial", requestOptions)
         .then(response => response.json()
@@ -170,8 +134,6 @@ window.onload = function () {
             }))
         .catch(error => console.log('error', error));
 
-
-
     fetch(URL + "/user/supervisor", requestOptions)
         .then(response => response.json())
         .then(function (data) {
@@ -179,22 +141,18 @@ window.onload = function () {
                 supervisor.innerHTML += '<option value="' + data[i].parceiro + '">' + data[i].parceiro + '</option>;'
                 supervisorBB.innerHTML += '<option value="' + data[i].parceiro + '">' + data[i].parceiro + '</option>;'
                 supervisorMulti.innerHTML += '<option value="' + data[i].parceiro + '">' + data[i].parceiro + '</option>;'
-
             }
         }).catch(error => console.log('error', error));
-
-
-
 }
+
 const colocar = document.getElementById('incluir');
-
-
 colocar.addEventListener('click', () => {
 
     var node = document.getElementById("list");
     while (node.hasChildNodes()) {
         node.removeChild(node.lastChild);
     }
+
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
 
@@ -208,7 +166,7 @@ colocar.addEventListener('click', () => {
     let mes_demissao = document.getElementById('exampleFormControlMesDemissao').value;
     let tipo = document.getElementById('exampleFormControlTipo').value;
     let superintendente = document.getElementById('exampleFormControlSelect1Superintendente').value;
-    // console.log(cnpj,status,supervisor,gerente,filial, mes_admissao, mes_demissao, tipo,superintendente);
+
     var raw = JSON.stringify({
         parceiro: parceiro,
         cnpj: cnpj,
@@ -229,11 +187,9 @@ colocar.addEventListener('click', () => {
         redirect: 'follow'
     };
 
-    // console.log(raw);
     fetch(URL + "/user/search", requestOptions)
         .then(response => response.json())
         .then(result => {
-
             cont = -1;
             array = result;
 
@@ -251,7 +207,6 @@ colocar.addEventListener('click', () => {
                 let responsavel = row.insertCell(-1);
                 let data_alteracao = row.insertCell(-1);
                 let alteraVisualiza = row.insertCell(-1);
-
 
                 let filialText = document.createTextNode(`${value.filial}`);
                 filial.appendChild(filialText);
@@ -283,7 +238,6 @@ colocar.addEventListener('click', () => {
                 let data_alteracaoText = document.createTextNode(`${value.data_alteracao}`);
                 data_alteracao.appendChild(data_alteracaoText)
 
-                //Atrr
                 cont++;
                 indexObj.push(row)
 
@@ -299,19 +253,12 @@ colocar.addEventListener('click', () => {
                     </a>
                 </div>`;
             }
-
-
         })
         .catch(error => console.log('error', error));
-
-
-
 })
 
-
-
 function editar(cpfCnpj, indexObj) {
-    // console.log(indexObj);
+
     //javascript para interromper o fluxo dos modais iguais;
     document.getElementById("acesso-tab").disabled = false;
     objTd = indexObj;
@@ -334,7 +281,6 @@ function editar(cpfCnpj, indexObj) {
 
     fetch(URL + "/user/cadastro/buscar", request).
     then(response => response.json().then(function (data) {
-        // console.log(data[0]);
         arrayAcessoAlterar = data
         for (const value of data) {
 
@@ -388,6 +334,7 @@ function editar(cpfCnpj, indexObj) {
     fetch(URL + "/user/cadastro/modal", requestOptions)
         .then(response => response.json())
         .then(function (data) {
+
             //Alteração de buttons de cadastro, para alterar
             let idParceiro = data.dados_cadastro.id_parceiro
             divButton.innerHTML = `
@@ -397,8 +344,6 @@ function editar(cpfCnpj, indexObj) {
                 </span>
                 <span class="btn-inner--text">Alterar</span>
             </button> `
-            // arrayIds.push(data.dados_cadastro.id_parceiro)
-            // console.log(data.dados_cadastro.id_parceiro)
 
             $('.needs-validation').each(function () {
                 this.reset();
@@ -406,8 +351,8 @@ function editar(cpfCnpj, indexObj) {
 
             $("#validationParceiroPromotor").val("");
             $("#validationCpfCnpf").val("");
-            if (document.getElementById('modalAlterar')) {
 
+            if (document.getElementById('modalAlterar')) {
                 $("#exampleFormControlFilialCadastro").val(data.dados_cadastro.filial);
                 $("#cep").val(data.dados_cadastro.cep);
                 $("#funcionario").val(data.dados_cadastro.parceiro);
@@ -444,8 +389,8 @@ function editar(cpfCnpj, indexObj) {
                 $("#exampleFormControlSelectCodFunc").val(data.dados_cadastro.cod_funcao)
                 $("#exampleFormControlSelectCargo").val(data.dados_cadastro.cargo);
                 $("#exampleFormControlSelectSetor").val(data.dados_cadastro.setor);
+                
                 //Formas de Pagamento
-
                 $("#id-fp-banco").val(data.dados_cadastro.cpf);
                 $("#id-fp-bancoN").val(data.dados_cadastro.banco);
                 $("#id-fp-agencia").val(data.dados_cadastro.agencia);
@@ -533,26 +478,13 @@ function editar(cpfCnpj, indexObj) {
                 $("#exampleFormControlSiglaI").val(data.dados_sigla.usa_siglai1);
                 $("#exampleFormControlObs").val(data.dados_sigla.observacao);
                 $("#exampleFormControlStatusSiglas").val(data.dados_sigla.status_e);
-
-
             }
-
-
-
         })
         .catch(error => console.log('error', error))
-
 }
-
-
-
-
-
 
 //RESET APÓS TROCAR DE MODAL ENTRE O ALTERAR E O INCLUIR 
 buttonIncluir.addEventListener('click', () => {
-    //RESET NA TABLE QUANDO CLICAR NO BUTTON
-    // incluirCadastro();
     divButton.innerHTML = `
     <button type="button" class="btn btn-primary btn-icon-label" id="idIncluir" onclick="incluirCadastro()">
         <span class="btn-inner--icon">
@@ -564,7 +496,6 @@ buttonIncluir.addEventListener('click', () => {
     $("td").remove();
 
     document.getElementById("acesso-tab").disabled = true;
-
     $('.needs-validation').each(function () {
         this.reset();
     });
