@@ -3,6 +3,8 @@ let divTrocarButtons = document.getElementById("alterarIncluirAcesso");
 var lista = [];
 let cpfIncluirAcesso = -1;
 let tempArray = [];
+let rowsAcessos = [];
+let linha;
 
 
 var requestOptions = {
@@ -11,7 +13,7 @@ var requestOptions = {
 };
 
 
-fetch(URL+"/user/proposta/empresas", requestOptions)
+fetch(URL + "/user/proposta/empresas", requestOptions)
   .then(response => response.json().then(function (data) {
     for (let i = 0; i < data.length; i++) {
       empresa.innerHTML += '<option value="' + data[i].empresa + '">' + data[i].empresa + '</option>;'
@@ -20,174 +22,180 @@ fetch(URL+"/user/proposta/empresas", requestOptions)
 
 //INCLUSÃO DE ACESSOS
 function incluirAcessoFunction() {
-    let empre = document.getElementById("id-cadusu-empresa").value;
-    let usuario = document.getElementById('id-cadusu-usuario').value;
-    let senha = document.getElementById('id-cadusu-senha').value;
-    let login = document.getElementById('id-cadusu-login').value;
-    let novamenteSenha = document.getElementById('id-cadusu-novamentesenha').value;
-    let tipoUsuario = document.getElementById('id-cadusu-tipousu').value;
-    let usuMaster = document.getElementById('id-cadusu-usumaster').value;
-    let classi = document.getElementById('id-cadusu-classi').value;
-    let cc = document.getElementById('id-cadusu-empresa').value;
-    let status = document.getElementById('id-cadusu-status').value;
-    // let telCelular = document.getElementById('id-cadusu-telcelular').value;
-    let cpfcnpjAcesso = document.getElementById('id-cadusu-cpfcnpj').value;
-    let email = document.getElementById('id-cadusu-email').value;
-    let motCancela = document.getElementById('id-cadusu-motcancela').value;
-    let perfilAcesso = document.getElementById('id-cadusu-perfilacesso').value;
-    let acessoOle = document.getElementById('id-cadusu-acessoole').value;
-    let acessoPan = document.getElementById('id-cadusu-acessopan').value;
-    let acessoCetelem = document.getElementById('id-cadusu-acessocetelem').value;
-    let acessoItau = document.getElementById('id-cadusu-acessoitau').value;
-    let f5bmg = document.getElementById('id-cadusu-acef5bmg').value;
-    let f5itau = document.getElementById('id-cadusu-acef5itau').value;
-    let aceDaycoval = document.getElementById('id-cadusu-acedaycoval').value;
-    let aceSim = document.getElementById('id-cadusu-acesim').value;
-    let aceSafra = document.getElementById('id-cadusu-acesafra').value;
-    let aceBradesco = document.getElementById('id-cadusu-acebradesco').value;
-    let aceParana = document.getElementById('id-cadusu-aceparana').value;
-    let aceCrefisa = document.getElementById('id-cadusu-crefisa').value;
-    let aceConsorcio = document.getElementById('id-cadusu-aceconsorciobb').value;
-    let aceConsCaixa = document.getElementById('ace-cadusu-conscaixa').value;
-    let aceConsItau = document.getElementById('id-cadusu-aceconsitau').value;
-    let cnpjMatriz = document.getElementById("id-cadusu-cnpjMatriz").value;
+  let empre = document.getElementById("id-cadusu-empresa").value;
+  let usuario = document.getElementById('id-cadusu-usuario').value;
+  let senha = document.getElementById('id-cadusu-senha').value;
+  let login = document.getElementById('id-cadusu-login').value;
+  let novamenteSenha = document.getElementById('id-cadusu-novamentesenha').value;
+  let tipoUsuario = document.getElementById('id-cadusu-tipousu').value;
+  let usuMaster = document.getElementById('id-cadusu-usumaster').value;
+  let classi = document.getElementById('id-cadusu-classi').value;
+  let cc = document.getElementById('id-cadusu-empresa').value;
+  let status = document.getElementById('id-cadusu-status').value;
+  // let telCelular = document.getElementById('id-cadusu-telcelular').value;
+  let cpfcnpjAcesso = document.getElementById('id-cadusu-cpfcnpj').value;
+  let email = document.getElementById('id-cadusu-email').value;
+  let motCancela = document.getElementById('id-cadusu-motcancela').value;
+  let perfilAcesso = document.getElementById('id-cadusu-perfilacesso').value;
+  let acessoOle = document.getElementById('id-cadusu-acessoole').value;
+  let acessoPan = document.getElementById('id-cadusu-acessopan').value;
+  let acessoCetelem = document.getElementById('id-cadusu-acessocetelem').value;
+  let acessoItau = document.getElementById('id-cadusu-acessoitau').value;
+  let f5bmg = document.getElementById('id-cadusu-acef5bmg').value;
+  let f5itau = document.getElementById('id-cadusu-acef5itau').value;
+  let aceDaycoval = document.getElementById('id-cadusu-acedaycoval').value;
+  let aceSim = document.getElementById('id-cadusu-acesim').value;
+  let aceSafra = document.getElementById('id-cadusu-acesafra').value;
+  let aceBradesco = document.getElementById('id-cadusu-acebradesco').value;
+  let aceParana = document.getElementById('id-cadusu-aceparana').value;
+  let aceCrefisa = document.getElementById('id-cadusu-crefisa').value;
+  let aceConsorcio = document.getElementById('id-cadusu-aceconsorciobb').value;
+  let aceConsCaixa = document.getElementById('ace-cadusu-conscaixa').value;
+  let aceConsItau = document.getElementById('id-cadusu-aceconsitau').value;
+  let cnpjMatriz = document.getElementById("id-cadusu-cnpjMatriz").value;
 
-    var myHeaders = new Headers();
-    myHeaders.append("Content-Type", "application/json");
+  var myHeaders = new Headers();
+  myHeaders.append("Content-Type", "application/json");
 
-    var raw = JSON.stringify({
-      cnpj_matriz: cnpjMatriz,
-      nome: login,
-      empresa: empre,
-      perfil: perfilAcesso,
-      usuario: usuario,
-      senha: senha,
-      responsavel: "",
-      cpf_usuario: cpfcnpjAcesso,
-      tipo_parceiro: tipoUsuario,
-      usuario_master: usuMaster,
-      classificacao: classi,
-      status: status,
-      tipo_parceiro2: "",
-      email: email,
-      data_nascimento: "",
-      data_atualizacao: "",
-      foto: "",
-      telefone: "",
-      arquivo1: "",
-      arquivo2: "",
-      tipo: "",
-      motivo_cancelamento: motCancela,
-      cetelem: acessoCetelem,
-      f5_ole: "",
-      f5_pan: "",
-      f5_bmg: f5bmg,
-      f5_orienta: "",
-      f5_itau: f5itau,
-      f5_safra: "",
-      ole: acessoOle,
-      pan: acessoPan,
-      sim: aceSim,
-      daycoval: aceDaycoval,
-      safra: aceSafra,
-      bradesco: aceBradesco,
-      parana: aceParana,
-      consorcio_bb: aceConsorcio,
-      consorcio_itau: aceConsItau,
-      consorcio_caixa: aceConsCaixa,
-      crefisa: aceCrefisa,
-      itau: acessoItau
-    });
+  var raw = JSON.stringify({
+    cnpj_matriz: cnpjMatriz,
+    nome: login,
+    empresa: empre,
+    perfil: perfilAcesso,
+    usuario: usuario,
+    senha: senha,
+    responsavel: "",
+    cpf_usuario: cpfcnpjAcesso,
+    tipo_parceiro: tipoUsuario,
+    usuario_master: usuMaster,
+    classificacao: classi,
+    status: status,
+    tipo_parceiro2: "",
+    email: email,
+    data_nascimento: "",
+    data_atualizacao: "",
+    foto: "",
+    telefone: "",
+    arquivo1: "",
+    arquivo2: "",
+    tipo: "",
+    motivo_cancelamento: motCancela,
+    cetelem: acessoCetelem,
+    f5_ole: "",
+    f5_pan: "",
+    f5_bmg: f5bmg,
+    f5_orienta: "",
+    f5_itau: f5itau,
+    f5_safra: "",
+    ole: acessoOle,
+    pan: acessoPan,
+    sim: aceSim,
+    daycoval: aceDaycoval,
+    safra: aceSafra,
+    bradesco: aceBradesco,
+    parana: aceParana,
+    consorcio_bb: aceConsorcio,
+    consorcio_itau: aceConsItau,
+    consorcio_caixa: aceConsCaixa,
+    crefisa: aceCrefisa,
+    itau: acessoItau
+  });
 
-    var requestOptions = {
-      method: 'POST',
-      headers: myHeaders,
-      body: raw,
-      redirect: 'follow'
-    };
+  var requestOptions = {
+    method: 'POST',
+    headers: myHeaders,
+    body: raw,
+    redirect: 'follow'
+  };
 
-    fetch(URL + "/user/cadastro/acesso", requestOptions)
-      .then(response => response.json())
-      .then(result => {
-        console.log("Resposta da inclusão", result);
+  fetch(URL + "/user/cadastro/acesso", requestOptions)
+    .then(response => response.json())
+    .then(result => {
+      // console.log("Resposta da inclusão", result);
 
-        if (!(result.erro === 'usuario já tem acesso cadastrado')) {
+      if (!(result.erro === 'usuario já tem acesso cadastrado')) {
 
-          lista.pop();
-          lista.push(result);
-          tempArray.push(result);
-          lista.forEach((element) => {
-            t = element.cpf_usuario;
-            let specific_tbody = document.getElementById("lista");
-            let row = specific_tbody.insertRow(-1);
-            let name = row.insertCell(-1);
-            let cpf = row.insertCell(-1);
-            let cnpj = row.insertCell(-1);
-            let resp = row.insertCell(-1);
-            let date = row.insertCell(-1);
-            let alteraVisualizar = row.insertCell(-1);
+        lista.pop();
+        lista.push(result);
+        tempArray.push(result);
+        lista.forEach((element) => {
+          t = element.cpf_usuario;
+          let specific_tbody = document.getElementById("lista");
+          let row = specific_tbody.insertRow(-1);
+          let name = row.insertCell(-1);
+          let cpf = row.insertCell(-1);
+          let cnpj = row.insertCell(-1);
+          let resp = row.insertCell(-1);
+          let date = row.insertCell(-1);
+          let alteraVisualizar = row.insertCell(-1);
 
-            let nameTex = document.createTextNode(`${element.nome}`)
-            name.appendChild(nameTex);
+          let nameTex = document.createTextNode(`${element.nome}`)
+          name.appendChild(nameTex);
 
-            let cpfText = document.createTextNode(`${element.cpf_usuario}`)
-            cpf.appendChild(cpfText);
+          let cpfText = document.createTextNode(`${element.cpf_usuario}`)
+          cpf.appendChild(cpfText);
 
-            let cnpjText = document.createTextNode(`${element.cnpj_matriz}`)
-            cnpj.appendChild(cnpjText);
+          let cnpjText = document.createTextNode(`${element.cnpj_matriz}`)
+          cnpj.appendChild(cnpjText);
 
-            let respText = document.createTextNode(`${element.responsavel}`)
-            resp.appendChild(respText);
+          let respText = document.createTextNode(`${element.responsavel}`)
+          resp.appendChild(respText);
 
-            let dateText = document.createTextNode(`${element.data_atualizacao}`)
-            date.appendChild(dateText);
+          let dateText = document.createTextNode(`${element.data_atualizacao}`)
+          date.appendChild(dateText);
 
 
-            cpfIncluirAcesso++;
-            // alert("Usuário cadastrado com sucesso");
+          cpfIncluirAcesso++;
+          rowsAcessos.push(row);
 
-            alteraVisualizar.innerHTML = `
+          alteraVisualizar.innerHTML = `
               <div class="actions ml-3 text-center">
                   <a href="#" class="action-item mr-0" data-toggle="tooltip" title="Alterar">
-                      <i class="fas fa-external-link-alt"  onclick="editarCpfAcesso(tempArray[${cpfIncluirAcesso}].id_acesso)"></i>
+                      <i class="fas fa-external-link-alt"  onclick="editarCpfAcesso(tempArray[${cpfIncluirAcesso}].id_acesso, rowsAcessos[${cpfIncluirAcesso}])"></i>
                   </a>
               </div>`
 
-              $('#alertSucessoAcesso').show();
-              $('#alertSucessoAcesso').fadeIn(300).delay(3000).fadeOut(400);
-              document.getElementById("alertSucessoAcesso").textContent = "Acesso cadastrado com sucesso"
+          $('#alertSucessoAcesso').show();
+          $('#alertSucessoAcesso').fadeIn(300).delay(3000).fadeOut(400);
+          document.getElementById("alertSucessoAcesso").textContent = "Acesso cadastrado com sucesso"
 
-          });
-        } else if (result.erro === 'usuario já tem acesso cadastrado') {
-          if ($("#id-cadusu-cpfcnpj").val() === "") {
-            //alert("Preencha os dados");
-            $('#alertFalhaAcesso').show();
-            $('#alertFalhaAcesso').fadeIn(300).delay(3000).fadeOut(400);
-            document.getElementById("alertFalhaAcesso").textContent = "Preencha os campos"
-          } else {
-            //alert("Usuário já existente")
-            $('#alertFalhaAcesso').show();
-            $('#alertFalhaAcesso').fadeIn(300).delay(3000).fadeOut(400);
-            document.getElementById("alertFalhaAcesso").textContent = "Acesso já existente"
-          }
-          while (lista.length !== 0) {
-            lista.pop();
-          }
+        });
+      } else if (result.erro === 'usuario já tem acesso cadastrado') {
+        if ($("#id-cadusu-cpfcnpj").val() === "") {
+          //alert("Preencha os dados");
+          $('#alertFalhaAcesso').show();
+          $('#alertFalhaAcesso').fadeIn(300).delay(3000).fadeOut(400);
+          document.getElementById("alertFalhaAcesso").textContent = "Preencha o campo cpf "
+        } else {
+          //alert("Usuário já existente")
+          $('#alertFalhaAcesso').show();
+          $('#alertFalhaAcesso').fadeIn(300).delay(3000).fadeOut(400);
+          document.getElementById("alertFalhaAcesso").textContent = "Acesso já existente"
         }
-      })
-      .catch(error => console.log('error', error));
+        while (lista.length !== 0) {
+          lista.pop();
+        }
+      }
+    })
+    .catch(error => console.log('error', error));
 
-  
+
 }
-  
-
-  
 
 // faz parte do acesso quando incluido dispara este
-function editarCpfAcesso(e) {
-  // console.log(e);
+function editarCpfAcesso(e, idRow) {
+  linha = idRow;
 
+  // Trocar para o botão alterar
+  divTrocarButtons.innerHTML = `
+  <button type="button" class="btn btn-primary btn-icon-label" id="AlterarAcesso" onclick="alterarAcesso(${e},linha)">
+    <span class="btn-inner--icon">
+        <i class="fas fa-plus"></i>
+    </span>
+    <span class="btn-inner--text">Alterar</span>
+  </button>`
 
+  // Request para buscar este acesso pelo id
   var myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/json");
 
@@ -206,7 +214,6 @@ function editarCpfAcesso(e) {
   fetch("http://172.16.0.197:3000/user/cadastro/busca/acesso", requestOptions).
   then(response => response.json().then(function (data) {
 
-    console.log("Resposta do alterar", data);
     $("#id-cadusu-usuario").val(data.usuario);
     $("#id-cadusu-login").val(data.nome);
     $("#id-cadusu-senha").val(data.senha);
@@ -238,12 +245,12 @@ function editarCpfAcesso(e) {
     $("#ace-cadusu-conscaixa").val(data.consorcio_caixa);
     $("#id-cadusu-aceconsitau").val(data.consorcio_itau);
 
-
   })).catch(error => console.log('error', error))
+
+
 
 }
 //Fim função de inclusão de acessos para mostrar suas aletrações
-
 
 //Função de alterar quando gerado a lista de acessos vinculado a um cpf no cadastro
 function funcCadastroAcessoAlterar(data) {
@@ -289,8 +296,8 @@ function funcCadastroAcessoAlterar(data) {
   //-----------------
 }
 
-function alterarAcesso(idAcesso) {
-  // console.log(idAcesso);
+function alterarAcesso(idAcesso, objTr) {
+  let cellsTr = objTr.cells;
 
   const empre = document.getElementById("id-cadusu-empresa").value;
   const usuario = document.getElementById('id-cadusu-usuario').value;
@@ -383,16 +390,19 @@ function alterarAcesso(idAcesso) {
   fetch(URL + "/user/cadastro/acesso/alterar", requestOptions).
   then(response => response.text()).
   then(function (data) {
-    // alert("Acesso alterado com sucesso");
-    // console.log(data);
+
+    cellsTr[0].textContent = $("#id-cadusu-usuario").val()
+    cellsTr[1].textContent = $("#id-cadusu-cpfcnpj").val()
+    cellsTr[2].textContent = $("#id-cadusu-cnpjMatriz").val()
+
     $('#alertSucessoAcesso').show();
     $('#alertSucessoAcesso').fadeIn(300).delay(3000).fadeOut(400);
     document.getElementById("alertSucessoAcesso").textContent = "Acesso alterado com sucesso"
 
-    // trocar o botão para fazer inclusão
 
   }).catch(error => console.log('erro', error))
-
+  
+  // Trocar o botão para fazer um insert
   divTrocarButtons.innerHTML = `
     <button type="button" class="btn btn-primary btn-icon-label" id="incluirAcesso" onclick="incluirAcessoFunction()">
     <span class="btn-inner--icon">

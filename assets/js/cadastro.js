@@ -557,8 +557,8 @@ function editar(cpfCnpj, indexObj) {
 
 //RESET APÓS TROCAR DE MODAL ENTRE O ALTERAR E O INCLUIR 
 buttonIncluir.addEventListener('click', () => {
-    //RESET NA TABLE QUANDO CLICAR NO BUTTON
-    // incluirCadastro();
+    document.getElementById("acesso-tab").disabled = true;
+
     divButton.innerHTML = `
     <button type="button" class="btn btn-primary btn-icon-label" id="idIncluir" onclick="incluirCadastro()">
         <span class="btn-inner--icon">
@@ -567,13 +567,14 @@ buttonIncluir.addEventListener('click', () => {
         <span class="btn-inner--text">Finalizar</span>
     </button>`
 
+    //Limpar tbody
     $("td").remove();
 
-    document.getElementById("acesso-tab").disabled = true;
-
+    //Reset nos campos
     $('.needs-validation').each(function () {
         this.reset();
     });
+
 })
 
 let apagar = document.getElementById("apagarFiltrosCadastro")
