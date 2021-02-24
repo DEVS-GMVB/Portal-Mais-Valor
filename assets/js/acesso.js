@@ -5,11 +5,14 @@ let cpfIncluirAcesso = -1;
 let tempArray = [];
 let rowsAcessos = [];
 let linha;
+let liTeste;
+
 
 var requestOptions = {
   method: 'GET',
   redirect: 'follow'
 };
+
 
 fetch(URL + "/user/proposta/empresas", requestOptions)
   .then(response => response.json().then(function (data) {
@@ -109,6 +112,7 @@ function incluirAcessoFunction() {
   fetch(URL + "/user/cadastro/acesso", requestOptions)
     .then(response => response.json())
     .then(result => {
+      // console.log("Resposta da inclusão", result);
 
       if (!(result.erro === 'usuario já tem acesso cadastrado')) {
 
@@ -158,18 +162,16 @@ function incluirAcessoFunction() {
 
         });
       } else if (result.erro === 'usuario já tem acesso cadastrado') {
-
         if ($("#id-cadusu-cpfcnpj").val() === "") {
+          //alert("Preencha os dados");
           $('#alertFalhaAcesso').show();
           $('#alertFalhaAcesso').fadeIn(300).delay(3000).fadeOut(400);
           document.getElementById("alertFalhaAcesso").textContent = "Preencha o campo cpf "
-
         } else {
-
+          //alert("Usuário já existente")
           $('#alertFalhaAcesso').show();
           $('#alertFalhaAcesso').fadeIn(300).delay(3000).fadeOut(400);
           document.getElementById("alertFalhaAcesso").textContent = "Acesso já existente"
-
         }
         while (lista.length !== 0) {
           lista.pop();
@@ -177,9 +179,13 @@ function incluirAcessoFunction() {
       }
     })
     .catch(error => console.log('error', error));
+
+
 }
 
+// faz parte do acesso quando incluido dispara este
 function editarCpfAcesso(e, idRow) {
+  console.log("Cliquei em alterar me passa a linha exata" + idRow)
   linha = idRow;
 
   // Trocar para o botão alterar
@@ -195,6 +201,7 @@ function editarCpfAcesso(e, idRow) {
   var myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/json");
 
+  // console.log(e)
   var raw = JSON.stringify({
     id_acesso: e
   })
@@ -241,14 +248,18 @@ function editarCpfAcesso(e, idRow) {
     $("#id-cadusu-aceconsitau").val(data.consorcio_itau);
 
   })).catch(error => console.log('error', error))
+
+
+
 }
 //Fim função de inclusão de acessos para mostrar suas aletrações
 
 //Função de alterar quando gerado a lista de acessos vinculado a um cpf no cadastro
-function funcCadastroAcessoAlterar(data) {
-
+function funcCadastroAcessoAlterar(data, li) {
+  liTeste = li;
+  console.log(li)
   divTrocarButtons.innerHTML = `
-  <button type="button" class="btn btn-primary btn-icon-label" id="AlterarAcesso" onclick="alterarAcesso(${data.id_acesso})">
+  <button type="button" class="btn btn-primary btn-icon-label" id="AlterarAcesso" onclick="alterarAcesso(${data.id_acesso}, liTeste)">
     <span class="btn-inner--icon">
         <i class="fas fa-plus"></i>
     </span>
@@ -285,9 +296,13 @@ function funcCadastroAcessoAlterar(data) {
   $("#id-cadusu-aceconsorciobb").val(data.consorcio_bb);
   $("#ace-cadusu-conscaixa").val(data.consorcio_caixa);
   $("#id-cadusu-aceconsitau").val(data.consorcio_itau);
+  //-----------------
 }
 
 function alterarAcesso(idAcesso, objTr) {
+  let cellsTr = objTr.cells;
+  console.log("Recebi a linha após no botão alterar apareceu esta linha" + objTr)
+
   const empre = document.getElementById("id-cadusu-empresa").value;
   const usuario = document.getElementById('id-cadusu-usuario').value;
   const senha = document.getElementById('id-cadusu-senha').value;
@@ -379,20 +394,15 @@ function alterarAcesso(idAcesso, objTr) {
   fetch(URL + "/user/cadastro/acesso/alterar", requestOptions).
   then(response => response.text()).
   then(function (data) {
-
-    //  let cellsTr = data;
-    //  //let cellsTr2 = objTr.cells;
-
-    // cellsTr[0].textContent = $("#id-cadusu-usuario").val()
-    //  //cellsTr2[0].textContent = $("#id-cadusu-usuario").val()
-    // //  cellsTr[1].textContent = $("#id-cadusu-cpfcnpj").val()
-    // //  cellsTr[2].textContent = $("#id-cadusu-cnpjMatriz").val()
+    atualizaListaAcesso(cellsTr)
 
     $('#alertSucessoAcesso').show();
     $('#alertSucessoAcesso').fadeIn(300).delay(3000).fadeOut(400);
     document.getElementById("alertSucessoAcesso").textContent = "Acesso alterado com sucesso"
-  }).catch(error => console.log('erro', error))
 
+
+  }).catch(error => console.log('erro', error))
+  
   // Trocar o botão para fazer um insert
   divTrocarButtons.innerHTML = `
     <button type="button" class="btn btn-primary btn-icon-label" id="incluirAcesso" onclick="incluirAcessoFunction()">
@@ -402,9 +412,25 @@ function alterarAcesso(idAcesso, objTr) {
     <span class="btn-inner--text">Incluir / Alterar</span>
 </button>
   `
+
 }
 
 let cpfcnpjIncluir = document.getElementById("validationCpfCadastro");
 cpfcnpjIncluir.addEventListener('blur', () => {
   $("#id-cadusu-cnpjMatriz").val(cpfcnpjIncluir.value);
 })
+
+function atualizaListaAcesso(r){
+  r[0].textContent = $("#id-cadusu-usuario").val()
+  r[1].textContent = $("#id-cadusu-cpfcnpj").val()
+  r[2].textContent = $("#id-cadusu-cnpjMatriz").val()
+
+  // r.innerHTML = `
+  // <td>${$("#id-cadusu-usuario").val()}</td>
+  // <td>${$("#id-cadusu-cpfcnpj").val()}</td>
+  // <td>${$("#id-cadusu-cnpjMatriz").val()}</td>
+  // <td></td>
+  // <td></td>
+  
+  // `
+}
