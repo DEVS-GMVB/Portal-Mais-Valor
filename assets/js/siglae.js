@@ -680,7 +680,6 @@ function atualizaListaCadastro() {
 
                 //Atrr
                 cont++;
-                console.log(row);
                 indexObj.push(row)
 
                 alteraVisualiza.innerHTML = `

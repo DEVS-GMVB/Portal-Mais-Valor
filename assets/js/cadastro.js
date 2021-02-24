@@ -30,6 +30,7 @@ let contAcessoAlterar = -1;
 let idParceiro;
 let indexObj = [];
 let arrayIds = [];
+let fluxoListaAlterar = [];
 let iIds = -1;
 let objTd;
 
@@ -370,10 +371,11 @@ function editar(cpfCnpj, indexObj) {
             data_altera.appendChild(dtTexto);
 
             contAcessoAlterar++
+            fluxoListaAlterar.push(row)
 
             altera.innerHTML = `
           <div class="actions ml-3 text-center">
-              <a href="#" class="action-item mr-0" data-toggle="tooltip" onclick="funcCadastroAcessoAlterar(arrayAcessoAlterar[${contAcessoAlterar}])" title="Alterar">
+              <a href="#" class="action-item mr-0" data-toggle="tooltip" onclick="funcCadastroAcessoAlterar(arrayAcessoAlterar[${contAcessoAlterar}], fluxoListaAlterar[${contAcessoAlterar}])" title="Alterar">
                   <i class="fas fa-external-link-alt"></i>
               </a>
           </div>`
