@@ -1,3 +1,4 @@
+document.getElementById("quantidade-sant")
 function mascaraMutuario(o, f) {
     v_obj = o
     v_fun = f

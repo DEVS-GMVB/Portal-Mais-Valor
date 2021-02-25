@@ -1,3 +1,5 @@
+
+
 //VARIAVEL AMBIENTE
 const url = `http://localhost:3000`;
 
@@ -198,11 +200,11 @@ document.getElementById('pesquisar').addEventListener('click', async () => {
   });
 
 
-  await fetch("http://localhost:3000/user/comissao/pesquisa?banco=SANTANDER", requestOptions)
+  await fetch(url+"/user/comissao/pesquisa?banco=SANTANDER", requestOptions)
     .then(response => response.json().then(function (data) {
-
+   
       document.getElementById("quantidade-sant").innerHTML = data.count;
-      document.getElementById("valor-sant").innerHTML = data.soma;
+      document.getElementById("valor-sant").innerHTML = data.soma.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
       data.dados.forEach(element => {
         document.getElementById("mais-santander").innerHTML += `<tr>
       <th style="text-align: center;">${element.banco}</th>
@@ -233,11 +235,11 @@ document.getElementById('pesquisar').addEventListener('click', async () => {
   });
     })).catch(error => console.log('error', error));
 
-  await fetch("http://localhost:3000/user/comissao/pesquisa?banco=ITAU", requestOptions)
+  await fetch(url+"/user/comissao/pesquisa?banco=ITAU", requestOptions)
     .then(response => response.json().then(function (data) {
 
       document.getElementById("quantidade-itau").innerHTML = data.count;
-      document.getElementById("valor-itau").innerHTML = data.soma;
+      document.getElementById("valor-itau").innerHTML = data.soma.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
       data.dados.forEach(element => {
         document.getElementById("mais-itau").innerHTML += `<tr>
       <th style="text-align: center;">${element.banco}</th>
@@ -266,11 +268,11 @@ document.getElementById('pesquisar').addEventListener('click', async () => {
       });
     })).catch(error => console.log('error', error));
 
-  await fetch("http://localhost:3000/user/comissao/pesquisa?banco=BRADESCO", requestOptions)
+  await fetch(url+"/user/comissao/pesquisa?banco=BRADESCO", requestOptions)
     .then(response => response.json().then(function (data) {
 
       document.getElementById("quantidade-bradesco").innerHTML = data.count;
-      document.getElementById("valor-bradesco").innerHTML = data.soma;
+      document.getElementById("valor-bradesco").innerHTML = data.soma.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
       data.dados.forEach(element => {
         document.getElementById("mais-bradesco").innerHTML += `<tr>
       <th style="text-align: center;">${element.banco}</th>
@@ -299,11 +301,11 @@ document.getElementById('pesquisar').addEventListener('click', async () => {
       });
     })).catch(error => console.log('error', error));
 
-  await fetch("http://localhost:3000/user/comissao/pesquisa?banco=BANCO PAN", requestOptions)
+  await fetch(url+"/user/comissao/pesquisa?banco=BANCO PAN", requestOptions)
     .then(response => response.json().then(function (data) {
 
       document.getElementById("quantidade-pan").innerHTML = data.count;
-      document.getElementById("valor-pan").innerHTML = data.soma;
+      document.getElementById("valor-pan").innerHTML = data.soma.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
       data.dados.forEach(element => {
         document.getElementById("mais-pan").innerHTML += `<tr>
       <th style="text-align: center;">${element.banco}</th>
@@ -332,11 +334,11 @@ document.getElementById('pesquisar').addEventListener('click', async () => {
       });
     })).catch(error => console.log('error', error));
 
-  await fetch("http://localhost:3000/user/comissao/pesquisa?banco=CARTAO OLE", requestOptions)
+  await fetch(url+"/user/comissao/pesquisa?banco=CARTAO OLE", requestOptions)
     .then(response => response.json().then(function (data) {
 
       document.getElementById("quantidade-ole").innerHTML = data.count;
-      document.getElementById("valor-ole").innerHTML = data.soma;
+      document.getElementById("valor-ole").innerHTML = data.soma.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
       data.dados.forEach(element => {
         document.getElementById("mais-ole").innerHTML += `<tr>
       <th style="text-align: center;">${element.banco}</th>
@@ -365,11 +367,11 @@ document.getElementById('pesquisar').addEventListener('click', async () => {
       });
     })).catch(error => console.log('error', error));
 
-  await fetch("http://localhost:3000/user/comissao/pesquisa?banco=CETELEM", requestOptions)
+  await fetch(url+"/user/comissao/pesquisa?banco= CETELEM", requestOptions)
     .then(response => response.json().then(function (data) {
 
       document.getElementById("quantidade-cetelem").innerHTML = data.count;
-      document.getElementById("valor-cetelem").innerHTML = data.soma;
+      document.getElementById("valor-cetelem").innerHTML = data.soma.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
       data.dados.forEach(element => {
         document.getElementById("mais-cetelem").innerHTML += `<tr>
       <th style="text-align: center;">${element.banco}</th>
@@ -398,11 +400,11 @@ document.getElementById('pesquisar').addEventListener('click', async () => {
       });
     })).catch(error => console.log('error', error));
 
-  await fetch("http://localhost:3000/user/comissao/pesquisa?banco= OLE CONSIGNADO", requestOptions)
+  await fetch(url+"/user/comissao/pesquisa?banco= OLE CONSIGNADO", requestOptions)
     .then(response => response.json().then(function (data) {
 
       document.getElementById("ole-cons-quantidade").innerHTML = data.count;
-      document.getElementById("ole-cons-valor").innerHTML = data.soma;
+      document.getElementById("ole-cons-valor").innerHTML = data.soma.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
       data.dados.forEach(element => {
         document.getElementById("mais-ole-cons").innerHTML += `<tr>
       <th style="text-align: center;">${element.banco}</th>
@@ -432,11 +434,11 @@ document.getElementById('pesquisar').addEventListener('click', async () => {
     })).catch(error => console.log('error', error));
 
 
-  await fetch("http://localhost:3000/user/comissao/pesquisa?banco=DAYCOVAL", requestOptions)
+  await fetch(url+"/user/comissao/pesquisa?banco=DAYCOVAL", requestOptions)
     .then(response => response.json().then(function (data) {
 
       document.getElementById("quantidade-daycoval").innerHTML = data.count;
-      document.getElementById("valor-daycoval").innerHTML = data.soma;
+      document.getElementById("valor-daycoval").innerHTML = data.soma.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
       data.dados.forEach(element => {
         document.getElementById("mais-daycoval").innerHTML += `<tr>
       <th style="text-align: center;">${element.banco}</th>
@@ -466,11 +468,11 @@ document.getElementById('pesquisar').addEventListener('click', async () => {
     })).catch(error => console.log('error', error));
 
 
-  await fetch("http://localhost:3000/user/comissao/pesquisa?banco=SIM", requestOptions)
+  await fetch(url+"/user/comissao/pesquisa?banco=SIM", requestOptions)
     .then(response => response.json().then(function (data) {
 
       document.getElementById("quantidade-sim").innerHTML = data.count;
-      document.getElementById("valor-sim").innerHTML = data.soma;
+      document.getElementById("valor-sim").innerHTML = data.soma.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
       data.dados.forEach(element => {
         document.getElementById("mais-sim").innerHTML += `<tr>
       <th style="text-align: center;">${element.banco}</th>
@@ -499,10 +501,10 @@ document.getElementById('pesquisar').addEventListener('click', async () => {
       });
     })).catch(error => console.log('error', error));
 
-  await fetch("http://localhost:3000/user/comissao/pesquisa?banco=SAFRA", requestOptions)
+  await fetch(url+"/user/comissao/pesquisa?banco=SAFRA", requestOptions)
     .then(response => response.json().then(function (data) {
       document.getElementById("quantidade-safra").innerHTML = data.count;
-      document.getElementById("valor-safra").innerHTML = data.soma;
+      document.getElementById("valor-safra").innerHTML = data.soma.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
       data.dados.forEach(element => {
         document.getElementById("mais-safra").innerHTML += `<tr>
       <th style="text-align: center;">${element.banco}</th>
@@ -531,11 +533,11 @@ document.getElementById('pesquisar').addEventListener('click', async () => {
       });
     })).catch(error => console.log('error', error));
 
-  await fetch("http://localhost:3000/user/comissao/pesquisa?banco=SEGUROS", requestOptions)
+  await fetch(url+"/user/comissao/pesquisa?banco=SEGUROS", requestOptions)
     .then(response => response.json().then(function (data) {
 
       document.getElementById("quantidade-seguros").innerHTML = data.count;
-      document.getElementById("valor-seguros").innerHTML = data.soma;
+      document.getElementById("valor-seguros").innerHTML = data.soma.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
       data.dados.forEach(element => {
         document.getElementById("mais-seguros").innerHTML += `<tr>
       <th style="text-align: center;">${element.banco}</th>
@@ -564,11 +566,11 @@ document.getElementById('pesquisar').addEventListener('click', async () => {
       });
     })).catch(error => console.log('error', error));
 
-  await fetch("http://localhost:3000/user/comissao/pesquisa?banco=CREFISA", requestOptions)
+  await fetch(url+"/user/comissao/pesquisa?banco=CREFISA", requestOptions)
     .then(response => response.json().then(function (data) {
 
       document.getElementById("quantidade-crefisa").innerHTML = data.count;
-      document.getElementById("valor-crefisa").innerHTML = data.soma;
+      document.getElementById("valor-crefisa").innerHTML = data.soma.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
       data.dados.forEach(element => {
         document.getElementById("mais-crefisa").innerHTML += `<tr>
       <th style="text-align: center;">${element.banco}</th>
@@ -597,11 +599,11 @@ document.getElementById('pesquisar').addEventListener('click', async () => {
       });
     })).catch(error => console.log('error', error));
 
-  await fetch("http://localhost:3000/user/comissao/pesquisa?banco=PARANA BANCO", requestOptions)
+  await fetch(url+"/user/comissao/pesquisa?banco=PARANA BANCO", requestOptions)
     .then(response => response.json().then(function (data) {
 
       document.getElementById("quantidade-parana").innerHTML = data.count;
-      document.getElementById("valor-parana").innerHTML = data.soma;
+      document.getElementById("valor-parana").innerHTML = data.soma.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
       data.dados.forEach(element => {
         document.getElementById("mais-parana").innerHTML += `<tr>
       <th style="text-align: center;">${element.banco}</th>
@@ -630,11 +632,11 @@ document.getElementById('pesquisar').addEventListener('click', async () => {
       });
     })).catch(error => console.log('error', error));
 
-  await fetch("http://localhost:3000/user/comissao/pesquisa?banco=BRB", requestOptions)
+  await fetch(url+"/user/comissao/pesquisa?banco=BRB", requestOptions)
     .then(response => response.json().then(function (data) {
 
       document.getElementById("quantidade-brb").innerHTML = data.count;
-      document.getElementById("valor-brb").innerHTML = data.soma;
+      document.getElementById("valor-brb").innerHTML = data.soma.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
       data.dados.forEach(element => {
         document.getElementById("mais-brb").innerHTML += `<tr>
       <th style="text-align: center;">${element.banco}</th>
@@ -663,11 +665,11 @@ document.getElementById('pesquisar').addEventListener('click', async () => {
       });
     })).catch(error => console.log('error', error));
 
-  await fetch("http://localhost:3000/user/comissao/pesquisa?banco=BMG", requestOptions)
+  await fetch(url+"/user/comissao/pesquisa?banco=BMG", requestOptions)
     .then(response => response.json().then(function (data) {
 
       document.getElementById("quantidade-bmg").innerHTML = data.count;
-      document.getElementById("valor-bmg").innerHTML = data.soma;
+      document.getElementById("valor-bmg").innerHTML = data.soma.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
       data.dados.forEach(element => {
         document.getElementById("mais-bmg").innerHTML += `<tr>
       <th style="text-align: center;">${element.banco}</th>
@@ -699,13 +701,60 @@ document.getElementById('pesquisar').addEventListener('click', async () => {
 })
 
 
+//INCLUIR COMISSAO 
+
+const buttonIncluir =  document.getElementById('button-incluir-arquivo');
+
+buttonIncluir.addEventListener('click',()=>{
+
+    const formdata = new FormData();
+    const fileInput = document.getElementById('input-arquivo-incluir');
+    
+    formdata.append("incluir_propostas", fileInput.files[0],);
+    
+    var requestOptions = {
+      method: 'POST',
+      body: formdata,
+      redirect: 'follow'
+    };
+    
+    fetch(url+"/user/comissao/incluir", requestOptions)
+    .then((response) => response.json())
+    .then((result) => {
+      console.log('Success:', result);
+      
+    })
+    .catch((error) => {
+      console.error('Error:', error);
+    });
+})
 
 
+//ALTERAR COMISSAO
 
+const buttonAlterar =  document.getElementById('button-alterar');
 
+buttonAlterar.addEventListener('click',()=>{
 
-
-
-// incluir comissao
-
+    const formdata = new FormData();
+    const fileInput = document.getElementById('input-arquivo-alterar');
+    
+    formdata.append("alterar_propostas", fileInput.files[0],);
+    
+    var requestOptions = {
+      method: 'POST',
+      body: formdata,
+      redirect: 'follow'
+    };
+    
+    fetch(url+"/user/comissao/alterar", requestOptions)
+    .then((response) => response.json())
+    .then((result) => {
+      console.log('Success:', result);
+      
+    })
+    .catch((error) => {
+      console.error('Error:', error);
+    });
+})
 

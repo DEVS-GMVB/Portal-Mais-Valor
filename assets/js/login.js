@@ -1,5 +1,6 @@
 
 
+
 const Logar = () => {
 
     const usuario = document.getElementById("input-login").value;
@@ -21,8 +22,16 @@ const Logar = () => {
     .then(function(response){
         response.json().then(function(data){
       
-            if(!response.ok)
-                return alert(data.erro);
+            if(!response.ok){
+
+                Swal.fire({
+                    title: 'Error!',
+                    text: 'Senha ou usuário incorreto!',
+                    icon: 'error',
+                    confirmButtonText: 'ok',
+                    width: 350
+                })
+            }
 
             const user = data.user
             const matriz = user.cnpj_matriz;
