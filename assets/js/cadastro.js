@@ -563,6 +563,7 @@ function editar(cpfCnpj, indexObj) {
 buttonIncluir.addEventListener('click', () => {
     document.getElementById("acesso-tab").disabled = true;
 
+
     divButton.innerHTML = `
     <button type="button" class="btn btn-primary btn-icon-label" id="idIncluir" onclick="incluirCadastro()">
         <span class="btn-inner--icon">
