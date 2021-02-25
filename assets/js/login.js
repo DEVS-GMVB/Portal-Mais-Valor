@@ -1,5 +1,6 @@
 
 
+
 const Logar = () => {
 
     const usuario = document.getElementById("input-login").value;
@@ -21,8 +22,16 @@ const Logar = () => {
     .then(function(response){
         response.json().then(function(data){
       
-            if(!response.ok)
-                return alert(data.erro);
+            if(!response.ok){
+
+                Swal.fire({
+                    title: 'Error!',
+                    text: 'Senha ou usuário incorreto!',
+                    icon: 'error',
+                    confirmButtonText: 'ok',
+                    width: 350
+                })
+            }
 
             const user = data.user
             const matriz = user.cnpj_matriz;
@@ -33,6 +42,7 @@ const Logar = () => {
             const status = user.status;
             const tipo_usuario = user.tipo_usuario;
             const tipo_parceiro2 = user.tipo_parceiro2;
+            const cpf_usuario = user.cpf_usuario;
 
             sessionStorage.setItem('cnpj_matriz',matriz);
             sessionStorage.setItem('data_nascimento',data_nascimento);
@@ -42,6 +52,7 @@ const Logar = () => {
             sessionStorage.setItem('status',status);
             sessionStorage.setItem('tipo_usuario',tipo_usuario);
             sessionStorage.setItem('tipo_parceiro',tipo_parceiro2);
+            sessionStorage.setItem('cpf_usuario',cpf_usuario);
 
             window.location.href = "../../paginas/home.html";
         });

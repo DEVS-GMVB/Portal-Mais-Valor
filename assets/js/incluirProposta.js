@@ -227,6 +227,18 @@ botaoIncluir.addEventListener('click', () => {
 
     }).catch(error => console.log('error' , error))
 })
+function readURL(input) {
+  if (input.files && input.files[0]) {
+      var reader = new FileReader();
+
+      reader.onload = function (e) {
+          $('#proposta-file').attr('src', e.target.result);
+      }
+
+      reader.readAsDataURL(input.files[0]);
+  }
+}
+
 
 //////modal filtro
 
@@ -381,3 +393,4 @@ buttonFiltro.addEventListener('click', () => {
 
 })
   
+
