@@ -771,24 +771,17 @@
                                         <div class="col-md-6 mb-3">
                                             <div class="form-group">
                                                 <label for="exampleFormControlSelect1">Parceiro/Promotor</label>
-                                                <select class="form-control form-control-sm"
-                                                    id="ParcPromo">
-                                                    <option> </option>
+                                                <input type="text" class="form-control form-control-sm" id="ParcPromo" required>
+                                                   
 
-                                                </select>
+                                                
                                             </div>
                                         </div>
-                                        <div class="col-md-6 mb-3">
-                                            <label for="validationCustom02">Proposta</label>
-                                            <input type="text" minlength="14" maxlength="18"
-                                                class="form-control form-control-sm" id="Proposta">
-
-                                        </div>
+                                        
                                         <div class="col-md-6 mb-3">
                                             <div class="form-group">
                                                 <label for="exampleFormControlSelect1">Supervisor</label>
-                                                <select class="form-control form-control-sm"
-                                                    id="Supervisor">
+                                                <select class="form-control form-control-sm" id="Supervisor">
                                                     <option> </option>
 
                                                 </select>
@@ -806,26 +799,11 @@
                                             </div>
 
                                         </div>
-                                    </div>
 
-
-                                    <div class="form-row">
                                         <div class="col-md-6 mb-3">
                                             <div class="form-group">
                                                 <label for="exampleFormControlSelect1">Gerente</label>
-                                                <select class="form-control form-control-sm"
-                                                    id="Gerente">
-                                                    <option> </option>
-
-                                                </select>
-                                            </div>
-
-                                        </div>
-                                        <div class="col-md-6 mb-3">
-                                            <div class="form-group">
-                                                <label for="exampleFormControlSelect1">Data Pagamento Supervisor</label>
-                                                <select class="form-control form-control-sm"
-                                                    id="DtPagSupervisor">
+                                                <select class="form-control form-control-sm" id="Gerente">
                                                     <option> </option>
 
                                                 </select>
@@ -891,7 +869,7 @@
 
                                         </tr>
                                     </thead>
-                                    <tbody id="list">
+                                    <tbody id="listItens">
 
                                         <td style="text-align: center;"> XXXXXXXX </td>
                                         <td style="text-align: center;"> XXXXXXXX </td>
@@ -961,6 +939,7 @@
     <script src="../assets/js/purpose.js"></script>
     <!-- Mascaras -->
     <script src="../assets/js/mascaras.js"></script>
+    <script src="../assets/js/mascarasvalores.js"></script>
     <!-- Demo JS - remove it when starting your project -->
     <script src="../assets/js/demo.js"></script>
     <script src="../assets/js/saldoDevedor.js"></script>

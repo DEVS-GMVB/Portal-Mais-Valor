@@ -189,8 +189,6 @@ window.onload = function () {
 
 }
 const colocar = document.getElementById('incluir');
-
-
 colocar.addEventListener('click', () => {
 
     var node = document.getElementById("list");
