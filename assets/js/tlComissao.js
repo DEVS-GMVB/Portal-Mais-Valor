@@ -131,6 +131,7 @@ window.onload = function () {
     })).catch(error => console.log('error', error));
 
 
+
   //Status
   fetch(url + "/user/comissao/status", requestOptions)
     .then(response => response.json().then(function (data) {
@@ -752,9 +753,5 @@ buttonAlterar.addEventListener('click',()=>{
     .then((result) => {
       console.log('Success:', result);
       
-    })
-    .catch((error) => {
-      console.error('Error:', error);
-    });
 })
 

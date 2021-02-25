@@ -1,9 +1,4 @@
-
-// alert("sdafdsfsdfsdfsfsd")
-
-
-
-const prosseguir = document.getElementById('prosseguirChavejBtn');
+/*const prosseguir = document.getElementById('prosseguirChavejBtn');
 prosseguir.addEventListener('click', () => {
 
     var myHeaders = new Headers();
@@ -19,8 +14,6 @@ prosseguir.addEventListener('click', () => {
     let dtCancelamento = document.getElementById('dtCancelamentoChavej').value;
 
     var raw = JSON.stringify({
-
-        //Chavej
         status:status,
         funcao:funcao,
         empresa:empresa,
@@ -40,7 +33,7 @@ prosseguir.addEventListener('click', () => {
       
       fetch("http://172.16.0.197:3000/user/cadastro/inclusao", requestOptions)
       .then(response => response.json())
-    //   console.log(response)
       .then(result => console.log(result))
       .catch(error => console.log('error', error));
-})
+})*/
+

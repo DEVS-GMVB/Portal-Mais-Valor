@@ -44,6 +44,175 @@
     }
 </style>
 
+<!-- MODAL INCLUIR/ALTERAR PARCEIROS RESTRITOS -->
+
+<div class="modal fade modal-incl-alt-pr" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <img src="logocolorido.png" style="height: 70px; right: 70px;">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        
+        <div class="bg-titulo mt-0">
+
+            <h3>
+                Dados
+
+            </h3>
+
+        </div>
+
+        <form class="needs-validation mt-3" novalidate>
+
+            <div class="form-row">
+
+                <div class="col-md-6 mb-2">
+                    <label for="validationCustom01">CPF</label>
+                    <input type="text" class="form-control form-control-sm"
+                        id="validationCustom01" required>
+
+                </div>
+
+
+                <div class="col-md-6 mb-2">
+                    <label for="validationCustom01">Nome</label>
+                    <input type="text" class="form-control form-control-sm"
+                        id="validationCustom01" required>
+
+                </div>
+
+                <div class="col-md-6 mb-2">
+                    <label for="validationCustom01">CNPJ</label>
+                    <input type="text" class="form-control form-control-sm"
+                        id="validationCustom01" required>
+
+                </div>
+
+
+                <div class="col-md-6 mb-2">
+                    <label for="validationCustom01">Razão Social</label>
+                    <input type="text" class="form-control form-control-sm"
+                        id="validationCustom01" required>
+
+                </div>
+
+                <div class="col-md-6 mb-2">
+                    <label for="validationCustom01">Motivo Cancelamento</label>
+                    <input type="text" class="form-control form-control-sm"
+                        id="validationCustom01" required>
+
+                </div>
+
+
+                <div class="col-md-6 mb-2">
+                    <label for="validationCustom01">Solicitante</label>
+                    <input type="text" class="form-control form-control-sm"
+                        id="validationCustom01" required>
+
+                </div>
+
+            </div>
+
+        </form>
+
+        <div class="bg-titulo mt-1">
+
+            <h3>
+                Sócios
+
+            </h3>
+
+        </div>
+
+        <form class="needs-validation mt-4" novalidate>
+
+            <div class="form-row">
+
+                <div class="col-md-6 mb-2">
+                    <label for="validationCustom01">CPF/CNPJ Sócio 1</label>
+                    <input type="text" class="form-control form-control-sm"
+                        id="validationCustom01" required>
+
+                </div>
+
+
+                <div class="col-md-6 mb-2">
+                    <label for="validationCustom01">Nome Sócio 1</label>
+                    <input type="text" class="form-control form-control-sm"
+                        id="validationCustom01" required>
+
+                </div>
+
+                <div class="col-md-6 mb-2">
+                    <label for="validationCustom01">CPF/CNPJ Sócio 2</label>
+                    <input type="text" class="form-control form-control-sm"
+                        id="validationCustom01" required>
+
+                </div>
+
+
+                <div class="col-md-6 mb-2">
+                    <label for="validationCustom01">Nome Sócio 2</label>
+                    <input type="text" class="form-control form-control-sm"
+                        id="validationCustom01" required>
+
+                </div>
+
+                <div class="col-md-6 mb-2">
+                    <label for="validationCustom01">CPF/CNPJ Sócio 3 </label>
+                    <input type="text" class="form-control form-control-sm"
+                        id="validationCustom01" required>
+
+                </div>
+
+
+                <div class="col-md-6 mb-2">
+                    <label for="validationCustom01">Nome Sócio 3</label>
+                    <input type="text" class="form-control form-control-sm"
+                        id="validationCustom01" required>
+
+                </div>
+
+                <div class="col-md-6 mb-2">
+                    <label for="validationCustom01">CPF/CNPJ Sócio 4</label>
+                    <input type="text" class="form-control form-control-sm"
+                        id="validationCustom01" required>
+
+                </div>
+
+                <div class="col-md-6 mb-2">
+                    <label for="validationCustom01">Nome Sócio 4</label>
+                    <input type="text" class="form-control form-control-sm"
+                        id="validationCustom01" required>
+
+                </div>
+
+            </div>
+
+        </form>
+
+        <div class="opcoes-parceirosrestritos mt-3" style="text-align: center; margin-inline: block;">
+            <button type="button" class="btn btn-primary btn-icon-label" title="Analisar">
+            
+                <span class="btn-inner--icon">
+                    <i class="fas fa-plus"></i>
+                </span>
+                <span class="btn-inner--text">Incluir / Alterar</span>
+            </button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FINAL MODAL INCLUIR/ALTERAR PARCEIROS RESTRITOS-->
+
 
 <body class="application application-offset">
 
@@ -722,15 +891,63 @@
 
                             <div class="card-body">
 
+                                <form class="needs-validation mt-0" novalidate>
 
-                                <div class="opcoes-cadastro" style="text-align: center; margin-inline: block;">
-                                    <button type="button" class="btn btn-primary btn-icon-label" title="Incluir CPF" data-toggle="modal" data-target=".modalincluir-listanegra"> 
-                                    
+
+
+
+                                    <div class="form-row">
+                        
+                        
+                                        <div class="col-md-6 mb-3">
+                                            <label for="validationCustom01">Parceiro</label>
+                                            <input type="text" class="form-control form-control-sm"
+                                                id="validationCustom01" required>
+                        
+                                        </div>
+                        
+                                        <div class="col-md-6 mb-3">
+                                            <label for="validationCustom01">CNPJ</label>
+                                            <input type="text" class="form-control form-control-sm"
+                                                id="validationCustom01" required>
+                        
+                                        </div>
+                        
+                                    </div>
+                        
+                        
+                                </form>
+
+                                <div class="opcoes-parceirosrestritos" style="text-align: center; margin-inline: block;">
+
+                                    <button type="button" class="btn btn-primary btn-icon-label">
+                                        <span class="btn-inner--icon">
+                                            <i class="fas fa-search"></i>
+                                        </span>
+                                        <span class="btn-inner--text">Buscar</span>
+                                    </button>
+                                    <button type="button" class="btn btn-primary btn-icon-label" data-toggle="modal" data-target=".modal-incl-alt-pr"
+                                        data-target="#" title="Alterar">
                                         <span class="btn-inner--icon">
                                             <i class="fas fa-plus"></i>
                                         </span>
-                                        <span class="btn-inner--text">Incluir CPF na Lista Negra</span>
+                                        <span class="btn-inner--text">Incluir Novo CPF</span>
                                     </button>
+
+                                    <button type="button" class="btn btn-primary btn-icon-label">
+                                        <span class="btn-inner--icon">
+                                            <i class="fas fa-trash-alt"></i>
+                                        </span>
+                                        <span class="btn-inner--text">Apagar Filtros</span>
+                                    </button>
+
+                                    <button type="button" class="btn btn-primary btn-icon-label">
+                                        <span class="btn-inner--icon">
+                                            <i class="fas fa-file-excel"></i>
+                                        </span>
+                                        <span class="btn-inner--text">Exportar</span>
+                                    </button>
+                               
                                 </div>
 
                                 <div class="table-responsive table-hover mt-4">
@@ -738,20 +955,30 @@
                                         <thead>
                                           <tr>
                                             <th scope="col"><b>CPF</b></th>
-                                            <th scope="col"><b>MOTIVO</b></th>
-                                            <th scope="col"><b>USUÁRIO</b></th>
-                                            <th scope="col"><b>EXCLUIR CPF</b></th>
+                                            <th scope="col"><b>NOME PARCEIRO</b></th>
+                                            <th scope="col"><b>DATA INCLUSÃO</b></th>
+                                            <th scope="col"><b>LOGIN CRIAÇÃO</b></th>
+                                            <th scope="col"><b>CNPJ</b></th>
+                                            <th scope="col"><b>RAZÃO SOCIAL</b></th>
+                                            <th scope="col"><b>MOTIVO CANCELAMENTO</b></th>
+                                            <th scope="col"><b>SOLICITANTE</b></th>
+                                            <th scope="col"><b>ALTERAR/VISUALIZAR</b></th>
                                           </tr>
                                         </thead>
                                         <tbody>
                                           <tr>
                                             <th scope="row">XXX.XXX.XXX - XX</th>
                                             <td>XXXXXXX XXXXXXXX XXXXXXX</td>
-                                            <td>XXXXX XXXXXXX</td>
+                                            <td>XX/XX/XXXX - XX:XX:XX</td>
+                                            <td>XXXXXXX XXXXXX</td> 
+                                            <td>XX.XXX.XXX/XXXX-XX</td>
+                                            <td>XXXXX XXXXXX</td>
+                                            <td>XXXXXXX XXXXXXXXXX XXXXXXX</td> 
+                                            <td>XXXXXXX XXXXXX</td> 
                                             <td>
                                                 <div class="actions ml-3">
-                                                    <a href="#" class="action-item mr-2" data-toggle="tooltip" title="Excluir">
-                                                        <i class="fas fa-trash-alt"></i>
+                                                    <a href="#" class="action-item mr-2" data-toggle="modal" data-target=".modal-incl-alt-pr" title="Alterar/Visualizar">
+                                                        <i class="fas fa-eye"></i>
                                                     </a>
                                                  
                                                 </div>
