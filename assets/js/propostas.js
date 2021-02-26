@@ -1,4 +1,4 @@
-// const URL = `http://localhost:3000`;
+//const URL = `http://localhost:3000`;
 let filtros = document.getElementById("button-filtro");
 let empresaProposta = document.getElementById("empresaPropostas");
 let bancoPortado = document.getElementById('exampleFormBP');
@@ -17,7 +17,25 @@ let bancoo = document.getElementById('examploBanco')
 //let produtoo = document.getElementById('exampleProduto')
 //let tpOperacao = document.getElementById('tipoOperacao')
 
+let requestOptions = {
+  method: 'GET',
+  redirect: 'follow'
+};
 
+fetch("http://localhost:3000/user/supervisor", requestOptions)
+  .then(response => response.json())
+  .then(function (data) {
+    for (let i = 0; i < data.length; i++) {
+      supervisorProposta.innerHTML += '<option value="' + data[i].parceiro + '">' + data[i].parceiro + '</option>;'
+    }
+  }).catch(error => console.log('error', error));
+
+  fetch("http://localhost:3000/user/gerente", requestOptions)
+    .then(response => response.json().then(function (data) {
+      for (let i = 0; i < data.length; i++) {
+        gerenteProposta.innerHTML += '<option value="' + data[i].gerente + '">' + data[i].gerente + '</option>;'
+      }
+    })).catch(error => console.log('error', error));
 
 window.onload = function () {
 
@@ -66,20 +84,20 @@ window.onload = function () {
       }
     })
 
-  fetch(URL + "/user/supervisor", requestOptions)
-  .then(response => response.json())
-  .then(function (data) {
-    for (let i = 0; i < data.length; i++) {
-      supervisorProposta.innerHTML += '<option value="' + data[i].parceiro + '">' + data[i].parceiro + '</option>;'
-    }
-  }).catch(error => console.log('error', error));
+  // fetch("http://localhost:3000/user/supervisor", requestOptions)
+  // .then(response => response.json())
+  // .then(function (data) {
+  //   for (let i = 0; i < data.length; i++) {
+  //     supervisorProposta.innerHTML += '<option value="' + data[i].parceiro + '">' + data[i].parceiro + '</option>;'
+  //   }
+  // }).catch(error => console.log('error', error));
 
-  fetch(URL + "/user/gerente", requestOptions)
-    .then(response => response.json().then(function (data) {
-      for (let i = 0; i < data.length; i++) {
-        gerenteProposta.innerHTML += '<option value="' + data[i].gerente + '">' + data[i].gerente + '</option>;'
-      }
-    })).catch(error => console.log('error', error));
+  // fetch(URL + "/user/gerente", requestOptions)
+  //   .then(response => response.json().then(function (data) {
+  //     for (let i = 0; i < data.length; i++) {
+  //       gerenteProposta.innerHTML += '<option value="' + data[i].gerente + '">' + data[i].gerente + '</option>;'
+  //     }
+  //   })).catch(error => console.log('error', error));
 
   fetch(URL + "/user/proposta/substatus", requestOptions)
     .then(response => response.json().then(function (data) {

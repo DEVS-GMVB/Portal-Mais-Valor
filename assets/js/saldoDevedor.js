@@ -1,7 +1,5 @@
 const URL = 'http://localhost:3000'
 // VARS
-let supervisorSelect = document.getElementById("Supervisor")
-let gerenteSelect = document.getElementById("Gerente")
 let saldoDevSelect = document.getElementById("SaldoDev")
 let dtSuperSelect = document.getElementById('DtPagSupervisor')
 let statusSelect = document.getElementById("Status")
@@ -13,20 +11,6 @@ window.onload = function () {
         method: 'GET',
         redirect: 'follow'
     }
-
-    fetch(URL + "/user/supervisor", requestOptions).
-    then(response => response.json().then(function (data) {
-        for (const value of data) {
-            supervisorSelect.innerHTML += '<option value="' + value.parceiro + '">' + value.parceiro + '</option>;'
-        }
-    })).catch(error => console.log('erro: ', error))
-
-    fetch(URL + "/user/gerente", requestOptions).
-    then(response => response.json().then(function (data) {
-        for (const value of data) {
-            gerenteSelect.innerHTML += '<option value="' + value.gerente + '">' + value.gerente + '</option>'
-        }
-    })).catch(error => console.log('erro: ', error))
 
     fetch(URL + "/user/statusSaldo/saldoDevedor", requestOptions)
         .then(response => response.json())
@@ -154,9 +138,7 @@ function Buscar() {
     myHeaders.append("Content-Type", "application/json");
 
     const parceiro = $("#ParcPromo").val()
-    const supervisor = $("#Supervisor").val()
     const status = $("#Status").val()
-    const gerente = $("#Gerente").val()
 
     const body = {
         parceiro: parceiro,
@@ -261,6 +243,22 @@ function updateSaldo(cpf, linha) {
     //Configs de troca de modais
     breakModal.empty();
 
+    //Bloqueando os campos
+    $('#Cpf').attr('disabled', true);
+    $("#Parceiro").attr('disabled', true)
+    $("#IdtMargem").attr('disabled', true)
+    $("#Convenio").attr('disabled', true)
+    $("#matricula").attr('disabled', true)
+    $("#Parcela").attr('disabled', true)
+    $("#bancoOrigi").attr('disabled', true)
+    $("#DtCadastro").attr('disabled', true)
+    $("#DtNascimento").attr('disabled', true)
+
+    //Desbloqueando os campos
+    $("#SaldoDev").attr('disabled', false)
+    $("#PrazoRestante").attr('disabled', false)
+    $("#TaxaJuros").attr('disabled', false)
+
     // console.log(cpf)
 
     var myHeaders = new Headers();
@@ -300,6 +298,22 @@ function change() {
     // Configs de troca de modais
     breakModal.empty();
     breakModal.changeButtonInsert();
+
+    //Desbloqueando os campos
+    $('#Cpf').attr('disabled', false)
+    $("#Parceiro").attr('disabled', false)
+    $("#IdtMargem").attr('disabled', false)
+    $("#Convenio").attr('disabled', false)
+    $("#matricula").attr('disabled', false)
+    $("#Parcela").attr('disabled', false)
+    $("#bancoOrigi").attr('disabled', false)
+    $("#DtCadastro").attr('disabled', false)
+    $("#DtNascimento").attr('disabled', false)
+
+    //Bloqueando os campos
+    $("#SaldoDev").attr('disabled', true)
+    $("#PrazoRestante").attr('disabled', true)
+    $("#TaxaJuros").attr('disabled', true)
 }
 
 function updateSaldoDevedor(codigo, row) {
@@ -354,12 +368,11 @@ function updateTbody(l,date) {
     r[4].textContent = $("#Status").val()
     r[5].textContent = $("#Parceiro").val()
     r[6].textContent = $("#Parcela").val()
-    r[7].textContent = $("#Parceiro").val() //
-    r[8].textContent = $("#DtNascimento").val()
-    r[9].textContent = $("#DtCadastro").val()
-    r[10].textContent = $("#matricula").val()//
+    r[7].textContent = '' //Renda
+    r[8].textContent = $('#DtNascimento').val() 
+    r[9].textContent = '' //Data atualização
+    r[10].textContent = '' //Log alteração
     r[11].textContent = $("#bancoOrigi").val()
     r[12].textContent =  $("#SaldoDev").val()
-    r[13].textContent = $("#bancoOrigi").val()
-    r[14].textContent = $("#PrazoRestante").val()
+    r[13].textContent = $("#PrazoRestante").val()
 }
