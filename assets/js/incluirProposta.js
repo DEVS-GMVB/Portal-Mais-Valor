@@ -1,5 +1,5 @@
 //variavel de ambiente
-const URL = `http://localhost:3000`;
+const URL = `https://api-portalmaisvalor.herokuapp.com`;
 
 //variaveis de sessao
 const parceiro = sessionStorage.getItem('nome', 'nome');

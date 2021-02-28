@@ -1,5 +1,5 @@
 
-const URL = `http://localhost:3000`;
+const URL = `https://api-portalmaisvalor.herokuapp.com`;
 
 
 let filtros = document.getElementById("filtrosPes");
@@ -301,7 +301,7 @@ filtros.addEventListener('click', () => {
     redirect: 'follow'
   }
 
-  fetch("http://localhost:3000/user/proposta/filtro", requestOptions).
+  fetch("/user/proposta/filtro", requestOptions).
   then(response => response.json()).
   then(function(data) {
     console.log(data);

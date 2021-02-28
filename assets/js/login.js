@@ -1,5 +1,5 @@
 
-
+const url =  'https://api-portalmaisvalor.herokuapp.com';                            
 
 const Logar = () => {
 
@@ -18,7 +18,7 @@ const Logar = () => {
     redirect: 'follow'
     };
 
-    fetch("http://localhost:3000/user/login", requestOptions) 
+    fetch(url+"/user/login", requestOptions) 
     .then(function(response){
         response.json().then(function(data){
       
@@ -76,7 +76,7 @@ const Email = () => {
     redirect: 'follow'
     };
 
-    fetch("http://172.16.0.197:3000/user/email", requestOptions)
+    fetch(url+"/user/email", requestOptions)
     .then(function(response){
         response.json().then(function(data){
       
