@@ -10,7 +10,7 @@ var requestOptions = {
   redirect: 'follow'
 };
 
-fetch("http://172.16.0.197:3000/user/proposta/empresas", requestOptions)
+fetch(URL+"/user/proposta/empresas", requestOptions)
   .then(response => response.json().then(function (data) {
     for (let i = 0; i < data.length; i++) {
       empresa.innerHTML += '<option value="' + data[i].empresa + '">' + data[i].empresa + '</option>;'
@@ -155,6 +155,7 @@ incluirAcesso.addEventListener('click', () => {
         });
       }
       else if (result.erro === 'usuario já tem acesso cadastrado') {
+        // console.log(result.erro)
         if ($("#id-cadusu-cpfcnpj").val() === "") {
           alert("Preencha os dados");
         } else {
