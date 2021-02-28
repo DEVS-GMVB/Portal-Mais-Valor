@@ -207,7 +207,6 @@ function data(v) {
     v = v.replace(/\D/g, "")
     v = v.replace(/(\d{2})(\d)/, "$1/$2")
     v = v.replace(/(\d{2})(\d)/, "$1/$2")
-    return v
 }
 
 function DataHora(evento, objeto) {
@@ -257,6 +256,7 @@ function sCartTrab(v) {
     v = v.replace(/\D/g, ""); // Permite apenas dígitos
     v = v.substring(0, 4) // Limita o tamanho
 
+<<<<<<< HEAD
     return v;
 }
 
@@ -265,6 +265,27 @@ function nContrtato(v) {
     return v;
 }
 
+=======
+function nCartTrab(v) {
+    v = v.replace(/\D/g, ""); // Permite apenas dígitos
+    v = v.substring(0, 7) // Limita o tamanho
+
+    return v;
+}
+
+function sCartTrab(v) {
+    v = v.replace(/\D/g, ""); // Permite apenas dígitos
+    v = v.substring(0, 4) // Limita o tamanho
+
+    return v;
+}
+
+function nContrtato(v) {
+    v = v.replace(/\D/g, ""); // Permite apenas dígitos
+    return v;
+}
+
+>>>>>>> 9503dae242b029de205db50682b3d4ca2697a0f8
 function ApenasLetras(e, t) {
     try {
         if (window.event) {
@@ -282,6 +303,7 @@ function ApenasLetras(e, t) {
         alert(err.Description);
     }
 }
+<<<<<<< HEAD
 
 //Numero de cartao
 // function ncc(v){
@@ -290,6 +312,16 @@ function ApenasLetras(e, t) {
 //     v = v.replace(/\.$/, ""); // Remove o ponto se estiver sobrando
 //     v = v.substring(0, 19)// Limita o tamanho
   
+=======
+
+//Numero de cartao
+// function ncc(v){
+//     v = v.replace(/\D/g,""); // Permite apenas dígitos
+//     v = v.replace(/(\d{4})/g, "$1."); // Coloca um ponto a cada 4 caracteres
+//     v = v.replace(/\.$/, ""); // Remove o ponto se estiver sobrando
+//     v = v.substring(0, 19)// Limita o tamanho
+
+>>>>>>> 9503dae242b029de205db50682b3d4ca2697a0f8
 //     return v;
 //   }
 

@@ -1,9 +1,23 @@
+<<<<<<< HEAD
 function incluirCadastro() {
     //Habilitar o modal acesso somente após clicar no botão finalizar
     document.getElementById("acesso-tab").disabled = false;
 
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
+=======
+if (document.getElementsByClassName('incluirSilgasE')) {
+    const prosseguir = document.getElementById('incluirSilgasE');
+    prosseguir.addEventListener('click', () => {
+        // window.location.replace("#cadastro");
+
+        //Habilitar o modal acesso somente após clicar no botão finalizar
+        document.getElementById("acesso-tab").disabled = false;
+
+
+        var myHeaders = new Headers();
+        myHeaders.append("Content-Type", "application/json");
+>>>>>>> 9503dae242b029de205db50682b3d4ca2697a0f8
 
     //Cadastro
     const filialcad = document.getElementById('exampleFormControlFilialCadastro').value;
@@ -121,6 +135,7 @@ function incluirCadastro() {
     const usaSiglaE = document.getElementById('exampleFormControlUsaSigla').value;
     const usaSilgaI = document.getElementById('exampleFormControlSiglaI').value;
     const observ = document.getElementById('exampleFormControlObs').value;
+<<<<<<< HEAD
 
     var raw = JSON.stringify({
 
@@ -270,6 +285,8 @@ function incluirCadastro() {
         })
         .catch(error => console.log('erro', error));
 }
+=======
+>>>>>>> 9503dae242b029de205db50682b3d4ca2697a0f8
 
 function alteracaoCadastro(idParceiro, td) {
     
@@ -502,6 +519,7 @@ function alteracaoCadastro(idParceiro, td) {
         data_inativacao: dtCancelamento,
 
         //Siglae
+<<<<<<< HEAD
         siglae: sigla,
         codigo_corban: codEscritorio,
         nome_corban: nmEscritorio,
@@ -515,6 +533,43 @@ function alteracaoCadastro(idParceiro, td) {
         usa_siglai1: usaSilgaI,
         observacao: observ
     })
+=======
+        const sigla = document.getElementById('validationSigla').value;
+        const codEscritorio = document.getElementById('validationCodigoEscritorio').value;
+        const nmEscritorio = document.getElementById('validationNomeEscritorio').value;
+        const stat = document.getElementById('exampleFormControlStatusSiglas').value;
+        const dtInativacao = document.getElementById('validationDataInativacao').value;
+        const motPendencia = document.getElementById('validationMotivoPendencia').value;
+        const siglaPorsp = document.getElementById('validationSiglaPropesct').value;
+        const cpfcnpjSigla = document.getElementById('validationCpfCnpf').value;
+        const parcPromoSigla = document.getElementById('validationParceiroPromotor').value;
+        const usaSiglaE = document.getElementById('exampleFormControlUsaSigla').value;
+        const usaSilgaI = document.getElementById('exampleFormControlSiglaI').value;
+        const observ = document.getElementById('exampleFormControlObs').value;
+
+        var raw = JSON.stringify({
+
+    fetch(URL+"/user/cadastro/inclusao", requestOptions)
+        .then(response => response.json())
+        //   console.log(response)
+        .then(function (data) {
+            if (data.sucesso === "usuario cadastrado com sucesso") {
+                alert("Cadastro incluido com sucesso!")
+                console.log(data)
+            }
+
+            if (data.resp === "não foi possivel cadastrar usuario, cpf existente na base de dados") {
+                alert("não foi possivel cadastrar usuario, cpf existente na base de dados")
+
+            }
+            // let fluxoAlterar = document.getElementById("modalAlterar")
+            // fluxoAlterar.addEventListener('click', () => {
+            //     alert('cheguei aq')
+            // })
+
+        })
+        .catch(error => console.log('erro',error));
+>>>>>>> 9503dae242b029de205db50682b3d4ca2697a0f8
 
     var requestOptions = {
         method: 'POST',

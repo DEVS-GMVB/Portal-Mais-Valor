@@ -1,7 +1,7 @@
 
 
 //VARIAVEL AMBIENTE
-const url = `http://localhost:3000`;
+const url = `https://api-portalmaisvalor.herokuapp.com`;
 
 
 //INPUTS GLOBAIS
@@ -70,7 +70,7 @@ var requestOptions = {
   redirect: 'follow'
 };
 
-fetch("http://localhost:3000/user/comissao/modal", requestOptions)
+fetch(url+"/user/comissao/modal", requestOptions)
   .then(response => response.json())
   .then(function (data) {
     
