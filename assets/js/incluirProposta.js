@@ -240,7 +240,7 @@ function readURL(input) {
 }
 
 
-//////modal filtro
+//modal filtro
 
 buttonFiltro = document.getElementById("button-filtro");
 
