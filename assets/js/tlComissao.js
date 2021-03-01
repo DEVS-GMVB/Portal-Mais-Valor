@@ -16,6 +16,9 @@ let compPag = document.getElementById("exampleCompPag")
 let cpfPromo = document.getElementById("cpfPromo")
 let incluirComissao = document.getElementById("incluirComissao")
 
+//VARIAVEIS AUXILIARES
+let valorTotal = 0;
+let quantidadeTotal =0;
 
 //VARIAVEIS DE SESSAO
     const userCnpjMatriz = sessionStorage.getItem('cnpj_matriz', 'cnpj_matriz');
@@ -70,7 +73,7 @@ var requestOptions = {
   redirect: 'follow'
 };
 
-fetch(url+"/user/comissao/modal", requestOptions)
+fetch("http://localhost:3000/user/comissao/modal", requestOptions)
   .then(response => response.json())
   .then(function (data) {
     
@@ -82,10 +85,10 @@ fetch(url+"/user/comissao/modal", requestOptions)
   document.getElementById('data-proposta-modal').innerHTML = data.data_cadastro;
   document.getElementById('parceiro-modal').innerHTML =data.parceiro;
   document.getElementById('parceiro-esteira-modal').innerHTML =data.parceiro_esteira;
-  document.getElementById('valor-entregue-modal').innerHTML =data.valor_liberado;
+  document.getElementById('valor-entregue-modal').innerHTML ="R$ " + data.valor_liberado.replace(/([0-9]{3}),([0-9]{2}$)/g, ".$1,$2");
   document.getElementById('convenio-modal').innerHTML =data.convenio;
   document.getElementById('tipo-modal').innerHTML =data.tipo;
-  document.getElementById('comissao-modal').innerHTML =data.calculo;
+  document.getElementById('comissao-modal').innerHTML ="R$ " + data.calculo.replace(/([0-9]{3}),([0-9]{2}$)/g, ".$1,$2");
   document.getElementById('mes-referencia-modal').innerHTML =data.mes;
   document.getElementById('data-pagamento-modal').innerHTML =data.data_pagamento;
   document.getElementById('movimentacao-modal').innerHTML =data.movimentacao;
@@ -97,7 +100,7 @@ fetch(url+"/user/comissao/modal", requestOptions)
   document.getElementById('correntista-modal').innerHTML =data.correntista;
   document.getElementById('prazo-contrato-modal').innerHTML = data.prazo_contrato;
   document.getElementById('classificacao-modal').innerHTML = data.clasificacao;
-  document.getElementById('receita-liquida-modal').innerHTML =data.receita_liquida;
+  document.getElementById('receita-liquida-modal').innerHTML ="R$ " + data.receita_liquida.replace(/([0-9]{3}),([0-9]{2}$)/g, ".$1,$2");
   document.getElementById('competencia-pagamento-modal').innerHTML =data.competencia;
 
 }).catch(error => console.log('error', error));
@@ -129,6 +132,7 @@ window.onload = function () {
 
       }
     })).catch(error => console.log('error', error));
+
 
 
   //Status
@@ -202,15 +206,16 @@ document.getElementById('pesquisar').addEventListener('click', async () => {
 
   await fetch(url+"/user/comissao/pesquisa?banco=SANTANDER", requestOptions)
     .then(response => response.json().then(function (data) {
-   
+      valorTotal += data.soma;
+      quantidadeTotal += data.count;
       document.getElementById("quantidade-sant").innerHTML = data.count;
       document.getElementById("valor-sant").innerHTML = data.soma.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
       data.dados.forEach(element => {
         document.getElementById("mais-santander").innerHTML += `<tr>
       <th style="text-align: center;">${element.banco}</th>
       <td style="text-align: center;">${element.proposta}</td>
-      <td style="text-align: center;">${element.valor_liberado}</td>
-      <td style="text-align: center;">${element.calculo}</td>
+      <td style="text-align: center;">R$ ${element.valor_liberado.replace(/([0-9]{3}),([0-9]{2}$)/g, ".$1,$2")}</td>
+      <td style="text-align: center;">R$ ${element.calculo.replace(/([0-9]{3}),([0-9]{2}$)/g, ".$1,$2")}</td>
       <td style="text-align: center;">${element.data_pagamento}</td>
       <td style="text-align: center;">${element.status}</td>
       <td style="text-align: center;">${element.movimentacao}</td>
@@ -237,15 +242,16 @@ document.getElementById('pesquisar').addEventListener('click', async () => {
 
   await fetch(url+"/user/comissao/pesquisa?banco=ITAU", requestOptions)
     .then(response => response.json().then(function (data) {
-
+      valorTotal += data.soma;
+      quantidadeTotal += data.count;
       document.getElementById("quantidade-itau").innerHTML = data.count;
       document.getElementById("valor-itau").innerHTML = data.soma.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
       data.dados.forEach(element => {
-        document.getElementById("mais-itau").innerHTML += `<tr>
+      document.getElementById("mais-itau").innerHTML += `<tr>
       <th style="text-align: center;">${element.banco}</th>
       <td style="text-align: center;">${element.proposta}</td>
-      <td style="text-align: center;">${element.valor_liberado}</td>
-      <td style="text-align: center;">${element.calculo}</td>
+      <td style="text-align: center;">${element.valor_liberado.replace(/([0-9]{3}),([0-9]{2}$)/g, ".$1,$2")}</td>
+      <td style="text-align: center;">${element.calculo.replace(/([0-9]{3}),([0-9]{2}$)/g, ".$1,$2")}</td>
       <td style="text-align: center;">${element.data_pagamento}</td>
       <td style="text-align: center;">${element.status}</td>
       <td style="text-align: center;">${element.movimentacao}</td>
@@ -270,15 +276,16 @@ document.getElementById('pesquisar').addEventListener('click', async () => {
 
   await fetch(url+"/user/comissao/pesquisa?banco=BRADESCO", requestOptions)
     .then(response => response.json().then(function (data) {
-
+      valorTotal += data.soma;
+      quantidadeTotal += data.count;
       document.getElementById("quantidade-bradesco").innerHTML = data.count;
       document.getElementById("valor-bradesco").innerHTML = data.soma.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
       data.dados.forEach(element => {
         document.getElementById("mais-bradesco").innerHTML += `<tr>
       <th style="text-align: center;">${element.banco}</th>
       <td style="text-align: center;">${element.proposta}</td>
-      <td style="text-align: center;">${element.valor_liberado}</td>
-      <td style="text-align: center;">${element.calculo}</td>
+      <td style="text-align: center;">${element.valor_liberado.replace(/([0-9]{3}),([0-9]{2}$)/g, ".$1,$2")}</td>
+      <td style="text-align: center;">${element.calculo.replace(/([0-9]{3}),([0-9]{2}$)/g, ".$1,$2")}</td>
       <td style="text-align: center;">${element.data_pagamento}</td>
       <td style="text-align: center;">${element.status}</td>
       <td style="text-align: center;">${element.movimentacao}</td>
@@ -303,15 +310,16 @@ document.getElementById('pesquisar').addEventListener('click', async () => {
 
   await fetch(url+"/user/comissao/pesquisa?banco=BANCO PAN", requestOptions)
     .then(response => response.json().then(function (data) {
-
+      valorTotal += data.soma;
+      quantidadeTotal += data.count;
       document.getElementById("quantidade-pan").innerHTML = data.count;
       document.getElementById("valor-pan").innerHTML = data.soma.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
       data.dados.forEach(element => {
         document.getElementById("mais-pan").innerHTML += `<tr>
       <th style="text-align: center;">${element.banco}</th>
       <td style="text-align: center;">${element.proposta}</td>
-      <td style="text-align: center;">${element.valor_liberado}</td>
-      <td style="text-align: center;">${element.calculo}</td>
+      <td style="text-align: center;">${element.valor_liberado.replace(/([0-9]{3}),([0-9]{2}$)/g, ".$1,$2")}</td>
+      <td style="text-align: center;">${element.calculo.replace(/([0-9]{3}),([0-9]{2}$)/g, ".$1,$2")}</td>
       <td style="text-align: center;">${element.data_pagamento}</td>
       <td style="text-align: center;">${element.status}</td>
       <td style="text-align: center;">${element.movimentacao}</td>
@@ -336,15 +344,16 @@ document.getElementById('pesquisar').addEventListener('click', async () => {
 
   await fetch(url+"/user/comissao/pesquisa?banco=CARTAO OLE", requestOptions)
     .then(response => response.json().then(function (data) {
-
+      valorTotal += data.soma;
+      quantidadeTotal += data.count;
       document.getElementById("quantidade-ole").innerHTML = data.count;
       document.getElementById("valor-ole").innerHTML = data.soma.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
       data.dados.forEach(element => {
         document.getElementById("mais-ole").innerHTML += `<tr>
       <th style="text-align: center;">${element.banco}</th>
       <td style="text-align: center;">${element.proposta}</td>
-      <td style="text-align: center;">${element.valor_liberado}</td>
-      <td style="text-align: center;">${element.calculo}</td>
+      <td style="text-align: center;">${element.valor_liberado.replace(/([0-9]{3}),([0-9]{2}$)/g, ".$1,$2")}</td>
+      <td style="text-align: center;">${element.calculo.replace(/([0-9]{3}),([0-9]{2}$)/g, ".$1,$2")}</td>
       <td style="text-align: center;">${element.data_pagamento}</td>
       <td style="text-align: center;">${element.status}</td>
       <td style="text-align: center;">${element.movimentacao}</td>
@@ -369,15 +378,16 @@ document.getElementById('pesquisar').addEventListener('click', async () => {
 
   await fetch(url+"/user/comissao/pesquisa?banco= CETELEM", requestOptions)
     .then(response => response.json().then(function (data) {
-
+      valorTotal += data.soma;
+      quantidadeTotal += data.count;
       document.getElementById("quantidade-cetelem").innerHTML = data.count;
       document.getElementById("valor-cetelem").innerHTML = data.soma.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
       data.dados.forEach(element => {
         document.getElementById("mais-cetelem").innerHTML += `<tr>
       <th style="text-align: center;">${element.banco}</th>
       <td style="text-align: center;">${element.proposta}</td>
-      <td style="text-align: center;">${element.valor_liberado}</td>
-      <td style="text-align: center;">${element.calculo}</td>
+      <td style="text-align: center;">${element.valor_liberado.replace(/([0-9]{3}),([0-9]{2}$)/g, ".$1,$2")}</td>
+      <td style="text-align: center;">${element.calculo.replace(/([0-9]{3}),([0-9]{2}$)/g, ".$1,$2")}</td>
       <td style="text-align: center;">${element.data_pagamento}</td>
       <td style="text-align: center;">${element.status}</td>
       <td style="text-align: center;">${element.movimentacao}</td>
@@ -402,15 +412,16 @@ document.getElementById('pesquisar').addEventListener('click', async () => {
 
   await fetch(url+"/user/comissao/pesquisa?banco= OLE CONSIGNADO", requestOptions)
     .then(response => response.json().then(function (data) {
-
+      valorTotal += data.soma;
+      quantidadeTotal += data.count;
       document.getElementById("ole-cons-quantidade").innerHTML = data.count;
       document.getElementById("ole-cons-valor").innerHTML = data.soma.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
       data.dados.forEach(element => {
         document.getElementById("mais-ole-cons").innerHTML += `<tr>
       <th style="text-align: center;">${element.banco}</th>
       <td style="text-align: center;">${element.proposta}</td>
-      <td style="text-align: center;">${element.valor_liberado}</td>
-      <td style="text-align: center;">${element.calculo}</td>
+      <td style="text-align: center;">${element.valor_liberado.replace(/([0-9]{3}),([0-9]{2}$)/g, ".$1,$2")}</td>
+      <td style="text-align: center;">${element.calculo.replace(/([0-9]{3}),([0-9]{2}$)/g, ".$1,$2")}</td>
       <td style="text-align: center;">${element.data_pagamento}</td>
       <td style="text-align: center;">${element.status}</td>
       <td style="text-align: center;">${element.movimentacao}</td>
@@ -436,15 +447,16 @@ document.getElementById('pesquisar').addEventListener('click', async () => {
 
   await fetch(url+"/user/comissao/pesquisa?banco=DAYCOVAL", requestOptions)
     .then(response => response.json().then(function (data) {
-
+      valorTotal += data.soma;
+      quantidadeTotal += data.count;
       document.getElementById("quantidade-daycoval").innerHTML = data.count;
       document.getElementById("valor-daycoval").innerHTML = data.soma.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
       data.dados.forEach(element => {
         document.getElementById("mais-daycoval").innerHTML += `<tr>
       <th style="text-align: center;">${element.banco}</th>
       <td style="text-align: center;">${element.proposta}</td>
-      <td style="text-align: center;">${element.valor_liberado}</td>
-      <td style="text-align: center;">${element.calculo}</td>
+      <td style="text-align: center;">${element.valor_liberado.replace(/([0-9]{3}),([0-9]{2}$)/g, ".$1,$2")}</td>
+      <td style="text-align: center;">${element.calculo.replace(/([0-9]{3}),([0-9]{2}$)/g, ".$1,$2")}</td>
       <td style="text-align: center;">${element.data_pagamento}</td>
       <td style="text-align: center;">${element.status}</td>
       <td style="text-align: center;">${element.movimentacao}</td>
@@ -470,15 +482,16 @@ document.getElementById('pesquisar').addEventListener('click', async () => {
 
   await fetch(url+"/user/comissao/pesquisa?banco=SIM", requestOptions)
     .then(response => response.json().then(function (data) {
-
+      valorTotal += data.soma;
+      quantidadeTotal += data.count;
       document.getElementById("quantidade-sim").innerHTML = data.count;
       document.getElementById("valor-sim").innerHTML = data.soma.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
       data.dados.forEach(element => {
         document.getElementById("mais-sim").innerHTML += `<tr>
       <th style="text-align: center;">${element.banco}</th>
       <td style="text-align: center;">${element.proposta}</td>
-      <td style="text-align: center;">${element.valor_liberado}</td>
-      <td style="text-align: center;">${element.calculo}</td>
+      <td style="text-align: center;">${element.valor_liberado.replace(/([0-9]{3}),([0-9]{2}$)/g, ".$1,$2")}</td>
+      <td style="text-align: center;">${element.calculo.replace(/([0-9]{3}),([0-9]{2}$)/g, ".$1,$2")}</td>
       <td style="text-align: center;">${element.data_pagamento}</td>
       <td style="text-align: center;">${element.status}</td>
       <td style="text-align: center;">${element.movimentacao}</td>
@@ -503,14 +516,16 @@ document.getElementById('pesquisar').addEventListener('click', async () => {
 
   await fetch(url+"/user/comissao/pesquisa?banco=SAFRA", requestOptions)
     .then(response => response.json().then(function (data) {
+      valorTotal += data.soma;
+      quantidadeTotal += data.count;
       document.getElementById("quantidade-safra").innerHTML = data.count;
       document.getElementById("valor-safra").innerHTML = data.soma.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
       data.dados.forEach(element => {
         document.getElementById("mais-safra").innerHTML += `<tr>
       <th style="text-align: center;">${element.banco}</th>
       <td style="text-align: center;">${element.proposta}</td>
-      <td style="text-align: center;">${element.valor_liberado}</td>
-      <td style="text-align: center;">${element.calculo}</td>
+      <td style="text-align: center;">${element.valor_liberado.replace(/([0-9]{3}),([0-9]{2}$)/g, ".$1,$2")}</td>
+      <td style="text-align: center;">${element.calculo.replace(/([0-9]{3}),([0-9]{2}$)/g, ".$1,$2")}</td>
       <td style="text-align: center;">${element.data_pagamento}</td>
       <td style="text-align: center;">${element.status}</td>
       <td style="text-align: center;">${element.movimentacao}</td>
@@ -535,15 +550,16 @@ document.getElementById('pesquisar').addEventListener('click', async () => {
 
   await fetch(url+"/user/comissao/pesquisa?banco=SEGUROS", requestOptions)
     .then(response => response.json().then(function (data) {
-
+      valorTotal += data.soma;
+      quantidadeTotal += data.count;
       document.getElementById("quantidade-seguros").innerHTML = data.count;
       document.getElementById("valor-seguros").innerHTML = data.soma.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
       data.dados.forEach(element => {
         document.getElementById("mais-seguros").innerHTML += `<tr>
       <th style="text-align: center;">${element.banco}</th>
       <td style="text-align: center;">${element.proposta}</td>
-      <td style="text-align: center;">${element.valor_liberado}</td>
-      <td style="text-align: center;">${element.calculo}</td>
+      <td style="text-align: center;">${element.valor_liberado.replace(/([0-9]{3}),([0-9]{2}$)/g, ".$1,$2")}</td>
+      <td style="text-align: center;">${element.calculo.replace(/([0-9]{3}),([0-9]{2}$)/g, ".$1,$2")}</td>
       <td style="text-align: center;">${element.data_pagamento}</td>
       <td style="text-align: center;">${element.status}</td>
       <td style="text-align: center;">${element.movimentacao}</td>
@@ -568,15 +584,16 @@ document.getElementById('pesquisar').addEventListener('click', async () => {
 
   await fetch(url+"/user/comissao/pesquisa?banco=CREFISA", requestOptions)
     .then(response => response.json().then(function (data) {
-
+      valorTotal += data.soma;
+      quantidadeTotal += data.count;
       document.getElementById("quantidade-crefisa").innerHTML = data.count;
       document.getElementById("valor-crefisa").innerHTML = data.soma.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
       data.dados.forEach(element => {
         document.getElementById("mais-crefisa").innerHTML += `<tr>
       <th style="text-align: center;">${element.banco}</th>
       <td style="text-align: center;">${element.proposta}</td>
-      <td style="text-align: center;">${element.valor_liberado}</td>
-      <td style="text-align: center;">${element.calculo}</td>
+      <td style="text-align: center;">${element.valor_liberado.replace(/([0-9]{3}),([0-9]{2}$)/g, ".$1,$2")}</td>
+      <td style="text-align: center;">${element.calculo.replace(/([0-9]{3}),([0-9]{2}$)/g, ".$1,$2")}</td>
       <td style="text-align: center;">${element.data_pagamento}</td>
       <td style="text-align: center;">${element.status}</td>
       <td style="text-align: center;">${element.movimentacao}</td>
@@ -601,15 +618,16 @@ document.getElementById('pesquisar').addEventListener('click', async () => {
 
   await fetch(url+"/user/comissao/pesquisa?banco=PARANA BANCO", requestOptions)
     .then(response => response.json().then(function (data) {
-
+      valorTotal += data.soma;
+      quantidadeTotal += data.count;
       document.getElementById("quantidade-parana").innerHTML = data.count;
       document.getElementById("valor-parana").innerHTML = data.soma.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
       data.dados.forEach(element => {
         document.getElementById("mais-parana").innerHTML += `<tr>
       <th style="text-align: center;">${element.banco}</th>
       <td style="text-align: center;">${element.proposta}</td>
-      <td style="text-align: center;">${element.valor_liberado}</td>
-      <td style="text-align: center;">${element.calculo}</td>
+      <td style="text-align: center;">${element.valor_liberado.replace(/([0-9]{3}),([0-9]{2}$)/g, ".$1,$2")}</td>
+      <td style="text-align: center;">${element.calculo.replace(/([0-9]{3}),([0-9]{2}$)/g, ".$1,$2")}</td>
       <td style="text-align: center;">${element.data_pagamento}</td>
       <td style="text-align: center;">${element.status}</td>
       <td style="text-align: center;">${element.movimentacao}</td>
@@ -634,15 +652,16 @@ document.getElementById('pesquisar').addEventListener('click', async () => {
 
   await fetch(url+"/user/comissao/pesquisa?banco=BRB", requestOptions)
     .then(response => response.json().then(function (data) {
-
+      valorTotal += data.soma;
+      quantidadeTotal += data.count;
       document.getElementById("quantidade-brb").innerHTML = data.count;
       document.getElementById("valor-brb").innerHTML = data.soma.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
       data.dados.forEach(element => {
         document.getElementById("mais-brb").innerHTML += `<tr>
       <th style="text-align: center;">${element.banco}</th>
       <td style="text-align: center;">${element.proposta}</td>
-      <td style="text-align: center;">${element.valor_liberado}</td>
-      <td style="text-align: center;">${element.calculo}</td>
+      <td style="text-align: center;">${element.valor_liberado.replace(/([0-9]{3}),([0-9]{2}$)/g, ".$1,$2")}</td>
+      <td style="text-align: center;">${element.calculo.replace(/([0-9]{3}),([0-9]{2}$)/g, ".$1,$2")}</td>
       <td style="text-align: center;">${element.data_pagamento}</td>
       <td style="text-align: center;">${element.status}</td>
       <td style="text-align: center;">${element.movimentacao}</td>
@@ -667,15 +686,16 @@ document.getElementById('pesquisar').addEventListener('click', async () => {
 
   await fetch(url+"/user/comissao/pesquisa?banco=BMG", requestOptions)
     .then(response => response.json().then(function (data) {
-
+      valorTotal += data.soma;
+      quantidadeTotal += data.count;
       document.getElementById("quantidade-bmg").innerHTML = data.count;
       document.getElementById("valor-bmg").innerHTML = data.soma.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
       data.dados.forEach(element => {
         document.getElementById("mais-bmg").innerHTML += `<tr>
       <th style="text-align: center;">${element.banco}</th>
       <td style="text-align: center;">${element.proposta}</td>
-      <td style="text-align: center;">${element.valor_liberado}</td>
-      <td style="text-align: center;">${element.calculo}</td>
+      <td style="text-align: center;">${element.valor_liberado.replace(/([0-9]{3}),([0-9]{2}$)/g, ".$1,$2")}</td>
+      <td style="text-align: center;">${element.calculo.replace(/([0-9]{3}),([0-9]{2}$)/g, ".$1,$2")}</td>
       <td style="text-align: center;">${element.data_pagamento}</td>
       <td style="text-align: center;">${element.status}</td>
       <td style="text-align: center;">${element.movimentacao}</td>
@@ -698,6 +718,8 @@ document.getElementById('pesquisar').addEventListener('click', async () => {
       });
     })).catch(error => console.log('error', error));
 
+    document.getElementById('quantidade-geral').innerHTML= quantidadeTotal;
+    document.getElementById('valor-geral').innerHTML= valorTotal.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
 })
 
 
@@ -752,9 +774,5 @@ buttonAlterar.addEventListener('click',()=>{
     .then((result) => {
       console.log('Success:', result);
       
-    })
-    .catch((error) => {
-      console.error('Error:', error);
-    });
 })
-
+})
