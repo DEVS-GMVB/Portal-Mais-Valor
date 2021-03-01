@@ -142,9 +142,7 @@ function Buscar() {
 
     const body = {
         parceiro: parceiro,
-        supervisor: supervisor,
         status: status,
-        gerente: gerente
     }
 
     const raw = JSON.stringify(body)

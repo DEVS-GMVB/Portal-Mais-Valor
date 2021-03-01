@@ -1,4 +1,6 @@
-const URL = `http://localhost:3000`;
+//const URL = `https://api-portalmaisvalor.herokuapp.com`;
+const URL = 'http://localhost:3000'
+
 let supervisor = document.getElementById('Sup')
 let gerente = document.getElementById('Gere')
 let tipoOperacao = document.getElementById('TpOperacao')
@@ -8,43 +10,43 @@ window.onload = function () {
     let requestOptions = {
         method: 'GET',
         redirect: 'follow'
-      };
-      
-      fetch(URL+ "/user/supervisor", requestOptions)
+    };
+
+    fetch(URL + "/user/supervisor", requestOptions)
         .then(response => response.json())
         .then(function (data) {
-          for (let i = 0; i < data.length; i++) {
-            supervisor.innerHTML += '<option value="' + data[i].parceiro + '">' + data[i].parceiro + '</option>;'
-          }
+            for (let i = 0; i < data.length; i++) {
+                supervisor.innerHTML += '<option value="' + data[i].parceiro + '">' + data[i].parceiro + '</option>;'
+            }
         }).catch(error => console.log('error', error));
-      
-        fetch("http://localhost:3000/user/gerente", requestOptions)
-          .then(response => response.json().then(function (data) {
-            for (let i = 0; i < data.length; i++) {
-              gerente.innerHTML += '<option value="' + data[i].gerente + '">' + data[i].gerente + '</option>;'
-            }
-          })).catch(error => console.log('error', error));
 
-          fetch(URL + "/user/proposta/tipo", requestOptions)
-          .then(response => response.json())
-          .then(function (data) {
+    fetch(URL + "/user/gerente", requestOptions)
+        .then(response => response.json().then(function (data) {
             for (let i = 0; i < data.length; i++) {
-              tipoOperacao.innerHTML += '<option value="' + data[i].tipo + '">' + data[i].tipo + '</option>;'
+                gerente.innerHTML += '<option value="' + data[i].gerente + '">' + data[i].gerente + '</option>;'
             }
-          })
+        })).catch(error => console.log('error', error));
 
-          fetch(URL + "/user/proposta/produto", requestOptions)
-            .then(response => response.json())
-            .then(function (data) {
+    fetch(URL + "/user/proposta/tipo", requestOptions)
+        .then(response => response.json())
+        .then(function (data) {
+            for (let i = 0; i < data.length; i++) {
+                tipoOperacao.innerHTML += '<option value="' + data[i].tipo + '">' + data[i].tipo + '</option>;'
+            }
+        })
+
+    fetch(URL + "/user/proposta/produto", requestOptions)
+        .then(response => response.json())
+        .then(function (data) {
             for (let i = 0; i < data.length; i++) {
                 prod.innerHTML += '<option value="' + data[i].produto + '">' + data[i].produto + '</option>;'
-               
+
             }
-            })     
+        })
 }
 
 const arrays = {
-    arrayUpdate: arrayUpdate = [],
+    arrayCpfs: arrayCpfs = [],
     arrayLinhas: arrayLinhas = []
 }
 
@@ -55,7 +57,7 @@ const sessionBrowser = {
     nome: sessionStorage.getItem('nome', 'nome')
 }
 
-function Buscar() {    
+function search() {
 
     var node = document.getElementById("Lista");
     while (node.hasChildNodes()) {
@@ -98,10 +100,9 @@ function Buscar() {
         redirect: 'follow'
     }
 
-    fetch(URL + '/user/proposta/identificacao/filtro', requestOptions).
+    fetch(URL+'/user/proposta/identificacao/filtro', requestOptions).
     then(response => response.json().then(function (data) {
         // console.log(data)
-        arrays.arrayUpdate = data
 
         for (let i = 0; i < data.length; i++) {
             let specific_tbody = document.getElementById('Lista');
@@ -152,63 +153,182 @@ function Buscar() {
             let logAlteracaoText = document.createTextNode(``);
             logAlteracao.appendChild(logAlteracaoText);
 
-            arrays.arrayLinhas[i] = row
+            arrays.arrayCpfs.push(data[i].cpf)
 
-            altera.innerHTML = ` <div class="actions ml-3" style="text-align: center;">
-            <a href="#" class="action-item mr-2" data-toggle="modal"
-                data-target=".modal-incluirdocumentacao"
-                title="Incluir Documentação" id="btnAlterar">
-                <i class="fas fa-external-link-alt"></i>
-            </a>
 
-        </div>`
+            altera.innerHTML = ` 
+            <div class="actions ml-3" style="text-align: center;">
+                <a href="#" class="action-item mr-2" data-toggle="modal" onclick="updateIdentProp(arrays.arrayCpfs[${i}])"
+                    data-target=".modal-incluirdocumentacao"
+                    title="Incluir Documentação" id="btnAlterar">
+                    <i class="fas fa-external-link-alt"></i>
+                </a>
+            </div>`
         }
     })).catch(error => console.log('error: ', error))
 }
 
-function Inserir(){
-    //alert('jkgfsd')
-    /*const numeroProposta = $("#NPosposta").val()
-    const dataCadas = $("#DtCadastro").val()
-    const mesRef = $("#NPosposta").val()
-    const status = $("#Status").val()
-    const valorEntregue = $("#ValorEntregue").val()
-    const bancoOrgi = $("#BancoOrgi").val()
-    const produto = $("#Produto").val()
-    const tipoOp = $("#TpOperacao").val()
-    const cpfCli = $("#CpfCliente").val()
-    const nmCli = $("#NmCliente").val()
-
+function insert() {
     const myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json")
 
     const body = {
-        e:numeroProposta,
-        e:dataCadas,
-        e:mesRef,
-        e:status,
-        e:valorEntregue,
-        e:bancoOrgi,
-        e:produto,
-        e:tipoOp,
-        e:cpfCli,
-        e:nmCli
+        proposta: $("#NPosposta").val(),
+        data_envio: $("#DtCadastro").val(),
+        mes: $("#MesRef").val(),
+        status: $("#Status").val(),
+        entregue: $("#ValorEntregue").val(),
+        banco_origi: $("#BancoOrgi").val(),
+        produto: $("#Produto").val(),
+        tipo: $("#TpOperacao").val(),
+        cpf: $("#CpfCliente").val(),
+        nome: $("#NmCliente").val()
     }
 
     const raw = JSON.stringify(body)
 
-    let requestOptions = {
+    const requestOptions = {
         method: 'POST',
         headers: myHeaders,
         body: raw,
         redirect: 'follow'
     }
 
-    fetch(URL + "", requestOptions)*/
+    fetch('http://localhost:3000/user/proposta/identificacao/inclusao', requestOptions).
+    then(response => response.json().then(function (data) {
+        if(data.resp === "Proposta já existente") {
+            $('#alertFalhaidentProposta').show();
+            $('#alertFalhaidentProposta').fadeIn(300).delay(3000).fadeOut(400);
+            document.getElementById("alertFalhaidentProposta").textContent = "Não foi possível incluir identificação da proposta, já existente"
+        } else {
+            $('#alertSucessoidentProposta').show();
+            $('#alertSucessoidentProposta').fadeIn(300).delay(3000).fadeOut(400);
+            document.getElementById("alertSucessoidentProposta").textContent = "Identificação proposta incluido com sucesso!"
+        }
+
+    })).catch(error => console.log('error: ', error))
+
 }
 
-function deleteFields(){
-    $("#camposIdentificacaoPropostas").each(function () {
-        this.reset();
+function updateIdentProp(cpf) {
+    const myHeaders = new Headers()
+    myHeaders.append("Content-Type", "application/json")
+
+    const body = {
+        cpf: cpf
+    }
+
+    const raw = JSON.stringify(body)
+
+    const requestOptions = {
+        method: 'POST',
+        headers: myHeaders,
+        body: raw,
+        redirect: 'follow'
+    }
+
+    fetch(URL+"/user/proposta/identificacao/modal", requestOptions).
+    then(response => response.json().then(function (data) {
+        $("#NomeCliente").val(data.nome)
+        $("#DDDTelefone").val(data.telefone_ddd_1)
+        $("#TelCliente").val(data.telefone)
+        $("#Correntista").val(data.correntista)
+        $("#TelConfirm").val(data.telefone_confirmacao)
+        $("#SistemaTel").val(data.sistema_tel)
+        $("#ExerctTemp").val(data.exercito)
+        $("#SenhaExerct").val(data.senha_exercito)
+        $("#Sexo").val(data.sexo)
+        $("#Email").val(data.email)
+        $("#DtNasci").val(data.data_nascimento)
+        $("#UFEnd").val(data.endereco_uf_comercial)
+        $("#CpfCli").val(data.cpf)
+        $("#NCliente").val(data.nome)
+        $("#Observacao").val(data.observacao)
+        // $("#NomeCliente").val(data.nome)
+
+    })).catch(error => console.log('erro: ', error))
+
+}
+
+function updateIProposta(){
+    //alert('hfdsk')
+
+    const myHeaders = new Headers()
+    myHeaders.append('Content-Type', 'application/json')
+
+    const nomeCli = $("#NomeCliente").val()
+    const dddtel = $("#DDDTelefone").val()
+    const tel = $("#telCli").val()
+    const correntista = $("#Correntista").val()
+    const telConfimacao = $("#TelConfirm").val()
+    const sistemaTel = $("#SistemaTel").val()
+    const exercTemp = $("#ExerctTemp").val()
+    const senhaExer = $("#SenhaExerct").val()
+    const sexo = $("#Sexo").val()
+    const email = $("#Email").val()
+    const dtNascimento = $("#DtNasci").val()
+    const uf = $("#UFEnd").val()
+    const cpf = $("#CpfCli").val()
+    const observacao = $("#Observacao").val()
+    const file1 = $("#file-1").val()
+    const file2 = $("#file-2").val()
+    const file3 = $("#file-3").val()
+    const file4 = $("#file-4").val()
+    const file5 = $("#file-5").val()
+    const file6 = $("#file-6").val()
+    const file7 = $("#file-7").val()
+    const file8 = $("#file-8").val()
+    const file9 = $("#file-9").val()
+
+    const body = {
+        nome: nomeCli,
+        telefone_ddd_1: dddtel, //não tenho certeza
+        telefone: tel,
+        correntista: correntista,
+        telefone_confirmacao: telConfimacao,
+        sistema_tel: sistemaTel,
+        exercito: exercTemp,
+        senha_exercito: senhaExer,
+        sexo: sexo,
+        email_cliente: email,
+        data_nascimento: dtNascimento,
+        uf: uf,
+        cpf: cpf,
+        observacao: observacao,
+        arquivo1: file1,
+        arquivo2: file2,
+        arquivo3: file3,
+        arquivo4: file4,
+        arquivo5: file5,
+        arquivo6: file6,
+        arquivo7: file7,
+        arquivo8: file8,
+        arquivo9: file9,
+    }
+
+    const raw = JSON.stringify(body)
+
+    const requestOptions = {
+        method: 'POST',
+        headers: myHeaders,
+        body: raw,
+        redirect: 'follow'
+    }
+
+    fetch(URL+'', requestOptions).
+    then(response => response.text().then(function (data) {
+        /*if (arquivo1 != ok) {
+           alert('Adicione um aquivo')
+        } else{
+            alert('Alteração feita')
+        }*/
+        
+    })).catch(erro => console.log('error: ', erro))
+}
+
+
+function deleteFields() {
+    $("#camposIdentificacaoProposta").each(function () {
+        this.reset()
     })
 }
