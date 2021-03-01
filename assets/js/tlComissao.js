@@ -1,7 +1,7 @@
 
 
 //VARIAVEL AMBIENTE
-const url = `http://localhost:3000`;
+const url = `https://api-portalmaisvalor.herokuapp.com`;
 
 
 //INPUTS GLOBAIS
@@ -515,6 +515,7 @@ document.getElementById('pesquisar').addEventListener('click', async () => {
       });
     })).catch(error => console.log('error', error));
 
+
   await fetch(url+"/user/comissao/pesquisa?banco=SAFRA", requestOptions)
     .then(response => response.json().then(function (data) {
       valorTotal += data.soma;
@@ -549,6 +550,7 @@ document.getElementById('pesquisar').addEventListener('click', async () => {
       });
     })).catch(error => console.log('error', error));
 
+    
   await fetch(url+"/user/comissao/pesquisa?banco=SEGUROS", requestOptions)
     .then(response => response.json().then(function (data) {
       valorTotal += data.soma;
