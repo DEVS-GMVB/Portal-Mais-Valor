@@ -1,4 +1,4 @@
 <?php
-  include_once("/paginas/login e recover/resetsenha.html");
+  include_once("/paginas/login e recover/login.html");
 
 ?>
