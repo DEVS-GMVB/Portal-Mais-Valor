@@ -1,6 +1,8 @@
 const url = 'https://api-portalmaisvalor.herokuapp.com';
+const loginButton =document.getElementById('login-button')
 
-const Logar = () => {
+loginButton.addEventListener('click',() => {
+
 
     const usuario = document.getElementById("input-login").value;
     const senha = document.getElementById("input-password").value;
@@ -44,7 +46,7 @@ const Logar = () => {
                 const status = user.status;
                 const tipo_parceiro2 = user.tipo_usuario;
                 const tipo_usuario = user.tipo_usuario;
-                const tipo_parceiro2 = user.tipo_parceiro2;
+              
                 const cpf_usuario = user.cpf_usuario;
 
                 sessionStorage.setItem('cnpj_matriz', matriz);
@@ -65,7 +67,7 @@ const Logar = () => {
                 window.location.href = "../../paginas/home.html";
             });
         }).catch(error => console.log('error', error));
-};
+});
 
 
 const Email = () => {
