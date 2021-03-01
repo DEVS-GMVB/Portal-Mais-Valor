@@ -4,7 +4,6 @@ const URL = `https://api-portalmaisvalor.herokuapp.com`;
 
 let filtros = document.getElementById("filtrosPes");
 let empresaProposta = document.getElementById("empresaPropostas");
-let tipoOperacao = document.getElementById('tipoOperacao');
 let bancoPortado = document.getElementById('exampleFormBP');
 let banc = document.getElementById("bancoPortabilidade");
 let prod = document.getElementById("exampleProduto")
@@ -15,36 +14,12 @@ let bancco = document.getElementById("banco");
 let sub_status = document.getElementById("sub-status")
 
 //Nova proposta
-let numeroPrp = document.getElementById('validationNprop')
+// let numeroPrp = document.getElementById('validationNprop')
 let dtCadastro = document.getElementById('validationDtCad')
 let bancoo = document.getElementById('examploBanco')
-let status = document.getElementById('validationStatus')
 //let produtoo = document.getElementById('exampleProduto')
 //let tpOperacao = document.getElementById('tipoOperacao')
-let vlEntregue = document.getElementById('validationVlEntregue')
-let vlTroco = document.getElementById('validationVlTroco')
-let convenio = document.getElementById('exampleFormControlSelectMes')
-//let bancoPort = document.getElementById('bancoPortador')
-let portabilidade = document.getElementById('validationPortabilidade')
-let vlParcela = document.getElementById('validationvlParcela')
-let seguro = document.getElementById('exampleSeguro')
-let parcPagas = document.getElementById('exampleFormPP')
-let nmCliente = document.getElementById('validationNmCliente')
-let cpfCliente = document.getElementById('validationCpfCliente')
-let ddd = document.getElementById('validationDDD')
-let tlCliente = document.getElementById('validationTelCliente')
-let correntista = document.getElementById('exampleCorrentista')
-let telSmsCliente = document.getElementById('validationTelSmsCliente')
-let matrNBRA = document.getElementById('validationMatrNBRA')
-let alteraHr = document.getElementById('exampleAlteraHr')
-let MdtConfirma = document.getElementById('validationMdt')
-let MHCC = document.getElementById('validationMHCC')
-let exeritotemp = document.getElementById('exampleExercito')
-let codUnic = document.getElementById('validationCodInic')
-let sexo = document.getElementById('exampleSexo')
-let dtNascimento = document.getElementById('validationDtNasc')
-let email = document.getElementById('validationEmail')
-let UF = document.getElementById('exampleUF')
+
 
 
 window.onload = function () {
@@ -58,14 +33,14 @@ window.onload = function () {
     redirect: 'follow'
   };
 
-  fetch(URL+"/user/proposta/empresas", requestOptions)
+  fetch(URL + "/user/proposta/empresas", requestOptions)
     .then(response => response.json().then(function (data) {
       for (let i = 0; i < data.length; i++) {
         empresaProposta.innerHTML += '<option value="' + data[i].empresa + '">' + data[i].empresa + '</option>;'
       }
     })).catch(error => console.log('error', error));
 
-  fetch(URL+"/user/proposta/tipo", requestOptions)
+  fetch(URL + "/user/proposta/tipo", requestOptions)
     .then(response => response.json())
     .then(function (data) {
       for (let i = 0; i < data.length; i++) {
@@ -73,7 +48,7 @@ window.onload = function () {
       }
     })
 
-  fetch(URL+"/user/proposta/bancos", requestOptions)
+  fetch(URL + "/user/proposta/bancos", requestOptions)
     .then(response => response.json())
     .then(function (data) {
       for (let i = 0; i < data.length; i++) {
@@ -85,7 +60,7 @@ window.onload = function () {
       }
     })
 
-  fetch(URL+"/user/proposta/produto", requestOptions)
+  fetch(URL + "/user/proposta/produto", requestOptions)
     .then(response => response.json())
     .then(function (data) {
       for (let i = 0; i < data.length; i++) {
@@ -94,7 +69,7 @@ window.onload = function () {
       }
     })
 
-  fetch(URL+"/user/supervisor", requestOptions)
+  fetch(URL + "/user/supervisor", requestOptions)
     .then(response => response.json())
     .then(function (data) {
       for (let i = 0; i < data.length; i++) {
@@ -102,7 +77,7 @@ window.onload = function () {
       }
     }).catch(error => console.log('error', error));
 
-  fetch(URL+"/user/gerente", requestOptions)
+  fetch(URL + "/user/gerente", requestOptions)
     .then(response => response.json().then(function (data) {
       for (let i = 0; i < data.length; i++) {
         gerenteProposta.innerHTML += '<option value="' + data[i].gerente + '">' + data[i].gerente + '</option>;'
@@ -210,42 +185,42 @@ window.onload = function () {
 
 filtros.addEventListener('click', () => {
   // VARS
-  let usuario = document.getElementById("validationUsuario").value;
-  let tipoUsuario = document.getElementById("selectTipoUsuario").value;
-  let proposta = document.getElementById("proposta").value;
-  let statusProposta = document.getElementById("statusProposta").value;
-  let tipo = document.getElementById("tipo").value;
-  let cpfFiltro = document.getElementById("cpfFiltro").value;
-  let empresaPropostas = document.getElementById("empresaPropostas").value;
-  let mes = document.getElementById('exampleFormControlSelectMes').value;
-  let previsaoSaldo = document.getElementById("previsaoSaldo").value;
-  let novaProposta = document.getElementById("novaProposta").value
-  let bancoPortabilidade = document.getElementById("bancoPortabilidade").value;
+  let usuario = document.getElementById("usuario-filtro").value;
+  let tipoUsuario = document.getElementById("tipo-usuario-filtro").value;
+  let proposta = document.getElementById("proposta-filtro").value;
+  let statusProposta = document.getElementById("status-filtro").value;
+  let tipo = document.getElementById("tipo-filtro").value;
+  let cpfFiltro = document.getElementById("cpf-filtro").value;
+  let empresaPropostas = document.getElementById("empresa-filtro").value;
+  let mes = document.getElementById('mes-filtro').value;
+  let previsaoSaldo = document.getElementById("previsao-saldo-filtro").value;
+  let novaProposta = document.getElementById("nova-proposta-filtro").value
+  let bancoPortabilidade = document.getElementById("banco-portabilidade-filtro").value;
   // let ordenar = document.getElementById("ordenar").value;
-  let dataCadastro = document.getElementById('dataCadastro').value;
-  let dataAtualizacao = document.getElementById('dataAtualizacao').value;
-  let correntista = document.getElementById("correntista").value;
-  let sub_status = document.getElementById("sub-status").value;
-  let classificacao = document.getElementById("classificacao").value;
-  let situacaoStatus = document.getElementById('situacaoStatus').value;
-  let convenioMaster = document.getElementById("convenioMaster").value;
-  let faseStatus = document.getElementById("faseStatus").value;
-  let banco = document.getElementById("banco").value;
-  let produto = document.getElementById("exampleFormProduto").value;
-  let class2 = document.getElementById("class2").value;
-  let user_master = document.getElementById("user_master").value;
-  let supervisorProposta = document.getElementById("supervisorProposta").value;
-  let produtoMaster = document.getElementById('produtoMaster').value;
-  let gerenteProposta = document.getElementById("gerenteProposta").value;
-  let tipoUsuarioMaster = document.getElementById("tipoUsuarioMaster").value;
-  let dataDeCorte = document.getElementById("dataDeCorte").value;
-  let empresaSMS = document.getElementById("empresaSMS").value;
-  let convenio = document.getElementById("convenio").value;
-  let vinculo = document.getElementById("vinculo").value
-  let horarioAgendamento = document.getElementById("horarioAgendamento").value;
-  let validadeContrato = document.getElementById("validadeContrato").value;
-  let etapaSMS = document.getElementById("etapaSMS").value;
-  let bancoMaster = document.getElementById("bancoMaster").value;
+  let dataCadastro = document.getElementById('data-cadastro-filtro').value;
+  let dataAtualizacao = document.getElementById('data-atualizacao-filtro').value;
+  let correntista = document.getElementById("correntista-filtro").value;
+  let sub_status = document.getElementById("substatus-filtro").value;
+  let classificacao = document.getElementById("classicacao-filtro").value;
+  let situacaoStatus = document.getElementById('situacao-filtro').value;
+  let convenioMaster = document.getElementById("convenio-master-filtro").value;
+  let faseStatus = document.getElementById("fase-status-filtro").value;
+  let banco = document.getElementById("banco-filtro").value;
+  let produto = document.getElementById("produto-filtro").value;
+  let class2 = document.getElementById("classicacao-filtro").value;
+  let user_master = document.getElementById("usuario-master-filtro").value;
+  let supervisorProposta = document.getElementById("supervisor-filtro").value;
+  let produtoMaster = document.getElementById('produto-master-filtro').value;
+  let gerenteProposta = document.getElementById("gerente-filtro").value;
+  let tipoUsuarioMaster = document.getElementById("tipo-usuario-master-filtro").value;
+  let dataDeCorte = document.getElementById("data-corte-filtro").value;
+  let empresaSMS = document.getElementById("empresa-sms-filtro").value;
+  let convenio = document.getElementById("convenio-filtro").value;
+  let vinculo = document.getElementById("vinculo-filtro").value
+  let horarioAgendamento = document.getElementById("horario-agendamento-filtro").value;
+  let validadeContrato = document.getElementById("validade-contrato-filtro").value;
+  let etapaSMS = document.getElementById("etapa-sms-filtro").value;
+  let bancoMaster = document.getElementById("banco-master-filtro").value;
 
 
   var myHeaders = new Headers();
@@ -399,11 +374,11 @@ filtros.addEventListener('click', () => {
 })
 
 
-const buttonIncluir = document.getElementById("button-incluir");
+// const buttonIncluir = document.getElementById("button-incluir");
 
-buttonIncluir.addEventListener('click', () => {
-  console.log('pogou');
-})
+// buttonIncluir.addEventListener('click', () => {
+//   console.log('pogou');
+// })
 
 
 

@@ -47,7 +47,15 @@
 </style>
 
 <!--MODAL FILTROS DE PESQUISA-->
-
+<script>
+    console.log(sessionStorage.getItem('cnpj_matriz', 'cnpj_matriz'));
+    console.log(sessionStorage.getItem('data_nascimento', 'data_nascimento'));
+    console.log(sessionStorage.getItem('id_acesso', 'id_acesso'));
+    console.log(sessionStorage.getItem('nome', 'nome'));
+    console.log(sessionStorage.getItem('perfil', 'perfil'));
+    console.log(sessionStorage.getItem('status', 'status'));
+    console.log(sessionStorage.getItem('tipo_usuario', 'tipo_usuario'));
+</script>
 <div class="modal fade modal-filtroproposta " tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
     aria-hidden="true">
     <div class="modal-dialog modal-lg">
@@ -93,11 +101,12 @@
                                 <label for="exampleFormControlSelect1">Status</label>
                                 <select class="form-control form-control-sm" id="status-filtro">
                                     <option> </option>
-                                    <option>TODOS</option>
-                                    <option>AGUARDANDO APROVAÇÃO DP</option>
-                                    <option>ATIVO</option>
-                                    <option>INATIVO</option>
-                                    <option>BLOQUEADO</option>
+                                    <option value="TODOS">TODOS</option>
+                                    <option value="AGUARDANDO APROVAÇÃO DP">AGUARDANDO APROVAÇÃO DP</option>
+                                    <option value="ATIVO">ATIVO</option>
+                                    <option value="INATIVO">INATIVO</option>
+                                    <option value="BLOQUEADO">BLOQUEADO</option>
+                                    <option value="CANCELADO">CANCELADO</option>
                                 </select>
                             </div>
 
@@ -143,6 +152,18 @@
                                 <label for="exampleFormControlSelect1">Mês</label>
                                 <select class="form-control form-control-sm" id="mes-filtro">
                                     <option> </option>
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                    <option>6</option>
+                                    <option>7</option>
+                                    <option>8</option>
+                                    <option>9</option>
+                                    <option>10</option>
+                                    <option>11</option>
+                                    <option>12</option>
 
 
                                 </select>
@@ -303,7 +324,9 @@
                             <div class="form-group">
                                 <label for="exampleFormControlSelect1">Classificação</label>
                                 <select class="form-control form-control-sm" id="classicacao-filtro">
-                                    <option> </option>
+                                    <option value=""></option>
+                                    <option value="CONFIAVEL">CONFIAVEL</option>
+                                    <option value="NOVO FLUXO">NOVO FLUXO</option>
 
 
 
@@ -430,7 +453,22 @@
                             <div class="form-group">
                                 <label for="exampleFormControlSelect1">Horário Agendamento</label>
                                 <select class="form-control form-control-sm" id="horario-agendamento-filtro">
+<<<<<<< HEAD
                                     <option> </option>
+=======
+                                    <option value=""></option>
+                                        <option value="08:00 as 08:59">08:00 as 08:59</option>
+                                        <option value="09:00 as 09:59">09:00 as 09:59</option>
+                                        <option value="10:00 as 10:59">10:00 as 10:59</option>
+                                        <option value="11:00 as 11:59">11:00 as 11:59</option>
+                                        <option value="12:00 as 12:59">12:00 as 12:59</option>
+                                        <option value="13:00 as 13:59">13:00 as 13:59</option>
+                                        <option value="14:00 as 14:59">14:00 as 14:59</option>
+                                        <option value="15:00 as 15:59">15:00 as 15:59</option>
+                                        <option value="16:00 as 16:59">16:00 as 16:59</option>
+                                        <option value="17:00 as 17:59">17:00 as 17:59</option>
+                                        <option value="18:00 as 18:59">18:00 as 18:59</option>
+>>>>>>> origin/kainan
 
 
 
@@ -475,7 +513,11 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+<<<<<<< HEAD
                 <button type="button" id="button-filtro" class="btn btn-primary">Filtrar Busca</button>
+=======
+                <button type="button" class="btn btn-primary" id="button-filtro">Filtrar Busca</button>
+>>>>>>> origin/kainan
             </div>
         </div>
     </div>
@@ -4363,7 +4405,7 @@
     <script src="../assets/js/mascarasvalores.js"></script>
     <!-- Import Get para popular campos -->
     <!-- <script src="../assets/js/cadastro.js"></script> -->
-    <!-- <script src="../assets/js/propostas.js"></script> -->
+    <script src="../assets/js/propostas.js"></script>
     <script src="../assets/js/incluirProposta.js"></script>
 </body>
 
