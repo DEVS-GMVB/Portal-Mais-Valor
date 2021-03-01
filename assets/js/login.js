@@ -61,7 +61,7 @@ const Logar = () => {
                 sessionStorage.setItem('cpf_usuario', cpf_usuario);
 
 
-                window.location.href = "../../paginas/home.html";
+                window.location.href = "https://devs-gmvb.github.io/Portal-Mais-Valor/paginas/home.html";
             });
         }).catch(error => console.log('error', error));
 };
