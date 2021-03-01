@@ -21,8 +21,6 @@ const Logar = () => {
     .then(function(response){
         response.json().then(function(data){
 
-           
-
             if(!response.ok)
                 return alert(data.erro);
 

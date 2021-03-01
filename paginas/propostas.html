@@ -3190,7 +3190,7 @@
 
                 <div class="col-md-3 mb-3">
                     <label for="validationCustom01">Data Cadastro</label>
-                    <input type="text" class="form-control form-control-sm" id="data-cadastro-incluir">
+                    <input type="date" class="form-control form-control-sm" id="data-cadastro-incluir">
 
                 </div>
 
@@ -3333,19 +3333,22 @@
 
                 <div class="col-md-4 mb-3">
                     <label for="validationCustom01">CPF Cliente</label>
-                    <input type="text" class="form-control form-control-sm" id="cpf-cliente-incluir">
+                    <input type="text" class="form-control form-control-sm" id="cpf-cliente-incluir"
+                    placeholder="Ex: 000.000.000-00" onkeypress='mascaraMutuario(this,cpfCnpj)' maxlength="14">
 
                 </div>
 
                 <div class="col-md-1 mb-3">
                     <label for="validationCustom01">DDD</label>
-                    <input type="text" class="form-control form-control-sm" id="ddd-incluir">
+                    <input type="text" class="form-control form-control-sm" id="ddd-incluir" 
+                    maxlength="3" onKeyDown="fMasc( this, nContrtato );">
 
                 </div>
 
                 <div class="col-md-3 mb-3">
                     <label for="validationCustom01">Telefone Cliente</label>
-                    <input type="text" class="form-control form-control-sm" id="telefone-cliente-incluir">
+                    <input type="text" class="form-control form-control-sm" id="telefone-cliente-incluir"
+                    onkeypress='mascaraMutuario(this,mTelefoneCliente)' maxlength="10">
 
                 </div>
 
@@ -3363,7 +3366,8 @@
 
                 <div class="col-md-4 mb-1">
                     <label for="validationCustom01">Telefone SMS Cliente</label>
-                    <input type="text" class="form-control form-control-sm" id="telefone-sms-incluir">
+                    <input type="text" class="form-control form-control-sm" id="telefone-sms-incluir"
+                    onkeypress='mascaraMutuario(this,mTelefoneCliente)' maxlength="10">
 
                 </div>
 
@@ -3436,8 +3440,8 @@
                         <label for="exampleFormControlSelect1">Sexo</label>
                         <select class="form-control form-control-sm" id="sexo-incluir">
                             <option> </option>
-                            <option> SIM </option>
-                            <option> NÃO </option>
+                            <option> MASCULINO </option>
+                            <option> FEMININO </option>
                         </select>
                     </div>
 

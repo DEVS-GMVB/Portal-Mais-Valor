@@ -209,7 +209,6 @@ botaoIncluir.addEventListener('click', () => {
       var data = new FormData()
       input.forEach(file => {
         data.append(file.name, file.files[0])
-
       });
 
 

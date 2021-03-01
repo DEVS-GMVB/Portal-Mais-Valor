@@ -1,12 +1,11 @@
-// const URL = `http://localhost:3000`;
 let filtros = document.getElementById("button-filtro");
 let empresaProposta = document.getElementById("empresaPropostas");
 let bancoPortado = document.getElementById('exampleFormBP');
 let banc = document.getElementById("bancoPortabilidade");
 let prod = document.getElementById("exampleProduto")
 let produtoComissao = document.getElementById("exampleFormProduto");
-let supervisorProposta = document.getElementById("supervisorProposta");
-let gerenteProposta = document.getElementById("gerenteProposta")
+let supervisorProposta = document.getElementById("supervisor-filtro");
+let gerenteProposta = document.getElementById("gerente-filtro")
 let bancco = document.getElementById("banco");
 let sub_status = document.getElementById("sub-status")
 
@@ -17,7 +16,25 @@ let bancoo = document.getElementById('examploBanco')
 //let produtoo = document.getElementById('exampleProduto')
 //let tpOperacao = document.getElementById('tipoOperacao')
 
+let requestOptions = {
+  method: 'GET',
+  redirect: 'follow'
+};
 
+fetch("http://localhost:3000/user/supervisor", requestOptions)
+  .then(response => response.json())
+  .then(function (data) {
+    for (let i = 0; i < data.length; i++) {
+      supervisorProposta.innerHTML += '<option value="' + data[i].parceiro + '">' + data[i].parceiro + '</option>;'
+    }
+  }).catch(error => console.log('error', error));
+
+  fetch("http://localhost:3000/user/gerente", requestOptions)
+    .then(response => response.json().then(function (data) {
+      for (let i = 0; i < data.length; i++) {
+        gerenteProposta.innerHTML += '<option value="' + data[i].gerente + '">' + data[i].gerente + '</option>;'
+      }
+    })).catch(error => console.log('error', error));
 
 window.onload = function () {
 
@@ -66,20 +83,6 @@ window.onload = function () {
       }
     })
 
-  fetch(URL + "/user/supervisor", requestOptions)
-    .then(response => response.json())
-    .then(function (data) {
-      for (let i = 0; i < data.length; i++) {
-        supervisorProposta.innerHTML += '<option value="' + data[i].parceiro + '">' + data[i].parceiro + '</option>;'
-      }
-    }).catch(error => console.log('error', error));
-
-  fetch(URL + "/user/gerente", requestOptions)
-    .then(response => response.json().then(function (data) {
-      for (let i = 0; i < data.length; i++) {
-        gerenteProposta.innerHTML += '<option value="' + data[i].gerente + '">' + data[i].gerente + '</option>;'
-      }
-    })).catch(error => console.log('error', error));
 
   fetch(URL + "/user/proposta/substatus", requestOptions)
     .then(response => response.json().then(function (data) {
@@ -285,7 +288,6 @@ filtros.addEventListener('click', () => {
 
 })
 
-
 // const buttonIncluir = document.getElementById("button-incluir");
 
 // buttonIncluir.addEventListener('click', () => {
@@ -293,77 +295,4 @@ filtros.addEventListener('click', () => {
 // })
 
 
-
-
-
-
-
-
-
 const numeroPrp = document.getElementById('numero-proposta-incluir');
-// const dtCadastro = document.getElementById('validationDtCadastro');
-// const mesReferencia = document.getElementById('validationMesReferencia');
-// const numeroRefinPortabilidade = document.getElementById('validationNRefinPort');
-// const tipoOperacao = document.getElementById('exampleFormTipoOperacao');
-// const valorEntregue = document.getElementById('validationCustomVE');
-// const valorTroco = document.getElementById('validationCustomVT');
-// const valorParcela = document.getElementById('validationCustomVP');
-// const quantidadeParcela = document.getElementById('validationCustomQT');
-// const previsaoSaldo = document.getElementById('validationCustomPS');
-// const portabilidade = document.getElementById('validationCustomP');
-// const retornoCip = document.getElementById('exampleFormRC');
-// const bancoPortador = document.getElementById('exampleFormBP');
-// const dataCorte = document.getElementById('validationCustomDC');
-// const salario = document.getElementById('validationCustomSV');
-// const margemNegativa = document.getElementById('validationCustomMN');
-// const numeroChamado = document.getElementById('validationCustomNC');
-// const chamadoResolvido = document.getElementById('exampleFormCR');
-// const banco = document.getElementById('exampleFormB');
-// const produto = document.getElementById('exampleFormP');
-// const vendaSms = document.getElementById('exampleFormVS');
-// const auditoriaSms = document.getElementById('exampleFormAS');
-// const motivoNewSpace = document.getElementById('validationCustomMNS');
-// const dataAtualizacaoNewSpace = document.getElementById('validationCustoDANS');
-// const nomeCliente = document.getElementById('validationNC');
-// const cpfCliente = document.getElementById('validationCustomCpf');
-// const ddd = document.getElementById('validationCustomDDD');
-// const telefoneCliente = document.getElementById('validationCustomTC');
-// const genero = document.getElementById('exampleFormG');
-// const sexo = document.getElementById('exampleFormS');
-// const telefoneConfirmacao = document.getElementById('validationCustomTelC');
-// const novoConotatoInformado = document.getElementById('validationCustomNCI');
-// const matricula = document.getElementById('validationCustomM');
-// const dataNascimento = document.getElementById('validationCustomDN');
-// const ufNaturalidade = document.getElementById('validationCustomUN');
-// const naturalidade = document.getElementById('validationCustomN');
-// const rg = document.getElementById('validationCustomRG');
-// const dataEmissaoRg = document.getElementById('validationCustomDER');
-// const orgaoExpeditor = document.getElementById('validationCustomOE');
-// const nomePai = document.getElementById('validationCustomNomeP');
-// const nomeMae = document.getElementById('validationCustomNM');
-// const dataAdmissao = document.getElementById('validationCustomDA');
-// const ufEndereco = document.getElementById('validationCustomUE');
-// const cidadeEndereco = document.getElementById('validationCustomCE');
-// const cep = document.getElementById('validationCustomC');
-// const endereco = document.getElementById('validationCustomE');
-// const bairro = document.getElementById('validationCustomB');
-// const numeroEndereco = document.getElementById('validationCustomNE');
-// const complemento  = document.getElementById('validationCustomComp');
-// const tipoDecontaCliente  = document.getElementById('exampleFormTCC');
-// const bancoCliente = document.getElementById('validationCustomBC');
-// const agenciaCliente = document.getElementById('validationCustomAgeC');
-// const contaCliente  = document.getElementById('validationCustomCC');
-// const digitoConta  = document.getElementById('validationCustomDigC');
-// const correntista = document.getElementById('exampleFormC');
-// const telefoneSmsCliente = document.getElementById('validationCustomTSC');
-// const estadoCivil = document.getElementById('validationCustomEC');
-// const conjuge= document.getElementById('validationCustomConj');
-// const telefoneProcedente = document.getElementById('exampleFormTP');
-// const sistemaTelefone = document.getElementById('exampleFormST');
-// const telefoneCompconsto = document.getElementById('validationCustomTelCom');
-// const digitado = document.getElementById('exampleFormD');
-// const generoCliente = document.getElementById('validationCustomGDC');
-// const email = document.getElementById('validationCustomE');
-// const solicitouAgendamento = document.getElementById('validationCustomSA');
-// const melhorDataConfirmacao= document.getElementById('validationCustomMDCC');
-// const melhorHorarioConfirmacao = document.getElementById('exampleFormMHCC');
