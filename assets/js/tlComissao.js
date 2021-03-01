@@ -1,7 +1,7 @@
 
 
 //VARIAVEL AMBIENTE
-const url = `https://api-portalmaisvalor.herokuapp.com`;
+const url = `http://localhost:3000`;
 
 
 //INPUTS GLOBAIS
@@ -19,6 +19,7 @@ let incluirComissao = document.getElementById("incluirComissao")
 //VARIAVEIS AUXILIARES
 let valorTotal = 0;
 let quantidadeTotal =0;
+let titulo =''
 
 //VARIAVEIS DE SESSAO
     const userCnpjMatriz = sessionStorage.getItem('cnpj_matriz', 'cnpj_matriz');
@@ -73,7 +74,7 @@ var requestOptions = {
   redirect: 'follow'
 };
 
-fetch("http://localhost:3000/user/comissao/modal", requestOptions)
+fetch(url+":3000/user/comissao/modal", requestOptions)
   .then(response => response.json())
   .then(function (data) {
     
@@ -743,7 +744,20 @@ buttonIncluir.addEventListener('click',()=>{
     fetch(url+"/user/comissao/incluir", requestOptions)
     .then((response) => response.json())
     .then((result) => {
-      console.log('Success:', result);
+
+      result.propostasNaoIncluidas.forEach(element => {
+        titulo += `Proposta: ${element.proposta}<br> erro:${element.erro}<br>`
+      });
+      console.log(result);
+      if(result){
+        Swal.fire({
+          position: 'top-end',
+          // icon: 'error',
+          title: titulo,
+          showConfirmButton: true,
+         
+        })
+      }
       
     })
     .catch((error) => {
@@ -772,7 +786,22 @@ buttonAlterar.addEventListener('click',()=>{
     fetch(url+"/user/comissao/alterar", requestOptions)
     .then((response) => response.json())
     .then((result) => {
-      console.log('Success:', result);
+      console.log(result)
+      let tituloAlt ;
+      if(result){
+        result.propostasAlteradas.forEach(element => {
+          
+          titulo += `Proposta: ${element.proposta}<br> erro:${element.erro}<br>`
+          console.log(tituloAlt)
+        });
+        Swal.fire({
+          position: 'top-end',
+          // icon: 'error',
+          title: titulo,
+          showConfirmButton: true,
+         
+        })
+      }
       
 })
 })
