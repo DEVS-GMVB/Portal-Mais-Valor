@@ -272,7 +272,7 @@ function incluirCadastro() {
 }
 
 function alteracaoCadastro(idParceiro, td) {
-    
+
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
 

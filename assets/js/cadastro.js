@@ -288,7 +288,7 @@ colocar.addEventListener('click', () => {
 
                 //Atrr
                 cont++;
-                console.log(row);
+               // console.log(row);
                 indexObj.push(row)
 
                 alteraVisualiza.innerHTML = `
@@ -316,7 +316,8 @@ colocar.addEventListener('click', () => {
 
 
 function editar(cpfCnpj, indexObj) {
-    // console.log("Cliquei em Alterar icon me trouxe isso: " + indexObj);
+    //console.log("Cliquei em Alterar icon me trouxe isso: " + indexObj);
+
 
     //javascript para interromper o fluxo dos modais iguais;
     document.getElementById("acesso-tab").disabled = false;
@@ -560,6 +561,7 @@ function editar(cpfCnpj, indexObj) {
 //RESET APÓS TROCAR DE MODAL ENTRE O ALTERAR E O INCLUIR 
 buttonIncluir.addEventListener('click', () => {
     document.getElementById("acesso-tab").disabled = true;
+
 
     divButton.innerHTML = `
     <button type="button" class="btn btn-primary btn-icon-label" id="idIncluir" onclick="incluirCadastro()">

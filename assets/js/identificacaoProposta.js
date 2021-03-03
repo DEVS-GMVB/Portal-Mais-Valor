@@ -1,10 +1,10 @@
-//const URL = `https://api-portalmaisvalor.herokuapp.com`;
-const URL = 'http://localhost:3000'
+const URL = 'http://localhost:3000';
 
 let supervisor = document.getElementById('Sup')
 let gerente = document.getElementById('Gere')
 let tipoOperacao = document.getElementById('TpOperacao')
 let prod = document.getElementById('Produto')
+const buttonUpdateIP = document.getElementById("updateIP")
 
 window.onload = function () {
     let requestOptions = {
@@ -46,8 +46,10 @@ window.onload = function () {
 }
 
 const arrays = {
-    arrayCpfs: arrayCpfs = [],
-    arrayLinhas: arrayLinhas = []
+    arrayIds: arrayIds = [],
+    arrayLinhas: arrayLinhas = [],
+    arrayCodigos: arrayCodigos = [],
+    arrayRows: arrayRows = []
 }
 
 const sessionBrowser = {
@@ -100,10 +102,8 @@ function search() {
         redirect: 'follow'
     }
 
-    fetch(URL+'/user/proposta/identificacao/filtro', requestOptions).
+    fetch(URL + '/user/proposta/identificacao/filtro', requestOptions).
     then(response => response.json().then(function (data) {
-        // console.log(data)
-
         for (let i = 0; i < data.length; i++) {
             let specific_tbody = document.getElementById('Lista');
             let row = specific_tbody.insertRow(-1);
@@ -153,12 +153,12 @@ function search() {
             let logAlteracaoText = document.createTextNode(``);
             logAlteracao.appendChild(logAlteracaoText);
 
-            arrays.arrayCpfs.push(data[i].cpf)
-
+            arrays.arrayIds.push(data[i].codigo)
+            arrays.arrayRows.push(row)
 
             altera.innerHTML = ` 
             <div class="actions ml-3" style="text-align: center;">
-                <a href="#" class="action-item mr-2" data-toggle="modal" onclick="updateIdentProp(arrays.arrayCpfs[${i}])"
+                <a href="#" class="action-item mr-2" data-toggle="modal" onclick="updateIdentProp(arrays.arrayIds[${i}], arrays.arrayRows[${i}])"
                     data-target=".modal-incluirdocumentacao"
                     title="Incluir Documentação" id="btnAlterar">
                     <i class="fas fa-external-link-alt"></i>
@@ -194,9 +194,9 @@ function insert() {
         redirect: 'follow'
     }
 
-    fetch('http://localhost:3000/user/proposta/identificacao/inclusao', requestOptions).
+    fetch(URL + '/user/proposta/identificacao/inclusao', requestOptions).
     then(response => response.json().then(function (data) {
-        if(data.resp === "Proposta já existente") {
+        if (data.resp === "Proposta já existente") {
             $('#alertFalhaidentProposta').show();
             $('#alertFalhaidentProposta').fadeIn(300).delay(3000).fadeOut(400);
             document.getElementById("alertFalhaidentProposta").textContent = "Não foi possível incluir identificação da proposta, já existente"
@@ -210,12 +210,12 @@ function insert() {
 
 }
 
-function updateIdentProp(cpf) {
+function updateIdentProp(codigo, rows) {
     const myHeaders = new Headers()
     myHeaders.append("Content-Type", "application/json")
 
     const body = {
-        cpf: cpf
+        codigo: codigo
     }
 
     const raw = JSON.stringify(body)
@@ -229,7 +229,11 @@ function updateIdentProp(cpf) {
 
     fetch(URL+"/user/proposta/identificacao/modal", requestOptions).
     then(response => response.json().then(function (data) {
-        $("#NomeCliente").val(data.nome)
+        //Passando o código no momento em que popula
+        arrays.arrayCodigos.push(data.codigo)
+        buttonUpdate.codigo.push(arrays.arrayCodigos.pop())
+        buttonUpdate.linhaTable.push(rows)
+
         $("#DDDTelefone").val(data.telefone_ddd_1)
         $("#TelCliente").val(data.telefone)
         $("#Correntista").val(data.correntista)
@@ -244,19 +248,37 @@ function updateIdentProp(cpf) {
         $("#CpfCli").val(data.cpf)
         $("#NCliente").val(data.nome)
         $("#Observacao").val(data.observacao)
-        // $("#NomeCliente").val(data.nome)
+        $("#NomeCliente").val(data.nome)
 
     })).catch(error => console.log('erro: ', error))
 
 }
 
-function updateIProposta(){
-    //alert('hfdsk')
+// Intermediário transporter de dados
+
+const buttonUpdate = {
+    codigo: codigo = [],
+
+    linhaTable: linhaTable = [],
+
+    changeID: function () {
+        const codi = this.codigo[this.codigo.length - 1] // O(1)
+        return codi;
+    },
+    changeRows: function () {
+        const r = this.linhaTable[this.linhaTable.length - 1] // O(1)
+        return r;
+    }
+}
+
+function updateIP() {
+    let cod = buttonUpdate.changeID()
+    let l = buttonUpdate.changeRows()
 
     const myHeaders = new Headers()
     myHeaders.append('Content-Type', 'application/json')
 
-    const nomeCli = $("#NomeCliente").val()
+    const nomeCli = $("#NCliente").val()
     const dddtel = $("#DDDTelefone").val()
     const tel = $("#telCli").val()
     const correntista = $("#Correntista").val()
@@ -270,17 +292,9 @@ function updateIProposta(){
     const uf = $("#UFEnd").val()
     const cpf = $("#CpfCli").val()
     const observacao = $("#Observacao").val()
-    const file1 = $("#file-1").val()
-    const file2 = $("#file-2").val()
-    const file3 = $("#file-3").val()
-    const file4 = $("#file-4").val()
-    const file5 = $("#file-5").val()
-    const file6 = $("#file-6").val()
-    const file7 = $("#file-7").val()
-    const file8 = $("#file-8").val()
-    const file9 = $("#file-9").val()
 
     const body = {
+        codigo: cod,
         nome: nomeCli,
         telefone_ddd_1: dddtel, //não tenho certeza
         telefone: tel,
@@ -294,16 +308,7 @@ function updateIProposta(){
         data_nascimento: dtNascimento,
         uf: uf,
         cpf: cpf,
-        observacao: observacao,
-        arquivo1: file1,
-        arquivo2: file2,
-        arquivo3: file3,
-        arquivo4: file4,
-        arquivo5: file5,
-        arquivo6: file6,
-        arquivo7: file7,
-        arquivo8: file8,
-        arquivo9: file9,
+        observacao: observacao
     }
 
     const raw = JSON.stringify(body)
@@ -315,14 +320,33 @@ function updateIProposta(){
         redirect: 'follow'
     }
 
-    fetch(URL+'', requestOptions).
-    then(response => response.text().then(function (data) {
-        /*if (arquivo1 != ok) {
-           alert('Adicione um aquivo')
-        } else{
-            alert('Alteração feita')
-        }*/
-        
+    fetch(URL + '/user/proposta/identificacao/atualizar', requestOptions).
+    then(response => response.json().then(function (data) {
+
+        var input = document.querySelectorAll("form#files input[type='file']")
+        var codigo = data.codigo
+
+        var data = new FormData()
+        input.forEach(file => {
+            // console.log(file.name)
+            data.append(file.name, file.files[0])
+        })
+
+
+        fetch(URL+`/user/proposta/identificacao/atualizar/arquivos?codigo=${codigo}`, {
+            method: 'POST',
+            body: data,
+        }).then(response => response.json().then((data) => {
+            updateTbody(l.cells)
+
+            $('#sucesso').show();
+            $('#sucesso').fadeIn(300).delay(3000).fadeOut(400);
+            document.getElementById("sucesso").textContent = "Alteração da Identificação proposta feita com sucesso!"
+
+        })).catch((error) => {
+            console.error(error)
+        })
+
     })).catch(erro => console.log('error: ', erro))
 }
 
@@ -331,4 +355,9 @@ function deleteFields() {
     $("#camposIdentificacaoProposta").each(function () {
         this.reset()
     })
+}
+
+function updateTbody(cells) {
+    cells[1].textContent = $("#NCliente").val();
+    cells[2].textContent = $("#CpfCli").val()
 }
