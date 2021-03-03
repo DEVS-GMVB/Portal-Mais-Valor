@@ -20,7 +20,7 @@ const Logar = () => {
         redirect: 'follow'
     };
 
-    fetch("http://localhost:3000/user/login", requestOptions) 
+    fetch(url+"/user/login", requestOptions) 
     .then(function(response){
         response.json().then(function(data){
 

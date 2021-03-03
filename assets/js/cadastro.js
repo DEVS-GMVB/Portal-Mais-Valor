@@ -1,5 +1,5 @@
 // VARS
-const URL = "http://localhost:3000";
+const URL = "https://api-portalmaisvalor.herokuapp.com";
 
 // let incluirAcessoo = document.getElementById("alterarIncluirAcesso")
 let fi = document.getElementById('exampleFormControlFilial');
