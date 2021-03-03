@@ -22,6 +22,7 @@ let siglae_tab = document.getElementById("siglae-tab");
 let testando = document.getElementById("comissao-tabb");
 let testando2 = document.getElementById("chavej-tabb");
 let testando3 = document.getElementById("siglae-tabb");
+let testando4 = document.getElementById("cadastro-tabb")
 let divButton = document.getElementById("botaoAltIncluir");
 
 let testeCont = 0;
@@ -62,13 +63,6 @@ window.onload = function () {
         }
 
     })
-    comissao_tab.addEventListener('blur', () => {
-        // comissao_tab.setAttribute('aria-selected', false);
-        // alert("fdsfsdsdfs")
-        comissao_tab.classList.remove('active');
-
-
-    })
 
     // //--------------------------------
     // //Prosseguir chaveJ
@@ -97,13 +91,6 @@ window.onload = function () {
 
     })
 
-    chaveJ_tab.addEventListener('blur', () => {
-        // comissao_tab.setAttribute('aria-selected', false);
-        // alert("fdsfsdsdfs")
-        chaveJ_tab.classList.remove('active');
-
-
-    })
     //------------
     //Prosseguir siglae
 
@@ -127,16 +114,7 @@ window.onload = function () {
             chaveJ_tab.classList.remove('active');
 
             testando3.classList.remove('active');
-
         }
-
-    })
-
-    siglae_tab.addEventListener('blur', () => {
-        // comissao_tab.setAttribute('aria-selected', false);
-        // alert("fdsfsdsdfs")
-        siglae_tab.classList.remove('active');
-
 
     })
 
@@ -547,23 +525,48 @@ function editar(cpfCnpj, indexObj) {
 
             }
 
-
-
         })
         .catch(error => console.log('error', error))
 
 }
 
 
-
-
-
-
 //RESET APÓS TROCAR DE MODAL ENTRE O ALTERAR E O INCLUIR 
 buttonIncluir.addEventListener('click', () => {
+    //Setar o atributo aria selected para false com execessão do cadastro
+
+    if (comissao_tab.getAttribute('aria-selected') == "true") {
+        comissao_tab.setAttribute('aria-selected', false)
+        comissao_tab.classList.remove('active')
+        testando.classList.remove('active');
+
+        console.log("comissao estava com true agr esta com false")
+
+    } else if (chaveJ_tab.getAttribute('aria-selected') == "true") {
+        chaveJ_tab.setAttribute('aria-selected', false)
+        chaveJ_tab.classList.remove('active')
+        testando2.classList.remove('active');
+
+        console.log("chave j estava com true agr esta com false")
+
+    } else if (siglae_tab.getAttribute('aria-selected') == "true") {
+        siglae_tab.setAttribute('aria-selected', false)
+        siglae_tab.classList.remove('active');
+        testando3.classList.remove('active');
+
+        console.log("siglae estava com true agr esta com false")
+    }
+
+    testando4.setAttribute('aria-selected', true)
+    testando4.classList.add('active')
+    tye.classList.add('active')
+
+
+    // Bloquear o acesso 
     document.getElementById("acesso-tab").disabled = true;
 
 
+    // Trocas de buttons 
     divButton.innerHTML = `
     <button type="button" class="btn btn-primary btn-icon-label" id="idIncluir" onclick="incluirCadastro()">
         <span class="btn-inner--icon">
