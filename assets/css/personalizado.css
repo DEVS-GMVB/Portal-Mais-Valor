@@ -35,3 +35,45 @@ input {
    text-align: center;
    display: none;
 }
+
+#div-fundo{
+   margin: 0% auto;
+   width: 700px;
+   display: flex;
+}
+
+#downloadMargem{
+   margin: 0% auto;
+}
+
+#idLabel{
+   background-color: #eff2f7;
+   border-radius: 22px;
+   color: black;
+   width: 300px;
+   transition: all .2s ease; 
+}
+
+#idLabel:hover{
+   background-color: #cdd6e6;
+}
+
+ @media screen and (max-width: 999px){
+
+   #div-fundo{
+       display: block;
+       margin: 0% auto;
+   }
+
+   #printMargem{
+   margin-right: 100%;
+   }
+
+   #downloadMargem{
+      margin-right: 100%;
+      }
+
+}
+
+
+

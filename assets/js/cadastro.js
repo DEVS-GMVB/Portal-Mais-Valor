@@ -559,7 +559,7 @@ buttonIncluir.addEventListener('click', () => {
 
     testando4.setAttribute('aria-selected', true)
     testando4.classList.add('active')
-    tye.classList.add('active')
+    // tye.classList.add('active')
 
 
     // Bloquear o acesso 
