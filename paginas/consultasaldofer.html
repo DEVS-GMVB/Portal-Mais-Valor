@@ -79,8 +79,7 @@
 
                         <div class="col-md-4 mb-3">
                             <label for="validationCustom01">Data Cadastro</label>
-                            <input type="text" class="form-control form-control-sm" id="dataCadastro" 
-                            onKeyDown="fMasc( this, data );" maxlength="10" required>
+                            <input type="text" class="form-control form-control-sm" id="dataCadastro" onKeyDown="fMasc( this, data );" maxlength="10" required>
 
                         </div>
                         <div class="col-md-4 mb-3">
@@ -90,8 +89,7 @@
                         </div>
                         <div class="col-md-4 mb-3">
                             <label for="validationCustom01">CPF</label>
-                            <input type="text" class="form-control form-control-sm" id="cpf" 
-                            maxlength="14"
+                            <input type="text" class="form-control form-control-sm" id="cpf" maxlength="14"
                             onkeypress='mascaraMutuario(this,cpfCnpj)' required>
 
                         </div>
@@ -124,20 +122,26 @@
                         
                         <div class="col-md-12 mb-0" style="text-align: center; margin-inline: block;">
                            
-                            
-                                <button type="button"
-                                    class="btn btn-sm btn-secondary btn-icon rounded-pill">
-                                    <span class="btn-inner--icon"><i
-                                            class="fas fa-download"></i></span>
-                                    <span class="btn-inner--text">Anexo Print Saldo FER</span>
-                                </button>
+                            <div id="div-fundo">
+                                <div class="col-md-3 mb-3" style="text-align: center;" id="printSaldoFer">
+                                    <input type="file" name="anexo_print_fer" id="anexo" class="custom-input-file"
+                                        data-multiple-caption="{count} files selected" multiple required />
+                                    <label for="anexo" id="idLabel">
+                                        <i class="fa fa-upload" style="color: 273444;"></i>
+                                        <span>Anexo Print Saldo FER</span>
+                                    </label>
+                                </div>
 
-                                <button type="button"
-                                class="btn btn-sm btn-secondary btn-icon rounded-pill">
-                                <span class="btn-inner--icon">
-                                    <i class="fas fa-download"></i></span>
-                                <span class="btn-inner--text">Download Saldo FER</span>
-                            </button>
+
+                                <div class="col-md-3 mb-3" style="text-align: center;" id="downloadMargem">
+                                    <input type="file" name="proposta" id="margem" class="custom-input-file"
+                                        data-multiple-caption="{count} files selected" multiple required />
+                                    <label for="margem" id="idLabel">
+                                        <i class="fa fa-upload" style="color: 273444;"></i>
+                                        <span>Download Saldo Fer</span>
+                                    </label>
+                                </div>
+                            </div>
                             
                         </div>
                
@@ -152,16 +156,23 @@
                     </div>
 
 
-                    <div class="opcoes-cadastro mt-1" style="text-align: center; margin-inline: block;">
-                        <button type="button" class="btn btn-primary btn-icon-label" id="btn-incluir" onclick="change()">
+                    <div class="opcoes-cadastro mt-1" style="text-align: center; margin-inline: block;" id="changeButtons">
+                        <!-- <button type="button" class="btn btn-primary btn-icon-label" id="btn-incluir">
                             <span class="btn-inner--icon">
                                 <i class="fas fa-plus"></i>
                             </span>
                             <span class="btn-inner--text">Incluir / Salvar Alteração</span>
-                        </button>
+                        </button> -->
+
+                        <div class="alert alert-danger falha" id="alertFalhaSaldofer" role="alert">
+                        </div> 
+    
+                        <!-- Alert sucesso acesso -->
 
                     </div>
 
+                    <div class="alert alert-success sucesso" id="messageSuccess" role="alert">
+                    </div>
 
                 </form>
 
@@ -763,6 +774,8 @@
                                                 <select class="form-control form-control-sm"
                                                     id="status-consulta">
                                                     <option> </option>
+                                                    <option value="AGUARDANDO CONSULTA FER">AGUARDANDO CONSULTA FER</option>
+                                                    <option value="FER RESPONDIDO">FER RESPONDIDO</option>
 
                                                 </select>
                                             </div>
@@ -770,21 +783,22 @@
 
                                         <div class="col-md-3 mb-3">
                                             <label for="validationCustom02">Data Atualização</label>
-                                            <input type="text" maxlength="10" onKeyDown="fMasc( this, data );"
-                                             class="form-control form-control-sm" id='dataAtualização-consulta'>
+                                            <input type="text" 
+                                                class="form-control form-control-sm" id='dataAtualização-consulta' onKeyDown="fMasc( this, data );" maxlength="10">
 
                                         </div>
 
                                         <div class="col-md-3 mb-3">
                                             <label for="validationCustom02">Data Cadastro</label>
-                                            <input type="text"  maxlength="10" onKeyDown="fMasc( this, data );"
-                                                class="form-control form-control-sm" id="dataCadastro-consulta">
+                                            <input type="text"
+                                                class="form-control form-control-sm" id="dataCadastro-consulta" onKeyDown="fMasc( this, data );" maxlength="10">
 
                                         </div>
 
                                         <div class="col-md-6 mb-3">
                                             <label for="validationCustom02">CPF</label>
-                                            <input type="text"  maxlength="14"  onkeypress='mascaraMutuario(this,cpfCnpj)'
+                                            <input type="text"  maxlength="14"
+                                            onkeypress='mascaraMutuario(this,cpfCnpj)'
                                                 class="form-control form-control-sm" id="cpf-consulta">
 
                                         </div>
@@ -836,12 +850,11 @@
                                             <th scope="col" style="text-align: center;"><b>Parceiro</b></th>
                                             <th scope="col" style="text-align: center;"><b>Data Autorização</b></th>
                                             <th scope="col" style="text-align: center;"><b>LOG Alteração</b></th>
-                                            <th scope="col" style="text-align: center;"><b>Status</b></th>
                                             <th scope="col" style="text-align: center;"><b>Alterar</b></th>
 
                                         </tr>
                                     </thead>
-                                    <tbody id="List">
+                                    <tbody id="List" style="text-align: center;">
 
                                         <td style="text-align: center;"> XXXXXXXX </td>
                                         <td style="text-align: center;"> XXXXXXXX </td>
@@ -904,8 +917,8 @@
     <!-- Mascaras -->
     <script src="../assets/js/mascaras.js"></script>
     <!-- Demo JS - remove it when starting your project -->
-    <script src="../assets/js/demo.js"></script>
     <script src="../assets/js/consultaSaldoFER.js"></script>
+    <script src="../assets/js/demo.js"></script>
 </body>
 
 </html>
