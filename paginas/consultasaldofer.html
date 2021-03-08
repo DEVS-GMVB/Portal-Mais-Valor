@@ -79,7 +79,7 @@
 
                         <div class="col-md-4 mb-3">
                             <label for="validationCustom01">Data Cadastro</label>
-                            <input type="text" class="form-control form-control-sm" id="dataCadastro" onKeyDown="fMasc( this, data );" maxlength="10" required>
+                            <input type="text" onKeyDown="mascaraMutuario( this, data );" maxlength="10" class="form-control form-control-sm" id="dataCadastro"  required>
 
                         </div>
                         <div class="col-md-4 mb-3">
@@ -122,20 +122,26 @@
                         
                         <div class="col-md-12 mb-0" style="text-align: center; margin-inline: block;">
                            
-                            
-                                <button type="button"
-                                    class="btn btn-sm btn-secondary btn-icon rounded-pill">
-                                    <span class="btn-inner--icon"><i
-                                            class="fas fa-download"></i></span>
-                                    <span class="btn-inner--text">Anexo Print Saldo FER</span>
-                                </button>
+                            <div id="div-fundo">
+                                <div class="col-md-3 mb-3" style="text-align: center;" id="printSaldoFer">
+                                    <input type="file" name="anexo_print_fer" id="anexo" class="custom-input-file"
+                                        data-multiple-caption="{count} files selected" multiple required />
+                                    <label for="anexo" id="idLabel">
+                                        <i class="fa fa-upload" style="color: 273444;"></i>
+                                        <span>Anexo Print Saldo FER</span>
+                                    </label>
+                                </div>
 
-                                <button type="button"
-                                class="btn btn-sm btn-secondary btn-icon rounded-pill">
-                                <span class="btn-inner--icon">
-                                    <i class="fas fa-download"></i></span>
-                                <span class="btn-inner--text">Download Saldo FER</span>
-                            </button>
+
+                                <div class="col-md-3 mb-3" style="text-align: center;" id="downloadMargem">
+                                    <input type="file" name="proposta" id="margem" class="custom-input-file"
+                                        data-multiple-caption="{count} files selected" multiple required />
+                                    <label for="margem" id="idLabel">
+                                        <i class="fa fa-upload" style="color: 273444;"></i>
+                                        <span>Download Saldo Fer</span>
+                                    </label>
+                                </div>
+                            </div>
                             
                         </div>
                
@@ -158,8 +164,15 @@
                             <span class="btn-inner--text">Incluir / Salvar Alteração</span>
                         </button> -->
 
+                        <div class="alert alert-danger falha" id="alertFalhaSaldofer" role="alert">
+                        </div> 
+    
+                        <!-- Alert sucesso acesso -->
+
                     </div>
 
+                    <div class="alert alert-success sucesso" id="messageSuccess" role="alert">
+                    </div>
 
                 </form>
 
@@ -770,15 +783,14 @@
 
                                         <div class="col-md-3 mb-3">
                                             <label for="validationCustom02">Data Atualização</label>
-                                            <input type="text" minlength="14" maxlength="18"
-                                                class="form-control form-control-sm" id='dataAtualização-consulta' onKeyDown="fMasc( this, data );" maxlength="10">
+                                            <input type="text" 
+                                                class="form-control form-control-sm" id='dataAtualização-consulta' onKeyDown="mascaraMutuario( this, data );" maxlength="10">
 
                                         </div>
 
                                         <div class="col-md-3 mb-3">
                                             <label for="validationCustom02">Data Cadastro</label>
-                                            <input type="text" minlength="14" maxlength="18"
-                                                class="form-control form-control-sm" id="dataCadastro-consulta" onKeyDown="fMasc( this, data );" maxlength="10">
+                                            <input type="text" class="form-control form-control-sm" id="dataCadastro-consulta" onKeyDown="mascaraMutuario(this, data);" maxlength="10">
 
                                         </div>
 
@@ -837,12 +849,11 @@
                                             <th scope="col" style="text-align: center;"><b>Parceiro</b></th>
                                             <th scope="col" style="text-align: center;"><b>Data Autorização</b></th>
                                             <th scope="col" style="text-align: center;"><b>LOG Alteração</b></th>
-                                            <th scope="col" style="text-align: center;"><b>Status</b></th>
                                             <th scope="col" style="text-align: center;"><b>Alterar</b></th>
 
                                         </tr>
                                     </thead>
-                                    <tbody id="List">
+                                    <tbody id="List" style="text-align: center;">
 
                                         <td style="text-align: center;"> XXXXXXXX </td>
                                         <td style="text-align: center;"> XXXXXXXX </td>
