@@ -101,29 +101,32 @@
 
                                 <div class="col-md-3 mb-3">
                                     <label for="validationCustom01">Data Cadastro</label>
-                                    <input type="text" class="form-control form-control-sm" id="validationCustom01"
+                                    <input type="text" class="form-control form-control-sm" id="dtCadastro-incluir"
                                         required>
 
                                 </div>
                                 <div class="col-md-3 mb-3">
                                     <label for="validationCustom01">Proposta</label>
-                                    <input type="text" class="form-control form-control-sm" id="validationCustom01"
+                                    <input type="text" class="form-control form-control-sm" id="proposta-incluir"
                                         required>
 
                                 </div>
                                 <div class="col-md-3 mb-3">
                                     <label for="validationCustom01">Status</label>
                                     <select class="form-control form-control-sm"
-                                                    id="exampleFormControlSelect1">
+                                                    id="status-incluir">
                                                     <option> </option>
-
+                                                    <option value="CANCELAR PROPOSTA">CANCELAR PROPOSTA</option>
+                                                    <option value="SOLICITACAO DE CANCELAMENTO">SOLICITACAO DE CANCELAMENTO</option>
+                                                    <option value="PROPOSTA CANCELADA">PROPOSTA CANCELADA</option>
+                                                    <option value="PROPOSTA NÃO CANCELADA">PROPOSTA NÃO CANCELADA</option>
                                                 </select>
 
                                 </div>
                                 <div class="col-md-3 mb-3">
                                     <label for="validationCustom01">Motivo Cancelamento</label>
                                     <select class="form-control form-control-sm"
-                                    id="exampleFormControlSelect1">
+                                    id="moticoCancel-incluir">
                                     <option> </option>
 
                                 </select>
@@ -151,21 +154,21 @@
 
                                 <div class="col-md-4 mb-3">
                                     <label for="validationCustom01">Parceiro</label>
-                                    <input type="text" class="form-control form-control-sm" id="validationCustom01"
+                                    <input type="text" class="form-control form-control-sm" id="parceiro-incluir"
                                         required>
 
                                 </div>
 
                                 <div class="col-md-4 mb-3">
                                     <label for="validationCustom01">Supervisor</label>
-                                    <input type="text" class="form-control form-control-sm" id="validationCustom01"
+                                    <input type="text" class="form-control form-control-sm" id="supervisor-incluir"
                                         required>
 
                                 </div>
 
                                 <div class="col-md-4 mb-3">
                                     <label for="validationCustom01">Gerente</label>
-                                    <input type="text" class="form-control form-control-sm" id="validationCustom01"
+                                    <input type="text" class="form-control form-control-sm" id="gerente-incluir"
                                         required>
 
                                 </div>
@@ -192,21 +195,25 @@
 
                         <div class="observacao mt-3" style="text-align: center;">
                             <label for="exampleFormControlSelect1">Observação</label>
-                            <textarea class="form-control" placeholder="" rows="3"></textarea>
+                            <textarea class="form-control" placeholder="" rows="3" id="observacao-incluir"></textarea>
                         </div>
 
 
                     </div>
 
-                    <div class="opcoes-cadastro mt-3" style="text-align: center; margin-inline: block;">
-                        <button type="button" class="btn btn-primary btn-icon-label">
+                    <div class="opcoes-cadastro mt-3" style="text-align: center; margin-inline: block;" id="changeButtons">
+                        <!-- <button type="button" class="btn btn-primary btn-icon-label" id="incluir">
                             <span class="btn-inner--icon">
                                 <i class="fas fa-plus"></i>
                             </span>
                             <span class="btn-inner--text">Incluir / Salvar Alteração</span>
-                        </button>
+                        </button> -->
 
                     </div>
+
+                    <!-- Alert sucesso -->
+               <div class="alert alert-success sucesso" id="alertSucessoCancel" role="alert">
+                </div>
 
                 </div>
 
@@ -804,7 +811,7 @@
                                             <div class="form-group">
                                                 <label for="exampleFormControlSelect1">Motivo</label>
                                                 <select class="form-control form-control-sm"
-                                                    id="exampleFormControlSelect1">
+                                                    id="motivo-consulta">
                                                     <option> </option>
 
                                                 </select>
@@ -814,13 +821,13 @@
                                         <div class="col-md-4 mb-3">
                                             <label for="validationCustom02">Proposta</label>
                                             <input type="text" minlength="14" maxlength="18"
-                                                class="form-control form-control-sm" id="validationCustom02">
+                                                class="form-control form-control-sm" id="proposta-consulta">
 
                                         </div>
 
                                         <div class="col-md-4 mb-3">
                                             <label for="validationCustom02">Status</label>
-                                            <select class="form-control form-control-sm" id="exampleFormControlSelect1">
+                                            <select class="form-control form-control-sm" id="status-consulta">
                                                 <option> </option>
 
                                             </select>
@@ -828,24 +835,24 @@
 
                                         <div class="col-md-4 mb-3">
                                             <label for="validationCustom02">Empresa</label>
-                                            <select class="form-control form-control-sm" id="exampleFormControlSelect1">
+                                            <select class="form-control form-control-sm" id="empresa-consulta">
                                                 <option> </option>
 
-                                            </select>
+                                            </select> 
                                         </div>
 
                                         <div class="col-md-4 mb-3">
                                             <label for="validationCustom02">Data Inclusão</label>
                                             <input type="text" minlength="14" maxlength="18"
-                                                class="form-control form-control-sm" id="validationCustom02">
+                                                class="form-control form-control-sm" id="dtInclusao-consulta">
 
                                         </div>
 
 
                                         <div class="col-md-4 mb-3">
-                                            <label for="validationCustom02">Data Alteração</label>
+                                            <label for="validationCustom02">Data Alteração(cancelamento)</label>
                                             <input type="text" minlength="14" maxlength="18"
-                                                class="form-control form-control-sm" id="validationCustom02">
+                                                class="form-control form-control-sm" id="dtAlteracao-consulta">
 
                                         </div>
 
@@ -861,20 +868,20 @@
 
                             <div class="opcoes-cadastro" style="text-align: center; margin-inline: block;">
 
-                                <button type="button" class="btn btn-primary btn-icon-label">
+                                <button type="button" class="btn btn-primary btn-icon-label" id="btn-buscar" onclick="search()">
                                     <span class="btn-inner--icon">
                                         <i class="fas fa-search"></i>
                                     </span>
                                     <span class="btn-inner--text">Buscar</span>
                                     <button type="button" class="btn btn-primary btn-icon-label" data-toggle="modal"
-                                        data-target=".modal-alterar-solicancelamento" title="Alterar">
+                                        data-target=".modal-alterar-solicancelamento" title="Alterar" onclick="change()" id="btn-incluir">
                                         <span class="btn-inner--icon">
                                             <i class="fas fa-plus"></i>
                                         </span>
                                         <span class="btn-inner--text">Incluir</span>
                                     </button>
 
-                                    <button type="button" class="btn btn-primary btn-icon-label">
+                                    <button type="reset" class="btn btn-primary btn-icon-label">
                                         <span class="btn-inner--icon">
                                             <i class="fas fa-trash-alt"></i>
                                         </span>
@@ -907,7 +914,7 @@
 
                                         </tr>
                                     </thead>
-                                    <tbody>
+                                    <tbody id="List" style="text-align: center;">
 
                                         <td style="text-align: center;"> XXXXXXXX </td>
                                         <td style="text-align: center;"> XXXXXXXX </td>
@@ -923,7 +930,7 @@
 
                                             <div class="actions ml-3" style="text-align: center;">
                                                 <a href="#" class="action-item mr-2" data-toggle="modal"
-                                                    data-target=".modal-alterar-solicancelamento" title="Alterar">
+                                                    data-target=".modal-alterar-solicancelamento" title="Alterar" id="icon-alterar">
                                                     <i class="fas fa-external-link-alt"></i>
                                                 </a>
 
@@ -974,6 +981,7 @@
     <script src="../assets/js/mascaras.js"></script>
     <!-- Demo JS - remove it when starting your project -->
     <script src="../assets/js/demo.js"></script>
+    <script src="../assets/js/cancelamento.js"></script>
 </body>
 
 </html>
