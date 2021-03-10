@@ -1,10 +1,42 @@
 const URL = 'http://localhost:3000'
 
+let empresa = document.getElementById('empresa-consulta')
+let supervisor = document.getElementById('supervisor-incluir')
+let gerente = document.getElementById('gerente-incluir')
+
 const arrays = {
     arrayUpdate: arrayUpdate = [],
     arrayRows: arrayRows = [],
     arrayId: arrayId = [],
     arrayChangeButtonsRows: arrayChangeButtonsRows = []
+}
+
+window.onload = function(){
+    let requestOptions = {
+        method: 'GET',
+        redirect: 'follow'
+    }
+
+    fetch(URL + '/user/proposta/empresas', requestOptions)
+    .then(response => response.json().then(function (data){
+        for(let i = 0; i < data.length; i++){
+            empresa.innerHTML += '<option value="' + data[i].empresa + '">' + data[i].empresa + '</option>;'
+        }
+    })).catch(error => console.log('error', error));
+
+    fetch(URL + '/user/supervisor', requestOptions)
+    .then(response => response.json().then(function (data){
+        for(let i = 0; i < data.length; i++){
+            supervisor.innerHTML += '<option value="' + data[i].parceiro + '">' + data[i].parceiro + '</option>;'
+        }
+    })).catch(error => console.log('error', error));
+
+    fetch(URL + '/user/gerente', requestOptions)
+    .then(response => response.json().then(function (data){
+        for(let i = 0; i < data.length; i++){
+            gerente.innerHTML += '<option value="' + data[i].gerente + '">' + data[i].gerente + '</option>;'
+        }
+    })).catch(error => console.log('error', error));
 }
 
 const breakModal = {
@@ -160,7 +192,7 @@ function search(){
             let supervisorText = document.createTextNode(`${data[i].supervisor}`);
             supervisor.appendChild(supervisorText);
 
-            let motivoText = document.createTextNode(`${data[i].motivo}`);
+            let motivoText = document.createTextNode(`${data[i].motivo_cancelamento1}`);
             motivo.appendChild(motivoText);
 
             let statusText = document.createTextNode(`${data[i].status}`);
@@ -169,7 +201,7 @@ function search(){
             let data_inclusaoText = document.createTextNode(`${data[i].data_inclusao}`);
             data_inclusao.appendChild(data_inclusaoText);
 
-            let data_alteracaoText = document.createTextNode(`${data[i].data_alteracao}`);
+            let data_alteracaoText = document.createTextNode(`${data[i].data_cancelamento}`);
             data_alteracao.appendChild(data_alteracaoText);
 
             let responsavelText = document.createTextNode(`${data[i].responsavel}`);
@@ -296,7 +328,7 @@ function updateTbody(l){
     r[3].textContent = $("#moticoCancel-incluir").val()
     r[4].textContent = $("#status-incluir").val()
     r[5].textContent = $("#dtCadastro-incluir").val()
-    r[6].textContent = ''
+    r[6].textContent = $("#dtAlteracao-consulta").val()
     r[7].textContent = ''
     r[8].textContent = ''
     r[9].textContent = ''
