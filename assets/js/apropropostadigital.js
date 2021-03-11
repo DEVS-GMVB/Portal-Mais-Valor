@@ -1,10 +1,30 @@
 const URL = 'http://localhost:3000'
+let tipo = document.getElementById('tipo-incluir')
 
 const arrays = {
     arrayUpdate: arrayUpdate = [],
     arrayRows: arrayRows = [],
     arrayId: arrayId = [],
     arrayChangeButtonsRows: arrayChangeButtonsRows = []
+}
+
+window.onload = function(){
+    let requestOptions = {
+        method: 'GET',
+        redirect: 'follow'
+    }
+
+    fetch(URL + '/user/proposta/tipo', requestOptions)
+    .then(response => response.json().then(function (data){
+        for(let i = 0; i < data.length; i++){
+            tipo.innerHTML += '<option value="' + data[i].tipo + '">' + data[i].tipo + '</option>;'
+        }
+    })).catch(error => console.log('error', error));
+
+    $('#parceiro-incluir').attr('disabled', true);
+    $('#supervidor-incluir').attr('disabled', true);
+    $('#gerente-incluir').attr('disabled', true);
+
 }
 
 const breakModal = {
@@ -27,9 +47,12 @@ const breakModal = {
         `
     },
 
-    changeUpdate: function () {
+    changeUpdate: function (id, rows) {
+
+        arrays.arrayChangeButtonsRows.push(rows)
+
         document.getElementById('changeButtons').innerHTML = `
-        <button type="button" class="btn btn-primary btn-icon-label" id="btn-update">
+        <button type="button" class="btn btn-primary btn-icon-label" id="btn-update" onclick="alter(${id}, arrays.arrayChangeButtonsRows.pop())">
                         <span class="btn-inner--icon">
                             <i class="fas fa-plus"></i>
                         </span>
@@ -49,10 +72,14 @@ function change() {
     //Preenche data Cadastro
     let today = new Date();
     let month = today.getMonth();
-    hours = today.getHours()
-    minute = today.getMinutes()
-    second = today.getSeconds()
-    document.getElementById('dtCadastro-incluir').value = `${today.getDate()}/${(month + 1)}/${today.getFullYear()}   ${hours}:${minute}:${second}`
+    let hours = today.getHours()
+    let minute = today.getMinutes()
+    let second = today.getSeconds()
+    document.getElementById('dtCadastro-incluir').value = `${today.getDate()}/${(month + 1)}/${today.getFullYear()} ${hours}:${minute}:${second}`
+
+    //Parceiro Supervisor e Gerente da sessão
+    //document.getElementById('parceiro-incluir').value = sessionStorage.getItem('nome', 'nome')    
+    //document.getElementById('parceiro-incluir').value = sessionStorage.getItem('tipo_parceiro', 'tipo_parceiro')
 
     //Insert
     breakModal.changeInsert()
@@ -60,6 +87,52 @@ function change() {
 
 function insert() {
 
+    const dtCadastro = $('#dtCadastro-incluir').val()
+    const proposta = $('#proposta-incluir').val()
+    //const status = $('#status-incluir').val()
+    const banco = $('#banco-incluir').val()
+    const tipo = $('#tipo-incluir').val()
+    const cpf = $('#cpf-incluir').val()
+
+    //Sujeito a tirar
+    const parceiro = $('#parceiro-incluir').val()
+    const supervisor = $('#supervidor-incluir').val()
+    const gerente = $('#gerente-incluir').val()
+
+    const myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json")
+
+    const body = {
+        data_inclusao:dtCadastro,
+        proposta:proposta,
+        status,
+        banco:banco,
+        tipo:tipo,
+        cpf:cpf,
+
+        //Sujeito a tirar
+        parceiro:parceiro,
+        supervisor:supervisor,
+        gerente:gerente
+    }
+
+    const raw = JSON.stringify(body)
+
+    let requestOptions = {
+        method: 'POST',
+        headers: myHeaders,
+        body: raw,
+        redirect: 'follow'
+    }
+
+    fetch(URL + "/user/aprovacaoproposta/incluir", requestOptions).
+    then(response => response.json()).
+    then(function (res) {
+        console.log(body)
+        $('#alertSucessoAproProp').show();
+        $('#alertSucessoAproProp').fadeIn(300).delay(3000).fadeOut(400);
+        document.getElementById("alertSucessoAproProp").textContent = "Aprovação proposta digital incluida"
+    }).catch(error => console.log('erro: ', error))
 }
 
 function search() {
@@ -94,7 +167,7 @@ function search() {
     fetch(URL + '/user/aprovacaoproposta/filtro', requestOptions).
     then(response => response.json().then(function (data) {
 
-        //arrays.arrayId = []
+        arrays.arrayId = []
 
         for (let i = 0; i < data.length; i++) {
             let specific_tbody = document.getElementById('List');
@@ -142,7 +215,7 @@ function search() {
             responsavel.appendChild(responsavelText)
 
              arrays.arrayId.push(data[i].id_fluxo)
-            // arrays.arrayRows.push(row)
+             arrays.arrayRows.push(row)
 
             alterar.innerHTML = `
             <div class="actions ml-3" style="text-align: center;">
@@ -163,7 +236,7 @@ function iconUpdate(id, row) {
     //Desbloqueando campo
     $('#status-incluir').attr('disabled', false)
 
-    breakModal.changeUpdate()//Passar id e linha aqui quando para quando for alterar
+    breakModal.changeUpdate(id, row)//Passar id e linha aqui quando para quando for alterar
 
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
@@ -184,14 +257,70 @@ function iconUpdate(id, row) {
         console.log(id)
         $('#dtCadastro-incluir').val(data.data_inclusao);
         $('#proposta-incluir').val(data.proposta);
-        $('#status-incluirr').val(data.status);
+        $('#status-incluir').val(data.status);
         $('#banco-incluir').val(data.banco);
         $('#tipo-incluir').val(data.tipo);
         $('#cpf-incluir').val(data.cpf);
-        //$('#parceiro-incluir').val(data.parceiro);
-        document.getElementById('parceiro-incluir') = sessionStorage.getItem('userTipousuario')
+        $('#parceiro-incluir').val(data.parceiro);
+        //document.getElementById('parceiro-incluir') = sessionStorage.getItem('userTipousuario')
         //let tipo_usuario = sessionStorage.getItem('tipo_usuario', 'tipo_usuario');
         $('#supervidor-incluir').val(data.parceiro);
         $('#gerente-incluir').val(data.gerente);
     })).catch(error => console.log('erro: ', error))
+}
+
+function alter(id, row){
+
+    const myheaders = new Headers()
+    myheaders.append('Content-Type', 'application/json')
+
+    const dtCadastro = $('#dtCadastro-incluir').val()
+    const proposta = $('#proposta-incluir').val()
+    const status = $('#status-incluir').val()
+    const banco = $('#banco-incluir').val()
+    const tipo = $('#tipo-incluir').val()
+    const cpf = $('#cpf-incluir').val()
+
+    const body = {
+        id_fluxo:id,
+        data_inclusao:dtCadastro,
+        proposta:proposta,
+        status:status,
+        banco:banco,
+        tipo:tipo,
+        cpf:cpf
+    }
+    
+    const raw = JSON.stringify(body)
+
+    const requestOptions = {
+        method: 'POST',
+        headers: myheaders,
+        body: raw,
+        redirect: 'follow'
+    }
+
+    fetch(URL+'/user/aprovacaoproposta/alterar', requestOptions).
+    then(response => response.json().then(function (data){
+        console.log(data)
+        $('#alertSucessoAproProp').show();
+        $('#alertSucessoAproProp').fadeIn(300).delay(3000).fadeOut(400);
+        document.getElementById("alertSucessoAproProp").textContent = "Aprovação proposta digital alterada"
+        updateTbody(row)
+    })).catch(error => console.log('error: ', error))
+}
+
+function updateTbody(l){
+    const r = l.cells
+
+    r[0].textContent = $("#proposta-incluir").val()
+    r[1].textContent = $("#cpf-incluir").val()
+    r[2].textContent = $("#parceiro-incluir").val()
+    r[3].textContent = $("#supervidor-incluir").val()
+    r[4].textContent = $("#banco-incluir").val()
+    r[5].textContent = $("#tipo-incluir").val()
+    r[6].textContent = $("#status-incluir").val()
+    r[7].textContent = $("#dtCadastro-incluir").val()
+    r[8].textContent = ''
+    r[9].textContent = ''
 }

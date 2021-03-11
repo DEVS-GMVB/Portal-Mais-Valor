@@ -94,7 +94,8 @@
                             <label for="validationCustom01">Status</label>
                             <select class="form-control form-control-sm" id="status-incluir">
                                 <option> </option>
-
+                                <option value="SOLICITACAO DE APROVAÇÃO">SOLICITACAO DE APROVAÇÃO</option>
+                                <option value="PROPOSTA APROVADA">SOLICITAÇÃO APROVADA</option>
                             </select>
 
                         </div>
@@ -102,7 +103,6 @@
                             <label for="validationCustom01">Banco</label>
                             <select class="form-control form-control-sm" id="banco-incluir">
                                 <option> </option>
-
                             </select>
 
                         </div>
@@ -115,7 +115,8 @@
                         </div>
                         <div class="col-md-4 mb-3">
                             <label for="validationCustom01">CPF</label>
-                            <input type="text" class="form-control form-control-sm" id="cpf-incluir" required>
+                            <input type="text" class="form-control form-control-sm" id="cpf-incluir" 
+                            maxlength="14" onkeypress='mascaraMutuario(this,cpfCnpj)' required>
                         </div>
 
 
@@ -171,6 +172,10 @@
                     </button> -->
 
                 </div>
+
+                <!-- Alert sucesso -->
+               <div class="alert alert-success sucesso" id="alertSucessoAproProp" role="alert">
+            </div>
 
             </div>
 
@@ -786,7 +791,8 @@
                                             <label for="validationCustom02">Status</label>
                                             <select class="form-control form-control-sm" id="status-pesquisa">
                                                 <option> </option>
-
+                                                <option value="SOLICITACAO DE APROVAÇÃO">SOLICITACAO DE APROVAÇÃO</option>
+                                                <option value="PROPOSTA APROVADA">PROPOSTA APROVADA</option>
                                             </select>
                                         </div>
 
