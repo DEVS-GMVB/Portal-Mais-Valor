@@ -25,7 +25,7 @@ function mTelefone(telefone) {
     telefone = telefone.replace(/\D/g, "")
     telefone = telefone.replace(/(\d{0})(\d)/, "$1($2")
     telefone = telefone.replace(/(\d{2})(\d)/, "$1)$2")
-    telefone = telefone.replace(/(\d{4})(\d)/, "$1-$2")
+    telefone = telefone.replace(/(\d{5})(\d)/, "$1-$2")
     return telefone
 }
 

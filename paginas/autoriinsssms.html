@@ -82,28 +82,28 @@
 
                         <div class="col-md-2 mb-3">
                             <label for="validationCustom01">Data Cadastro</label>
-                            <input type="text" class="form-control form-control-sm" id="validationCustom01" required>
+                            <input type="text" class="form-control form-control-sm" id="data-cadastro" maxlength="10" onKeyDown="mascaraMutuario( this, data );" required>
 
                         </div>
                         <div class="col-md-5 mb-3">
                             <label for="validationCustom01">Parceiro</label>
-                            <input type="text" class="form-control form-control-sm" id="validationCustom01" required>
+                            <input type="text" class="form-control form-control-sm" id="parceiro" required>
 
                         </div>
                         <div class="col-md-5 mb-3">
                             <label for="validationCustom01">CPF Cliente</label>
-                            <input type="text" class="form-control form-control-sm" id="validationCustom01" required>
+                            <input type="text" class="form-control form-control-sm" id="cpf" maxlength="14" onkeypress='mascaraMutuario(this,cpfCnpj)' required>
 
                         </div>
                         <div class="col-md-8 mb-3">
                             <label for="validationCustom01">Nome Cliente</label>
-                            <input type="text" class="form-control form-control-sm" id="validationCustom01" required>
+                            <input type="text" class="form-control form-control-sm" id="nome" required>
                         </div>
                         <div class="col-md-4 mb-3">
                             <label for="validationCustom01">Telefone Cliente</label>
-                            <input type="text" class="form-control form-control-sm" id="validationCustom01" required>
+                            <input type="text" class="form-control form-control-sm" id="telefone" onkeypress="mascaraMutuario(this, mTelefone)" maxlength="14" required>
                         </div>
-                       
+
 
 
 
@@ -117,7 +117,7 @@
                     <h3>Dados Resposta </h3>
 
                 </div>
-                
+
 
                 <form class="needs-validation" novalidate>
 
@@ -126,29 +126,26 @@
                         <div class="col-md-12 mb-3">
                             <div class="form-group">
                                 <label for="exampleFormControlSelect1">Status</label>
-                                <select class="form-control form-control-sm"
-                                    id="exampleFormControlSelect1">
+                                <select class="form-control form-control-sm" id="status">
                                     <option> </option>
 
                                 </select>
                             </div>
                         </div>
-                           
-                            
-                        <button type="button"
-                            class="btn btn-sm btn-secondary btn-icon rounded-pill mt-2">
-                            <span class="btn-inner--icon"><i
-                                    class="fas fa-download"></i></span>
+
+
+                        <button type="button" class="btn btn-sm btn-secondary btn-icon rounded-pill mt-2">
+                            <span class="btn-inner--icon"><i class="fas fa-download"></i></span>
                             <span class="btn-inner--text">Anexo Print Margem</span>
                         </button>
 
-                    
-                </div>
+
+                    </div>
 
 
                 </form>
 
-               
+
 
                 <div class="opcoes-cadastro mt-4" style="text-align: center; margin-inline: block;">
                     <button type="button" class="btn btn-primary btn-icon-label">
@@ -157,12 +154,12 @@
                         </span>
                         <span class="btn-inner--text">Incluir / Salvar Alteração</span>
                     </button>
-    
+
                 </div>
 
             </div>
 
-         
+
 
         </div>
     </div>
@@ -755,39 +752,43 @@
                                         <div class="col-md-6 mb-3">
                                             <div class="form-group">
                                                 <label for="exampleFormControlSelect1">Usuário</label>
-                                                <select class="form-control form-control-sm"
-                                                    id="exampleFormControlSelect1">
-                                                    <option> </option>
+                                                <input type="text" class="form-control form-control-sm"
+                                                    id="usuario-filtro" />
 
-                                                </select>
                                             </div>
                                         </div>
 
                                         <div class="col-md-6 mb-3">
                                             <label for="validationCustom02">Status</label>
-                                            <select class="form-control form-control-sm" id="exampleFormControlSelect1">
+                                            <select class="form-control form-control-sm" id="status-filtro">
                                                 <option> </option>
-
+                                                <option value="SOLICITACAO DE TERMO AUTORIZACAO INSS"> SOLICITAÇÃO DE
+                                                    TERMO AUTORIZAÇÃO INSS
+                                                </option>
+                                                <option value="SMS ENVIADO AGUARDANDO RETORNO"> SMS ENVIADO AGUARDANDO RETORNO
+                                                </option>
+                                                <option value="AUTORIZACAO RECEBIDA COM SUCESSO">AUTORIZAÇÃO RECEBIDA COM SUCESSO
+                                                </option>
                                             </select>
 
                                         </div>
 
                                         <div class="col-md-3 mb-3">
                                             <label for="validationCustom02">Data Atualização</label>
-                                            <input type="text" minlength="14" maxlength="18"
-                                                class="form-control form-control-sm" id="validationCustom02">
+                                            <input type="text" maxlength="10" onKeyDown="mascaraMutuario( this, data );"
+                                                class="form-control form-control-sm" id="data-atualizacao-filtro">
                                         </div>
 
                                         <div class="col-md-3 mb-3">
                                             <label for="validationCustom02">Data Cadastro</label>
-                                            <input type="text" minlength="14" maxlength="18"
-                                                class="form-control form-control-sm" id="validationCustom02">
+                                            <input type="text" maxlength="10" onKeyDown="mascaraMutuario( this, data );"
+                                                class="form-control form-control-sm" id="data-cadastro-filtro">
                                         </div>
 
                                         <div class="col-md-6 mb-3">
                                             <label for="validationCustom02">CPF</label>
-                                            <input type="text" minlength="14" maxlength="18"
-                                                class="form-control form-control-sm" id="validationCustom02">
+                                            <input type="text" maxlength="14" onkeypress='mascaraMutuario(this,cpfCnpj)'
+                                                class="form-control form-control-sm" id="cpf-filtro">
 
                                         </div>
 
@@ -800,20 +801,21 @@
 
                             <div class="opcoes-cadastro" style="text-align: center; margin-inline: block;">
 
-                                <button type="button" class="btn btn-primary btn-icon-label">
+                                <button type="button" class="btn btn-primary btn-icon-label" id="btn-buscar">
                                     <span class="btn-inner--icon">
                                         <i class="fas fa-search"></i>
                                     </span>
                                     <span class="btn-inner--text">Buscar</span>
                                     <button type="button" class="btn btn-primary btn-icon-label" data-toggle="modal"
-                                        data-target=".modal-alterar-autorizacaosoliinss" title="Alterar">
+                                        data-target=".modal-alterar-autorizacaosoliinss" title="Alterar"
+                                        id="btn-inserir">
                                         <span class="btn-inner--icon">
                                             <i class="fas fa-plus"></i>
                                         </span>
                                         <span class="btn-inner--text">Incluir</span>
                                     </button>
 
-                                    <button type="button" class="btn btn-primary btn-icon-label">
+                                    <button type="reset" class="btn btn-primary btn-icon-label" id="btn-apagar">
                                         <span class="btn-inner--icon">
                                             <i class="fas fa-trash-alt"></i>
                                         </span>
@@ -910,6 +912,7 @@
     <!-- Mascaras -->
     <script src="../assets/js/mascaras.js"></script>
     <!-- Demo JS - remove it when starting your project -->
+    <script src="../assets/js/autorizacaoInss.js"></script>
     <script src="../assets/js/demo.js"></script>
 </body>
 
