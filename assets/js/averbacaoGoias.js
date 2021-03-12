@@ -420,31 +420,4 @@ function updateTbody(row, status) {
     cells[8].textContent = status
 }
 
-let validator = {
-    set: function(obj, prop, value) {
-      if (prop === 'age') {
-        if (!Number.isInteger(value)) {
-          throw new TypeError('The age is not an integer');
-        }
-        if (value > 200) {
-          throw new RangeError('The age seems invalid');
-        }
-      }
-  
-      //O comportamento padrão para armazenar o valor
-      obj[prop] = value;
-  
-      // Indique o sucesso
-      return true;
-    }
-  };
-  
-  let person = new Proxy({}, validator);
-  
-  person.age = 100;
-  console.log(person.age); // 100
-  person.age = 50
-  console.log(person.age)
-  person.age = 'young'; // Lança uma exceção
-  person.age = 300; // Lança uma exceção
   
