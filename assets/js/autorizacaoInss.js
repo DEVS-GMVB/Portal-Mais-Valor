@@ -33,7 +33,7 @@ const breakModal = {
         statusSelect.value = 'SOLICITACAO DE TERMO AUTORIZACAO INSS'
 
         changeButton.innerHTML = `
-        <button type="button" class="btn btn-primary btn-icon-label">
+        <button type="button" class="btn btn-primary btn-icon-label" onclick=(functionsRequestsProxy.insert())>
             <span class="btn-inner--icon">
                 <i class="fas fa-plus"></i>
             </span>
@@ -70,6 +70,7 @@ const handler = {
         }
     }
 }
+const obj = {}
 
 //Proxy Break Modal
 const breakModalProx = new Proxy(breakModal, handler)
@@ -213,7 +214,78 @@ const functionsRequests = {
 
             })
             .catch(error => console.log('error', error))
+    },
+
+    insert: () => {
+        const data_cadastro = $("#data-cadastro").val();
+        const parceiro = $("#parceiro").val();
+        const cpf = $("#cpf").val();
+        const nome = $("#nome").val();
+        const telefone = $("#telefone").val();
+        const status = $("#status").val();
+
+
+        const myHeaders = new Headers();
+        myHeaders.append("Content-Type", "application/json");
+
+        const raw = JSON.stringify({
+            data_cadastro: data_cadastro,
+            parceiro: parceiro,
+            cpf: cpf,
+            nome: nome,
+            telefone: telefone,
+            status: status
+        });
+
+        const requestOptions = {
+            method: 'POST',
+            headers: myHeaders,
+            body: raw,
+            redirect: 'follow'
+        };
+
+        fetch(URL + "/user/autorizacao/inss/inserir", requestOptions)
+            .then(response => response.json())
+            .then(result => {
+                //Insert n é obrigatório anexar um arquivo
+                const resultInsertAnexo = functionsRequestsProxy.insertAnexo(result)
+                console.log(resultInsertAnexo)
+                Promise.resolve(resultInsertAnexo).then(function (value){
+                    console.log(value)
+                })
+
+                $('#success').show();
+                $('#success').fadeIn(300).delay(3000).fadeOut(400);
+                document.getElementById("success").textContent = "Autorização INSS incluido com sucesso"
+            })
+            .catch(error => console.log('error', error))
+    },
+
+    insertAnexo: async (data) => {
+        const myheaders = new Headers();
+        myheaders.append('Content-Type', 'application/json');
+
+        const file = document.querySelector('div#file input[type="file"]')
+        const codigo = data.codigo
+
+        var data = new FormData();
+        // fileInputs.forEach(file => {
+        //     data.append(file.name, file.files[0])
+        // })
+        data.append(file.name, file.files[0])
+
+        await fetch(URL + `/autorizacao/inss/anexo?codigo=${codigo}`, {
+            method: 'POST',
+            body: data
+        }).
+        then(response => response.json().then(function (data) {
+            // console.log(data)
+            obj.transporter = data
+        })).catch(error => console.log('error: ', error))
+
+        return obj.transporter;
     }
+
 
 
 }
