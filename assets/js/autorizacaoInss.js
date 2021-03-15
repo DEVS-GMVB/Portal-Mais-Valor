@@ -22,7 +22,10 @@ const sessionBrowser = {
 
 // Quebra referência de modais
 const breakModal = {
-    emptyFields: () => {
+    emptyFields: (valueDisable) => {
+
+        $("#fieldsUpdate input").prop('readonly', valueDisable);
+
         $(".needs-validation").each(function () {
             this.reset()
         })
@@ -42,9 +45,16 @@ const breakModal = {
         `
     },
 
-    changeButtonUpdate: () => {
+    changeButtonUpdate: (cod, row) => {
+        // Limpar arrays para cada chamada desta função, ou seja quando trocar de button 
+        arrays.arrayTransporterRows = [];
+        arrays.arrayTransporterCodec = [];
+
+        arrays.arrayTransporterCode.push(cod);
+        arrays.arrayTransporterRows.push(row);
+
         changeButton.innerHTML = `
-        <button type="button" class="btn btn-primary btn-icon-label">
+        <button type="button" class="btn btn-primary btn-icon-label" onclick="functionsRequestsProxy.updateFieldFile(arrays.arrayTransporterCode[${arrays.arrayTransporterCode.length - 1}], arrays.arrayTransporterRows[${arrays.arrayTransporterRows.length - 1}])">
             <span class="btn-inner--icon">
                 <i class="fas fa-plus"></i>
             </span>
@@ -70,6 +80,7 @@ const handler = {
         }
     }
 }
+
 const obj = {}
 
 //Proxy Break Modal
@@ -79,7 +90,7 @@ const breakModalProx = new Proxy(breakModal, handler)
 function buttonInsert() {
     // breakModal.emptyFields();
     // breakModal.changeButtonInsert();
-    breakModalProx.emptyFields();
+    breakModalProx.emptyFields(false);
     breakModalProx.changeButtonInsert();
 
 }
@@ -126,8 +137,11 @@ const functionsRequests = {
             redirect: 'follow'
         }).
         then(response => response.json().then(function (data) {
+            arrays.arrayCodigos = [];
+            arrays.arrayRows = [];
 
             for (let i = 0; i < data.length; i++) {
+
                 let specific_tbody = document.getElementById("List")
                 let row = specific_tbody.insertRow(-1);
                 let nome_cliente = row.insertCell(-1);
@@ -174,7 +188,7 @@ const functionsRequests = {
                 altera_icon.innerHTML = `
 
             <div class="actions ml-3" style="text-align: center;">
-                <a href="#" class="action-item mr-2" data-toggle="modal" onclick="functionsRequestsProxy.iconUpdate(arrays.arrayCodigos[${i}])"
+                <a href="#" class="action-item mr-2" data-toggle="modal" onclick="functionsRequestsProxy.iconUpdate(arrays.arrayCodigos[${i}], arrays.arrayRows[${i}])"
                     data-target=".modal-alterar-autorizacaosoliinss" title="Alterar">
                     <i class="fas fa-external-link-alt"></i>
                 </a>
@@ -185,12 +199,14 @@ const functionsRequests = {
         })).catch(error => console.log('error: ', error))
     },
 
-    iconUpdate: (cod) => {
-        breakModalProx.emptyFields();
-        breakModalProx.changeButtonUpdate();
+    iconUpdate: (cod, row) => {
 
-        if (cod === NaN || cod !== Number)
+        breakModalProx.emptyFields(true);
+        breakModalProx.changeButtonUpdate(cod, row);
+
+        if (isNaN(cod)) {
             throw new Error("This not number");
+        }
 
         const myHeaders = new Headers();
         myHeaders.append("Content-Type", "application/json");
@@ -211,7 +227,6 @@ const functionsRequests = {
             .then(result => {
 
                 populaCampos(result);
-
             })
             .catch(error => console.log('error', error))
     },
@@ -234,7 +249,7 @@ const functionsRequests = {
             cpf: cpf,
             nome: nome,
             telefone: telefone,
-            status: status
+            status_inss: status
         });
 
         const requestOptions = {
@@ -249,14 +264,13 @@ const functionsRequests = {
             .then(result => {
                 //Insert n é obrigatório anexar um arquivo
                 const resultInsertAnexo = functionsRequestsProxy.insertAnexo(result)
-                console.log(resultInsertAnexo)
-                Promise.resolve(resultInsertAnexo).then(function (value){
-                    console.log(value)
-                })
+                // console.log(resultInsertAnexo)
+                Promise.resolve(resultInsertAnexo).then(function (value) {})
 
                 $('#success').show();
                 $('#success').fadeIn(300).delay(3000).fadeOut(400);
                 document.getElementById("success").textContent = "Autorização INSS incluido com sucesso"
+
             })
             .catch(error => console.log('error', error))
     },
@@ -274,7 +288,7 @@ const functionsRequests = {
         // })
         data.append(file.name, file.files[0])
 
-        await fetch(URL + `/autorizacao/inss/anexo?codigo=${codigo}`, {
+        await fetch(URL + `/user/autorizacao/inss/anexo?codigo=${codigo}`, {
             method: 'POST',
             body: data
         }).
@@ -284,9 +298,41 @@ const functionsRequests = {
         })).catch(error => console.log('error: ', error))
 
         return obj.transporter;
+    },
+
+    updateFieldFile: (codigo, linha) => {
+        const status_inss = $("#status").val();
+
+        const myHeaders = new Headers();
+        myHeaders.append("Content-Type", "application/json");
+
+        const raw = JSON.stringify({
+            codigo,
+            status_inss
+        });
+
+        const requestOptions = {
+            method: 'POST',
+            headers: myHeaders,
+            body: raw,
+            redirect: 'follow'
+        };
+
+        fetch(URL + "/user/autorizacao/inss/atualizar", requestOptions)
+            .then(response => response.json())
+            .then(result => {
+                const resultUpdateAnexo = functionsRequestsProxy.insertAnexo(result)
+                // console.log(resultUpdateAnexo)
+                Promise.resolve(resultUpdateAnexo).then(function (value) {})
+
+                updateTbody(linha, result.status_inss)
+
+                $('#success').show();
+                $('#success').fadeIn(300).delay(3000).fadeOut(400);
+                document.getElementById("success").textContent = "Autorização INSS atualizado com sucesso"
+            })
+            .catch(error => console.log('error', error))
     }
-
-
 
 }
 
@@ -321,4 +367,9 @@ function populaCampos(result) {
     $("#nome").val(result.nome);
     $("#telefone").val(result.telefone);
     $("#status").val(result.status_inss);
+}
+
+function updateTbody(row, status) {
+    let cells = row.cells;
+    cells[2].textContent = status
 }
