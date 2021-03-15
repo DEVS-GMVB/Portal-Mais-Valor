@@ -172,7 +172,7 @@ class ConsultaMargem {
             body: raw,
             redirect: 'follow'
         }).then(response => response.json().then(function (data) {
-            console.log(data)
+            // console.log(data)
             consultaMargem.changeUpdate(data.codigo, rows)
 
             // const debug = new FileReader().readAsDataURL(data.arquivo1)
