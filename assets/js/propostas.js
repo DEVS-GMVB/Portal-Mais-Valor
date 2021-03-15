@@ -1,15 +1,11 @@
-
-const URL = `https://api-portalmaisvalor.herokuapp.com`;
-
-
-let filtros = document.getElementById("filtrosPes");
+let filtros = document.getElementById("button-filtro");
 let empresaProposta = document.getElementById("empresaPropostas");
 let bancoPortado = document.getElementById('exampleFormBP');
 let banc = document.getElementById("bancoPortabilidade");
 let prod = document.getElementById("exampleProduto")
 let produtoComissao = document.getElementById("exampleFormProduto");
-let supervisorProposta = document.getElementById("supervisorProposta");
-let gerenteProposta = document.getElementById("gerenteProposta")
+let supervisorProposta = document.getElementById("supervisor-filtro");
+let gerenteProposta = document.getElementById("gerente-filtro")
 let bancco = document.getElementById("banco");
 let sub_status = document.getElementById("sub-status")
 
@@ -17,11 +13,28 @@ let sub_status = document.getElementById("sub-status")
 // let numeroPrp = document.getElementById('validationNprop')
 let dtCadastro = document.getElementById('validationDtCad')
 let bancoo = document.getElementById('examploBanco')
-let status = document.getElementById('validationStatus')
 //let produtoo = document.getElementById('exampleProduto')
 //let tpOperacao = document.getElementById('tipoOperacao')
 
+let requestOptions = {
+  method: 'GET',
+  redirect: 'follow'
+};
 
+fetch("http://localhost:3000/user/supervisor", requestOptions)
+  .then(response => response.json())
+  .then(function (data) {
+    for (let i = 0; i < data.length; i++) {
+      supervisorProposta.innerHTML += '<option value="' + data[i].parceiro + '">' + data[i].parceiro + '</option>;'
+    }
+  }).catch(error => console.log('error', error));
+
+  fetch("http://localhost:3000/user/gerente", requestOptions)
+    .then(response => response.json().then(function (data) {
+      for (let i = 0; i < data.length; i++) {
+        gerenteProposta.innerHTML += '<option value="' + data[i].gerente + '">' + data[i].gerente + '</option>;'
+      }
+    })).catch(error => console.log('error', error));
 
 window.onload = function () {
 
@@ -70,20 +83,6 @@ window.onload = function () {
       }
     })
 
-  fetch(URL + "/user/supervisor", requestOptions)
-  .then(response => response.json())
-  .then(function (data) {
-    for (let i = 0; i < data.length; i++) {
-      supervisorProposta.innerHTML += '<option value="' + data[i].parceiro + '">' + data[i].parceiro + '</option>;'
-    }
-  }).catch(error => console.log('error', error));
-
-  fetch(URL + "/user/gerente", requestOptions)
-    .then(response => response.json().then(function (data) {
-      for (let i = 0; i < data.length; i++) {
-        gerenteProposta.innerHTML += '<option value="' + data[i].gerente + '">' + data[i].gerente + '</option>;'
-      }
-    })).catch(error => console.log('error', error));
 
   fetch(URL + "/user/proposta/substatus", requestOptions)
     .then(response => response.json().then(function (data) {
@@ -192,7 +191,7 @@ filtros.addEventListener('click', () => {
     redirect: 'follow'
   }
 
-  fetch(url+"/user/proposta/filtro", requestOptions).
+  fetch("http://172.16.0.197:3000/user/proposta/filtro", requestOptions).
   then(response => response.json()).
   then(function (data) {
 

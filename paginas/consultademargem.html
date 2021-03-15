@@ -42,8 +42,8 @@
 
 <!-- Extra large modal -->
 
-<div class="modal fade modal-alterar-consultamargem" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel"
-    aria-hidden="true">
+<div class="modal fade modal-alterar-consultamargem" tabindex="-1" role="dialog"
+    aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-xl">
         <div class="modal-content">
 
@@ -70,7 +70,7 @@
 
                 </div>
 
-                <form class="needs-validation" novalidate>
+                <form class="needs-validation" id="empty" novalidate>
 
 
 
@@ -79,33 +79,35 @@
 
                         <div class="col-md-2 mb-3">
                             <label for="validationCustom01">Data Cadastro</label>
-                            <input type="text" class="form-control form-control-sm" id="validationCustom01" required>
+                            <input type="text" class="form-control form-control-sm" id="data-incluir"
+                                onKeyDown="fMasc( this, data );" maxlength="10" required>
 
                         </div>
                         <div class="col-md-4 mb-3">
                             <label for="validationCustom01">Parceiro</label>
-                            <input type="text" class="form-control form-control-sm" id="validationCustom01" required>
+                            <input type="text" class="form-control form-control-sm" id="parceiro-incluir" required>
 
                         </div>
                         <div class="col-md-4 mb-3">
                             <label for="validationCustom01">CPF</label>
-                            <input type="text" class="form-control form-control-sm" id="validationCustom01" required>
+                            <input type="text" class="form-control form-control-sm" id="cpf-incluir" maxlength="14"
+                                onkeypress='mascaraMutuario(this,cpfCnpj)' required>
 
                         </div>
                         <div class="col-md-2 mb-3">
                             <label for="validationCustom01">Matrícula</label>
-                            <input type="text" class="form-control form-control-sm" id="validationCustom01" required>
+                            <input type="text" class="form-control form-control-sm" id="matricula-incluir" required>
                         </div>
                         <div class="col-md-6 mb-3">
                             <label for="validationCustom01">Convênio</label>
-                            <input type="text" class="form-control form-control-sm" id="validationCustom01" required>
+                            <input type="text" class="form-control form-control-sm" id="convenio-incluir" required>
                         </div>
                         <div class="col-md-6 mb-3">
                             <label for="validationCustom01">Senha/Código Único</label>
-                            <input type="text" class="form-control form-control-sm" id="validationCustom01" required>
+                            <input type="password" class="form-control form-control-sm" id="senha-incluir" required>
                         </div>
-                        
-                        
+
+
 
 
 
@@ -122,7 +124,7 @@
 
                 </div>
 
-                <form class="needs-validation" novalidate>
+                <form class="needs-validation" id="empty2" novalidate>
 
 
 
@@ -131,49 +133,76 @@
 
                         <div class="col-md-12 mb-3">
                             <label for="validationCustom01">Valor Margem Disponível</label>
-                            <input type="text" class="form-control form-control-sm" id="validationCustom01" required>
+                            <input type="text" class="form-control form-control-sm" id="valor-margem-incluir"
+                                onKeyPress="return(MascaraMoeda(this,'.',',',event))" required>
 
                         </div>
-                    
 
-                        <div class="col-md-12 mb-3" style="text-align: center; margin-inline: block;">
-                           
-                            
-                            <button type="button"
-                                class="btn btn-sm btn-secondary btn-icon rounded-pill">
-                                <span class="btn-inner--icon"><i
-                                        class="fas fa-download"></i></span>
+
+                        <div class="col-md-12 mb-3" style="text-align: center; margin-inline: block;" id="files">
+
+                            <!-- <button type="button" class="btn btn-sm btn-secondary btn-icon rounded-pill"
+                                id="anexo-print">
+                                <span class="btn-inner--icon"><i class="fas fa-download"></i></span>
                                 <span class="btn-inner--text">Anexo Print Margem</span>
-                            </button>
 
-                            <button type="button"
-                            class="btn btn-sm btn-secondary btn-icon rounded-pill">
-                            <span class="btn-inner--icon"><i
-                                    class="fas fa-download"></i></span>
-                            <span class="btn-inner--text">Download Margem</span>
-                        </button>
-                        
+                                <input type="file" name="proposta" id="file-1" class="custom-input-file"
+                                    data-multiple-caption="{count} files selected" multiple />
+                            </button> -->
+
+                            <div id="div-fundo">
+                                <div class="col-md-3 mb-3" style="text-align: center;" id="printMargem">
+                                    <input type="file" name="anexo_print_margem" id="anexo" class="custom-input-file"
+                                        data-multiple-caption="{count} files selected" multiple required />
+                                    <label for="anexo" id="idLabel">
+                                        <i class="fa fa-upload" style="color: 273444;"></i>
+                                        <span>Anexo Print Margem</span>
+                                    </label>
+                                </div>
+
+
+                                <div class="col-md-3 mb-3" style="text-align: center;" id="downloadMargem">
+                                    <input type="file" name="proposta" id="margem" class="custom-input-file"
+                                        data-multiple-caption="{count} files selected" multiple required />
+                                    <label for="margem" id="idLabel">
+                                        <i class="fa fa-upload" style="color: 273444;"></i>
+                                        <span>Download Margem</span>
+                                    </label>
+                                </div>
+                            </div>
+
+
+
+
+                        </div>
+
+
+
+
+
+
+
+
                     </div>
-           
-                        
 
-
-
-
-
-
-                    </div>
-
-                    <div class="opcoes-cadastro mt-1" style="text-align: center; margin-inline: block;">
-                        <button type="button" class="btn btn-primary btn-icon-label">
+                    <div class="opcoes-cadastro mt-1" style="text-align: center; margin-inline: block;" id="button">
+                        <!-- <button type="button" class="btn btn-primary btn-icon-label">
                             <span class="btn-inner--icon">
                                 <i class="fas fa-plus"></i>
                             </span>
                             <span class="btn-inner--text">Incluir / Salvar Alteração</span>
-                        </button>
+                        </button> -->
 
                     </div>
 
+                    <!-- Alert falha CM -->
+                    <div class="alert alert-danger falha" id="alertFalhaCM" role="alert">
+
+                    </div>
+
+                    <!-- Alert sucesso CM -->
+                    <div class="alert alert-success sucesso" id="alertSucessoCM" role="alert">
+                    </div>
 
                 </form>
 
@@ -757,7 +786,7 @@
                         <div class="card card-fluid">
 
                             <div class="card-body">
-                                <form class="needs-validation" novalidate>
+                                <form class="needs-validation" id="camposForm" novalidate>
 
 
 
@@ -765,15 +794,14 @@
                                         <div class="col-md-6 mb-3">
                                             <label for="validationCustom02">Usuário</label>
                                             <input type="text" minlength="14" maxlength="18"
-                                                class="form-control form-control-sm" id="validationCustom02">
+                                                class="form-control form-control-sm" id="usuario-filtro">
 
                                         </div>
 
                                         <div class="col-md-6 mb-3">
                                             <div class="form-group">
                                                 <label for="exampleFormControlSelect1">Status</label>
-                                                <select class="form-control form-control-sm"
-                                                    id="exampleFormControlSelect1">
+                                                <select class="form-control form-control-sm" id="status-filtro">
                                                     <option> </option>
 
                                                 </select>
@@ -782,54 +810,57 @@
 
                                         <div class="col-md-3 mb-3">
                                             <label for="validationCustom02">Data Atualização</label>
-                                            <input type="text" minlength="14" maxlength="18"
-                                                class="form-control form-control-sm" id="validationCustom02">
+                                            <input type="text" onKeyDown="fMasc( this, data );" maxlength="10"
+                                                class="form-control form-control-sm" id="dataAtualizacao-filtro">
 
                                         </div>
 
                                         <div class="col-md-3 mb-3">
                                             <label for="validationCustom02">Data Cadastro</label>
-                                            <input type="text" minlength="14" maxlength="18"
-                                                class="form-control form-control-sm" id="validationCustom02">
+                                            <input type="text" onKeyDown="fMasc( this, data );" maxlength="10"
+                                                class="form-control form-control-sm" id="dataCadastro-filtro">
 
                                         </div>
 
                                         <div class="col-md-6 mb-3">
                                             <label for="validationCustom02">CPF</label>
-                                            <input type="text" minlength="14" maxlength="18"
-                                                class="form-control form-control-sm" id="validationCustom02">
+                                            <input type="text" maxlength="14" onkeypress='mascaraMutuario(this,cpfCnpj)'
+                                                class="form-control form-control-sm" id="cpf-filtro">
 
                                         </div>
-                                      
-                                        
+
+
                                     </div>
 
-                                
+
 
 
                             </div>
 
                             <div class="opcoes-cadastro" style="text-align: center; margin-inline: block;">
 
-                                <button type="button" class="btn btn-primary btn-icon-label">
+                                <button type="button" class="btn btn-primary btn-icon-label" id="buscar-filtro"
+                                    onclick="search()">
                                     <span class="btn-inner--icon">
                                         <i class="fas fa-search"></i>
                                     </span>
                                     <span class="btn-inner--text">Buscar</span>
-                                    <button type="button" class="btn btn-primary btn-icon-label" data-toggle="modal"
-                                        data-target=".modal-alterar-consultamargem" title="Alterar">
-                                        <span class="btn-inner--icon">
-                                            <i class="fas fa-plus"></i>
-                                        </span>
-                                        <span class="btn-inner--text">Incluir</span>
-                                    </button>
+                                </button>
+                                <button type="button" class="btn btn-primary btn-icon-label" data-toggle="modal"
+                                    data-target=".modal-alterar-consultamargem" title="Alterar" id="buttonIncluir"
+                                    onclick="insertFunction()">
+                                    <span class="btn-inner--icon">
+                                        <i class="fas fa-plus"></i>
+                                    </span>
+                                    <span class="btn-inner--text">Incluir</span>
+                                </button>
 
-                                    <button type="button" class="btn btn-primary btn-icon-label">
-                                        <span class="btn-inner--icon">
-                                            <i class="fas fa-trash-alt"></i>
-                                        </span>
-                                        <span class="btn-inner--text">Apagar Filtros</span>
-                                    </button>
+                                <button type="reset" class="btn btn-primary btn-icon-label" id="apagar-filtro">
+                                    <span class="btn-inner--icon">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </span>
+                                    <span class="btn-inner--text">Apagar Filtros</span>
+                                </button>
 
 
 
@@ -852,30 +883,31 @@
                                             <th scope="col" style="text-align: center;"><b>Renda</b></th>
                                             <th scope="col" style="text-align: center;"><b>Data Atualização</b></th>
                                             <th scope="col" style="text-align: center;"><b>Data Alteração</b></th>
-                                            <th scope="col" style="text-align: center;"><b>Status</b></th>
+                                            <!-- <th scope="col" style="text-align: center;"><b>Status</b></th> -->
                                             <th scope="col" style="text-align: center;"><b>Margem Disponível</b></th>
                                             <th scope="col" style="text-align: center;"><b>Alterar</b></th>
 
                                         </tr>
                                     </thead>
-                                    <tbody>
+                                    <tbody id="list" style="text-align: center;">
 
-                                        <td style="text-align: center;"> XXXXXXXX </td>
-                                        <td style="text-align: center;"> XXXXXXXX </td>
-                                        <td style="text-align: center;"> XXXXXXXX </td>
-                                        <td style="text-align: center;"> XXXXXXXX </td>
-                                        <td style="text-align: center;"> XXXXXXXX </td>
-                                        <td style="text-align: center;"> XXXXXXXX </td>
-                                        <td style="text-align: center;"> XXXXXXXX </td>
-                                        <td style="text-align: center;"> XXXXXXXX </td>
-                                        <td style="text-align: center;"> XXXXXXXX </td>
-                                        <td style="text-align: center;"> XXXXXXXX </td>
-                                        <td style="text-align: center;"> XXXXXXXX </td>
-                                        <td style="text-align: center;"> XXXXXXXX </td>
+                                        <td style="text-align: center;"> </td>
+                                        <td style="text-align: center;"> </td>
+                                        <td style="text-align: center;"> </td>
+                                        <td style="text-align: center;"> </td>
+                                        <td style="text-align: center;"> </td>
+                                        <td style="text-align: center;"> </td>
+                                        <td style="text-align: center;"> </td>
+                                        <td style="text-align: center;"> </td>
+                                        <td style="text-align: center;"> </td>
+                                        <td style="text-align: center;"> </td>
+                                        <!-- <td style="text-align: center;"> XXXXXXXX </td> -->
+                                        <td style="text-align: center;"> </td>
                                         <td style="text-align: center;">
 
                                             <div class="actions ml-3" style="text-align: center;">
                                                 <a href="#" class="action-item mr-2" data-toggle="modal"
+                                                    onclick="updateMargemConsulta()"
                                                     data-target=".modal-alterar-consultamargem" title="Alterar">
                                                     <i class="fas fa-external-link-alt"></i>
                                                 </a>
@@ -924,8 +956,10 @@
     <!-- Purpose JS -->
     <script src="../assets/js/purpose.js"></script>
     <!-- Mascaras -->
+    <script src="../assets/js/mascarasvalores.js"></script>
     <script src="../assets/js/mascaras.js"></script>
     <!-- Demo JS - remove it when starting your project -->
+    <script src="../assets/js/consultaMargem.js"></script>
     <script src="../assets/js/demo.js"></script>
 </body>
 

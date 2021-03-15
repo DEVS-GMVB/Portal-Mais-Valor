@@ -1627,12 +1627,12 @@
                         </div>
                         <!-- Alert falha acesso -->
                         <div class="alert alert-danger falha" id="alertFalhaAcesso" role="alert">
-                             
                         </div> 
 
                         <!-- Alert sucesso acesso -->
                        <div class="alert alert-success sucesso" id="alertSucessoAcesso" role="alert">
                        </div>
+                        
 
                         <div class="table-responsive mt-3">
                             <table class="table align-items-center">
@@ -1647,7 +1647,7 @@
                                         </th>
                                     </tr>
                                 </thead>
-                                <tbody class="list" id="lista">
+                                <tbody class="list empty" id="lista">
 
                                     <tr>
                                         <th>
@@ -1985,12 +1985,12 @@
 
                         <!-- Alert falha cadastro -->
                         <div class="alert alert-danger" id="alertFalhaCadastro" role="alert">
-                            Preencha os campos necessários
+                           
                         </div>
 
                         <!-- Alert sucesso cadastro -->
                         <div class="alert alert-success" id="alertSucessoCadastro" role="alert">
-                            Cadastro incluido com sucesso!
+                            
                         </div>
                         
 
@@ -2724,13 +2724,16 @@
                                     </div>
 
                                     <div class="opcoes-cadastro" style="text-align: center; margin-inline: block;">
-                                        <button type="button" class="btn btn-primary btn-icon-label" data-toggle="modal"
-                                            data-target=".modalteladecadastro" title="Alterar" id="buttonIncluir">
-                                            <span class="btn-inner--icon">
-                                                <i class="fas fa-plus"></i>
-                                            </span>
-                                            <span class="btn-inner--text">Incluir</span>
-                                        </button>
+                                        <a class="" id="cadastro-tabb" data-toggle="tab" href="#cadastro" role="tab"
+                                        aria-controls="comissao" aria-selected="false">
+                                            <button type="button" class="btn btn-primary btn-icon-label" data-toggle="modal"
+                                                data-target=".modalteladecadastro" title="Alterar" id="buttonIncluir">
+                                                <span class="btn-inner--icon">
+                                                    <i class="fas fa-plus"></i>
+                                                </span>
+                                                <span class="btn-inner--text">Incluir</span>
+                                            </button>
+                                        </a>
 
                                         <button type="button" class="btn btn-primary btn-icon-label"
                                             id="apagarFiltrosCadastro">
@@ -2787,7 +2790,7 @@
                                             </tr>
                                         </thead>
 
-                                        <tbody class="list" id="list">
+                                        <tbody class="list empty" id="list">
 
                                             <tr>
 

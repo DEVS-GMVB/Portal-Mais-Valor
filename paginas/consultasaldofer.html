@@ -79,17 +79,18 @@
 
                         <div class="col-md-4 mb-3">
                             <label for="validationCustom01">Data Cadastro</label>
-                            <input type="text" class="form-control form-control-sm" id="validationCustom01" required>
+                            <input type="text" onKeyDown="mascaraMutuario( this, data );" maxlength="10" class="form-control form-control-sm" id="dataCadastro"  required>
 
                         </div>
                         <div class="col-md-4 mb-3">
                             <label for="validationCustom01">Parceiro</label>
-                            <input type="text" class="form-control form-control-sm" id="validationCustom01" required>
+                            <input type="text" class="form-control form-control-sm" id="parceiro" required>
 
                         </div>
                         <div class="col-md-4 mb-3">
                             <label for="validationCustom01">CPF</label>
-                            <input type="text" class="form-control form-control-sm" id="validationCustom01" required>
+                            <input type="text" class="form-control form-control-sm" id="cpf" maxlength="14"
+                            onkeypress='mascaraMutuario(this,cpfCnpj)' required>
 
                         </div>
                         
@@ -121,20 +122,26 @@
                         
                         <div class="col-md-12 mb-0" style="text-align: center; margin-inline: block;">
                            
-                            
-                                <button type="button"
-                                    class="btn btn-sm btn-secondary btn-icon rounded-pill">
-                                    <span class="btn-inner--icon"><i
-                                            class="fas fa-download"></i></span>
-                                    <span class="btn-inner--text">Anexo Print Saldo FER</span>
-                                </button>
+                            <div id="div-fundo">
+                                <div class="col-md-3 mb-3" style="text-align: center;" id="printSaldoFer">
+                                    <input type="file" name="anexo_print_fer" id="anexo" class="custom-input-file"
+                                        data-multiple-caption="{count} files selected" multiple required />
+                                    <label for="anexo" id="idLabel">
+                                        <i class="fa fa-upload" style="color: 273444;"></i>
+                                        <span>Anexo Print Saldo FER</span>
+                                    </label>
+                                </div>
 
-                                <button type="button"
-                                class="btn btn-sm btn-secondary btn-icon rounded-pill">
-                                <span class="btn-inner--icon">
-                                    <i class="fas fa-download"></i></span>
-                                <span class="btn-inner--text">Download Saldo FER</span>
-                            </button>
+
+                                <div class="col-md-3 mb-3" style="text-align: center;" id="downloadMargem">
+                                    <input type="file" name="proposta" id="margem" class="custom-input-file"
+                                        data-multiple-caption="{count} files selected" multiple required />
+                                    <label for="margem" id="idLabel">
+                                        <i class="fa fa-upload" style="color: 273444;"></i>
+                                        <span>Download Saldo Fer</span>
+                                    </label>
+                                </div>
+                            </div>
                             
                         </div>
                
@@ -149,16 +156,23 @@
                     </div>
 
 
-                    <div class="opcoes-cadastro mt-1" style="text-align: center; margin-inline: block;">
-                        <button type="button" class="btn btn-primary btn-icon-label">
+                    <div class="opcoes-cadastro mt-1" style="text-align: center; margin-inline: block;" id="changeButtons">
+                        <!-- <button type="button" class="btn btn-primary btn-icon-label" id="btn-incluir">
                             <span class="btn-inner--icon">
                                 <i class="fas fa-plus"></i>
                             </span>
                             <span class="btn-inner--text">Incluir / Salvar Alteração</span>
-                        </button>
+                        </button> -->
+
+                        <div class="alert alert-danger falha" id="alertFalhaSaldofer" role="alert">
+                        </div> 
+    
+                        <!-- Alert sucesso acesso -->
 
                     </div>
 
+                    <div class="alert alert-success sucesso" id="messageSuccess" role="alert">
+                    </div>
 
                 </form>
 
@@ -750,7 +764,7 @@
                                         <div class="col-md-6 mb-3">
                                             <label for="validationCustom02">Usuário</label>
                                             <input type="text" minlength="14" maxlength="18"
-                                                class="form-control form-control-sm" id="validationCustom02">
+                                                class="form-control form-control-sm" id="usuario-consulta">
 
                                         </div>
 
@@ -758,8 +772,10 @@
                                             <div class="form-group">
                                                 <label for="exampleFormControlSelect1">Status</label>
                                                 <select class="form-control form-control-sm"
-                                                    id="exampleFormControlSelect1">
+                                                    id="status-consulta">
                                                     <option> </option>
+                                                    <option value="AGUARDANDO CONSULTA FER">AGUARDANDO CONSULTA FER</option>
+                                                    <option value="FER RESPONDIDO">FER RESPONDIDO</option>
 
                                                 </select>
                                             </div>
@@ -767,22 +783,22 @@
 
                                         <div class="col-md-3 mb-3">
                                             <label for="validationCustom02">Data Atualização</label>
-                                            <input type="text" minlength="14" maxlength="18"
-                                                class="form-control form-control-sm" id="validationCustom02">
+                                            <input type="text" 
+                                                class="form-control form-control-sm" id='dataAtualização-consulta' onKeyDown="mascaraMutuario( this, data );" maxlength="10">
 
                                         </div>
 
                                         <div class="col-md-3 mb-3">
                                             <label for="validationCustom02">Data Cadastro</label>
-                                            <input type="text" minlength="14" maxlength="18"
-                                                class="form-control form-control-sm" id="validationCustom02">
+                                            <input type="text" class="form-control form-control-sm" id="dataCadastro-consulta" onKeyDown="mascaraMutuario(this, data);" maxlength="10">
 
                                         </div>
 
                                         <div class="col-md-6 mb-3">
                                             <label for="validationCustom02">CPF</label>
-                                            <input type="text" minlength="14" maxlength="18"
-                                                class="form-control form-control-sm" id="validationCustom02">
+                                            <input type="text"  maxlength="14"
+                                            onkeypress='mascaraMutuario(this,cpfCnpj)'
+                                                class="form-control form-control-sm" id="cpf-consulta">
 
                                         </div>
                                       
@@ -796,20 +812,20 @@
 
                             <div class="opcoes-cadastro" style="text-align: center; margin-inline: block;">
 
-                                <button type="button" class="btn btn-primary btn-icon-label">
+                                <button type="button" class="btn btn-primary btn-icon-label" id="btn-buscar">
                                     <span class="btn-inner--icon">
                                         <i class="fas fa-search"></i>
                                     </span>
                                     <span class="btn-inner--text">Buscar</span>
                                     <button type="button" class="btn btn-primary btn-icon-label" data-toggle="modal"
-                                        data-target=".modal-alterar-consultasaldofer" title="Alterar">
+                                        data-target=".modal-alterar-consultasaldofer" title="Alterar" id="btn-incluir">
                                         <span class="btn-inner--icon">
                                             <i class="fas fa-plus"></i>
                                         </span>
                                         <span class="btn-inner--text">Incluir</span>
                                     </button>
 
-                                    <button type="button" class="btn btn-primary btn-icon-label">
+                                    <button type="reset" class="btn btn-primary btn-icon-label">
                                         <span class="btn-inner--icon">
                                             <i class="fas fa-trash-alt"></i>
                                         </span>
@@ -833,12 +849,11 @@
                                             <th scope="col" style="text-align: center;"><b>Parceiro</b></th>
                                             <th scope="col" style="text-align: center;"><b>Data Autorização</b></th>
                                             <th scope="col" style="text-align: center;"><b>LOG Alteração</b></th>
-                                            <th scope="col" style="text-align: center;"><b>Status</b></th>
                                             <th scope="col" style="text-align: center;"><b>Alterar</b></th>
 
                                         </tr>
                                     </thead>
-                                    <tbody>
+                                    <tbody id="List" style="text-align: center;">
 
                                         <td style="text-align: center;"> XXXXXXXX </td>
                                         <td style="text-align: center;"> XXXXXXXX </td>
@@ -851,7 +866,7 @@
 
                                             <div class="actions ml-3" style="text-align: center;">
                                                 <a href="#" class="action-item mr-2" data-toggle="modal"
-                                                    data-target=".modal-alterar-consultasaldofer" title="Alterar">
+                                                    data-target=".modal-alterar-consultasaldofer" title="Alterar" id="icon-alterar">
                                                     <i class="fas fa-external-link-alt"></i>
                                                 </a>
 
@@ -901,6 +916,7 @@
     <!-- Mascaras -->
     <script src="../assets/js/mascaras.js"></script>
     <!-- Demo JS - remove it when starting your project -->
+    <script src="../assets/js/consultaSaldoFER.js"></script>
     <script src="../assets/js/demo.js"></script>
 </body>
 
