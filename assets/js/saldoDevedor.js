@@ -130,7 +130,7 @@ apagar.addEventListener('click', () => {
     })
 })
 
-function Buscar() {
+function filter() {
 
     var node = document.getElementById("listItens");
     while (node.hasChildNodes()) {
@@ -140,15 +140,11 @@ function Buscar() {
     myHeaders.append("Content-Type", "application/json");
 
     const parceiro = $("#ParcPromo").val()
-    const supervisor = $("#Supervisor").val()
     const status = $("#Status").val()
-    const gerente = $("#Gerente").val()
 
     const body = {
         parceiro: parceiro,
-        supervisor: supervisor,
         status: status,
-        gerente: gerente
     }
 
     const raw = JSON.stringify(body)

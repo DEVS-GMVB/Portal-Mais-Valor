@@ -104,7 +104,7 @@ function insertTbody(data) {
     let usuario_cell_text = document.createTextNode(`${data.parceiro}`)
     usuario_cell.appendChild(usuario_cell_text);
 
-    console.log($('#listNegra tr').length)
+    // console.log($('#listNegra tr').length)
 
     delete_icon.innerHTML = `
         <div class="actions ml-3">
@@ -117,8 +117,8 @@ function insertTbody(data) {
 
 
 function deleteRow(row) {
-    
-    console.log(row);
+
+    // console.log(row);
 
     document.getElementById("listNegra").deleteRow($('#listNegra tr')[row]);
     arrays.contadorRow--;
