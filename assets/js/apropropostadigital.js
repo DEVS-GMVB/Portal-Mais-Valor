@@ -1,5 +1,7 @@
 const URL = 'http://localhost:3000'
 let tipo = document.getElementById('tipo-incluir')
+let bancoOrigiIncluir = document.getElementById('banco-incluir')
+let bancoOrigiPesquisa = document.getElementById('banco-pesquisa')
 
 const arrays = {
     arrayUpdate: arrayUpdate = [],
@@ -21,6 +23,15 @@ window.onload = function(){
         }
     })).catch(error => console.log('error', error));
 
+    fetch(URL + '/user/bancoOrigi', requestOptions)
+    .then(response => response.json().then(function(data){
+        for(let i = 0; i < data.length; i++){
+            bancoOrigiIncluir.innerHTML += '<option value="' + data[i].banco + '">' + data[i].banco + '</options>'
+            bancoOrigiPesquisa.innerHTML += '<option value="' + data[i].banco + '">' + data[i].banco + '</options>'
+        }
+    }))
+    
+    //Bloqueando campos
     $('#parceiro-incluir').attr('disabled', true);
     $('#supervidor-incluir').attr('disabled', true);
     $('#gerente-incluir').attr('disabled', true);
@@ -78,7 +89,7 @@ function change() {
     document.getElementById('dtCadastro-incluir').value = `${today.getDate()}/${(month + 1)}/${today.getFullYear()} ${hours}:${minute}:${second}`
 
     //Parceiro Supervisor e Gerente da sessão
-    //document.getElementById('parceiro-incluir').value = sessionStorage.getItem('nome', 'nome')    
+    document.getElementById('parceiro-incluir').value = sessionStorage.getItem('nome', 'nome')    
     //document.getElementById('parceiro-incluir').value = sessionStorage.getItem('tipo_parceiro', 'tipo_parceiro')
 
     //Insert
@@ -167,7 +178,8 @@ function search() {
     fetch(URL + '/user/aprovacaoproposta/filtro', requestOptions).
     then(response => response.json().then(function (data) {
 
-        arrays.arrayId = []
+        arrays.arrayUpdate = data;
+        //arrays.arrayId = []
 
         for (let i = 0; i < data.length; i++) {
             let specific_tbody = document.getElementById('List');
@@ -214,14 +226,16 @@ function search() {
             let responsavelText = document.createTextNode(`${data[i].responsavel}`)
             responsavel.appendChild(responsavelText)
 
-             arrays.arrayId.push(data[i].id_fluxo)
-             arrays.arrayRows.push(row)
+            //  arrays.arrayId.push(data[i].id_fluxo)
+            //  arrays.arrayRows.push(row)
+
+            arrays.arrayRows[i] = row
 
             alterar.innerHTML = `
             <div class="actions ml-3" style="text-align: center;">
                                                 <a href="#" class="action-item mr-2" data-toggle="modal"
                                                     data-target=".modal-alterar-apropropostadigital" title="Alterar" id="icon-update"
-                                                    onclick="iconUpdate(arrays.arrayId[${i}], arrays.arrayRows[${i}])">
+                                                    onclick="iconUpdate(arrays.arrayUpdate[${i}].id_fluxo, arrays.arrayRows[${i}])">
                                                     <i class="fas fa-external-link-alt"></i>
                                                 </a>
 
@@ -236,7 +250,7 @@ function iconUpdate(id, row) {
     //Desbloqueando campo
     $('#status-incluir').attr('disabled', false)
 
-    breakModal.changeUpdate(id, row)//Passar id e linha aqui quando para quando for alterar
+    //breakModal.changeUpdate(id, row)//Passar id e linha aqui quando para quando for alterar
 
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
@@ -254,6 +268,7 @@ function iconUpdate(id, row) {
 
     fetch(URL + "/user/aprovacaoproposta/modal", requestOptions).
     then(response => response.json().then(function (data) {
+        breakModal.changeUpdate(data.id_fluxo, row)
         console.log(id)
         $('#dtCadastro-incluir').val(data.data_inclusao);
         $('#proposta-incluir').val(data.proposta);
