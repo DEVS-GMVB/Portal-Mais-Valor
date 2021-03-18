@@ -299,7 +299,7 @@ function change() {
 
     //Desbloqueando os campos
     $('#Cpf').attr('disabled', false)
-    $("#Parceiro").attr('disabled', false)
+    //$("#Parceiro").attr('disabled', false)
     $("#IdtMargem").attr('disabled', false)
     $("#Convenio").attr('disabled', false)
     $("#matricula").attr('disabled', false)
@@ -309,6 +309,8 @@ function change() {
     $("#DtNascimento").attr('disabled', false)
 
     //Bloqueando os campos
+    document.getElementById('Parceiro').value = sessionStorage.getItem('nome', 'nome')
+    $('#Parceiro').attr('disabled', true)
     $("#SaldoDev").attr('disabled', true)
     $("#PrazoRestante").attr('disabled', true)
     $("#TaxaJuros").attr('disabled', true)

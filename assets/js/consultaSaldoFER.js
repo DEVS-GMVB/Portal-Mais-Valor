@@ -16,6 +16,11 @@ const arrays = {
     contadorChangeRows: 0
 }
 
+window.onload = function(){
+    document.getElementById('parceiro').value = sessionStorage.getItem('nome', 'nome')
+    $('#parceiro').attr('disabled', true)
+}
+
 const breakModal = {
     changeInsert: function () {
         document.getElementById("changeButtons").innerHTML = `
@@ -42,6 +47,7 @@ const breakModal = {
         `
     }
 }
+
 
 changeButtonInsert.addEventListener('click', () => {
     //Quebra de referência de modais

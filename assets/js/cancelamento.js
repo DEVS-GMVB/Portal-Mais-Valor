@@ -12,6 +12,11 @@ const arrays = {
 }
 
 window.onload = function(){
+
+    $('#parceiro-incluir').attr('disabled', true)
+    $('#supervisor-incluir').attr('disabled', true)
+    $('#gerente-incluir').attr('disabled', true)
+
     let requestOptions = {
         method: 'GET',
         redirect: 'follow'
@@ -76,7 +81,15 @@ function change(){
     breakModal.empty();
 
     //Bloqueando campo
-    $('#status-incluir').attr('disabled', true);
+    $('#status-incluir').attr('disabled', true)
+
+    //Escondendo campos Parceiro, Supervisor e gerente
+    document.getElementById("id-parceiros").style.display = "none";
+
+    //Preenchendo Parceiro, Supervisor e Gerente
+    document.getElementById('parceiro-incluir').value = sessionStorage.getItem('nome', 'nome')
+    document.getElementById('supervisor-incluir').value = sessionStorage.getItem('supervisor', 'supervisor')
+    document.getElementById('gerente-incluir').value = sessionStorage.getItem('gerente', 'gerente')
 
     breakModal.changeInsert();
 }
@@ -235,6 +248,9 @@ function updateCancelamento(id, row){
 
     //Desbloqueando campo
     $('#status-incluir').attr('disabled', false);
+
+    //Aparecendo campos Parceiro, Supervisor e Gerente
+    $('#id-parceiros').show();
     
     //breakModal.empty()
     breakModal.changeUpdte(id, row)

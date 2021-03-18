@@ -45,7 +45,7 @@ const breakModal = {
 
 function changee(){
     breakModal.changeInsert()
-    //alert('hggh')
+    //document.getElementById('cpf-incluir').value = sessionStorage.getItem('nome', 'nome')
 }
 
 function insert(){
@@ -83,7 +83,8 @@ function insert(){
             cnpj_1:cpfSocio1,
             cnpj_2:cpfSocio2,
             cnpj_4:cpfSocio4,
-            cnpj_3:cpfSocio3
+            cnpj_3:cpfSocio3,
+            parceiro:sessionStorage.getItem('nome', 'nome')
     }
 
     const raw = JSON.stringify(body)

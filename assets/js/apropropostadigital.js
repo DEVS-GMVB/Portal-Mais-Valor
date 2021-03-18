@@ -80,6 +80,9 @@ function change() {
     //Bloqueando campo
     $('#status-incluir').attr('disabled', true)
 
+    //Escondendo campos Parceiro, Supervisor e Gerente
+    document.getElementById('id-parceiros').style.display = 'none'
+
     //Preenche data Cadastro
     let today = new Date();
     let month = today.getMonth();
@@ -90,7 +93,8 @@ function change() {
 
     //Parceiro Supervisor e Gerente da sessão
     document.getElementById('parceiro-incluir').value = sessionStorage.getItem('nome', 'nome')    
-    //document.getElementById('parceiro-incluir').value = sessionStorage.getItem('tipo_parceiro', 'tipo_parceiro')
+    document.getElementById('supervidor-incluir').value = sessionStorage.getItem('supervisor', 'supervisor')
+    document.getElementById('gerente-incluir').value = sessionStorage.getItem('gerente', 'gerente')
 
     //Insert
     breakModal.changeInsert()
@@ -250,6 +254,9 @@ function iconUpdate(id, row) {
     //Desbloqueando campo
     $('#status-incluir').attr('disabled', false)
 
+    //Aparecendo campos Parceiros, Supervisor e Gerente
+    $('#id-parceiros').show();
+
     //breakModal.changeUpdate(id, row)//Passar id e linha aqui quando para quando for alterar
 
     var myHeaders = new Headers();
@@ -279,7 +286,7 @@ function iconUpdate(id, row) {
         $('#parceiro-incluir').val(data.parceiro);
         //document.getElementById('parceiro-incluir') = sessionStorage.getItem('userTipousuario')
         //let tipo_usuario = sessionStorage.getItem('tipo_usuario', 'tipo_usuario');
-        $('#supervidor-incluir').val(data.parceiro);
+        $('#supervidor-incluir').val(data.supervisor);
         $('#gerente-incluir').val(data.gerente);
     })).catch(error => console.log('erro: ', error))
 }
