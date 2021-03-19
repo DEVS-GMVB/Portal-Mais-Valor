@@ -11,6 +11,26 @@ const arrays = {
     arrayChangeButtonsRows: arrayChangeButtonsRows = []
 }
 
+const dataSession = {
+    id_acesso: sessionStorage.getItem('id_acesso', 'id_acesso'),
+    status: sessionStorage.getItem('status', 'status'),
+    perfil: sessionStorage.getItem('perfil', 'perfil'),
+    nome: sessionStorage.getItem('nome', 'nome'),
+    supervisor: sessionStorage.getItem('supervisor', 'supervisor'),
+    gerente: sessionStorage.getItem('gerente', 'gerente'),
+    cnpj_matr: sessionStorage.getItem('cnpj_matriz', 'cnpj_matriz'),
+    cpf_user: sessionStorage.getItem('cpf_usuario', 'cpf_usuario'),
+    tipo_usuario: sessionStorage.getItem('tipo_usuario', 'tipo_usuario'),
+    supervisor_cpf: sessionStorage.getItem('supervisor_cpf', 'supervisor_cpf'),
+    gerente_cpf: sessionStorage.getItem('gerente_cpf', 'gerente_cpf')
+}
+
+function dateNow() {
+    let date = new Date();
+    let dateNow = `${date.getDate()}/${(date.getMonth() + 1)}/${date.getFullYear()} ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`
+    return dateNow;
+}
+
 window.onload = function(){
 
     $('#parceiro-incluir').attr('disabled', true)
@@ -86,6 +106,15 @@ function change(){
     //Escondendo campos Parceiro, Supervisor e gerente
     document.getElementById("id-parceiros").style.display = "none";
 
+    //Preenche data Cadastro
+    let today = new Date();
+    let month = today.getMonth();
+    let hours = today.getHours()
+    let minute = today.getMinutes()
+    let second = today.getSeconds()
+    document.getElementById('dtCadastro-incluir').value = `${today.getDate()}/${(month + 1)}/${today.getFullYear()} ${hours}:${minute}:${second}`
+
+
     //Preenchendo Parceiro, Supervisor e Gerente
     document.getElementById('parceiro-incluir').value = sessionStorage.getItem('nome', 'nome')
     document.getElementById('supervisor-incluir').value = sessionStorage.getItem('supervisor', 'supervisor')
@@ -115,9 +144,13 @@ function insertCancel(){
         //status:status,
         motivo_cancelamento1:motivoCancel,
         parceiro:parceiro,
-        supervisor:supervisor,
+        supervisor: supervisor,
         gerente:gerente,
-        obs:obs
+        obs:obs,
+        id_acesso: dataSession.id_acesso,
+        cpf_parceiro: dataSession.cpf_parceiro,
+        cpf_gerente: dataSession.gerente_cpf,
+        cpf_supervisor: dataSession.supervisor_cpf
     }
 
     const raw = JSON.stringify(body)
@@ -289,6 +322,8 @@ function updateCancelamento(id, row){
 //Alterar
 function updateCancel(id, row){
 
+    const data = this.dateNow();
+
     const myheaders = new Headers()
     myheaders.append('Content-Type', 'application/json')
 
@@ -308,7 +343,9 @@ function updateCancel(id, row){
         motivo_cancelamento1:motivo,
         parceiro:parceiro,
         supervisor:supervisor,
-        gerente:gerente
+        gerente:gerente,
+        data_atualizacao: data,
+        responsavel: dataSession.nome
     }
 
     const raw = JSON.stringify(body)

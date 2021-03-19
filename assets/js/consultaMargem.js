@@ -18,12 +18,14 @@ const dataSession = {
     gerente: sessionStorage.getItem('gerente', 'gerente'),
     cnpj_matr: sessionStorage.getItem('cnpj_matriz', 'cnpj_matriz'),
     cpf_user: sessionStorage.getItem('cpf_usuario', 'cpf_usuario'),
-    tipo_usuario: sessionStorage.getItem('tipo_usuario', 'tipo_usuario')
+    tipo_usuario: sessionStorage.getItem('tipo_usuario', 'tipo_usuario'),
+    supervisor_cpf: sessionStorage.getItem('supervisor_cpf', 'supervisor_cpf'),
+    gerente_cpf: sessionStorage.getItem('gerente_cpf', 'gerente_cpf')
 }
 
 class ConsultaMargem {
-    #transporter
-    #valueTransporter
+    // #transporter
+    // #valueTransporter
 
     constructor(url) {
         this.URL = url
@@ -31,7 +33,7 @@ class ConsultaMargem {
 
     dateNow() {
         let date = new Date();
-        let dateNow = `${date.getDate()}/${(date.getMonth() + 1)}/${date.getFullYear()}`
+        let dateNow = `${date.getDate()}/${(date.getMonth() + 1)}/${date.getFullYear()} ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`
         return dateNow;
     }
 
@@ -301,79 +303,81 @@ class ConsultaMargem {
     insert() {
         const data = this.dateNow();
 
-        const resultCpfs = this.searchCpfs(dataSession.supervisor, dataSession.gerente);
+        // const resultCpfs = this.searchCpfs(dataSession.supervisor, dataSession.gerente);
 
-        Promise.resolve(resultCpfs).then(function (value) {
+        const dataCadas = $('#data-incluir').val()
+        // const parceiro = $('#parceiro-incluir').val()
+        const cpf = $('#cpf-incluir').val()
+        const matricula = $('#matricula-incluir').val()
+        const convenio = $('#convenio-incluir').val()
+        const senha = $('#senha-incluir').val()
+        const vlMargem = $('#valor-margem-incluir').val()
 
-            const dataCadas = $('#data-incluir').val()
-            // const parceiro = $('#parceiro-incluir').val()
-            const cpf = $('#cpf-incluir').val()
-            const matricula = $('#matricula-incluir').val()
-            const convenio = $('#convenio-incluir').val()
-            const senha = $('#senha-incluir').val()
-            const vlMargem = $('#valor-margem-incluir').val()
+        const myHeaders = new Headers();
+        myHeaders.append('Content-Type', 'application/json')
 
-            const myHeaders = new Headers();
-            myHeaders.append('Content-Type', 'application/json')
+        const body = {
+            id_parceiro: dataSession.id_acesso,
+            data_cadastro: dataCadas,
+            parceiro: dataSession.nome,
+            cpf: cpf,
+            matricula: matricula,
+            convenio: convenio,
+            responsavel: "",
+            senha: senha,
+            valor_margem: vlMargem,
+            gerente: dataSession.gerente,
+            supervisor: dataSession.supervisor,
+            userPerfil: dataSession.perfil,
+            userCpf: dataSession.cpf_user,
+            userTipousuario: dataSession.tipo_usuario,
+            userNome: dataSession.nome,
+            userCnpjMatriz: dataSession.cnpj_matr,
+            data_inclusao: data,
+            id_acesso: dataSession.id_acesso,
+            cpf_gerente: dataSession.gerente_cpf,
+            cpf_supervisor: dataSession.supervisor_cpf,
+            cpf_parceiro: dataSession.cpf_user,
+        }
 
-            const body = {
-                id_parceiro: "",
-                data_cadastro: dataCadas,
-                parceiro: dataSession.nome,
-                cpf: cpf,
-                matricula: matricula,
-                convenio: convenio,
-                responsavel: "",
-                senha: senha,
-                valor_margem: vlMargem,
-                gerente: dataSession.gerente,
-                supervisor: dataSession.supervisor,
-                userPerfil: dataSession.perfil,
-                userCpf: dataSession.cpf_user,
-                userTipousuario: dataSession.tipo_usuario,
-                userNome: dataSession.nome,
-                userCnpjMatriz: dataSession.cnpj_matr,
-                data_inclusao: data,
-                id_acesso: dataSession.id_acesso,
-                cpf_gerente: value.gerente_cpf,
-                cpf_supervisor: value.supervisor_cpf
+        const raw = JSON.stringify(body)
+
+        const requestOptions = {
+            method: 'POST',
+            headers: myHeaders,
+            body: raw,
+            redirect: 'follow'
+        }
+
+        fetch(URL + '/user/margem/incluir', requestOptions).
+        then(response => response.json().then(function (data) {
+            // alert(data)
+            if (data) {
+                $('#alertSucessoCM').show();
+                $('#alertSucessoCM').fadeIn(300).delay(3000).fadeOut(400);
+                document.getElementById("alertSucessoCM").textContent = "Margem cadastrada com sucesso"
+
             }
 
-            const raw = JSON.stringify(body)
+            const fileInputs = document.querySelectorAll('div#div-fundo input[type="file"]')[0]
+            const codigo = data
+            console.log(fileInputs)
 
-            const requestOptions = {
+            var data = new FormData()
+            data.append(fileInputs.name, fileInputs.files[0])
+
+
+            fetch(URL + `/user/margem/incluir/anexo?codigo=${codigo}`, {
                 method: 'POST',
-                headers: myHeaders,
-                body: raw,
-                redirect: 'follow'
-            }
+                body: data
+            }).then(response => response.json()).then(function (data) {
 
-            fetch(URL + '/user/margem/incluir', requestOptions).
-            then(response => response.json().then(function (data) {
-                if (data) {
-                    $('#alertSucessoCM').show();
-                    $('#alertSucessoCM').fadeIn(300).delay(3000).fadeOut(400);
-                    document.getElementById("alertSucessoCM").textContent = "Margem cadastrada com sucesso"
+                console.log(data)
 
-                }
-
-                const fileInputs = document.querySelectorAll('div#div-fundo input[type="file"]')[0]
-                const codigo = data
-
-                var data = new FormData()
-                data.append(fileInputs.name, fileInputs.files[0])
+            }).catch(error => console.log('error: ', error))
 
 
-                fetch(URL + `/user/margem/incluir/anexo?codigo=${codigo}`, {
-                    method: 'POST',
-                    body: data
-                }).then(response => response.json()).then(function (data) {
-
-                }).catch(error => console.log('error: ', error))
-
-
-            })).catch(error => console.log('error: ', error))
-        })
+        })).catch(error => console.log('error: ', error))
 
     }
 
@@ -394,31 +398,31 @@ class ConsultaMargem {
         cells[10].textContent = $('#valor-margem-incluir').val()
     }
 
-    searchCpfs = async (supervisor, gerente) => {
-        const myHeaders = new Headers();
-        myHeaders.append("Content-Type", "application/json");
+    // searchCpfs = async (supervisor, gerente) => {
+    //     const myHeaders = new Headers();
+    //     myHeaders.append("Content-Type", "application/json");
 
-        const raw = JSON.stringify({
-            supervisor: supervisor,
-            gerente: gerente
-        });
+    //     const raw = JSON.stringify({
+    //         supervisor: supervisor,
+    //         gerente: gerente
+    //     });
 
-        const requestOptions = {
-            method: 'POST',
-            headers: myHeaders,
-            body: raw,
-            redirect: 'follow'
-        };
-        await fetch(this.URL + "/user/buscar", requestOptions)
-            .then(response => response.json())
-            .then(result => {
-                // console.log(result)
-                this.#transporter = result
-            })
-            .catch(error => console.log('error', error));
+    //     const requestOptions = {
+    //         method: 'POST',
+    //         headers: myHeaders,
+    //         body: raw,
+    //         redirect: 'follow'
+    //     };
+    //     await fetch(this.URL + "/user/buscar", requestOptions)
+    //         .then(response => response.json())
+    //         .then(result => {
+    //             // console.log(result)
+    //             this.#transporter = result
+    //         })
+    //         .catch(error => console.log('error', error));
 
-        return this.#transporter
-    }
+    //     return this.#transporter
+    // }
 
 
 

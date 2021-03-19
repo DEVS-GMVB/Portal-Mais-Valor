@@ -6,6 +6,26 @@ const changeButtonUpdate = document.getElementById("icon-alterar");
 const makeInsert = document.getElementById("btn-insert");
 const buttonSearch = document.getElementById("btn-buscar");
 
+const dataSession = {
+    id_acesso: sessionStorage.getItem('id_acesso', 'id_acesso'),
+    status: sessionStorage.getItem('status', 'status'),
+    perfil: sessionStorage.getItem('perfil', 'perfil'),
+    nome: sessionStorage.getItem('nome', 'nome'),
+    supervisor: sessionStorage.getItem('supervisor', 'supervisor'),
+    gerente: sessionStorage.getItem('gerente', 'gerente'),
+    cnpj_matr: sessionStorage.getItem('cnpj_matriz', 'cnpj_matriz'),
+    cpf_user: sessionStorage.getItem('cpf_usuario', 'cpf_usuario'),
+    tipo_usuario: sessionStorage.getItem('tipo_usuario', 'tipo_usuario'),
+    supervisor_cpf: sessionStorage.getItem('supervisor_cpf', 'supervisor_cpf'),
+    gerente_cpf: sessionStorage.getItem('gerente_cpf', 'gerente_cpf')
+}
+
+function dateNow() {
+    let date = new Date();
+    let dateNow = `${date.getDate()}/${(date.getMonth() + 1)}/${date.getFullYear()} ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`
+    return dateNow;
+}
+
 //OBJS
 const obj = {}
 const arrays = {
@@ -143,6 +163,8 @@ buttonSearch.addEventListener('click', () => {
 
 
 function insert() {
+    const data = this.dateNow();
+
     const data_cadastro = $("#dataCadastro").val()
     const parceiro = $("#parceiro").val()
     const cpf = $("#cpf").val()
@@ -153,7 +175,14 @@ function insert() {
     const body = {
         data_envio: data_cadastro,
         parceiro: parceiro,
-        cpf: cpf
+        cpf: cpf,
+        id_acesso: dataSession.id_acesso,
+        cpf_parceiro: dataSession.cpf_parceiro,
+        supervisor: dataSession.supervisor,
+        cpf_supervisor: dataSession.supervisor_cpf,
+        gerente: dataSession.gerente,
+        cpf_gerente: dataSession.gerente_cpf,
+        data_inclusao: data
     }
 
     const raw = JSON.stringify(body);
@@ -232,6 +261,9 @@ function updateFields(cod, row) {
 }
 
 function update(codigo, row) {
+
+    const data = this.dateNow();
+
     const myheaders = new Headers()
     myheaders.append('Content-Type', 'application/json')
 
@@ -245,7 +277,9 @@ function update(codigo, row) {
         codigo: codigo,
         data_envio: data_cadastro,
         parceiro: parceiro,
-        cpf: cpf
+        cpf: cpf,
+        responsavel: dataSession.nome,
+        data_atualizacao: data
     }
 
     const raw = JSON.stringify(body)

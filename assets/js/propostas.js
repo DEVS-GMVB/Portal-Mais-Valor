@@ -84,21 +84,6 @@ window.onload = function () {
       }
     })
 
-  // fetch("http://localhost:3000/user/supervisor", requestOptions)
-  // .then(response => response.json())
-  // .then(function (data) {
-  //   for (let i = 0; i < data.length; i++) {
-  //     supervisorProposta.innerHTML += '<option value="' + data[i].parceiro + '">' + data[i].parceiro + '</option>;'
-  //   }
-  // }).catch(error => console.log('error', error));
-
-  // fetch(URL + "/user/gerente", requestOptions)
-  //   .then(response => response.json().then(function (data) {
-  //     for (let i = 0; i < data.length; i++) {
-  //       gerenteProposta.innerHTML += '<option value="' + data[i].gerente + '">' + data[i].gerente + '</option>;'
-  //     }
-  //   })).catch(error => console.log('error', error));
-
   fetch(URL + "/user/proposta/substatus", requestOptions)
     .then(response => response.json().then(function (data) {
       for (let i = 0; i < data.length; i++) {
@@ -279,8 +264,6 @@ filtros.addEventListener('click', () => {
       let telefoneconstanotfcText = document.createTextNode(`${value.tfc}`);
       telefoneconstanotfc.appendChild(telefoneconstanotfcText);
 
-
-
       anexos.innerHTML = `<td id="" class="text-right" style="text-align: center;">
                              <div class="actions ml-3" style="text-align: center;">
                               <a href="#" class="action-item mr-2 " data-toggle="modal" data-target=".modalteladecadastro" title="Alterar">
@@ -290,7 +273,7 @@ filtros.addEventListener('click', () => {
                            </td>`;
 
       alteraVisualiza.innerHTML = ` <div class="actions ml-3" style="text-align: center;">
-                              <a href="#" class="action-item mr-2 " data-toggle="modal" data-target=".modal-filtroproposta" title="Alterar">
+                              <a href="#" class="action-item mr-2 " data-toggle="modal" data-target=".modal-incluirproposta-parc" title="Alterar">
                                   <i class="fas fa-external-link-alt"></i>
                               </a>
                               <a href="#" class="action-item mr-2" data-toggle="modal" data-target=".modal-filtroproposta" title="Visualizar">
