@@ -9,6 +9,28 @@ const insertAverbacaoGoias = document.getElementById("btn-incluir");
 //obj's
 const obj = {}
 
+const dateNow = {
+    date: () => {
+        let date = new Date();
+        let dateNow = `${date.getDate()}/${(date.getMonth() + 1)}/${date.getFullYear()} ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`
+        return dateNow;
+    }
+}
+
+const dataSession = {
+    id_acesso: sessionStorage.getItem('id_acesso', 'id_acesso'),
+    status: sessionStorage.getItem('status', 'status'),
+    perfil: sessionStorage.getItem('perfil', 'perfil'),
+    nome: sessionStorage.getItem('nome', 'nome'),
+    supervisor: sessionStorage.getItem('supervisor', 'supervisor'),
+    gerente: sessionStorage.getItem('gerente', 'gerente'),
+    cnpj_matr: sessionStorage.getItem('cnpj_matriz', 'cnpj_matriz'),
+    cpf_user: sessionStorage.getItem('cpf_usuario', 'cpf_usuario'),
+    tipo_usuario: sessionStorage.getItem('tipo_usuario', 'tipo_usuario'),
+    supervisor_cpf: sessionStorage.getItem('supervisor_cpf', 'supervisor_cpf'),
+    gerente_cpf: sessionStorage.getItem('gerente_cpf', 'gerente_cpf')
+}
+
 
 const breakModal = {
     emptyFields: (valueDisable) => {
@@ -90,11 +112,6 @@ const arrays = {
     arrayTransporterRows: []
 }
 
-const storageBrowser = {
-    userTipousuario: sessionStorage.getItem('tipo_usuario', 'tipo_usuario'),
-    userPerfil: sessionStorage.getItem('perfil', 'perfil'),
-    userCpf: sessionStorage.getItem('cpf_usuario', 'cpf_usuario')
-}
 
 const functions = {
     configsButtonUpdate: () => {
@@ -130,9 +147,9 @@ const functions = {
         myheaders.append('Content-Type', 'application/json');
 
         const body = {
-            userTipousuario: storageBrowser.userTipousuario,
-            userPerfil: storageBrowser.userPerfil,
-            userCpf: storageBrowser.userCpf,
+            userTipousuario: "",
+            userPerfil: "",
+            userCpf: "",
             parceiro: usuario_filtro,
             status: status_filtro,
             cpf: cpf_filtro,
@@ -151,10 +168,14 @@ const functions = {
 
         fetch(URL + '/user/averbacao/goias/filtro', requestOptions).
         then((response) => response.json().then(function (data) {
+
+            console.log(data)
+
             arrays.arrayCodigos = [];
             arrays.arrayRows = [];
 
             for (let i = 0; i < data.length; i++) {
+
                 let specific_tbody = document.getElementById("List")
                 let row = specific_tbody.insertRow(-1);
                 let proposta = row.insertCell(-1);
@@ -283,7 +304,7 @@ const functions = {
 
         const raw = JSON.stringify({
             data_cadastro: data_cadastro,
-            parceiro: parceiro,
+            parceiro: dataSession.nome,
             tipo: tipo,
             valor_solicitado: valor,
             parcela: parcela,
@@ -292,7 +313,15 @@ const functions = {
             validade_senha: validade,
             parcela_original: original_parcela,
             matricula: matricula,
-            status: status_usuario
+            status: status_usuario,
+            data_inclusao: dateNow.date(),
+            id_acesso: dataSession.id_acesso,
+            cpf_supervisor: dataSession.supervisor_cpf,
+            cpf_gerente: dataSession.gerente_cpf,
+            cpf_parceiro: dataSession.cpf_user,
+            gerente: dataSession.gerente,
+            supervisor: dataSession.supervisor,
+            id_parceiro: dataSession.id_acesso
         });
 
         const requestOptions = {
@@ -354,7 +383,9 @@ const functions = {
 
         const body = {
             codigo: cod,
-            status: status_campo
+            status: status_campo,
+            responsavel: dataSession.nome,
+            data_atualizacao: dateNow.date()
         }
 
         const raw = JSON.stringify(body);

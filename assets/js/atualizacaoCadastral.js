@@ -39,6 +39,30 @@ const selects = {
 
 }
 
+const dateNow = {
+    date: () => {
+        let date = new Date();
+        let dateNow = `${date.getDate()}/${(date.getMonth() + 1)}/${date.getFullYear()} ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`
+        return dateNow;
+    }
+}
+
+
+const dataSession = {
+    id_acesso: sessionStorage.getItem('id_acesso', 'id_acesso'),
+    status: sessionStorage.getItem('status', 'status'),
+    perfil: sessionStorage.getItem('perfil', 'perfil'),
+    nome: sessionStorage.getItem('nome', 'nome'),
+    supervisor: sessionStorage.getItem('supervisor', 'supervisor'),
+    gerente: sessionStorage.getItem('gerente', 'gerente'),
+    cnpj_matr: sessionStorage.getItem('cnpj_matriz', 'cnpj_matriz'),
+    cpf_user: sessionStorage.getItem('cpf_usuario', 'cpf_usuario'),
+    tipo_usuario: sessionStorage.getItem('tipo_usuario', 'tipo_usuario'),
+    supervisor_cpf: sessionStorage.getItem('supervisor_cpf', 'supervisor_cpf'),
+    gerente_cpf: sessionStorage.getItem('gerente_cpf', 'gerente_cpf')
+}
+
+
 const breakModal = {
     empty: () => {
         $(".needs-validation").each(function () {
@@ -48,6 +72,7 @@ const breakModal = {
     },
 
     changeButtonInsert: () => {
+
         change.innerHTML = `
         <button type="button" class="btn btn-primary btn-icon-label" id="btn-insert" onclick="insert()">
             <span class="btn-inner--icon">
@@ -66,7 +91,6 @@ const breakModal = {
         arrays.arrayTransporterCode.push(cod)
         arrays.arrayTransporterRows.push(linha)
 
-
         change.innerHTML = `
         <button type="button" class="btn btn-primary btn-icon-label" id="btn-update" onclick="updateAtualizacaoCadastral(arrays.arrayTransporterCode[${arrays.arrayTransporterCode.length - 1}], arrays.arrayTransporterRows[${arrays.arrayTransporterRows.length - 1}])">
             <span class="btn-inner--icon">
@@ -78,11 +102,7 @@ const breakModal = {
     }
 }
 
-const storageBrowser = {
-    userTipousuario: sessionStorage.getItem('tipo_usuario', 'tipo_usuario'),
-    userPerfil: sessionStorage.getItem('perfil', 'perfil'),
-    userCpf: sessionStorage.getItem('cpf_usuario', 'cpf_usuario')
-}
+
 
 const arrays = {
     arrayCodigos: [],
@@ -124,9 +144,9 @@ search.addEventListener('click', () => {
     myheaders.append('Content-Type', 'application/json')
 
     const body = {
-        userTipousuario: storageBrowser.userTipousuario,
-        userPerfil: storageBrowser.userPerfil,
-        userCpf: storageBrowser.userCpf,
+        userTipousuario: "", //dataSession.tipo_usuario,
+        userPerfil: "",  //dataSession.perfil,
+        userCpf: "",
         tipo: tipo,
         cpf: cpf,
         status: status
@@ -240,10 +260,17 @@ function insert() {
         correntista: correntista,
         cpf: cpf_cliente,
         nome: nome_cliente,
-        parceiro: parceiro,
-        supervisor: supervisor,
-        gerente: gerente,
-        obs: obs
+        parceiro: dataSession.nome,
+        supervisor: dataSession.supervisor,
+        gerente: dataSession.gerente,
+        obs: obs,
+        data_inclusao: dateNow.date(),
+        id_acesso: dataSession.id_acesso,
+        cpf_supervisor: dataSession.supervisor_cpf,
+        cpf_gerente: dataSession.gerente_cpf,
+        cpf_parceiro: dataSession.cpf_user,
+        gerente: dataSession.gerente,
+        supervisor: dataSession.supervisor,
     }
 
     const raw = JSON.stringify(body)
@@ -258,13 +285,16 @@ function insert() {
     fetch(URL + '/user/atualizacao/cliente/inserir', requestOptions).
     then(response => response.json().then(function (data) {
 
+        console.log(data)
+
         const responseInsert = insertAnexo(data)
         Promise.resolve(responseInsert).then(function (value) {
             // console.log(value); // "Success"
-            $('#messageSuccess').show();
-            $('#messageSuccess').fadeIn(300).delay(3000).fadeOut(400);
-            document.getElementById("messageSuccess").textContent = "Atualização cadastral incluido com sucesso"
         })
+
+        $('#messageSuccess').show();
+        $('#messageSuccess').fadeIn(300).delay(3000).fadeOut(400);
+        document.getElementById("messageSuccess").textContent = "Atualização cadastral incluido com sucesso"
 
     })).catch(error => console.log('Error: ', error))
 }
@@ -342,9 +372,9 @@ function updateAtualizacaoCadastral(id, linha) {
     const correntista = $("#correntista").val();
     const cpf_cliente = $("#cpf_cliente").val();
     const nome_cliente = $("#nome_cliente").val();
-    const parceiro = $("#parceiro").val();
-    const supervisor = $("#supervisor").val();
-    const gerente = $("#gerente").val();
+    // const parceiro = $("#parceiro").val();
+    // const supervisor = $("#supervisor").val();
+    // const gerente = $("#gerente").val();
     const obs = $("#obs_campo").val();
 
 
@@ -360,10 +390,9 @@ function updateAtualizacaoCadastral(id, linha) {
         correntista: correntista,
         cpf: cpf_cliente,
         nome: nome_cliente,
-        parceiro: parceiro,
-        supervisor: supervisor,
-        gerente: gerente,
-        obs: obs
+        obs: obs,
+        responsavel: dataSession.nome,
+        data_atualizacao: dateNow.date()
     }
 
     const raw = JSON.stringify(body)

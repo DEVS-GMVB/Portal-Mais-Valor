@@ -8,7 +8,8 @@ let produtoComissao = document.getElementById("exampleFormProduto");
 let supervisorProposta = document.getElementById("supervisor-filtro");
 let gerenteProposta = document.getElementById("gerente-filtro")
 let bancco = document.getElementById("banco");
-let sub_status = document.getElementById("substatus-filtro")
+let sub_status = document.getElementById("substatus-filtro");
+const buttonTrocar = document.getElementById("id-trocar");
 
 //Nova proposta
 let dtCadastro = document.getElementById('validationDtCad')
@@ -93,52 +94,50 @@ window.onload = function () {
 
 filtros.addEventListener('click', () => {
   // VARS
-  let usuario = document.getElementById("usuario-filtro").value;
-  let tipoUsuario = document.getElementById("tipo-usuario-filtro").value;
-  let proposta = document.getElementById("proposta-filtro").value;
-  let statusProposta = document.getElementById("status-filtro").value;
-  let tipo = document.getElementById("tipo-filtro").value;
-  let cpfFiltro = document.getElementById("cpf-filtro").value;
-  let empresaPropostas = document.getElementById("empresa-filtro").value;
-  let mes = document.getElementById('mes-filtro').value;
-  let previsaoSaldo = document.getElementById("previsao-saldo-filtro").value;
-  let novaProposta = document.getElementById("nova-proposta-filtro").value
-  let bancoPortabilidade = document.getElementById("banco-portabilidade-filtro").value;
-  // let ordenar = document.getElementById("ordenar").value;
-  let dataCadastro = document.getElementById('data-cadastro-filtro').value;
-  let dataAtualizacao = document.getElementById('data-atualizacao-filtro').value;
-  let correntista = document.getElementById("correntista-filtro").value;
-  let sub_status = document.getElementById("substatus-filtro").value;
-  let classificacao = document.getElementById("classicacao-filtro").value;
-  let situacaoStatus = document.getElementById('situacao-filtro').value;
-  let convenioMaster = document.getElementById("convenio-master-filtro").value;
-  let faseStatus = document.getElementById("fase-status-filtro").value;
-  let banco = document.getElementById("banco-filtro").value;
-  let produto = document.getElementById("produto-filtro").value;
-  let class2 = document.getElementById("classicacao-filtro").value;
-  let user_master = document.getElementById("usuario-master-filtro").value;
-  let supervisorProposta = document.getElementById("supervisor-filtro").value;
-  let produtoMaster = document.getElementById('produto-master-filtro').value;
-  let gerenteProposta = document.getElementById("gerente-filtro").value;
-  let tipoUsuarioMaster = document.getElementById("tipo-usuario-master-filtro").value;
-  let dataDeCorte = document.getElementById("data-corte-filtro").value;
-  let empresaSMS = document.getElementById("empresa-sms-filtro").value;
-  let convenio = document.getElementById("convenio-filtro").value;
-  let vinculo = document.getElementById("vinculo-filtro").value
-  let horarioAgendamento = document.getElementById("horario-agendamento-filtro").value;
-  let validadeContrato = document.getElementById("validade-contrato-filtro").value;
-  let etapaSMS = document.getElementById("etapa-sms-filtro").value;
-  let bancoMaster = document.getElementById("banco-master-filtro").value;
+  const usuario = document.getElementById("usuario-filtro").value;
+  const tipoUsuario = document.getElementById("tipo-usuario-filtro").value;
+  const proposta = document.getElementById("proposta-filtro").value;
+  const statusProposta = document.getElementById("status-filtro").value;
+  const tipo = document.getElementById("tipo-filtro").value;
+  const cpfFiltro = document.getElementById("cpf-filtro").value;
+  const empresaPropostas = document.getElementById("empresa-filtro").value;
+  const mes = document.getElementById('mes-filtro').value;
+  const previsaoSaldo = document.getElementById("previsao-saldo-filtro").value;
+  const novaProposta = document.getElementById("nova-proposta-filtro").value
+  const bancoPortabilidade = document.getElementById("banco-portabilidade-filtro").value;
+  const dataCadastro = document.getElementById('data-cadastro-filtro').value;
+  const dataAtualizacao = document.getElementById('data-atualizacao-filtro').value;
+  const correntista = document.getElementById("correntista-filtro").value;
+  const sub_status = document.getElementById("substatus-filtro").value;
+  const classificacao = document.getElementById("classicacao-filtro").value;
+  const situacaoStatus = document.getElementById('situacao-filtro').value;
+  const faseStatus = document.getElementById("fase-status-filtro").value;
+  const banco = document.getElementById("banco-filtro").value;
+  const produto = document.getElementById("produto-filtro").value;
+  const user_master = document.getElementById("usuario-master-filtro").value;
+  const supervisorProposta = document.getElementById("supervisor-filtro").value;
+  const gerenteProposta = document.getElementById("gerente-filtro").value;
+  const tipoUsuarioMaster = document.getElementById("tipo-usuario-master-filtro").value;
+  const dataDeCorte = document.getElementById("data-corte-filtro").value;
+  const empresaSMS = document.getElementById("empresa-sms-filtro").value;
+  const convenio = document.getElementById("convenio-filtro").value;
+  const vinculo = document.getElementById("vinculo-filtro").value
+  const horarioAgendamento = document.getElementById("horario-agendamento-filtro").value;
+  const validadeContrato = document.getElementById("validade-contrato-filtro").value;
+  const etapaSMS = document.getElementById("etapa-sms-filtro").value;
+  const bancoMaster = document.getElementById("banco-master-filtro").value;
+
+  //Session
+  const tipo_usuario = sessionStorage.getItem('tipo_usuario', 'tipo_usuario');
+  const cnpj_matr = sessionStorage.getItem('cnpj_matriz', 'cnpj_matriz');
+  const perfil = sessionStorage.getItem('perfil', 'perfil');
+  const nome = sessionStorage.getItem('nome', 'nome');
+  const tipo_parceiro2 = sessionStorage.getItem("tipo_parceiro2", "tipo_parceiro2");
 
 
   const myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/json")
 
-  let tipo_usuario = sessionStorage.getItem('tipo_usuario', 'tipo_usuario');
-  let cnpj_matr = sessionStorage.getItem('cnpj_matriz', 'cnpj_matriz');
-  let perfil = sessionStorage.getItem('perfil', 'perfil');
-  let nome = sessionStorage.getItem('nome', 'nome');
-  let tipo_parceiro2 = sessionStorage.getItem("tipo_parceiro2", "tipo_parceiro2");
 
   const raw = JSON.stringify({
     cnpj_matriz: cnpj_matr,
@@ -189,7 +188,7 @@ filtros.addEventListener('click', () => {
     redirect: 'follow'
   }
 
-  fetch(URL+"/user/proposta/filtro", requestOptions).
+  fetch(URL + "/user/proposta/filtro", requestOptions).
   then(response => response.json()).
   then(function (data) {
 
@@ -266,14 +265,14 @@ filtros.addEventListener('click', () => {
 
       anexos.innerHTML = `<td id="" class="text-right" style="text-align: center;">
                              <div class="actions ml-3" style="text-align: center;">
-                              <a href="#" class="action-item mr-2 " data-toggle="modal" data-target=".modalteladecadastro" title="Alterar">
+                              <a href="#" class="action-item mr-2 " data-toggle="modal" data-target=".modalteladecadastro" title="Alterar" >
                                 <i class="fas fa-download"></i>
                               </a>
                              </div>
                            </td>`;
 
       alteraVisualiza.innerHTML = ` <div class="actions ml-3" style="text-align: center;">
-                              <a href="#" class="action-item mr-2 " data-toggle="modal" data-target=".modal-filtroproposta" title="Alterar">
+                              <a href="#" class="action-item mr-2 " data-toggle="modal" data-target=".modal-incluirproposta-parc" title="Alterar" onclick="preencherModal()">
                                   <i class="fas fa-external-link-alt"></i>
                               </a>
                               <a href="#" class="action-item mr-2" data-toggle="modal" data-target=".modal-filtroproposta" title="Visualizar">
@@ -283,8 +282,51 @@ filtros.addEventListener('click', () => {
 
     }
   }).catch(error => console.log('error', error))
-
 })
 
+const quebraReferenciaModais = {
+  limparCampos: () => {
+    $(".needs-validation").each(function (){
+      this.reset();
+    })
+  },
 
-const numeroPrp = document.getElementById('numero-proposta-incluir');
+  trocaButton: () => {
+    buttonTrocar.innerHTML = `
+    <button type="button" class="btn btn-primary btn-icon-label" id="incluir-button">
+      <span class="btn-inner--icon">
+          <i class="fas fa-plus"></i>
+      </span>
+      <span class="btn-inner--text">Alterar</span>
+    </button>
+    `
+  }
+}
+
+const handleQuebraReferenciaModais = {
+  get: (target, name) => {
+    if(target[name]) {
+      return target[name]
+    }
+    throw new Error(`Propriedade: ${name} não existe`);
+
+  },
+
+  set: (target, name, value) => {
+    if(target[name]) {
+      target[name] = value;
+    }
+
+    throw new Error(`Propriedade: ${name} não existe para receber este valor: ${value}`)
+  }
+}
+
+const quebraReferenciaModaisProxy = new Proxy(quebraReferenciaModais, handleQuebraReferenciaModais);
+
+function preencherModal() {
+  //Quebra de Referência quando troca de modal
+  quebraReferenciaModaisProxy.limparCmpos();
+  quebraReferenciaModaisProxy.trocaButton();
+
+  
+}

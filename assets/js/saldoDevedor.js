@@ -7,6 +7,16 @@ let dtSuperSelect = document.getElementById('DtPagSupervisor')
 let statusSelect = document.getElementById("Status")
 let apagar = document.getElementById("btnapagar")
 
+// Obj Date
+const dateNow = {
+    date: () => {
+        let date = new Date();
+        let dateNow = `${date.getDate()}/${(date.getMonth() + 1)}/${date.getFullYear()} ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`
+        return dateNow;
+    }
+}
+
+
 
 // Date session
 const dataSession = {
@@ -113,16 +123,17 @@ function insertSaldo() {
         saldo_devedor: saldo,
         prazo_restante: prazo,
         taxa_juros: taxa,
-        gerente: dataSession.gerente,
-        supervisor: dataSession.supervisor,
-        data_inclusao: new Date(),
+        data_inclusao: dateNow.date(),
         id_acesso: dataSession.id_acesso,
         cpf_supervisor: dataSession.supervisor_cpf,
-        cpf_gerente: dataSession.gerente_cpf
+        cpf_gerente: dataSession.gerente_cpf,
+        cpf_parceiro: dataSession.cpf_user,
+        gerente: dataSession.gerente,
+        supervisor: dataSession.supervisor,
     }
     const raw = JSON.stringify(body)
 
-    let requestOptions = {
+    const requestOptions = {
         method: 'POST',
         headers: myHeaders,
         body: raw,
@@ -342,17 +353,14 @@ function updateSaldoDevedor(codigo, row) {
     const saldo_devedor1 = $("#SaldoDev").val()
     const prazo_restante = $("#PrazoRestante").val()
     const taxa_juros = $("#TaxaJuros").val()
-    const responsavel = ""
     const data_atualizacao = new Date();
-    const status = ""
 
     const body = {
         saldo_devedor1: saldo_devedor1,
         prazo_restante: prazo_restante,
         taxa_juros: taxa_juros,
-        responsavel: responsavel,
-        data_atualizacao: data_atualizacao,
-        status: status,
+        responsavel: dataSession.nome,
+        data_atualizacao: dateNow.date(),
         codigo: codigo
     }
 
