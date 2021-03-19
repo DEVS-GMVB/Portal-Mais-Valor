@@ -1,4 +1,5 @@
-let filtros = document.getElementById("button-filtro");
+//const URL = `http://localhost:3000`;
+const filtros = document.getElementById("button-filtro");
 let empresaProposta = document.getElementById("empresaPropostas");
 let bancoPortado = document.getElementById('exampleFormBP');
 let banc = document.getElementById("bancoPortabilidade");
@@ -7,14 +8,12 @@ let produtoComissao = document.getElementById("exampleFormProduto");
 let supervisorProposta = document.getElementById("supervisor-filtro");
 let gerenteProposta = document.getElementById("gerente-filtro")
 let bancco = document.getElementById("banco");
-let sub_status = document.getElementById("sub-status")
+let sub_status = document.getElementById("substatus-filtro")
 
 //Nova proposta
-// let numeroPrp = document.getElementById('validationNprop')
 let dtCadastro = document.getElementById('validationDtCad')
 let bancoo = document.getElementById('examploBanco')
-//let produtoo = document.getElementById('exampleProduto')
-//let tpOperacao = document.getElementById('tipoOperacao')
+
 
 let requestOptions = {
   method: 'GET',
@@ -29,12 +28,12 @@ fetch("http://localhost:3000/user/supervisor", requestOptions)
     }
   }).catch(error => console.log('error', error));
 
-  fetch("http://localhost:3000/user/gerente", requestOptions)
-    .then(response => response.json().then(function (data) {
-      for (let i = 0; i < data.length; i++) {
-        gerenteProposta.innerHTML += '<option value="' + data[i].gerente + '">' + data[i].gerente + '</option>;'
-      }
-    })).catch(error => console.log('error', error));
+fetch("http://localhost:3000/user/gerente", requestOptions)
+  .then(response => response.json().then(function (data) {
+    for (let i = 0; i < data.length; i++) {
+      gerenteProposta.innerHTML += '<option value="' + data[i].gerente + '">' + data[i].gerente + '</option>;'
+    }
+  })).catch(error => console.log('error', error));
 
 window.onload = function () {
 
@@ -42,7 +41,7 @@ window.onload = function () {
   var myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/json");
 
-  let requestOptions = {
+  const requestOptions = {
     method: 'GET',
     redirect: 'follow'
   };
@@ -83,13 +82,12 @@ window.onload = function () {
       }
     })
 
-
-  fetch(URL + "/user/proposta/substatus", requestOptions)
-    .then(response => response.json().then(function (data) {
-      for (let i = 0; i < data.length; i++) {
-        sub_status.innerHTML += '<option value="' + data[i].sub_status + '">' + data[i].sub_status + '</option>;'
-      }
-    })).catch(error => console.log('error', error))
+  // fetch(URL + "/user/proposta/substatus", requestOptions)
+  //   .then(response => response.json().then(function (data) {
+  //     for (let i = 0; i < data.length; i++) {
+  //       sub_status.innerHTML += '<option value="' + data[i].sub_status + '">' + data[i].sub_status + '</option>;'
+  //     }
+  //   })).catch(error => console.log('error', error))
 
 }
 
@@ -133,7 +131,7 @@ filtros.addEventListener('click', () => {
   let bancoMaster = document.getElementById("banco-master-filtro").value;
 
 
-  var myHeaders = new Headers();
+  const myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/json")
 
   let tipo_usuario = sessionStorage.getItem('tipo_usuario', 'tipo_usuario');
@@ -142,7 +140,7 @@ filtros.addEventListener('click', () => {
   let nome = sessionStorage.getItem('nome', 'nome');
   let tipo_parceiro2 = sessionStorage.getItem("tipo_parceiro2", "tipo_parceiro2");
 
-  var raw = JSON.stringify({
+  const raw = JSON.stringify({
     cnpj_matriz: cnpj_matr,
     tipo_usuario: tipo_usuario,
     perfil: perfil,
@@ -184,14 +182,14 @@ filtros.addEventListener('click', () => {
   })
 
 
-  var requestOptions = {
+  const requestOptions = {
     method: 'POST',
     headers: myHeaders,
     body: raw,
     redirect: 'follow'
   }
 
-  fetch("http://172.16.0.197:3000/user/proposta/filtro", requestOptions).
+  fetch(URL+"/user/proposta/filtro", requestOptions).
   then(response => response.json()).
   then(function (data) {
 
@@ -287,12 +285,6 @@ filtros.addEventListener('click', () => {
   }).catch(error => console.log('error', error))
 
 })
-
-// const buttonIncluir = document.getElementById("button-incluir");
-
-// buttonIncluir.addEventListener('click', () => {
-//   console.log('pogou');
-// })
 
 
 const numeroPrp = document.getElementById('numero-proposta-incluir');

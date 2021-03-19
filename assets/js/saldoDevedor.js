@@ -7,6 +7,22 @@ let dtSuperSelect = document.getElementById('DtPagSupervisor')
 let statusSelect = document.getElementById("Status")
 let apagar = document.getElementById("btnapagar")
 
+
+// Date session
+const dataSession = {
+    id_acesso: sessionStorage.getItem('id_acesso', 'id_acesso'),
+    status: sessionStorage.getItem('status', 'status'),
+    perfil: sessionStorage.getItem('perfil', 'perfil'),
+    nome: sessionStorage.getItem('nome', 'nome'),
+    supervisor: sessionStorage.getItem('supervisor', 'supervisor'),
+    gerente: sessionStorage.getItem('gerente', 'gerente'),
+    cnpj_matr: sessionStorage.getItem('cnpj_matriz', 'cnpj_matriz'),
+    cpf_user: sessionStorage.getItem('cpf_usuario', 'cpf_usuario'),
+    tipo_usuario: sessionStorage.getItem('tipo_usuario', 'tipo_usuario'),
+    supervisor_cpf: sessionStorage.getItem('supervisor_cpf', 'supervisor_cpf'),
+    gerente_cpf: sessionStorage.getItem('gerente_cpf', 'gerente_cpf')
+}
+
 // SELECTS
 window.onload = function () {
     let requestOptions = {
@@ -96,7 +112,13 @@ function insertSaldo() {
         idt_margem: idt,
         saldo_devedor: saldo,
         prazo_restante: prazo,
-        taxa_juros: taxa
+        taxa_juros: taxa,
+        gerente: dataSession.gerente,
+        supervisor: dataSession.supervisor,
+        data_inclusao: new Date(),
+        id_acesso: dataSession.id_acesso,
+        cpf_supervisor: dataSession.supervisor_cpf,
+        cpf_gerente: dataSession.gerente_cpf
     }
     const raw = JSON.stringify(body)
 

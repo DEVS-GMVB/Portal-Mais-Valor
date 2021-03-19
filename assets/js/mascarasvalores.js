@@ -30,7 +30,7 @@ function MascaraMoeda(objTextBox, SeparadorMilesimo, SeparadorDecimal, e){
           aux2 += aux.charAt(i);
           j++;
       }
-      objTextBox.value = 'R$';
+      objTextBox.value = '';
       len2 = aux2.length;
       for (i = len2 - 1; i >= 0; i--)
       objTextBox.value += aux2.charAt(i);

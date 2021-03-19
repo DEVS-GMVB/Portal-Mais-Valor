@@ -1,3 +1,5 @@
+const URL = `http://localhost:3000`;
+
 const Logar = () => {
 
     const usuario = document.getElementById("input-login").value;
@@ -26,6 +28,8 @@ const Logar = () => {
                     return alert(data.erro);
 
                 const user = data.user
+                const supervisor_cpf = data.supervisor_cpf
+                const gerente_cpf = data.gerente_cpf
                 const matriz = user.cnpj_matriz;
                 const data_nascimento = user.data_nascimento;
                 const id_acesso = user.id_acesso;
@@ -49,11 +53,58 @@ const Logar = () => {
                 sessionStorage.setItem('cpf_usuario', cpf_usuario);
                 sessionStorage.setItem('supervisor', supervisor);
                 sessionStorage.setItem('gerente', gerente);
+                sessionStorage.setItem('supervisor_cpf', supervisor_cpf);
+                sessionStorage.setItem('gerente_cpf', gerente_cpf);
+
+
+                console.log(sessionStorage.getItem('cnpj_matriz', 'cnpj_matriz'));
+                console.log(sessionStorage.getItem('data_nascimento', 'data_nascimento'));
+                console.log(sessionStorage.getItem('id_acesso', 'id_acesso'));
+                console.log(sessionStorage.getItem('nome', 'nome'));
+                console.log(sessionStorage.getItem('perfil', 'perfil'));
+                console.log(sessionStorage.getItem('status', 'status'));
+                console.log(sessionStorage.getItem('tipo_parceiro2', 'tipo_parceiro2'))
+                console.log(sessionStorage.getItem('supervisor_cpf', 'supervisor_cpf'))
+                console.log(sessionStorage.getItem('gerente_cpf', 'gerente_cpf'))
+
 
                 window.location.href = "../../paginas/home.html";
             });
         }).catch(error => console.log('error', error));
+
+    // buscarCpfs(sessionStorage.getItem('supervisor', 'supervisor'), sessionStorage.getItem('gerente', 'gerente'));
+
+
 };
+
+// const buscarCpfs = async (supervisor, gerente) => {
+//     const myHeaders = new Headers();
+//     myHeaders.append("Content-Type", "application/json");
+
+//     const raw = JSON.stringify({
+//         supervisor: supervisor,
+//         gerente: gerente
+//     });
+
+//     const requestOptions = {
+//         method: 'POST',
+//         headers: myHeaders,
+//         body: raw,
+//         redirect: 'follow'
+//     };
+
+//     await fetch(URL + "/user/buscar", requestOptions)
+//         .then(response => response.json())
+//         .then(result => {
+//             const supervisor_cpf = result.supervisor_cpf;
+//             const gerente_cpf = result.gerente_cpf;
+
+//             sessionStorage.setItem('supervisor_cpf', supervisor_cpf);
+//             sessionStorage.setItem('gerente_cpf', gerente_cpf);
+//         })
+//         .catch(error => console.log('error', error));
+
+// }
 
 
 const Email = () => {
@@ -90,6 +141,4 @@ const Email = () => {
 
             }).catch(error => console.log('error', error));
         })
-
-
 };
