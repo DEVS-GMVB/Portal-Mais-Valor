@@ -286,26 +286,41 @@ filtros.addEventListener('click', () => {
 
 const quebraReferenciaModais = {
   limparCampos: () => {
-    $(".needs-validation").each(function (){
+    $(".needs-validation").each(function () {
       this.reset();
     })
   },
 
-  trocaButton: () => {
+  trocaButtonUpdate: () => {
+
     buttonTrocar.innerHTML = `
-    <button type="button" class="btn btn-primary btn-icon-label" id="incluir-button">
+    <button type="button" class="btn btn-primary btn-icon-label" id="update-button">
       <span class="btn-inner--icon">
           <i class="fas fa-plus"></i>
       </span>
       <span class="btn-inner--text">Alterar</span>
     </button>
     `
-  }
+  },
+
+  trocaButtonInsert: () => {
+
+    buttonTrocar.innerHTML = `
+    <button type="button" class="btn btn-primary btn-icon-label" id="incluir-button">
+      <span class="btn-inner--icon">
+          <i class="fas fa-plus"></i>
+      </span>
+      <span class="btn-inner--text">Incluir</span>
+    </button>
+    `
+  },
+
+  
 }
 
 const handleQuebraReferenciaModais = {
   get: (target, name) => {
-    if(target[name]) {
+    if (target[name]) {
       return target[name]
     }
     throw new Error(`Propriedade: ${name} não existe`);
@@ -313,7 +328,7 @@ const handleQuebraReferenciaModais = {
   },
 
   set: (target, name, value) => {
-    if(target[name]) {
+    if (target[name]) {
       target[name] = value;
     }
 
@@ -325,8 +340,8 @@ const quebraReferenciaModaisProxy = new Proxy(quebraReferenciaModais, handleQueb
 
 function preencherModal() {
   //Quebra de Referência quando troca de modal
-  quebraReferenciaModaisProxy.limparCmpos();
-  quebraReferenciaModaisProxy.trocaButton();
+  quebraReferenciaModaisProxy.limparCampos();
+  quebraReferenciaModaisProxy.trocaButtonUpdate();
 
-  
 }
+

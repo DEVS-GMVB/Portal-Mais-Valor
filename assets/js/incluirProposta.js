@@ -41,7 +41,6 @@ const dataNascimento = document.getElementById('data-nascimento-incluir');
 const email = document.getElementById('email-incluir');
 const uf = document.getElementById('uf-incluir');
 const observacao = document.getElementById('observacao-incluir');
-const botaoIncluir = document.getElementById('incluir-button');
 
 
 //inputs filtro proposta
@@ -81,6 +80,7 @@ const horarioAgendamentoFiltro = document.getElementById("horario-agendamento-fi
 const validadeContratoFiltro = document.getElementById("validade-contrato-filtro");
 const etapaSmsFiltro = document.getElementById("etapa-sms-filtro");
 const bancoMaster = document.getElementById("banco-master-filtro");
+
 
 //gets para popular options 
 
@@ -122,109 +122,132 @@ window.onload = function () {
     })
 
   fetch(URL + "/user/proposta/empresas", requestOptions)
-  .then(response => response.json())
-  .then(function (data) {
-    data.forEach(element => {
-     empresaFiltro.innerHTML += `<option value =${element.empresa}>${element.empresa}</option>`;
-    });
-  })
+    .then(response => response.json())
+    .then(function (data) {
+      data.forEach(element => {
+        empresaFiltro.innerHTML += `<option value =${element.empresa}>${element.empresa}</option>`;
+      });
+    })
 
   fetch(URL + "/user/proposta/substatus", requestOptions)
-  .then(response => response.json())
-  .then(function (data) {
-    data.forEach(element => {
-     substatusFiltros.innerHTML += `<option value =${element.sub_status}>${element.sub_status}</option>`;
-    });
-  })
+    .then(response => response.json())
+    .then(function (data) {
+      data.forEach(element => {
+        substatusFiltros.innerHTML += `<option value =${element.sub_status}>${element.sub_status}</option>`;
+      });
+    })
 
   fetch(URL + "/user/proposta/produto", requestOptions)
-  .then(response => response.json())
-  .then(function (data) {
-    data.forEach(element => {
-     produtoFiltro.innerHTML += `<option value =${element.produto}>${element.produto}</option>`;
-    });
-  })
+    .then(response => response.json())
+    .then(function (data) {
+      data.forEach(element => {
+        produtoFiltro.innerHTML += `<option value =${element.produto}>${element.produto}</option>`;
+      });
+    })
 
 
 }
 
-//envio de requisição de inclusao de proposta
-botaoIncluir.addEventListener('click', () => {
+const changeInserir = document.getElementById("changeInsert");
 
-  const body = {
-    // parceiro, id_acesso, supervisor, gerente, tipo_parceiro, 
-    proposta: numeroProposta.value,
-    data_envio: dataCadastroIncluir.value,
-    banco: banco.value,
-    // status:status.value,
-    produto: produto.value,
-    tipo: tipoOperacao.value,
-    entregue: valorEntregue.value,
-    valor_troco: valorTroco.value,
-    convenio: convenio.value,
-    banco_port1: bancoPortador.value,
-    numero_portabilidade: portabilidade.value,
-    parcela: valorParcela.value,
-    seguro: seguro.value,
-    qtdp_pagaport1: parcelasPagas.value,
-    nome: nomeCliente.value,
-    cpf: cpfCliente.value,
-    telefone_ddd_1: ddd.value,
-    telefone1: telefoneCliente.value,
-    correntista: correntista.value,
-    telefone4: telefoneSmsCliente.value,
-    matricula: matricula.value,
-    agendamento: desejaAgendarHorario.value,
-    dia: melhorDatata.value,
-    horario: melhorHorario.value,
-    exercito: exercitoTemporario.value,
-    senha_exercito: codigoExercito.value,
-    sexo: sexo.value,
-    data_nascimento: dataNascimento.value,
-    email_cliente: email.value,
-    uf: uf.value,
-    observacao: observacao.value,
 
+changeInserir.addEventListener('click', () => {
+  quebraReferenciaModaisProxy.trocaButtonInsert();
+
+  const idTrocar = document.getElementById("id-trocar")
+
+  if (idTrocar.children[0].id === "incluir-button") {
+    const botaoIncluir = document.getElementById('incluir-button');
+
+    botaoIncluir.addEventListener('click', () => {
+
+      const body = {
+        // parceiro, id_acesso, supervisor, gerente, tipo_parceiro, 
+        proposta: numeroProposta.value,
+        data_envio: dataCadastroIncluir.value,
+        banco: banco.value,
+        // status:status.value,
+        produto: produto.value,
+        tipo: tipoOperacao.value,
+        entregue: valorEntregue.value,
+        valor_troco: valorTroco.value,
+        convenio: convenio.value,
+        banco_port1: bancoPortador.value,
+        numero_portabilidade: portabilidade.value,
+        parcela: valorParcela.value,
+        seguro: seguro.value,
+        qtdp_pagaport1: parcelasPagas.value,
+        nome: nomeCliente.value,
+        cpf: cpfCliente.value,
+        telefone_ddd_1: ddd.value,
+        telefone1: telefoneCliente.value,
+        correntista: correntista.value,
+        telefone4: telefoneSmsCliente.value,
+        matricula: matricula.value,
+        agendamento: desejaAgendarHorario.value,
+        dia: melhorDatata.value,
+        horario: melhorHorario.value,
+        exercito: exercitoTemporario.value,
+        senha_exercito: codigoExercito.value,
+        sexo: sexo.value,
+        data_nascimento: dataNascimento.value,
+        email_cliente: email.value,
+        uf: uf.value,
+        observacao: observacao.value,
+
+      }
+
+      const myHeaders = new Headers();
+      myHeaders.append("Content-Type", "application/json");
+
+      const raw = JSON.stringify(body);
+
+      const requestOptions = {
+        method: 'POST',
+        headers: myHeaders,
+        body: raw,
+        redirect: 'follow'
+      };
+
+      fetch(URL + "/user/proposta/inclusao", requestOptions)
+        .then(response => response.json())
+        .then(function (data) {
+
+          // console.log(data);
+          var codigo = data.codigo;
+
+          var input = document.querySelectorAll('form#files input[type="file"]')
+
+          var data = new FormData()
+          input.forEach(file => {
+            data.append(file.name, file.files[0])
+          });
+
+
+          fetch(URL + `/user/proposta/inclusao/arquivos?codigo=${codigo}`, {
+              method: 'POST',
+              body: data
+            })
+            .then((response) => response.json())
+            .then((result) => {
+              console.log(result);
+            })
+            .catch((error) => {
+              console.error(error);
+            });
+
+        }).catch(error => console.log('error', error))
+    })
+
+    return;
   }
 
-  const myHeaders = new Headers();
-  myHeaders.append("Content-Type", "application/json");
-
-  const raw = JSON.stringify(body);
-
-  const requestOptions = {
-    method: 'POST',
-    headers: myHeaders,
-    body: raw,
-    redirect: 'follow'
-  };
-
-  fetch(URL + "/user/proposta/inclusao", requestOptions)
-    .then(response => response.json())
-    .then(function (data) {
-      var codigo = data.codigo;
-
-      var input = document.querySelectorAll('form#files input[type="file"]')
-
-      var data = new FormData()
-      input.forEach(file => {
-        data.append(file.name, file.files[0])
-      });
+  throw new Error("Erro no Fluxo do usuário")
 
 
-      fetch(URL + `/user/proposta/inclusao/arquivos?codigo=${codigo}`, {
-          method: 'POST',
-          body: data
-        })
-        .then((response) => response.json())
-        .then((result) => {
-          console.log(result);
-        })
-        .catch((error) => {
-          console.error(error);
-        });
-
-    }).catch(error => console.log('error' , error))
 })
+
+//envio de requisição de inclusao de proposta
+
 
 //////modal filtro

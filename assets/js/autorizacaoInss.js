@@ -14,11 +14,30 @@ const arrays = {
 }
 
 //Data session browser
-const sessionBrowser = {
-    userTipousuario: sessionStorage.getItem('tipo_usuario', 'tipo_usuario'),
-    userPerfil: sessionStorage.getItem('perfil', 'perfil'),
-    userCpf: sessionStorage.getItem('cpf_usuario', 'cpf_usuario')
+
+
+const dateNow = {
+    date: () => {
+        let date = new Date();
+        let dateNow = `${date.getDate()}/${(date.getMonth() + 1)}/${date.getFullYear()} ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`
+        return dateNow;
+    }
 }
+
+const dataSession = {
+    id_acesso: sessionStorage.getItem('id_acesso', 'id_acesso'),
+    status: sessionStorage.getItem('status', 'status'),
+    perfil: sessionStorage.getItem('perfil', 'perfil'),
+    nome: sessionStorage.getItem('nome', 'nome'),
+    supervisor: sessionStorage.getItem('supervisor', 'supervisor'),
+    gerente: sessionStorage.getItem('gerente', 'gerente'),
+    cnpj_matr: sessionStorage.getItem('cnpj_matriz', 'cnpj_matriz'),
+    cpf_user: sessionStorage.getItem('cpf_usuario', 'cpf_usuario'),
+    tipo_usuario: sessionStorage.getItem('tipo_usuario', 'tipo_usuario'),
+    supervisor_cpf: sessionStorage.getItem('supervisor_cpf', 'supervisor_cpf'),
+    gerente_cpf: sessionStorage.getItem('gerente_cpf', 'gerente_cpf')
+}
+
 
 // Quebra referência de modais
 const breakModal = {
@@ -118,9 +137,9 @@ const functionsRequests = {
         myheaders.append('Content-Type', 'application/json');
 
         const body = {
-            userTipousuario: sessionBrowser.userTipousuario,
-            userPerfil: sessionBrowser.userPerfil,
-            userCpf: sessionBrowser.userCpf,
+            userTipousuario: "",
+            userPerfil: "",
+            userCpf: "",
             parceiro: parceiroFiltro,
             status_inss: statusFiltro,
             cpf: cpfFiltro,
@@ -245,11 +264,19 @@ const functionsRequests = {
 
         const raw = JSON.stringify({
             data_cadastro: data_cadastro,
-            parceiro: parceiro,
+            parceiro: dataSession.nome,
             cpf: cpf,
             nome: nome,
             telefone: telefone,
-            status_inss: status
+            status_inss: status,
+            data_inclusao: dateNow.date(),
+            id_acesso: dataSession.id_acesso,
+            cpf_supervisor: dataSession.supervisor_cpf,
+            cpf_gerente: dataSession.gerente_cpf,
+            cpf_parceiro: dataSession.cpf_user,
+            gerente: dataSession.gerente,
+            supervisor: dataSession.supervisor,
+            id_parceiro: dataSession.id_acesso
         });
 
         const requestOptions = {
@@ -265,7 +292,11 @@ const functionsRequests = {
                 //Insert n é obrigatório anexar um arquivo
                 const resultInsertAnexo = functionsRequestsProxy.insertAnexo(result)
                 // console.log(resultInsertAnexo)
-                Promise.resolve(resultInsertAnexo).then(function (value) {})
+                Promise.resolve(resultInsertAnexo).then(function (value) {
+                    // console.log(value)
+                })
+
+                // console.log(result)
 
                 $('#success').show();
                 $('#success').fadeIn(300).delay(3000).fadeOut(400);
@@ -308,7 +339,9 @@ const functionsRequests = {
 
         const raw = JSON.stringify({
             codigo,
-            status_inss
+            status_inss,
+            responsavel: dataSession.nome,
+            data_alteracao: dateNow.date()
         });
 
         const requestOptions = {

@@ -57,15 +57,15 @@ const Logar = () => {
                 sessionStorage.setItem('gerente_cpf', gerente_cpf);
 
 
-                console.log(sessionStorage.getItem('cnpj_matriz', 'cnpj_matriz'));
-                console.log(sessionStorage.getItem('data_nascimento', 'data_nascimento'));
-                console.log(sessionStorage.getItem('id_acesso', 'id_acesso'));
-                console.log(sessionStorage.getItem('nome', 'nome'));
-                console.log(sessionStorage.getItem('perfil', 'perfil'));
-                console.log(sessionStorage.getItem('status', 'status'));
-                console.log(sessionStorage.getItem('tipo_parceiro2', 'tipo_parceiro2'))
-                console.log(sessionStorage.getItem('supervisor_cpf', 'supervisor_cpf'))
-                console.log(sessionStorage.getItem('gerente_cpf', 'gerente_cpf'))
+                // console.log(sessionStorage.getItem('cnpj_matriz', 'cnpj_matriz'));
+                // console.log(sessionStorage.getItem('data_nascimento', 'data_nascimento'));
+                // console.log(sessionStorage.getItem('id_acesso', 'id_acesso'));
+                // console.log(sessionStorage.getItem('nome', 'nome'));
+                // console.log(sessionStorage.getItem('perfil', 'perfil'));
+                // console.log(sessionStorage.getItem('status', 'status'));
+                // console.log(sessionStorage.getItem('tipo_parceiro2', 'tipo_parceiro2'))
+                // console.log(sessionStorage.getItem('supervisor_cpf', 'supervisor_cpf'))
+                // console.log(sessionStorage.getItem('gerente_cpf', 'gerente_cpf'))
 
 
                 window.location.href = "../../paginas/home.html";
