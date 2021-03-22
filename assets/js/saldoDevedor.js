@@ -111,8 +111,8 @@ function insertSaldo() {
     myHeaders.append("Content-Type", "application/json")
 
     const body = {
-        data_envio: dtCad,
-        parceiro: parc,
+        data_envio: dateNow.date(),
+        parceiro: dataSession.nome,
         cpf: Cpf,
         matricula: mat,
         data_nascimento: dtnasc,

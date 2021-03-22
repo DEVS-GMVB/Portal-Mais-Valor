@@ -1077,7 +1077,7 @@
 
                                 <div class="col-md-3 mb-3">
                                     <label for="validationCustom01">Data Nascimento</label>
-                                    <input type="date" class="form-control form-control-sm" id="validationCustomDN"
+                                    <input type="text" class="form-control form-control-sm" id="validationCustomDN" maxlength="10" onKeyDown="mascaraMutuario( this, data );"
                                         required>
 
                                 </div>
@@ -3190,7 +3190,7 @@
 
                 <div class="col-md-3 mb-3">
                     <label for="validationCustom01">Data Cadastro</label>
-                    <input type="date" class="form-control form-control-sm" id="data-cadastro-incluir">
+                    <input type="text" class="form-control form-control-sm" id="data-cadastro-incluir" maxlength="19" size="19" onKeyPress="DataHora(event, this)">
 
                 </div>
 
@@ -3232,13 +3232,13 @@
 
                 <div class="col-md-3 mb-3">
                     <label for="validationCustom01">Valor Entregue</label>
-                    <input type="text" class="form-control form-control-sm" id="valor-entregue-incluir">
+                    <input type="text" class="form-control form-control-sm" id="valor-entregue-incluir" onKeyPress="return(MascaraMoeda(this,'.',',',event))">
 
                 </div>
 
                 <div class="col-md-3 mb-3">
                     <label for="validationCustom01">Valor Troco</label>
-                    <input type="text" class="form-control form-control-sm" id="valor-troco-incluir">
+                    <input type="text" class="form-control form-control-sm" id="valor-troco-incluir" onKeyPress="return(MascaraMoeda(this,'.',',',event))">
 
                 </div>
 
@@ -3282,7 +3282,7 @@
 
                 <div class="col-md-3 mb-3">
                     <label for="validationCustom01">Valor Parcela</label>
-                    <input type="text" class="form-control form-control-sm" id="valor-parcela-incluir">
+                    <input type="text" class="form-control form-control-sm" id="valor-parcela-incluir" onKeyPress="return(MascaraMoeda(this,'.',',',event))">
 
                 </div>
 
@@ -3450,7 +3450,7 @@
 
                 <div class="col-md-3 mb-1">
                     <label for="validationCustom01">Data Nascimento</label>
-                    <input type="date" class="form-control form-control-sm" id="data-nascimento-incluir">
+                    <input type="text" class="form-control form-control-sm" id="data-nascimento-incluir" maxlength="10" onKeyDown="mascaraMutuario( this, data );">
 
                 </div>
 

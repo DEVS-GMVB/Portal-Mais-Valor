@@ -153,6 +153,7 @@ const changeInserir = document.getElementById("changeInsert");
 
 changeInserir.addEventListener('click', () => {
   quebraReferenciaModaisProxy.trocaButtonInsert();
+  quebraReferenciaModaisProxy.limparCampos();
 
   const idTrocar = document.getElementById("id-trocar")
 

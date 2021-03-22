@@ -11,6 +11,10 @@ let bancco = document.getElementById("banco");
 let sub_status = document.getElementById("substatus-filtro");
 const buttonTrocar = document.getElementById("id-trocar");
 
+//Hasmap
+const modal = new Map();
+
+
 //Nova proposta
 let dtCadastro = document.getElementById('validationDtCad')
 let bancoo = document.getElementById('examploBanco')
@@ -192,7 +196,8 @@ filtros.addEventListener('click', () => {
   then(response => response.json()).
   then(function (data) {
 
-    for (const value of data) {
+    //HashMap estrutura de dados
+    for (let i = 0; i < data.length; i++) {
 
       let specific_tbody = document.getElementById('list');
       let row = specific_tbody.insertRow(-1);
@@ -220,48 +225,49 @@ filtros.addEventListener('click', () => {
       let alteraVisualiza = row.insertCell(-1);
 
 
-      let propostaText = document.createTextNode(`${value.proposta}`);
+      let propostaText = document.createTextNode(`${data[i].proposta}`);
       proposta.appendChild(propostaText);
-      let nomeText = document.createTextNode(`${value.nome}`);
+      let nomeText = document.createTextNode(`${data[i].nome}`);
       nome.appendChild(nomeText);
-      let cpfText = document.createTextNode(`${value.cpf}`);
+      let cpfText = document.createTextNode(`${data[i].cpf}`);
       cpf.appendChild(cpfText);
-      let data_cadastroText = document.createTextNode(`${value.data_envio}`);
+      let data_cadastroText = document.createTextNode(`${data[i].data_envio}`);
       data_cadastro.appendChild(data_cadastroText);
-      let parceiroText = document.createTextNode(`${value.parceiro}`);
+      let parceiroText = document.createTextNode(`${data[i].parceiro}`);
       parceiro.appendChild(parceiroText);
-      let valor_entregueText = document.createTextNode(`${value.entregue}`);
+      let valor_entregueText = document.createTextNode(`${data[i].entregue}`);
       valor_entregue.appendChild(valor_entregueText);
-      let valor_trocoText = document.createTextNode(`${value.valor_troco}`);
+      let valor_trocoText = document.createTextNode(`${data[i].valor_troco}`);
       valor_troco.appendChild(valor_trocoText);
-      let convenioText = document.createTextNode(`${value.convenio}`);
+      let convenioText = document.createTextNode(`${data[i].convenio}`);
       convenio.appendChild(convenioText);
-      let bancoText = document.createTextNode(`${value.banco}`);
+      let bancoText = document.createTextNode(`${data[i].banco}`);
       banco.appendChild(bancoText);
-      let produtoText = document.createTextNode(`${value.produto}`);
+      let produtoText = document.createTextNode(`${data[i].produto}`);
       produto.appendChild(produtoText);
-      let tipoText = document.createTextNode(`${value.tipo}`);
+      let tipoText = document.createTextNode(`${data[i].tipo}`);
       tipo.appendChild(tipoText);
-      let statusText = document.createTextNode(`${value.status}`);
+      let statusText = document.createTextNode(`${data[i].status}`);
       status.appendChild(statusText);
-      let substatusText = document.createTextNode(`${value.sub_status}`);
+      let substatusText = document.createTextNode(`${data[i].sub_status}`);
       substatus.appendChild(substatusText);
-      let data_atualizacaoText = document.createTextNode(`${value.data_atualizacao}`);
+      let data_atualizacaoText = document.createTextNode(`${data[i].data_atualizacao}`);
       data_atualizacao.appendChild(data_atualizacaoText);
-      let qtd_consulta_roboText = document.createTextNode(`${value.qtd_robo}`);
+      let qtd_consulta_roboText = document.createTextNode(`${data[i].qtd_robo}`);
       qtd_consulta_robo.appendChild(qtd_consulta_roboText);
-      let log_alteracaoText = document.createTextNode(`${value.data_log1}`);
+      let log_alteracaoText = document.createTextNode(`${data[i].data_log1}`);
       log_alteracao.appendChild(log_alteracaoText);
-      let previsao_saldoText = document.createTextNode(`${value.previsao_retorno}`);
+      let previsao_saldoText = document.createTextNode(`${data[i].previsao_retorno}`);
       previsao_saldo.appendChild(previsao_saldoText);
-      let api_simText = document.createTextNode(`${value.id_sim}`);
+      let api_simText = document.createTextNode(`${data[i].id_sim}`);
       api_sim.appendChild(api_simText);
-      let gravacaoText = document.createTextNode(`${value.gravacao}`);
+      let gravacaoText = document.createTextNode(`${data[i].gravacao}`);
       gravacao.appendChild(gravacaoText);
-      let telefoneconstanotfcText = document.createTextNode(`${value.tfc}`);
+      let telefoneconstanotfcText = document.createTextNode(`${data[i].tfc}`);
       telefoneconstanotfc.appendChild(telefoneconstanotfcText);
 
-
+      //Passando minha proposta neste escopo
+      modal.set(data[i].codigo, data[i])
 
       anexos.innerHTML = `<td id="" class="text-right" style="text-align: center;">
                              <div class="actions ml-3" style="text-align: center;">
@@ -272,7 +278,7 @@ filtros.addEventListener('click', () => {
                            </td>`;
 
       alteraVisualiza.innerHTML = ` <div class="actions ml-3" style="text-align: center;">
-                              <a href="#" class="action-item mr-2 " data-toggle="modal" data-target=".modal-incluirproposta-parc" title="Alterar" onclick="preencherModal()">
+                              <a href="#" class="action-item mr-2 " data-toggle="modal" data-target=".modal-incluirproposta-parc" title="Alterar" onclick="preencherModal(modal.get(${data[i].codigo}))">
                                   <i class="fas fa-external-link-alt"></i>
                               </a>
                               <a href="#" class="action-item mr-2" data-toggle="modal" data-target=".modal-filtroproposta" title="Visualizar">
@@ -289,12 +295,14 @@ const quebraReferenciaModais = {
     $(".needs-validation").each(function () {
       this.reset();
     })
+
+    $("#observacao-incluir").val("");
   },
 
-  trocaButtonUpdate: () => {
+  trocaButtonUpdate: (value) => {
 
     buttonTrocar.innerHTML = `
-    <button type="button" class="btn btn-primary btn-icon-label" id="update-button">
+    <button type="button" class="btn btn-primary btn-icon-label" id="update-button" onclick="updatePropostas(modal.get(${value.codigo}))">
       <span class="btn-inner--icon">
           <i class="fas fa-plus"></i>
       </span>
@@ -315,7 +323,40 @@ const quebraReferenciaModais = {
     `
   },
 
-  
+  popupaCamposModal: (value) => {
+    console.log(value)
+
+    $("#numero-proposta-incluir").val(value.proposta);
+    $("#data-cadastro-incluir").val(value.data_envio)
+    $("#banco-incluir").val(value.banco);
+    $("#status-inclir").val(value.status);
+    $("#produto-incluir").val(value.produto);
+    $("#tipo-operacao-incluir").val(value.tipo);
+    $("#valor-entregue-incluir").val(value.entregue);
+    $("#valor-troco-incluir").val(value.valor_troco);
+    $("#convenio-incluir").val(value.convenio);
+    $("#banco-portador-incluir").val(value.banco_origi);
+    $("#portabilidade-incluir").val(value.numero_portabilidade);
+    $("#valor-parcela-incluir").val(value.valor_parcela);
+    $("#seguro-incluir").val(value.seguro);
+    $("#parcelas-pagas-incluir").val(value.parcela);
+    $("#nome-cliente-incluir").val(value.nome);
+    $("#cpf-cliente-incluir").val(value.cpf);
+    $("#ddd-incluir").val("");
+    $("#telefone-cliente-incluir").val(value.dados_telefonicos);
+    $("#correntista-incluir").val(value.correntista);
+    $("#telefone-sms-incluir").val("");
+    $("#matricula-incluir").val("");
+    $("#melhor-data-incluir").val(value.data_envio);
+    $("#melhor-horario-incluir").val(value.horario);
+    $("#codigo-exercito-incluir").val(value.exercito);
+    $("#sexo-incluir").val("");
+    $("#data-nascimento-incluir").val(value.data_nascimento);
+    $("#email-incluir").val("");
+    $("#observacao-incluir").val(value.observacao);
+    $("#data-nascimento-incluir").val(value.data_nascimento);
+  }
+
 }
 
 const handleQuebraReferenciaModais = {
@@ -338,10 +379,123 @@ const handleQuebraReferenciaModais = {
 
 const quebraReferenciaModaisProxy = new Proxy(quebraReferenciaModais, handleQuebraReferenciaModais);
 
-function preencherModal() {
+function preencherModal(id) {
   //Quebra de Referência quando troca de modal
   quebraReferenciaModaisProxy.limparCampos();
-  quebraReferenciaModaisProxy.trocaButtonUpdate();
-
+  quebraReferenciaModaisProxy.trocaButtonUpdate(id);
+  quebraReferenciaModaisProxy.popupaCamposModal(id);
 }
 
+function updatePropostas(value) {
+  const numeroProposta = document.getElementById('numero-proposta-incluir');
+  const dataCadastroIncluir = document.getElementById('data-cadastro-incluir');
+  const banco = document.getElementById('banco-incluir');
+  const status = document.getElementById('status-inclir');
+  const produto = document.getElementById('produto-incluir');
+  const tipoOperacao = document.getElementById('tipo-operacao-incluir');
+  const valorEntregue = document.getElementById('valor-entregue-incluir');
+  const valorTroco = document.getElementById('valor-troco-incluir');
+  const convenio = document.getElementById('convenio-incluir');
+  const bancoPortador = document.getElementById('banco-portador-incluir');
+  const portabilidade = document.getElementById('portabilidade-incluir');
+  const valorParcela = document.getElementById('valor-parcela-incluir');
+  const seguro = document.getElementById('seguro-incluir');
+  const parcelasPagas = document.getElementById('parcelas-pagas-incluir');
+  const nomeCliente = document.getElementById('nome-cliente-incluir');
+  const cpfCliente = document.getElementById('cpf-cliente-incluir');
+  const ddd = document.getElementById('ddd-incluir');
+  const telefoneCliente = document.getElementById('telefone-cliente-incluir');
+  const correntista = document.getElementById('correntista-incluir');
+  const telefoneSmsCliente = document.getElementById('telefone-sms-incluir');
+  const matricula = document.getElementById('matricula-incluir');
+  const desejaAgendarHorario = document.getElementById('agendar-horario-confirmacao-incluir');
+  const melhorDatata = document.getElementById('melhor-data-incluir');
+  const melhorHorario = document.getElementById('melhor-horario-incluir');
+  const exercitoTemporario = document.getElementById('exercito-temporario-incluir');
+  const codigoExercito = document.getElementById('codigo-exercito-incluir');
+  const sexo = document.getElementById('sexo-incluir');
+  const dataNascimento = document.getElementById('data-nascimento-incluir');
+  const email = document.getElementById('email-incluir');
+  const uf = document.getElementById('uf-incluir');
+  const observacao = document.getElementById('observacao-incluir');
+
+  const body = {
+    // parceiro, id_acesso, supervisor, gerente, tipo_parceiro,
+    codigo: value.codigo,
+    parceiro: sessionStorage.getItem('nome','nome'),
+    proposta: numeroProposta.value,
+    data_envio: dataCadastroIncluir.value,
+    banco: banco.value,
+    // status:status.value,
+    produto: produto.value,
+    tipo: tipoOperacao.value,
+    entregue: valorEntregue.value,
+    valor_troco: valorTroco.value,
+    convenio: convenio.value,
+    banco_port1: bancoPortador.value,
+    numero_portabilidade: portabilidade.value,
+    parcela: valorParcela.value,
+    seguro: seguro.value,
+    qtdp_pagaport1: parcelasPagas.value,
+    nome: nomeCliente.value,
+    cpf: cpfCliente.value,
+    telefone_ddd_1: ddd.value,
+    telefone1: telefoneCliente.value,
+    correntista: correntista.value,
+    telefone4: telefoneSmsCliente.value,
+    matricula: matricula.value,
+    agendamento: desejaAgendarHorario.value,
+    dia: melhorDatata.value,
+    horario: melhorHorario.value,
+    exercito: exercitoTemporario.value,
+    senha_exercito: codigoExercito.value,
+    sexo: sexo.value,
+    data_nascimento: dataNascimento.value,
+    email_cliente: email.value,
+    uf: uf.value,
+    observacao: observacao.value,
+
+  }
+
+  const myHeaders = new Headers();
+  myHeaders.append("Content-Type", "application/json");
+
+  const raw = JSON.stringify(body);
+
+  const requestOptions = {
+    method: 'POST',
+    headers: myHeaders,
+    body: raw,
+    redirect: 'follow'
+  };
+
+  fetch(URL + "/user/proposta/inclusao", requestOptions)
+    .then(response => response.json())
+    .then(function (data) {
+
+      // console.log(data);
+      var codigo = data.codigo;
+
+      var input = document.querySelectorAll('form#files input[type="file"]')
+
+      var data = new FormData()
+      input.forEach(file => {
+        data.append(file.name, file.files[0])
+      });
+
+
+      fetch(URL + `/user/proposta/inclusao/arquivos?codigo=${codigo}`, {
+          method: 'POST',
+          body: data
+        })
+        .then((response) => response.json())
+        .then((result) => {
+          console.log(result);
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+
+    }).catch(error => console.log('error', error))
+
+}
