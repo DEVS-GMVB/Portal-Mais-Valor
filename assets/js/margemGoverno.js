@@ -1,5 +1,25 @@
 const URL = 'http://localhost:3000'
 
+const dataSession = {
+    id_acesso: sessionStorage.getItem('id_acesso', 'id_acesso'),
+    status: sessionStorage.getItem('status', 'status'),
+    perfil: sessionStorage.getItem('perfil', 'perfil'),
+    nome: sessionStorage.getItem('nome', 'nome'),
+    supervisor: sessionStorage.getItem('supervisor', 'supervisor'),
+    gerente: sessionStorage.getItem('gerente', 'gerente'),
+    cnpj_matr: sessionStorage.getItem('cnpj_matriz', 'cnpj_matriz'),
+    cpf_user: sessionStorage.getItem('cpf_usuario', 'cpf_usuario'),
+    tipo_usuario: sessionStorage.getItem('tipo_usuario', 'tipo_usuario'),
+    supervisor_cpf: sessionStorage.getItem('supervisor_cpf', 'supervisor_cpf'),
+    gerente_cpf: sessionStorage.getItem('gerente_cpf', 'gerente_cpf')
+}
+
+function dateNow() {
+    let date = new Date();
+    let dateNow = `${date.getDate()}/${(date.getMonth() + 1)}/${date.getFullYear()} ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`
+    return dateNow;
+}
+
 function Insert(){
     const cpf = $('#cpf-incluir').val()
     const agencia = $('#agencia-incluir').val()
@@ -15,7 +35,14 @@ function Insert(){
         agencia:agencia,
         conta:conta,
         status,
-        convenio:convenio
+        convenio:convenio,
+        id_acesso:dataSession.id_acesso,
+        cpf_parceiro:dataSession.cpf_parceiro,
+        parceiro:dataSession.nome,
+        supervisor:dataSession.supervisor,
+        cpf_supervisor:dataSession.supervisor_cpf,
+        gerente:dataSession.gerente,
+        cpf_gerente:dataSession.gerente_cpf
     }
 
     const raw = JSON.stringify(body)

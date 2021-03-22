@@ -7,6 +7,26 @@ const arrays = {
     arrayChangeButtonsRows: arrayChangeButtonsRows = []
 }
 
+const dataSession = {
+    id_acesso: sessionStorage.getItem('id_acesso', 'id_acesso'),
+    status: sessionStorage.getItem('status', 'status'),
+    perfil: sessionStorage.getItem('perfil', 'perfil'),
+    nome: sessionStorage.getItem('nome', 'nome'),
+    supervisor: sessionStorage.getItem('supervisor', 'supervisor'),
+    gerente: sessionStorage.getItem('gerente', 'gerente'),
+    cnpj_matr: sessionStorage.getItem('cnpj_matriz', 'cnpj_matriz'),
+    cpf_user: sessionStorage.getItem('cpf_usuario', 'cpf_usuario'),
+    tipo_usuario: sessionStorage.getItem('tipo_usuario', 'tipo_usuario'),
+    supervisor_cpf: sessionStorage.getItem('supervisor_cpf', 'supervisor_cpf'),
+    gerente_cpf: sessionStorage.getItem('gerente_cpf', 'gerente_cpf')
+}
+
+function dateNow() {
+    let date = new Date();
+    let dateNow = `${date.getDate()}/${(date.getMonth() + 1)}/${date.getFullYear()} ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`
+    return dateNow;
+}
+
 const breakModal = {
     empty: function () {
         $('.needs-validation').each(function () {
@@ -49,6 +69,9 @@ function changee(){
 }
 
 function insert(){
+
+   const data = dateNow() 
+
     const cpf = $('#cpf-incluir').val()
     const nome = $('#nome-incluir').val()
     const cnpj = $('#cnpj-incluir').val()
@@ -69,7 +92,7 @@ function insert(){
 
     const body = {
             cpf:cpf, 
-            // data_criacao, 
+            data_criacao:data,
             // responsavel,
             nome:nome,
             cnpj:cnpj,
@@ -84,7 +107,15 @@ function insert(){
             cnpj_2:cpfSocio2,
             cnpj_4:cpfSocio4,
             cnpj_3:cpfSocio3,
-            parceiro:sessionStorage.getItem('nome', 'nome')
+            //parceiro:sessionStorage.getItem('nome', 'nome')
+            parceiro:dataSession.nome,
+            supervisor:dataSession.supervisor,
+            gerente:dataSession.gerente,
+            id_acesso:dataSession.id_acesso,
+            cpf_parceiro:dataSession.cpf_parceiro,
+            cpf_supervisor:dataSession.supervisor_cpf,
+            cpf_gerente:dataSession.gerente_cpf,
+            data_inclusao:data       
     }
 
     const raw = JSON.stringify(body)
@@ -232,6 +263,8 @@ function iconUpdate(id, row){
 
 function update(id, row){
 
+    const data = dateNow()
+
     const myheaders = new Headers()
     myheaders.append('Content-Type', 'application/json')
 
@@ -254,7 +287,7 @@ function update(id, row){
         id_cpf:id,
         cpf:cpf, 
         // data_criacao, 
-        // responsavel,
+        responsavel:dataSession.nome,
         nome:nome,
         cnpj:cnpj,
         razao_social:razaoSocial, 
@@ -267,7 +300,8 @@ function update(id, row){
         cnpj_1:cpfSocio1,
         cnpj_2:cpfSocio2,
         cnpj_4:cpfSocio4,
-        cnpj_3:cpfSocio3
+        cnpj_3:cpfSocio3,
+        data_atualizacao:data
 }
 
 const raw = JSON.stringify(body)

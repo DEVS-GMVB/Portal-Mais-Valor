@@ -102,42 +102,49 @@
 
                                 <div class="col-md-3 mb-3">
                                     <label for="validationCustom01">Data Cadastro</label>
-                                    <input type="text" class="form-control form-control-sm" id="validationCustom01"
-                                        required>
+                                    <input type="text" class="form-control form-control-sm" id="data-cadastro"
+                                        onKeyDown="mascaraMutuario( this, data );" maxlength="10" required>
 
                                 </div>
                                 <div class="col-md-3 mb-3">
                                     <label for="validationCustom01">Status</label>
-                                    <input type="text" class="form-control form-control-sm" id="validationCustom01"
-                                        required>
+                                    <select class="form-control form-control-sm" id="status" required>
+                                        <option value=""></option>
+                                        <option value="ATUALIZACAO NAO REALIZADA">ATUALIZACAO NAO REALIZADA</option>
+                                        <option value="CADASTRO REALIZADO">CADASTRO REALIZADO</option>
+                                        <option value="DOCUMENTACAO PENDENTE">DOCUMENTACAO PENDENTE</option>
+                                        <option value="ENCAMINHADO ATUALIZACAO">ENCHAMINHADO ATUALIZACAO</option>
+                                        <option value="PENDENCIA RESOLVIDA">PENDENCIA RESOLVIDA</option>
+                                    </select>
 
                                 </div>
                                 <div class="col-md-3 mb-3">
                                     <label for="validationCustom01">Sub-Status</label>
-                                    <input type="text" class="form-control form-control-sm" id="validationCustom01"
-                                        required>
+                                    <input type="text" class="form-control form-control-sm" id="substatus" required>
 
                                 </div>
                                 <div class="col-md-3 mb-3">
                                     <label for="validationCustom01">Tipo Atualização</label>
-                                    <input type="text" class="form-control form-control-sm" id="validationCustom01"
+                                    <input type="text" class="form-control form-control-sm" id="tipo_atualizacao"
                                         required>
                                 </div>
 
                                 <div class="col-md-2 mb-3">
                                     <label for="validationCustom01">Correntista?</label>
-                                    <input type="text" class="form-control form-control-sm" id="validationCustom01"
-                                        required>
+                                    <select class="form-control form-control-sm" id="correntista" required>
+                                        <option value=""></option>
+                                        <option value="SIM">SIM</option>
+                                        <option value="NÃO">NÃO</option>
+                                    </select>
                                 </div>
                                 <div class="col-md-5 mb-3">
                                     <label for="validationCustom01">CPF Cliente</label>
-                                    <input type="text" class="form-control form-control-sm" id="validationCustom01"
-                                        required>
+                                    <input type="text" class="form-control form-control-sm" id="cpf_cliente"
+                                        maxlength="14" onkeypress='mascaraMutuario(this,cpfCnpj)' required>
                                 </div>
                                 <div class="col-md-5 mb-3">
                                     <label for="validationCustom01">Nome Cliente</label>
-                                    <input type="text" class="form-control form-control-sm" id="validationCustom01"
-                                        required>
+                                    <input type="text" class="form-control form-control-sm" id="nome_cliente" required>
                                 </div>
 
 
@@ -169,22 +176,19 @@
 
                                 <div class="col-md-4 mb-3">
                                     <label for="validationCustom01">Parceiro</label>
-                                    <input type="text" class="form-control form-control-sm" id="validationCustom01"
-                                        required>
+                                    <input type="text" class="form-control form-control-sm" id="parceiro" required>
 
                                 </div>
 
                                 <div class="col-md-4 mb-3">
                                     <label for="validationCustom01">Supervisor</label>
-                                    <input type="text" class="form-control form-control-sm" id="validationCustom01"
-                                        required>
+                                    <input type="text" class="form-control form-control-sm" id="supervisor" required>
 
                                 </div>
 
                                 <div class="col-md-4 mb-3">
                                     <label for="validationCustom01">Gerente</label>
-                                    <input type="text" class="form-control form-control-sm" id="validationCustom01"
-                                        required>
+                                    <input type="text" class="form-control form-control-sm" id="gerente" required>
 
                                 </div>
 
@@ -201,7 +205,7 @@
 
 
 
-                        
+
 
                         </form>
 
@@ -224,25 +228,25 @@
 
                         <form class="needs-validation" novalidate>
 
-                            <div class="form-row mt-4 mx-6">
+                            <div class="form-row mt-4 mx-6" id="arrayFile">
 
 
                                 <div class="col-md-6 mb-3">
                                     <label for="exampleFormControlFile1"><b>Identificação:</b></label>
-                                    <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                                    <input type="file" class="form-control-file"  name="identificacao" id="identificacaoFile">
 
                                 </div>
 
 
                                 <div class="col-md-6 mb-3">
                                     <label for="exampleFormControlFile1"><b>Endereço:</b></label>
-                                    <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                                    <input type="file" class="form-control-file" name="endereco" id="enderecoFile">
 
                                 </div>
 
                                 <div class="col-md-6 mb-3 mt-2">
                                     <label for="exampleFormControlFile1"><b>Renda:</b></label>
-                                    <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                                    <input type="file" class="form-control-file"  name="renda" id="rendaFile">
 
                                 </div>
 
@@ -267,12 +271,12 @@
                             <table class="table align-items-center">
                                 <thead>
                                     <tr>
-                                        <th scope="col" class="sort" data-sort="arquivos"
-                                            style="text-align: center;"></th>
-                                        <th scope="col" class="sort" data-sort="download"
-                                            style="text-align: center;">Arquivos</th>
-                                        <th scope="col" class="sort" data-sort="newspace"
-                                            style="text-align: center;">Download</th>
+                                        <th scope="col" class="sort" data-sort="arquivos" style="text-align: center;">
+                                        </th>
+                                        <th scope="col" class="sort" data-sort="download" style="text-align: center;">
+                                            Arquivos</th>
+                                        <th scope="col" class="sort" data-sort="newspace" style="text-align: center;">
+                                            Download</th>
 
                                     </tr>
                                 </thead>
@@ -285,15 +289,14 @@
                                         </td>
 
                                         <td style="text-align: center;">
-                                          
+
                                         </td>
                                         <td style="text-align: center;">
                                             <button type="button"
-                                            class="btn btn-sm btn-secondary btn-icon rounded-pill">
-                                            <span class="btn-inner--icon"><i
-                                                    class="fas fa-download"></i></span>
-                                            <span class="btn-inner--text">Download</span>
-                                        </button>
+                                                class="btn btn-sm btn-secondary btn-icon rounded-pill">
+                                                <span class="btn-inner--icon"><i class="fas fa-download"></i></span>
+                                                <span class="btn-inner--text">Download</span>
+                                            </button>
                                         </td>
 
 
@@ -306,15 +309,14 @@
                                         </td>
 
                                         <td style="text-align: center;">
-                                          
+
                                         </td>
                                         <td style="text-align: center;">
                                             <button type="button"
-                                            class="btn btn-sm btn-secondary btn-icon rounded-pill">
-                                            <span class="btn-inner--icon"><i
-                                                    class="fas fa-download"></i></span>
-                                            <span class="btn-inner--text">Download</span>
-                                        </button>
+                                                class="btn btn-sm btn-secondary btn-icon rounded-pill">
+                                                <span class="btn-inner--icon"><i class="fas fa-download"></i></span>
+                                                <span class="btn-inner--text">Download</span>
+                                            </button>
                                         </td>
 
 
@@ -327,15 +329,14 @@
                                         </td>
 
                                         <td style="text-align: center;">
-                                          
+
                                         </td>
                                         <td style="text-align: center;">
                                             <button type="button"
-                                            class="btn btn-sm btn-secondary btn-icon rounded-pill">
-                                            <span class="btn-inner--icon"><i
-                                                    class="fas fa-download"></i></span>
-                                            <span class="btn-inner--text">Download</span>
-                                        </button>
+                                                class="btn btn-sm btn-secondary btn-icon rounded-pill">
+                                                <span class="btn-inner--icon"><i class="fas fa-download"></i></span>
+                                                <span class="btn-inner--text">Download</span>
+                                            </button>
                                         </td>
 
 
@@ -359,12 +360,12 @@
                             <table class="table align-items-center">
                                 <thead>
                                     <tr>
-                                        <th scope="col" class="sort" data-sort="arquivos"
-                                            style="text-align: center;"></th>
-                                        <th scope="col" class="sort" data-sort="download"
-                                            style="text-align: center;">Arquivos</th>
-                                        <th scope="col" class="sort" data-sort="newspace"
-                                            style="text-align: center;">Download</th>
+                                        <th scope="col" class="sort" data-sort="arquivos" style="text-align: center;">
+                                        </th>
+                                        <th scope="col" class="sort" data-sort="download" style="text-align: center;">
+                                            Arquivos</th>
+                                        <th scope="col" class="sort" data-sort="newspace" style="text-align: center;">
+                                            Download</th>
 
                                     </tr>
                                 </thead>
@@ -377,15 +378,14 @@
                                         </td>
 
                                         <td style="text-align: center;">
-                                          
+
                                         </td>
                                         <td style="text-align: center;">
                                             <button type="button"
-                                            class="btn btn-sm btn-secondary btn-icon rounded-pill">
-                                            <span class="btn-inner--icon"><i
-                                                    class="fas fa-download"></i></span>
-                                            <span class="btn-inner--text">Download</span>
-                                        </button>
+                                                class="btn btn-sm btn-secondary btn-icon rounded-pill">
+                                                <span class="btn-inner--icon"><i class="fas fa-download"></i></span>
+                                                <span class="btn-inner--text">Download</span>
+                                            </button>
                                         </td>
 
 
@@ -398,15 +398,14 @@
                                         </td>
 
                                         <td style="text-align: center;">
-                                          
+
                                         </td>
                                         <td style="text-align: center;">
                                             <button type="button"
-                                            class="btn btn-sm btn-secondary btn-icon rounded-pill">
-                                            <span class="btn-inner--icon"><i
-                                                    class="fas fa-download"></i></span>
-                                            <span class="btn-inner--text">Download</span>
-                                        </button>
+                                                class="btn btn-sm btn-secondary btn-icon rounded-pill">
+                                                <span class="btn-inner--icon"><i class="fas fa-download"></i></span>
+                                                <span class="btn-inner--text">Download</span>
+                                            </button>
                                         </td>
 
 
@@ -419,15 +418,14 @@
                                         </td>
 
                                         <td style="text-align: center;">
-                                          
+
                                         </td>
                                         <td style="text-align: center;">
                                             <button type="button"
-                                            class="btn btn-sm btn-secondary btn-icon rounded-pill">
-                                            <span class="btn-inner--icon"><i
-                                                    class="fas fa-download"></i></span>
-                                            <span class="btn-inner--text">Download</span>
-                                        </button>
+                                                class="btn btn-sm btn-secondary btn-icon rounded-pill">
+                                                <span class="btn-inner--icon"><i class="fas fa-download"></i></span>
+                                                <span class="btn-inner--text">Download</span>
+                                            </button>
                                         </td>
 
 
@@ -456,26 +454,35 @@
 
                         <div class="observacao mt-3" style="text-align: center;">
                             <label for="exampleFormControlSelect1">Observação</label>
-                            <textarea class="form-control" placeholder="" rows="3"></textarea>
+                            <textarea class="form-control" placeholder="" rows="3" id="obs_campo"></textarea>
+
+                            <div class="opcoes-cadastro mt-3" style="text-align: center; margin-inline: block;" id="change">
+                                <!-- <button type="button" class="btn btn-primary btn-icon-label" id="btn-insert">
+                                    <span class="btn-inner--icon">
+                                        <i class="fas fa-plus"></i>
+                                    </span>
+                                    <span class="btn-inner--text">Incluir / Salvar Alteração</span>
+                                </button> -->
+            
+                            </div>
+                            
                         </div>
 
 
                     </div>
 
-                    <div class="opcoes-cadastro mt-3" style="text-align: center; margin-inline: block;">
-                        <button type="button" class="btn btn-primary btn-icon-label">
-                            <span class="btn-inner--icon">
-                                <i class="fas fa-plus"></i>
-                            </span>
-                            <span class="btn-inner--text">Incluir / Salvar Alteração</span>
-                        </button>
+                    <div class="alert alert-danger falha" id="alertFalhaAcesso" role="alert">
+                    </div> 
 
-                    </div>
+                    <!-- Alert sucesso acesso -->
+                   <div class="alert alert-success sucesso" id="messageSuccess" role="alert">
+                   </div>
+
+                    
 
                 </div>
 
                 
-
 
             </div>
         </div>
@@ -1067,31 +1074,34 @@
                                         <div class="col-md-4 mb-3">
                                             <div class="form-group">
                                                 <label for="exampleFormControlSelect1">Tipo</label>
-                                                <select class="form-control form-control-sm"
-                                                    id="exampleFormControlSelect1">
+                                                <select class="form-control form-control-sm" id="tipo-filtro">
                                                     <option> </option>
                                                     <option value="RENDA / RATING">RENDA / RATING</option>
                                                     <option value="CODIGO ZZ">CODIGO ZZ</option>
+
                                                 </select>
                                             </div>
                                         </div>
 
                                         <div class="col-md-4 mb-3">
                                             <label for="validationCustom02">CPF</label>
-                                            <input type="text" minlength="14" maxlength="18"
-                                                class="form-control form-control-sm" id="validationCustom02">
+                                            <input type="text" class="form-control form-control-sm" id="cpf-filtro"
+                                                maxlength="14" onkeypress='mascaraMutuario(this,cpfCnpj)'>
 
                                         </div>
 
                                         <div class="col-md-4 mb-3">
                                             <label for="validationCustom02">Status</label>
-                                            <select class="form-control form-control-sm" id="exampleFormControlSelect1">
+                                            <select class="form-control form-control-sm" id="status-filtro">
                                                 <option> </option>
-                                                <option value="ATUALIZAÇÃO NÃO REALIZADA">ATUALIZAÇÃO NÃO REALIZADA</option>
-                                                <option value="CADASTRO ATUALIZADO">CADASTRO ATUALIZADO</option>
-                                                <option value="DOCUMENTAÇÃO PENDENTE">DOCUMENTAÇÃO PENDENTE</option>
-                                                <option value="ENCAMINHANDO ATUALIZAÇÃO">ENCAMINHANDO ATUALIZAÇÃO</option>
+                                                <option value="ATUALIZACAO NAO REALIZADA">ATUALIZACAO NAO REALIZADA
+                                                </option>
+                                                <option value="CADASTRO REALIZADO">CADASTRO REALIZADO</option>
+                                                <option value="DOCUMENTACAO PENDENTE">DOCUMENTACAO PENDENTE</option>
+                                                <option value="ENCAMINHADO ATUALIZACAO">ENCHAMINHADO ATUALIZACAO
+                                                </option>
                                                 <option value="PENDENCIA RESOLVIDA">PENDENCIA RESOLVIDA</option>
+
                                             </select>
                                         </div>
 
@@ -1106,20 +1116,21 @@
 
                             <div class="opcoes-cadastro" style="text-align: center; margin-inline: block;">
 
-                                <button type="button" class="btn btn-primary btn-icon-label">
+                                <button type="button" class="btn btn-primary btn-icon-label" id="btn-buscar">
                                     <span class="btn-inner--icon">
                                         <i class="fas fa-search"></i>
                                     </span>
                                     <span class="btn-inner--text">Buscar</span>
                                     <button type="button" class="btn btn-primary btn-icon-label" data-toggle="modal"
-                                        data-target=".modal-alterar-atualizacaocadastral" title="Alterar">
+                                        data-target=".modal-alterar-atualizacaocadastral" title="Alterar"
+                                        id="btn-incluir">
                                         <span class="btn-inner--icon">
                                             <i class="fas fa-plus"></i>
                                         </span>
                                         <span class="btn-inner--text">Incluir</span>
                                     </button>
 
-                                    <button type="button" class="btn btn-primary btn-icon-label">
+                                    <button type="reset" class="btn btn-primary btn-icon-label" id="btn-reset">
                                         <span class="btn-inner--icon">
                                             <i class="fas fa-trash-alt"></i>
                                         </span>
@@ -1154,7 +1165,7 @@
 
                                         </tr>
                                     </thead>
-                                    <tbody>
+                                    <tbody id="List" style="text-align: center;">
 
                                         <td style="text-align: center;"> XXXXXXXX </td>
                                         <td style="text-align: center;"> XXXXXXXX </td>
@@ -1172,7 +1183,8 @@
 
                                             <div class="actions ml-3" style="text-align: center;">
                                                 <a href="#" class="action-item mr-2" data-toggle="modal"
-                                                    data-target=".modal-alterar-atualizacaocadastral" title="Alterar">
+                                                    data-target=".modal-alterar-atualizacaocadastral" title="Alterar"
+                                                    id="btn-atualizar">
                                                     <i class="fas fa-external-link-alt"></i>
                                                 </a>
 
@@ -1222,6 +1234,7 @@
     <!-- Mascaras -->
     <script src="../assets/js/mascaras.js"></script>
     <!-- Demo JS - remove it when starting your project -->
+    <script src="../assets/js/atualizacaoCadastral.js"></script>
     <script src="../assets/js/demo.js"></script>
 </body>
 

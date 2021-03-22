@@ -10,6 +10,26 @@ const arrays = {
     arrayChangeButtonsRows: arrayChangeButtonsRows = []
 }
 
+const dataSession = {
+    id_acesso: sessionStorage.getItem('id_acesso', 'id_acesso'),
+    status: sessionStorage.getItem('status', 'status'),
+    perfil: sessionStorage.getItem('perfil', 'perfil'),
+    nome: sessionStorage.getItem('nome', 'nome'),
+    supervisor: sessionStorage.getItem('supervisor', 'supervisor'),
+    gerente: sessionStorage.getItem('gerente', 'gerente'),
+    cnpj_matr: sessionStorage.getItem('cnpj_matriz', 'cnpj_matriz'),
+    cpf_user: sessionStorage.getItem('cpf_usuario', 'cpf_usuario'),
+    tipo_usuario: sessionStorage.getItem('tipo_usuario', 'tipo_usuario'),
+    supervisor_cpf: sessionStorage.getItem('supervisor_cpf', 'supervisor_cpf'),
+    gerente_cpf: sessionStorage.getItem('gerente_cpf', 'gerente_cpf')
+}
+
+function dateNow() {
+    let date = new Date();
+    let dateNow = `${date.getDate()}/${(date.getMonth() + 1)}/${date.getFullYear()} ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`
+    return dateNow;
+}
+
 window.onload = function(){
     let requestOptions = {
         method: 'GET',
@@ -35,7 +55,6 @@ window.onload = function(){
     $('#parceiro-incluir').attr('disabled', true);
     $('#supervidor-incluir').attr('disabled', true);
     $('#gerente-incluir').attr('disabled', true);
-
 }
 
 const breakModal = {
@@ -102,6 +121,8 @@ function change() {
 
 function insert() {
 
+    const data = this.dateNow()
+
     const dtCadastro = $('#dtCadastro-incluir').val()
     const proposta = $('#proposta-incluir').val()
     //const status = $('#status-incluir').val()
@@ -128,7 +149,12 @@ function insert() {
         //Sujeito a tirar
         parceiro:parceiro,
         supervisor:supervisor,
-        gerente:gerente
+        gerente:gerente,
+        id_acesso:dataSession.id_acesso,
+        cpf_parceiro:dataSession.cpf_parceiro,
+        cpf_supervisor:dataSession.supervisor_cpf,
+        cpf_gerente:dataSession.gerente_cpf,
+        data_atualizacao:data
     }
 
     const raw = JSON.stringify(body)
@@ -293,6 +319,8 @@ function iconUpdate(id, row) {
 
 function alter(id, row){
 
+    const data = this.dateNow()
+
     const myheaders = new Headers()
     myheaders.append('Content-Type', 'application/json')
 
@@ -310,7 +338,10 @@ function alter(id, row){
         status:status,
         banco:banco,
         tipo:tipo,
-        cpf:cpf
+        cpf:cpf,
+        data_alteracao: data,
+        responsavel:dataSession.nome,
+        data_atualizacao: data
     }
     
     const raw = JSON.stringify(body)

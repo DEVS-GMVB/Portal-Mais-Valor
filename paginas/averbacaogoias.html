@@ -77,54 +77,65 @@
 
 
 
-                    <div class="form-row mt-4">
+                    <div class="form-row mt-4" id="fieldsUpdate">
 
 
                         <div class="col-md-3 mb-3">
                             <label for="validationCustom01">Data Cadastro</label>
-                            <input type="text" class="form-control form-control-sm" id="validationCustom01" required>
+                            <input type="text" class="form-control form-control-sm" id="data_cadastro_campo"
+                                maxlength="10" onKeyDown="mascaraMutuario( this, data );" required>
 
                         </div>
                         <div class="col-md-6 mb-3">
                             <label for="validationCustom01">Parceiro</label>
-                            <input type="text" class="form-control form-control-sm" id="validationCustom01" required>
+                            <input type="text" class="form-control form-control-sm" id="parceiro_campo" required>
 
                         </div>
                         <div class="col-md-3 mb-3">
                             <label for="validationCustom01">Tipo</label>
-                            <input type="text" class="form-control form-control-sm" id="validationCustom01" required>
-
+                            <select class="form-control form-control-sm" id="tipo_campo" required>
+                                <option value=""></option>
+                                <option value="REFINANCIAMENTO">REFINANCIAMENTO</option>
+                                <option value="REFIN DE PORTABILIDADE">REFIN DE PORTABILIDADE</option>
+                                <option value="NOVO">NOVO</option>
+                                <option value="PORTABILIDADE">PORTABILIDADE</option>
+                            </select>
                         </div>
                         <div class="col-md-3 mb-3">
                             <label for="validationCustom01">Valor Solicitado</label>
-                            <input type="text" class="form-control form-control-sm" id="validationCustom01" required>
+                            <input type="text" class="form-control form-control-sm" id="valor_campo"
+                                onKeyPress="return(MascaraMoeda(this,'.',',',event))" required>
                         </div>
                         <div class="col-md-3 mb-3">
                             <label for="validationCustom01">Parcela</label>
-                            <input type="text" class="form-control form-control-sm" id="validationCustom01" required>
+                            <input type="text" class="form-control form-control-sm" id="parcela_campo" required>
                         </div>
                         <div class="col-md-3 mb-3">
                             <label for="validationCustom01">Prazo</label>
-                            <input type="text" class="form-control form-control-sm" id="validationCustom01" required>
+                            <input type="text" class="form-control form-control-sm" id="prazo_campo" required>
                         </div>
                         <div class="col-md-3 mb-3">
                             <label for="validationCustom01">Senha</label>
-                            <input type="text" class="form-control form-control-sm" id="validationCustom01" required>
+                            <input type="password" class="form-control form-control-sm" id="senha_campo" required>
                         </div>
                         <div class="col-md-4 mb-3">
                             <label for="validationCustom01">Validade Senha</label>
-                            <input type="text" class="form-control form-control-sm" id="validationCustom01" required>
+                            <select class="form-control form-control-sm" id="validade_campo" required>
+                                <option value=""></option>
+                                <option value="2 HORAS">2 HORAS</option>
+                                <option value="30 MINUTOS">30 MINUTOS</option>
+                                <option value="5 HORAS">5 HORAS</option>
+                            </select>
                         </div>
                         <div class="col-md-4 mb-3">
                             <label for="validationCustom01">Parcela Original</label>
-                            <input type="text" class="form-control form-control-sm" id="validationCustom01" required>
+                            <input type="text" class="form-control form-control-sm" id="parcela_original_campo"
+                                required>
                         </div>
                         <div class="col-md-4 mb-3">
                             <label for="validationCustom01">Matrícula</label>
-                            <input type="text" class="form-control form-control-sm" id="validationCustom01" required>
+                            <input type="text" class="form-control form-control-sm" id="matricula_campo" required>
                         </div>
-
-
 
 
                     </div>
@@ -134,10 +145,10 @@
 
                 <div class="bg-subtitulo mt-1 mb-3">
 
-                    <h3>Dados Usuário </h3>
+                    <h3 id="valueText">Dados Usuário </h3>
 
                 </div>
-                
+
 
                 <form class="needs-validation" novalidate>
 
@@ -146,43 +157,64 @@
                         <div class="col-md-12 mb-3">
                             <div class="form-group">
                                 <label for="exampleFormControlSelect1">Status</label>
-                                <select class="form-control form-control-sm"
-                                    id="exampleFormControlSelect1">
+                                <select class="form-control form-control-sm" id="status_usuario_campo">
                                     <option> </option>
-
+                                    <option value="AGUARDANDO AVERBACAO" selected>AGUARDANDO AVERBAÇÃO</option>
+                                    <option value="AVERBADO">AVERBADO</option>
+                                    <option value="AVERBACAO SOLICITADA">AVERBAÇÃO SOLICITADA</option>
                                 </select>
                             </div>
                         </div>
-                           
-                            
-                        <button type="button"
-                            class="btn btn-sm btn-secondary btn-icon rounded-pill mt-3">
-                            <span class="btn-inner--icon"><i
-                                    class="fas fa-download"></i></span>
-                            <span class="btn-inner--text">Anexo Print Margem</span>
-                        </button>
 
-                    
-                </div>
+                        <div class="col-md-12 mb-0" style="text-align: center; margin-inline: block;" id="file">
+
+                            <div id="div-fundo" style="margin-left: 22.5rem;">
+                                <div class="col-md-3 mb-3" style="text-align: center;" id="printSaldoFer">
+                                    <input type="file" name="anexo_print_margem" id="anexo" class="custom-input-file"
+                                        data-multiple-caption="{count} files selected" multiple required />
+                                    <label for="anexo" id="idLabel">
+                                        <i class="fa fa-upload" style="color: 273444;"></i>
+                                        <span>Anexo Print Margem</span>
+                                    </label>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                    </div>
 
 
                 </form>
 
-               
 
-                <div class="opcoes-cadastro mt-4" style="text-align: center; margin-inline: block;">
-                    <button type="button" class="btn btn-primary btn-icon-label">
+
+                <div class="opcoes-cadastro mt-4" style="text-align: center; margin-inline: block;" id="btn-change">
+                    <!-- <button type="button" class="btn btn-primary btn-icon-label" id="btn-insert">
                         <span class="btn-inner--icon">
                             <i class="fas fa-plus"></i>
                         </span>
                         <span class="btn-inner--text">Incluir / Salvar Alteração</span>
-                    </button>
-    
+                    </button> -->
+
+                </div>
+
+                <!-- Alert falha cadastro -->
+                <div class="alert alert-danger" id="error" role="alert">
+
+                </div>
+
+                <!-- Alert sucesso cadastro -->
+                <div class="alert alert-success" id="success" role="alert">
+
                 </div>
 
             </div>
 
-         
+
+
+
 
         </div>
     </div>
@@ -775,19 +807,21 @@
                                         <div class="col-md-6 mb-3">
                                             <div class="form-group">
                                                 <label for="exampleFormControlSelect1">Usuário</label>
-                                                <select class="form-control form-control-sm"
-                                                    id="exampleFormControlSelect1">
-                                                    <option> </option>
+                                                <input type="text" class="form-control form-control-sm"
+                                                    id="usuario_filtro" />
 
-                                                </select>
+
                                             </div>
                                         </div>
 
                                         <div class="col-md-6 mb-3">
                                             <label for="validationCustom02">Status</label>
-                                            <select class="form-control form-control-sm" id="exampleFormControlSelect1">
+                                            <select class="form-control form-control-sm" id="status_filtro">
                                                 <option> </option>
-
+                                                <option value="AGUARDANDO AVERBACAO">AGUARDANDO AVERBAÇÃO
+                                                </option>
+                                                <option value="AVERBADO">AVERBADO</option>
+                                                <option value="AVERBACAO SOLICITADA">AVERBAÇÃO SOLICITADA</option>
                                             </select>
 
                                         </div>
@@ -795,19 +829,19 @@
                                         <div class="col-md-3 mb-3">
                                             <label for="validationCustom02">Data Atualização</label>
                                             <input type="text" minlength="14" maxlength="18"
-                                                class="form-control form-control-sm" id="validationCustom02">
+                                                class="form-control form-control-sm" id="data_atualizacao_filtro">
                                         </div>
 
                                         <div class="col-md-3 mb-3">
                                             <label for="validationCustom02">Data Cadastro</label>
-                                            <input type="text" minlength="14" maxlength="18"
-                                                class="form-control form-control-sm" id="validationCustom02">
+                                            <input type="text" maxlength="10" onKeyDown="mascaraMutuario( this, data );"
+                                                class="form-control form-control-sm" id="data_cadastro_filtro">
                                         </div>
 
                                         <div class="col-md-6 mb-3">
                                             <label for="validationCustom02">CPF</label>
-                                            <input type="text" minlength="14" maxlength="18"
-                                                class="form-control form-control-sm" id="validationCustom02">
+                                            <input type="text" maxlength="14" onkeypress='mascaraMutuario(this,cpfCnpj)'
+                                                class="form-control form-control-sm" id="cpf_filtro">
 
                                         </div>
 
@@ -820,20 +854,20 @@
 
                             <div class="opcoes-cadastro" style="text-align: center; margin-inline: block;">
 
-                                <button type="button" class="btn btn-primary btn-icon-label">
+                                <button type="button" class="btn btn-primary btn-icon-label" id="btn-buscar">
                                     <span class="btn-inner--icon">
                                         <i class="fas fa-search"></i>
                                     </span>
                                     <span class="btn-inner--text">Buscar</span>
                                     <button type="button" class="btn btn-primary btn-icon-label" data-toggle="modal"
-                                        data-target=".modal-alterar-averbacaogoias" title="Alterar">
+                                        data-target=".modal-alterar-averbacaogoias" title="Alterar" id="btn-incluir">
                                         <span class="btn-inner--icon">
                                             <i class="fas fa-plus"></i>
                                         </span>
                                         <span class="btn-inner--text">Incluir</span>
                                     </button>
 
-                                    <button type="button" class="btn btn-primary btn-icon-label">
+                                    <button type="reset" class="btn btn-primary btn-icon-label" id="btn-apagar">
                                         <span class="btn-inner--icon">
                                             <i class="fas fa-trash-alt"></i>
                                         </span>
@@ -870,7 +904,7 @@
 
                                         </tr>
                                     </thead>
-                                    <tbody>
+                                    <tbody id="List" style="text-align: center;">
 
                                         <td style="text-align: center;"> XXXXXXXX </td>
                                         <td style="text-align: center;"> XXXXXXXX </td>
@@ -939,7 +973,9 @@
     <script src="../assets/js/purpose.js"></script>
     <!-- Mascaras -->
     <script src="../assets/js/mascaras.js"></script>
+    <script src="../assets/js/mascarasvalores.js"></script>
     <!-- Demo JS - remove it when starting your project -->
+    <script src="../assets/js/averbacaoGoias.js"></script>
     <script src="../assets/js/demo.js"></script>
 </body>
 
