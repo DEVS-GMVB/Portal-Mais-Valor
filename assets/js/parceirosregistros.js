@@ -112,7 +112,7 @@ function insert(){
             supervisor:dataSession.supervisor,
             gerente:dataSession.gerente,
             id_acesso:dataSession.id_acesso,
-            cpf_parceiro:dataSession.cpf_parceiro,
+            cpf_parceiro:dataSession.cpf_user,
             cpf_supervisor:dataSession.supervisor_cpf,
             cpf_gerente:dataSession.gerente_cpf,
             data_inclusao:data       

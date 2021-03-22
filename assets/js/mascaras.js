@@ -25,7 +25,7 @@ function mTelefone(telefone) {
     telefone = telefone.replace(/\D/g, "")
     telefone = telefone.replace(/(\d{0})(\d)/, "$1($2")
     telefone = telefone.replace(/(\d{2})(\d)/, "$1)$2")
-    telefone = telefone.replace(/(\d{4})(\d)/, "$1-$2")
+    telefone = telefone.replace(/(\d{5})(\d)/, "$1-$2")
     return telefone
 }
 
@@ -206,7 +206,7 @@ function data(v) {
     v = v.replace(/\D/g, "")
     v = v.replace(/(\d{2})(\d)/, "$1/$2")
     v = v.replace(/(\d{2})(\d)/, "$1/$2")
-    return v
+    return v;
 }
 
 function DataHora(evento, objeto) {
@@ -240,10 +240,30 @@ function DataHora(evento, objeto) {
         event.returnValue = false;
 }
 
+// function mHora(val) {
+//     val = val.split(":");
+//     return (parseInt(val[0]) > 19)? "HZ:M0" : "H0:M0"
+
+// }
+
 function mQtde(v) {
     v = /d{3}-\d{3}-\d{4}/
     return v;
 }
+
+
+// function mHora(v) {
+//     v = ([01][0-9]|2[0-3]):[0-5][0-9];
+//     return v;
+
+
+// }
+
+function mQtde(v) {
+    v = /d{3}-\d{3}-\d{4}/
+    return v;
+}
+
 
 function nCartTrab(v) {
     v = v.replace(/\D/g, ""); // Permite apenas dígitos
@@ -288,7 +308,7 @@ function ApenasLetras(e, t) {
 //     v = v.replace(/(\d{4})/g, "$1."); // Coloca um ponto a cada 4 caracteres
 //     v = v.replace(/\.$/, ""); // Remove o ponto se estiver sobrando
 //     v = v.substring(0, 19)// Limita o tamanho
-  
+
 //     return v;
 //   }
 

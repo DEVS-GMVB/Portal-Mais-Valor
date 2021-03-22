@@ -38,7 +38,15 @@
 
     }
 </style>
-
+<script>
+    console.log(sessionStorage.getItem('cnpj_matriz', 'cnpj_matriz'));
+    console.log(sessionStorage.getItem('data_nascimento', 'data_nascimento'));
+    console.log(sessionStorage.getItem('id_acesso', 'id_acesso'));
+    console.log(sessionStorage.getItem('nome', 'nome'));
+    console.log(sessionStorage.getItem('perfil', 'perfil'));
+    console.log(sessionStorage.getItem('status', 'status'));
+    console.log(sessionStorage.getItem('tipo_usuario', 'tipo_usuario'));
+</script>
 <!-- MODAL INCLUIR PROPOSTA -->
 
 <div class="modal fade modal-incluirproposta-idp" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
@@ -89,13 +97,14 @@
 
                         <div class="col-md-2 mb-3">
                             <label for="validationCustom01">Data Cadastro</label>
-                            <input type="text" class="form-control form-control-sm" id="DtCadastro" onKeyDown="fMasc( this, data );" maxlength="10"required>
+                            <input type="text" class="form-control form-control-sm" id="DtCadastro"
+                                onKeyDown="fMasc( this, DataHora );" required>
 
                         </div>
 
                         <div class="col-md-2 mb-3">
                             <label for="validationCustom01">Mês Referência</label>
-                            <input type="text" class="form-control form-control-sm" id="MesRef" required>
+                            <input type="text" class="form-control form-control-sm" id="MesRef" maxlength="2" required>
 
                         </div>
                         <div class="col-md-4 mb-3">
@@ -106,7 +115,8 @@
 
                         <div class="col-md-3 mb-3">
                             <label for="validationCustom01">Valor Entregue</label>
-                            <input type="text" class="form-control form-control-sm" id="ValorEntregue" onKeyPress="return(MascaraMoeda(this,'.',',',event))" required>
+                            <input type="text" class="form-control form-control-sm" id="ValorEntregue"
+                                onKeyPress="return(MascaraMoeda(this,'.',',',event))" required>
 
                         </div>
 
@@ -165,7 +175,8 @@
 
                         <div class="col-md-6 mb-3">
                             <label for="validationCustom01">CPF Cliente</label>
-                            <input type="text" class="form-control form-control-sm" id="CpfCliente" maxlength="14" onkeypress='mascaraMutuario(this,cpfCnpj)' required>
+                            <input type="text" class="form-control form-control-sm" id="CpfCliente" maxlength="14"
+                                onkeypress='mascaraMutuario(this,cpfCnpj)' required>
 
                         </div>
 
@@ -185,8 +196,7 @@
                 <div class="opcoes-cadastro" style="text-align: center; margin-inline: block;">
 
 
-                    <button type="button" class="btn btn-primary btn-icon-label" title="Incluir" id="btnIncluir"
-                    onclick="insert()">
+                    <button type="button" class="btn btn-primary btn-icon-label" title="Incluir" id="btnIncluir" onclick="insert()">
                         <span class="btn-inner--icon">
                             <i class="fas fa-plus"></i>
                         </span>
@@ -274,26 +284,19 @@
 
                             <div class="form-row mt-4">
 
-
-                                <div class="col-md-6 mb-3">
-                                    <label for="validationCustom01">Nome Cliente</label>
-                                    <input type="text" class="form-control form-control-sm" id="NCliente"
-                                        required>
-
-                                </div>
-
+                                
                                 
                                 <div class="col-md-6 mb-3">
                                     <label for="validationCustom01">DDD Telefone </label>
                                     <input type="text" class="form-control form-control-sm" id="DDDTelefone"
-                                       maxlength="2" required>
+                                        maxlength="2" required>
 
                                 </div>
 
                                 <div class="col-md-3 mb-3">
                                     <label for="validationCustom01">Telefone Cliente</label>
-                                    <input type="text" class="form-control form-control-sm" id="telCli"
-                                        maxlength="14" onKeyDown="fMasc( this, mTelefone );"required>
+                                    <input type="text" class="form-control form-control-sm" id="TelCliente"
+                                        maxlength="14" onKeyDown="fMasc( this, mTelefone );" required>
 
                                 </div>
 
@@ -347,33 +350,32 @@
 
                                 <div class="col-md-6 mb-3">
                                     <label for="validationCustom01">Senha Exército</label>
-                                    <input type="text" class="form-control form-control-sm" id="SenhaExerct"
-                                        required>
+                                    <input type="text" class="form-control form-control-sm" id="SenhaExerct" required>
 
                                 </div>
 
-                                <div class="col-md-1 mb-3">
+                                <div class="col-md-6 mb-3">
                                     <div class="form-group">
                                         <label for="exampleFormControlSelect1">Sexo</label>
                                         <select class="form-control form-control-sm" id="Sexo">
                                             <option> </option>
-                                            <option value="Masculino">Masculinno</option>
-                                            <option value="Feminino">Feminino</option>
+                                            <option value="MASCULINO">MASCULINO</option>
+                                            <option value="FEMININO">FEMININO</option>
+
                                         </select>
                                     </div>
                                 </div>
 
                                 <div class="col-md-5 mb-3">
                                     <label for="validationCustom01">E-mail</label>
-                                    <input type="text" class="form-control form-control-sm" id="Email"
-                                        required>
+                                    <input type="text" class="form-control form-control-sm" id="Email" required>
 
                                 </div>
 
-                                <div class="col-md-3 mb-3">
+                                <div class="col-md-4 mb-3">
                                     <label for="validationCustom01">Data Nascimento</label>
-                                    <input type="text" class="form-control form-control-sm" id="DtNasci" onKeyDown="fMasc( this, data );" maxlength="10"
-                                        required>
+                                    <input type="text" class="form-control form-control-sm" id="DtNasci"
+                                        onKeyDown="fMasc( this, data );" maxlength="10" required>
 
                                 </div>
 
@@ -440,14 +442,25 @@
 
                                 <div class="col-md-6 mb-3">
                                     <label for="validationCustom01">CPF Cliente</label>
-                                    <input type="text" class="form-control form-control-sm" id="CpfCli"
-                                    maxlength="14" onkeypress='mascaraMutuario(this,cpfCnpj)' required>
+                                    <input type="text" class="form-control form-control-sm" id="CpfCli" maxlength="14"
+                                        onkeypress='mascaraMutuario(this,cpfCnpj)' required>
 
                                 </div>
+
+                                <div class="col-md-6 mb-3">
+                                    <label for="validationCustom01">Nome Cliente</label>
+                                    <input type="text" class="form-control form-control-sm" id="NCliente" required>
+
+                                </div>
+
+
                             </div>
 
 
                         </form>
+
+
+
 
                     </div>
 
@@ -466,7 +479,6 @@
                             </div>
 
                         </form>
-
                     </div>
 
 
@@ -477,9 +489,9 @@
 
 
                             <div class="form-row mt-4 mx-6">
-        
-                  
-        
+
+
+
                                 <div class="col-md-3 mb-3">
                                     <label for="exampleFormControlTextarea1">Proposta:</label>
                                     <input type="file" name="proposta" id="file-1" class="custom-input-file"
@@ -488,130 +500,123 @@
                                         <i class="fa fa-upload"></i>
                                         <span>Choose a file…</span>
                                     </label>
-        
+
                                 </div>
-        
+
                                 <div class="col-md-3 mb-3">
-                                    <label for="exampleFormControlTextarea2">Identificação:</label>
+                                    <label for="exampleFormControlTextarea1">Identificação:</label>
                                     <input type="file" name="identificacao" id="file-2" class="custom-input-file"
                                         data-multiple-caption="{count} files selected" multiple />
                                     <label for="file-2">
                                         <i class="fa fa-upload"></i>
                                         <span>Choose a file…</span>
                                     </label>
-        
+
                                 </div>
-        
+
                                 <div class="col-md-3 mb-3">
-                                    <label for="exampleFormControlTextarea3">Endereço:</label>
+                                    <label for="exampleFormControlTextarea1">Endereço:</label>
                                     <input type="file" name="endereco" id="file-3" class="custom-input-file"
                                         data-multiple-caption="{count} files selected" multiple />
                                     <label for="file-3">
                                         <i class="fa fa-upload"></i>
                                         <span>Choose a file…</span>
                                     </label>
-        
+
                                 </div>
 
                                 <div class="col-md-3 mb-3">
-                                    <label for="exampleFormControlTextare4">Renda:</label>
+                                    <label for="exampleFormControlTextarea1">Renda:</label>
                                     <input type="file" name="renda" id="file-4" class="custom-input-file"
                                         data-multiple-caption="{count} files selected" multiple />
                                     <label for="file-4">
                                         <i class="fa fa-upload"></i>
                                         <span>Choose a file…</span>
                                     </label>
-        
+
                                 </div>
-        
+
                                 <div class="col-md-3 mb-3">
-                                    <label for="exampleFormControlTextarea5">Outros 1:</label>
+                                    <label for="exampleFormControlTextarea1">Outros 1:</label>
                                     <input type="file" name="outros1" id="file-5" class="custom-input-file"
                                         data-multiple-caption="{count} files selected" multiple />
                                     <label for="file-5">
                                         <i class="fa fa-upload"></i>
                                         <span>Choose a file…</span>
                                     </label>
-        
+
                                 </div>
-        
+
                                 <div class="col-md-3 mb-3">
-                                    <label for="exampleFormControlTextarea6">Outros 2:</label>
+                                    <label for="exampleFormControlTextarea1">Outros 2:</label>
                                     <input type="file" name="outros2" id="file-6" class="custom-input-file"
                                         data-multiple-caption="{count} files selected" multiple />
                                     <label for="file-6">
                                         <i class="fa fa-upload"></i>
                                         <span>Choose a file…</span>
                                     </label>
-        
+
                                 </div>
 
                                 <div class="col-md-3 mb-3">
-                                    <label for="exampleFormControlTextarea7">Outros 3:</label>
+                                    <label for="exampleFormControlTextarea1">Outros 3:</label>
                                     <input type="file" name="outros3" id="file-7" class="custom-input-file"
                                         data-multiple-caption="{count} files selected" multiple />
                                     <label for="file-7">
                                         <i class="fa fa-upload"></i>
                                         <span>Choose a file…</span>
                                     </label>
-        
+
                                 </div>
 
                                 <div class="col-md-3 mb-3">
-                                    <label for="exampleFormControlTextarea8">Outros 4:</label>
+                                    <label for="exampleFormControlTextarea1">Outros 4:</label>
                                     <input type="file" name="outros4" id="file-8" class="custom-input-file"
                                         data-multiple-caption="{count} files selected" multiple />
                                     <label for="file-8">
                                         <i class="fa fa-upload"></i>
                                         <span>Choose a file…</span>
                                     </label>
-        
+
                                 </div>
 
                                 <div class="col-md-12 mb-3">
-                                    <label for="exampleFormControlTextarea9">Gravação:</label>
+                                    <label for="exampleFormControlTextarea1">Gravação:</label>
                                     <input type="file" name="gravacao" id="file-9" class="custom-input-file"
                                         data-multiple-caption="{count} files selected" multiple />
                                     <label for="file-9">
                                         <i class="fa fa-upload"></i>
                                         <span>Choose a file…</span>
                                     </label>
-        
+
                                 </div>
-        
-                        
-        
-                                
-        
+
+
+
+
+
                             </div>
-        
-        
+
+
                         </form>
 
                         <div class="opcoes-cadastro" style="text-align: center; margin-inline: block;">
 
 
-                            <button type="button" class="btn btn-primary btn-icon-label" title="Incluir"
-                            id="updateIP" onclick="updateIP()">
+                            <button type="button" class="btn btn-primary btn-icon-label" title="Incluir" id="updateIP" onclick="updateIP()">
                                 <span class="btn-inner--icon">
                                     <i class="fas fa-plus"></i>
                                 </span>
                                 <span class="btn-inner--text">Confirmar Inclusão de Anexos / Alterar</span>
                             </button>
 
-
-
+                            <div class="alert alert-success sucesso" id="sucesso" role="alert">
+                            </div>     
                         </div>
 
-                        <!-- Alert falha identificação proposta -->
-                <!-- <div class="alert alert-danger falha" id="alertFalhaAlteraIP" role="alert">
-                             
-                </div>  -->
 
-                <!-- Alert sucesso identificação proposta -->
-               <div class="alert alert-success sucesso" id="sucesso" role="alert">
-               </div>
-
+                        <!-- Alert sucesso acesso -->
+                      
                     </div>
                 </div>
 
@@ -1212,7 +1217,7 @@
                         <div class="card card-fluid">
 
                             <div class="card-body">
-                                <form class="needs-validation" id="CamposForm" novalidate>
+                                <form class="needs-validation" id="camposIdentificacaoProposta" novalidate>
 
 
 
@@ -1242,21 +1247,20 @@
                                         <div class="col-md-3 mb-3">
                                             <div class="form-group">
                                                 <label for="exampleFormControlSelect1">Mês</label>
-                                                <select class="form-control form-control-sm"
-                                                    id="Mes">
+                                                <select class="form-control form-control-sm" id="Mes">
                                                     <option> </option>
-                                                    <option>1</option>
-                                                    <option>2</option>
-                                                    <option>3</option>
-                                                    <option>4</option>
-                                                    <option>5</option>
-                                                    <option>6</option>
-                                                    <option>7</option>
-                                                    <option>8</option>
-                                                    <option>9</option>
-                                                    <option>10</option>
-                                                    <option>11</option>
-                                                    <option>12</option>
+                                                    <option value="1">1</option>
+                                                    <option value="2">2</option>
+                                                    <option value="3">3</option>
+                                                    <option value="4">4</option>
+                                                    <option value="5">5</option>
+                                                    <option value="6">6</option>
+                                                    <option value="7">7</option>
+                                                    <option value="8">8</option>
+                                                    <option value="9">9</option>
+                                                    <option value="10">10</option>
+                                                    <option value="11">11</option>
+                                                    <option value="12">12</option>
 
                                                 </select>
                                             </div>
@@ -1265,8 +1269,7 @@
                                         <div class="col-md-3 mb-3">
                                             <div class="form-group">
                                                 <label for="exampleFormControlSelect1">Tipo</label>
-                                                <select class="form-control form-control-sm"
-                                                    id="Tipo">
+                                                <select class="form-control form-control-sm" id="Tipo">
                                                     <option> </option>
                                                     <option>FUNCIONARIO</option>
                                                     <option>GERENTE</option>
@@ -1316,8 +1319,8 @@
 
                                 <div class="opcoes-cadastro" style="text-align: center; margin-inline: block;">
 
-                                    <button type="button" class="btn btn-primary btn-icon-label" id="btnBuscar" 
-                                    onclick="search()">
+                                    <button type="button" class="btn btn-primary btn-icon-label" id="btnBuscar"
+                                        onclick="search()">
                                         <span class="btn-inner--icon">
                                             <i class="fas fa-search"></i>
                                         </span>
@@ -1330,8 +1333,7 @@
                                             <span class="btn-inner--text">Incluir</span>
                                         </button>
 
-                                        <button type="button" class="btn btn-primary btn-icon-label" 
-                                        onclick="deleteFields()" id="ApagarFiltros">
+                                        <button type="button" class="btn btn-primary btn-icon-label" id="ApagarFiltros" onclick="deleteFields()">
                                             <span class="btn-inner--icon">
                                                 <i class="fas fa-trash-alt"></i>
                                             </span>

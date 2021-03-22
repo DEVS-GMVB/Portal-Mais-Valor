@@ -79,7 +79,7 @@
 
                         <div class="col-md-4 mb-3">
                             <label for="validationCustom01">Data Cadastro</label>
-                            <input type="text" class="form-control form-control-sm" id="dataCadastro" onKeyDown="fMasc( this, data );" maxlength="10" required>
+                            <input type="text" onKeyDown="mascaraMutuario( this, data );" maxlength="10" class="form-control form-control-sm" id="dataCadastro"  required>
 
                         </div>
                         <div class="col-md-4 mb-3">
@@ -784,14 +784,13 @@
                                         <div class="col-md-3 mb-3">
                                             <label for="validationCustom02">Data Atualização</label>
                                             <input type="text" 
-                                                class="form-control form-control-sm" id='dataAtualização-consulta' onKeyDown="fMasc( this, data );" maxlength="10">
+                                                class="form-control form-control-sm" id='dataAtualização-consulta' onKeyDown="mascaraMutuario( this, data );" maxlength="10">
 
                                         </div>
 
                                         <div class="col-md-3 mb-3">
                                             <label for="validationCustom02">Data Cadastro</label>
-                                            <input type="text"
-                                                class="form-control form-control-sm" id="dataCadastro-consulta" onKeyDown="fMasc( this, data );" maxlength="10">
+                                            <input type="text" class="form-control form-control-sm" id="dataCadastro-consulta" onKeyDown="mascaraMutuario(this, data);" maxlength="10">
 
                                         </div>
 

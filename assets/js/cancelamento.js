@@ -139,7 +139,7 @@ function insertCancel(){
     myHeaders.append("Content-Type", "application/json")
 
     const body ={
-        data_inclusao:dtCadastro,
+        data_inclusao: dateNow(),
         proposta:proposta,
         //status:status,
         motivo_cancelamento1:motivoCancel,
@@ -148,7 +148,7 @@ function insertCancel(){
         gerente:gerente,
         obs:obs,
         id_acesso: dataSession.id_acesso,
-        cpf_parceiro: dataSession.cpf_parceiro,
+        cpf_parceiro: dataSession.cpf_user,
         cpf_gerente: dataSession.gerente_cpf,
         cpf_supervisor: dataSession.supervisor_cpf
     }

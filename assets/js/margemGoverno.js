@@ -37,7 +37,7 @@ function Insert(){
         status,
         convenio:convenio,
         id_acesso:dataSession.id_acesso,
-        cpf_parceiro:dataSession.cpf_parceiro,
+        cpf_parceiro:dataSession.cpf_user,
         parceiro:dataSession.nome,
         supervisor:dataSession.supervisor,
         cpf_supervisor:dataSession.supervisor_cpf,

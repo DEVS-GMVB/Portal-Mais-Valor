@@ -1,9 +1,37 @@
 const URL = 'http://localhost:3000'
 // VARS
+let supervisorSelect = document.getElementById("Supervisor")
+let gerenteSelect = document.getElementById("Gerente")
 let saldoDevSelect = document.getElementById("SaldoDev")
 let dtSuperSelect = document.getElementById('DtPagSupervisor')
 let statusSelect = document.getElementById("Status")
 let apagar = document.getElementById("btnapagar")
+
+// Obj Date
+const dateNow = {
+    date: () => {
+        let date = new Date();
+        let dateNow = `${date.getDate()}/${(date.getMonth() + 1)}/${date.getFullYear()} ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`
+        return dateNow;
+    }
+}
+
+
+
+// Date session
+const dataSession = {
+    id_acesso: sessionStorage.getItem('id_acesso', 'id_acesso'),
+    status: sessionStorage.getItem('status', 'status'),
+    perfil: sessionStorage.getItem('perfil', 'perfil'),
+    nome: sessionStorage.getItem('nome', 'nome'),
+    supervisor: sessionStorage.getItem('supervisor', 'supervisor'),
+    gerente: sessionStorage.getItem('gerente', 'gerente'),
+    cnpj_matr: sessionStorage.getItem('cnpj_matriz', 'cnpj_matriz'),
+    cpf_user: sessionStorage.getItem('cpf_usuario', 'cpf_usuario'),
+    tipo_usuario: sessionStorage.getItem('tipo_usuario', 'tipo_usuario'),
+    supervisor_cpf: sessionStorage.getItem('supervisor_cpf', 'supervisor_cpf'),
+    gerente_cpf: sessionStorage.getItem('gerente_cpf', 'gerente_cpf')
+}
 
 // SELECTS
 window.onload = function () {
@@ -11,7 +39,7 @@ window.onload = function () {
         method: 'GET',
         redirect: 'follow'
     }
-
+    
     fetch(URL + "/user/statusSaldo/saldoDevedor", requestOptions)
         .then(response => response.json())
         .then(function (data) {
@@ -83,8 +111,8 @@ function insertSaldo() {
     myHeaders.append("Content-Type", "application/json")
 
     const body = {
-        data_envio: dtCad,
-        parceiro: parc,
+        data_envio: dateNow.date(),
+        parceiro: dataSession.nome,
         cpf: Cpf,
         matricula: mat,
         data_nascimento: dtnasc,
@@ -94,11 +122,18 @@ function insertSaldo() {
         idt_margem: idt,
         saldo_devedor: saldo,
         prazo_restante: prazo,
-        taxa_juros: taxa
+        taxa_juros: taxa,
+        data_inclusao: dateNow.date(),
+        id_acesso: dataSession.id_acesso,
+        cpf_supervisor: dataSession.supervisor_cpf,
+        cpf_gerente: dataSession.gerente_cpf,
+        cpf_parceiro: dataSession.cpf_user,
+        gerente: dataSession.gerente,
+        supervisor: dataSession.supervisor,
     }
     const raw = JSON.stringify(body)
 
-    let requestOptions = {
+    const requestOptions = {
         method: 'POST',
         headers: myHeaders,
         body: raw,
@@ -128,7 +163,7 @@ apagar.addEventListener('click', () => {
     })
 })
 
-function Buscar() {
+function filter() {
 
     var node = document.getElementById("listItens");
     while (node.hasChildNodes()) {
@@ -156,8 +191,7 @@ function Buscar() {
 
     fetch(URL + '/user/solicitacoes/saldoDevedor', requestOptions).
     then(response => response.json().then(function (data) {
-        arrays.arrayUpdate = data;
-        // console.log(arrays.arrayUpdate)
+        // arrays.arrayUpdate = data;
         for (let i = 0; i < data.length; i++) {
 
             let specific_tbody = document.getElementById('listItens');
@@ -221,12 +255,13 @@ function Buscar() {
             let prazoRestanteText = document.createTextNode(`${data[i].prazo_restante}`)
             prazoRestante.appendChild(prazoRestanteText)
 
+            arrays.arrayUpdate[i] = data[i].cpf
             arrays.arrayLinhas[i] = row
 
             alteraThis.innerHTML = `
             <div class="actions ml-3" style="text-align: center;">
                 <a href="#" class="action-item mr-2" data-toggle="modal"
-                    data-target=".modal-alterar-saldodevedor" onclick="updateSaldo(arrays.arrayUpdate[${i}].cpf, arrays.arrayLinhas[${i}])" title="Alterar">
+                    data-target=".modal-alterar-saldodevedor" onclick="updateSaldo(arrays.arrayUpdate.pop(), arrays.arrayLinhas[${i}])" title="Alterar">
                     <i class="fas fa-external-link-alt"></i>
                 </a>
 
@@ -241,7 +276,10 @@ function updateSaldo(cpf, linha) {
     //Configs de troca de modais
     breakModal.empty();
 
-    //Bloqueando os campos
+    $("#SaldoDev").attr('disabled', false)
+    $("#PrazoRestante").attr('disabled', false)
+    $("#TaxaJuros").attr('disabled', false)
+
     $('#Cpf').attr('disabled', true);
     $("#Parceiro").attr('disabled', true)
     $("#IdtMargem").attr('disabled', true)
@@ -251,11 +289,6 @@ function updateSaldo(cpf, linha) {
     $("#bancoOrigi").attr('disabled', true)
     $("#DtCadastro").attr('disabled', true)
     $("#DtNascimento").attr('disabled', true)
-
-    //Desbloqueando os campos
-    $("#SaldoDev").attr('disabled', false)
-    $("#PrazoRestante").attr('disabled', false)
-    $("#TaxaJuros").attr('disabled', false)
 
     // console.log(cpf)
 
@@ -297,9 +330,8 @@ function change() {
     breakModal.empty();
     breakModal.changeButtonInsert();
 
-    //Desbloqueando os campos
     $('#Cpf').attr('disabled', false)
-    //$("#Parceiro").attr('disabled', false)
+    $("#Parceiro").attr('disabled', false)
     $("#IdtMargem").attr('disabled', false)
     $("#Convenio").attr('disabled', false)
     $("#matricula").attr('disabled', false)
@@ -323,17 +355,14 @@ function updateSaldoDevedor(codigo, row) {
     const saldo_devedor1 = $("#SaldoDev").val()
     const prazo_restante = $("#PrazoRestante").val()
     const taxa_juros = $("#TaxaJuros").val()
-    const responsavel = ""
     const data_atualizacao = new Date();
-    const status = ""
 
     const body = {
         saldo_devedor1: saldo_devedor1,
         prazo_restante: prazo_restante,
         taxa_juros: taxa_juros,
-        responsavel: responsavel,
-        data_atualizacao: data_atualizacao,
-        status: status,
+        responsavel: dataSession.nome,
+        data_atualizacao: dateNow.date(),
         codigo: codigo
     }
 

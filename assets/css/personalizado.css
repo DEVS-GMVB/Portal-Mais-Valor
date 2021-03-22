@@ -1,35 +1,36 @@
 input {
-    text-transform: uppercase;
-  }
-  
-  ::-webkit-input-placeholder { /* Chrome, Safari */
-    text-transform: lowercase;
-  }
-  
-  
-  :-moz-placeholder { /* Firefox 18- */
-     text-transform: lowercase; 
-  }
-  
-  ::-moz-placeholder {  /* Firefox 19+ */
-     text-transform: lowercase;
-  }
-  
-  :-ms-input-placeholder {  /* IE */
-     text-transform: lowercase; 
-  }
+   text-transform: uppercase;
+}
 
-  .hidden{
-     display: none;
-  }
+::-webkit-input-placeholder {
+   /* Chrome, Safari */
+   text-transform: lowercase;
+}
 
-  .alert-danger{
-     margin-top: 10px;
-     text-align: center;
-     display: none;
-  }
 
-  .alert-success{
+:-moz-placeholder {
+   /* Firefox 18- */
+   text-transform: lowercase;
+}
+
+::-moz-placeholder {
+   /* Firefox 19+ */
+   text-transform: lowercase;
+}
+
+:-ms-input-placeholder {
+   /* IE */
+   text-transform: lowercase;
+}
+
+
+.alert-danger {
+   margin-top: 10px;
+   text-align: center;
+   display: none;
+}
+
+.alert-success {
    margin-top: 10px;
    text-align: center;
    display: none;

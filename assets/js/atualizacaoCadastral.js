@@ -116,18 +116,21 @@ window.onload = function () {
     selects.supervisor();
     selects.gerente()
 
-    $('#parceiro').attr('disabled', true);
-    $('#supervisor').attr('disabled', true);
-    $('#gerente').attr('disabled', true);
+    $('#parceiro').attr('disabled', true)
+    $('#supervisor').attr('disabled', true)
+    $('#gerente').attr('disabled', true)
 }
 
+const preencheCamposNecessarios = () => {
+    $("#parceiro").val(dataSession.nome);
+    $("#supervisor").val(dataSession.supervisor);
+    $("#gerente").val(dataSession.gerente);
+}
 
 changeInsert.addEventListener('click', () => {
     breakModal.empty();
+    preencheCamposNecessarios();
     breakModal.changeButtonInsert();
-    document.getElementById('parceiro').value = sessionStorage.getItem('nome', 'nome')
-    document.getElementById('supervisor').value = sessionStorage.getItem('supervisor', 'supervisor')
-    document.getElementById('gerente').value = sessionStorage.getItem('gerente', 'gerente')
 })
 
 changeUpdate.addEventListener("click", () => {
@@ -263,7 +266,7 @@ function insert() {
         data_cadastro: data_cadastro,
         status: status,
         sub_status: sub_status,
-        tipo_atualizacao: tipo_atualizacao,
+        tipo: tipo_atualizacao,
         correntista: correntista,
         cpf: cpf_cliente,
         nome: nome_cliente,

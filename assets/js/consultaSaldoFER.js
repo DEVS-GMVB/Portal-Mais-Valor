@@ -177,7 +177,7 @@ function insert() {
         parceiro: parceiro,
         cpf: cpf,
         id_acesso: dataSession.id_acesso,
-        cpf_parceiro: dataSession.cpf_parceiro,
+        cpf_parceiro: dataSession.cpf_user,
         supervisor: dataSession.supervisor,
         cpf_supervisor: dataSession.supervisor_cpf,
         gerente: dataSession.gerente,
