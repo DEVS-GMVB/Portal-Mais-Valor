@@ -1,48 +1,47 @@
 //const URL = `http://localhost:3000`;
 const filtros = document.getElementById("button-filtro");
-let empresaProposta = document.getElementById("empresaPropostas");
-let bancoPortado = document.getElementById('exampleFormBP');
-let banc = document.getElementById("bancoPortabilidade");
-let prod = document.getElementById("exampleProduto")
-let produtoComissao = document.getElementById("exampleFormProduto");
-let supervisorProposta = document.getElementById("supervisor-filtro");
-let gerenteProposta = document.getElementById("gerente-filtro")
-let bancco = document.getElementById("banco");
-let sub_status = document.getElementById("substatus-filtro");
+const bancoPortado = document.getElementById('exampleFormBP');
+const produtoComissao = document.getElementById("produto-incluir");
+const supervisorProposta = document.getElementById("supervisor-filtro");
+const gerenteProposta = document.getElementById("gerente-filtro")
+const sub_status = document.getElementById("substatus-filtro");
 const buttonTrocar = document.getElementById("id-trocar");
 
 //Hasmap
 const modal = new Map();
 
+//Dados na sessão
+const dataSession = {
+  id_acesso: sessionStorage.getItem('id_acesso', 'id_acesso'),
+  status: sessionStorage.getItem('status', 'status'),
+  perfil: sessionStorage.getItem('perfil', 'perfil'),
+  nome: sessionStorage.getItem('nome', 'nome'),
+  supervisor: sessionStorage.getItem('supervisor', 'supervisor'),
+  gerente: sessionStorage.getItem('gerente', 'gerente'),
+  cnpj_matr: sessionStorage.getItem('cnpj_matriz', 'cnpj_matriz'),
+  cpf_user: sessionStorage.getItem('cpf_usuario', 'cpf_usuario'),
+  tipo_usuario: sessionStorage.getItem('tipo_usuario', 'tipo_usuario'),
+  supervisor_cpf: sessionStorage.getItem('supervisor_cpf', 'supervisor_cpf'),
+  gerente_cpf: sessionStorage.getItem('gerente_cpf', 'gerente_cpf')
+}
+
+// Data de Agora 
+const dateNow = {
+  date: () => {
+    let date = new Date();
+    let dateNow = `${date.getDate()}/${(date.getMonth() + 1)}/${date.getFullYear()} ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`
+    return dateNow;
+  }
+}
+
 
 //Nova proposta
 let dtCadastro = document.getElementById('validationDtCad')
-let bancoo = document.getElementById('examploBanco')
 
 
-let requestOptions = {
-  method: 'GET',
-  redirect: 'follow'
-};
-
-fetch("http://localhost:3000/user/supervisor", requestOptions)
-  .then(response => response.json())
-  .then(function (data) {
-    for (let i = 0; i < data.length; i++) {
-      supervisorProposta.innerHTML += '<option value="' + data[i].parceiro + '">' + data[i].parceiro + '</option>;'
-    }
-  }).catch(error => console.log('error', error));
-
-fetch("http://localhost:3000/user/gerente", requestOptions)
-  .then(response => response.json().then(function (data) {
-    for (let i = 0; i < data.length; i++) {
-      gerenteProposta.innerHTML += '<option value="' + data[i].gerente + '">' + data[i].gerente + '</option>;'
-    }
-  })).catch(error => console.log('error', error));
+//gets para popular options 
 
 window.onload = function () {
-
-
   var myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/json");
 
@@ -51,52 +50,81 @@ window.onload = function () {
     redirect: 'follow'
   };
 
-  fetch(URL + "/user/proposta/empresas", requestOptions)
-    .then(response => response.json().then(function (data) {
-      for (let i = 0; i < data.length; i++) {
-        empresaProposta.innerHTML += '<option value="' + data[i].empresa + '">' + data[i].empresa + '</option>;'
-      }
-    })).catch(error => console.log('error', error));
+  fetch(URL + "/user/proposta/produto", requestOptions)
+    .then(response => response.json())
+    .then(function (data) {
+      data.forEach(element => {
+        produto.innerHTML += `<option value =${element.produto}>${element.produto}</option>`;
+        produtoFiltro.innerHTML += `<option value =${element.produto}>${element.produto}</option>`;
+      });
+    })
+
 
   fetch(URL + "/user/proposta/tipo", requestOptions)
     .then(response => response.json())
     .then(function (data) {
-      for (let i = 0; i < data.length; i++) {
-        tipoOperacao.innerHTML += '<option value="' + data[i].tipo + '">' + data[i].tipo + '</option>;'
-      }
+      data.forEach(element => {
+        tipoOperacao.innerHTML += `<option value =${element.tipo}>${element.tipo}</option>`;
+      });
     })
 
   fetch(URL + "/user/proposta/bancos", requestOptions)
     .then(response => response.json())
     .then(function (data) {
-      for (let i = 0; i < data.length; i++) {
-        bancoPortado.innerHTML += '<option value="' + data[i].banco + '">' + data[i].banco + '</option>;'
-        banc.innerHTML += '<option value="' + data[i].banco + '">' + data[i].banco + '</option>;'
-        bancoo.innerHTML += '<option value="' + data[i].banco + '">' + data[i].banco + '</option>;'
-        bancco.innerHTML += '<option value="' + data[i].banco + '">' + data[i].banco + '</option>;'
-
-      }
+      data.forEach(element => {
+        bancoPortador.innerHTML += `<option value =${element.banco}>${element.banco}</option>`;
+        bancoPortabilidadeFiltro.innerHTML += `<option value =${element.banco}>${element.banco}</option>`;
+        bancoFiltro.innerHTML += `<option value =${element.banco}>${element.banco}</option>`;
+      });
     })
+
+  fetch(URL + "/user/proposta/empresas", requestOptions)
+    .then(response => response.json())
+    .then(function (data) {
+      data.forEach(element => {
+        empresaFiltro.innerHTML += `<option value =${element.empresa}>${element.empresa}</option>`;
+      });
+    })
+
+  // fetch(URL + "/user/proposta/substatus", requestOptions)
+  //   .then(response => response.json())
+  //   .then(function (data) {
+  //     data.forEach(element => {
+  //       substatusFiltros.innerHTML += `<option value =${element.sub_status}>${element.sub_status}</option>`;
+  //     });
+  //   })
 
   fetch(URL + "/user/proposta/produto", requestOptions)
     .then(response => response.json())
     .then(function (data) {
       for (let i = 0; i < data.length; i++) {
-        prod.innerHTML += '<option value="' + data[i].produto + '">' + data[i].produto + '</option>;'
-        produtoComissao.innerHTML += '<option value="' + data[i].produto + '">' + data[i].produto + '</option>;'
+        
       }
     })
 
-  // fetch(URL + "/user/proposta/substatus", requestOptions)
-  //   .then(response => response.json().then(function (data) {
-  //     for (let i = 0; i < data.length; i++) {
-  //       sub_status.innerHTML += '<option value="' + data[i].sub_status + '">' + data[i].sub_status + '</option>;'
-  //     }
-  //   })).catch(error => console.log('error', error))
+  fetch("http://localhost:3000/user/supervisor", requestOptions)
+    .then(response => response.json())
+    .then(function (data) {
+      for (let i = 0; i < data.length; i++) {
+        supervisorProposta.innerHTML += '<option value="' + data[i].parceiro + '">' + data[i].parceiro + '</option>;'
+      }
+    }).catch(error => console.log('error', error));
+
+  fetch("http://localhost:3000/user/gerente", requestOptions)
+    .then(response => response.json().then(function (data) {
+      for (let i = 0; i < data.length; i++) {
+        gerenteProposta.innerHTML += '<option value="' + data[i].gerente + '">' + data[i].gerente + '</option>;'
+      }
+    })).catch(error => console.log('error', error));
 
 }
 
 filtros.addEventListener('click', () => {
+  let node = document.getElementById("list")
+  while (node.hasChildNodes()) {
+    node.removeChild(node.lastChild);
+  }
+
   // VARS
   const usuario = document.getElementById("usuario-filtro").value;
   const tipoUsuario = document.getElementById("tipo-usuario-filtro").value;
@@ -387,6 +415,8 @@ function preencherModal(id) {
 }
 
 function updatePropostas(value) {
+  console.log(value.codigo);
+
   const numeroProposta = document.getElementById('numero-proposta-incluir');
   const dataCadastroIncluir = document.getElementById('data-cadastro-incluir');
   const banco = document.getElementById('banco-incluir');
@@ -422,7 +452,7 @@ function updatePropostas(value) {
   const body = {
     // parceiro, id_acesso, supervisor, gerente, tipo_parceiro,
     codigo: value.codigo,
-    parceiro: sessionStorage.getItem('nome','nome'),
+    // parceiro: sessionStorage.getItem('nome', 'nome'),
     proposta: numeroProposta.value,
     data_envio: dataCadastroIncluir.value,
     banco: banco.value,
@@ -453,8 +483,8 @@ function updatePropostas(value) {
     data_nascimento: dataNascimento.value,
     email_cliente: email.value,
     uf: uf.value,
-    observacao: observacao.value,
-
+    responsavel: dataSession.nome,
+    data_atualizacao: dateNow.date()
   }
 
   const myHeaders = new Headers();
@@ -469,7 +499,7 @@ function updatePropostas(value) {
     redirect: 'follow'
   };
 
-  fetch(URL + "/user/proposta/inclusao", requestOptions)
+  fetch(URL + "/user/proposta/atualizar", requestOptions)
     .then(response => response.json())
     .then(function (data) {
 
@@ -495,6 +525,10 @@ function updatePropostas(value) {
         .catch((error) => {
           console.error(error);
         });
+
+      $('#success').show();
+      $('#success').fadeIn(300).delay(3000).fadeOut(400);
+      document.getElementById("success").textContent = "Proposta atualizada com sucesso"
 
     }).catch(error => console.log('error', error))
 

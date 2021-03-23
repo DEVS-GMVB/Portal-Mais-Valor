@@ -259,7 +259,7 @@ function insert() {
     myheaders.append('Content-Type', 'application/json');
 
     const body = {
-        data_cadastro: data_cadastro,
+        data_cadastro: dateNow.date(),
         status: status,
         sub_status: sub_status,
         tipo: tipo_atualizacao,

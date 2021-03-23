@@ -6,6 +6,27 @@ let tipoOperacao = document.getElementById('TpOperacao')
 let prod = document.getElementById('Produto')
 const buttonUpdateIP = document.getElementById("updateIP")
 
+const dataSession = {
+    id_acesso: sessionStorage.getItem('id_acesso', 'id_acesso'),
+    status: sessionStorage.getItem('status', 'status'),
+    perfil: sessionStorage.getItem('perfil', 'perfil'),
+    nome: sessionStorage.getItem('nome', 'nome'),
+    supervisor: sessionStorage.getItem('supervisor', 'supervisor'),
+    gerente: sessionStorage.getItem('gerente', 'gerente'),
+    cnpj_matr: sessionStorage.getItem('cnpj_matriz', 'cnpj_matriz'),
+    cpf_user: sessionStorage.getItem('cpf_usuario', 'cpf_usuario'),
+    tipo_usuario: sessionStorage.getItem('tipo_usuario', 'tipo_usuario'),
+    supervisor_cpf: sessionStorage.getItem('supervisor_cpf', 'supervisor_cpf'),
+    gerente_cpf: sessionStorage.getItem('gerente_cpf', 'gerente_cpf')
+}
+
+function dateNow() {
+    let date = new Date();
+    let dateNow = `${date.getDate()}/${(date.getMonth() + 1)}/${date.getFullYear()} ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`
+    return dateNow;
+}
+
+
 window.onload = function () {
     let requestOptions = {
         method: 'GET',
@@ -182,7 +203,15 @@ function insert() {
         produto: $("#Produto").val(),
         tipo: $("#TpOperacao").val(),
         cpf: $("#CpfCliente").val(),
-        nome: $("#NmCliente").val()
+        nome: $("#NmCliente").val(),
+        parceiro:dataSession.nome,
+        supervisor:dataSession.supervisor,
+        gerente:dataSession.gerente,
+        id_acesso:dataSession.id_acesso,
+        cpf_parceiro:dataSession.cpf_user,
+        cpf_supervisor:dataSession.supervisor_cpf,
+        cpf_gerente:dataSession.gerente_cpf,
+        data_inclusao: dateNow()
     }
 
     const raw = JSON.stringify(body)
@@ -196,6 +225,7 @@ function insert() {
 
     fetch(URL + '/user/proposta/identificacao/inclusao', requestOptions).
     then(response => response.json().then(function (data) {
+
         if (data.resp === "Proposta já existente") {
             $('#alertFalhaAcesso').show();
             $('#alertFalhaAcesso').fadeIn(300).delay(3000).fadeOut(400);
@@ -227,7 +257,7 @@ function updateIdentProp(codigo, rows) {
         redirect: 'follow'
     }
 
-    fetch(URL+"/user/proposta/identificacao/modal", requestOptions).
+    fetch(URL + "/user/proposta/identificacao/modal", requestOptions).
     then(response => response.json().then(function (data) {
         //Passando o código no momento em que popula
         arrays.arrayCodigos.push(data.codigo)
@@ -308,7 +338,9 @@ function updateIP() {
         data_nascimento: dtNascimento,
         uf: uf,
         cpf: cpf,
-        observacao: observacao
+        observacao: observacao,
+        responsavel:dataSession.nome,
+        data_atualizacao: dateNow()
     }
 
     const raw = JSON.stringify(body)
@@ -333,10 +365,11 @@ function updateIP() {
         })
 
 
-        fetch(URL+`/user/proposta/identificacao/atualizar/arquivos?codigo=${codigo}`, {
+        fetch(URL + `/user/proposta/identificacao/atualizar/arquivos?codigo=${codigo}`, {
             method: 'POST',
             body: data,
         }).then(response => response.json().then((data) => {
+
             updateTbody(l.cells)
 
             $('#sucesso').show();

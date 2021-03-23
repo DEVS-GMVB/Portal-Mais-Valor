@@ -303,7 +303,7 @@ const functions = {
         myHeaders.append("Content-Type", "application/json");
 
         const raw = JSON.stringify({
-            data_cadastro: data_cadastro,
+            data_envio: dateNow.date(),
             parceiro: dataSession.nome,
             tipo: tipo,
             valor_solicitado: valor,
