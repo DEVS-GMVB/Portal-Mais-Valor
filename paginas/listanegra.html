@@ -71,8 +71,8 @@
 
                 <div class="col-md-6 mb-3">
                     <label for="validationCustom01">CPF Cliente</label>
-                    <input type="text" class="form-control form-control-sm"
-                        id="validationCustom01" required>
+                    <input type="text" class="form-control form-control-sm" maxlength="14" onkeypress='mascaraMutuario(this,cpfCnpj)'
+                        id="cpf_cliente" required>
 
                 </div>
 
@@ -80,15 +80,13 @@
                 <div class="col-md-6 mb-3">
                     <label for="validationCustom01">Motivo</label>
                     <input type="text" class="form-control form-control-sm"
-                        id="validationCustom01" required>
+                        id="motivo" required>
 
                 </div>
 
                 <div class="col-md-12 mb-3">
                     <label for="validationCustom01">Usuário</label>
-                    <select class="form-control form-control-sm" id="exampleFormSS">
-                        <option> </option>
-                    </select>
+                    <input type="text" class="form-control form-control-sm" id="parceiro" />
 
                 </div>
 
@@ -98,14 +96,23 @@
         </form>
 
 
-        <div class="opcoes-listanegra" style="text-align: center; margin-inline: block;">
-            <button type="button" class="btn btn-primary btn-icon-label" title="Analisar">
+        <div class="opcoes-cadastro" style="text-align: center; margin-inline: block;">
+            <button type="button" class="btn btn-primary btn-icon-label" title="Analisar" id="insert">
             
                 <span class="btn-inner--icon">
                     <i class="fas fa-check"></i>
                 </span>
                 <span class="btn-inner--text">Incluir CPF na Lista Negra</span>
             </button>
+        </div>
+
+        <div class="alert alert-danger" id="error" role="alert">
+                           
+        </div>
+
+        <!-- Alert sucesso cadastro -->
+        <div class="alert alert-success" id="success" role="alert">
+            
         </div>
 
       </div>
@@ -814,8 +821,8 @@
                                             <th scope="col"><b>EXCLUIR CPF</b></th>
                                           </tr>
                                         </thead>
-                                        <tbody>
-                                          <tr>
+                                        <tbody id="listNegra">
+                                          <!-- <tr>
                                             <th scope="row">XXX.XXX.XXX - XX</th>
                                             <td>XXXXXXX XXXXXXXX XXXXXXX</td>
                                             <td>XXXXX XXXXXXX</td>
@@ -827,7 +834,7 @@
                                                  
                                                 </div>
                                             </td>
-                                          </tr>
+                                          </tr> -->
                                    
                                         </tbody>
                                       </table>
@@ -875,9 +882,7 @@
     <!-- Mascaras -->
     <script src="../assets/js/mascaras.js"></script>
     <script src="../assets/js/mascarasvalores.js"></script>
-    <!-- Import Get para popular campos -->
-    <script src="../assets/js/cadastro.js"></script>
-    <script src="../assets/js/propostas.js"></script>
+    <script src="../assets/js/listaNegra.js"></script>
 </body>
 
 </html>

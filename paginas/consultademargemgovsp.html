@@ -82,26 +82,36 @@
 
                         <div class="col-md-6 mb-3">
                             <label for="validationCustom01">CPF</label>
-                            <input type="text" class="form-control form-control-sm" id="validationCustom01" required>
+                            <input type="text" class="form-control form-control-sm"
+                            maxlength="14" onkeypress='mascaraMutuario(this,cpfCnpj)' id="cpf-incluir" required>
 
                         </div>
                         <div class="col-md-2 mb-3">
                             <label for="validationCustom01">Agência</label>
-                            <input type="text" class="form-control form-control-sm" id="validationCustom01" required>
+                            <input type="text" class="form-control form-control-sm" id="agencia-incluir" required>
 
                         </div>
                         <div class="col-md-4 mb-3">
                             <label for="validationCustom01">Conta</label>
-                            <input type="text" class="form-control form-control-sm" id="validationCustom01" required>
+                            <input type="text" class="form-control form-control-sm" id="conta-incluir" required>
 
                         </div>
                         <div class="col-md-6 mb-3">
                             <label for="validationCustom01">Status</label>
-                            <input type="text" class="form-control form-control-sm" id="validationCustom01" required>
+                            <select class="form-control form-control-sm" id="status-incluir">
+                                <option value=""></option>
+                                <option value="MARGEM NAO DISPONIVEL SOLICITADA">MARGEM NAO DISPONIVEL SOLICITADA</option>
+                                <option value="MARGEM SOLICITADA" disabled selected>MARGEM SOLICITADA</option>
+                            </select>
                         </div>
                         <div class="col-md-6 mb-3">
                             <label for="validationCustom01">Convênio</label>
-                            <input type="text" class="form-control form-control-sm" id="validationCustom01" required>
+                            <select class="form-control form-control-sm" id="convenio-incluir">
+                                <option> </option>
+                                <option value="PREFEITURA DE SÃO PAULO">PREFEITURA DE SÃO PAULO</option>
+                                <option value="SEFAZ">SEFAZ</option>
+                                <option value="TJ DE SÃO PAULO">TJ DE SÃO PAULO</option>
+                            </select>
                         </div>
                         
 
@@ -111,14 +121,20 @@
                 </form>
 
                 <div class="opcoes-cadastro mt-3" style="text-align: center; margin-inline: block;">
-                    <button type="button" class="btn btn-primary btn-icon-label">
+                    <button type="button" class="btn btn-primary btn-icon-label" id="incluir" onclick="Insert()">
                         <span class="btn-inner--icon">
                             <i class="fas fa-plus"></i>
                         </span>
-                        <span class="btn-inner--text">Incluir / Salvar Alteração</span>
+                        <span class="btn-inner--text">Incluir</span>
                     </button>
     
                 </div>
+
+                <!-- Alert sucesso -->
+               <div class="alert alert-success sucesso" id="alertSucessoMargemGov" role="alert">
+            </div>
+
+            </div>
 
             </div>
 
@@ -716,32 +732,35 @@
                                             <div class="form-group">
                                                 <label for="exampleFormControlSelect1">Status</label>
                                                 <select class="form-control form-control-sm"
-                                                    id="exampleFormControlSelect1">
+                                                    id="staus-pesquisar">
                                                     <option> </option>
-
+                                                    <option value="MARGEM NAO SOLICITADA">MARGEM NAO DISPONIVEL SOLICITADA</option>
+                                                    <option value="MARGEM SOLICITADA">MARGEM SOLICITADA</option>
                                                 </select>
                                             </div>
                                         </div>
 
                                         <div class="col-md-6 mb-3">
-                                            <label for="validationCustom02">Governo</label>
-                                            <select class="form-control form-control-sm" id="exampleFormControlSelect1">
+                                            <label for="validationCustom02">Convênio</label>
+                                            <select class="form-control form-control-sm" id="convenio-pesquisar">
                                                 <option> </option>
-
+                                                <option value="PREFEITURA DE SÃO PAULO">PREFEITURA DE SÃO PAULO</option>
+                                                <option value="SEFAZ">SEFAZ</option>
+                                                <option value="TJ DE SÃO PAULO">TJ DE SÃO PAULO</option>
                                             </select>
 
                                         </div>
 
                                         <div class="col-md-6 mb-3">
                                             <label for="validationCustom02">CPF</label>
-                                            <input type="text" minlength="14" maxlength="18"
-                                                class="form-control form-control-sm" id="validationCustom02">
+                                            <input type="text" maxlength="14" onkeypress='mascaraMutuario(this,cpfCnpj)'
+                                                class="form-control form-control-sm" id="cpf-pesquisar">
                                         </div>
 
                                         <div class="col-md-6 mb-3">
                                             <label for="validationCustom02">Data Solicitação</label>
-                                            <input type="text" minlength="14" maxlength="18"
-                                                class="form-control form-control-sm" id="validationCustom02">
+                                            <input type="text" onKeyPress="DataHora(event, this)"
+                                                class="form-control form-control-sm" id="dtSolicitacao-pesquisar">
                                         </div>
 
                                         
@@ -755,20 +774,20 @@
 
                             <div class="opcoes-cadastro" style="text-align: center; margin-inline: block;">
 
-                                <button type="button" class="btn btn-primary btn-icon-label">
+                                <button type="button" class="btn btn-primary btn-icon-label" id="btn-buscar" onclick="search()">
                                     <span class="btn-inner--icon">
                                         <i class="fas fa-search"></i>
                                     </span>
                                     <span class="btn-inner--text">Buscar</span>
                                     <button type="button" class="btn btn-primary btn-icon-label" data-toggle="modal"
-                                        data-target=".modal-alterar-consultamargemgovsp" title="Alterar">
+                                        data-target=".modal-alterar-consultamargemgovsp" title="Alterar" id="btn-incluir">
                                         <span class="btn-inner--icon">
                                             <i class="fas fa-plus"></i>
                                         </span>
                                         <span class="btn-inner--text">Incluir</span>
                                     </button>
 
-                                    <button type="button" class="btn btn-primary btn-icon-label">
+                                    <button type="reset" class="btn btn-primary btn-icon-label">
                                         <span class="btn-inner--icon">
                                             <i class="fas fa-trash-alt"></i>
                                         </span>
@@ -793,12 +812,12 @@
                                             <th scope="col" style="text-align: center;"><b>Parceiro</b></th>
                                             <th scope="col" style="text-align: center;"><b>Data Cadastro</b></th>
                                             <th scope="col" style="text-align: center;"><b>Data Atualização</b></th>
-                                            <th scope="col" style="text-align: center;"><b>Alterar</b></th>
+                                            <!-- <th scope="col" style="text-align: center;"><b>Alterar</b></th> -->
 
 
                                         </tr>
                                     </thead>
-                                    <tbody>
+                                    <tbody id="List" style="text-align: center;">
 
                                         <td style="text-align: center;"> XXXXXXXX </td>
                                         <td style="text-align: center;"> XXXXXXXX </td>
@@ -809,13 +828,13 @@
                                         <td style="text-align: center;"> XXXXXXXX </td>
                                         <td style="text-align: center;">
 
-                                            <div class="actions ml-3" style="text-align: center;">
+                                            <!-- <div class="actions ml-3" style="text-align: center;">
                                                 <a href="#" class="action-item mr-2" data-toggle="modal"
                                                     data-target=".modal-alterar-consultamargemgovsp title="Alterar">
                                                     <i class="fas fa-external-link-alt"></i>
                                                 </a>
 
-                                            </div>
+                                            </div> -->
                                         </td>
 
 
@@ -862,6 +881,7 @@
     <script src="../assets/js/mascaras.js"></script>
     <!-- Demo JS - remove it when starting your project -->
     <script src="../assets/js/demo.js"></script>
+    <script src="../assets/js/margemGoverno.js"></script>
 </body>
 
 </html>

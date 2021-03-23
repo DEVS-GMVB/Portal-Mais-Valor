@@ -1078,7 +1078,7 @@
 
                                 <div class="col-md-3 mb-3">
                                     <label for="validationCustom01">Data Nascimento</label>
-                                    <input type="date" class="form-control form-control-sm" id="validationCustomDN"
+                                    <input type="text" class="form-control form-control-sm" id="validationCustomDN" maxlength="10" onKeyDown="mascaraMutuario( this, data );"
                                         required>
 
                                 </div>
@@ -3191,7 +3191,7 @@
 
                 <div class="col-md-3 mb-3">
                     <label for="validationCustom01">Data Cadastro</label>
-                    <input type="text" class="form-control form-control-sm" id="data-cadastro-incluir">
+                    <input type="text" class="form-control form-control-sm" id="data-cadastro-incluir" maxlength="19" size="19" onKeyPress="DataHora(event, this)">
 
                 </div>
 
@@ -3233,13 +3233,13 @@
 
                 <div class="col-md-3 mb-3">
                     <label for="validationCustom01">Valor Entregue</label>
-                    <input type="text" class="form-control form-control-sm" id="valor-entregue-incluir">
+                    <input type="text" class="form-control form-control-sm" id="valor-entregue-incluir" onKeyPress="return(MascaraMoeda(this,'.',',',event))">
 
                 </div>
 
                 <div class="col-md-3 mb-3">
                     <label for="validationCustom01">Valor Troco</label>
-                    <input type="text" class="form-control form-control-sm" id="valor-troco-incluir">
+                    <input type="text" class="form-control form-control-sm" id="valor-troco-incluir" onKeyPress="return(MascaraMoeda(this,'.',',',event))">
 
                 </div>
 
@@ -3283,7 +3283,7 @@
 
                 <div class="col-md-3 mb-3">
                     <label for="validationCustom01">Valor Parcela</label>
-                    <input type="text" class="form-control form-control-sm" id="valor-parcela-incluir">
+                    <input type="text" class="form-control form-control-sm" id="valor-parcela-incluir" onKeyPress="return(MascaraMoeda(this,'.',',',event))">
 
                 </div>
 
@@ -3334,19 +3334,22 @@
 
                 <div class="col-md-4 mb-3">
                     <label for="validationCustom01">CPF Cliente</label>
-                    <input type="text" class="form-control form-control-sm" id="cpf-cliente-incluir">
+                    <input type="text" class="form-control form-control-sm" id="cpf-cliente-incluir"
+                    placeholder="Ex: 000.000.000-00" onkeypress='mascaraMutuario(this,cpfCnpj)' maxlength="14">
 
                 </div>
 
                 <div class="col-md-1 mb-3">
                     <label for="validationCustom01">DDD</label>
-                    <input type="text" class="form-control form-control-sm" id="ddd-incluir">
+                    <input type="text" class="form-control form-control-sm" id="ddd-incluir" 
+                    maxlength="3" onKeyDown="fMasc( this, nContrtato );">
 
                 </div>
 
                 <div class="col-md-3 mb-3">
                     <label for="validationCustom01">Telefone Cliente</label>
-                    <input type="text" class="form-control form-control-sm" id="telefone-cliente-incluir">
+                    <input type="text" class="form-control form-control-sm" id="telefone-cliente-incluir"
+                    onkeypress='mascaraMutuario(this,mTelefoneCliente)' maxlength="10">
 
                 </div>
 
@@ -3364,7 +3367,8 @@
 
                 <div class="col-md-4 mb-1">
                     <label for="validationCustom01">Telefone SMS Cliente</label>
-                    <input type="text" class="form-control form-control-sm" id="telefone-sms-incluir">
+                    <input type="text" class="form-control form-control-sm" id="telefone-sms-incluir"
+                    onkeypress='mascaraMutuario(this,mTelefoneCliente)' maxlength="10">
 
                 </div>
 
@@ -3437,8 +3441,8 @@
                         <label for="exampleFormControlSelect1">Sexo</label>
                         <select class="form-control form-control-sm" id="sexo-incluir">
                             <option> </option>
-                            <option> SIM </option>
-                            <option> NÃO </option>
+                            <option> MASCULINO </option>
+                            <option> FEMININO </option>
                         </select>
                     </div>
 
@@ -3447,7 +3451,7 @@
 
                 <div class="col-md-3 mb-1">
                     <label for="validationCustom01">Data Nascimento</label>
-                    <input type="date" class="form-control form-control-sm" id="data-nascimento-incluir">
+                    <input type="text" class="form-control form-control-sm" id="data-nascimento-incluir" maxlength="10" onKeyDown="mascaraMutuario( this, data );">
 
                 </div>
 
@@ -3589,13 +3593,13 @@
 
         </form>
 
-        <div class="opcoes-cadastro mt-4" style="text-align: center; margin-inline: block;">
-            <button type="button" class="btn btn-primary btn-icon-label" id="incluir-button">
+        <div class="opcoes-cadastro mt-4" style="text-align: center; margin-inline: block;" id="id-trocar">
+            <!-- <button type="button" class="btn btn-primary btn-icon-label" id="incluir-button">
                 <span class="btn-inner--icon">
                     <i class="fas fa-plus"></i>
                 </span>
                 <span class="btn-inner--text">Incluir</span>
-            </button>
+            </button> -->
 
         </div>
 
@@ -4286,7 +4290,7 @@
 
                                 <div class="opcoes-cadastro mt-1" style="text-align: center; margin-inline: block;">
 
-                                    <button type="button" class="btn btn-primary btn-icon-label" data-toggle="modal" data-target=".modal-incluirproposta-parc">
+                                    <button type="button" class="btn btn-primary btn-icon-label" data-toggle="modal" data-target=".modal-incluirproposta-parc" id="changeInsert">
                                         <span class="btn-inner--icon">
                                             <i class="fas fa-plus"></i>
                                         </span>
@@ -4356,8 +4360,8 @@
                                             </tr>
                                         </thead>
 
-                                        <tbody class="list" id="list">
-                                                
+                                        <tbody class="list" id="list" style="text-align: center;">
+
                                         </tbody>
                                     </table>
                                 </div>
