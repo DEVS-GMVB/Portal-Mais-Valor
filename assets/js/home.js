@@ -1,4 +1,18 @@
 "use strict";
+
+    const userCnpjMatriz = sessionStorage.getItem('cnpj_matriz', 'cnpj_matriz');
+    const userDataNascimento = sessionStorage.getItem('data_nascimento', 'data_nascimento');
+    const userIdAcesso = sessionStorage.getItem('id_acesso', 'id_acesso');
+    const userNome = sessionStorage.getItem('nome', 'nome');
+    const userPerfil = sessionStorage.getItem('perfil', 'perfil');
+    const userStatus = sessionStorage.getItem('status', 'status');
+    const userTipoUsuario = sessionStorage.getItem('tipo_usuario', 'tipo_usuario');
+    const userCpf = sessionStorage.getItem('cpf_usuario', 'cpf_usuario');
+
+    
+    const nome = document.getElementById('nome');
+    nome.innerText = userNome;
+
 var Layout = function () {
         function e(e) {
             $(".sidenav-toggler").addClass("active"), $(".sidenav-toggler").data("action", "sidenav-unpin"), $("body").addClass("sidenav-pinned ready"), $("body").find(".main-content").append('<div class="sidenav-mask mask-body d-xl-none" data-action="sidenav-unpin" data-target=' + e.data("target") + " />"), $(e.data("target")).addClass("show"), localStorage.setItem("sidenav-state", "pinned")
@@ -1164,12 +1178,52 @@ var Dropzones = function () {
             })
         })
     }(),
- 
     EngagementChart = function () {
+        var arrayDatas = [];
+        for (let i = 0; i < 8; i++) {
+            arrayDatas.push(moment().add(-i * 30, 'days').format('MM/DD/YYYY'));
+
+        }
+        var arrayMeses = []
+        for (let i = 0; i < 8; i++) {
+            arrayMeses.push(moment().add(-i * 30, 'days').format('YYYY/MM'));
+
+        }
+        // console.log(arrayMeses)
+        var myHeaders = new Headers();
+        myHeaders.append("Content-Type", "application/json");
+        var arrayCounts = []
+        var dataRender = []
+        arrayMeses.forEach(element => {
+            let raw = {
+                userNome: userNome,
+                id_acesso: userIdAcesso,
+                userTipousuario: userTipoUsuario,
+                userCnpjMatriz: userCnpjMatriz,
+                userPerfil: userPerfil,
+                mes: element
+            };
+    
+            var requestOptions = {
+                method: 'POST',
+                headers: myHeaders,
+                body: JSON.stringify(raw) ,
+                redirect: 'follow'
+            };
+
+            fetch("https://api-portalmaisvalor.herokuapp.com/user/home", requestOptions)
+            .then(response => response.json().then(function(data){
+            console.log(data)
+                arrayCounts.push(data.count)
+                dataRender.push(data.data)
+            })).catch(error => console.log('error', error));
+        });
+        
+        console.log(arrayCounts)
         var e = $("#apex-engagement");
         e.length && e.each(function () {
             ! function (e) {
-                var t = {
+                var t = {   
                         chart: {
                             width: "100%",
                             zoom: {
@@ -1187,8 +1241,8 @@ var Dropzones = function () {
                             curve: "smooth"
                         },
                         series: [{
-                            name: "Likes",
-                            data: [4, 3, 10, 9, 29, 19, 22, 9]
+                            name: "Propostas",
+                            data: arrayCounts
                         }],
                         xaxis: {
                             labels: {
@@ -1212,7 +1266,7 @@ var Dropzones = function () {
                                 offsetY: 0
                             },
                             type: "datetime",
-                            categories: ["1/11/2000", "2/11/2000", "3/11/2000", "4/11/2000", "5/11/2000", "6/11/2000", "7/11/2000", "8/11/2000"]
+                            categories: arrayDatas
                         },
                         yaxis: {
                             labels: {
@@ -1265,6 +1319,8 @@ var Dropzones = function () {
             }($(this))
         })
     }(),
+
+
     LineChart = function () {
         var e = $("#apex-line");
         e.length && e.each(function () {
@@ -1287,7 +1343,7 @@ var Dropzones = function () {
                         },
                         series: [{
                             name: "Likes",
-                            data: [4, 3, 10, 9, 29, 19, 22, 9, 12, 7, 19, 5, 13, 9]
+                            data: []
                         }],
                         xaxis: {
                             labels: {
@@ -1311,7 +1367,7 @@ var Dropzones = function () {
                                 offsetY: 0
                             },
                             type: "datetime",
-                            categories: ["1/11/2000", "2/11/2000", "3/11/2000", "4/11/2000", "5/11/2000", "6/11/2000", "7/11/2000", "8/11/2000", "9/11/2000", "10/11/2000", "11/11/2000", "12/11/2000", "1/11/2001", "2/11/2001"]
+                            categories: ["1/11/2021", "2/11/2021", "3/11/2021", "4/11/2021", "5/11/2021", "6/11/2021", "7/11/2021", "8/11/2021", "9/11/2000", "10/11/2000", "11/11/2000", "12/11/2000", "1/11/2001", "2/11/2001"]
                         },
                         yaxis: {
                             labels: {
@@ -1527,3 +1583,4 @@ var Dropzones = function () {
             }($(this))
         })
     }();
+

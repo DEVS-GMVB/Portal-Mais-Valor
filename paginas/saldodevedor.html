@@ -76,42 +76,43 @@
 
                         <div class="col-md-2 mb-3">
                             <label for="validationCustom01">Data Cadastro</label>
-                            <input type="text" class="form-control form-control-sm" id="validationCustom01" required>
+                            <input type="text" class="form-control form-control-sm" id="DtCadastro" onKeyDown="fMasc( this, data );" maxlength="10" required>
 
                         </div>
                         <div class="col-md-4 mb-3">
                             <label for="validationCustom01">Parceiro</label>
-                            <input type="text" class="form-control form-control-sm" id="validationCustom01" required>
+                            <input type="text" class="form-control form-control-sm" id="Parceiro" required>
 
                         </div>
                         <div class="col-md-4 mb-3">
                             <label for="validationCustom01">CPF</label>
-                            <input type="text" class="form-control form-control-sm" id="validationCustom01" required>
+                            <input type="text" class="form-control form-control-sm" id="Cpf"
+                                onkeypress='mascaraMutuario(this,cpfCnpj)' maxlength="14" required>
 
                         </div>
                         <div class="col-md-2 mb-3">
                             <label for="validationCustom01">Matrícula</label>
-                            <input type="text" class="form-control form-control-sm" id="validationCustom01" required>
+                            <input type="text" class="form-control form-control-sm" id="matricula" required>
                         </div>
                         <div class="col-md-2 mb-3">
                             <label for="validationCustom01">Data Nascimento</label>
-                            <input type="text" class="form-control form-control-sm" id="validationCustom01" required>
+                            <input type="text" class="form-control form-control-sm" id="DtNascimento" onKeyDown="fMasc( this, data );" maxlength="10" required>
                         </div>
                         <div class="col-md-2 mb-3">
                             <label for="validationCustom01">Convênio</label>
-                            <input type="text" class="form-control form-control-sm" id="validationCustom01" required>
+                            <input type="text" class="form-control form-control-sm" id="Convenio" required>
                         </div>
                         <div class="col-md-2 mb-3">
                             <label for="validationCustom01">Parcela</label>
-                            <input type="text" class="form-control form-control-sm" id="validationCustom01" required>
+                            <input type="text" class="form-control form-control-sm" id="Parcela" required>
                         </div>
                         <div class="col-md-3 mb-3">
                             <label for="validationCustom01">Banco Origi</label>
-                            <input type="text" class="form-control form-control-sm" id="validationCustom01" required>
+                            <input type="text" class="form-control form-control-sm" id="bancoOrigi" required>
                         </div>
                         <div class="col-md-3 mb-3">
                             <label for="validationCustom01">IDT Margem</label>
-                            <input type="text" class="form-control form-control-sm" id="validationCustom01" required>
+                            <input type="text" class="form-control form-control-sm" id="IdtMargem" required>
                         </div>
 
 
@@ -138,17 +139,18 @@
 
                         <div class="col-md-4 mb-3">
                             <label for="validationCustom01">Saldo Devedor</label>
-                            <input type="text" class="form-control form-control-sm" id="validationCustom01" required>
+                            <input type="text" class="form-control form-control-sm" id="SaldoDev"
+                                onKeyPress="return(MascaraMoeda(this,'.',',',event))" required>
 
                         </div>
                         <div class="col-md-4 mb-3">
                             <label for="validationCustom01">Prazo Restante</label>
-                            <input type="text" class="form-control form-control-sm" id="validationCustom01" required>
+                            <input type="text" class="form-control form-control-sm" id="PrazoRestante" required>
 
                         </div>
                         <div class="col-md-4 mb-3">
                             <label for="validationCustom01">Taxa de Juros</label>
-                            <input type="text" class="form-control form-control-sm" id="validationCustom01" required>
+                            <input type="text" class="form-control form-control-sm" id="TaxaJuros" required>
 
                         </div>
 
@@ -159,8 +161,9 @@
 
                     </div>
 
-                    <div class="opcoes-cadastro mt-1" style="text-align: center; margin-inline: block;">
-                        <button type="button" class="btn btn-primary btn-icon-label">
+                    <div class="opcoes-cadastro mt-1" style="text-align: center; margin-inline: block;" id="divButton">
+                        <button type="button" class="btn btn-primary btn-icon-label" id="btnIncluirSalvar"
+                            onclick="insertSaldo()">
                             <span class="btn-inner--icon">
                                 <i class="fas fa-plus"></i>
                             </span>
@@ -170,7 +173,18 @@
                     </div>
 
 
+
+
                 </form>
+
+                <!-- Alert falha acesso -->
+                <div class="alert alert-danger falha" id="alertFalhaSaldo" role="alert">
+
+                </div>
+
+                <!-- Alert sucesso acesso -->
+                <div class="alert alert-success sucesso" id="alertSucessoSaldo" role="alert">
+                </div>
 
             </div>
         </div>
@@ -752,7 +766,7 @@
                         <div class="card card-fluid">
 
                             <div class="card-body">
-                                <form class="needs-validation" novalidate>
+                                <form class="needs-validation" id="idForm" novalidate>
 
 
 
@@ -760,36 +774,15 @@
                                         <div class="col-md-6 mb-3">
                                             <div class="form-group">
                                                 <label for="exampleFormControlSelect1">Parceiro/Promotor</label>
-                                                <select class="form-control form-control-sm"
-                                                    id="exampleFormControlSelect1">
-                                                    <option> </option>
-
-                                                </select>
+                                                <input type="text" class="form-control form-control-sm" id="ParcPromo" />
                                             </div>
                                         </div>
-                                        <div class="col-md-6 mb-3">
-                                            <label for="validationCustom02">Proposta</label>
-                                            <input type="text" minlength="14" maxlength="18"
-                                                class="form-control form-control-sm" id="validationCustom02">
-
-                                        </div>
-                                        <div class="col-md-6 mb-3">
-                                            <div class="form-group">
-                                                <label for="exampleFormControlSelect1">Supervisor</label>
-                                                <select class="form-control form-control-sm"
-                                                    id="exampleFormControlSelect1">
-                                                    <option> </option>
-
-                                                </select>
-                                            </div>
-
-                                        </div>
+                                        
 
                                         <div class="col-md-6 mb-3">
                                             <div class="form-group">
                                                 <label for="exampleFormControlSelect1">Status</label>
-                                                <select class="form-control form-control-sm"
-                                                    id="exampleFormControlSelect1">
+                                                <select class="form-control form-control-sm" id="Status">
                                                     <option> </option>
 
                                                 </select>
@@ -797,53 +790,24 @@
 
                                         </div>
                                     </div>
-
-
-                                    <div class="form-row">
-                                        <div class="col-md-6 mb-3">
-                                            <div class="form-group">
-                                                <label for="exampleFormControlSelect1">Gerente</label>
-                                                <select class="form-control form-control-sm"
-                                                    id="exampleFormControlSelect1">
-                                                    <option> </option>
-
-                                                </select>
-                                            </div>
-
-                                        </div>
-                                        <div class="col-md-6 mb-3">
-                                            <div class="form-group">
-                                                <label for="exampleFormControlSelect1">Data Pagamento Supervisor</label>
-                                                <select class="form-control form-control-sm"
-                                                    id="exampleFormControlSelect1">
-                                                    <option> </option>
-
-                                                </select>
-                                            </div>
-
-                                        </div>
-
-                                    </div>
-
-
                             </div>
 
                             <div class="opcoes-cadastro" style="text-align: center; margin-inline: block;">
 
-                                <button type="button" class="btn btn-primary btn-icon-label">
+                                <button type="button" class="btn btn-primary btn-icon-label" id="btnBuscar" onclick="filter()">
                                     <span class="btn-inner--icon">
                                         <i class="fas fa-search"></i>
                                     </span>
                                     <span class="btn-inner--text">Buscar</span>
                                     <button type="button" class="btn btn-primary btn-icon-label" data-toggle="modal"
-                                        data-target=".modal-alterar-saldodevedor" title="Alterar">
+                                        data-target=".modal-alterar-saldodevedor" title="Alterar" id="btnIncluir" onclick="change()">
                                         <span class="btn-inner--icon">
                                             <i class="fas fa-plus"></i>
                                         </span>
                                         <span class="btn-inner--text">Incluir</span>
                                     </button>
 
-                                    <button type="button" class="btn btn-primary btn-icon-label">
+                                    <button type="button" class="btn btn-primary btn-icon-label" id="btnapagar">
                                         <span class="btn-inner--icon">
                                             <i class="fas fa-trash-alt"></i>
                                         </span>
@@ -879,7 +843,7 @@
 
                                         </tr>
                                     </thead>
-                                    <tbody>
+                                    <tbody id="listItens" style="text-align: center;">
 
                                         <td style="text-align: center;"> XXXXXXXX </td>
                                         <td style="text-align: center;"> XXXXXXXX </td>
@@ -899,7 +863,7 @@
 
                                             <div class="actions ml-3" style="text-align: center;">
                                                 <a href="#" class="action-item mr-2" data-toggle="modal"
-                                                    data-target=".modal-alterar-saldodevedor" title="Alterar">
+                                                    data-target=".modal-alterar-saldodevedor" onclick="updateSaldo()" title="Alterar">
                                                     <i class="fas fa-external-link-alt"></i>
                                                 </a>
 
@@ -948,8 +912,11 @@
     <script src="../assets/js/purpose.js"></script>
     <!-- Mascaras -->
     <script src="../assets/js/mascaras.js"></script>
+    <script src="../assets/js/mascarasvalores.js"></script>
     <!-- Demo JS - remove it when starting your project -->
     <script src="../assets/js/demo.js"></script>
+    <!--JS saldo-->
+    <script src="../assets/js/saldoDevedor.js"></script>
 </body>
 
 </html>

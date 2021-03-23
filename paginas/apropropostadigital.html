@@ -82,40 +82,41 @@
 
                         <div class="col-md-2 mb-3">
                             <label for="validationCustom01">Data Cadastro</label>
-                            <input type="text" class="form-control form-control-sm" id="validationCustom01" required>
+                            <input type="text" class="form-control form-control-sm" id="dtCadastro-incluir" required>
 
                         </div>
                         <div class="col-md-5 mb-3">
                             <label for="validationCustom01">Proposta</label>
-                            <input type="text" class="form-control form-control-sm" id="validationCustom01" required>
+                            <input type="text" class="form-control form-control-sm" id="proposta-incluir" required>
 
                         </div>
                         <div class="col-md-5 mb-3">
                             <label for="validationCustom01">Status</label>
-                            <select class="form-control form-control-sm" id="exampleFormControlSelect1">
+                            <select class="form-control form-control-sm" id="status-incluir">
                                 <option> </option>
-
+                                <option value="SOLICITACAO DE APROVAÇÃO">SOLICITACAO DE APROVAÇÃO</option>
+                                <option value="PROPOSTA APROVADA">SOLICITAÇÃO APROVADA</option>
                             </select>
 
                         </div>
                         <div class="col-md-4 mb-3">
                             <label for="validationCustom01">Banco</label>
-                            <select class="form-control form-control-sm" id="exampleFormControlSelect1">
+                            <select class="form-control form-control-sm" id="banco-incluir">
                                 <option> </option>
-
                             </select>
 
                         </div>
                         <div class="col-md-4 mb-3">
                             <label for="validationCustom01">Tipo</label>
-                            <select class="form-control form-control-sm" id="exampleFormControlSelect1">
+                            <select class="form-control form-control-sm" id="tipo-incluir">
                                 <option> </option>
 
                             </select>
                         </div>
                         <div class="col-md-4 mb-3">
                             <label for="validationCustom01">CPF</label>
-                            <input type="text" class="form-control form-control-sm" id="validationCustom01" required>
+                            <input type="text" class="form-control form-control-sm" id="cpf-incluir" 
+                            maxlength="14" onkeypress='mascaraMutuario(this,cpfCnpj)' required>
                         </div>
 
 
@@ -126,6 +127,7 @@
 
                 </form>
 
+                <div id="id-parceiros">
                 <div class="bg-subtitulo mt-1 mb-3">
 
                     <h3>Dados Usuário </h3>
@@ -139,19 +141,19 @@
 
                     <div class="col-md-4 mb-3">
                         <label for="validationCustom01">Parceiro</label>
-                        <input type="text" class="form-control form-control-sm" id="validationCustom01" required>
+                        <input type="text" class="form-control form-control-sm" id="parceiro-incluir" required>
 
                     </div>
 
                     <div class="col-md-4 mb-3">
                         <label for="validationCustom01">Supervisor</label>
-                        <input type="text" class="form-control form-control-sm" id="validationCustom01" required>
+                        <input type="text" class="form-control form-control-sm" id="supervidor-incluir" required>
 
                     </div>
 
                     <div class="col-md-4 mb-3">
                         <label for="validationCustom01">Gerente</label>
-                        <input type="text" class="form-control form-control-sm" id="validationCustom01" required>
+                        <input type="text" class="form-control form-control-sm" id="gerente-incluir" required>
 
                     </div>
 
@@ -160,17 +162,21 @@
 
                 </form>
 
+            </div>
 
-
-                <div class="opcoes-cadastro mt-4" style="text-align: center; margin-inline: block;">
-                    <button type="button" class="btn btn-primary btn-icon-label">
+                <div class="opcoes-cadastro mt-4" style="text-align: center; margin-inline: block;" id="changeButtons">
+                    <!-- <button type="button" class="btn btn-primary btn-icon-label" id="btn-inclusao">
                         <span class="btn-inner--icon">
                             <i class="fas fa-plus"></i>
                         </span>
                         <span class="btn-inner--text">Incluir / Salvar Alteração</span>
-                    </button>
+                    </button> -->
 
                 </div>
+
+                <!-- Alert sucesso -->
+               <div class="alert alert-success sucesso" id="alertSucessoAproProp" role="alert">
+            </div>
 
             </div>
 
@@ -768,7 +774,7 @@
                                             <div class="form-group">
                                                 <label for="exampleFormControlSelect1">Banco</label>
                                                 <select class="form-control form-control-sm"
-                                                    id="exampleFormControlSelect1">
+                                                    id="banco-pesquisa">
                                                     <option> </option>
 
                                                 </select>
@@ -778,15 +784,16 @@
                                         <div class="col-md-4 mb-3">
                                             <label for="validationCustom02">Proposta</label>
                                             <input type="text" minlength="14" maxlength="18"
-                                                class="form-control form-control-sm" id="validationCustom02">
+                                                class="form-control form-control-sm" id="proposta-pesquisa">
 
                                         </div>
 
                                         <div class="col-md-4 mb-0">
                                             <label for="validationCustom02">Status</label>
-                                            <select class="form-control form-control-sm" id="exampleFormControlSelect1">
+                                            <select class="form-control form-control-sm" id="status-pesquisa">
                                                 <option> </option>
-
+                                                <option value="SOLICITACAO DE APROVAÇÃO">SOLICITACAO DE APROVAÇÃO</option>
+                                                <option value="PROPOSTA APROVADA">PROPOSTA APROVADA</option>
                                             </select>
                                         </div>
 
@@ -801,20 +808,20 @@
 
                             <div class="opcoes-cadastro" style="text-align: center; margin-inline: block;">
 
-                                <button type="button" class="btn btn-primary btn-icon-label">
+                                <button type="button" class="btn btn-primary btn-icon-label" id="btn-search" onclick="search()">
                                     <span class="btn-inner--icon">
                                         <i class="fas fa-search"></i>
                                     </span>
                                     <span class="btn-inner--text">Buscar</span>
                                     <button type="button" class="btn btn-primary btn-icon-label" data-toggle="modal"
-                                        data-target=".modal-alterar-apropropostadigital" title="Alterar">
+                                        data-target=".modal-alterar-apropropostadigital" title="Alterar" id="btn-incluir" onclick="change()">
                                         <span class="btn-inner--icon">
                                             <i class="fas fa-plus"></i>
                                         </span>
                                         <span class="btn-inner--text">Incluir</span>
                                     </button>
 
-                                    <button type="button" class="btn btn-primary btn-icon-label">
+                                    <button type="reset" class="btn btn-primary btn-icon-label">
                                         <span class="btn-inner--icon">
                                             <i class="fas fa-trash-alt"></i>
                                         </span>
@@ -847,7 +854,7 @@
 
                                         </tr>
                                     </thead>
-                                    <tbody>
+                                    <tbody id="List" style="text-align: center;">
 
                                         <td style="text-align: center;"> XXXXXXXX </td>
                                         <td style="text-align: center;"> XXXXXXXX </td>
@@ -863,7 +870,7 @@
 
                                             <div class="actions ml-3" style="text-align: center;">
                                                 <a href="#" class="action-item mr-2" data-toggle="modal"
-                                                    data-target=".modal-alterar-apropropostadigital" title="Alterar">
+                                                    data-target=".modal-alterar-apropropostadigital" title="Alterar" id="icon-update">
                                                     <i class="fas fa-external-link-alt"></i>
                                                 </a>
 
@@ -914,6 +921,7 @@
     <script src="../assets/js/mascaras.js"></script>
     <!-- Demo JS - remove it when starting your project -->
     <script src="../assets/js/demo.js"></script>
+    <script src="../assets/js/apropropostadigital.js"></script>
 </body>
 
 </html>

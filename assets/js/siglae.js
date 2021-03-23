@@ -1,23 +1,14 @@
-<<<<<<< HEAD
 function incluirCadastro() {
+    // const prosseguir = document.getElementById("idIncluir");
+    // prosseguir.addEventListener('click', () => {
+    // window.location.replace("#cadastro");
+
     //Habilitar o modal acesso somente após clicar no botão finalizar
     document.getElementById("acesso-tab").disabled = false;
 
+
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
-=======
-if (document.getElementsByClassName('incluirSilgasE')) {
-    const prosseguir = document.getElementById('incluirSilgasE');
-    prosseguir.addEventListener('click', () => {
-        // window.location.replace("#cadastro");
-
-        //Habilitar o modal acesso somente após clicar no botão finalizar
-        document.getElementById("acesso-tab").disabled = false;
-
-
-        var myHeaders = new Headers();
-        myHeaders.append("Content-Type", "application/json");
->>>>>>> 9503dae242b029de205db50682b3d4ca2697a0f8
 
     //Cadastro
     const filialcad = document.getElementById('exampleFormControlFilialCadastro').value;
@@ -135,7 +126,6 @@ if (document.getElementsByClassName('incluirSilgasE')) {
     const usaSiglaE = document.getElementById('exampleFormControlUsaSigla').value;
     const usaSilgaI = document.getElementById('exampleFormControlSiglaI').value;
     const observ = document.getElementById('exampleFormControlObs').value;
-<<<<<<< HEAD
 
     var raw = JSON.stringify({
 
@@ -268,28 +258,39 @@ if (document.getElementsByClassName('incluirSilgasE')) {
 
     fetch(URL + "/user/cadastro/inclusao", requestOptions)
         .then(response => response.json())
+        //   console.log(response)
         .then(function (data) {
-
+            console.log(data);
             if (data.sucesso === "usuario cadastrado com sucesso") {
                 $('#alertSucessoCadastro').show();
-                $('#alertSucessoCadastro').fadeIn(300).delay(9000).fadeOut(400);
-                document.getElementById("alertSucessoCadastro").textContent = "Cadastro incluido com sucesso!"
-                console.log(data)
+                $('#alertSucessoCadastro').fadeIn(300).delay(3000).fadeOut(400);
+                document.getElementById("alertSucessoCadastro").textContent = "Cadastro incluido com sucesso"
+                // alert("Cadastro incluido com sucesso!")
+                // console.log(data)
             }
 
             if (data.resp === "não foi possivel cadastrar usuario, cpf existente na base de dados") {
+                // alert("não foi possivel cadastrar usuario, cpf existente na base de dados");
                 $('#alertFalhaCadastro').show();
-                $('#alertFalhaCadastro').fadeIn(300).delay(4000).fadeOut(400);
+                $('#alertFalhaCadastro').fadeIn(300).delay(3000).fadeOut(400);
                 document.getElementById("alertFalhaCadastro").textContent = "Não foi possivel cadastrar usuario, cpf existente"
             }
+
+
         })
         .catch(error => console.log('erro', error));
+
+    // })
+
+
 }
-=======
->>>>>>> 9503dae242b029de205db50682b3d4ca2697a0f8
+
+
+
 
 function alteracaoCadastro(idParceiro, td) {
-    
+    // console.log(td)
+
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
 
@@ -410,6 +411,8 @@ function alteracaoCadastro(idParceiro, td) {
     let usaSilgaI = document.getElementById('exampleFormControlSiglaI').value;
     let observ = document.getElementById('exampleFormControlObs').value;
 
+
+
     var raw = JSON.stringify({
 
         // Cadastro
@@ -519,7 +522,6 @@ function alteracaoCadastro(idParceiro, td) {
         data_inativacao: dtCancelamento,
 
         //Siglae
-<<<<<<< HEAD
         siglae: sigla,
         codigo_corban: codEscritorio,
         nome_corban: nmEscritorio,
@@ -533,43 +535,6 @@ function alteracaoCadastro(idParceiro, td) {
         usa_siglai1: usaSilgaI,
         observacao: observ
     })
-=======
-        const sigla = document.getElementById('validationSigla').value;
-        const codEscritorio = document.getElementById('validationCodigoEscritorio').value;
-        const nmEscritorio = document.getElementById('validationNomeEscritorio').value;
-        const stat = document.getElementById('exampleFormControlStatusSiglas').value;
-        const dtInativacao = document.getElementById('validationDataInativacao').value;
-        const motPendencia = document.getElementById('validationMotivoPendencia').value;
-        const siglaPorsp = document.getElementById('validationSiglaPropesct').value;
-        const cpfcnpjSigla = document.getElementById('validationCpfCnpf').value;
-        const parcPromoSigla = document.getElementById('validationParceiroPromotor').value;
-        const usaSiglaE = document.getElementById('exampleFormControlUsaSigla').value;
-        const usaSilgaI = document.getElementById('exampleFormControlSiglaI').value;
-        const observ = document.getElementById('exampleFormControlObs').value;
-
-        var raw = JSON.stringify({
-
-    fetch(URL+"/user/cadastro/inclusao", requestOptions)
-        .then(response => response.json())
-        //   console.log(response)
-        .then(function (data) {
-            if (data.sucesso === "usuario cadastrado com sucesso") {
-                alert("Cadastro incluido com sucesso!")
-                console.log(data)
-            }
-
-            if (data.resp === "não foi possivel cadastrar usuario, cpf existente na base de dados") {
-                alert("não foi possivel cadastrar usuario, cpf existente na base de dados")
-
-            }
-            // let fluxoAlterar = document.getElementById("modalAlterar")
-            // fluxoAlterar.addEventListener('click', () => {
-            //     alert('cheguei aq')
-            // })
-
-        })
-        .catch(error => console.log('erro',error));
->>>>>>> 9503dae242b029de205db50682b3d4ca2697a0f8
 
     var requestOptions = {
         method: 'POST',
@@ -581,60 +546,40 @@ function alteracaoCadastro(idParceiro, td) {
     fetch(URL + "/user/cadstro/alterar", requestOptions)
         .then(response => response.text())
         .then(function (data) {
+            // atualizaListaCadastro(td);
             console.log(data)
-            if(data === "acesso alterado") {
-
+            if (data === "acesso alterado") {
                 $('#alertSucessoCadastro').show();
                 $('#alertSucessoCadastro').fadeIn(300).delay(3000).fadeOut(400);
                 document.getElementById("alertSucessoCadastro").textContent = "Atualizado com Sucesso"
+                atualizaListaCadastro();
+                // Update table
 
-                atualizaListaCadastro()
-
-            }
-            else if(data === 'erro cad' || data === "erro chave") {
+            } else if (data === 'erro cad' || data === "erro chave") {
                 $('#alertFalhaCadastro').show();
                 $('#alertFalhaCadastro').fadeIn(300).delay(3000).fadeOut(400);
                 document.getElementById("alertFalhaCadastro").textContent = "Atualização inválida"
             }
+
         })
         .catch(error => console.log('erro', error));
+
+
+    // })
+
+    // cellsObj[0].textContent = $("#exampleFormControlFilialCadastro").val()
+    // cellsObj[1].textContent = $("#funcionario").val()
+    // cellsObj[2].textContent = $("#validationCpfCadastro").val()
+    // cellsObj[3].textContent = $("#exampleFormControlStatus").val();
+    // cellsObj[4].textContent = $("#exampleFormControlSupervisorBB").val()
+    // cellsObj[5].textContent = $("#exampleFormControlGerenteBB").val()
+    // cellsObj[6].textContent = $("#validationDA").val();
+    // cellsObj[7].textContent = $("#validationDE").val()
+
+
+
 }
 
-// Função para parceiros 
-let cpfCnpjSigla = document.getElementById("validationCpfCnpf");
-cpfCnpjSigla.addEventListener('blur', () => {
-    var myHeaders = new Headers();
-    myHeaders.append("Content-Type", "application/json");
-
-    var raw = JSON.stringify({
-        "cnpj": cpfCnpjSigla.value
-    });
-
-    var requestOptions = {
-        method: 'POST',
-        headers: myHeaders,
-        body: raw,
-        redirect: 'follow'
-    };
-
-    fetch(URL + "/user/parceiros", requestOptions)
-        .then(response => response.json())
-        .then(function (data) {
-            if (data[0].parceiro === "NAO INFORMADO NA INSERA‡A?O") {
-                $("#validationParceiroPromotor").val("");
-            } else {
-                $("#validationParceiroPromotor").val(data[0].parceiro);
-            }
-        })
-        .catch(error => console.log('error', error));
-})
-
-cpfCnpjSigla.addEventListener('keyup', () => {
-    let promotor = document.getElementById("validationParceiroPromotor");
-    if (promotor.value.length > 0) {
-        $("#validationParceiroPromotor").val("")
-    }
-})
 
 function atualizaListaCadastro() {
     var node = document.getElementById("list");
@@ -735,7 +680,6 @@ function atualizaListaCadastro() {
 
                 //Atrr
                 cont++;
-                console.log(row);
                 indexObj.push(row)
 
                 alteraVisualiza.innerHTML = `
@@ -755,4 +699,78 @@ function atualizaListaCadastro() {
 
         })
         .catch(error => console.log('error', error));
+
+
+
+    // alert("Estou atualizando a lista merda" + linhaCadastro)
+    // if (linhaCadastro != undefined && linhaCadastro != null) {
+    //     linhaCadastro.innerHTML = `
+    // <td>${$("#exampleFormControlFilialCadastro").val()}</td>
+    // <td>${$("#funcionario").val()}</td>
+    // <td>${$("#validationCpfCadastro").val()}</td>
+    // <td>${$("#exampleFormControlStatus").val()}</td>
+    // <td>${$("#exampleFormControlSupervisorBB").val()}</td>
+    // <td>${$("#exampleFormControlGerenteBB").val()}</td>
+    // <td>${$("#validationDA").val()}</td>
+    // <td>${$("#validationDE").val()}</td>
+    // <td></td>
+    // <td></td>
+    // <td> 
+    //     <div class="actions ml-3" style="text-align: center;">
+    //         <a "id=buttonalterar" href="#" class="action-item mr-2" data-nome="marcos" data-toggle="modal"
+    //             data-target=".modalteladecadastro" title="Alterar" id="modalAlterar">
+    //             <i id = "${cont}" class="fas fa-external-link-alt" onclick="editar(array[${cont}].cpf, indexObj[${cont}])"></i>
+    //         </a>
+    //         <a href="#" class="action-item mr-2" data-toggle="modal"
+    //             data-target=".modalteladecadastro" data-id="oi" title="Visualizar">
+    //             <i class="fas fa-eye"></i>
+    //         </a>
+    //     </div>
+    // </td>
+    // `
+    // } 
+
+
+
+
 }
+
+
+// Função para parceiros 
+let cpfCnpjSigla = document.getElementById("validationCpfCnpf");
+
+
+cpfCnpjSigla.addEventListener('blur', () => {
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+
+    var raw = JSON.stringify({
+        "cnpj": cpfCnpjSigla.value
+    });
+
+    var requestOptions = {
+        method: 'POST',
+        headers: myHeaders,
+        body: raw,
+        redirect: 'follow'
+    };
+
+    fetch(URL + "/user/parceiros", requestOptions)
+        .then(response => response.json())
+        .then(function (data) {
+            if (data[0].parceiro === "NAO INFORMADO NA INSERA‡A?O") {
+                $("#validationParceiroPromotor").val("");
+            } else {
+                $("#validationParceiroPromotor").val(data[0].parceiro);
+            }
+        })
+        .catch(error => console.log('error', error));
+})
+
+cpfCnpjSigla.addEventListener('keyup', () => {
+    let promotor = document.getElementById("validationParceiroPromotor");
+    if (promotor.value.length > 0) {
+        $("#validationParceiroPromotor").val("")
+    }
+    // if($("#validationParceiroPromotor").val())
+})

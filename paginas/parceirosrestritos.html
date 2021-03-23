@@ -74,7 +74,8 @@
                 <div class="col-md-6 mb-2">
                     <label for="validationCustom01">CPF</label>
                     <input type="text" class="form-control form-control-sm"
-                        id="validationCustom01" required>
+                        id="cpf-incluir" required
+                        onkeypress='mascaraMutuario(this,cpfCnpj)' maxlength="14">
 
                 </div>
 
@@ -82,14 +83,15 @@
                 <div class="col-md-6 mb-2">
                     <label for="validationCustom01">Nome</label>
                     <input type="text" class="form-control form-control-sm"
-                        id="validationCustom01" required>
+                        id="nome-incluir" required>
 
                 </div>
 
                 <div class="col-md-6 mb-2">
                     <label for="validationCustom01">CNPJ</label>
                     <input type="text" class="form-control form-control-sm"
-                        id="validationCustom01" required>
+                        id="cnpj-incluir" required
+                        onkeypress='mascaraMutuario(this,cpfCnpj)' maxlength="18">
 
                 </div>
 
@@ -97,14 +99,14 @@
                 <div class="col-md-6 mb-2">
                     <label for="validationCustom01">Razão Social</label>
                     <input type="text" class="form-control form-control-sm"
-                        id="validationCustom01" required>
+                        id="razaoSocial-incluir" required>
 
                 </div>
 
                 <div class="col-md-6 mb-2">
                     <label for="validationCustom01">Motivo Cancelamento</label>
                     <input type="text" class="form-control form-control-sm"
-                        id="validationCustom01" required>
+                        id="MotivoCancel-incluir" required>
 
                 </div>
 
@@ -112,7 +114,7 @@
                 <div class="col-md-6 mb-2">
                     <label for="validationCustom01">Solicitante</label>
                     <input type="text" class="form-control form-control-sm"
-                        id="validationCustom01" required>
+                        id="solicitante-incluir" required>
 
                 </div>
 
@@ -131,13 +133,13 @@
 
         <form class="needs-validation mt-4" novalidate>
 
-        
             <div class="form-row">
 
                 <div class="col-md-6 mb-2">
                     <label for="validationCustom01">CPF/CNPJ Sócio 1</label>
                     <input type="text" class="form-control form-control-sm"
-                        id="validationCustom01" required>
+                        id="cpf-socio1-incluir" required
+                        onkeypress='mascaraMutuario(this,cpfCnpj)' maxlength="18">
 
                 </div>
 
@@ -145,14 +147,15 @@
                 <div class="col-md-6 mb-2">
                     <label for="validationCustom01">Nome Sócio 1</label>
                     <input type="text" class="form-control form-control-sm"
-                        id="validationCustom01" required>
+                        id="nome-socio1-incluir" required>
 
                 </div>
 
                 <div class="col-md-6 mb-2">
                     <label for="validationCustom01">CPF/CNPJ Sócio 2</label>
                     <input type="text" class="form-control form-control-sm"
-                        id="validationCustom01" required>
+                        id="cpf-socio2-incluir" required
+                        onkeypress='mascaraMutuario(this,cpfCnpj)' maxlength="18">
 
                 </div>
 
@@ -160,14 +163,15 @@
                 <div class="col-md-6 mb-2">
                     <label for="validationCustom01">Nome Sócio 2</label>
                     <input type="text" class="form-control form-control-sm"
-                        id="validationCustom01" required>
+                        id="nome-socio2-incluir" required>
 
                 </div>
 
                 <div class="col-md-6 mb-2">
                     <label for="validationCustom01">CPF/CNPJ Sócio 3 </label>
                     <input type="text" class="form-control form-control-sm"
-                        id="validationCustom01" required>
+                        id="cpf-socio3-incluir" required
+                        onkeypress='mascaraMutuario(this,cpfCnpj)' maxlength="18">
 
                 </div>
 
@@ -175,21 +179,22 @@
                 <div class="col-md-6 mb-2">
                     <label for="validationCustom01">Nome Sócio 3</label>
                     <input type="text" class="form-control form-control-sm"
-                        id="validationCustom01" required>
+                        id="nome-socio3-incluir" required>
 
                 </div>
 
                 <div class="col-md-6 mb-2">
                     <label for="validationCustom01">CPF/CNPJ Sócio 4</label>
                     <input type="text" class="form-control form-control-sm"
-                        id="validationCustom01" required>
+                        id="cpf-socio4-incluir" required
+                        onkeypress='mascaraMutuario(this,cpfCnpj)' maxlength="18">
 
                 </div>
 
                 <div class="col-md-6 mb-2">
                     <label for="validationCustom01">Nome Sócio 4</label>
                     <input type="text" class="form-control form-control-sm"
-                        id="validationCustom01" required>
+                        id="nome-socio4-incluir" required>
 
                 </div>
 
@@ -197,14 +202,18 @@
 
         </form>
 
-        <div class="opcoes-parceirosrestritos mt-3" style="text-align: center; margin-inline: block;">
-            <button type="button" class="btn btn-primary btn-icon-label" title="Analisar">
+        <div class="opcoes-parceirosrestritos mt-3" style="text-align: center; margin-inline: block;" id="changeButtons">
+            <!-- <button type="button" class="btn btn-primary btn-icon-label" title="Analisar" id="btn-insert">
             
                 <span class="btn-inner--icon">
                     <i class="fas fa-plus"></i>
                 </span>
                 <span class="btn-inner--text">Incluir / Alterar</span>
-            </button>
+            </button> -->
+        </div>
+
+         <!-- Alert sucesso -->
+         <div class="alert alert-success sucesso" id="alertSucessoParcReg" role="alert">
         </div>
 
       </div>
@@ -892,7 +901,7 @@
 
                             <div class="card-body">
 
-                                <form class="needs-validation mt-0" novalidate>
+                                <form class="needs-validation mt-0" id="idForm" novalidate>
 
 
 
@@ -903,14 +912,15 @@
                                         <div class="col-md-6 mb-3">
                                             <label for="validationCustom01">Parceiro</label>
                                             <input type="text" class="form-control form-control-sm"
-                                                id="validationCustom01" required>
+                                                id="parceiro-consulta" required>
                         
                                         </div>
                         
                                         <div class="col-md-6 mb-3">
                                             <label for="validationCustom01">CNPJ</label>
                                             <input type="text" class="form-control form-control-sm"
-                                                id="validationCustom01" required>
+                                                id="cnpj-consulta" required
+                                                onkeypress='mascaraMutuario(this,cpfCnpj)' maxlength="18">
                         
                                         </div>
                         
@@ -921,21 +931,21 @@
 
                                 <div class="opcoes-parceirosrestritos" style="text-align: center; margin-inline: block;">
 
-                                    <button type="button" class="btn btn-primary btn-icon-label">
+                                    <button type="button" class="btn btn-primary btn-icon-label" id="btn-buscar" onclick="search()">
                                         <span class="btn-inner--icon">
                                             <i class="fas fa-search"></i>
                                         </span>
                                         <span class="btn-inner--text">Buscar</span>
                                     </button>
                                     <button type="button" class="btn btn-primary btn-icon-label" data-toggle="modal" data-target=".modal-incl-alt-pr"
-                                        data-target="#" title="Alterar">
+                                        data-target="#" title="Alterar" id="btn-incluir" onclick="changee()">
                                         <span class="btn-inner--icon">
                                             <i class="fas fa-plus"></i>
                                         </span>
                                         <span class="btn-inner--text">Incluir Novo CPF</span>
                                     </button>
 
-                                    <button type="button" class="btn btn-primary btn-icon-label">
+                                    <button type="reset" class="btn btn-primary btn-icon-label" onclick="apagar()">
                                         <span class="btn-inner--icon">
                                             <i class="fas fa-trash-alt"></i>
                                         </span>
@@ -966,7 +976,7 @@
                                             <th scope="col"><b>ALTERAR/VISUALIZAR</b></th>
                                           </tr>
                                         </thead>
-                                        <tbody>
+                                        <tbody id="List">
                                           <tr>
                                             <th scope="row">XXX.XXX.XXX - XX</th>
                                             <td>XXXXXXX XXXXXXXX XXXXXXX</td>
@@ -978,7 +988,8 @@
                                             <td>XXXXXXX XXXXXX</td> 
                                             <td>
                                                 <div class="actions ml-3">
-                                                    <a href="#" class="action-item mr-2" data-toggle="modal" data-target=".modal-incl-alt-pr" title="Alterar/Visualizar">
+                                                    <a href="#" class="action-item mr-2" data-toggle="modal" data-target=".modal-incl-alt-pr"
+                                                     title="Alterar/Visualizar">
                                                         <i class="fas fa-eye"></i>
                                                     </a>
                                                  
@@ -1033,8 +1044,9 @@
     <script src="../assets/js/mascaras.js"></script>
     <script src="../assets/js/mascarasvalores.js"></script>
     <!-- Import Get para popular campos -->
-    <script src="../assets/js/cadastro.js"></script>
-    <script src="../assets/js/propostas.js"></script>
+    <!-- <script src="../assets/js/cadastro.js"></script>
+    <script src="../assets/js/propostas.js"></script> -->
+    <script src="../assets/js/parceirosregistros.js"></script>
 </body>
 
 </html>
