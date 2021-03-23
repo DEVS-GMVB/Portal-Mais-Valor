@@ -151,6 +151,9 @@ window.onload = function () {
 const changeInserir = document.getElementById("changeInsert");
 
 
+//INSERT
+
+
 changeInserir.addEventListener('click', () => {
   quebraReferenciaModaisProxy.trocaButtonInsert();
   quebraReferenciaModaisProxy.limparCampos();
@@ -164,6 +167,10 @@ changeInserir.addEventListener('click', () => {
 
       const body = {
         // parceiro, id_acesso, supervisor, gerente, tipo_parceiro, 
+        parceiro: dataSession.nome,
+        id_acesso: dataSession.id_acesso,
+        supervisor: dataSession.gerente,
+        gerente: dataSession.supervisor,
         proposta: numeroProposta.value,
         data_envio: dataCadastroIncluir.value,
         banco: banco.value,
@@ -195,7 +202,10 @@ changeInserir.addEventListener('click', () => {
         email_cliente: email.value,
         uf: uf.value,
         observacao: observacao.value,
-
+        cpf_supervisor: dataSession.supervisor_cpf,
+        cpf_gerente: dataSession.gerente_cpf,
+        cpf_parceiro: dataSession.cpf_user,
+        data_inclusao: dateNow.date()
       }
 
       const myHeaders = new Headers();
@@ -238,6 +248,10 @@ changeInserir.addEventListener('click', () => {
             });
 
         }).catch(error => console.log('error', error))
+
+      $('#alertSucessoProp').show();
+      $('#alertSucessoProp').fadeIn(300).delay(3000).fadeOut(400);
+      document.getElementById("alertSucessoProp").textContent = "Proposta incluida com sucesso"
     })
 
     return;

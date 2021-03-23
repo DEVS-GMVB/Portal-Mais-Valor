@@ -11,6 +11,33 @@ let bancco = document.getElementById("banco");
 let sub_status = document.getElementById("substatus-filtro");
 const buttonTrocar = document.getElementById("id-trocar");
 
+//PARTE DE CIMA DO CÓDIGO
+
+
+//Dados na sessão
+const dataSession = {
+  id_acesso: sessionStorage.getItem('id_acesso', 'id_acesso'),
+  status: sessionStorage.getItem('status', 'status'),
+  perfil: sessionStorage.getItem('perfil', 'perfil'),
+  nome: sessionStorage.getItem('nome', 'nome'),
+  supervisor: sessionStorage.getItem('supervisor', 'supervisor'),
+  gerente: sessionStorage.getItem('gerente', 'gerente'),
+  cnpj_matr: sessionStorage.getItem('cnpj_matriz', 'cnpj_matriz'),
+  cpf_user: sessionStorage.getItem('cpf_usuario', 'cpf_usuario'),
+  tipo_usuario: sessionStorage.getItem('tipo_usuario', 'tipo_usuario'),
+  supervisor_cpf: sessionStorage.getItem('supervisor_cpf', 'supervisor_cpf'),
+  gerente_cpf: sessionStorage.getItem('gerente_cpf', 'gerente_cpf')
+}
+
+// Data de Agora 
+const dateNow = {
+  date: () => {
+      let date = new Date();
+      let dateNow = `${date.getDate()}/${(date.getMonth() + 1)}/${date.getFullYear()} ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`
+      return dateNow;
+  }
+}
+
 //Hasmap
 const modal = new Map();
 
@@ -384,9 +411,12 @@ function preencherModal(id) {
   quebraReferenciaModaisProxy.limparCampos();
   quebraReferenciaModaisProxy.trocaButtonUpdate(id);
   quebraReferenciaModaisProxy.popupaCamposModal(id);
+
 }
 
 function updatePropostas(value) {
+  console.log(value.codigo);
+
   const numeroProposta = document.getElementById('numero-proposta-incluir');
   const dataCadastroIncluir = document.getElementById('data-cadastro-incluir');
   const banco = document.getElementById('banco-incluir');
@@ -422,7 +452,7 @@ function updatePropostas(value) {
   const body = {
     // parceiro, id_acesso, supervisor, gerente, tipo_parceiro,
     codigo: value.codigo,
-    parceiro: sessionStorage.getItem('nome','nome'),
+    // parceiro: sessionStorage.getItem('nome', 'nome'),
     proposta: numeroProposta.value,
     data_envio: dataCadastroIncluir.value,
     banco: banco.value,
@@ -453,8 +483,8 @@ function updatePropostas(value) {
     data_nascimento: dataNascimento.value,
     email_cliente: email.value,
     uf: uf.value,
-    observacao: observacao.value,
-
+    responsavel: dataSession.nome,
+    data_atualizacao: dateNow.date()
   }
 
   const myHeaders = new Headers();
@@ -469,7 +499,7 @@ function updatePropostas(value) {
     redirect: 'follow'
   };
 
-  fetch(URL + "/user/proposta/inclusao", requestOptions)
+  fetch(URL + "/user/proposta/atualizar", requestOptions)
     .then(response => response.json())
     .then(function (data) {
 
@@ -496,6 +526,11 @@ function updatePropostas(value) {
           console.error(error);
         });
 
+      $('#success').show();
+      $('#success').fadeIn(300).delay(3000).fadeOut(400);
+      document.getElementById("success").textContent = "Proposta atualizada com sucesso"
+
     }).catch(error => console.log('error', error))
 
 }
+

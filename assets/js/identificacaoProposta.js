@@ -6,6 +6,26 @@ let tipoOperacao = document.getElementById('TpOperacao')
 let prod = document.getElementById('Produto')
 const buttonUpdateIP = document.getElementById("updateIP")
 
+const dataSession = {
+    id_acesso: sessionStorage.getItem('id_acesso', 'id_acesso'),
+    status: sessionStorage.getItem('status', 'status'),
+    perfil: sessionStorage.getItem('perfil', 'perfil'),
+    nome: sessionStorage.getItem('nome', 'nome'),
+    supervisor: sessionStorage.getItem('supervisor', 'supervisor'),
+    gerente: sessionStorage.getItem('gerente', 'gerente'),
+    cnpj_matr: sessionStorage.getItem('cnpj_matriz', 'cnpj_matriz'),
+    cpf_user: sessionStorage.getItem('cpf_usuario', 'cpf_usuario'),
+    tipo_usuario: sessionStorage.getItem('tipo_usuario', 'tipo_usuario'),
+    supervisor_cpf: sessionStorage.getItem('supervisor_cpf', 'supervisor_cpf'),
+    gerente_cpf: sessionStorage.getItem('gerente_cpf', 'gerente_cpf')
+}
+
+function dateNow() {
+    let date = new Date();
+    let dateNow = `${date.getDate()}/${(date.getMonth() + 1)}/${date.getFullYear()} ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`
+    return dateNow;
+}
+
 window.onload = function () {
     let requestOptions = {
         method: 'GET',
@@ -169,6 +189,9 @@ function search() {
 }
 
 function insert() {
+
+    const data = dateNow()
+
     const myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json")
 
@@ -182,7 +205,15 @@ function insert() {
         produto: $("#Produto").val(),
         tipo: $("#TpOperacao").val(),
         cpf: $("#CpfCliente").val(),
-        nome: $("#NmCliente").val()
+        nome: $("#NmCliente").val(),
+        parceiro:dataSession.nome,
+        supervisor:dataSession.supervisor,
+        gerente:dataSession.gerente,
+        id_acesso:dataSession.id_acesso,
+        cpf_parceiro:dataSession.cpf_user,
+        cpf_supervisor:dataSession.supervisor_cpf,
+        cpf_gerente:dataSession.gerente_cpf,
+        data_inclusao:data
     }
 
     const raw = JSON.stringify(body)
@@ -272,6 +303,9 @@ const buttonUpdate = {
 }
 
 function updateIP() {
+
+    const data = dateNow()
+
     let cod = buttonUpdate.changeID()
     let l = buttonUpdate.changeRows()
 
@@ -308,7 +342,9 @@ function updateIP() {
         data_nascimento: dtNascimento,
         uf: uf,
         cpf: cpf,
-        observacao: observacao
+        observacao: observacao,
+        responsavel:dataSession.nome,
+        data_atualizacao:data
     }
 
     const raw = JSON.stringify(body)
