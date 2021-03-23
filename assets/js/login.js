@@ -25,7 +25,6 @@ const Logar = () => {
         response.json().then(function(data){
 
            
-
             if(!response.ok)
                 return alert(data.erro);
 

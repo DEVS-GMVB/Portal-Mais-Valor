@@ -79,7 +79,7 @@ const classicacaoFiltro = document.getElementById("classicacao-filtro");
 const usuarioMasterFiltro = document.getElementById("usuario-master-filtro");
 const supervisorFiltro = document.getElementById("supervisor-filtro");
 const produtoMasterFiltro = document.getElementById("produto-master-filtro");
-const gerente = document.getElementById("gerente-filtro");
+const gerenteFiltro = document.getElementById("gerente-filtro");
 const tipoUsuarioMasterFiltro = document.getElementById("tipo-usuario-master-filtro");
 const dataCorteFiltro = document.getElementById("data-corte-filtro");
 const empresaSmsFiltro = document.getElementById("empresa-sms-filtro");
@@ -153,7 +153,28 @@ window.onload = function () {
     });
   })
 
+  fetch(URL + "/user/supervisor", requestOptions)
+    .then(response => response.json())
+    .then(function (data) {
+      for (let i = 0; i < data.length; i++) {
+        supervisorFiltro.innerHTML += '<option value="' + data[i].parceiro + '">' + data[i].parceiro + '</option>;'
+      }
+    }).catch(error => console.log('error', error));
 
+  fetch(URL + "/user/gerente", requestOptions)
+    .then(response => response.json().then(function (data) {
+      for (let i = 0; i < data.length; i++) {
+        gerenteFiltro.innerHTML += '<option value="' + data[i].gerente + '">' + data[i].gerente + '</option>;'
+      }
+    })).catch(error => console.log('error', error));
+
+
+}
+
+//editar modal alterar
+
+const editarModal = (cpf) =>{
+  console.log(cpf)
 }
 
 //envio de requisição de inclusao de proposta
@@ -164,7 +185,7 @@ botaoIncluir.addEventListener('click', () => {
     proposta: numeroProposta.value,
     data_envio: dataCadastroIncluir.value,
     banco: banco.value,
-    // status:status.value,
+    status:status.value,
     produto: produto.value,
     tipo: tipoOperacao.value,
     entregue: valorEntregue.value,
@@ -260,9 +281,17 @@ function readURL(input) {
 
 
 //filtrar propostas
-const filtroButton = document.getElementById('button-filtro')
+document.getElementById('filtrosdepesquisa').addEventListener('click',()=>{
+  var node = document.getElementById("list");
+  while (node.hasChildNodes()) {
+      // node.removeChild(node.lastChild);
+      console.log(hasChildNodes)
+  }
+})
+const filtroButton = document.getElementById('button-filtro');
 
 filtroButton.addEventListener('click',()=>{
+
   var myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/json")
 
@@ -276,7 +305,7 @@ filtroButton.addEventListener('click',()=>{
     parceiro:"",
     tipo_parceiro:"",
     proposta:"",
-    status:"CANCELADO",
+    status:statusFiltro.value,
     tipo:"",
     cpf:"",
     empresa:"",
@@ -301,7 +330,7 @@ filtroButton.addEventListener('click',()=>{
     tipo_parceiro2:"",
     data_corte:"",
     empresa_sms:"",
-    convenio:"20991 - INSS",
+    convenio:"",
     data_vinculo:"",
     horario:"",
     validade_contrato:"",
@@ -320,7 +349,7 @@ filtroButton.addEventListener('click',()=>{
   fetch(URL+"/user/proposta/filtro", requestOptions).
   then(response => response.json()).
   then(function (data) {
-    console.log(data)
+
   
     for (const value of data) {
 
@@ -390,22 +419,22 @@ filtroButton.addEventListener('click',()=>{
       gravacao.appendChild(gravacaoText);
       let telefoneconstanotfcText = document.createTextNode(`${value.tfc}`);
       telefoneconstanotfc.appendChild(telefoneconstanotfcText);
-
+      
 
 
       anexos.innerHTML = `<td id="" class="text-right" style="text-align: center;">
                              <div class="actions ml-3" style="text-align: center;">
-                              <a href="#" class="action-item mr-2 " data-toggle="modal" data-target=".modalteladecadastro" title="Alterar">
+                              <a id="altera" href="#" class="action-item mr-2 " data-toggle="modal" data-target=".modalalterarpropostas" title="Alterar">
                                 <i class="fas fa-download"></i>
                               </a>
                              </div>
                            </td>`;
 
       alteraVisualiza.innerHTML = ` <div class="actions ml-3" style="text-align: center;">
-                              <a href="#" class="action-item mr-2 " data-toggle="modal" data-target=".modal-filtroproposta" title="Alterar">
-                                  <i class="fas fa-external-link-alt"></i>
+                              <a href="#" class="action-item mr-2 " data-toggle="modal" data-target=".modalalterarpropostas" title="Alterar">
+                                  <i onclick="${console.log(value.cpf)}" class="fas fa-external-link-alt"></i>
                               </a>
-                              <a href="#" class="action-item mr-2" data-toggle="modal" data-target=".modal-filtroproposta" title="Visualizar">
+                              <a href="#" class="action-item mr-2" data-toggle="modal" data-target=".modalalterarpropostas" title="Visualizar">
                                   <i class="fas fa-eye"></i>
                               </a>
                           </div>`;

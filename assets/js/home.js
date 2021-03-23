@@ -1211,7 +1211,7 @@ var Dropzones = function () {
                 redirect: 'follow'
             };
 
-            fetch("http://localhost:3000/user/home", requestOptions)
+            fetch("https://api-portalmaisvalor.herokuapp.com/user/home", requestOptions)
             .then(response => response.json().then(function(data){
             console.log(data)
                 arrayCounts.push(data.count)
