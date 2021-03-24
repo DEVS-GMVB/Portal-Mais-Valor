@@ -42,7 +42,7 @@ let dtCadastro = document.getElementById('validationDtCad')
 //gets para popular options 
 
 window.onload = function () {
-  var myHeaders = new Headers();
+  const myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/json");
 
   const requestOptions = {
@@ -98,7 +98,7 @@ window.onload = function () {
     .then(response => response.json())
     .then(function (data) {
       for (let i = 0; i < data.length; i++) {
-        
+
       }
     })
 
@@ -116,6 +116,22 @@ window.onload = function () {
         gerenteProposta.innerHTML += '<option value="' + data[i].gerente + '">' + data[i].gerente + '</option>;'
       }
     })).catch(error => console.log('error', error));
+
+  const raw = JSON.stringify({
+    nome: dataSession.nome
+  })
+
+  fetch(URL+'/user/vinculo', {
+    method: 'POST',
+    headers: myHeaders,
+    body: raw,
+    redirect: 'follow'
+  }).then(response => response.json().then(function (data){
+    const selectParent = document.getElementById("vinculo-filtro");
+    selectParent.innerHTML = `<option value=${data} selected> ${data} </option>` 
+
+
+  })).catch(error => console.log('error', error))
 
 }
 
