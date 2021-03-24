@@ -1,4 +1,3 @@
-
 const URL = 'http://localhost:3000';
 
 let lista = document.getElementById('lista1');
@@ -49,6 +48,14 @@ const pesquisaIdentificacaoImovel = document.getElementById("identificacao-imove
 const pesquisaBanco = document.getElementById("banco-pesquisa");
 var input = document.querySelectorAll('form#files input[type="file"]');
 const buttonIncluir = document.getElementById('incluir-nova-proposta');
+
+
+function populaCamposObrigatorios() {
+  parceiroIncluir.value = `${sessionStorage.getItem('nome', 'nome')}`
+  supervisorIncluir.value = `${sessionStorage.getItem('supervisor', 'supervisor')}`
+  gerenteIncluir.value = `${sessionStorage.getItem('gerente', 'gerente')}`
+}
+
 window.onload = function () {
 
   //SELECTS MODAL NOVA PROPOSTA
@@ -65,70 +72,97 @@ window.onload = function () {
       data.forEach(element => {
         bancoIncluir.innerHTML += `<option value =${element.banco}>${element.banco}</option>`;
         pesquisaBanco.innerHTML += `<option value =${element.banco}>${element.banco}</option>`;
-        
+
       });
     })
+
+  fetch(URL + "/user/gerente", requestOptions)
+    .then(response => response.json())
+    .then(function (data) {
+      data.forEach(element => {
+        pesquisaGerente.innerHTML += `<option value =${element.gerente}>${element.gerente}</option>`;
+      });
+    })
+
+  fetch(URL + "/user/supervisor", requestOptions)
+    .then(response => response.json())
+    .then(function (data) {
+      data.forEach(element => {
+        pesquisaSupervisor.innerHTML += `<option value =${element.parceiro}>${element.parceiro}</option>`;
+      });
+    })
+
+  fetch(URL + '/user/imobiliario/status', requestOptions).
+  then(response => response.json().then(function (data) {
+    for (let i = 0; i < data.length; i++) {
+      pesquisaStatus.innerHTML += '<option value="' + data[i].status + '">' + data[i].status + '</option>;'
+      statusIncluir.innerHTML += '<option value="' + data[i].status + '">' + data[i].status + '</option>;'
+    }
+  })).catch(error => console.log('error: ', error))
+
+  populaCamposObrigatorios();
+
 
 }
 
 
 //INCLUSAO DE PROPOSTA
-buttonIncluir.addEventListener('click',()=>{
- 
+buttonIncluir.addEventListener('click', () => {
+
 
   let data = new FormData();
   input.forEach(file => {
     data.append(file.name, file.files[0])
   });
-  data.append("proposta",propostaIncluir.value,);
-  data.append("data_solicitacao",dataCadastroIncluir.value);
-  data.append("valor_financiado",valorFinanciadoIncluir.value);
-  data.append("modalidade",modalidadeIncluir.value);
-  data.append("status",statusIncluir.value);
-  data.append("tipo_imovel",tipoImovelIncluir.value);
-  data.append("banco",bancoIncluir.value);
-  data.append("telefone_promotor",telefonePromotorIncluir.value);
-  data.append("autorizacao",autorizaClienteIncluir.value);
-  data.append("data_retorno",dataRetornoIncluir.value);
-  data.append("nome",nomeClienteIncluir.value);
+  data.append("proposta", propostaIncluir.value, );
+  data.append("data_solicitacao", dataCadastroIncluir.value);
+  data.append("valor_financiado", valorFinanciadoIncluir.value);
+  data.append("modalidade", modalidadeIncluir.value);
+  data.append("status", statusIncluir.value);
+  data.append("tipo_imovel", tipoImovelIncluir.value);
+  data.append("banco", bancoIncluir.value);
+  data.append("telefone_promotor", telefonePromotorIncluir.value);
+  data.append("autorizacao", autorizaClienteIncluir.value);
+  data.append("data_retorno", dataRetornoIncluir.value);
+  data.append("nome", nomeClienteIncluir.value);
   data.append("cpf", cpfClineteIncluir.value);
-  data.append("data_nascimento",dataNascimentoIncluir.value);
-  data.append("uf",ufClienteIncluir.value);
-  data.append("telefone",dddTelIncluir.value+telefoneIncluir.value);
-  data.append("telefone_alternativo",dddCelIncluir.value+celularClienteIncluir.value);
-  data.append("parceiro",parceiroIncluir.value);
-  data.append("supervisor",supervisorIncluir.value);
-  data.append("gerente",gerenteIncluir.value);
-  data.append("nome_operador",nomeEspecialistaIncluir.value);
-  data.append("observacao",observacaoIncluir.value);
-   
+  data.append("data_nascimento", dataNascimentoIncluir.value);
+  data.append("uf", ufClienteIncluir.value);
+  data.append("telefone", dddTelIncluir.value + telefoneIncluir.value);
+  data.append("telefone_alternativo", dddCelIncluir.value + celularClienteIncluir.value);
+  data.append("parceiro", parceiroIncluir.value);
+  data.append("supervisor", supervisorIncluir.value);
+  data.append("gerente", gerenteIncluir.value);
+  data.append("nome_operador", nomeEspecialistaIncluir.value);
+  data.append("observacao", observacaoIncluir.value);
+
   let requestOptions = {
     method: 'POST',
     body: data,
     redirect: 'follow'
   };
 
-  
+
   fetch("http://localhost:3000/user/imobiliario/inclusao/arquivos", requestOptions)
-  .then(function(response){
-    response.json().then(function(data){
-      Swal.fire({
-        position: 'center',
-        icon: 'success',
-        title: `Proposta ${data.proposta} foi incluida com sucesso!`,
-        showConfirmButton: true,
-      })
-     });
-  })
+    .then(function (response) {
+      response.json().then(function (data) {
+        Swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: `Proposta ${data.proposta} foi incluida com sucesso!`,
+          showConfirmButton: true,
+        })
+      });
+    })
 
 })
 
 
 //PESQUISAR PROPOSTAS
 //preencher modal alterar
-const modal = (index)=>{
- 
-  const dados  = array[index];
+const modal = (index) => {
+
+  const dados = array[index];
   console.log(dados)
   $('#numero-proposta-alterar').val(dados.proposta);
   $('#data-cadastro-alterar').val(dados.data_solicitacao)
@@ -153,49 +187,52 @@ const modal = (index)=>{
   $('#observacao-alterar').val(dados.observacao)
 }
 //limpa pesquisa
-document.getElementById('button-filtros-pesquisa').addEventListener('click',()=>{
- lista.innerHTML = " "
+document.getElementById('button-filtros-pesquisa').addEventListener('click', () => {
+  lista.innerHTML = ""
 })
 
 
 
 buttonFiltro.addEventListener('click', () => {
+  lista.innerHTML = ""
+
+
   var myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/json");
   var raw = JSON.stringify({
-  "parceiro": 'PROMOTOR THAIS/THAIS SANTOS DEVAI',
-  "nome_operador": pesquisaNomeOperador.value,
-  "gerente": pesquisaGerente.value,
-  "supervisor": pesquisaSupervisor.value,
-  "status": pesquisaStatus.value,
-  "imovel": pesquisaImovel.value,
-  "tipo_imovel": pesquisaTipoImovel.value,
-  "cpf": pesquisaCpf.value,
-  "proposta": pesquisaProposta.value,
-  "data_retorno": pesquisaDataAgendamento.value,
-  "nome": pesquisaNomeCliente.value,
-  "modalidade": pesquisaModalidade.value,
-  "uf": pesquisaUf.value,
-  "identificacao_imovel": pesquisaIdentificacaoImovel.value,
-  "banco": pesquisaBanco.value
-});
+    "parceiro": 'PROMOTOR THAIS/THAIS SANTOS DEVAI',
+    "nome_operador": pesquisaNomeOperador.value,
+    "gerente": pesquisaGerente.value,
+    "supervisor": pesquisaSupervisor.value,
+    "status": pesquisaStatus.value,
+    "imovel": pesquisaImovel.value,
+    "tipo_imovel": pesquisaTipoImovel.value,
+    "cpf": pesquisaCpf.value,
+    "proposta": pesquisaProposta.value,
+    "data_retorno": pesquisaDataAgendamento.value,
+    "nome": pesquisaNomeCliente.value,
+    "modalidade": pesquisaModalidade.value,
+    "uf": pesquisaUf.value,
+    "identificacao_imovel": pesquisaIdentificacaoImovel.value,
+    "banco": pesquisaBanco.value
+  });
 
-var requestOptions = {
-  method: 'POST',
-  headers: myHeaders,
-  body: raw,
-  redirect: 'follow'
-};
-fetch("http://localhost:3000/user/imobiliario/pesquisar", requestOptions)
-.then(response => response.json()
-.then(data => {
- 
-  for (let index = 0; index < data.length; index++) {
-    const element = data[index];
+  var requestOptions = {
+    method: 'POST',
+    headers: myHeaders,
+    body: raw,
+    redirect: 'follow'
+  };
+  fetch("http://localhost:3000/user/imobiliario/pesquisar", requestOptions)
+    .then(response => response.json()
+      .then(data => {
 
-      array = data;
-   
-      lista.innerHTML +=   ` <tr>
+        for (let index = 0; index < data.length; index++) {
+          const element = data[index];
+
+          array = data;
+
+          lista.innerHTML += ` <tr>
       <td style="text-align: center;">${element.proposta}</td>
       <td style="text-align: center;">${element['nome']}</td>
       <td style="text-align: center;">${element.cpf}</td>
@@ -233,11 +270,11 @@ fetch("http://localhost:3000/user/imobiliario/pesquisar", requestOptions)
           </div>
       </td>
   </tr>`
-  
-  }
 
- 
-}))
-.catch(error => console.log('error', error))
+        }
+
+
+      }))
+    .catch(error => console.log('error', error))
 
 })
