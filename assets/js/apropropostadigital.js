@@ -123,7 +123,7 @@ function insert() {
 
     const data = this.dateNow()
 
-    const dtCadastro = $('#dtCadastro-incluir').val()
+    let dtCadastro = $('#dtCadastro-incluir').val()
     const proposta = $('#proposta-incluir').val()
     //const status = $('#status-incluir').val()
     const banco = $('#banco-incluir').val()
