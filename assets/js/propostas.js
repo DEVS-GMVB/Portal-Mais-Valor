@@ -86,13 +86,13 @@ window.onload = function () {
       });
     })
 
-  // fetch(URL + "/user/proposta/substatus", requestOptions)
-  //   .then(response => response.json())
-  //   .then(function (data) {
-  //     data.forEach(element => {
-  //       substatusFiltros.innerHTML += `<option value =${element.sub_status}>${element.sub_status}</option>`;
-  //     });
-  //   })
+  fetch(URL + "/user/proposta/substatus", requestOptions)
+    .then(response => response.json())
+    .then(function (data) {
+      data.forEach(element => {
+        substatusFiltros.innerHTML += `<option value =${element.sub_status}>${element.sub_status}</option>`;
+      });
+    })
 
   fetch(URL + "/user/proposta/produto", requestOptions)
     .then(response => response.json())
