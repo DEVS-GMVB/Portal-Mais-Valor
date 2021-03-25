@@ -41,6 +41,8 @@ const Logar = () => {
                 const cpf_usuario = user.cpf_usuario;
                 const supervisor = user.supervisor;
                 const gerente = user.gerente;
+                const empresa = user.empresa;
+                const classificacao = user.classificacao
 
                 sessionStorage.setItem('cnpj_matriz', matriz);
                 sessionStorage.setItem('data_nascimento', data_nascimento);
@@ -55,6 +57,8 @@ const Logar = () => {
                 sessionStorage.setItem('gerente', gerente);
                 sessionStorage.setItem('supervisor_cpf', supervisor_cpf);
                 sessionStorage.setItem('gerente_cpf', gerente_cpf);
+                sessionStorage.setItem('empresa', empresa);
+                sessionStorage.setItem('classificacao', classificacao);
 
 
                 // console.log(sessionStorage.getItem('cnpj_matriz', 'cnpj_matriz'));

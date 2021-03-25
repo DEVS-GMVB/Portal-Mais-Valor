@@ -4,6 +4,27 @@ let lista = document.getElementById('lista1');
 let buttonFiltro = document.getElementById('filtrar');
 var array = data;
 
+function dateNow() {
+  let date = new Date();
+  let dateNow = `${date.getDate()}/${(date.getMonth() + 1)}/${date.getFullYear()} ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`
+  return dateNow;
+}
+
+// Date session
+const dataSession = {
+  id_acesso: sessionStorage.getItem('id_acesso', 'id_acesso'),
+  status: sessionStorage.getItem('status', 'status'),
+  perfil: sessionStorage.getItem('perfil', 'perfil'),
+  nome: sessionStorage.getItem('nome', 'nome'),
+  supervisor: sessionStorage.getItem('supervisor', 'supervisor'),
+  gerente: sessionStorage.getItem('gerente', 'gerente'),
+  cnpj_matr: sessionStorage.getItem('cnpj_matriz', 'cnpj_matriz'),
+  cpf_user: sessionStorage.getItem('cpf_usuario', 'cpf_usuario'),
+  tipo_usuario: sessionStorage.getItem('tipo_usuario', 'tipo_usuario'),
+  supervisor_cpf: sessionStorage.getItem('supervisor_cpf', 'supervisor_cpf'),
+  gerente_cpf: sessionStorage.getItem('gerente_cpf', 'gerente_cpf')
+}
+
 
 //INPUTS MODAL NOVA PROPOSTA
 const propostaIncluir = document.getElementById('numero-proposta-incluir')
@@ -49,6 +70,15 @@ const pesquisaBanco = document.getElementById("banco-pesquisa");
 var input = document.querySelectorAll('form#files input[type="file"]');
 const buttonIncluir = document.getElementById('incluir-nova-proposta');
 
+//Atualizar
+const atualizar = document.getElementById("atualizar-campos")
+
+
+//Table
+const tbody = document.getElementById("listaDadosUsuario");
+
+
+// var names;
 
 function populaCamposObrigatorios() {
   parceiroIncluir.value = `${sessionStorage.getItem('nome', 'nome')}`
@@ -66,6 +96,8 @@ window.onload = function () {
     method: 'GET',
     redirect: 'follow'
   }
+
+
   fetch(URL + "/user/proposta/bancos", requestOptions)
     .then(response => response.json())
     .then(function (data) {
@@ -101,7 +133,6 @@ window.onload = function () {
   })).catch(error => console.log('error: ', error))
 
   populaCamposObrigatorios();
-
 
 }
 
@@ -157,13 +188,105 @@ buttonIncluir.addEventListener('click', () => {
 
 })
 
+const dataDadosUsuario = () => {
+
+  const tr = document.createElement("tr");
+
+  tr.innerHTML = `
+  <td style="text-align: center;">
+   ${sessionStorage.getItem('nome','nome')} 
+  </td>
+
+  <td style="text-align: center;">
+
+    ${sessionStorage.getItem('supervisor', 'supervisor')}
+
+  </td>
+
+  <td style="text-align: center;">
+
+    ${sessionStorage.getItem('gerente', 'gerente')}
+  </td>
+  <td style="text-align: center;">
+    ${sessionStorage.getItem('empresa', 'empresa')}
+  </td>
+
+  <td style="text-align: center;">
+    ${sessionStorage.getItem('tipo_usuario', 'tipo_usuario')}
+  </td>
+  <td style="text-align: center;">
+    ${sessionStorage.getItem('classificacao', 'classificacao')}
+  </td>
+
+  `
+  tbody.append(tr)
+}
+
+const buscarLogs = (codigo) => {
+  let tbody = document.getElementById("listaLogs");
+  while (tbody.hasChildNodes()) {
+    tbody.removeChild(tbody.lastChild)
+  }
+
+  var myHeaders = new Headers();
+  myHeaders.append("Content-Type", "application/json");
+
+  var raw = JSON.stringify({
+    "codigo": codigo
+  });
+
+  var requestOptions = {
+    method: 'POST',
+    headers: myHeaders,
+    body: raw,
+    redirect: 'follow'
+  };
+
+  fetch(URL + "/user/imobiliario/logs", requestOptions)
+    .then(response => response.json())
+    .then(result => {
+      for (const value of result) {
+        const tbody = document.getElementById("listaLogs");
+        let row = tbody.insertRow(-1);
+        let data_log = row.insertCell(-1);
+        let campo = row.insertCell(-1);
+        let valor_antigo = row.insertCell(-1);
+        let valor_novo = row.insertCell(-1);
+        let responsavel = row.insertCell(-1);
+
+        let data_log_text = document.createTextNode(`${value.data_log}`);
+        data_log.appendChild(data_log_text);
+
+        let campo_text = document.createTextNode(`${value.campo}`);
+        campo.appendChild(campo_text);
+
+        let valor_antigo_text = document.createTextNode(`${value.valor_velho}`);
+        valor_antigo.appendChild(valor_antigo_text);
+
+        let valor_novo_text = document.createTextNode(`${value.valor_novo}`);
+        valor_novo.appendChild(valor_novo_text);
+
+        let responsavel_text = document.createTextNode(`${value.usuario}`);
+        responsavel.appendChild(responsavel_text);
+
+      }
+    })
+    .catch(error => console.log('error', error));
+}
+
 
 //PESQUISAR PROPOSTAS
 //preencher modal alterar
 const modal = (index) => {
+  //Preenche outras tabelas do modal
+  while (tbody.hasChildNodes()) {
+    tbody.removeChild(tbody.lastChild);
+  }
+  dataDadosUsuario();
 
   const dados = array[index];
-  console.log(dados)
+  buscarLogs(dados.codigo);
+
   $('#numero-proposta-alterar').val(dados.proposta);
   $('#data-cadastro-alterar').val(dados.data_solicitacao)
   $('#valor-financiado-alterar').val(dados.valor_financiado)
@@ -184,8 +307,75 @@ const modal = (index) => {
   $('#supervisor-alterar').val(dados.supervisor)
   $('#gerente-alterar').val(dados.gerente)
   $('#nome-especialista-alterar').val()
-  $('#observacao-alterar').val(dados.observacao)
+  $('#observacao-alterar').val(dados.observacao);
+
+
+  atualizar.addEventListener('click', () => {
+      const data = this.dateNow();
+
+      const myHeaders = new Headers()
+      myHeaders.append('Content-Type', 'application/json')
+
+      const numeroProposta = $('#numero-proposta-alterar ').val()
+      const dtCadastro = $('#data-cadastro-alterar').val()
+      const vlFinanciado = $('#valor-financiado-alterar').val()
+      const modalidade = $('#modalidade-alterar').val()
+      const status = $('#status-alterar').val()
+      const tpImovel = $('#tipo-imovel-alterar').val()
+      const banco = $('#banco-alterar').val()
+      const telPromotor = $('#telefone-promotor-alterar').val()
+      const autorizaCliente = $('#autoriza-alterar').val()
+      const dtRetorno = $('#data-retorno-alterar').val()
+      const nome = $('#nome-cliente-alterar').val()
+      const cpf = $('#cpf-cliente-alterar').val()
+      const dtNascimento = $('#data-nascimento-alterar').val()
+      const uf = $('#uf-cliente-alterar').val()
+      //const dddTel = $('#ddd-tel-alterar').val()
+      const telefone = $('#telefone-cliente-alterar').val()
+      //const dddCel = $('#ddd-cel-alterar').val()
+      const celular = $('#celular-cliente-alterar').val()
+
+      const body = {
+        codigo: dados.codigo,
+        proposta: numeroProposta,
+        data_solicitacao: dtCadastro,
+        valor_financiado: vlFinanciado,
+        modalidade: modalidade,
+        status: status,
+        tipo_imovel: tpImovel,
+        banco: banco,
+        telefone_promotor: telPromotor,
+        autorizacao: autorizaCliente,
+        data_retorno: dtRetorno,
+        nome: nome,
+        cpf: cpf,
+        data_nascimento: dtNascimento,
+        uf: uf,
+        telefone: telefone,
+        telefone_alternativo: celular,
+        responsavel: dataSession.nome,
+        data_atualizacao: data
+      }
+
+      const raw = JSON.stringify(body)
+
+      const requestOptions = {
+        method: 'POST',
+        headers: myHeaders,
+        body: raw,
+        redirect: 'follow'
+      }
+
+      fetch(URL + '/user/imobiliario/alterar', requestOptions).
+      then(response => response.json().then(function (data) {
+        console.log(data)
+      })).catch(error => console.log('error: ', error))
+
+  })
+
 }
+
+
 //limpa pesquisa
 document.getElementById('button-filtros-pesquisa').addEventListener('click', () => {
   lista.innerHTML = ""

@@ -8,6 +8,9 @@
         content="Purpose Application UI is the following chapter we've finished in order to create a complete and robust solution next to the already known Purpose Website UI.">
     <meta name="author" content="Webpixels">
     <title>Propostas Imobiliário - Portal Mais Valor</title>
+
+    <!-- <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"> -->
+
     <!-- Favicon -->
     <link rel="icon" href="../assets/img/brand/favicon.png" type="image/png">
     <!-- Font Awesome 5 -->
@@ -18,6 +21,11 @@
     <link rel="stylesheet" href="../assets/css/purpose.css" id="stylesheet">
     <!-- CSS Personalizado -->
     <link rel="stylesheet" href="../assets/css/personalizado.css" id="stylesheet">
+
+    
+
+    
+
 </head>
 
 
@@ -215,8 +223,6 @@
                                     <option value="GO">GO</option>
                                     <option value="DF">DF</option>
 
-
-
                                 </select>
                             </div>
 
@@ -228,7 +234,8 @@
                                 <label for="exampleFormControlSelect1">Identificação Imóvel</label>
                                 <select class="form-control form-control-sm" id="identificacao-imovel-pesquisa">
                                     <option> </option>
-
+                                    <option value="SIM">SIM</option>
+                                    <option value="NAO">NÃO</option>
 
                                 </select>
                             </div>
@@ -1981,7 +1988,7 @@
 
 
                         <div class="opcoes-cadastro mt-1" style="text-align: center; margin-inline: block;">
-                            <button type="button" class="btn btn-primary btn-icon-label">
+                            <button type="button" class="btn btn-primary btn-icon-label" id="atualizar-campos">
                                 <span class="btn-inner--icon">
                                     <i class="fas fa-plus"></i>
                                 </span>
@@ -2021,7 +2028,7 @@
 
                                     </tr>
                                 </thead>
-                                <tbody class="list">
+                                <tbody class="list" id="listaLogs" style="text-align: center;">
 
                                     <tr>
 
@@ -2146,7 +2153,7 @@
 
                                     </tr>
                                 </thead>
-                                <tbody class="list" id="lista">
+                                <tbody class="list" id="listaDadosUsuario">
 
                                     <tr>
 
@@ -2924,6 +2931,7 @@
     <script src="../assets/js/purpose.js"></script>
     <!-- Demo JS - remove it when starting your project -->
     <script src="../assets/js/demo.js"></script>
+
     <!-- Mascaras -->
     <script src="../assets/js/mascaras.js"></script>
     <script src="../assets/js/mascarasvalores.js"></script>
