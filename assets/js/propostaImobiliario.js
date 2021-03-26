@@ -4,6 +4,9 @@ let lista = document.getElementById('lista1');
 let buttonFiltro = document.getElementById('filtrar');
 var array = data;
 
+//Refatoração utilização da estrutura de dados map
+const hashMapImobiliario = new Map();
+
 function dateNow() {
   let date = new Date();
   let dateNow = `${date.getDate()}/${(date.getMonth() + 1)}/${date.getFullYear()} ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`
@@ -274,18 +277,21 @@ const buscarLogs = (codigo) => {
     .catch(error => console.log('error', error));
 }
 
+const transporterCodigoUpadate = {
+  arrayCodigo: []
+}
 
 //PESQUISAR PROPOSTAS
 //preencher modal alterar
-const modal = (index) => {
+const modal = (dados) => {
   //Preenche outras tabelas do modal
   while (tbody.hasChildNodes()) {
     tbody.removeChild(tbody.lastChild);
   }
   dataDadosUsuario();
 
-  const dados = array[index];
   buscarLogs(dados.codigo);
+  transporterCodigoUpadate.arrayCodigo.push(dados.codigo);
 
   $('#numero-proposta-alterar').val(dados.proposta);
   $('#data-cadastro-alterar').val(dados.data_solicitacao)
@@ -308,72 +314,79 @@ const modal = (index) => {
   $('#gerente-alterar').val(dados.gerente)
   $('#nome-especialista-alterar').val()
   $('#observacao-alterar').val(dados.observacao);
-
-
-  atualizar.addEventListener('click', () => {
-      const data = this.dateNow();
-
-      const myHeaders = new Headers()
-      myHeaders.append('Content-Type', 'application/json')
-
-      const numeroProposta = $('#numero-proposta-alterar ').val()
-      const dtCadastro = $('#data-cadastro-alterar').val()
-      const vlFinanciado = $('#valor-financiado-alterar').val()
-      const modalidade = $('#modalidade-alterar').val()
-      const status = $('#status-alterar').val()
-      const tpImovel = $('#tipo-imovel-alterar').val()
-      const banco = $('#banco-alterar').val()
-      const telPromotor = $('#telefone-promotor-alterar').val()
-      const autorizaCliente = $('#autoriza-alterar').val()
-      const dtRetorno = $('#data-retorno-alterar').val()
-      const nome = $('#nome-cliente-alterar').val()
-      const cpf = $('#cpf-cliente-alterar').val()
-      const dtNascimento = $('#data-nascimento-alterar').val()
-      const uf = $('#uf-cliente-alterar').val()
-      //const dddTel = $('#ddd-tel-alterar').val()
-      const telefone = $('#telefone-cliente-alterar').val()
-      //const dddCel = $('#ddd-cel-alterar').val()
-      const celular = $('#celular-cliente-alterar').val()
-
-      const body = {
-        codigo: dados.codigo,
-        proposta: numeroProposta,
-        data_solicitacao: dtCadastro,
-        valor_financiado: vlFinanciado,
-        modalidade: modalidade,
-        status: status,
-        tipo_imovel: tpImovel,
-        banco: banco,
-        telefone_promotor: telPromotor,
-        autorizacao: autorizaCliente,
-        data_retorno: dtRetorno,
-        nome: nome,
-        cpf: cpf,
-        data_nascimento: dtNascimento,
-        uf: uf,
-        telefone: telefone,
-        telefone_alternativo: celular,
-        responsavel: dataSession.nome,
-        data_atualizacao: data
-      }
-
-      const raw = JSON.stringify(body)
-
-      const requestOptions = {
-        method: 'POST',
-        headers: myHeaders,
-        body: raw,
-        redirect: 'follow'
-      }
-
-      fetch(URL + '/user/imobiliario/alterar', requestOptions).
-      then(response => response.json().then(function (data) {
-        console.log(data)
-      })).catch(error => console.log('error: ', error))
-
-  })
-
 }
+
+atualizar.addEventListener('click', () => {
+  const codigo = transporterCodigoUpadate.arrayCodigo[transporterCodigoUpadate.arrayCodigo.length - 1]
+
+  const data = this.dateNow();
+
+  const myHeaders = new Headers()
+  myHeaders.append('Content-Type', 'application/json')
+
+  const numeroProposta = $('#numero-proposta-alterar ').val()
+  const dtCadastro = $('#data-cadastro-alterar').val()
+  const vlFinanciado = $('#valor-financiado-alterar').val()
+  const modalidade = $('#modalidade-alterar').val()
+  const status = $('#status-alterar').val()
+  const tpImovel = $('#tipo-imovel-alterar').val()
+  const banco = $('#banco-alterar').val()
+  const telPromotor = $('#telefone-promotor-alterar').val()
+  const autorizaCliente = $('#autoriza-alterar').val()
+  const dtRetorno = $('#data-retorno-alterar').val()
+  const nome = $('#nome-cliente-alterar').val()
+  const cpf = $('#cpf-cliente-alterar').val()
+  const dtNascimento = $('#data-nascimento-alterar').val()
+  const uf = $('#uf-cliente-alterar').val()
+  //const dddTel = $('#ddd-tel-alterar').val()
+  const telefone = $('#telefone-cliente-alterar').val()
+  //const dddCel = $('#ddd-cel-alterar').val()
+  const celular = $('#celular-cliente-alterar').val()
+
+  const body = {
+    codigo: codigo,
+    proposta: numeroProposta,
+    data_solicitacao: dtCadastro,
+    valor_financiado: vlFinanciado,
+    modalidade: modalidade,
+    status: status,
+    tipo_imovel: tpImovel,
+    banco: banco,
+    telefone_promotor: telPromotor,
+    autorizacao: autorizaCliente,
+    data_retorno: dtRetorno,
+    nome: nome,
+    cpf: cpf,
+    data_nascimento: dtNascimento,
+    uf: uf,
+    telefone: telefone,
+    telefone_alternativo: celular,
+    responsavel: dataSession.nome,
+    data_atualizacao: data
+  }
+
+  const raw = JSON.stringify(body)
+
+  const requestOptions = {
+    method: 'POST',
+    headers: myHeaders,
+    body: raw,
+    redirect: 'follow'
+  }
+
+  fetch(URL + '/user/imobiliario/alterar', requestOptions).
+  then(response => response.json().then(function (data) {
+    Swal.fire({
+      position: 'center',
+      icon: 'success',
+      title: `Proposta foi alterada com sucesso!`,
+      showConfirmButton: true,
+    })
+  })).catch(error => console.log('error: ', error))
+
+})
+
+
 
 
 //limpa pesquisa
@@ -420,7 +433,7 @@ buttonFiltro.addEventListener('click', () => {
         for (let index = 0; index < data.length; index++) {
           const element = data[index];
 
-          array = data;
+          hashMapImobiliario.set(data[index].codigo, data[index]);
 
           lista.innerHTML += ` <tr>
       <td style="text-align: center;">${element.proposta}</td>
@@ -449,7 +462,7 @@ buttonFiltro.addEventListener('click', () => {
           <!-- Actions -->
           <div class="actions ml-3" style="text-align: center;">
               <a  href= class="action-item mr-2" data-id= 1 data-toggle="modal"
-                  data-target=".modalalterarpropostas" title="Alterar"onclick="modal(${index})">
+                  data-target=".modalalterarpropostas" title="Alterar"onclick="modal(hashMapImobiliario.get(${data[index].codigo}))">
                   <i  class="fas fa-external-link-alt">
                    </i>
               </a>

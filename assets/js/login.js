@@ -76,39 +76,8 @@ const Logar = () => {
             });
         }).catch(error => console.log('error', error));
 
-    // buscarCpfs(sessionStorage.getItem('supervisor', 'supervisor'), sessionStorage.getItem('gerente', 'gerente'));
-
-
 };
 
-// const buscarCpfs = async (supervisor, gerente) => {
-//     const myHeaders = new Headers();
-//     myHeaders.append("Content-Type", "application/json");
-
-//     const raw = JSON.stringify({
-//         supervisor: supervisor,
-//         gerente: gerente
-//     });
-
-//     const requestOptions = {
-//         method: 'POST',
-//         headers: myHeaders,
-//         body: raw,
-//         redirect: 'follow'
-//     };
-
-//     await fetch(URL + "/user/buscar", requestOptions)
-//         .then(response => response.json())
-//         .then(result => {
-//             const supervisor_cpf = result.supervisor_cpf;
-//             const gerente_cpf = result.gerente_cpf;
-
-//             sessionStorage.setItem('supervisor_cpf', supervisor_cpf);
-//             sessionStorage.setItem('gerente_cpf', gerente_cpf);
-//         })
-//         .catch(error => console.log('error', error));
-
-// }
 
 
 const Email = () => {
