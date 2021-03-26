@@ -8,6 +8,9 @@
         content="Purpose Application UI is the following chapter we've finished in order to create a complete and robust solution next to the already known Purpose Website UI.">
     <meta name="author" content="Webpixels">
     <title>Propostas Imobiliário - Portal Mais Valor</title>
+
+    <!-- <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"> -->
+
     <!-- Favicon -->
     <link rel="icon" href="../assets/img/brand/favicon.png" type="image/png">
     <!-- Font Awesome 5 -->
@@ -18,6 +21,11 @@
     <link rel="stylesheet" href="../assets/css/purpose.css" id="stylesheet">
     <!-- CSS Personalizado -->
     <link rel="stylesheet" href="../assets/css/personalizado.css" id="stylesheet">
+
+    
+
+    
+
 </head>
 
 
@@ -126,7 +134,8 @@
                                 <option value="USADO">USADO</option>
                                 <option value="NOVO">NOVO</option>
                                 <option value="PORTABILIDADE">PORTABILIDADE</option>
-                                <option value="PROPRIO">PROPRIO</option>
+                                <option value="PROPRIO">PRÓPRIO</option>
+
 
                             </select>
                         </div>
@@ -138,6 +147,7 @@
                                     <option> </option>
                                     <option value="RESIDENCIAL">RESIDENCIAL</option>
                                     <option value="COMERCIAL">COMERCIAL</option>
+
                                 </select>
                             </div>
 
@@ -147,20 +157,20 @@
 
                         <div class="col-md-4 mb-0">
                             <label for="validationCustom01">CPF Cliente</label>
-                            <input type="text" class="form-control form-control-sm" id="cpf-pesquisa">
+                            <input type="text" class="form-control form-control-sm" onkeypress="mascaraMutuario(this,cpfCnpj)" maxlength="14" placeholder="ex: 000.000.000.00" id="cpf-pesquisa">
 
                         </div>
 
                         <div class="col-md-4 mb-0">
                             <label for="validationCustom01">Proposta</label>
-                            <input type="text" class="form-control form-control-sm" id="proposta-pesquisa">
+                            <input type="text" class="form-control form-control-sm" onkeypress="mascaraMutuario(this, nContrtato)" id="proposta-pesquisa">
 
                         </div>
 
                         <div class="col-md-4 mb-0">
                             <div class="form-group">
                                 <label for="exampleFormControlSelect1">Data Agendamento</label>
-                                <input type="text" class="form-control form-control-sm" id="data-agendamento-pesquisa">
+                                <input type="text" class="form-control form-control-sm" maxlength="19" size="19" onKeyPress="DataHora(event, this)" id="data-agendamento-pesquisa">
                             </div>
 
                         </div>
@@ -184,8 +194,34 @@
                             <div class="form-group">
                                 <label for="exampleFormControlSelect1">UF</label>
                                 <select class="form-control form-control-sm" id="uf-pesquisa">
-                                    <option> </option>
-
+                                    <option value=""></option>
+                                    <option value="RO">RO</option>
+                                    <option value="AC">AC</option>
+                                    <option value="AM">AM</option>
+                                    <option value="RR">RR</option>
+                                    <option value="PA">PA</option>
+                                    <option value="AP">AP</option>
+                                    <option value="TO">TO</option>
+                                    <option value="MA">MA</option>
+                                    <option value="PI">PI</option>
+                                    <option value="CE">CE</option>
+                                    <option value="RN">RN</option>
+                                    <option value="PB">PB</option>
+                                    <option value="PE">PE</option>
+                                    <option value="AL">AL</option>
+                                    <option value="SE">SE</option>
+                                    <option value="BA">BA</option>
+                                    <option value="MG">MG</option>
+                                    <option value="ES">ES</option>
+                                    <option value="RJ">RJ</option>
+                                    <option value="SP">SP</option>
+                                    <option value="PR">PR</option>
+                                    <option value="SC">SC</option>
+                                    <option value="RS">RS</option>
+                                    <option value="MS">MS</option>
+                                    <option value="MT">MT</option>
+                                    <option value="GO">GO</option>
+                                    <option value="DF">DF</option>
 
                                 </select>
                             </div>
@@ -198,7 +234,8 @@
                                 <label for="exampleFormControlSelect1">Identificação Imóvel</label>
                                 <select class="form-control form-control-sm" id="identificacao-imovel-pesquisa">
                                     <option> </option>
-
+                                    <option value="SIM">SIM</option>
+                                    <option value="NAO">NÃO</option>
 
                                 </select>
                             </div>
@@ -294,20 +331,20 @@
 
                                 <div class="col-md-4 mb-3">
                                     <label for="validationCustom01">Número da Proposta</label>
-                                    <input type="text" class="form-control form-control-sm" id="numero-proposta-incluir"
-                                    onKeyDown="fMasc( this, nContrtato );"   required>
+                                    <input type="text" class="form-control form-control-sm" id="numero-proposta-incluir" onkeypress="mascaraMutuario(this, nContrtato)"
+                                        required>
 
                                 </div>
                                 <div class="col-md-2 mb-3">
                                     <label for="validationCustom01">Data Cadastro</label>
-                                    <input type="text" class="form-control form-control-sm" id="data-cadastro-incluir"
-                                    onkeyPress="DataHora(event, this)"  required>
+                                    <input type="text" class="form-control form-control-sm" id="data-cadastro-incluir" maxlength="19" size="19" onKeyPress="DataHora(event, this)"
+                                        required>
 
                                 </div>
                                 <div class="col-md-3 mb-3">
                                     <label for="validationCustom01">Valor Financiado</label>
                                     <input type="text" class="form-control form-control-sm"
-                                    onKeyPress="return(MascaraMoeda(this,'.',',',event))"   id="valor-financiado-incluir" required>
+                                        id="valor-financiado-incluir" onKeyPress="return(MascaraMoeda(this,'.',',',event))" required>
 
                                 </div>
                                 <div class="col-md-3 mb-3">
@@ -350,8 +387,8 @@
                                 </div>
                                 <div class="col-md-3 mb-3">
                                     <label for="validationCustom01">Telefone Promotor Responsável</label>
-                                    <input type="text" class="form-control form-control-sm" maxlength="14"
-                                        id="telefone-promotor-incluir" onKeyDown="fMasc( this, mTelefone );" required>
+                                    <input type="text" class="form-control form-control-sm" maxlength="14"   onkeypress="mascaraMutuario(this, mTelefone)"
+                                        id="telefone-promotor-incluir" required>
 
                                 </div>
 
@@ -368,8 +405,8 @@
 
                                 <div class="col-md-6 mb-3">
                                     <label for="validationCustom01">Data Retorno</label>
-                                    <input type="text" class="form-control form-control-sm" id="data-retorno-incluir"
-                                    onkeyPress="DataHora(event, this)"  required>
+                                    <input type="text" class="form-control form-control-sm" id="data-retorno-incluir" maxlength="19" size="19" onKeyPress="DataHora(event, this)"
+                                        required>
 
                                 </div>
 
@@ -398,15 +435,15 @@
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <label for="validationCustom01">CPF Cliente</label>
-                                    <input type="text" class="form-control form-control-sm" id="cpf-cliente-incluir"
-                                    maxlength="14" max onkeypress='mascaraMutuario(this,cpfCnpj)'  required>
+                                    <input type="text" class="form-control form-control-sm" maxlength="14" placeholder="ex: 000.000.000.00" id="cpf-cliente-incluir" onkeypress="mascaraMutuario(this,cpfCnpj)"
+                                        required>
 
                                 </div>
 
                                 <div class="col-md-2 mb-3">
                                     <label for="validationCustom01">Data Nascimento</label>
-                                    <input type="text" class="form-control form-control-sm" id="data-nascimento-incluir"
-                                    onkeyPress="DataHora(event, this)" maxlength="10"  required>
+                                    <input type="text" class="form-control form-control-sm" id="data-nascimento-incluir" maxlength="19" size="19" onKeyPress="DataHora(event, this)"
+                                        required>
 
                                 </div>
 
@@ -452,27 +489,27 @@
 
                                 <div class="col-md-1 mb-3">
                                     <label for="validationCustom01">DDD</label>
-                                    <input type="text" class="form-control form-control-sm" id="ddd-tel-incluir"
-                                    onKeyDown="fMasc( this, nContrtato );" maxlength="2"  required>
+                                    <input type="text" class="form-control form-control-sm" id="ddd-tel-incluir" maxlength="2"
+                                        required>
 
                                 </div>
                                 <div class="col-md-3 mb-3">
                                     <label for="validationCustom01">Telefone Cliente</label>
-                                    <input type="text" class="form-control form-control-sm" maxlength="9"
-                                    onKeyDown="fMasc( this, nContrtato );" id="telefone-cliente-incluir" required>
+                                    <input type="text" class="form-control form-control-sm" onkeypress="mascaraMutuario(this, mTelefoneCliente)" maxlength="9"
+                                        id="telefone-cliente-incluir" required>
 
                                 </div>
 
                                 <div class="col-md-1 mb-3">
                                     <label for="validationCustom01">DDD</label>
-                                    <input type="text" class="form-control form-control-sm" id="ddd-cel-incluir"
-                                    onKeyDown="fMasc( this, nContrtato );" maxlength="2"   required>
+                                    <input type="text" class="form-control form-control-sm" id="ddd-cel-incluir" maxlength="2"
+                                        required>
 
                                 </div>
                                 <div class="col-md-3 mb-3">
                                     <label for="validationCustom01">Celular Cliente</label>
                                     <input type="text" class="form-control form-control-sm" id="celular-cliente-incluir"
-                                    onKeyDown="fMasc( this, nContrtato );" maxlength="9"  required>
+                                        required>
 
                                 </div>
 
@@ -497,26 +534,26 @@
 
                                 <div class="col-md-3 mb-3">
                                     <label for="validationCustom01">Parceiro</label>
-                                    <input type="text" class="form-control form-control-sm" id="parceiro-incluir"
-                                      disabled  required>
+                                    <input type="text" class="form-control form-control-sm" id="parceiro-incluir" disabled
+                                        required>
 
                                 </div>
                                 <div class="col-md-3 mb-3">
                                     <label for="validationCustom01">Supervisor</label>
-                                    <input type="text" class="form-control form-control-sm" id="supervisor-incluir"
-                                      disabled  required>
+                                    <input type="text" class="form-control form-control-sm" id="supervisor-incluir" disabled
+                                        required>
 
                                 </div>
                                 <div class="col-md-3 mb-3">
                                     <label for="validationCustom01">Gerente</label>
-                                    <input type="text" class="form-control form-control-sm" id="gerente-incluir"
-                                      disabled  required>
+                                    <input type="text" class="form-control form-control-sm" id="gerente-incluir" disabled
+                                        required>
 
                                 </div>
 
                                 <div class="col-md-3 mb-3">
                                     <label for="validationCustom01">Nome Especialista</label>
-                                    <input type="text" class="form-control form-control-sm"
+                                    <input type="text" class="form-control form-control-sm" disabled
                                         id="nome-especialista-incluir" required>
 
                                 </div>
@@ -1283,19 +1320,19 @@
                                 <div class="col-md-4 mb-3">
                                     <label for="validationCustom01">Número da Proposta</label>
                                     <input type="text" class="form-control form-control-sm" id="numero-proposta-alterar "
-                                    onKeyDown="fMasc( this, nContrtato );"  required>
+                                        required>
 
                                 </div>
                                 <div class="col-md-2 mb-3">
                                     <label for="validationCustom01">Data Cadastro</label>
-                                    <input type="text" class="form-control form-control-sm" id="data-cadastro-alterar" 
-                                    onkeyPress="DataHora(event, this)" required>
+                                    <input type="text" class="form-control form-control-sm" id="data-cadastro-alterar" maxlength="19" size="19" onKeyPress="DataHora(event, this)"
+                                        required>
 
                                 </div>
                                 <div class="col-md-3 mb-3">
                                     <label for="validationCustom01">Valor Financiado</label>
-                                    <input type="text" class="form-control form-control-sm" id="valor-financiado-alterar"
-                                    onKeyPress="return(MascaraMoeda(this,'.',',',event))" required>
+                                    <input type="text" class="form-control form-control-sm" id="valor-financiado-alterar" onKeyPress="return(MascaraMoeda(this,'.',',',event))"
+                                        required>
 
                                 </div>
                                 <div class="col-md-3 mb-3">
@@ -1335,7 +1372,7 @@
                                 <div class="col-md-3 mb-3">
                                     <label for="validationCustom01">Telefone Promotor Responsável</label>
                                     <input type="text" class="form-control form-control-sm" id="telefone-promotor-alterar"
-                                    onKeyDown="fMasc( this, mTelefone );" maxlength="14"  required>
+                                        required>
 
                                 </div>
 
@@ -1351,7 +1388,7 @@
                                 <div class="col-md-6 mb-3">
                                     <label for="validationCustom01">Data Retorno</label>
                                     <input type="text" class="form-control form-control-sm" id="data-retorno-alterar"
-                                    onkeyPress="DataHora(event, this)"  required>
+                                        required>
 
                                 </div>
 
@@ -1380,15 +1417,15 @@
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <label for="validationCustom01">CPF Cliente</label>
-                                    <input type="text" class="form-control form-control-sm" id="cpf-cliente-alterar"
-                                    maxlength="14" max onkeypress='mascaraMutuario(this,cpfCnpj)'  required>
+                                    <input type="text" class="form-control form-control-sm" id="cpf-cliente-alterar" onkeypress="mascaraMutuario(this,cpfCnpj)" maxlength="14" placeholder="ex: 000.000.000.00"
+                                        required>
 
                                 </div>
 
                                 <div class="col-md-2 mb-3">
                                     <label for="validationCustom01">Data Nascimento</label>
                                     <input type="text" class="form-control form-control-sm" id="data-nascimento-alterar"
-                                    onkeyPress="DataHora(event, this)" maxlength="10"  required>
+                                        required>
 
                                 </div>
 
@@ -1408,26 +1445,26 @@
                                 <div class="col-md-1 mb-3">
                                     <label for="validationCustom01">DDD</label>
                                     <input type="text" class="form-control form-control-sm" id="ddd-tel-alterar"
-                                    onKeyDown="fMasc( this, nContrtato );" maxlength="2"  required>
+                                        required>
 
                                 </div>
                                 <div class="col-md-3 mb-3">
                                     <label for="validationCustom01">Telefone Cliente</label>
                                     <input type="text" class="form-control form-control-sm" id="telefone-cliente-alterar"
-                                    onKeyDown="fMasc( this, nContrtato );" maxlength="9"  required>
+                                        required>
 
                                 </div>
 
                                 <div class="col-md-1 mb-3">
                                     <label for="validationCustom01">DDD</label>
                                     <input type="text" class="form-control form-control-sm" id="ddd-cel-alterar"
-                                    onKeyDown="fMasc( this, nContrtato );" maxlength="2"  required>
+                                        required>
 
                                 </div>
                                 <div class="col-md-3 mb-3">
                                     <label for="validationCustom01">Celular Cliente</label>
                                     <input type="text" class="form-control form-control-sm" id="celular-cliente-alterar"
-                                    onKeyDown="fMasc( this, nContrtato );" maxlength="9"  required>
+                                        required>
 
                                 </div>
 
@@ -1452,26 +1489,26 @@
 
                                 <div class="col-md-3 mb-3">
                                     <label for="validationCustom01">Parceiro</label>
-                                    <input type="text" class="form-control form-control-sm" id="parceiro-alterar"
-                                     disabled   required>
+                                    <input type="text" class="form-control form-control-sm" id="parceiro-alterar" disabled
+                                        required>
 
                                 </div>
                                 <div class="col-md-3 mb-3">
                                     <label for="validationCustom01">Supervisor</label>
-                                    <input type="text" class="form-control form-control-sm" id="supervisor-alterar"
-                                     disabled   required>
+                                    <input type="text" class="form-control form-control-sm" id="supervisor-alterar" disabled
+                                        required>
 
                                 </div>
                                 <div class="col-md-3 mb-3">
                                     <label for="validationCustom01">Gerente</label>
-                                    <input type="text" class="form-control form-control-sm" id="gerente-alterar"
-                                     disabled   required>
+                                    <input type="text" class="form-control form-control-sm" id="gerente-alterar" disabled
+                                        required>
 
                                 </div>
 
                                 <div class="col-md-3 mb-3">
                                     <label for="validationCustom01">Nome Especialista</label>
-                                    <input type="text" class="form-control form-control-sm" id="nome-especialista-alterar"
+                                    <input type="text" class="form-control form-control-sm" disabled  id="nome-especialista-alterar"
                                         required>
 
                                 </div>
@@ -1951,11 +1988,11 @@
 
 
                         <div class="opcoes-cadastro mt-1" style="text-align: center; margin-inline: block;">
-                            <button type="button" class="btn btn-primary btn-icon-label">
+                            <button type="button" class="btn btn-primary btn-icon-label" id="atualizar-campos">
                                 <span class="btn-inner--icon">
                                     <i class="fas fa-plus"></i>
                                 </span>
-                                <span class="btn-inner--text">Prosseguir</span>
+                                <span class="btn-inner--text">Atualizar / Alterar</span>
                             </button>
 
                         </div>
@@ -1991,7 +2028,7 @@
 
                                     </tr>
                                 </thead>
-                                <tbody class="list">
+                                <tbody class="list" id="listaLogs" style="text-align: center;">
 
                                     <tr>
 
@@ -2116,7 +2153,7 @@
 
                                     </tr>
                                 </thead>
-                                <tbody class="list" id="lista">
+                                <tbody class="list" id="listaDadosUsuario">
 
                                     <tr>
 
@@ -2894,8 +2931,10 @@
     <script src="../assets/js/purpose.js"></script>
     <!-- Demo JS - remove it when starting your project -->
     <script src="../assets/js/demo.js"></script>
+
     <!-- Mascaras -->
     <script src="../assets/js/mascaras.js"></script>
+    <script src="../assets/js/mascarasvalores.js"></script>
     <script src="../assets/js/propostaImobiliario.js"></script>
 </body>
 
