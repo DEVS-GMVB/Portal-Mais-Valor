@@ -7,7 +7,7 @@
     <meta name="description"
         content="Purpose Application UI is the following chapter we've finished in order to create a complete and robust solution next to the already known Purpose Website UI.">
     <meta name="author" content="Webpixels">
-    <title>Lançamento de Pagamento - Portal Mais Valor</title>
+    <title>Auditoria - Portal Mais Valor</title>
     <!-- Favicon -->
     <link rel="icon" href="../assets/img/brand/favicon.png" type="image/png">
     <!-- Font Awesome 5 -->
@@ -40,12 +40,13 @@
     }
 </style>
 
-<!---INICIO DO MODAL -->
 
-<!-- Large modal -->
+<!--MODAL AUDITORIA-->
 
-<div class="modal fade modalincnclacamento" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
+
+<div class="modal fade modalvisualizaraudit" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-xl">
         <div class="modal-content">
 
             <div class="modal-header">
@@ -56,284 +57,861 @@
             </div>
             <div class="modal-body">
 
-                <div class="bg-titulo mt-0">
+                <nav>
+                    <div class="nav nav-tabs" id="nav-tab" role="tablist">
 
-                    <h3>
-                        Incluir/Alterar
+                        <a class="nav-item nav-link active" id="nav-proposta-tab" data-toggle="tab" href="#nav-proposta"
+                            role="tab" aria-controls="nav-proposta" aria-selected="true">Proposta</a>
 
-                    </h3>
+                        <a class="nav-item nav-link" id="nav-dadosusuarios-tab" data-toggle="tab"
+                            href="#nav-dadosusuarios" role="tab" aria-controls="nav-dadosusuarios"
+                            aria-selected="false">Usuário</a>
+
+                        <a class="nav-item nav-link" id="nav-observacao-tab" data-toggle="tab" href="#nav-observacao"
+                            role="tab" aria-controls="nav-observacao" aria-selected="false">Observação</a>
+
+                        <a class="nav-item nav-link" id="nav-anexo-tab" data-toggle="tab" href="#nav-anexo" role="tab"
+                            aria-controls="nav-anexo" aria-selected="false">Anexos</a>
+
+                        <a class="nav-item nav-link" id="nav-logs-tab" data-toggle="tab" href="#nav-logs" role="tab"
+                            aria-controls="nav-logs" aria-selected="false">LOGS</a>
+
+
+
+                    </div>
+                </nav>
+
+                <div class="tab-content" id="nav-tabContent">
+
+                    <div class="tab-pane fade show active" id="nav-proposta" role="tabpanel"
+                        aria-labelledby="nav-proposta-tab">
+
+                        <div class="bg-titulo mt-4">
+
+                            <h3>Dados Auditoria</h3>
+
+                        </div>
+
+
+                        <form class="needs-validation" novalidate>
+
+
+
+                            <div class="form-row mt-4">
+
+
+                                <div class="col-md-4 mb-3">
+                                    <label for="validationCustom01">Status Auditoria</label>
+                                    <select class="form-control form-control-sm" id="exampleFormControlSelect1">
+                                        <option> </option>
+
+                                    </select>
+
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <label for="validationCustom01">Falta</label>
+                                    <select class="form-control form-control-sm" id="exampleFormControlSelect1">
+                                        <option> </option>
+
+                                    </select>
+
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <label for="validationCustom01">Tipo Falta</label>
+                                    <select class="form-control form-control-sm" id="exampleFormControlSelect1">
+                                        <option> </option>
+
+                                    </select>
+
+                                </div>
+                                <div class="col-md-12 mb-3">
+                                    <label for="validationCustom01">Sub-Status</label>
+                                    <select class="form-control form-control-sm" id="exampleFormControlSelect1">
+                                        <option> </option>
+
+                                    </select>
+                                </div>
+
+                                <div class="col-md-12 mb-3">
+                                    <div class="observacao mt-1" style="text-align: center;">
+                                        <label for="exampleFormControlSelect1">Observação Auditoria</label>
+                                        <textarea class="form-control" placeholder="" rows="4"></textarea>
+                                    </div>
+
+                                </div>
+
+
+
+                            </div>
+
+                        </form>
+
+                        <div class="bg-titulo mt-2">
+
+                            <h3>Dados da Proposta</h3>
+
+                        </div>
+
+                        <form class="needs-validation" novalidate>
+
+
+
+                            <div class="form-row mt-4">
+
+
+                                <div class="col-md-3 mb-3">
+                                    <label for="validationCustom01">Número da Proposta</label>
+                                    <input type="text" class="form-control form-control-sm" id="validationCustom01"
+                                        required>
+
+                                </div>
+
+                                <div class="col-md-3 mb-3">
+                                    <label for="validationCustom01">Data Venda</label>
+                                    <input type="text" class="form-control form-control-sm" id="validationCustom01"
+                                        required>
+
+                                </div>
+
+                                <div class="col-md-3 mb-3">
+                                    <label for="validationCustom01">Mês Referencia</label>
+                                    <input type="text" class="form-control form-control-sm" id="validationCustom01"
+                                        required>
+
+                                </div>
+
+                                <div class="col-md-3 mb-3">
+                                    <label for="validationCustom01">Status</label>
+                                    <select class="form-control form-control-sm" id="exampleFormControlSelect1">
+                                        <option> </option>
+
+                                    </select>
+
+                                </div>
+
+                                <div class="col-md-3 mb-3">
+                                    <label for="validationCustom01">Linha de Crédito</label>
+                                    <select class="form-control form-control-sm" id="exampleFormControlSelect1">
+                                        <option> </option>
+
+                                    </select>
+
+                                </div>
+
+                                <div class="col-md-3 mb-3">
+                                    <label for="validationCustom01">Valor Proposta</label>
+                                    <input type="text" class="form-control form-control-sm" id="validationCustom01"
+                                        required>
+
+                                </div>
+
+                                <div class="col-md-3 mb-3">
+                                    <label for="validationCustom01">Valor Troco</label>
+                                    <input type="text" class="form-control form-control-sm" id="validationCustom01"
+                                        required>
+
+                                </div>
+
+                                <div class="col-md-3 mb-3">
+                                    <label for="validationCustom01">Valor Liquido</label>
+                                    <input type="text" class="form-control form-control-sm" id="validationCustom01"
+                                        required>
+
+                                </div>
+
+                                <div class="col-md-3 mb-3">
+                                    <label for="validationCustom01">Quantidade Parcelas</label>
+                                    <input type="text" class="form-control form-control-sm" id="validationCustom01"
+                                    required>
+
+                                </div>
+
+                                <div class="col-md-3 mb-3">
+                                    <label for="validationCustom01">Valor Seguro</label>
+                                    <input type="text" class="form-control form-control-sm" id="validationCustom01"
+                                        required>
+
+                                </div>
+
+                                <div class="col-md-3 mb-3">
+                                    <label for="validationCustom01">Mailing Origem</label>
+                                    <select class="form-control form-control-sm" id="exampleFormControlSelect1">
+                                        <option> </option>
+
+                                    </select>
+
+                                </div>
+
+                                <div class="col-md-3 mb-3">
+                                    <label for="validationCustom01">Valor Parcela</label>
+                                    <input type="text" class="form-control form-control-sm" id="validationCustom01"
+                                        required>
+
+                                </div>
+
+                                <div class="col-md-4 mb-3">
+                                    <label for="validationCustom01">Venda</label>
+                                    <select class="form-control form-control-sm" id="exampleFormControlSelect1">
+                                        <option> </option>
+
+                                    </select>
+
+                                </div>
+
+                                <div class="col-md-4 mb-3">
+                                    <label for="validationCustom01">Vencimento 1ª Parcela</label>
+                                    <input type="text" class="form-control form-control-sm" id="validationCustom01"
+                                        required>
+
+                                </div>
+
+                                <div class="col-md-4 mb-3">
+                                    <label for="validationCustom01">Convênio</label>
+                                    <input type="text" class="form-control form-control-sm" id="validationCustom01"
+                                    required>
+
+                                </div>
+
+                             
+
+                            </div>
+
+                        </form>
+
+
+                        <div class="bg-titulo mt-2">
+
+                            <h3>Dados do Cliente</h3>
+
+                        </div>
+
+
+                        <form class="needs-validation" novalidate>
+
+
+
+                            <div class="form-row mt-4">
+
+
+                                <div class="col-md-4 mb-3">
+                                    <label for="validationCustom01">Nome Cliente</label>
+                                    <input type="text" class="form-control form-control-sm" id="validationCustom01"
+                                        required>
+
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <label for="validationCustom01">CPF Cliente</label>
+                                    <input type="text" class="form-control form-control-sm" id="validationCustom01"
+                                        required>
+
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <label for="validationCustom01">Telefone Cliente</label>
+                                    <input type="text" class="form-control form-control-sm" id="validationCustom01"
+                                        required>
+
+                                </div>
+
+                                <div class="col-md-6 mb-3">
+                                    <label for="validationCustom01">Agência Cliente</label>
+                                    <input type="text" class="form-control form-control-sm" id="validationCustom01"
+                                        required>
+
+                                </div>
+
+                                <div class="col-md-6 mb-3">
+                                    <label for="validationCustom01">Conta Cliente</label>
+                                    <input type="text" class="form-control form-control-sm" id="validationCustom01"
+                                        required>
+
+                                </div>
+
+                            </div>
+
+
+
+
+                        </form>
+
+                        <div class="bg-titulo mt-2">
+
+                            <h3>Dados Parceiro/Promotor</h3>
+
+                        </div>
+
+
+                        <form class="needs-validation" novalidate>
+
+
+
+                            <div class="form-row mt-4">
+
+
+                                <div class="col-md-6 mb-3">
+                                    <label for="validationCustom01">Parceiro/Promotor</label>
+                                    <select class="form-control form-control-sm" id="exampleFormControlSelect1">
+                                        <option> </option>
+
+                                    </select>
+
+                                </div>
+
+                                <div class="col-md-3 mb-3">
+                                    <label for="validationCustom01">Supervisor</label>
+                                    <input type="text" class="form-control form-control-sm" id="validationCustom01"
+                                        required>
+
+                                </div>
+
+                                <div class="col-md-3 mb-3">
+                                    <label for="validationCustom01">Gerente</label>
+                                    <input type="text" class="form-control form-control-sm" id="validationCustom01"
+                                        required>
+
+                                </div>
+
+                                <div class="col-md-4 mb-3">
+                                    <label for="validationCustom01">CPF Parceiro/Promotor</label>
+                                    <input type="text" class="form-control form-control-sm" id="validationCustom01"
+                                        required>
+
+                                </div>
+
+                                <div class="col-md-4 mb-3">
+                                    <label for="validationCustom01">Chave</label>
+                                    <input type="text" class="form-control form-control-sm" id="validationCustom01"
+                                        required>
+
+                                </div>
+
+                                <div class="col-md-4 mb-3">
+                                    <label for="validationCustom01">Senha Chave J</label>
+                                    <input type="text" class="form-control form-control-sm" id="validationCustom01"
+                                        required>
+
+                                </div>
+
+                            </div>
+
+
+
+
+                        </form>
+
+                        <div class="bg-titulo mt-2">
+
+                            <h3>Dados do Operador</h3>
+
+                        </div>
+
+
+                        <form class="needs-validation" novalidate>
+
+
+
+                            <div class="form-row mt-4">
+
+
+                                <div class="col-md-6 mb-3">
+                                    <label for="validationCustom01">Nome Operador</label>
+                                    <select class="form-control form-control-sm" id="exampleFormControlSelect1">
+                                        <option> </option>
+
+                                    </select>
+
+                                </div>
+
+                                <div class="col-md-6 mb-3">
+                                    <label for="validationCustom01">Supervisor</label>
+                                    <input type="text" class="form-control form-control-sm" id="validationCustom01"
+                                        required>
+
+                                </div>
+
+                                <div class="col-md-6 mb-3">
+                                    <label for="validationCustom01">Gerente</label>
+                                    <input type="text" class="form-control form-control-sm" id="validationCustom01"
+                                        required>
+
+                                </div>
+
+                                <div class="col-md-6 mb-3">
+                                    <label for="validationCustom01">Chave J</label>
+                                    <input type="text" class="form-control form-control-sm" id="validationCustom01"
+                                        required>
+
+                                </div>
+
+                            </div>
+
+
+
+
+                        </form>
+
+
+
+
+                        <div class="opcoes-cadastro mt-3" style="text-align: center; margin-inline: block;">
+                            <button type="button" class="btn btn-primary btn-icon-label">
+                                <span class="btn-inner--icon">
+                                    <i class="fas fa-plus"></i>
+                                </span>
+                                <span class="btn-inner--text">Alterar</span>
+                            </button>
+
+                        </div>
+
+
+
+                    </div>
+
+
+
+
+
+
+                    <div class="tab-pane fade" id="nav-anexo" role="tabpanel" aria-labelledby="nav-anexo-tab">
+
+                        <div class="bg-titulo mt-4">
+
+                            <h3>Anexos</h3>
+
+                        </div>
+
+
+                
+                            <div class="accordion" id="accordionExample">
+                                <div class="card">
+                               
+
+                         
+                                        <div class="card-body">
+
+                                            <div class="table-responsive">
+                                                <table class="table align-items-center">
+                                                    <thead>
+                                                        <tr>
+                                                            <th scope="col" class="sort" data-sort="newspace"
+                                                                style="text-align: center;"></th>
+                                                            <th scope="col" class="sort" data-sort="arquivos"
+                                                                style="text-align: center;">Arquivos</th>
+                                                            <th scope="col" class="sort" data-sort="download"
+                                                                style="text-align: center;">Download</th>
+
+
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody class="list">
+
+                                                        <tr>
+
+                                                            <td>
+                                                                <b>Proposta:</b>
+                                                            </td>
+                                                            <td>
+
+                                                            </td>
+                                                            <td style="text-align: center;">
+                                                                <button type="button"
+                                                                    class="btn btn-sm btn-secondary btn-icon rounded-pill">
+                                                                    <span class="btn-inner--icon"><i
+                                                                            class="fas fa-download"></i></span>
+                                                                    <span class="btn-inner--text">Download</span>
+                                                                </button>
+                                                            </td>
+
+                                                        </tr>
+
+                                                        <tr>
+
+                                                            <td>
+                                                                <b>Gravação:</b>
+                                                            </td>
+                                                            <td>
+
+                                                            </td>
+                                                            <td style="text-align: center;">
+                                                                <button type="button"
+                                                                    class="btn btn-sm btn-secondary btn-icon rounded-pill">
+                                                                    <span class="btn-inner--icon"><i
+                                                                            class="fas fa-download"></i></span>
+                                                                    <span class="btn-inner--text">Download</span>
+                                                                </button>
+                                                            </td>
+
+                                                        </tr>
+
+                                                        <tr>
+
+                                                            <td>
+                                                                <b>Gravação 1:</b>
+                                                            </td>
+                                                            <td>
+
+                                                            </td>
+                                                            <td style="text-align: center;">
+                                                                <button type="button"
+                                                                    class="btn btn-sm btn-secondary btn-icon rounded-pill">
+                                                                    <span class="btn-inner--icon"><i
+                                                                            class="fas fa-download"></i></span>
+                                                                    <span class="btn-inner--text">Download</span>
+                                                                </button>
+                                                            </td>
+
+                                                        </tr>
+
+                                                        <tr>
+
+                                                            <td>
+                                                                <b>Gravação 2:</b>
+                                                            </td>
+                                                            <td>
+
+                                                            </td>
+                                                            <td style="text-align: center;">
+                                                                <button type="button"
+                                                                    class="btn btn-sm btn-secondary btn-icon rounded-pill">
+                                                                    <span class="btn-inner--icon"><i
+                                                                            class="fas fa-download"></i></span>
+                                                                    <span class="btn-inner--text">Download</span>
+                                                                </button>
+                                                            </td>
+
+                                                        </tr>
+
+                                                        <tr>
+
+                                                            <td>
+                                                                <b>Gravação 3:</b>
+                                                            </td>
+                                                            <td>
+
+                                                            </td>
+                                                            <td style="text-align: center;">
+                                                                <button type="button"
+                                                                    class="btn btn-sm btn-secondary btn-icon rounded-pill">
+                                                                    <span class="btn-inner--icon"><i
+                                                                            class="fas fa-download"></i></span>
+                                                                    <span class="btn-inner--text">Download</span>
+                                                                </button>
+                                                            </td>
+
+                                                        </tr>
+
+
+                                                       
+
+
+
+                                                    </tbody>
+                                                </table>
+                                            </div>
+
+                                        </div>
+                                    
+                                </div>
+
+
+                            </div>
+
+
+
+
+                    </div>
+
+                    <div class="tab-pane fade" id="nav-observacao" role="tabpanel" aria-labelledby="nav-observacao-tab">
+
+
+                        <div class="bg-titulo mt-3">
+
+                            <h3>Observação</h3>
+
+                        </div>
+
+                        <div class="observacao mt-3" style="text-align: center;">
+                            <label for="exampleFormControlSelect1">Observação</label>
+                            <textarea class="form-control" placeholder="" rows="3"></textarea>
+                        </div>
+
+
+
+                        <div class="bg-titulo mt-3">
+
+                            <h3>Observações Incluidas    </h3>
+
+                        </div>
+
+                        <div class="card-header" id="heading10">
+                            <h5 class="mb-0">
+                                <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                                    data-target="#collapse10" aria-expanded="false" aria-controls="collapse10">
+                                    Observação
+                                </button>
+                            </h5>
+                        </div>
+                        <div id="collapse10" class="collapse" aria-labelledby="heading10"
+                            data-parent="#accordionExample">
+                            <div class="card-body">
+
+                                <div class="table-responsive">
+                                    <table class="table align-items-center">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col" class="sort" data-sort="arquivos"
+                                                    style="text-align: center;">Observação</th>
+                                                <th scope="col" class="sort" data-sort="download"
+                                                    style="text-align: center;">Data Inclusão</th>
+                                                <th scope="col" class="sort" data-sort="newspace"
+                                                    style="text-align: center;">Responsável</th>
+
+                                            </tr>
+                                        </thead>
+                                        <tbody class="list">
+
+                                            <tr>
+
+                                                <td>
+
+                                                </td>
+
+                                                <td style="text-align: center;">
+
+                                                </td>
+                                                <td style="text-align: center;">
+
+                                                </td>
+
+
+                                            </tr>
+
+
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                            </div>
+                        </div>
+
+
+
+
+                        <div class="opcoes-cadastro mt-1" style="text-align: center; margin-inline: block;">
+                            <button type="button" class="btn btn-primary btn-icon-label">
+                                <span class="btn-inner--icon">
+                                    <i class="fas fa-plus"></i>
+                                </span>
+                                <span class="btn-inner--text">Incluir / Salvar Alteração</span>
+                            </button>
+
+                        </div>
+
+
+
+                    </div>
+
+
+                    <div class="tab-pane fade" id="nav-logs" role="tabpanel" aria-labelledby="nav-logs-tab">
+
+                        <div class="bg-titulo mt-3">
+
+                            <h3>LOGS</h3>
+
+                        </div>
+
+
+                        <div class="table-responsive">
+                            <table class="table align-items-center">
+                                <thead>
+                                    <tr>
+                                        <th scope="col" class="sort" data-sort="arquivos" style="text-align: center;">
+                                            Data LOG</th>
+                                        <th scope="col" class="sort" data-sort="download" style="text-align: center;">
+                                            Campo</th>
+                                        <th scope="col" class="sort" data-sort="newspace" style="text-align: center;">
+                                            Valor Antigo</th>
+                                        <th scope="col" class="sort" data-sort="newspace" style="text-align: center;">
+                                            Valor Novo</th>
+                                        <th scope="col" class="sort" data-sort="newspace" style="text-align: center;">
+                                            Responsável</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody class="list">
+
+                                    <tr>
+
+                                        <td>
+
+                                        </td>
+
+                                        <td style="text-align: center;">
+
+                                        </td>
+                                        <td style="text-align: center;">
+
+                                        </td>
+
+                                        <td>
+
+                                        </td>
+                                        <td>
+
+                                        </td>
+
+
+                                    </tr>
+
+
+                                </tbody>
+                            </table>
+                        </div>
+
+
+
+                    </div>
+
+
+                    <div class="tab-pane fade" id="nav-outraspropostas" role="tabpanel"
+                        aria-labelledby="nav-outraspropostas-tab">
+
+
+                        <div class="bg-titulo mt-3">
+
+                            <h3>Outras Propostas</h3>
+
+                        </div>
+
+                        <div class="table-responsive">
+                            <table class="table align-items-center">
+                                <thead>
+                                    <tr>
+                                        <th scope="col" class="sort" data-sort="arquivos" style="text-align: center;">
+                                            Proposta</th>
+                                        <th scope="col" class="sort" data-sort="download" style="text-align: center;">
+                                            Parceiro</th>
+                                        <th scope="col" class="sort" data-sort="newspace" style="text-align: center;">
+                                            Data Cadastro</th>
+                                        <th scope="col" class="sort" data-sort="newspace" style="text-align: center;">
+                                            Status</th>
+
+
+                                    </tr>
+                                </thead>
+                                <tbody class="list">
+
+                                    <tr>
+
+                                        <td>
+
+                                        </td>
+
+                                        <td style="text-align: center;">
+
+                                        </td>
+                                        <td style="text-align: center;">
+
+                                        </td>
+
+                                        <td>
+
+                                        </td>
+                                        <td>
+
+                                        </td>
+
+
+                                    </tr>
+
+
+                                </tbody>
+                            </table>
+                        </div>
+
+
+
+
+                    </div>
+
+                    <div class="tab-pane fade" id="nav-dadosusuarios" role="tabpanel"
+                        aria-labelledby="nav-dadosusuarios-tab">
+
+                        <div class="bg-titulo mt-3">
+
+                            <h3>Dados Usuários</h3>
+
+                        </div>
+
+                        <div class="table-responsive">
+                            <table class="table align-items-center">
+                                <thead>
+                                    <tr>
+                                        <th scope="col" class="sort" data-sort="arquivos" style="text-align: center;">
+                                            Usuário</th>
+                                        <th scope="col" class="sort" data-sort="download" style="text-align: center;">
+                                            Supervisor</th>
+                                        <th scope="col" class="sort" data-sort="newspace" style="text-align: center;">
+                                            Gerente</th>
+                                        <th scope="col" class="sort" data-sort="newspace" style="text-align: center;">
+                                            Empresa</th>
+                                        <th scope="col" class="sort" data-sort="newspace" style="text-align: center;">
+                                            Tipo Usuário</th>
+                                        <th scope="col" class="sort" data-sort="newspace" style="text-align: center;">
+                                            Classificação</th>
+
+
+                                    </tr>
+                                </thead>
+                                <tbody class="list">
+
+                                    <tr>
+
+                                        <td style="text-align: center;">
+                                            XXXXXX </td>
+
+                                        <td style="text-align: center;">
+
+                                            XXXXXXXXXX
+
+                                        </td>
+
+                                        <td style="text-align: center;">
+
+                                            XXXXXXXXXX
+                                        </td>
+                                        <td style="text-align: center;">
+                                            XXXXXXXXXX
+                                        </td>
+
+                                        <td style="text-align: center;">
+                                            XXXXXXXX
+                                        </td>
+                                        <td style="text-align: center;">
+                                            XXXXXX
+                                        </td>
+
+
+                                    </tr>
+
+
+                                </tbody>
+                            </table>
+                        </div>
+
+
+
+
+                    </div>
 
                 </div>
 
-                <div class="bg-subtitulo mt-1">
-
-                    <h3>Dados Lançamento </h3>
-
-                </div>
-
-                <form class="needs-validation" novalidate>
-
-
-
-                    <div class="form-row mt-4">
-
-
-                        <div class="col-md-3 mb-3">
-                            <label for="validationCustom01">Data Movimento</label>
-                            <input type="text" class="form-control form-control-sm" id="validationCustom01" required>
-
-                        </div>
-                        <div class="col-md-3 mb-3">
-                            <label for="validationCustom01">Competência</label>
-                            <select class="form-control form-control-sm" id="exampleFormControlSelect1">
-                                <option> </option>
-
-                            </select>
-
-                        </div>
-                        <div class="col-md-3 mb-3">
-                            <label for="validationCustom01">Empresa</label>
-                            <select class="form-control form-control-sm" id="exampleFormControlSelect1">
-                                <option> </option>
-
-                            </select>
-
-                        </div>
-                        <div class="col-md-3 mb-3">
-                            <label for="validationCustom01">Filial</label>
-                            <select class="form-control form-control-sm" id="exampleFormControlSelect1">
-                                <option> </option>
-
-                            </select>
-
-                        </div>
-
-
-                    </div>
-
-                    <div class="form-row mt-0">
-
-
-                        <div class="col-md-3 mb-3">
-                            <label for="validationCustom01">UF</label>
-                            <select class="form-control form-control-sm" id="exampleFormControlSelect1">
-                                <option> </option>
-
-                            </select>
-                        </div>
-
-                        <div class="col-md-3 mb-3">
-                            <label for="validationCustom01">Grupo</label>
-                            <select class="form-control form-control-sm" id="exampleFormControlSelect1">
-                                <option> </option>
-
-                            </select>
-                        </div>
-
-                        <div class="col-md-3 mb-3">
-                            <label for="validationCustom01">Sub-Grupo</label>
-                            <select class="form-control form-control-sm" id="exampleFormControlSelect1">
-                                <option> </option>
-
-                            </select>
-                        </div>
-
-                        <div class="col-md-3 mb-3">
-                            <label for="validationCustom01">Projeto</label>
-                            <select class="form-control form-control-sm" id="exampleFormControlSelect1">
-                                <option> </option>
-
-                            </select>
-                        </div>
-
-
-                    </div>
-
-                    <div class="form-row mt-0">
-
-
-                        <div class="col-md-3 mb-3">
-                            <label for="validationCustom01">CPF / CNPJ Parceiro</label>
-                            <input type="text" class="form-control form-control-sm" id="validationCustom01" required>
-
-                        </div>
-
-                        <div class="col-md-3 mb-3">
-                            <label for="validationCustom01">Parceiro / Promotor</label>
-                            <input type="text" class="form-control form-control-sm" id="validationCustom01" required>
-
-                        </div>
-
-                        <div class="col-md-3 mb-3">
-                            <label for="validationCustom01">Supervisor</label>
-                            <input type="text" class="form-control form-control-sm" id="validationCustom01" required>
-
-                        </div>
-
-                        <div class="col-md-3 mb-3">
-                            <label for="validationCustom01">Gerente</label>
-                            <input type="text" class="form-control form-control-sm" id="validationCustom01" required>
-
-                        </div>
-
-
-                    </div>
-
-                    <div class="form-row mt-0">
-
-
-                        <div class="col-md-3 mb-3">
-                            <label for="validationCustom01">CPF / CNPJ Favorecido</label>
-                            <input type="text" class="form-control form-control-sm" id="validationCustom01" required>
-
-                        </div>
-
-                        <div class="col-md-3 mb-3">
-                            <label for="validationCustom01">Favorecido</label>
-                            <input type="text" class="form-control form-control-sm" id="validationCustom01" required>
-
-                        </div>
-
-                        <div class="col-md-3 mb-3">
-                            <label for="validationCustom01">Tipo Pagamento</label>
-                            <input type="text" class="form-control form-control-sm" id="validationCustom01" required>
-
-                        </div>
-
-                        <div class="col-md-3 mb-3">
-                            <label for="validationCustom01">Banco Pagamento</label>
-                            <input type="text" class="form-control form-control-sm" id="validationCustom01" required>
-
-                        </div>
-
-
-                    </div>
-
-                    <div class="form-row mt-0">
-
-
-                        <div class="col-md-3 mb-3">
-                            <label for="validationCustom01">Agência Pagamento</label>
-                            <input type="text" class="form-control form-control-sm" id="validationCustom01" required>
-
-                        </div>
-
-                        <div class="col-md-3 mb-3">
-                            <label for="validationCustom01">Conta Pagamento</label>
-                            <input type="text" class="form-control form-control-sm" id="validationCustom01" required>
-
-                        </div>
-
-                        <div class="col-md-3 mb-3">
-                            <label for="validationCustom01">Número Cartão</label>
-                            <input type="text" class="form-control form-control-sm" id="validationCustom01" required>
-
-
-                        </div>
-
-                        <div class="col-md-3 mb-3">
-                            <label for="validationCustom01">Tipo Lançamento</label>
-                            <select class="form-control form-control-sm" id="status">
-                                <option> </option>
-                       
-                            </select>
-
-                        </div>
-
-
-                    </div>
-
-                    <div class="form-row mt-0">
-
-
-                        <div class="col-md-3 mb-3">
-                            <label for="validationCustom01">Código Lançamento</label>
-                            <input type="text" class="form-control form-control-sm" id="validationCustom01" required>
-
-                        </div>
-
-                        <div class="col-md-3 mb-3">
-                            <label for="validationCustom01">Solicitante</label>
-                            <input type="text" class="form-control form-control-sm" id="validationCustom01" required>
-
-                        </div>
-
-                        <div class="col-md-3 mb-3">
-                            <label for="validationCustom01">Valor</label>
-                            <input type="text" class="form-control form-control-sm" id="validationCustom01" required>
-
-                        </div>
-
-                        <div class="col-md-3 mb-3">
-                            <label for="validationCustom01">Vencimento</label>
-                            <input type="text" class="form-control form-control-sm" id="validationCustom01" required>
-
-                        </div>
-
-                        <div class="col-md-12 mb-3">
-                            <label for="validationCustom01">Descrição</label>
-                            <input type="text" class="form-control form-control-sm" id="validationCustom01" required>
-
-                        </div>
-
-
-                    </div>
-
-
-                </form>
-
-                <div class="bg-subtitulo mt-1">
-
-                    <h3>Observação </h3>
-
-                </div>
-
-                <form class="needs-validation mt-4" novalidate>
-
-
-
-                    <div class="form-row">
-                        <div class="col-md-12 mb-3">
-                            <label for="validationCustom02">Observação</label>
-                            <textarea class="form-control"  rows="3"></textarea>
-
-                        </div>
-
-
-
-
-                    </div>
-
-                </form>
-
-
-
-            <form class="needs-validation" novalidate>
-
-                <div class="opcoes-cadastro mt-3" style="text-align: center; margin-inline: block;">
-                    <button type="button" class="btn btn-primary btn-icon-label">
-                        <span class="btn-inner--icon">
-                            <i class="fas fa-plus"></i>
-                        </span>
-                        <span class="btn-inner--text">Incluir / Salvar Alteração</span>
-                    </button>
-
-                </div>
-
-            </form>
-
-
-
-
+            </div>
         </div>
-        </div>
-
     </div>
 </div>
-</div>
 
 
-<!--FINAL DO MODAL-->
+<!--FINAL MODAL NOVA PROPOSTA-->
 
 
 
@@ -902,7 +1480,7 @@
                 <div class="page-title">
                     <div class="row justify-content-between align-items-center">
                         <div class="col-md-12 mb-3 mb-md-0">
-                            <h6 class="h3 font-weight-400 mb-0 text-white">Lançamento de Pagamento </h6>
+                            <h6 class="h3 font-weight-400 mb-0 text-white">Auditoria </h6>
 
                         </div>
                     </div>
@@ -914,232 +1492,145 @@
                             <div class="card-body">
                                 <form class="needs-validation" novalidate>
                                     <div class="form-row">
-                                        <div class="col-md-4 mb-3">
-                                            <label for="validationCustom01">Data Lançamento</label>
+                                        <div class="col-md-3 mb-3">
+                                            <label for="validationCustom01">Venda</label>
+                                            <select class="form-control form-control-sm" id="status">
+                                                <option> </option>
+
+
+                                            </select>
+
+                                        </div>
+                                        <div class="col-md-3 mb-3">
+                                            <label for="validationCustom01">Data Proposta</label>
                                             <input type="date" class="form-control form-control-sm">
-                                        </input>
+                                            </input>
 
                                         </div>
-                                        <div class="col-md-4 mb-3">
-                                            <label for="validationCustom01">Competência</label>
-                                            <select class="form-control form-control-sm" id="status">
-                                                <option> </option>
-
-
-                                            </select>
-
+                                        <div class="col-md-3 mb-3">
+                                            <label for="validationCustom01">CPF</label>
+                                            <input type="date" class="form-control form-control-sm">
+                                            </input>
                                         </div>
-                                        <div class="col-md-4 mb-3">
-                                            <label for="validationCustom01">Banco</label>
-                                            <select class="form-control form-control-sm" id="status">
-                                                <option> </option>
-
-
-                                            </select>
-
+                                        <div class="col-md-3 mb-3">
+                                            <label for="validationCustom01">Proposta</label>
+                                            <input type="date" class="form-control form-control-sm">
+                                            </input>
                                         </div>
+
+
                                     </div>
                                     <div class="form-row">
-                                        <div class="col-md-4 mb-0">
+                                        <div class="col-md-3 mb-0">
                                             <div class="form-group">
-                                                <label for="exampleFormControlSelect1">Filial</label>
+                                                <label for="exampleFormControlSelect1">Mês</label>
                                                 <select class="form-control form-control-sm" id="status">
                                                     <option> </option>
-    
-    
+
+
                                                 </select>
                                             </div>
 
                                         </div>
-                                        <div class="col-md-4 mb-0">
+                                        <div class="col-md-3 mb-0">
                                             <div class="form-group">
-                                                <label for="exampleFormControlSelect1">UF</label>
+                                                <label for="exampleFormControlSelect1">Operador</label>
                                                 <select class="form-control form-control-sm" id="status">
                                                     <option> </option>
-    
-    
+
+
                                                 </select>
                                             </div>
 
                                         </div>
-                                        <div class="col-md-4 mb-0">
-                                            <div class="form-group">
-                                                <label for="exampleFormControlSelect1">Grupo</label>
-                                                <select class="form-control form-control-sm" id="status">
-                                                    <option> </option>
-    
-    
-                                                </select>
-                                            </div>
-
-                                        </div>
-                                    </div>
-
-                                    <div class="form-row">
-                                        <div class="col-md-4 mb-0">
-                                            <div class="form-group">
-                                                <label for="exampleFormControlSelect1">Sub-Grupo</label>
-                                                <select class="form-control form-control-sm" id="status">
-                                                    <option> </option>
-    
-    
-                                                </select>
-                                            </div>
-
-                                        </div>
-                                        <div class="col-md-4 mb-0">
-                                            <div class="form-group">
-                                                <label for="exampleFormControlSelect1">CPF / CNPJ Parceiro</label>
-                                                <input type="date" class="form-control form-control-sm">
-                                                </input>
-                                            </div>
-
-                                        </div>
-                                        <div class="col-md-4 mb-0">
-                                            <div class="form-group">
-                                                <label for="exampleFormControlSelect1">Parceiro</label>
-                                                <input type="date" class="form-control form-control-sm">
-                                                </input>
-                                            </div>
-
-                                        </div>
-
-                                    </div>
-
-                                    <div class="form-row">
-                                        <div class="col-md-4 mb-0">
+                                        <div class="col-md-3 mb-0">
                                             <div class="form-group">
                                                 <label for="exampleFormControlSelect1">Supervisor</label>
-                                                <input type="date" class="form-control form-control-sm">
-                                            </input>
+                                                <select class="form-control form-control-sm" id="status">
+                                                    <option> </option>
+
+
+                                                </select>
                                             </div>
 
                                         </div>
-                                        <div class="col-md-4 mb-0">
+                                        <div class="col-md-3 mb-0">
                                             <div class="form-group">
-                                                <label for="exampleFormControlSelect1">Gerente</label>
-                                                <input type="date" class="form-control form-control-sm">
-                                                </input>
+                                                <label for="exampleFormControlSelect1">Status Auditoria</label>
+                                                <select class="form-control form-control-sm" id="status">
+                                                    <option> </option>
+
+
+                                                </select>
                                             </div>
 
                                         </div>
-                                        <div class="col-md-4 mb-0">
-                                            <div class="form-group">
-                                                <label for="exampleFormControlSelect1">CPF / CNPJ Favorecido</label>
-                                                <input type="date" class="form-control form-control-sm">
-                                                </input>
-                                            </div>
-
-                                        </div>
-
                                     </div>
 
                                     <div class="form-row">
-                                        <div class="col-md-4 mb-0">
+                                        <div class="col-md-3 mb-3">
                                             <div class="form-group">
-                                                <label for="exampleFormControlSelect1">Favorecido</label>
-                                                <input type="date" class="form-control form-control-sm">
-                                            </input>
-                                            </div>
-
-                                        </div>
-                                        <div class="col-md-4 mb-0">
-                                            <div class="form-group">
-                                                <label for="exampleFormControlSelect1">Solicitante</label>
-                                                <input type="date" class="form-control form-control-sm">
-                                                </input>
-                                            </div>
-
-                                        </div>
-                                        <div class="col-md-4 mb-0">
-                                            <div class="form-group">
-                                                <label for="exampleFormControlSelect1">Projeto</label>
+                                                <label for="exampleFormControlSelect1">Tipo</label>
                                                 <select class="form-control form-control-sm" id="status">
                                                     <option> </option>
-    
-    
+
+
                                                 </select>
                                             </div>
 
                                         </div>
-
-                                    </div>
-
-                                    <div class="form-row">
-                                        <div class="col-md-4 mb-0">
+                                        <div class="col-md-3 mb-3">
                                             <div class="form-group">
-                                                <label for="exampleFormControlSelect1">Empresa</label>
-                                                <select class="form-control form-control-sm" id="status">
-                                                    <option> </option>
-    
-    
-                                                </select>
-                                            </div>
-
-                                        </div>
-                                        <div class="col-md-4 mb-0">
-                                            <div class="form-group">
-                                                <label for="exampleFormControlSelect1">Tipo Despesa</label>
-                                                <select class="form-control form-control-sm" id="status">
-                                                    <option> </option>
-    
-    
-                                                </select>
-                                            </div>
-
-                                        </div>
-                                        <div class="col-md-4 mb-0">
-                                            <div class="form-group">
-                                                <label for="exampleFormControlSelect1">Código Lançamento</label>
+                                                <label for="exampleFormControlSelect1">Data Inclusão</label>
                                                 <input type="date" class="form-control form-control-sm">
                                                 </input>
                                             </div>
 
                                         </div>
+                                        <div class="col-md-3 mb-3">
+                                            <div class="form-group">
+                                                <label for="exampleFormControlSelect1">Data Auditoria</label>
+                                                <input type="date" class="form-control form-control-sm">
+                                                </input>
+                                            </div>
+
+                                        </div>
+                                        <div class="col-md-3 mb-3">
+                                            <div class="form-group">
+                                                <label for="exampleFormControlSelect1">Status Proposta</label>
+                                                <select class="form-control form-control-sm" id="status">
+                                                    <option> </option>
+
+
+                                                </select>
+                                            </div>
+
+                                        </div>
+
 
                                     </div>
 
-                                    
-                                    
+                                    <div class="opcoes-cadastro" style="text-align: center; margin-inline: block;">
+                                        <button type="button" class="btn btn-primary btn-icon-label">
+                                            <span class="btn-inner--icon">
+                                                <i class="fas fa-search"></i>
+                                            </span>
+                                            <span class="btn-inner--text">Buscar</span>
+                                        </button>
 
 
+                                        <button type="button" class="btn btn-primary btn-icon-label"
+                                            id="apagarFiltrosCadastro">
+                                            <span class="btn-inner--icon">
+                                                <i class="fas fa-trash-alt"></i>
+                                            </span>
+                                            <span class="btn-inner--text">Apagar Filtros</span>
+                                        </button>
+
+
+
+                                    </div>
                                 </form>
-
-
-                                <div class="opcoes-cadastro mt-3" style="text-align: center; margin-inline: block;">
-                                    <button type="button" class="btn btn-primary btn-icon-label">
-                                        <span class="btn-inner--icon">
-                                            <i class="fas fa-search"></i>
-                                        </span>
-                                        <span class="btn-inner--text">Buscar</span>
-                                    </button>
-
-                                    <button type="button" class="btn btn-primary btn-icon-label"
-                                    id="apagarFiltrosCadastro">
-                                    <span class="btn-inner--icon">
-                                        <i class="fas fa-trash-alt"></i>
-                                    </span>
-                                    <span class="btn-inner--text">Apagar</span>
-                                </button>   
-
-                                    <button type="button" class="btn btn-primary btn-icon-label" data-toggle="modal"
-                                        data-target=".modalincnclacamento" title="Alterar" id="buttonIncluir">
-                                        <span class="btn-inner--icon">
-                                            <i class="fas fa-plus"></i>
-                                        </span>
-                                        <span class="btn-inner--text" id="test">Incluir Novo Lançamento</span>
-                                    </button>
-
-                                 
-
-                                    <button type="button" class="btn btn-primary btn-icon-label">
-                                        <span class="btn-inner--icon">
-                                            <i class="fas fa-file-excel"></i>
-                                        </span>
-                                        <span class="btn-inner--text">Exportar</span>
-                                    </button>
-
-                                </div>
 
                                 <hr>
 
@@ -1147,37 +1638,39 @@
                                     <table class="table align-items-center" id="table">
                                         <thead>
                                             <tr class="bg-tabeltacad">
-                                                <th scope="col" class="sort" style="text-align: center;">Competência
+                                                <th scope="col" class="sort" style="text-align: center;">Protocolo</th>
+                                                <th scope="col" class="sort" style="text-align: center;">Data Venda
                                                 </th>
-                                                <th scope="col" class="sort" style="text-align: center;">Filial
+                                                <th scope="col" class="sort" style="text-align: center;">Data Inclusão
                                                 </th>
-                                                <th scope="col" class="sort" style="text-align: center;">Descrição</th>
-                                                <th scope="col" class="sort" style="text-align: center;">Grupo</th>
-                                                <th scope="col" class="sort" style="text-align: center;">Sub-Grupo
+                                                <th scope="col" class="sort" style="text-align: center;">Valor</th>
+                                                <th scope="col" class="sort" style="text-align: center;">Tipo
                                                 </th>
-                                                <th scope="col" class="sort" style="text-align: center;">CPF Parceiro</th>
-                                                <th scope="col" class="sort" style="text-align: center;">Parceiro</th>
-                                                <th scope="col" class="sort" style="text-align: center;">Supervisor 
+                                                <th scope="col" class="sort" style="text-align: center;">Venda</th>
+                                                <th scope="col" class="sort" style="text-align: center;">Operador</th>
+                                                <th scope="col" class="sort" style="text-align: center;">Supervisor
                                                 </th>
-                                                <th scope="col" class="sort" style="text-align: center;">Gerente
+                                                <th scope="col" class="sort" style="text-align: center;">Status
                                                 </th>
-                                                <th scope="col" class="sort" style="text-align: center;">CPF Favorecido
+                                                <th scope="col" class="sort" style="text-align: center;">Status
+                                                    Auditoria
                                                 </th>
-                                                <th scope="col" class="sort" style="text-align: center;">Favorecido
+                                                <th scope="col" class="sort" style="text-align: center;">Sub Status
+                                                    Auditoria
                                                 </th>
-                                                <th scope="col" class="sort" style="text-align: center;">Solicitante
+                                                <th scope="col" class="sort" style="text-align: center;"> Pontuação
                                                 </th>
-                                                <th scope="col" class="sort" style="text-align: center;">Digitado Por
+                                                <th scope="col" class="sort" style="text-align: center;">Operador
+                                                    Alteração
                                                 </th>
-                                                <th scope="col" class="sort" style="text-align: center;">Projeto
-                                                    </th>
-                                                <th scope="col" class="sort" style="text-align: center;">Valor
+                                                <th scope="col" class="sort" style="text-align: center;">Data Alteração
                                                 </th>
-                                                <th scope="col" class="sort" style="text-align: center;">Empresa</th>
-                                                <th scope="col" class="sort" style="text-align: center;">Tipo Despesa</th>
-                                                <th scope="col" class="sort" style="text-align: center;">Data Vencimento</th>
-                                                <th scope="col" class="sort" style="text-align: center;">Alterar
+                                                <th scope="col" class="sort" style="text-align: center;">Vínculo
                                                 </th>
+                                                <th scope="col" class="sort" style="text-align: center;">Visualizar</th>
+                                                <th scope="col" class="sort" style="text-align: center;">Auditar
+                                                    Proposta</th>
+
 
 
                                             </tr>
@@ -1202,22 +1695,36 @@
                                                 <td>########</td>
                                                 <td>########</td>
                                                 <td>########</td>
-                                                <td>########</td>
-                                                <td>########</td>
-                                                <td>########</td>
+
+
 
 
                                                 <td class="text-right" style="text-align: center;">
                                                     <!-- Actions -->
                                                     <div class="actions ml-3" style="text-align: center;">
                                                         <a href="#" class="action-item mr-2 " data-toggle="modal"
-                                                            data-target=".modalincnclacamento" title="Alterar"
-                                                            id="modalAlterar">
-                                                            <i class="fas fa-sync-alt"></i>
+                                                            data-target=".modalvisualizaraudit" title="Visualizar"
+                                                            id="#">
+                                                            <i class="fas fa-eye"></i>
                                                         </a>
-                                                     
+
                                                     </div>
                                                 </td>
+
+                                                <td class="text-right" style="text-align: center;">
+                                                    <!-- Actions -->
+                                                    <div class="actions ml-3" style="text-align: center;">
+                                                        <a href="#" class="action-item mr-2 " data-toggle="modal"
+                                                            data-target=".modalvisualizaraudit" title="Auditar Proposta"
+                                                            id="#">
+                                                            <i class="fas fa-share-square"></i>
+                                                        </a>
+
+                                                    </div>
+                                                </td>
+
+
+
                                             </tr>
                                         </tbody>
                                     </table>
