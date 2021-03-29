@@ -403,7 +403,7 @@ buttonFiltro.addEventListener('click', () => {
   var myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/json");
   var raw = JSON.stringify({
-    "parceiro": 'PROMOTOR THAIS/THAIS SANTOS DEVAI',
+    "parceiro": dataSession.nome,//'PROMOTOR THAIS/THAIS SANTOS DEVAI'
     "nome_operador": pesquisaNomeOperador.value,
     "gerente": pesquisaGerente.value,
     "supervisor": pesquisaSupervisor.value,
