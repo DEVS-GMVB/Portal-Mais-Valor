@@ -1336,14 +1336,20 @@
                                             <span class="btn-inner--text">Apagar Filtros</span>
                                         </button>
 
-
+                                        <button type="button" class="btn btn-primary btn-icon-label" id="planilhaExcel">
+                                            <!-- <pre id="json"></pre> -->
+                                            <span class="btn-inner--icon">
+                                                <i class="fas fa-file-excel"></i>
+                                            </span>
+                                            <span class="btn-inner--text">Excel</span>
+                                        </button>
 
                                 </div>
 
                                 <hr>
 
                                 <div class="container table-responsive">
-                                    <table class="table table-striped table-hover">
+                                    <table class="table table-striped table-hover" id="table">
                                         <thead>
                                             <tr>
                                                 <th scope="col" style="text-align: center;"><b>PROPOSTA</b></th>
@@ -1438,6 +1444,7 @@
     <!-- Mascaras -->
     <script src="../assets/js/mascaras.js"></script>
     <script src="../assets/js/mascarasvalores.js"></script>
+    <script src="../assets/service/table2excel.js"></script>
     <!-- Demo JS - remove it when starting your project -->
     <script src="../assets/js/identificacaoProposta.js"></script>
     <script src="../assets/js/demo.js"></script>

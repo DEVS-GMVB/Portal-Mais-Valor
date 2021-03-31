@@ -221,7 +221,7 @@ filtros.addEventListener('click', () => {
     data_corte: dataDeCorte,
     empresa_sms: empresaSMS,
     convenio: convenio,
-    data_vinculo: vinculo,
+    // data_vinculo: vinculo,
     horario: horarioAgendamento,
     validade_contrato: validadeContrato,
     etapa_sms: etapaSMS,
@@ -549,3 +549,12 @@ function updatePropostas(value) {
     }).catch(error => console.log('error', error))
 
 }
+
+const botao_excel = document.getElementById("planilhaExcel");
+
+
+botao_excel.addEventListener('click', () => {
+  var table2excel = new Table2Excel();
+  table2excel.export(document.querySelector("#table"));
+
+})

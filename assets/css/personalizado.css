@@ -76,4 +76,24 @@ input {
 }
 
 
+/*sac*/
+#idLabel-email{
+   background-color: #cdd6e6;
+   color: black;
+}
+
+/*sac*/
+@media screen and (max-width: 780px){
+   #div-fundo{
+      width: 450px;
+      display: flex;
+      flex-direction: column;
+   }
+
+   #div-email{
+      display: flex;
+   }
+}
+
+
 

@@ -7,6 +7,18 @@ const banco_campo = document.getElementById("banco-campo");
 const botao_filtro = document.getElementById("buscar-filtro");
 
 const modal = new Map();
+const modalRow = new Map();
+
+const obj = {}
+
+const configsChangeModal = {
+    selectedInsertStatus: () => {
+        document.getElementById("em_andamento").setAttribute('selected', true)
+    },
+    selectedUpdateStatus: () => {
+        document.getElementById("respondido").setAttribute('selected', true)
+    }
+}
 
 const dataSession = {
     id_acesso: sessionStorage.getItem('id_acesso', 'id_acesso'),
@@ -27,8 +39,6 @@ function dateNow() {
     let dateNow = `${date.getDate()}/${(date.getMonth() + 1)}/${date.getFullYear()} ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`
     return dateNow;
 }
-
-
 
 window.onload = () => {
 
@@ -173,14 +183,15 @@ botao_filtro.addEventListener('click', () => {
                 gerente.appendChild(gerenteText);
 
                 //Passando minha proposta neste escopo
-                modal.set(data[i].id_sac, data[i])
+                modal.set(data[i].id_sac, data[i]);
+                modalRow.set(data[i].id_sac, row);
 
                 alteraVisualiza.innerHTML =
                     `
                             <td class="text-right" style="text-align: center;">
                                 <!-- Actions -->
                                 <div class="actions ml-3" style="text-align: center;">
-                                    <a href="#" class="action-item mr-2 " data-toggle="modal" onclick="populaCampos(modal.get(${data[i].id_sac}))"
+                                    <a href="#" class="action-item mr-2 " data-toggle="modal" onclick="populaCampos(modal.get(${data[i].id_sac}), modalRow.get(${data[i].id_sac}))"
                                         data-target=".modalincsac" title="Alterar"
                                         id="modalAlterar">
                                         <i class="fas fa-sync-alt"></i>
@@ -209,6 +220,8 @@ const breakModal = {
     },
 
     changeInsert: function () {
+        configsChangeModal.selectedInsertStatus();
+
         document.getElementById('changeButton').innerHTML = `
     <button type="button" class="btn btn-primary btn-icon-label" id="btn-insert" onclick="insert()">
         <span class="btn-inner--icon">
@@ -218,7 +231,9 @@ const breakModal = {
     </button>`
     },
 
-    changeUpdate: function (id) {
+    changeUpdate: function (id, linha) {
+        configsChangeModal.selectedUpdateStatus();
+
         document.getElementById("changeButton").innerHTML = ` 
         <button type="button" class="btn btn-primary btn-icon-label" id="btn-insert" onclick="update(${id.id_sac})">
             <span class="btn-inner--icon">
@@ -302,8 +317,7 @@ function insert() {
         resposta: resposta,
         cpf_parceiro: dataSession.cpf_user,
         cpf_supervisor: dataSession.supervisor_cpf,
-        cpf_gerente: dataSession.gerente_cpf,
-        id_acesso: dataSession.id_acesso
+        cpf_gerente: dataSession.gerente_cpf
     }
 
     const raw = JSON.stringify(body)
@@ -319,23 +333,117 @@ function insert() {
     then(response => response.json()).
     then(function (res) {
         console.log(body)
-        $('#SucessoSac').show();
-        $('#SucessoSac').fadeIn(300).delay(3000).fadeOut(400);
-        document.getElementById("SucessoSac").textContent = "Sac incluido"
+
+        const resultInsert = insertAnexo(res)
+        Promise.resolve(resultInsert).then(function (value) {
+            $('#SucessoSac').show();
+            $('#SucessoSac').fadeIn(300).delay(3000).fadeOut(400);
+            document.getElementById("SucessoSac").textContent = "Sac incluido"
+
+        })
     }).catch(error => console.log('erro: ', error))
 }
 
-function populaCampos(id_sac) {
+async function insertAnexo(res) {
+    const fileInputs = document.querySelectorAll('div#div-fundo input[type="file"]')
+    const id = res.id_sac
+
+    var res = new FormData()
+    fileInputs.forEach(file => {
+        res.append(file.name, file.files[0])
+    });
+
+    await fetch(URL + `/user/sac/anexo?id_sac=${id}`, {
+        method: 'POST',
+        body: res
+    }).
+    then(response => response.json().then(function (res) {
+        obj.transporter = res
+        console.log('cadastrado')
+    })).catch(error => console.log('error: ', error))
+    return obj.transporter;
+}
+
+
+function populaCampos(id_sac, row) {
     breakModal.empty();
-    breakModal.changeUpdate(id_sac);
     popula(id_sac);
+    breakModal.changeUpdate(id_sac, row);
+
 }
 
 function update(id) {
-    console.log(id);
+    const nodeRow = modalRow.get(id);
+
+    let protocolo = $('#protocolo-campo').val()
+    let classificacao = $('#classificacao-campo').val()
+    let banco = $('#banco-campo').val()
+    let vlOperacao = $('#valor-operacao-campo').val()
+    let contrato = $('#contrato-campo').val()
+    let dtRecebimento = $('#data-recebimento-campo').val()
+    let dtResposta = $('#data-resposta-campo').val()
+    let tmpAtuacao = $('#tempo-atuacao-campo').val()
+    let nmCliente = $('#nome-cliente-campo').val()
+    let cpf = $('#cpf-campo').val()
+    let telefone = $('#telefone-campo').val()
+    let email = $('#email-campo').val()
+    let protocoloBanco = $('#protocolo-banco-campo').val()
+    let empresa = $('#empresa-campo').val()
+    let procedente = $('#procedente-campo').val()
+    let questionamento = $('#questionamento-campo').val()
+    let resposta = $('#resposta-campo').val()
+
+
+
+
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+
+    var raw = JSON.stringify({
+        "id_sac": id,
+        "nome": nmCliente,
+        "cpf": cpf,
+        "telefone": telefone,
+        "email": email,
+        "data_recebimento": dtRecebimento,
+        "data_resposta": dtResposta,
+        "resposta": resposta,
+        "questionamento": questionamento,
+        "banco": banco,
+        "data_alteracao": dateNow(),
+        "responsavel": dataSession.nome,
+        "protocolo": protocolo,
+        "classificacao": classificacao,
+        "valor_operacao": vlOperacao,
+        "contrato": contrato,
+        "tempo_atuacao": tmpAtuacao,
+        "protocolo_banco": protocoloBanco,
+        "procedente": procedente,
+        "empresa": empresa
+    });
+
+    var requestOptions = {
+        method: 'POST',
+        headers: myHeaders,
+        body: raw,
+        redirect: 'follow'
+    };
+
+    fetch(URL + "/user/sac/atualizar", requestOptions)
+        .then(response => response.json())
+        .then(result => {
+
+            const resultInsert = insertAnexo(result)
+            Promise.resolve(resultInsert).then(function (value) {})
+
+            updateTbody(result, nodeRow)
+            $('#SucessoSac').show();
+            $('#SucessoSac').fadeIn(300).delay(3000).fadeOut(400);
+            document.getElementById("SucessoSac").textContent = "Sac Atualizado"
+        })
+        .catch(error => console.log('error', error));
+
 }
-
-
 
 function popula(id_sac) {
     $('#protocolo-campo').val(id_sac.protocolo)
@@ -360,4 +468,36 @@ function popula(id_sac) {
     $('#procedente-campo').val(id_sac.procedente)
     $('#questionamento-campo').val(id_sac.questionamento)
     $('#resposta-campo').val(id_sac.resposta)
+}
+
+const botao_excel = document.getElementById("planilhaExcel");
+
+botao_excel.addEventListener('click', () => {
+  var table2excel = new Table2Excel();
+  table2excel.export(document.querySelectorAll("table"));
+
+})
+
+
+
+function updateTbody(data, linha) {
+    let cells = linha.cells;
+    cells[0].textContent = data.protocolo
+    cells[1].textContent = data.classificacao
+    cells[2].textContent = data.status
+    cells[3].textContent = data.banco
+    cells[4].textContent = data.valor_operacao;
+    cells[5].textContent = data.contrato
+    cells[6].textContent = data.data_recebimento;
+    cells[7].textContent = data.data_inclusao
+    cells[8].textContent = data.data_resposta;
+    cells[9].textContent = data.data_alteracao;
+    cells[10].textContent = data.responsavel;
+    cells[11].textContent = data.tempo_atuacao;
+    cells[12].textContent = data.nome;
+    cells[13].textContent = data.telefone;
+    cells[14].textContent = data.email;
+    cells[15].textContent = data.parceiro;
+    cells[16].textContent = data.supervisor;
+    cells[17].textContent = data.gerente
 }

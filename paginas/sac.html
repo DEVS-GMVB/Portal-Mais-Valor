@@ -108,8 +108,8 @@
                             <label for="validationCustom01">Status</label>
                             <select class="form-control form-control-sm" id="status-campo">
                                 <option> </option>
-                                <option value="EM ANDAMENTO">EM ANDAMENTO</option>
-                                <option value="RESPONDIDO">RESPONDIDO</option>
+                                <option value="EM ANDAMENTO" id="em_andamento">EM ANDAMENTO</option>
+                                <option value="RESPONDIDO" id="respondido">RESPONDIDO</option>
 
 
                             </select>
@@ -317,37 +317,78 @@
 
 
 
+
                         <div class="col-md-12 mb-0" style="text-align: center; margin-inline: block;">
 
+                            <div id="div-fundo">
+                                <div class="col-md-3 mb-3" style="text-align: center;" id="div-email">
+                                    <input type="file" name="arquivo3" id="arquivo3" class="custom-input-file"
+                                        data-multiple-caption="{count} files selected" multiple required />
+                                    <label for="arquivo3" id="idLabel-email">
+                                        <i class="fa fa-upload" style="color: 273444;"></i>
+                                        <span>Email</span>
+                                    </label>
+                                </div>
 
-                            <button type="button" class="btn btn-sm btn-secondary btn-icon rounded-pill">
-                                <span class="btn-inner--icon"><i class="fas fa-download"></i></span>
-                                <span class="btn-inner--text">E-mail</span>
-                            </button>
+                                <div class="col-md-3 mb-3" style="text-align: center;" id="div-email">
+                                    <input type="file" name="arquivo4" id="arquivo4" class="custom-input-file"
+                                        data-multiple-caption="{count} files selected" multiple required />
+                                    <label for="arquivo4" id="idLabel-email">
+                                        <i class="fa fa-upload" style="color: 273444;"></i>
+                                        <span>Gravação</span>
+                                    </label>
+                                </div>
 
-                            <button type="button" class="btn btn-sm btn-secondary btn-icon rounded-pill">
-                                <span class="btn-inner--icon">
-                                    <i class="fas fa-download"></i></span>
-                                <span class="btn-inner--text">Gravação</span>
-                            </button>
-                            <button type="button" class="btn btn-sm btn-secondary btn-icon rounded-pill">
-                                <span class="btn-inner--icon">
-                                    <i class="fas fa-download"></i></span>
-                                <span class="btn-inner--text">Arquivo 1</span>
-                            </button>
-                            <button type="button" class="btn btn-sm btn-secondary btn-icon rounded-pill">
-                                <span class="btn-inner--icon">
-                                    <i class="fas fa-download"></i></span>
-                                <span class="btn-inner--text">Arquivo 2</span>
-                            </button>
+                                <div class="col-md-3 mb-3" style="text-align: center;" id="div-email">
+                                    <input type="file" name="arquivo1" id="arquivo1" class="custom-input-file"
+                                        data-multiple-caption="{count} files selected" multiple required />
+                                    <label for="arquivo1" id="idLabel-email">
+                                        <i class="fa fa-upload" style="color: 273444;"></i>
+                                        <span>Arquivo 1</span>
+                                    </label>
+                                </div>
+
+                                <div class="col-md-3 mb-3" style="text-align: center;" id="div-email">
+                                    <input type="file" name="arquivo2" id="arquivo2" class="custom-input-file"
+                                        data-multiple-caption="{count} files selected" multiple required />
+                                    <label for="arquivo2" id="idLabel-email">
+                                        <i class="fa fa-upload" style="color: 273444;"></i>
+                                        <span>Arquivo 2</span>
+                                    </label>
+                                </div>
+                            </div>
+                            <!-- <button type="button" class="btn btn-sm btn-secondary btn-icon rounded-pill">
+        <span class="btn-inner--icon"><i class="fas fa-download"></i></span>
+        <span class="btn-inner--text">E-mail</span>
+    </button>
+
+    <button type="button" class="btn btn-sm btn-secondary btn-icon rounded-pill">
+        <span class="btn-inner--icon">
+            <i class="fas fa-download"></i></span>
+        <span class="btn-inner--text">Gravação</span>
+    </button>
+    <button type="button" class="btn btn-sm btn-secondary btn-icon rounded-pill">
+        <span class="btn-inner--icon">
+            <i class="fas fa-download"></i></span>
+        <span class="btn-inner--text">Arquivo 1</span>
+    </button>
+    <button type="button" class="btn btn-sm btn-secondary btn-icon rounded-pill">
+        <span class="btn-inner--icon">
+            <i class="fas fa-download"></i></span>
+        <span class="btn-inner--text">Arquivo 2</span>
+    </button> -->
 
                         </div>
 
 
 
+
+
+
                     </div>
 
-                    <div class="opcoes-cadastro mt-4" style="text-align: center; margin-inline: block;" id="changeButton">
+                    <div class="opcoes-cadastro mt-4" style="text-align: center; margin-inline: block;"
+                        id="changeButton">
                         <button type="button" class="btn btn-primary btn-icon-label">
                             <span class="btn-inner--icon">
                                 <i class="fas fa-plus"></i>
@@ -356,10 +397,10 @@
                         </button>
 
                     </div>
-                    
-                <!-- Alert sucesso -->
-                <div class="alert alert-success sucesso" id="SucessoSac" role="alert">
-                </div>
+
+                    <!-- Alert sucesso -->
+                    <div class="alert alert-success sucesso" id="SucessoSac" role="alert">
+                    </div>
 
                 </form>
 
@@ -1031,8 +1072,9 @@
                                         <div class="col-md-4 mb-3">
                                             <div class="form-group">
                                                 <label for="exampleFormControlSelect1">CPF Cliente</label>
-                                                <input type="text" class="form-control form-control-sm" onkeypress='mascaraMutuario(this,cpfCnpj)' placeholder="Ex: 000.000.000-00"
-                                                maxlength="14" id="cpf-filtro">
+                                                <input type="text" class="form-control form-control-sm"
+                                                    onkeypress='mascaraMutuario(this,cpfCnpj)'
+                                                    placeholder="Ex: 000.000.000-00" maxlength="14" id="cpf-filtro">
                                                 </input>
                                             </div>
 
@@ -1040,7 +1082,7 @@
                                         <div class="col-md-4 mb-3">
                                             <div class="form-group">
                                                 <label for="exampleFormControlSelect1">Protocolo</label>
-                                                <input type="text" class="form-control form-control-sm" 
+                                                <input type="text" class="form-control form-control-sm"
                                                     id="protocolo-filtro">
                                                 </input>
                                             </div>
@@ -1066,8 +1108,9 @@
                                             </span>
                                             <span class="btn-inner--text">Buscar</span>
                                         </button>
-                                        <button type="button" class="btn btn-primary btn-icon-label" onclick="change()" data-toggle="modal"
-                                            data-target=".modalincsac" title="Alterar" id="buttonIncluir">
+                                        <button type="button" class="btn btn-primary btn-icon-label" onclick="change()"
+                                            data-toggle="modal" data-target=".modalincsac" title="Alterar"
+                                            id="buttonIncluir">
                                             <span class="btn-inner--icon">
                                                 <i class="fas fa-plus"></i>
                                             </span>
@@ -1082,7 +1125,7 @@
                                             <span class="btn-inner--text">Apagar Filtros</span>
                                         </button>
 
-                                        <button type="button" class="btn btn-primary btn-icon-label">
+                                        <button type="button" class="btn btn-primary btn-icon-label" id="planilhaExcel">
                                             <span class="btn-inner--icon">
                                                 <i class="fas fa-file-excel"></i>
                                             </span>
@@ -1209,6 +1252,7 @@
     <script src="../assets/js/mascarasvalores.js"></script>
     <script src="../assets/js/mascaras.js"></script>
     <!-- Demo JS - remove it when starting your project -->
+    <script src="../assets/service/table2excel.js"></script>
     <script src="../assets/js/demo.js"></script>
     <script src="../assets/js/sac.js"></script>
     <!-- AJAX -->
