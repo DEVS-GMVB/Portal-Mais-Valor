@@ -40,6 +40,7 @@ input {
    margin: 0% auto;
    width: 700px;
    display: flex;
+   /* background-color: aqua; sac */
 }
 
 #downloadMargem{
@@ -47,7 +48,7 @@ input {
 }
 
 #idLabel{
-   background-color: #eff2f7;
+   background-color: #9399a3;
    border-radius: 22px;
    color: black;
    width: 300px;
@@ -72,4 +73,23 @@ input {
       margin-right: 100%;
       }
 
+}
+
+/*sac*/
+#idLabel-email{
+   background-color: #cdd6e6;
+   color: black;
+}
+
+/*sac*/
+@media screen and (max-width: 780px){
+   #div-fundo{
+      width: 450px;
+      display: flex;
+      flex-direction: column;
+   }
+
+   #div-email{
+      display: flex;
+   }
 }

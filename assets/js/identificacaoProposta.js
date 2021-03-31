@@ -397,3 +397,11 @@ function updateTbody(cells) {
     cells[1].textContent = $("#NCliente").val();
     cells[2].textContent = $("#CpfCli").val()
 }
+
+const botao_excel = document.getElementById("planilhaExcel");
+
+botao_excel.addEventListener('click', () => {
+  var table2excel = new Table2Excel();
+  table2excel.export(document.querySelectorAll("table"));
+
+})

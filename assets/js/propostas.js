@@ -534,3 +534,11 @@ function updatePropostas(value) {
 
 }
 
+const botao_excel = document.getElementById("planilhaExcel");
+
+botao_excel.addEventListener('click', () => {
+  var table2excel = new Table2Excel();
+  table2excel.export(document.querySelectorAll("#table"));
+
+})
+
