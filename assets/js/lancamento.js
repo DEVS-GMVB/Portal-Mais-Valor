@@ -7,6 +7,16 @@ const filial_incluir = document.getElementById("filial-incluir");
 const supervisor_incluir = document.getElementById("supervisor-incluir");
 const gerente_incluir = document.getElementById("gerente-incluir");
 
+//Maps
+const modal = new Map();
+const modalRow = new Map();
+
+
+//Eventos de Botões
+const botao_filtro = document.getElementById("btn-buscar");
+const botao_troca_incluir = document.getElementById("buttonIncluir");
+
+
 window.onload = () => {
     const requestOptions = {
         method: 'GET',
