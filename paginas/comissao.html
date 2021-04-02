@@ -18,6 +18,8 @@
     <link rel="stylesheet" href="../assets/css/purpose.css" id="stylesheet">
     <!-- Purpose CSS -->
     <link rel="stylesheet" href="../assets/css/personalizado.css" id="stylesheet">
+    <script  src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.2/xlsx.full.min.js"></script>
+    <script defer src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 </head>
 
 <style>
@@ -42,7 +44,7 @@
 <!-- MODAL EXIBIR DETALHES -->
 
 
-<div class="modal fade modalexibirdetalhescomissao" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel"
+<div id="modalexibirdetalhescomissao" class="modal fade modalexibirdetalhescomissao" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel"
     aria-hidden="true">
     <div class="modal-dialog modal-xl">
         <div class="modal-content">
@@ -87,9 +89,29 @@
                         <tbody>
                             <tr>
 
-                                <td style="text-align: center;">XXXXXX XXXXX</td>
-                                <td style="text-align: center;">XXXXXXX</td>
-                                <td style="text-align: center;">XXXXXXX</td>
+                                <td id="proposta-modal" style="text-align: center;">-</td>
+                                <td id="status-pagamento-modal" style="text-align: center;">-</td>
+                                <td id="produto-modal" style="text-align: center;">-</td>
+                                <td id="data-proposta-modal" style="text-align: center;">-</td>
+                                <td id="parceiro-modal" style="text-align: center;">-</td>
+                                <td id="parceiro-esteira-modal" style="text-align: center;">-</td>
+                                <td id="valor-entregue-modal" style="text-align: center;">-</td>
+                                <td id="convenio-modal" style="text-align: center;">-</td>
+                                <td id="tipo-modal" style="text-align: center;">-</td>
+                                <td id="comissao-modal" style="text-align: center;">-</td>
+                                <td id="mes-referencia-modal" style="text-align: center;">-</td>
+                                <td id="data-pagamento-modal" style="text-align: center;">-</td>
+                                <td id="movimentacao-modal" style="text-align: center;">-</td>
+                                <td id="comissao-super-modal" style="text-align: center;">-</td>
+                                <td id="data-pagamento-super-modal" style="text-align: center;">-</td>
+                                <td id="comissao-ger-modal" style="text-align: center;">-</td>
+                                <td id="data-pagamento-ger-modal" style="text-align: center;">-</td>
+                                <td id="regra-modal" style="text-align: center;">-</td>
+                                <td id="correntista-modal" style="text-align: center;">-</td>
+                                <td id="prazo-contrato-modal" style="text-align: center;">-</td>
+                                <td id="classificacao-modal" style="text-align: center;">-</td>
+                                <td id="receita-liquida-modal" style="text-align: center;">-</td>
+                                <td id="competencia-pagamento-modal" style="text-align: center;">-</td>
                             </tr>
                             <tr>
 
@@ -684,16 +706,14 @@
                                         <div class="col-md-6 mb-3">
                                             <div class="form-group">
                                                 <label for="exampleFormControlSelect1">Parceiro/Promotor</label>
-                                                <select class="form-control form-control-sm" id="exampleParcPromo">
-                                                    <option> </option>
-
-                                                </select>
+                                                <input class="form-control form-control-sm" id="exampleParcPromo">
+                                            
                                             </div>
                                         </div>
                                         <div class="col-md-6 mb-3">
                                             <label for="validationCustom02">Proposta</label>
                                             <input type="text" minlength="14" maxlength="18"
-                                                class="form-control form-control-sm" id="validationProposta">
+                                                class="form-control form-control-sm" id="proposta">
 
                                         </div>
                                         <div class="col-md-6 mb-3">
@@ -777,7 +797,7 @@
 
                                         <div class="col-md-1 mt-4">
 
-                                            <button type="button" class="btn btn-primary btn-icon-only btn-sm">
+                                            <button id="pesquisar" type="button" class="btn btn-primary btn-icon-only btn-sm">
                                                 <span class="btn-inner--icon">
                                                     <i class="fas fa-search"></i>
                                                 </span>
@@ -788,10 +808,13 @@
                                     </div>
 
                                     <div class="opcoes-cadastro" style="text-align: center; margin-inline: block;">
-                                        <button type="button" class="btn btn-primary btn-icon-label" data-toggle="modal" id="incluirComissao"
-                                            data-target="#" title="Alterar">
+                                       
+                                        
+                                        <button type="button" class="btn btn-primary btn-icon-label" id="button-incluir-arquivo" title="Alterar">
+                                            
                                             <span class="btn-inner--icon">
                                                 <i class="fas fa-plus"></i>
+                                                <input  type="file" id="input-arquivo-incluir" accept=".xlsx,">
                                             </span>
                                             <span class="btn-inner--text">Incluir</span>
                                         </button>
@@ -809,9 +832,10 @@
                                             </span>
                                             <span class="btn-inner--text">Exportar</span>
                                         </button>
-                                        <button type="button" class="btn btn-primary btn-icon-label">
+                                        <button id="button-alterar" type="button" class="btn btn-primary btn-icon-label">
                                             <span class="btn-inner--icon">
                                                 <i class="fas fa-file-excel"></i>
+                                                <input type="file"  id="input-arquivo-alterar" accept=".xlsx,">
                                             </span>
                                             <span class="btn-inner--text">Alterar Propostas</span>
                                         </button>
@@ -840,8 +864,8 @@
                                                     </a>
                                                 </td>
                                                 <td style="text-align: center;">Santander</td>
-                                                <td style="text-align: center;">52</td>
-                                                <td style="text-align: center;">R$ 2.452,32</td>
+                                                <td id="quantidade-sant" class="loader" style="text-align: center;">-</div></td>
+                                                <td id="valor-sant" class="loader" style="text-align: center;">-</div></td>
 
                                             </tr>
                                             <tr id="col1-row1" class="collapse">
@@ -870,54 +894,8 @@
                                                                             DETALHES</b></th>
                                                                 </tr>
                                                             </thead>
-                                                            <tbody>
-                                                                <tr>
-                                                                    <th style="text-align: center;">SANTANDER</th>
-                                                                    <td style="text-align: center;">12542264</td>
-                                                                    <td style="text-align: center;">R$ 10.000,00</td>
-                                                                    <td style="text-align: center;">R$ 45,54</td>
-                                                                    <td style="text-align: center;"> 12/01/2021 </td>
-                                                                    <td style="text-align: center;">PAGO</td>
-                                                                    <td style="text-align: center;">PAGO EM 12/01/2021</td>
-                                                                    <td style="text-align: center;">3,40%</td>
-                                                                    <td class="text-right" style="text-align: center;">
-                                                                        <!-- VISUALIZAR -->
-                                                                        <div class="actions ml-3"
-                                                                            style="text-align: center;">
-
-                                                                            <a href="#" class="action-item mr-2"
-                                                                                data-toggle="modal"
-                                                                                data-target=".modalexibirdetalhescomissao"
-                                                                                title="Visualizar">
-                                                                                <i class="fas fa-eye"></i>
-                                                                            </a>
-                                                                        </div>
-                                                                    </td>
-                                                                </tr>
-
-                                                                <tr>
-                                                                    <th style="text-align: center;">SANTANDER</th>
-                                                                    <td style="text-align: center;">12545126</td>
-                                                                    <td style="text-align: center;">R$ 54.000,00</td>
-                                                                    <td style="text-align: center;">R$ 254,25</td>
-                                                                    <td style="text-align: center;"> - </td>
-                                                                    <td style="text-align: center;"> CONCILIADO</td>
-                                                                    <td style="text-align: center;"> - </td>
-                                                                    <td style="text-align: center;">6,00%</td>
-                                                                    <td class="text-right" style="text-align: center;">
-                                                                        <!-- VISUALIZAR -->
-                                                                        <div class="actions ml-3"
-                                                                            style="text-align: center;">
-
-                                                                            <a href="#" class="action-item mr-2"
-                                                                                data-toggle="modal"
-                                                                                data-target=".modalexibirdetalhescomissao"
-                                                                                title="Visualizar">
-                                                                                <i class="fas fa-eye"></i>
-                                                                            </a>
-                                                                        </div>
-                                                                    </td>
-                                                                </tr>
+                                                            <tbody id="mais-santander">
+                                                            
 
                                                             </tbody>
                                                         </table>
@@ -934,8 +912,8 @@
                                                     </a>
                                                 </td>
                                                 <td style="text-align: center;">Itaú</td>
-                                                <td style="text-align: center;">2</td>
-                                                <td style="text-align: center;">R$ 54,25</td>
+                                                <td class="loader" id="quantidade-itau" style="text-align: center;">-</div></td>
+                                                <td class="loader" id="valor-itau"style="text-align: center;">-</div></td>
 
                                             </tr>
                                             <tr id="col2-row2" class="collapse">
@@ -964,30 +942,8 @@
                                                                             DETALHES</b></th>
                                                                 </tr>
                                                             </thead>
-                                                            <tbody>
-                                                                <tr>
-                                                                    <th style="text-align: center;">XXXXX XXXXXX</th>
-                                                                    <td style="text-align: center;">XXXXXXXX</td>
-                                                                    <td style="text-align: center;">XXXXXXX,XX</td>
-                                                                    <td style="text-align: center;">XXXXX,XX</td>
-                                                                    <td style="text-align: center;">XX/XX/XXXX</td>
-                                                                    <td style="text-align: center;">XXXXXX</td>
-                                                                    <td style="text-align: center;">XXXXXXXX</td>
-                                                                    <td style="text-align: center;">XX%</td>
-                                                                    <td class="text-right" style="text-align: center;">
-                                                                        <!-- VISUALIZAR -->
-                                                                        <div class="actions ml-3"
-                                                                            style="text-align: center;">
-
-                                                                            <a href="#" class="action-item mr-2"
-                                                                                data-toggle="modal"
-                                                                                data-target=".modalexibirdetalhescomissao"
-                                                                                title="Visualizar">
-                                                                                <i class="fas fa-eye"></i>
-                                                                            </a>
-                                                                        </div>
-                                                                    </td>
-                                                                </tr>
+                                                            <tbody id="mais-itau">
+                                                            
 
                                                             </tbody>
                                                         </table>
@@ -1004,8 +960,8 @@
                                                     </a>
                                                 </td>
                                                 <td style="text-align: center;">Bradesco</td>
-                                                <td style="text-align: center;">5</td>
-                                                <td style="text-align: center;">R$ 200,00</td>
+                                                <td class="loader" id="quantidade-bradesco" style="text-align: center;">-</div></td>
+                                                <td class="loader" id="valor-bradesco" style="text-align: center;">-</div></td>
 
                                             </tr>
                                             <tr id="col3-row3" class="collapse">
@@ -1034,30 +990,8 @@
                                                                             DETALHES</b></th>
                                                                 </tr>
                                                             </thead>
-                                                            <tbody>
-                                                                <tr>
-                                                                    <th style="text-align: center;">XXXXX XXXXXX</th>
-                                                                    <td style="text-align: center;">XXXXXXXX</td>
-                                                                    <td style="text-align: center;">XXXXXXX,XX</td>
-                                                                    <td style="text-align: center;">XXXXX,XX</td>
-                                                                    <td style="text-align: center;">XX/XX/XXXX</td>
-                                                                    <td style="text-align: center;">XXXXXX</td>
-                                                                    <td style="text-align: center;">XXXXXXXX</td>
-                                                                    <td style="text-align: center;">XX%</td>
-                                                                    <td class="text-right" style="text-align: center;">
-                                                                        <!-- VISUALIZAR -->
-                                                                        <div class="actions ml-3"
-                                                                            style="text-align: center;">
-
-                                                                            <a href="#" class="action-item mr-2"
-                                                                                data-toggle="modal"
-                                                                                data-target=".modalexibirdetalhescomissao"
-                                                                                title="Visualizar">
-                                                                                <i class="fas fa-eye"></i>
-                                                                            </a>
-                                                                        </div>
-                                                                    </td>
-                                                                </tr>
+                                                            <tbody id="mais-bradesco">
+                                                            
 
                                                             </tbody>
                                                         </table>
@@ -1074,8 +1008,8 @@
                                                     </a>
                                                 </td>
                                                 <td style="text-align: center;">Banco Pan</td>
-                                                <td style="text-align: center;">0</td>
-                                                <td style="text-align: center;">0</td>
+                                                <td class="loader" id="quantidade-pan" style="text-align: center;">-</div></td>
+                                                <td class="loader" id="valor-pan" style="text-align: center;">-</div></td>
 
                                             </tr>
                                             <tr id="col4-row4" class="collapse">
@@ -1104,30 +1038,8 @@
                                                                             DETALHES</b></th>
                                                                 </tr>
                                                             </thead>
-                                                            <tbody>
-                                                                <tr>
-                                                                    <th style="text-align: center;">XXXXX XXXXXX</th>
-                                                                    <td style="text-align: center;">XXXXXXXX</td>
-                                                                    <td style="text-align: center;">XXXXXXX,XX</td>
-                                                                    <td style="text-align: center;">XXXXX,XX</td>
-                                                                    <td style="text-align: center;">XX/XX/XXXX</td>
-                                                                    <td style="text-align: center;">XXXXXX</td>
-                                                                    <td style="text-align: center;">XXXXXXXX</td>
-                                                                    <td style="text-align: center;">XX%</td>
-                                                                    <td class="text-right" style="text-align: center;">
-                                                                        <!-- VISUALIZAR -->
-                                                                        <div class="actions ml-3"
-                                                                            style="text-align: center;">
-
-                                                                            <a href="#" class="action-item mr-2"
-                                                                                data-toggle="modal"
-                                                                                data-target=".modalexibirdetalhescomissao"
-                                                                                title="Visualizar">
-                                                                                <i class="fas fa-eye"></i>
-                                                                            </a>
-                                                                        </div>
-                                                                    </td>
-                                                                </tr>
+                                                            <tbody id="mais-pan">
+                                                            
 
                                                             </tbody>
                                                         </table>
@@ -1142,8 +1054,8 @@
                                                 </a>
                                             </td>
                                             <td style="text-align: center;">Cartão Olé</td>
-                                            <td style="text-align: center;"> 2</td>
-                                            <td style="text-align: center;"> R$ 22,54</td>
+                                            <td class="loader" id="quantidade-ole" style="text-align: center;">-</div></td>
+                                            <td class="loader" id="valor-ole" style="text-align: center;">-</div></td>
 
                                             </tr>
                                             <tr id="col5-row5" class="collapse">
@@ -1172,30 +1084,8 @@
                                                                             DETALHES</b></th>
                                                                 </tr>
                                                             </thead>
-                                                            <tbody>
-                                                                <tr>
-                                                                    <th style="text-align: center;">XXXXX XXXXXX</th>
-                                                                    <td style="text-align: center;">XXXXXXXX</td>
-                                                                    <td style="text-align: center;">XXXXXXX,XX</td>
-                                                                    <td style="text-align: center;">XXXXX,XX</td>
-                                                                    <td style="text-align: center;">XX/XX/XXXX</td>
-                                                                    <td style="text-align: center;">XXXXXX</td>
-                                                                    <td style="text-align: center;">XXXXXXXX</td>
-                                                                    <td style="text-align: center;">XX%</td>
-                                                                    <td class="text-right" style="text-align: center;">
-                                                                        <!-- VISUALIZAR -->
-                                                                        <div class="actions ml-3"
-                                                                            style="text-align: center;">
-
-                                                                            <a href="#" class="action-item mr-2"
-                                                                                data-toggle="modal"
-                                                                                data-target=".modalexibirdetalhescomissao"
-                                                                                title="Visualizar">
-                                                                                <i class="fas fa-eye"></i>
-                                                                            </a>
-                                                                        </div>
-                                                                    </td>
-                                                                </tr>
+                                                            <tbody class="mais-ole">
+                                                            
 
                                                             </tbody>
                                                         </table>
@@ -1208,12 +1098,12 @@
 
                                                     <a href="#" class="action-item mr-2" data-toggle="collapse"
                                                         data-target="#col6-row6" title="Visualizar">
-                                                        <i class="fas fa-search-plus"></i>
+                                                   <i class="fas fa-search-plus"></i>
                                                     </a>
                                                 </td>
                                                 <td style="text-align: center;">Cetelem</td>
-                                                <td style="text-align: center;"> 1</td>
-                                                <td style="text-align: center;"> R$ 10,58</td>
+                                                <td class="loader" id="quantidade-cetelem" style="text-align: center;">-</div></td>
+                                                <td class="loader" id="valor-cetelem" style="text-align: center;">-</div></td>
 
                                             </tr>
                                             <tr id="col6-row6" class="collapse">
@@ -1242,30 +1132,8 @@
                                                                             DETALHES</b></th>
                                                                 </tr>
                                                             </thead>
-                                                            <tbody>
-                                                                <tr>
-                                                                    <th style="text-align: center;">XXXXX XXXXXX</th>
-                                                                    <td style="text-align: center;">XXXXXXXX</td>
-                                                                    <td style="text-align: center;">XXXXXXX,XX</td>
-                                                                    <td style="text-align: center;">XXXXX,XX</td>
-                                                                    <td style="text-align: center;">XX/XX/XXXX</td>
-                                                                    <td style="text-align: center;">XXXXXX</td>
-                                                                    <td style="text-align: center;">XXXXXXXX</td>
-                                                                    <td style="text-align: center;">XX%</td>
-                                                                    <td class="text-right" style="text-align: center;">
-                                                                        <!-- VISUALIZAR -->
-                                                                        <div class="actions ml-3"
-                                                                            style="text-align: center;">
-
-                                                                            <a href="#" class="action-item mr-2"
-                                                                                data-toggle="modal"
-                                                                                data-target=".modalexibirdetalhescomissao"
-                                                                                title="Visualizar">
-                                                                                <i class="fas fa-eye"></i>
-                                                                            </a>
-                                                                        </div>
-                                                                    </td>
-                                                                </tr>
+                                                            <tbody id="mais-celelem">
+                                                            
 
                                                             </tbody>
                                                         </table>
@@ -1282,8 +1150,8 @@
                                                     </a>
                                                 </td>
                                                 <td style="text-align: center;">Olé Consignado</td>
-                                                <td style="text-align: center;"> 1</td>
-                                                <td style="text-align: center;"> R$ 10,58</td>
+                                                <td class="loader" id="ole-cons-quantidade" style="text-align: center;">-</div></td>
+                                                <td class="loader" id="ole-cons-valor" style="text-align: center;">-</div></td>
 
                                             </tr>
                                             <tr id="col7-row7" class="collapse">
@@ -1312,30 +1180,7 @@
                                                                             DETALHES</b></th>
                                                                 </tr>
                                                             </thead>
-                                                            <tbody>
-                                                                <tr>
-                                                                    <th style="text-align: center;">XXXXX XXXXXX</th>
-                                                                    <td style="text-align: center;">XXXXXXXX</td>
-                                                                    <td style="text-align: center;">XXXXXXX,XX</td>
-                                                                    <td style="text-align: center;">XXXXX,XX</td>
-                                                                    <td style="text-align: center;">XX/XX/XXXX</td>
-                                                                    <td style="text-align: center;">XXXXXX</td>
-                                                                    <td style="text-align: center;">XXXXXXXX</td>
-                                                                    <td style="text-align: center;">XX%</td>
-                                                                    <td class="text-right" style="text-align: center;">
-                                                                        <!-- VISUALIZAR -->
-                                                                        <div class="actions ml-3"
-                                                                            style="text-align: center;">
-
-                                                                            <a href="#" class="action-item mr-2"
-                                                                                data-toggle="modal"
-                                                                                data-target=".modalexibirdetalhescomissao"
-                                                                                title="Visualizar">
-                                                                                <i class="fas fa-eye"></i>
-                                                                            </a>
-                                                                        </div>
-                                                                    </td>
-                                                                </tr>
+                                                            <tbody id="mais-ole-cons">
 
                                                             </tbody>
                                                         </table>
@@ -1352,8 +1197,8 @@
                                                     </a>
                                                 </td>
                                                 <td style="text-align: center;">Daycoval</td>
-                                                <td style="text-align: center;"> 1</td>
-                                                <td style="text-align: center;">R$ 10,58</td>
+                                                <td class="loader" id="quantidade-daycoval" style="text-align: center;">-</td>
+                                                <td class="loader" id="valor-daycoval" style="text-align: center;">-</td>
 
                                             </tr>
                                             <tr id="col8-row8" class="collapse">
@@ -1382,30 +1227,8 @@
                                                                             DETALHES</b></th>
                                                                 </tr>
                                                             </thead>
-                                                            <tbody>
-                                                                <tr>
-                                                                    <th style="text-align: center;">XXXXX XXXXXX</th>
-                                                                    <td style="text-align: center;">XXXXXXXX</td>
-                                                                    <td style="text-align: center;">XXXXXXX,XX</td>
-                                                                    <td style="text-align: center;">XXXXX,XX</td>
-                                                                    <td style="text-align: center;">XX/XX/XXXX</td>
-                                                                    <td style="text-align: center;">XXXXXX</td>
-                                                                    <td style="text-align: center;">XXXXXXXX</td>
-                                                                    <td style="text-align: center;">XX%</td>
-                                                                    <td class="text-right" style="text-align: center;">
-                                                                        <!-- VISUALIZAR -->
-                                                                        <div class="actions ml-3"
-                                                                            style="text-align: center;">
-
-                                                                            <a href="#" class="action-item mr-2"
-                                                                                data-toggle="modal"
-                                                                                data-target=".modalexibirdetalhescomissao"
-                                                                                title="Visualizar">
-                                                                                <i class="fas fa-eye"></i>
-                                                                            </a>
-                                                                        </div>
-                                                                    </td>
-                                                                </tr>
+                                                            <tbody id="mais-daycoval">
+                                                            
 
                                                             </tbody>
                                                         </table>
@@ -1422,8 +1245,8 @@
                                                     </a>
                                                 </td>
                                                 <td style="text-align: center;">SIM</td>
-                                                <td style="text-align: center;">1</td>
-                                                <td style="text-align: center;">R$ 10,58</td>
+                                                <td id="quantidade-sim" class="loader" style="text-align: center;">-</td>
+                                                <td id="valor-sim" class="loader" style="text-align: center;">-</td>
 
                                             </tr>
                                             <tr id="col9-row9" class="collapse">
@@ -1452,30 +1275,8 @@
                                                                             DETALHES</b></th>
                                                                 </tr>
                                                             </thead>
-                                                            <tbody>
-                                                                <tr>
-                                                                    <th style="text-align: center;">XXXXX XXXXXX</th>
-                                                                    <td style="text-align: center;">XXXXXXXX</td>
-                                                                    <td style="text-align: center;">XXXXXXX,XX</td>
-                                                                    <td style="text-align: center;">XXXXX,XX</td>
-                                                                    <td style="text-align: center;">XX/XX/XXXX</td>
-                                                                    <td style="text-align: center;">XXXXXX</td>
-                                                                    <td style="text-align: center;">XXXXXXXX</td>
-                                                                    <td style="text-align: center;">XX%</td>
-                                                                    <td class="text-right" style="text-align: center;">
-                                                                        <!-- VISUALIZAR -->
-                                                                        <div class="actions ml-3"
-                                                                            style="text-align: center;">
-
-                                                                            <a href="#" class="action-item mr-2"
-                                                                                data-toggle="modal"
-                                                                                data-target=".modalexibirdetalhescomissao"
-                                                                                title="Visualizar">
-                                                                                <i class="fas fa-eye"></i>
-                                                                            </a>
-                                                                        </div>
-                                                                    </td>
-                                                                </tr>
+                                                            <tbody id="mais-sim">
+                                                            
 
                                                             </tbody>
                                                         </table>
@@ -1492,8 +1293,8 @@
                                                     </a>
                                                 </td>
                                                 <td style="text-align: center;">Safra</td>
-                                                <td style="text-align: center;">1</td>
-                                                <td style="text-align: center;">R$ 10,58</td>
+                                                <td id="quantidade-safra" class="loader" style="text-align: center;">-</td>
+                                                <td id="valor-safra" class="loader" style="text-align: center;">-</td>
 
                                             </tr>
                                             <tr id="col10-row10" class="collapse">
@@ -1522,30 +1323,8 @@
                                                                             DETALHES</b></th>
                                                                 </tr>
                                                             </thead>
-                                                            <tbody>
-                                                                <tr>
-                                                                    <th style="text-align: center;">XXXXX XXXXXX</th>
-                                                                    <td style="text-align: center;">XXXXXXXX</td>
-                                                                    <td style="text-align: center;">XXXXXXX,XX</td>
-                                                                    <td style="text-align: center;">XXXXX,XX</td>
-                                                                    <td style="text-align: center;">XX/XX/XXXX</td>
-                                                                    <td style="text-align: center;">XXXXXX</td>
-                                                                    <td style="text-align: center;">XXXXXXXX</td>
-                                                                    <td style="text-align: center;">XX%</td>
-                                                                    <td class="text-right" style="text-align: center;">
-                                                                        <!-- VISUALIZAR -->
-                                                                        <div class="actions ml-3"
-                                                                            style="text-align: center;">
-
-                                                                            <a href="#" class="action-item mr-2"
-                                                                                data-toggle="modal"
-                                                                                data-target=".modalexibirdetalhescomissao"
-                                                                                title="Visualizar">
-                                                                                <i class="fas fa-eye"></i>
-                                                                            </a>
-                                                                        </div>
-                                                                    </td>
-                                                                </tr>
+                                                            <tbody id="mais-safra">
+                                                              
 
                                                             </tbody>
                                                         </table>
@@ -1562,8 +1341,8 @@
                                                     </a>
                                                 </td>
                                                 <td style="text-align: center;">Seguros</td>
-                                                <td style="text-align: center;">1</td>
-                                                <td style="text-align: center;">R$ 10,58</td>
+                                                <td id="quantidade-seguros" class="loader" style="text-align: center;">-</td>
+                                                <td id="valor-seguros" class="loader" style="text-align: center;">-</td>
 
                                             </tr>
                                             <tr id="col11-row11" class="collapse">
@@ -1592,30 +1371,8 @@
                                                                             DETALHES</b></th>
                                                                 </tr>
                                                             </thead>
-                                                            <tbody>
-                                                                <tr>
-                                                                    <th style="text-align: center;">XXXXX XXXXXX</th>
-                                                                    <td style="text-align: center;">XXXXXXXX</td>
-                                                                    <td style="text-align: center;">XXXXXXX,XX</td>
-                                                                    <td style="text-align: center;">XXXXX,XX</td>
-                                                                    <td style="text-align: center;">XX/XX/XXXX</td>
-                                                                    <td style="text-align: center;">XXXXXX</td>
-                                                                    <td style="text-align: center;">XXXXXXXX</td>
-                                                                    <td style="text-align: center;">XX%</td>
-                                                                    <td class="text-right" style="text-align: center;">
-                                                                        <!-- VISUALIZAR -->
-                                                                        <div class="actions ml-3"
-                                                                            style="text-align: center;">
-
-                                                                            <a href="#" class="action-item mr-2"
-                                                                                data-toggle="modal"
-                                                                                data-target=".modalexibirdetalhescomissao"
-                                                                                title="Visualizar">
-                                                                                <i class="fas fa-eye"></i>
-                                                                            </a>
-                                                                        </div>
-                                                                    </td>
-                                                                </tr>
+                                                            <tbody id="mais-seguros">
+                                                            
 
                                                             </tbody>
                                                         </table>
@@ -1632,8 +1389,8 @@
                                                     </a>
                                                 </td>
                                                 <td style="text-align: center;">Crefisa</td>
-                                                <td style="text-align: center;"> 1</td>
-                                                <td style="text-align: center;">R$ 10,58</td>
+                                                <td id="quantidade-crefisa" class="loader" class="loader" style="text-align: center;">-</td>
+                                                <td id="valor-crefisa" class="loader" style="text-align: center;">-</td>
 
                                             </tr>
                                             <tr id="col12-row12" class="collapse">
@@ -1662,30 +1419,8 @@
                                                                             DETALHES</b></th>
                                                                 </tr>
                                                             </thead>
-                                                            <tbody>
-                                                                <tr>
-                                                                    <th style="text-align: center;">XXXXX XXXXXX</th>
-                                                                    <td style="text-align: center;">XXXXXXXX</td>
-                                                                    <td style="text-align: center;">XXXXXXX,XX</td>
-                                                                    <td style="text-align: center;">XXXXX,XX</td>
-                                                                    <td style="text-align: center;">XX/XX/XXXX</td>
-                                                                    <td style="text-align: center;">XXXXXX</td>
-                                                                    <td style="text-align: center;">XXXXXXXX</td>
-                                                                    <td style="text-align: center;">XX%</td>
-                                                                    <td class="text-right" style="text-align: center;">
-                                                                        <!-- VISUALIZAR -->
-                                                                        <div class="actions ml-3"
-                                                                            style="text-align: center;">
-
-                                                                            <a href="#" class="action-item mr-2"
-                                                                                data-toggle="modal"
-                                                                                data-target=".modalexibirdetalhescomissao"
-                                                                                title="Visualizar">
-                                                                                <i class="fas fa-eye"></i>
-                                                                            </a>
-                                                                        </div>
-                                                                    </td>
-                                                                </tr>
+                                                            <tbody id="mais-crefisa">
+                                                            
 
                                                             </tbody>
                                                         </table>
@@ -1702,8 +1437,8 @@
                                                     </a>
                                                 </td>
                                                 <td style="text-align: center;">Paraná Banco</td>
-                                                <td style="text-align: center;"> 1</td>
-                                                <td style="text-align: center;">R$ 10,58</td>
+                                                <td id="quantidade-parana" class="loader" style="text-align: center;">-</td>
+                                                <td id="valor-parana" class="loader" style="text-align: center;">-</td>
 
                                             </tr>
                                             <tr id="col13-row13" class="collapse">
@@ -1732,30 +1467,8 @@
                                                                             DETALHES</b></th>
                                                                 </tr>
                                                             </thead>
-                                                            <tbody>
-                                                                <tr>
-                                                                    <th style="text-align: center;">XXXXX XXXXXX</th>
-                                                                    <td style="text-align: center;">XXXXXXXX</td>
-                                                                    <td style="text-align: center;">XXXXXXX,XX</td>
-                                                                    <td style="text-align: center;">XXXXX,XX</td>
-                                                                    <td style="text-align: center;">XX/XX/XXXX</td>
-                                                                    <td style="text-align: center;">XXXXXX</td>
-                                                                    <td style="text-align: center;">XXXXXXXX</td>
-                                                                    <td style="text-align: center;">XX%</td>
-                                                                    <td class="text-right" style="text-align: center;">
-                                                                        <!-- VISUALIZAR -->
-                                                                        <div class="actions ml-3"
-                                                                            style="text-align: center;">
-
-                                                                            <a href="#" class="action-item mr-2"
-                                                                                data-toggle="modal"
-                                                                                data-target=".modalexibirdetalhescomissao"
-                                                                                title="Visualizar">
-                                                                                <i class="fas fa-eye"></i>
-                                                                            </a>
-                                                                        </div>
-                                                                    </td>
-                                                                </tr>
+                                                            <tbody id="mais-parana">
+                                                            
 
                                                             </tbody>
                                                         </table>
@@ -1772,8 +1485,8 @@
                                                     </a>
                                                 </td>
                                                 <td style="text-align: center;">BRB</td>
-                                                <td style="text-align: center;"> 1</td>
-                                                <td style="text-align: center;">R$ 10,58</td>
+                                                <td id="quantidade-brb" class="loader" style="text-align: center;">-</td>
+                                                <td id ="valor-brb" class="loader"style="text-align: center;">-</td>
 
                                             </tr>
                                             <tr id="col14-row14" class="collapse">
@@ -1802,30 +1515,8 @@
                                                                             DETALHES</b></th>
                                                                 </tr>
                                                             </thead>
-                                                            <tbody>
-                                                                <tr>
-                                                                    <th style="text-align: center;">XXXXX XXXXXX</th>
-                                                                    <td style="text-align: center;">XXXXXXXX</td>
-                                                                    <td style="text-align: center;">XXXXXXX,XX</td>
-                                                                    <td style="text-align: center;">XXXXX,XX</td>
-                                                                    <td style="text-align: center;">XX/XX/XXXX</td>
-                                                                    <td style="text-align: center;">XXXXXX</td>
-                                                                    <td style="text-align: center;">XXXXXXXX</td>
-                                                                    <td style="text-align: center;">XX%</td>
-                                                                    <td class="text-right" style="text-align: center;">
-                                                                        <!-- VISUALIZAR -->
-                                                                        <div class="actions ml-3"
-                                                                            style="text-align: center;">
-
-                                                                            <a href="#" class="action-item mr-2"
-                                                                                data-toggle="modal"
-                                                                                data-target=".modalexibirdetalhescomissao"
-                                                                                title="Visualizar">
-                                                                                <i class="fas fa-eye"></i>
-                                                                            </a>
-                                                                        </div>
-                                                                    </td>
-                                                                </tr>
+                                                            <tbody id="mais-brb">
+                                                            
 
                                                             </tbody>
                                                         </table>
@@ -1842,8 +1533,8 @@
                                                     </a>
                                                 </td>
                                                 <td style="text-align: center;">BMG</td>
-                                                <td style="text-align: center;"> 1</td>
-                                                <td style="text-align: center;">R$ 10,58</td>
+                                                <td id="quantidade-bmg"class="loader" style="text-align: center;">-</td>
+                                                <td id="valor-bmg" class="loader" style="text-align: center;">-</td>
 
                                             </tr>
                                             <tr id="col15-row15" class="collapse">
@@ -1872,35 +1563,22 @@
                                                                             DETALHES</b></th>
                                                                 </tr>
                                                             </thead>
-                                                            <tbody>
-                                                                <tr>
-                                                                    <th style="text-align: center;">XXXXX XXXXXX</th>
-                                                                    <td style="text-align: center;">XXXXXXXX</td>
-                                                                    <td style="text-align: center;">XXXXXXX,XX</td>
-                                                                    <td style="text-align: center;">XXXXX,XX</td>
-                                                                    <td style="text-align: center;">XX/XX/XXXX</td>
-                                                                    <td style="text-align: center;">XXXXXX</td>
-                                                                    <td style="text-align: center;">XXXXXXXX</td>
-                                                                    <td style="text-align: center;">XX%</td>
-                                                                    <td class="text-right" style="text-align: center;">
-                                                                        <!-- VISUALIZAR -->
-                                                                        <div class="actions ml-3"
-                                                                            style="text-align: center;">
-
-                                                                            <a href="#" class="action-item mr-2"
-                                                                                data-toggle="modal"
-                                                                                data-target=".modalexibirdetalhescomissao"
-                                                                                title="Visualizar">
-                                                                                <i class="fas fa-eye"></i>
-                                                                            </a>
-                                                                        </div>
-                                                                    </td>
-                                                                </tr>
+                                                            <tbody id="mais-bmg">
+                                                            
 
                                                             </tbody>
+                                                            
                                                         </table>
                                                     </div>
                                                 </td>
+                                            </tr>
+                                            <tr class="clickable">
+                                                <td style="text-align: center;">
+                                                    Total 
+                                                </td>
+                                                <td style="text-align: center;"></td>
+                                                <td id="quantidade-geral"class="loader" style="text-align: center;">-</td>
+                                                <td id="valor-geral" class="loader" style="text-align: center;">-</td>
                                             </tr>
 
 
@@ -1944,10 +1622,11 @@
     <!-- Mascaras -->
     <script src="../assets/js/mascaras.js"></script>
     <script src="../assets/js/tlComissao.js"></script>
+    <!-- <script src="../assets/js/incluirAlerarComissao.js"></script> -->
     <!-- Demo JS - remove it when starting your project -->
     <script src="../assets/js/demo.js"></script>
-
-
+    <!-- excel to json -->
+    
 </body>
 
 </html>

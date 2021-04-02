@@ -171,18 +171,18 @@ cpfTerceario.addEventListener('blur', () => {
       }
     })
 
-  var requestOptions = {
-    method: 'POST',
-    headers: myHeaders,
-    body: raw,
-    redirect: 'follow'
-  };
+  // var requestOptions = {
+  //   method: 'POST',
+  //   headers: myHeaders,
+  //   body: raw,
+  //   redirect: 'follow'
+  // };
 
-  fetch("http://172.16.0.197:3000/user/cadastro/inclusao", requestOptions)
-    .then(response => response.json())
-    //   console.log(response)
-    .then(result => console.log(result))
-    .catch(error => console.log('error', error));
+  // fetch("http://172.16.0.197:3000/user/cadastro/inclusao", requestOptions)
+  //   .then(response => response.json())
+  //   //   console.log(response)
+  //   .then(result => console.log(result))
+  //   .catch(error => console.log('error', error));
 })
 cpfTerceario.addEventListener('keyup', () => {
   let ter = document.getElementById("idTerc");
