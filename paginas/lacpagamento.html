@@ -564,7 +564,7 @@
                             <label for="validationCustom01">CPF / CNPJ Parceiro</label>
                             <input type="text" class="form-control form-control-sm" id="cpfcnpj-parc-incluir"
                                 onkeypress='mascaraMutuario(this,cpfCnpj)' placeholder="Ex: 000.000.000-00"
-                                maxlength="14" required>
+                                maxlength="18" required>
 
                         </div>
 
@@ -600,7 +600,7 @@
                             <label for="validationCustom01">CPF / CNPJ Favorecido</label>
                             <input type="text" class="form-control form-control-sm" id="cpfcnpj-fav-incluir"
                                 onkeypress='mascaraMutuario(this,cpfCnpj)' placeholder="Ex: 000.000.000-00"
-                                maxlength="14" required>
+                                maxlength="18" required>
 
                         </div>
 
@@ -732,7 +732,8 @@
 
                 <form class="needs-validation" novalidate>
 
-                    <div class="opcoes-cadastro mt-3" style="text-align: center; margin-inline: block;" id="changeButton">
+                    <div class="opcoes-cadastro mt-3" style="text-align: center; margin-inline: block;"
+                        id="changeButton">
                         <button type="button" class="btn btn-primary btn-icon-label" id="btn-incluir">
                             <span class="btn-inner--icon">
                                 <i class="fas fa-plus"></i>
@@ -740,6 +741,10 @@
                             <span class="btn-inner--text">Incluir / Salvar Alteração</span>
                         </button>
 
+                    </div>
+
+                    <!-- Alert sucesso -->
+                    <div class="alert alert-success sucesso" id="alertSucesso" role="alert">
                     </div>
 
                 </form>
@@ -1971,7 +1976,7 @@
                                             </span>
                                             <span class="btn-inner--text">Buscar</span>
                                         </button>
-    
+
                                         <button type="reset" class="btn btn-primary btn-icon-label"
                                             id="apagarFiltrosCadastro">
                                             <span class="btn-inner--icon">
@@ -1979,30 +1984,30 @@
                                             </span>
                                             <span class="btn-inner--text">Apagar</span>
                                         </button>
-    
-                                        <button type="button" class="btn btn-primary btn-icon-label"      data-toggle="modal"
+
+                                        <button type="button" class="btn btn-primary btn-icon-label" data-toggle="modal"
                                             data-target=".modalincnclacamento" title="Alterar" id="buttonIncluir">
                                             <span class="btn-inner--icon">
                                                 <i class="fas fa-plus"></i>
                                             </span>
                                             <span class="btn-inner--text" id="test">Incluir Novo Lançamento</span>
                                         </button>
-    
-    
-    
+
+
+
                                         <button type="button" class="btn btn-primary btn-icon-label" id="planilhaExcel">
                                             <span class="btn-inner--icon">
                                                 <i class="fas fa-file-excel"></i>
                                             </span>
                                             <span class="btn-inner--text">Exportar</span>
                                         </button>
-    
+
                                     </div>
 
                                 </form>
 
 
-                                
+
 
                                 <hr>
 
