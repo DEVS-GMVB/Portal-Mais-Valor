@@ -40,6 +40,8 @@ var vAutoYear =0;
 
 
 
+
+
 //REGUA VALOR DO EMPRESTIMO
 let slider = document.getElementById("myRange");
 let output = document.getElementById("demo");
@@ -146,23 +148,35 @@ function preAnalise(access_token, sessionId, name, email, dateOfBirthFoundation,
     fetch("https://viverebrasil.com.br/sanredapigwpro/api/pro/identification/cp/", requestOptions)//na hora do fetch da erro 
     .then(response => response.json())
     .then(function (data) {
+        
+
+        if(data.repescResponse.accessMessageText=="EXISTE PROPOSTA EM ANDAMENTO"){
+                alert(data.repescResponse.accessMessageText)
+            }
 
         dataMaxima = document.getElementById("dataMaxima").value = data.atxResponse.firstInstallment.maximumDate  
-        dataMinima = document.getElementById("dataMinima").value =data.atxResponse.firstInstallment.minimumDate,
+        dataMinima = document.getElementById("dataMinima").value =data.atxResponse.firstInstallment.minimumDate
         cpAutoShow = data.repescResponse.cpauto.show
+
         if(cpAutoShow=="S"){
             cpAutoKey = document.getElementById("cpAutoKey").innerHTML =data.repescResponse.cpauto.key
             cpAutoValor = document.getElementById("cpAutoValor").innerHTML =data.repescResponse.cpauto.title
+            document.getElementById("inputCpAutoValor").value =data.repescResponse.cpauto.title//
             cpAutoParcelasMax =document.getElementById("cpAutoParcelasMax").innerHTML = data.repescResponse.cpauto.message
         }
         cpPuroShow = data.repescResponse.cppuro.show
         if(cpPuroShow=="S"){
             cpPuroKey = document.getElementById("cpPuroKey").innerHTML =data.repescResponse.cppuro.key
             cpPuroValor = document.getElementById("cpPuroValor").innerHTML =data.repescResponse.cppuro.title
+            document.getElementById("inputCpPuroValor").value =data.repescResponse.cppuro.title//
             cpPuroParcelasMax = document.getElementById("cpPuroParcelasMax").innerHTML =data.repescResponse.cppuro.message
         } 
-        uuid = document.getElementById("uuid").value =data.uuid,
-        code = document.getElementById("code").value =data.repescResponse.code,
+        if(cpAutoShow=="N"&&cpPuroShow=="N"){
+            alert("No momento nao existe nenhum produto diponível para esse CPF")
+        }
+
+        uuid = document.getElementById("uuid").value =data.uuid
+        code = document.getElementById("code").value =data.repescResponse.code
         ficoCode = document.getElementById("ficoCode").value =data.repescResponse.ficoCode
           
     })
@@ -262,19 +276,23 @@ function simularCpPuro(cpf, access_token, sessionId, vencimento, valorEmprestimo
                document.getElementById("valorEmprestimo2").innerHTML= document.getElementById("myRange").value,
                document.getElementById("totalPagofinal").innerHTML= data.simulationResponse.cet.valorTotalPagoFinal,
                document.getElementById("valorCadaParcela").innerHTML= data.simulationResponse.cet.valorParcela,
-               document.getElementById("vencimento2").innerHTML= document.getElementById("vencimento").value;
-               document.getElementById("alertaValor").innerHTML= data.simulationResponse.alertaMensagem
+               document.getElementById("vencimento2").innerHTML= document.getElementById("vencimento").value,
+               document.getElementById("alertaValor").innerHTML= data.simulationResponse.alertaMensagem,
+               document.getElementById("uuid").value= data.simulationResponse.uuid
+
+
                if(seguro=="84"){
                   document.getElementById("resultadoSeguro").innerHTML= "Incluido:  "+data.simulationResponse.cet.seguroBem.nmSeguro
                }else if (seguro=="75"){
                 document.getElementById("resultadoSeguro").innerHTML= "Não";
                }
-            })// dar um inner html com os resultados da simulação 
+            })
             .catch(error => console.log('error', error));
         }
 
 
- function finalizarCpPuro(sessionId,access_token,uuid,name,cpf,dateOfBirthFoundation, email,renda,ddd,number){
+ function finalizar(sessionId,access_token,uuid,name,cpf,dateOfBirthFoundation, email,renda,ddd,number){
+
 
             var  ddd =document.getElementById("ddd").value;
             var  number =document.getElementById("telefone").value;
@@ -367,32 +385,160 @@ function simularCpPuro(cpf, access_token, sessionId, vencimento, valorEmprestimo
               redirect: 'follow'
             };
             fetch("https://viverebrasil.com.br/sanredapigwpro/api/pro/capture/cp/proposal", requestOptions)
-              .then(response => response.text())
-              .then(result => console.log(result))
+              .then(response => response.json())
+              .then(function (data) {
+
+                
+                        if(data.match(/@ERFSE0502/)){
+                            alert('Verifique a data de vencimento');
+                        };
+                        
+                        if(data.match(/@ERFSE0552/)){
+                            alert('Erro Produtox Tabela');
+                            };
+                        
+                        if(data.match(/@ERFSE0564/)){
+                            alert('Erro Pessoax tabela');
+                            };
+                        
+                        if(data.match(/@ERFSE0579/)){
+                            alert('Erro IOF Tabela');
+                            };
+                        
+                        if(data.match(/@ERFSE0589/)){
+                            alert('Ano ou percentual mínimo de entrada inválido');
+                            };
+                        
+                        if(data.match(/@ERFSE0768/)){
+                            alert('CARENCIA MAIOR QUE MÁXIMA CADASTRADA');
+                            };
+                        
+                        if(data.match(/@ERQCE0122/)){
+                            alert('erro PS7');
+                            };
+                        
+                        if(data.match(/@ERSQE0018/)){
+                            alert('TAMANHO ENDERECO EXCEDEU O LIMITE. FAVOR ABREVIAR');
+                            };
+                        
+                        if(data.match(/@ERSQE0058/)){
+                            alert('NAO HA AGENTE CERTIFICADO');
+                            };
+                        
+                        if(data.match(/@ERVJE0003/)){
+                            alert('ACESSO ROTINA CIPR32F ERRO ACESSO VSAM - C');
+                            };
+                        
+                        if(data.match(/@ERVJE0010/)){
+                            alert('TIPO DE PRODUTO INVALIDO";');
+                            };
+                        
+                        if(data.match(/@ERVJE0016/)){
+                            alert('DATAS INVÁLIDAS');
+                            };
+                        
+                        if(data.match(/@ERVJE0019/)){
+                            alert('O CANAL UTILIZADO ESTA INDISPONIVEL PARA ESSA LOJA');
+                            };
+                        
+                        if(data.match(/@ERVJE0028/)){
+                            alert('CAMPO CÓDIGO PROPOSTA, CEP OU RENDA MENSAL NAO INFORMADO CORRETAMENTE');
+                            };
+                        
+                        if(data.match(/@ERVJE0033/)){
+                            alert('FINANCIAMENTO NAO DISPONIVEL PARA ESSE VEICULO');
+                            };
+                        
+                        if(data.match(/@ERVJE0039/)){
+                            alert('ERRO DB2 NA TABELA VJGT0010 - SQLCODE -0904');
+                            };
+                        
+                        if(data.match(/@ERVJE0046/)){
+                            alert('CAMPO NOME MÃE, DATA DE NASCIMENTO , CIDADE , OU AGENTE INVÁLIDO(S)');
+                            };
+                        
+                        if(data.match(/@ERVJE0050/)){
+                            alert('CLI-CPF DO CONJUGE INVÁLIDO');
+                            };
+                        
+                        if(data.match(/@ERVJE0051/)){
+                            alert('DATA DE NASCIMENTO É MAIOR QUE A DATA DE EMISSAO DO DOCUMENTO');
+                            };
+                        
+                        if(data.match(/@ERVJE0054/)){
+                            alert('ERRO NO START DO ARQUIVO . EIBRES.');
+                            };
+                        
+                        if(data.match(/@ERVJE0061/)){
+                            alert('');
+                            };
+                        
+                        if(data.match(/@ERVJE0064/)){
+                            alert('VALOR DO BEM INVALIDO OU NAO INFORMADO');
+                            };
+                        
+                        if(data.match(/@ERVJE0074/)){
+                            alert('DATA DO PRIMEIRO VENCIMENTO MENOR QUE O PERMITIDO');
+                            };
+                        
+                        if(data.match(/@ERVJE0096/)){
+                            alert('ERRO FILIAL');
+                            };
+                        
+                        if(data.match(/@ERVJE0097/)){
+                            alert('UF - DESPESA CARTORIO INVALIDA');
+                            };
+                        
+                        if(data.match(/@ERVJE0100/)){
+                            alert('ERRO CHAMADA SUB-ROTINA AFCS0002');
+                            };
+                        
+                        if(data.match(/@ERVJE0115/)){
+                            alert('ERRO DDD TELEFONE FIXO');
+                            };
+                        
+                        if(data.match(/@ERVJE0147/)){
+                            alert('FORMA DE PAGAMENTO NAO AUTORIZADA PARA O INTERMEDIARIO / PRODUTO');
+                            };
+                        
+                        if(data.match(/@ERVJE0152/)){
+                            alert('CONTA CORRENTE DEVE TER NO MINIMO 7 DIGITOS');
+                            };
+                        
+                        if(data.match(/@ERVJE0154/)){
+                            alert('RENDA MENSAL DO TITULAR DEVE ESTAR ENTRE R$ 0,00 A R$ 199.999,99');
+                            };
+                        
+                        if(data.match(/@ERVJE0160/)){
+                            alert('DATA DE NASCIMENTO - IDADE DEVE SER MENOR OU IGUAL A 100 ANOS');
+                            };
+                        
+                        if(data.match(/@ERVJE0167/)){
+                            alert('ANO DE FABRICACAO E ANO DO MODELO ESTAO INCOERENTES');
+                            };
+                        
+                        if(data.match(/@ERVJE0168/)){
+                            alert('ANO FABRICACAO DEVE SER MENOR OU IGUAL AO ANO MODELO');
+                            };
+                        
+                        if(data.match(/@ERVJE0208/)){
+                            alert('SUBSEG INVALIDO PARA O INTERMEDIARIO');
+                            };
+                document.getElementById("numeroPropostaModal").innerHTML =  data.proposalId;
+                document.getElementById("statusPropostaModal").innerHTML =  data.statusDescription;
+                 console.log(data)
+                 
+         
+              })
               .catch(error => console.log('error', error));
         };
 
 
 
+
+
 //FUNCOES DE VALIDACAO DE CEP
 
-        
-$(function () {
-    $('#cep').change(function () {
-        var cep = $(this).val().replace('-', '').replace('.', '');
-        if (cep.length === 8) {
-            $.get("https://viacep.com.br/ws/" + cep + "/json", function (data) {
-                if (!data.erro) {
-                    $('#bairro').val(data.bairro);
-                    $('#complemento').val(data.complemento);
-                    $('#cidade').val(data.localidade);
-                    $('#rua').val(data.logradouro);
-                    $('#uf').val(data.uf);
-                }
-            }, 'json');
-        }
-    });
-    });
 
 function verificaCep() {
         let inputCep = document.querySelector('input[name=cep]');
@@ -413,14 +559,25 @@ function verificaCep() {
     
 function getCountryId(json) {
         let cityId = json.countyId;
+        let street = json.street;
+        let district =json.district;
+        let city=json.city;
+        let state =json.state;
+
+        document.getElementById("rua").value =street;
+        document.getElementById("bairro").value =district;
+        document.getElementById("cidade").value =city;
+        document.getElementById("uf").value =state;
+
         return cityId;
+
     };
 
 function chamaHtml(){//jogar a funcao get dentro desse codigo
 
     var inclusaoInputsCpAuto = document.getElementById("showCpAuto");
     inclusaoInputsCpAuto.innerHTML= 
-           `<div class="bg-titulo mt-0">
+           `<div class="bg-titulo mt-0" id="divFilha">
     
             <h3>
                 Dados do Veículo
@@ -430,7 +587,7 @@ function chamaHtml(){//jogar a funcao get dentro desse codigo
             </div>
 
 
-            <div class="form-row">
+            <div class="form-row" id="formularioVeiculo">
                 <div class="col-md-4 mb-3">
                     <label for="validationCustom02">Marca</label>
                     <select class="form-control form-control-sm" id="marca" >
@@ -485,7 +642,10 @@ function chamaHtml(){//jogar a funcao get dentro desse codigo
                     </select>
 
                 </div>
-        <br><br><br>   ` ;
+        <br><br><br> 
+        
+        
+        ` ;
         getMarcaVeiculo();
 };
 
@@ -616,117 +776,13 @@ function salvarVeiculo(option,vAutoYearFuel,vAutoMake,vAutoModel,vAutoTypeId,vAu
     return arrayVeiculo;
  
 };
-var teste = salvarVeiculo();
-console.log(teste)
 
-/////////////////////////////////////CONTINUAR///////////////////////////////////////////////////
-
-function valida_form(){ //ao clickar no botao
-    var codigoCidade =  document.getElementById("vAddressCity").value;//valor do input hidden da cidade
-        if(codigoCidade === "" || codigoCidade === "undefined"){ 
-                var msg =   document.getElementById("mensagemCep");
-                msg.innerHTML = "CEP com possibilidade de erro na inclusão";
-        }else{
-            var msg =   document.getElementById("mensagemCep");
-                msg.innerHTML = "CEP ok";
-        };
-        return msg;
-    };
-
-function reguaMaxCpPuro(){ 
-    // ( trazer valor sem R$)
-     //get by id 
-     // dar um console log pra debug
-     //colocar no value max da regua
-         
-};
-
-function reguaMaxCpAuto(){ 
-     // ( trazer valor sem R$)
-     //get by id 
-     // dar um console log pra debug
-     //colocar no value max da regua
-         
-};
-
-function limiteVencimento(){
-//pegar do input hidden as datas
-//colocar no value max e min do calendario
-};
-
-//nomear os ids corretamente
-
-function valida_form(){ //ao perder o foco do campo CEP  essa função é acionada
-    var codigoCidade =  document.getElementById("vAddressCity").value;
-           
-           if(codigoCidade === "" || codigoCidade === "undefined"){ // verifica se tem codigo da cidade
-
-                var msg =   document.getElementById("mensagemCep");  //coloca mensagem na div 
-                 msg.innerHTML = "CEP com possibilidade de erro na inclusão";
-
-           }else{
-
-               var msg =   document.getElementById("mensagemCep");
-                 msg.innerHTML = "CEP ok";
-
-           };
-
-           return msg;
-   };
-
-
-
-   function alertaProdutosIndisponiveis(){
-    //se ambos forem nao (N fazer um alert) pegar por id
-   };
-
-
-//se a resposta conter ervj ,  jogar na variavel toda a resposta na variavel e tratar
-/*
-   switch (expr) {
-    case "Laranjas":
-      console.log("As laranjas custam $0.59 o quilo.");
-      break;
-    case "Maçãs":
-      console.log("Maçãs custam $0.32 o quilo.");
-      break;
-    case "Bananas":
-      console.log("Bananas custam $0.48 o quilo.");
-      break;
-    case "Cerejas":
-      console.log("Cerejas custam $3.00 o quilo.");
-      break;
-    case "Mangas":
-    case "Mamões":
-      console.log("Mangas e mamões custam $2.79 o quilo.");
-      break;
-    default:
-      console.log("Desculpe, estamos sem nenhuma " + expr + ".");
-  }
-*/
-/*
-
-//apos clicar em simular chamar uma funcao q verifica se u uuid esta vazio, enquanto ele estiver vazio
-//usar um carregando
-
-modal de resultado da simulacao //a principio fazer na mesma pagina e depois so copiar os ids
-
-pegar todos os dados para dar um 
-insert Na esteira nova
-
-
-
-*/
-
-
-//usar uma funcao chamada simular e dentro dela um if pra saber se e cp auto ou cp puro
 
 function simularCpAuto(cpf, access_token, sessionId, vencimento, valorEmprestimo, renda, uuid,
     vAutoYearFuel,vAutoMake,vAutoModel,vAutoYear,seguro){
         var option = $( "#modelo" ).find("option:checked");
         var vAutoYearFuel    = option.data('yearfuelid');
         
-//fazer um if else para substiruir os valores de forma de pagamento ***confirmar quais sao
 
         vAutoMake = document.getElementById('marca').value;
         vAutoModel =document.getElementById('modelo').value;
@@ -820,13 +876,153 @@ function simularCpAuto(cpf, access_token, sessionId, vencimento, valorEmprestimo
        document.getElementById("valorEmprestimo2").innerHTML= document.getElementById("myRange").value,
        document.getElementById("totalPagofinal").innerHTML= data.simulationResponse.cetInformation.valorTotalPagoFinal,
        document.getElementById("valorCadaParcela").innerHTML= data.simulationResponse.cetInformation.valorParcela,
-       document.getElementById("vencimento2").innerHTML= document.getElementById("vencimento").value;
-       document.getElementById("alertaValor").innerHTML= data.simulationResponse.alertaMensagem;
+       document.getElementById("vencimento2").innerHTML= document.getElementById("vencimento").value,
+       document.getElementById("alertaValor").innerHTML= data.simulationResponse.alertaMensagem,
+       document.getElementById("uuid").value= data.simulationResponse.uuid
+       
+
       /* if(seguro=="84"){
           document.getElementById("resultadoSeguro").innerHTML= "Incluido:  "+data.simulationResponse.cetInformation.seguroBem.nmSeguro
        }else if (seguro=="75"){
         document.getElementById("resultadoSeguro").innerHTML= "Não";
        }*/
-    })// dar um inner html com os resultados da simulação 
+    })
     .catch(error => console.log('error', error));
 }
+
+
+function modal(){
+
+ 
+ 
+    var inclusaoInputsCpAuto = document.getElementById("showCpAuto");
+    inclusaoInputsCpAuto.innerHTML= 
+   `
+   <div class="modal fade modalvisualizarsim" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+   aria-hidden="true" >
+   <div class="modal-dialog modal-lg">
+       <div class="modal-content">
+   
+           <div class="modal-header">
+               <img src="logocolorido.png" style="height: 70px; right: 70px;">
+               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                   <span aria-hidden="true">&times;</span>
+               </button>
+           </div>
+           <div class="modal-body">
+               <form class="needs-validation mt-4" novalidate>
+   
+   
+   
+   
+                   <div class="form-row">
+   
+                       <div class="col-md-12 mb-3">
+                           <label for="validationCustom01">Número da Proposta</label>
+                               <div id="numeroPropostaModal" ></div>
+                       </div>
+
+                       <div class="col-md-12 mb-3">
+                       <label for="validationCustom01">Status da Proposta</label>
+                       <div id="statusPropostaModal" ></div>
+
+                       </div>
+   
+                   </div>
+   
+           </form>
+           
+           <hr>
+   
+   
+           <div class="opcoes-cadastro" style="text-align: center; margin-inline: block;">
+               <button type="button" class="btn btn-primary btn-icon-label" data-toggle="modal" 
+               data-target=".modalvisualizarsim" title="Alterar" onclick="salvarBd">
+                   <span class="btn-inner--icon">
+                       <i class="fas fa-check"></i>
+                   </span>
+                   <span class="btn-inner--text">Confirmar</span>
+               </button>
+   
+   
+           </div>
+   
+   
+           </div>
+               
+                       </div>
+                   </div>
+                   </div>` ;
+
+
+
+    //pegar valor do input do numero da proposta e dar um inner html nessa div
+    
+};//no botao de confirmar puxar a funcao q salva no bd
+
+function excluirCpAuto(){
+    document.getElementById("divFilha").style.display="none";
+    document.getElementById("formularioVeiculo").style.display="none";
+};
+
+
+
+function limiteVencimento(){
+    var dataMaxima = document.getElementById("dataMaxima").value;
+    var dataMinima = document.getElementById("dataMinima").value;
+    $("#vencimento").attr({
+        "max" : dataMaxima,
+        "min" : dataMinima
+     });
+};
+
+
+
+function simular(){
+                    
+    const pai = document.getElementById("showCpAuto");
+    const filho = pai.querySelector("#divFilha");
+    
+    if (filho !== null) {
+       simularCpAuto();
+    } else {
+       simularCpPuro();
+    }
+
+};
+
+
+function reguaCpAuto(){//chamar na escolha do produto
+    var valorMaxRegua = document.getElementById("inputCpAutoValor").value
+    var rs ="R$ "
+    valorMaxRegua = valorMaxRegua.replace(rs,'');
+    valorMaxRegua = valorMaxRegua.replace('.','');
+    document.getElementById("myRange").max = valorMaxRegua
+};
+
+
+function reguaCpPuro(){//chamar na escolha do produto
+    var valorMaxRegua = document.getElementById("inputCpPuroValor").value
+    var rs ="R$ "
+    valorMaxRegua = valorMaxRegua.replace(rs,'');
+    valorMaxRegua = valorMaxRegua.replace('.','');
+    document.getElementById("myRange").max = valorMaxRegua
+
+};
+             /*
+
+                *loading pre analise e modal , dentro da funcao apos o 
+                clique do botao chamar a funcao carregando on, apos a resposta renderizada colocar carregando off
+                mandar(csp) o html ao chamar a funcao, apos o then dar um display none
+
+                *salvar no banco***fetch****valores dos inputs hidden******usar  maquino
+                 local com a api atualizada 
+
+                */
+
+
+
+
+
+
+             
