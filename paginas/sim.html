@@ -812,23 +812,21 @@
     
                                         </div>
                                         <br><br>
-                                    <button type="button" class="btn btn-primary btn-icon-label" title="Analisar" onclick="gerarToken()">
+                                        <div class="opcoes-cadastro" style="text-align: center; margin-inline: block;">
+                                    <button type="button" class="btn btn-primary btn-icon-label" title="Analisar" onclick="gerarToken();loading();">
     
                                         <span class="btn-inner--icon">
                                             <i class="fas fa-search-dollar"></i>
                                         </span>
                                         <span class="btn-inner--text">Analisar</span>
                                     </button>
-                                
+                                </div>
                                 <br><br><br><br><br>
-
-
-
 
                                     <div class="bg-titulo mt-0">
 
                                         <h3>
-                                            Produtos Disponíveis
+                                            Escolha o produto Disponível
 
                                         </h3>
 
@@ -842,6 +840,7 @@
                                                 </div>
                                                 <div id="cpAutoValor">
                                                 </div>
+                                                <input type="hidden" id="inputCpAutoValor">
                                                 <div id="cpAutoParcelasMax">
                                                 </div>
 
@@ -852,6 +851,7 @@
                                                 </div>
                                                 <div id="cpPuroValor">
                                                 </div>
+                                                <input type="hidden" id="inputCpPuroValor">
                                                 <div id="cpPuroParcelasMax">
                                                 </div>
 
@@ -861,7 +861,8 @@
                                         <br><br><br>
                                 <div class="opcoes-cadastro" style="text-align: center; margin-inline: block;">
                                    
-                                    <button type="button" class="btn btn-primary btn-icon-label" title="Analisar" id="cpAutoKey" onclick="chamaHtml()">
+                                    <button type="button" class="btn btn-primary btn-icon-label" title="Analisar" 
+                                    id="cpAutoKey" onclick="chamaHtml();limiteVencimento();reguaCpAuto();">
                                     
                                         <span class="btn-inner--icon">
                                             <i class="far fa-arrow-left"></i>
@@ -870,7 +871,8 @@
                                     </button>
 
                      
-                                        <button type="button" class="btn btn-primary btn-icon-label" title="Analisar" id="cpPuroKey">
+                                        <button type="button" class="btn btn-primary btn-icon-label" title="Analisar"
+                                         id="cpPuroKey" onclick="limiteVencimento(); reguaCpPuro(); excluirCpAuto();" >
 
                                            
                                             <span class="btn-inner--icon">
@@ -967,28 +969,32 @@
                                                     <option value="75">NÃO</option>
                                                 </select>
                                             </div>
+                                            
                                             <div class="container "><br><br><br><br><br>
                                                 <div class=" col-md-12 mb-3">
                                                      <div class="slidercontainer">
-                                                         <label for="validationCustom02">Valor do Empréstimo</label>
-                                                         <input type="range" min="500" max="20000" value="100" class="slider" id="myRange" name="valorSimulacao" >
-                                                         <div class="container"><h6>R$ <span id="demo"></span></h6></div>  
+                                                        <div class="opcoes-cadastro" style="text-align: center; margin-inline: block;">
+                                                              <label for="validationCustom02">Valor do Empréstimo</label>
+                                                            </div>
+                                                         <input type="range"   min="500" class="slider" id="myRange" name="valorSimulacao" >
+                                                         <div class="opcoes-cadastro" style="text-align: center; margin-inline: block;"> 
+                                                            <div class="container"><h6>R$ <span id="demo"></span></h6></div></div>  
              
                                                      </div>
                                                  </div>
-                                                 <br><br><br><br> <div id="showCpAuto"></div><br><br><br>
+                                                 <div id="showCpAuto"></div><br>
                                              </div>
-                                             
-                                             <button type="button" class="btn btn-primary btn-icon-label" title="Analisar"  onclick="simularCpAuto()">
+                                            </div><br><br>
+                                            <div class="opcoes-cadastro" style="text-align: center; margin-inline: block;">
+                                             <button type="button" class="btn btn-primary btn-icon-label" title="Analisar"  onclick="simular()">
     
                                                 <span class="btn-inner--icon">
                                                     <i class="fas fa-search-dollar"></i>
                                                 </span>
                                                 <span class="btn-inner--text">Simular</span>
                                             </button>
-                                        </div><br><br><br>
-                                        
-
+                                        </div><br><br><br><br>
+                                
                                         <div class="bg-titulo mt-3">
     
                                             <h3>
@@ -1003,6 +1009,7 @@
                                     <div class="valoremprestimo mt-3" id="">valor do emprestimo solicitado: </div>
                                     <div class="valoremprestimo mt-3" id="valorEmprestimo2"></div>
                                     <div class="valoremprestimo mt-3" id="alertaValor"></div>
+
 
                                     <div class="valoremprestimo mt-3" id="">total pago no fiNAL</div>
                                     <div class="valoremprestimo mt-3" id="totalPagofinal"></div>
@@ -1024,8 +1031,7 @@
                                      
                                     <div class="valoremprestimo mt-3" id="">seguro</div>
                                     <div class="valoremprestimo mt-3" id="resultadoSeguro"></div>
-                                    
-    
+
     
                              </div>
                        
@@ -1048,7 +1054,7 @@
                                         
                                             <div class="col-md-4 mb-3">
                                                 <label for="validationCustom01">CEP</label>
-                                                <input type="text" class="form-control form-control-sm"  id="cep" name="cep" onblur="verificaCep();" required="">
+                                                <input type="text" class="form-control form-control-sm"  id="cep" name="cep" onblur="verificaCep(); preencheAutomatico();" required="">
     
                                             </div>
                                             <div class="col-md-4 mb-3">
@@ -1215,7 +1221,7 @@
                                     <div class="opcoes-cadastro" style="text-align: center; margin-inline: block;">
                                         <button type="button" class="btn btn-primary btn-icon-label"
                                          data-toggle="modal" data-target=".modalvisualizarsim" title="Alterar"
-                                         onclick="finalizarCpPuro()">
+                                         onclick="modal();finalizar();">
                                             <span class="btn-inner--icon">
                                                 <i class="fas fa-plus"></i>
                                             </span>
@@ -1223,6 +1229,8 @@
                                         </button>
                                     </div>
                                     <br><br><br><br><br>
+                                    <input type="hidden" id="numeroProposta">
+                                    <input type="hidden" id="statusProposta">
                                 </div>
                                 
                             </div>
@@ -1254,94 +1262,7 @@
 
 
 
-
-
-
-        <div class="modal fade modalvisualizarsim" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-    
-                <div class="modal-header">
-                    <img src="logocolorido.png" style="height: 70px; right: 70px;">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <form class="needs-validation mt-4" novalidate>
-    
-    
-    
-    
-                        <div class="form-row">
-    
-                            <div class="col-md-12 mb-3">
-                                <label for="validationCustom01">Número da Proposta</label>
-                                <input type="text" class="form-control form-control-sm"
-                                    id="validationCustom01" required>
-    
-                            </div>
-    
-    
-                            <div class="col-md-6 mb-3">
-                                <label for="validationCustom01">Valor</label>
-                                <input type="text" class="form-control form-control-sm"
-                                    id="validationCustom01" required>
-    
-                            </div>
-    
-                            <div class="col-md-6 mb-3">
-                                <label for="validationCustom01">Parcela</label>
-                                <input type="text" class="form-control form-control-sm"
-                                    id="validationCustom01" required>
-    
-                            </div>
-    
-    
-                            <div class="col-md-6 mb-3">
-                                <label for="validationCustom01">Valor Final</label>
-                                <input type="text" class="form-control form-control-sm"
-                                    id="validationCustom01" required>
-    
-                            </div>
-    
-    
-                            <div class="col-md-6 mb-1">
-                                <label for="validationCustom01">Primeiro Pagamento</label>
-                                <input type="text" class="form-control form-control-sm"
-                                    id="validationCustom01" required>
-    
-                            </div>
-    
-    
-                        </div>
-    
-                </form>
-                
-                <hr>
-    
-    
-                <div class="opcoes-cadastro" style="text-align: center; margin-inline: block;">
-                    <button type="button" class="btn btn-primary btn-icon-label" data-toggle="modal" data-target=".modalvisualizarsim" title="Alterar">
-                        <span class="btn-inner--icon">
-                            <i class="fas fa-check"></i>
-                        </span>
-                        <span class="btn-inner--text">Confirmar</span>
-                    </button>
-    
-    
-                </div>
-    
-    
-                </div>
-    
-            </div>
-        </div>
-    </div>
-
-
-
+ 
 
 
 
@@ -1383,6 +1304,7 @@
          <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
          <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
          <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
+         <script src="jquery.blockUI.1.33.js"></script>
     </body>
 
 </html>
