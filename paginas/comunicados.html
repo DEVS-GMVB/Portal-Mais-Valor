@@ -70,12 +70,12 @@
 
                         <div class="col-md-12 mb-3">
                             <label for="validationCustom01">Título Comunicado</label>
-                            <input type="text" class="form-control form-control-sm" id="validationCustom01" required>
+                            <input type="text" class="form-control form-control-sm" id="campo-titulo" required>
 
                         </div>
                         <div class="col-md-12 mb-3">
                             <label for="exampleFormControlTextarea1">Texto</label>
-                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                            <textarea class="form-control" id="campo-texto" rows="3"></textarea>
                         </div>
 
                         <div class="col-md-4 mb-3">
@@ -114,7 +114,7 @@
                         <div class="col-md-12 mb-3">
                             <div class="form-group">
                                 <label for="exampleFormControlSelect1">Status</label>
-                                <select class="form-control form-control-sm" id="exampleFormControlSelect1" required>
+                                <select class="form-control form-control-sm" id="campo-status" required>
                                     <option> </option>
                                     <option> ATIVO </option>
                                     <option> INATIVO </option>
@@ -134,7 +134,7 @@
                 <div class="opcoes-cadastro" style="text-align: center; margin-inline: block;">
 
                     <button type="button" class="btn btn-primary btn-icon-label" title="Analisar"
-                        data-toggle="modal" data-target=".moda-alterar-comunicados">
+                        data-toggle="modal" data-target=".moda-alterar-comunicados" id="btn-incluir">
 
                         <span class="btn-inner--icon">
                             <i class="fas fa-plus"></i>
@@ -851,7 +851,7 @@
                                 </div>
 
                                 <div class="table-responsive mt-4">
-                                    <table class="table align-items-center">
+                                    <table class="table align-items-center" id="table">
                                         <thead>
                                             <tr>
                                                 <th scope="col" style="text-align: center;"><b>Título Chamado</b></th>
@@ -865,7 +865,7 @@
 
                                             </tr>
                                         </thead>
-                                        <tbody>
+                                        <tbody id="list">
 
                                             <tr>
                                                 <td>
@@ -876,7 +876,7 @@
                                                 </td>
                                                 <th scope="row">
                                                     <button type="button"
-                                                        class="btn btn-sm btn-secondary btn-icon rounded-pill">
+                                                        class="btn btn-sm btn-secondary btn-icon rounded-pill" id="btn-download1">
                                                         <span class="btn-inner--icon"><i
                                                                 class="far fa-download"></i></span>
                                                         <span class="btn-inner--text">Download</span>
@@ -884,7 +884,7 @@
                                                 </th>
                                                 <th scope="row">
                                                     <button type="button"
-                                                        class="btn btn-sm btn-secondary btn-icon rounded-pill">
+                                                        class="btn btn-sm btn-secondary btn-icon rounded-pill" id="btn-download2">
                                                         <span class="btn-inner--icon"><i
                                                                 class="far fa-download"></i></span>
                                                         <span class="btn-inner--text">Download</span>
@@ -892,7 +892,7 @@
                                                 </th>
                                                 <th scope="row">
                                                     <button type="button"
-                                                        class="btn btn-sm btn-secondary btn-icon rounded-pill">
+                                                        class="btn btn-sm btn-secondary btn-icon rounded-pill" id="btn-download3">
                                                         <span class="btn-inner--icon"><i
                                                                 class="far fa-download"></i></span>
                                                         <span class="btn-inner--text">Download</span>
@@ -979,8 +979,6 @@
     <script src="../assets/js/mascaras.js"></script>
     <script src="../assets/js/mascarasvalores.js"></script>
     <!-- Import Get para popular campos -->
-    <script src="../assets/js/cadastro.js"></script>
-    <script src="../assets/js/propostas.js"></script>
 </body>
 
 </html>
