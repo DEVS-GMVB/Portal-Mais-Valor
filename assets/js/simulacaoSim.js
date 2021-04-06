@@ -148,7 +148,7 @@ function preAnalise(access_token, sessionId, name, email, dateOfBirthFoundation,
     fetch("https://viverebrasil.com.br/sanredapigwpro/api/pro/identification/cp/", requestOptions)//na hora do fetch da erro 
     .then(response => response.json())
     .then(function (data) {
-        
+        console.log(data)
 
         if(data.repescResponse.accessMessageText=="EXISTE PROPOSTA EM ANDAMENTO"){
                 alert(data.repescResponse.accessMessageText)
@@ -267,25 +267,28 @@ function simularCpPuro(cpf, access_token, sessionId, vencimento, valorEmprestimo
             fetch("https://viverebrasil.com.br/sanredapigwpro/api/pro/simulation/cp/", requestOptions)
             .then(response => response.json())
             .then(function (data) {
-
+                console.log(data)
                var selectParcelas = document.getElementById('qtdParcelas');
                var qtdParcelas = selectParcelas.value; //erro aqui 
                document.getElementById("qtdParcelas2").innerHTML= qtdParcelas,
                document.getElementById("taxaAnual").innerHTML= data.simulationResponse.cet.pcTaxaAnual,
+               document.getElementById("inputTaxaAnual").value= data.simulationResponse.cet.pcTaxaAnual,//
                document.getElementById("taxaMensal").innerHTML= data.simulationResponse.cet.pcTaxaMensal,
+               document.getElementById("inputTaxaMensal").value= data.simulationResponse.cet.pcTaxaMensal,//
                document.getElementById("valorEmprestimo2").innerHTML= document.getElementById("myRange").value,
                document.getElementById("totalPagofinal").innerHTML= data.simulationResponse.cet.valorTotalPagoFinal,
                document.getElementById("valorCadaParcela").innerHTML= data.simulationResponse.cet.valorParcela,
+               document.getElementById("inputParcelas").value= data.simulationResponse.cet.valorParcela,//
                document.getElementById("vencimento2").innerHTML= document.getElementById("vencimento").value,
                document.getElementById("alertaValor").innerHTML= data.simulationResponse.alertaMensagem,
                document.getElementById("uuid").value= data.simulationResponse.uuid
-
 
                if(seguro=="84"){
                   document.getElementById("resultadoSeguro").innerHTML= "Incluido:  "+data.simulationResponse.cet.seguroBem.nmSeguro
                }else if (seguro=="75"){
                 document.getElementById("resultadoSeguro").innerHTML= "Não";
                }
+               ervj(data);
             })
             .catch(error => console.log('error', error));
         }
@@ -388,147 +391,11 @@ function simularCpPuro(cpf, access_token, sessionId, vencimento, valorEmprestimo
               .then(response => response.json())
               .then(function (data) {
 
-                
-                        if(data.match(/@ERFSE0502/)){
-                            alert('Verifique a data de vencimento');
-                        };
-                        
-                        if(data.match(/@ERFSE0552/)){
-                            alert('Erro Produtox Tabela');
-                            };
-                        
-                        if(data.match(/@ERFSE0564/)){
-                            alert('Erro Pessoax tabela');
-                            };
-                        
-                        if(data.match(/@ERFSE0579/)){
-                            alert('Erro IOF Tabela');
-                            };
-                        
-                        if(data.match(/@ERFSE0589/)){
-                            alert('Ano ou percentual mínimo de entrada inválido');
-                            };
-                        
-                        if(data.match(/@ERFSE0768/)){
-                            alert('CARENCIA MAIOR QUE MÁXIMA CADASTRADA');
-                            };
-                        
-                        if(data.match(/@ERQCE0122/)){
-                            alert('erro PS7');
-                            };
-                        
-                        if(data.match(/@ERSQE0018/)){
-                            alert('TAMANHO ENDERECO EXCEDEU O LIMITE. FAVOR ABREVIAR');
-                            };
-                        
-                        if(data.match(/@ERSQE0058/)){
-                            alert('NAO HA AGENTE CERTIFICADO');
-                            };
-                        
-                        if(data.match(/@ERVJE0003/)){
-                            alert('ACESSO ROTINA CIPR32F ERRO ACESSO VSAM - C');
-                            };
-                        
-                        if(data.match(/@ERVJE0010/)){
-                            alert('TIPO DE PRODUTO INVALIDO";');
-                            };
-                        
-                        if(data.match(/@ERVJE0016/)){
-                            alert('DATAS INVÁLIDAS');
-                            };
-                        
-                        if(data.match(/@ERVJE0019/)){
-                            alert('O CANAL UTILIZADO ESTA INDISPONIVEL PARA ESSA LOJA');
-                            };
-                        
-                        if(data.match(/@ERVJE0028/)){
-                            alert('CAMPO CÓDIGO PROPOSTA, CEP OU RENDA MENSAL NAO INFORMADO CORRETAMENTE');
-                            };
-                        
-                        if(data.match(/@ERVJE0033/)){
-                            alert('FINANCIAMENTO NAO DISPONIVEL PARA ESSE VEICULO');
-                            };
-                        
-                        if(data.match(/@ERVJE0039/)){
-                            alert('ERRO DB2 NA TABELA VJGT0010 - SQLCODE -0904');
-                            };
-                        
-                        if(data.match(/@ERVJE0046/)){
-                            alert('CAMPO NOME MÃE, DATA DE NASCIMENTO , CIDADE , OU AGENTE INVÁLIDO(S)');
-                            };
-                        
-                        if(data.match(/@ERVJE0050/)){
-                            alert('CLI-CPF DO CONJUGE INVÁLIDO');
-                            };
-                        
-                        if(data.match(/@ERVJE0051/)){
-                            alert('DATA DE NASCIMENTO É MAIOR QUE A DATA DE EMISSAO DO DOCUMENTO');
-                            };
-                        
-                        if(data.match(/@ERVJE0054/)){
-                            alert('ERRO NO START DO ARQUIVO . EIBRES.');
-                            };
-                        
-                        if(data.match(/@ERVJE0061/)){
-                            alert('');
-                            };
-                        
-                        if(data.match(/@ERVJE0064/)){
-                            alert('VALOR DO BEM INVALIDO OU NAO INFORMADO');
-                            };
-                        
-                        if(data.match(/@ERVJE0074/)){
-                            alert('DATA DO PRIMEIRO VENCIMENTO MENOR QUE O PERMITIDO');
-                            };
-                        
-                        if(data.match(/@ERVJE0096/)){
-                            alert('ERRO FILIAL');
-                            };
-                        
-                        if(data.match(/@ERVJE0097/)){
-                            alert('UF - DESPESA CARTORIO INVALIDA');
-                            };
-                        
-                        if(data.match(/@ERVJE0100/)){
-                            alert('ERRO CHAMADA SUB-ROTINA AFCS0002');
-                            };
-                        
-                        if(data.match(/@ERVJE0115/)){
-                            alert('ERRO DDD TELEFONE FIXO');
-                            };
-                        
-                        if(data.match(/@ERVJE0147/)){
-                            alert('FORMA DE PAGAMENTO NAO AUTORIZADA PARA O INTERMEDIARIO / PRODUTO');
-                            };
-                        
-                        if(data.match(/@ERVJE0152/)){
-                            alert('CONTA CORRENTE DEVE TER NO MINIMO 7 DIGITOS');
-                            };
-                        
-                        if(data.match(/@ERVJE0154/)){
-                            alert('RENDA MENSAL DO TITULAR DEVE ESTAR ENTRE R$ 0,00 A R$ 199.999,99');
-                            };
-                        
-                        if(data.match(/@ERVJE0160/)){
-                            alert('DATA DE NASCIMENTO - IDADE DEVE SER MENOR OU IGUAL A 100 ANOS');
-                            };
-                        
-                        if(data.match(/@ERVJE0167/)){
-                            alert('ANO DE FABRICACAO E ANO DO MODELO ESTAO INCOERENTES');
-                            };
-                        
-                        if(data.match(/@ERVJE0168/)){
-                            alert('ANO FABRICACAO DEVE SER MENOR OU IGUAL AO ANO MODELO');
-                            };
-                        
-                        if(data.match(/@ERVJE0208/)){
-                            alert('SUBSEG INVALIDO PARA O INTERMEDIARIO');
-                            };
                 document.getElementById("numeroPropostaModal").innerHTML =  data.proposalId;
+                document.getElementById("inputProposta").value =  data.proposalId;
                 document.getElementById("statusPropostaModal").innerHTML =  data.statusDescription;
-                 console.log(data)
-                 
-         
+
+                       ervj(data);
               })
               .catch(error => console.log('error', error));
         };
@@ -868,19 +735,26 @@ function simularCpAuto(cpf, access_token, sessionId, vencimento, valorEmprestimo
     fetch("https://viverebrasil.com.br/sanredapigwpro/api/pro/simulation/cp/", requestOptions)
     .then(response => response.json())
     .then(function (data) {
+        if(data.code==400){
+
+            alert(data.errors[0])
+        }
        var selectParcelas = document.getElementById('qtdParcelas');
        var qtdParcelas = selectParcelas.value; //erro aqui 
        document.getElementById("qtdParcelas2").innerHTML= qtdParcelas,
-       document.getElementById("taxaAnual").innerHTML= data.simulationResponse.cetInformation.pcTaxaAnual,
+       document.getElementById("taxaAnual").innerHTML= data.simulationResponse.cetInformation.pcTaxaAnual;
+       document.getElementById("inputTaxaAnual").value= data.simulationResponse.cetInformation.pcTaxaAnual,//
        document.getElementById("taxaMensal").innerHTML= data.simulationResponse.cetInformation.pcTaxaMensal,
+       document.getElementById("inputTaxaMensal").value= data.simulationResponse.cetInformation.pcTaxaMensal,//
        document.getElementById("valorEmprestimo2").innerHTML= document.getElementById("myRange").value,
        document.getElementById("totalPagofinal").innerHTML= data.simulationResponse.cetInformation.valorTotalPagoFinal,
        document.getElementById("valorCadaParcela").innerHTML= data.simulationResponse.cetInformation.valorParcela,
+       document.getElementById("inputParcelas").value= data.simulationResponse.cetInformation.valorParcela,//
        document.getElementById("vencimento2").innerHTML= document.getElementById("vencimento").value,
        document.getElementById("alertaValor").innerHTML= data.simulationResponse.alertaMensagem,
        document.getElementById("uuid").value= data.simulationResponse.uuid
        
-
+       ervj(data);
       /* if(seguro=="84"){
           document.getElementById("resultadoSeguro").innerHTML= "Incluido:  "+data.simulationResponse.cetInformation.seguroBem.nmSeguro
        }else if (seguro=="75"){
@@ -923,6 +797,10 @@ function modal(){
                        </div>
 
                        <div class="col-md-12 mb-3">
+                       <input type="hidden" id="inputProposta">
+                       </div>
+
+                       <div class="col-md-12 mb-3">
                        <label for="validationCustom01">Status da Proposta</label>
                        <div id="statusPropostaModal" ></div>
 
@@ -930,14 +808,12 @@ function modal(){
    
                    </div>
    
-           </form>
-           
+           </form>   
            <hr>
-   
-   
            <div class="opcoes-cadastro" style="text-align: center; margin-inline: block;">
                <button type="button" class="btn btn-primary btn-icon-label" data-toggle="modal" 
-               data-target=".modalvisualizarsim" title="Alterar" onclick="salvarBd">
+               data-target=".modalvisualizarsim" title="Alterar" 
+               onclick="confirmarProposta();">
                    <span class="btn-inner--icon">
                        <i class="fas fa-check"></i>
                    </span>
@@ -1009,20 +885,261 @@ function reguaCpPuro(){//chamar na escolha do produto
     document.getElementById("myRange").max = valorMaxRegua
 
 };
+
+
+
+function confirmarProposta (){
+
+
+
+                var nome = document.getElementById("nome").value
+                var ddd = document.getElementById("ddd").value
+                var telefone = document.getElementById("telefone").value
+                var cpf = document.getElementById("cpf").value
+                var email = document.getElementById("email").value
+                var myRange = document.getElementById("myRange").value
+                var dataNascimento = document.getElementById("dataNascimento").value
+                var rendaMensal = document.getElementById("rendaMensal").value
+                var formaPagamento = document.getElementById("formaPagamento").value
+                var agencia = document.getElementById("agencia").value
+                var conta = document.getElementById("conta").value
+                var digito = document.getElementById("digito").value
+                var vencimento = document.getElementById("vencimento").value
+                var qtdParcelas = document.getElementById("qtdParcelas").value
+                var cep = document.getElementById("cep").value
+                var rua = document.getElementById("rua").value
+                var bairro = document.getElementById("bairro").value
+                var cidade = document.getElementById("cidade").value
+                var uf = document.getElementById("uf").value
+                var ocupacao = document.getElementById("ocupacao").value
+                var patrimonio = document.getElementById("patrimonio").value
+                var nomeMae = document.getElementById("nomeMae").value
+                var documento = document.getElementById("documento").value
+                var emissao = document.getElementById("emissao").value
+                var genero = document.getElementById("genero").value
+                var estadoCivil = document.getElementById("estadoCivil").value
+                var ufDoc = document.getElementById("ufDoc").value
+                var now = new Date
+                var data_envio = "" + now.getDate() + "/" + now.getMonth() + "/" + now.getFullYear()+" "+ now.getHours() + ":" + now.getMinutes() + ":" + now.getSeconds()
+                var mes =  "" + now.getMonth() + "/" + now.getFullYear()
+                var inputTaxaAnual = document.getElementById("inputTaxaAnual").value
+                inputTaxaAnual = inputTaxaAnual*100
+                var inputTaxaMensal = document.getElementById("inputTaxaMensal").value
+                inputTaxaMensal = inputTaxaMensal*100
+                var inputParcelas = document.getElementById("inputParcelas").value
+                var inputProposta = document.getElementById("inputProposta").value
+
+
+                var myHeaders = new Headers();
+                myHeaders.append("Content-Type", "application/json");
+
+                var raw = JSON.stringify({
+                "taxa_anual": inputTaxaAnual,
+                "taxa": inputTaxaMensal,
+                "valor_parcela": inputParcelas,
+                "nome": nome,
+                "telefone_ddd_1": ddd,
+                "telefone": telefone,
+                "data_nascimento": dataNascimento,
+                "email": email,
+                "cpf": cpf,
+                "entregue": myRange,
+                "salario": rendaMensal,
+                "tipo_conta": formaPagamento,
+                "agencia_cliente": agencia,
+                "conta_cliente": conta,
+                "digito_conta": digito,
+                "primeiro_vencimento": vencimento,
+                "parcela": qtdParcelas,
+                "cep": cep,
+                "endereco": rua,
+                "bairro": bairro,
+                "municipio": cidade,
+                "uf": uf,
+                "codigo_profissao": ocupacao,
+                "patrimonio": patrimonio,
+                "nome_mae": nomeMae,
+                "rg": documento,
+                "data_emissao": emissao,
+                "nacionalidade": 23,
+                "genero" :genero,
+                "estado_civil": estadoCivil,
+                "documento_uf": ufDoc,
+                "status ": "IDENTIFICACAO PROPOSTA - AGUARDANDO DOCUMENTACAO",
+                "produto": "CREDITO EM CONTA",
+                "convenio": "-",
+                "tipo": "NOVO",
+                "parceiro": "",
+                "id_parceiro": "",
+                "supervisor": "",
+                "gerente": "",
+                "tipo_parceiro": "",
+                "data_envio": data_envio,
+                "mes": mes,
+                "banco_origi": "SIM",
+                "proposta": inputProposta,
+                "id_sim": "Novo Portal"
+                });
+
+                var requestOptions = { 
+                method: 'POST',
+                headers: myHeaders,
+                body: raw,
+                redirect: 'follow'
+                };
+
+                fetch("localhost:3000/user/proposta/inclusao", requestOptions)
+                .then(response => response.json())
+                .then(result => console.log(result))
+                .catch(error => console.log('error', error));
+
+}
+
+
+function ervj(data){
+    
+    if((data.errors[0].match(/@ERFSE0502/)>=0)){
+        alert('Verifique a data de vencimento');
+    };
+    
+    if((data.errors[0].match(/@ERFSE0552/)>=0)){
+        alert('Erro Produtox Tabela');
+        };
+    
+    if((data.errors[0].match(/@ERFSE0564/)>=0)){
+        alert('Erro Pessoax tabela');
+        };
+    
+    if((data.errors[0].match(/@ERFSE0579/)>=0)){
+        alert('Erro IOF Tabela');
+        };
+    
+    if((data.errors[0].match(/@ERFSE0589/)>=0)){
+        alert('Ano ou percentual mínimo de entrada inválido');
+        };
+    
+    if((data.errors[0].match(/@ERFSE0768/)>=0)){
+        alert('CARENCIA MAIOR QUE MÁXIMA CADASTRADA');
+        };
+    
+    if((data.errors[0].match(/@ERQCE0122/)>=0)){
+        alert('erro PS7');
+        };
+    
+    if((data.errors[0].match(/@ERSQE0018/)>=0)){
+        alert('TAMANHO ENDERECO EXCEDEU O LIMITE. FAVOR ABREVIAR');
+        };
+    
+    if((data.errors[0].match(/@ERSQE0058/)>=0)){
+        alert('NAO HA AGENTE CERTIFICADO');
+        };
+    
+    if((data.errors[0].match(/@ERVJE0003/)>=0)){
+        alert('ACESSO ROTINA CIPR32F ERRO ACESSO VSAM - C');
+        };
+    
+    if((data.errors[0].match(/@ERVJE0010/)>=0)){
+        alert('TIPO DE PRODUTO INVALIDO";');
+        };
+    
+    if((data.errors[0].match(/@ERVJE0016/)>=0)){
+        alert('DATAS INVÁLIDAS');
+        };
+    
+    if((data.errors[0].match(/@ERVJE0019/)>=0)){
+        alert('O CANAL UTILIZADO ESTA INDISPONIVEL PARA ESSA LOJA');
+        };
+    
+    if((data.errors[0].match(/@ERVJE0028/)>=0)){
+        alert('CAMPO CÓDIGO PROPOSTA, CEP OU RENDA MENSAL NAO INFORMADO CORRETAMENTE');
+        };
+    
+    if((data.errors[0].match(/@ERVJE0033/)>=0)){
+        alert('FINANCIAMENTO NAO DISPONIVEL PARA ESSE VEICULO');
+        };
+    
+    if((data.errors[0].match(/@ERVJE0039/)>=0)){
+        alert('ERRO DB2 NA TABELA VJGT0010 - SQLCODE -0904');
+        };
+    
+    if((data.errors[0].match(/@ERVJE0046/)>=0)){
+        alert('CAMPO NOME MÃE, DATA DE NASCIMENTO , CIDADE , OU AGENTE INVÁLIDO(S)');
+        };
+    
+    if((data.errors[0].match(/@ERVJE0050/)>=0)){
+        alert('CLI-CPF DO CONJUGE INVÁLIDO');
+        };
+    
+    if((data.errors[0].match(/@ERVJE0051/)>=0)){
+        alert('DATA DE NASCIMENTO É MAIOR QUE A DATA DE EMISSAO DO DOCUMENTO');
+        };
+    
+    if((data.errors[0].match(/@ERVJE0054/)>=0)){
+        alert('ERRO NO START DO ARQUIVO . EIBRES.');
+        };
+    
+    if((data.errors[0].match(/@ERVJE0061/)>=0)){
+        alert('');
+        };
+    
+    if((data.errors[0].match(/@ERVJE0064/)>=0)){
+        alert('VALOR DO BEM INVALIDO OU NAO INFORMADO');
+        };
+    
+    if((data.errors[0].match(/@ERVJE0074/)>=0)){
+        alert('DATA DO PRIMEIRO VENCIMENTO MENOR QUE O PERMITIDO');
+        };
+    
+    if((data.errors[0].match(/@ERVJE0096/)>=0)){
+        alert('ERRO FILIAL');
+        };
+    
+    if((data.errors[0].match(/@ERVJE0097/)>=0)){
+        alert('UF - DESPESA CARTORIO INVALIDA');
+        };
+    
+    if((data.errors[0].match(/@ERVJE0100/)>=0)){
+        alert('ERRO CHAMADA SUB-ROTINA AFCS0002');
+        };
+    
+    if((data.errors[0].match(/@ERVJE0115/)>=0)){
+        alert('ERRO DDD TELEFONE FIXO');
+        };
+    
+    if((data.errors[0].match(/@ERVJE0147/)>=0)){
+        alert('FORMA DE PAGAMENTO NAO AUTORIZADA PARA O INTERMEDIARIO / PRODUTO');
+        };
+    
+    if((data.errors[0].match(/@ERVJE0152/)>=0)){
+        alert('CONTA CORRENTE DEVE TER NO MINIMO 7 DIGITOS');
+        };
+    
+    if((data.errors[0].match(/@ERVJE0154/)>=0)){
+        alert('RENDA MENSAL DO TITULAR DEVE ESTAR ENTRE R$ 0,00 A R$ 199.999,99');
+        };
+    
+    if((data.errors[0].match(/@ERVJE0160/)>=0)){
+        alert('DATA DE NASCIMENTO - IDADE DEVE SER MENOR OU IGUAL A 100 ANOS');
+        };
+    
+    if((data.errors[0].match(/@ERVJE0167/)>=0)){
+        alert('ANO DE FABRICACAO E ANO DO MODELO ESTAO INCOERENTES');
+        };
+    
+    if((data.errors[0].match(/@ERVJE0168/)>=0)){
+        alert('ANO FABRICACAO DEVE SER MENOR OU IGUAL AO ANO MODELO');
+        };
+    
+    if((data.errors[0].match(/@ERVJE0208/)>=0)){
+        alert('SUBSEG INVALIDO PARA O INTERMEDIARIO');
+        };
+   
+}
              /*
 
                 *loading pre analise e modal , dentro da funcao apos o 
                 clique do botao chamar a funcao carregando on, apos a resposta renderizada colocar carregando off
                 mandar(csp) o html ao chamar a funcao, apos o then dar um display none
 
-                *salvar no banco***fetch****valores dos inputs hidden******usar  maquino
-                 local com a api atualizada 
 
-                */
-
-
-
-
-
-
-             
+                */             
