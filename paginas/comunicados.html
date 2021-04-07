@@ -80,9 +80,9 @@
 
                         <div class="col-md-4 mb-3">
                             <label for="exampleFormControlTextarea1">Imagem:</label>
-                            <input type="file" name="file-1[]" id="file-1" class="custom-input-file"
+                            <input type="file" name="url_img" id="url_img" class="custom-input-file"
                                 data-multiple-caption="{count} files selected" multiple />
-                            <label for="file-1">
+                            <label for="url_img">
                                 <i class="fa fa-upload"></i>
                                 <span>Choose a file…</span>
                             </label>
@@ -91,9 +91,9 @@
 
                         <div class="col-md-4 mb-3">
                             <label for="exampleFormControlTextarea1">Imagem 2:</label>
-                            <input type="file" name="file-1[]" id="file-1" class="custom-input-file"
+                            <input type="file" name="url_img1" id="url_img1" class="custom-input-file"
                                 data-multiple-caption="{count} files selected" multiple />
-                            <label for="file-1">
+                            <label for="url_img1">
                                 <i class="fa fa-upload"></i>
                                 <span>Choose a file…</span>
                             </label>
@@ -102,9 +102,9 @@
 
                         <div class="col-md-4 mb-3">
                             <label for="exampleFormControlTextarea1">Imagem 3:</label>
-                            <input type="file" name="file-1[]" id="file-1" class="custom-input-file"
+                            <input type="file" name="url_img2" id="url_img2" class="custom-input-file"
                                 data-multiple-caption="{count} files selected" multiple />
-                            <label for="file-1">
+                            <label for="url_img2">
                                 <i class="fa fa-upload"></i>
                                 <span>Choose a file…</span>
                             </label>
@@ -145,6 +145,10 @@
 
 
 
+                </div>
+
+                <!-- Alert sucesso acesso -->
+                <div class="alert alert-success sucesso" id="sucesso" role="alert">
                 </div>
 
 
@@ -867,7 +871,7 @@
                                         </thead>
                                         <tbody id="list">
 
-                                            <tr>
+                                            <!-- <tr>
                                                 <td>
                                                     XXXXXXXXXX
                                                 </td>
@@ -875,12 +879,12 @@
                                                     XXXXXXXXXXXXXXXX
                                                 </td>
                                                 <th scope="row">
-                                                    <button type="button"
+                                                        <button type="button"
                                                         class="btn btn-sm btn-secondary btn-icon rounded-pill" id="btn-download1">
                                                         <span class="btn-inner--icon"><i
                                                                 class="far fa-download"></i></span>
                                                         <span class="btn-inner--text">Download</span>
-                                                    </button>
+                                                        </button>
                                                 </th>
                                                 <th scope="row">
                                                     <button type="button"
@@ -903,7 +907,7 @@
 
 
                                                         <!-- Actions -->
-                                                        <div class="actions ml-3">
+                                                        <!-- <div class="actions ml-3">
                                                             <a href="#" class="action-item mr-2" title="Alterar"
                                                                 data-toggle="modal"
                                                                 data-target=".moda-alterar-comunicados">
@@ -915,10 +919,10 @@
                                                             </a>
 
                                                         </div>
-                                                    </div>
+                                                    </div> -->
 
-                                                </td>
-                                            </tr>
+                                                <!-- </td> -->
+                                            <!-- </tr> -->
 
 
                                         </tbody>
@@ -975,6 +979,8 @@
     <script src="../assets/js/purpose.js"></script>
     <!-- Demo JS - remove it when starting your project -->
     <script src="../assets/js/demo.js"></script>
+    <!--Script-->
+    <script src="../assets/js/comunicados.js"></script>
     <!-- Mascaras -->
     <script src="../assets/js/mascaras.js"></script>
     <script src="../assets/js/mascarasvalores.js"></script>
