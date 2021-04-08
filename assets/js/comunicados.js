@@ -2,6 +2,8 @@ const URL = 'http://localhost:3000/user';
 
 // BTN
 const incluir = document.getElementById("btn-incluir");
+const apagar = document.getElementById("btn-apagar")
+
 const mapRow = new Map();
 
 const arrays = {
@@ -9,16 +11,34 @@ const arrays = {
     contadorRow: 0
 }
 
+apagar.addEventListener('click', () => {
+
+    const spans = document.querySelectorAll('label span')
+    spans.forEach(item => {
+        item.innerHTML = 
+        `
+            Choose a file…
+        `
+    })
+
+    $(".needs-validation").each(function () {
+        this.reset();
+    })
+})
+
+
 incluir.addEventListener('click', (e) => {
     const titulo = $("#campo-titulo").val();
     const obs = $("#campo-texto").val();
+    const status = $("#campo-status").val();
 
     const myheaders = new Headers();
     myheaders.append('Content-Type', 'application/json');
 
     const raw = JSON.stringify({
         titulo,
-        obs
+        obs,
+        status
     })
 
     const requestOptions = {
@@ -94,7 +114,7 @@ incluir.addEventListener('click', (e) => {
                     
                     `:
                     incluirAnexos(data).then(function (result) {
-                        console.log(result)
+
                         row.innerHTML =
                             `
                             <td>
