@@ -20,6 +20,9 @@
     <link rel="stylesheet" href="../assets/css/personalizado.css" id="stylesheet">
 </head>
 
+
+
+
 <body>
     <style>
         .bg-titulo {
@@ -44,6 +47,107 @@
             ;
         }
     </style>
+
+    <div class="modal fade modalteladecadastro" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <img src="logocolorido.png" style="height: 70px; right: 70px;">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+
+                <div class="modal-body">
+                    <form class="needs-validation mt-4" novalidate>
+
+                        <div class="bg-titulo mt-4">
+                            <h3>Valor Empréstimo total</h3>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="col-md-6 mb-3">
+                                <label for="validationCustom02">Valor Entregue</label>
+                                <input type="text" class="form-control form-control-sm" id="modal-valor-entregue" onKeyPress="return(MascaraMoeda(this,'.',',',event))">
+
+
+                            </div>
+
+                            <div class="col-md-6 mb-3">
+                                <label for="validationCustom01">Valor prêmio seguro</label>
+                                <input type="text" class="form-control form-control-sm" id="modal-valor-premio" onKeyPress="return(MascaraMoeda(this,'.',',',event))">
+
+                            </div>
+
+                            <div class="col-md-12 mb-3" style="text-align: center; margin: 0% auto">
+                                <label for="validationCustom01">Valor Empréstimo</label>
+                                <input type="text" class="form-control form-control-sm" id="valor-emprestimo"
+                                onKeyPress="return(MascaraMoeda(this,'.',',',event))" required>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="bg-titulo mt-4">
+                            <h3>Comissão com seguro</h3>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="col-md-6 mb-3">
+                                <label for="validationCustom02">Valor Comissão Consignado</label>
+                                <input type="text" class="form-control form-control-sm" id="modal-valor-comissao-consignado" onKeyPress="return(MascaraMoeda(this,'.',',',event))">
+
+
+                            </div>
+
+                            <div class="col-md-6 mb-3">
+                                <label for="validationCustom01">Valor comissão seguro</label>
+                                <input type="text" class="form-control form-control-sm" id="modal-valor-comissao-seguro" onKeyPress="return(MascaraMoeda(this,'.',',',event))">
+
+                            </div>
+
+                            <div class="col-md-12 mb-3" style="text-align: center; margin: 0% auto">
+                                <label for="validationCustom01">Total Geral</label>
+                                <input type="text" class="form-control form-control-sm" id="modal-total-geral"
+                                onKeyPress="return(MascaraMoeda(this,'.',',',event))" required>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="bg-titulo mt-4">
+                            <h3>Comissão sem seguro</h3>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="col-md-12 mb-3" style="text-align: center; margin: 0% auto">
+                                <label for="validationCustom02">Comissão Sem seguro</label>
+                                <input type="text" class="form-control form-control-sm " id="modal-comissao-semseguro" onKeyPress="return(MascaraMoeda(this,'.',',',event))">
+
+
+                            </div>
+
+                        </div>
+
+
+                </div>
+
+
+
+            </div>
+
+
+
+        </div>
+
+    </div>
+
+    </div>
+    </div>
 
 
     <body class="application application-offset">
@@ -743,7 +847,7 @@
 
                                 <div class="card-body">
 
-                             
+
 
                                     <div class="bg-titulo mt-0">
 
@@ -763,8 +867,10 @@
                                             <div class="col-md-6 mb-3">
                                                 <label for="validationCustom02">Tipo Operação</label>
                                                 <select class="form-control form-control-sm"
-                                                    id="exampleFormControlSelect1">
+                                                    id="tipo-operacao">
                                                     <option> </option>
+                                                    <option value="NOVO">NOVO</option>
+                                                    <option value="REFINANCIAMENTO">REFINANCIAMENTO</option>
 
                                                 </select>
 
@@ -773,78 +879,81 @@
                                             <div class="col-md-6 mb-3">
                                                 <label for="validationCustom01">Tipo Seguro</label>
                                                 <select class="form-control form-control-sm"
-                                                id="exampleFormControlSelect1">
-                                                <option> </option>
+                                                    id="tipo-seguro">
+                                                    <option> </option>
+                                                    <option value="SEM SEGURO">SEM SEGURO</option>
+                                                    <option value="SEGURO PUBLICO">SEGURO PÚBLICO</option>
+                                                    <option value="SEGURO PRIVADO">SEGURO PRIVADO</option>
 
-                                            </select>
+                                                </select>
 
                                             </div>
 
                                             <div class="col-md-4 mb-3">
                                                 <label for="validationCustom01">Valor Entregue</label>
                                                 <input type="text" class="form-control form-control-sm"
-                                                    id="validationCustom01" required>
+                                                    id="campo-valor-entregue" onKeyPress="return(MascaraMoeda(this,'.',',',event))" disabled required>
 
                                             </div>
 
                                             <div class="col-md-4 mb-3">
                                                 <label for="validationCustom01">Valor Troco</label>
                                                 <input type="text" class="form-control form-control-sm"
-                                                    id="validationCustom01" required>
+                                                    id="campo-valor-troco" onKeyPress="return(MascaraMoeda(this,'.',',',event))" disabled required>
 
                                             </div>
 
                                             <div class="col-md-4 mb-3">
                                                 <label for="validationCustom01">Valor do Refinanciamento</label>
                                                 <input type="text" class="form-control form-control-sm"
-                                                    id="validationCustom01" required>
+                                                    id="campo-valor-refinanciamento" onKeyPress="return(MascaraMoeda(this,'.',',',event))" disabled required>
 
                                             </div>
 
                                             <div class="col-md-6 mb-3">
                                                 <label for="validationCustom01">Tabela Comissão Seguro</label>
                                                 <input type="text" class="form-control form-control-sm"
-                                                    id="validationCustom01" required>
+                                                    id="campo-tabela-seguro" required>
 
                                             </div>
                                             <div class="col-md-6 mb-3">
                                                 <label for="validationCustom01">Tabela Comissão Consignado</label>
                                                 <input type="text" class="form-control form-control-sm"
-                                                    id="validationCustom01" required>
+                                                    id="campo-tabela-consignado" required>
 
                                             </div>
 
 
-                                        
+
 
 
                                         </div>
 
                                     </form>
 
-                                    
 
 
 
-                                    
+
+
                                     <div class="opcoes-cadastro" style="text-align: center; margin-inline: block;">
-                                        <button type="button" class="btn btn-primary btn-icon-label" data-toggle="modal"
-                                        data-target=".modalteladecadastro" title="Alterar">
+                                        <button type="button" class="btn btn-primary btn-icon-label" data-toggle="modal" id="btn-simular"
+                                            data-target=".modalteladecadastro" title="Alterar">
                                             <span class="btn-inner--icon">
                                                 <i class="fas fa-calculator"></i>
                                             </span>
                                             <span class="btn-inner--text">Simular</span>
                                         </button>
 
-                                  
 
-                                        <button type="button" class="btn btn-primary btn-icon-label">
+
+                                        <button type="button" class="btn btn-primary btn-icon-label" id="btn-novasimulacao">
                                             <span class="btn-inner--icon">
                                                 <i class="fas fa-sync-alt"></i>
                                             </span>
                                             <span class="btn-inner--text">Nova Simulação</span>
                                         </button>
-                                      
+
                                     </div>
 
 
@@ -884,12 +993,12 @@
         <script src="../assets/js/purpose.js"></script>
         <!-- Demo JS - remove it when starting your project -->
         <script src="../assets/js/demo.js"></script>
+        <!--script-->
+        <script src="../assets/js/prestamista.js"></script>
         <!-- Mascaras -->
         <script src="../assets/js/mascaras.js"></script>
         <script src="../assets/js/mascarasvalores.js"></script>
         <!-- Import Get para popular campos -->
-        <script src="../assets/js/cadastro.js"></script>
-        <script src="../assets/js/propostas.js"></script>
     </body>
 
 </html>
