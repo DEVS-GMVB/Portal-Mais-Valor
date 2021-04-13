@@ -41,7 +41,7 @@ function calculoPrestamista() {
     let valorEntregue = parseFloat(document.getElementById("campo-valor-entregue").value.replace(/\./g, ""));
     let valorTroco = parseFloat(document.getElementById("campo-valor-troco").value.replace(/\./g, ""));
     let valorRefin = parseFloat(document.getElementById("campo-valor-refinanciamento").value.replace(/\./g, ""));
-    console.log(valorEntregue, valorTroco, valorRefin)
+    console.log(valorEntregue, valorTroco, valorRefin);
     const tabelaSeguro = parseFloat(document.getElementById("campo-tabela-seguro").value);
     const tabelaConsignado = parseFloat(document.getElementById("campo-tabela-consignado").value);
 
