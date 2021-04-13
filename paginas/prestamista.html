@@ -76,7 +76,7 @@
                             </div>
 
                             <div class="col-md-6 mb-3">
-                                <label for="validationCustom01">Valor prêmio seguro</label>
+                                <label for="validationCustom01">Valor Prêmio Seguro</label>
                                 <input type="text" class="form-control form-control-sm" id="modal-valor-premio" onKeyPress="return(MascaraMoeda(this,'.',',',event))">
 
                             </div>
@@ -84,7 +84,7 @@
                             <div class="col-md-12 mb-3" style="text-align: center; margin: 0% auto">
                                 <label for="validationCustom01">Valor Empréstimo</label>
                                 <input type="text" class="form-control form-control-sm" id="valor-emprestimo"
-                                onKeyPress="return(MascaraMoeda(this,'.',',',event))" required>
+                                onKeyPress="return(MascaraMoeda(this,',',event))" required>
 
                             </div>
 
@@ -892,7 +892,7 @@
                                             <div class="col-md-4 mb-3">
                                                 <label for="validationCustom01">Valor Entregue</label>
                                                 <input type="text" class="form-control form-control-sm"
-                                                    id="campo-valor-entregue" onKeyPress="return(MascaraMoeda(this,'.',',',event))" disabled required>
+                                                    id="campo-valor-entregue" onKeyPress="return(MascaraMoeda(this,'.',',',event))"  disabled required>
 
                                             </div>
 
@@ -929,6 +929,26 @@
 
                                         </div>
 
+                                        <div class="opcoes-cadastro" style="text-align: center; margin-inline: block;">
+                                            <button type="button" class="btn btn-primary btn-icon-label" data-toggle="modal" id="btn-simular"
+                                                data-target=".modalteladecadastro" title="Alterar">
+                                                <span class="btn-inner--icon">
+                                                    <i class="fas fa-calculator"></i>
+                                                </span>
+                                                <span class="btn-inner--text">Simular</span>
+                                            </button>
+    
+    
+    
+                                            <button type="reset" class="btn btn-primary btn-icon-label" id="btn-novasimulacao">
+                                                <span class="btn-inner--icon">
+                                                    <i class="fas fa-sync-alt"></i>
+                                                </span>
+                                                <span class="btn-inner--text">Nova Simulação</span>
+                                            </button>
+    
+                                        </div>
+
                                     </form>
 
 
@@ -936,25 +956,6 @@
 
 
 
-                                    <div class="opcoes-cadastro" style="text-align: center; margin-inline: block;">
-                                        <button type="button" class="btn btn-primary btn-icon-label" data-toggle="modal" id="btn-simular"
-                                            data-target=".modalteladecadastro" title="Alterar">
-                                            <span class="btn-inner--icon">
-                                                <i class="fas fa-calculator"></i>
-                                            </span>
-                                            <span class="btn-inner--text">Simular</span>
-                                        </button>
-
-
-
-                                        <button type="button" class="btn btn-primary btn-icon-label" id="btn-novasimulacao">
-                                            <span class="btn-inner--icon">
-                                                <i class="fas fa-sync-alt"></i>
-                                            </span>
-                                            <span class="btn-inner--text">Nova Simulação</span>
-                                        </button>
-
-                                    </div>
 
 
                                 </div>
