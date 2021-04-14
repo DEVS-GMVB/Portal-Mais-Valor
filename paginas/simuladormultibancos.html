@@ -779,7 +779,7 @@
                                             <div class="col-md-6 mb-3">
                                                 <label for="validationCustom02">Convênio</label>
                                                 <select class="form-control form-control-sm" id="campo-convenio">
-
+                                                    <option value="">-</option>
                                                 </select>
 
                                             </div>
@@ -787,7 +787,7 @@
                                             <div class="col-md-3 mb-3">
                                                 <label for="validationCustom01">Regra</label>
                                                 <select class="form-control form-control-sm" id="campo-regra" required>
-                                                    <option value=""></option>
+                                                    <option value="">-</option>
                                                 </select>
 
                                             </div>
@@ -1077,61 +1077,63 @@
                                             <div class="col-md-4 mb-3">
                                                 <label for="validationCustom01">Taxa A.M</label>
                                                 <input type="text" class="form-control form-control-sm"
-                                                    id="campo-taxaAM" disabled required>
+                                                    id="campo-taxaAM" disabled required value="-">
 
                                             </div>
 
                                             <div class="col-md-4 mb-3">
                                                 <label for="validationCustom01">Data Cáculo</label>
                                                 <input type="text" class="form-control form-control-sm"
-                                                    id="campo-data-calculo" required>
+                                                    id="campo-data-calculo" disabled required>
 
                                             </div>
 
                                             <div class="col-md-6 mb-3">
                                                 <label for="validationCustom01">Valor Contrato</label>
                                                 <input type="text" class="form-control form-control-sm"
-                                                    id="campo-valor-contrato" required>
+                                                    id="campo-valor-contrato" onKeyPress="return(MascaraMoeda(this,'.',',',event))" required>
 
                                             </div>
 
                                             <div class="col-md-6 mb-3">
                                                 <label for="campo-valor-parcela">Valor Parcela</label>
                                                 <input type="text" class="form-control form-control-sm"
-                                                    id="campo-valor-parcela" required>
+                                                    id="campo-valor-parcela" onKeyPress="return(MascaraMoeda(this,'.',',',event))" required>
 
                                             </div>
 
                                         </div>
 
+                                        <div class="opcoes-cadastro" style="text-align: center; margin-inline: block;">
+                                            <button type="button" class="btn btn-primary btn-icon-label" data-toggle="modal"
+                                                data-target=".modalteladecadastro" title="Alterar" id="btn-simular">
+                                                <span class="btn-inner--icon">
+                                                    <i class="fas fa-calculator"></i>
+                                                </span>
+                                                <span class="btn-inner--text">Simular</span>
+                                            </button>
+    
+                                            <button type="button" class="btn btn-primary btn-icon-label" id="btn-salvar">
+                                                <span class="btn-inner--icon">
+                                                    <i class="fas fa-save"></i>
+                                                </span>
+                                                <span class="btn-inner--text">Salvar/Cadastrar Simulação</span>
+                                            </button>
+    
+                                            <button type="reset" class="btn btn-primary btn-icon-label"
+                                                id="btn-nova-simulacao">
+                                                <span class="btn-inner--icon">
+                                                    <i class="fas fa-sync-alt"></i>
+                                                </span>
+                                                <span class="btn-inner--text">Nova Simulação</span>
+                                            </button>
+    
+                                        </div>
+
                                     </form>
 
 
-                                    <div class="opcoes-cadastro" style="text-align: center; margin-inline: block;">
-                                        <button type="button" class="btn btn-primary btn-icon-label" data-toggle="modal"
-                                            data-target=".modalteladecadastro" title="Alterar" id="btn-simular">
-                                            <span class="btn-inner--icon">
-                                                <i class="fas fa-calculator"></i>
-                                            </span>
-                                            <span class="btn-inner--text">Simular</span>
-                                        </button>
-
-                                        <button type="button" class="btn btn-primary btn-icon-label" id="btn-salvar">
-                                            <span class="btn-inner--icon">
-                                                <i class="fas fa-save"></i>
-                                            </span>
-                                            <span class="btn-inner--text">Salvar/Cadastrar Simulação</span>
-                                        </button>
-
-                                        <button type="reset" class="btn btn-primary btn-icon-label"
-                                            id="btn-nova-simulacao">
-                                            <span class="btn-inner--icon">
-                                                <i class="fas fa-sync-alt"></i>
-                                            </span>
-                                            <span class="btn-inner--text">Nova Simulação</span>
-                                        </button>
-
-                                    </div>
+                                    
 
                                     <div class="bg-titulo mt-4">
 

@@ -5,6 +5,14 @@ const banco = document.getElementById("campo-banco");
 //campos
 const convenio = document.getElementById('campo-convenio');
 const regra = document.getElementById("campo-regra");
+const dataCalculo = document.getElementById("campo-data-calculo");
+//btn
+const btnSimular = document.getElementById("btn-simular");
+
+window.onload = () => {
+    let data = new Date();
+    dataCalculo.value = `${data.getDate()}/${(data.getMonth() + 1)}/${data.getFullYear()}`
+}
 
 banco.addEventListener('blur', () => {
     if (banco.value) {
@@ -37,12 +45,81 @@ banco.addEventListener('blur', () => {
 });
 
 convenio.addEventListener('blur', () => {
-    console.log(convenio.value)
+    if (convenio.value) {
+        const myHeaders = new Headers();
+        myHeaders.append("Content-Type", "application/json");
+
+        const raw = JSON.stringify({
+            convenio: convenio.value
+        });
+
+        const requestOptions = {
+            method: 'POST',
+            headers: myHeaders,
+            body: raw,
+            redirect: 'follow'
+        };
+
+        fetch(URL + "user/calculadora/regras", requestOptions)
+            .then(response => response.json())
+            .then(data => {
+                regra.innerHTML = ``;
+                for (let i in data) {
+                    regra.innerHTML += '<option value="' + data[i].regra + '">' + data[i].regra + '</option>;'
+                }
+            })
+            .catch(error => console.log('error', error));
+    }
+})
+
+btnSimular.addEventListener('click', async () => {
+    let valorParcela = document.getElementById("campo-valor-parcela").value;
+    let valorContrato = document.getElementById("campo-valor-contrato").value;
+
+
+    const {coef, taxa} = await tratarPromise(buscaCoefTaxa());
+    //Setar a taxa no campo de taxa A.M
+    $("#campo-taxaAM").val(taxa);
+
+
+    if(valorContrato) {
+        // console.log(parseFloat(valorContrato.replace(/\./g, "")))
+        // console.log(parseFloat(coef.replace(/\,/g, '.')))
+        // console.log(parseFloat(valorContrato.replace(/\./g, ""))) * parseFloat(coef.replace(/\,/g, '.'));
+        
+        const valorParcelaCampo = parseFloat(valorContrato.replace(/\./g, "")) * parseFloat(coef.replace(/\,/g, '.'));
+        $("#campo-valor-parcela").val(`R$ ${valorParcelaCampo.toFixed(2)}`);
+    } else if (valorParcela) {
+        const valorContratoCampo = parseFloat(valorParcela.replace(/\./g, "")) / parseFloat(coef.replace(/\,/g,"."));
+        $("#campo-valor-contrato").val(`R$ ${valorContratoCampo.toFixed(2)}`);
+    }
+
+    
+})
+
+async function tratarPromise(promise) {
+    const resultado = await promise;
+    return resultado;
+}
+
+async function buscaCoefTaxa() {
+    let resultado;
+
+    const banco = document.getElementById("campo-banco").value;
+    const convenio = document.getElementById('campo-convenio').value;
+    const regra = document.getElementById("campo-regra").value;
+    const prazo = document.getElementById("campo-quantidade-parcela").value;
+
+    console.log(banco, convenio, regra, prazo);
+
     const myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
 
     const raw = JSON.stringify({
-        convenio: convenio.value
+        prazo,
+        banco,
+        convenio,
+        regra
     });
 
     const requestOptions = {
@@ -52,14 +129,14 @@ convenio.addEventListener('blur', () => {
         redirect: 'follow'
     };
 
-    fetch(URL+"user/calculadora/regras", requestOptions)
+    await fetch(URL + "user/calculadora/coef", requestOptions)
         .then(response => response.json())
-        .then(data => {
-            regra.innerHTML = ``;
-
-            for (let i in data) {
-                regra.innerHTML += '<option value="' + data[i].regra + '">' + data[i].regra + '</option>;'
-            }
+        .then(result => {
+            resultado = result;
         })
         .catch(error => console.log('error', error));
-})
+
+    // console.log(resultado)
+
+    return resultado;
+}
