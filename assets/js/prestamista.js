@@ -1,12 +1,3 @@
-//valor_contrato = valorEntregue
-//TotalGeral = resultado4
-//ValorComissaoSeguro = resultado3
-//ValorComissaoConsignado = resultado2
-//ValorPremioSeguro = premio
-//ValorEmprestimo = valor_total
-//tabComissaoConsignado = taxa
-//tabComissaoSeguro = taxa1
-
 //Select
 const tipoOperacao = document.getElementById("tipo-operacao");
 const tipoSeguro = document.getElementById("tipo-seguro");
