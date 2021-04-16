@@ -26,6 +26,7 @@ function dateNow() {
     return dateNow;
 }
 
+
 window.onload = function () {
     let requestOptions = {
         method: 'GET',
@@ -189,9 +190,6 @@ function search() {
 }
 
 function insert() {
-
-    const data = dateNow()
-
     const myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json")
 
@@ -213,7 +211,7 @@ function insert() {
         cpf_parceiro:dataSession.cpf_user,
         cpf_supervisor:dataSession.supervisor_cpf,
         cpf_gerente:dataSession.gerente_cpf,
-        data_inclusao:data
+        data_inclusao: dateNow()
     }
 
     const raw = JSON.stringify(body)
@@ -227,14 +225,15 @@ function insert() {
 
     fetch(URL + '/user/proposta/identificacao/inclusao', requestOptions).
     then(response => response.json().then(function (data) {
+
         if (data.resp === "Proposta já existente") {
-            $('#alertFalhaidentProposta').show();
-            $('#alertFalhaidentProposta').fadeIn(300).delay(3000).fadeOut(400);
-            document.getElementById("alertFalhaidentProposta").textContent = "Não foi possível incluir identificação da proposta, já existente"
+            $('#alertFalhaAcesso').show();
+            $('#alertFalhaAcesso').fadeIn(300).delay(3000).fadeOut(400);
+            document.getElementById("alertFalhaAcesso").textContent = "Não foi possível incluir identificação da proposta, já existente"
         } else {
-            $('#alertSucessoidentProposta').show();
-            $('#alertSucessoidentProposta').fadeIn(300).delay(3000).fadeOut(400);
-            document.getElementById("alertSucessoidentProposta").textContent = "Identificação proposta incluido com sucesso!"
+            $('#alertSucessoAcesso').show();
+            $('#alertSucessoAcesso').fadeIn(300).delay(3000).fadeOut(400);
+            document.getElementById("alertSucessoAcesso").textContent = "Identificação proposta incluido com sucesso!"
         }
 
     })).catch(error => console.log('error: ', error))
@@ -258,7 +257,7 @@ function updateIdentProp(codigo, rows) {
         redirect: 'follow'
     }
 
-    fetch(URL+"/user/proposta/identificacao/modal", requestOptions).
+    fetch(URL + "/user/proposta/identificacao/modal", requestOptions).
     then(response => response.json().then(function (data) {
         //Passando o código no momento em que popula
         arrays.arrayCodigos.push(data.codigo)
@@ -303,9 +302,6 @@ const buttonUpdate = {
 }
 
 function updateIP() {
-
-    const data = dateNow()
-
     let cod = buttonUpdate.changeID()
     let l = buttonUpdate.changeRows()
 
@@ -344,7 +340,7 @@ function updateIP() {
         cpf: cpf,
         observacao: observacao,
         responsavel:dataSession.nome,
-        data_atualizacao:data
+        data_atualizacao: dateNow()
     }
 
     const raw = JSON.stringify(body)
@@ -369,10 +365,11 @@ function updateIP() {
         })
 
 
-        fetch(URL+`/user/proposta/identificacao/atualizar/arquivos?codigo=${codigo}`, {
+        fetch(URL + `/user/proposta/identificacao/atualizar/arquivos?codigo=${codigo}`, {
             method: 'POST',
             body: data,
         }).then(response => response.json().then((data) => {
+
             updateTbody(l.cells)
 
             $('#sucesso').show();
@@ -402,6 +399,6 @@ const botao_excel = document.getElementById("planilhaExcel");
 
 botao_excel.addEventListener('click', () => {
   var table2excel = new Table2Excel();
-  table2excel.export(document.querySelectorAll("table"));
+  table2excel.export(document.querySelector("#table"));
 
 })

@@ -202,16 +202,16 @@
                         </span>
                         <span class="btn-inner--text">Incluir</span>
                     </button>
+
+                    <div class="alert alert-danger falha" id="alertFalhaAcesso" role="alert">
+                    </div> 
+
+                    <!-- Alert sucesso acesso -->
+                   <div class="alert alert-success sucesso" id="alertSucessoAcesso" role="alert">
+                   </div>
+
+
                 </div>
-
-                <!-- Alert falha identificação proposta -->
-                <div class="alert alert-danger falha" id="alertFalhaidentProposta" role="alert">
-                             
-                </div> 
-
-                <!-- Alert sucesso identificação proposta -->
-               <div class="alert alert-success sucesso" id="alertSucessoidentProposta" role="alert">
-               </div>
 
 
             </div>
@@ -284,8 +284,6 @@
 
                             <div class="form-row mt-4">
 
-                                
-                                
                                 <div class="col-md-6 mb-3">
                                     <label for="validationCustom01">DDD Telefone </label>
                                     <input type="text" class="form-control form-control-sm" id="DDDTelefone"
@@ -316,7 +314,7 @@
                                 <div class="col-md-3 mb-3">
                                     <label for="validationCustom01">Telefone Confirmação</label>
                                     <input type="text" class="form-control form-control-sm" id="TelConfirm"
-                                    maxlength="14" onKeyDown="fMasc( this, mTelefone );"   required>
+                                        maxlength="14" onKeyDown="fMasc( this, mTelefone );" required>
 
                                 </div>
 
@@ -325,11 +323,7 @@
                                         <label for="exampleFormControlSelect1">Sistema Telefone</label>
                                         <select class="form-control form-control-sm" id="SistemaTel">
                                             <option> </option>
-                                            <option value="CONFIRME ONLINE">CONFIRME ONLINE</option>
-                                            <option value="AUTORIZADO SUPERVISAO">AUTORIZADO SUPERVISÃO</option>
-                                            <option value="FER">FER</option>
-                                            <option value="LEMIT">LEMIT</option>
-                                            <option value="FINAZ">FINAZ</option>
+
                                         </select>
                                     </div>
                                 </div>
@@ -383,6 +377,7 @@
                                     <label for="validationCustom01">UF Endereço</label>
                                     <select class="form-control form-control-sm" id="UFEnd">
                                         <option> </option>
+
                                         <option value="RO">RO</option>
                                         <option value="AC">AC</option>
                                         <option value="AM">AM</option>
@@ -410,6 +405,7 @@
                                         <option value="MT">MT</option>
                                         <option value="GO">GO</option>
                                         <option value="DF">DF</option>
+
                                     </select>
 
                                 </div>
@@ -495,7 +491,7 @@
                                 <div class="col-md-3 mb-3">
                                     <label for="exampleFormControlTextarea1">Proposta:</label>
                                     <input type="file" name="proposta" id="file-1" class="custom-input-file"
-                                        data-multiple-caption="{count} files selected" multiple required/>
+                                        data-multiple-caption="{count} files selected" multiple />
                                     <label for="file-1">
                                         <i class="fa fa-upload"></i>
                                         <span>Choose a file…</span>
@@ -1285,7 +1281,7 @@
 
                                         <div class="col-md-2 mb-3">
                                             <label for="validationCustom02">Data Cadastro</label>
-                                            <input type="text" onKeyPress="DataHora( event, this );" 
+                                            <input type="text" onKeyPress="DataHora(event, this)" 
                                                 class="form-control form-control-sm" id="DtCad">
 
                                         </div>
@@ -1341,12 +1337,12 @@
                                         </button>
 
                                         <button type="button" class="btn btn-primary btn-icon-label" id="planilhaExcel">
+                                            <!-- <pre id="json"></pre> -->
                                             <span class="btn-inner--icon">
                                                 <i class="fas fa-file-excel"></i>
                                             </span>
                                             <span class="btn-inner--text">Excel</span>
                                         </button>
-
 
                                 </div>
 
@@ -1448,14 +1444,10 @@
     <!-- Mascaras -->
     <script src="../assets/js/mascaras.js"></script>
     <script src="../assets/js/mascarasvalores.js"></script>
+    <script src="../assets/service/table2excel.js"></script>
     <!-- Demo JS - remove it when starting your project -->
     <script src="../assets/js/identificacaoProposta.js"></script>
     <script src="../assets/js/demo.js"></script>
-
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.js"></script> 
-    <script src="http://malsup.github.com/jquery.form.js"></script> 
-    <script src="../assets/service/table2excel.js"></script>
-    
 </body>
 
 </html>

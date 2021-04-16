@@ -303,7 +303,7 @@ const functions = {
         myHeaders.append("Content-Type", "application/json");
 
         const raw = JSON.stringify({
-            data_cadastro: data_cadastro,
+            data_envio: dateNow.date(),
             parceiro: dataSession.nome,
             tipo: tipo,
             valor_solicitado: valor,
@@ -336,7 +336,6 @@ const functions = {
             .then(result => {
                 const successFile = functions.insertAnexo(result);
                 Promise.resolve(successFile).then(function (value) {})
-
                 //Insert n é obrigatório anexar um arquivo
                 $('#success').show();
                 $('#success').fadeIn(300).delay(3000).fadeOut(400);
@@ -344,10 +343,7 @@ const functions = {
 
             })
             .catch(error => console.log('error', error));
-
-
     },
-
     insertAnexo: async (data) => {
         const myheaders = new Headers();
         myheaders.append('Content-Type', 'application/json');

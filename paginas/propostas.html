@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="../assets/css/personalizado.css" id="stylesheet">
 </head>
 
-<body >
+<body>
 <style>
     .bg-titulo {
 
@@ -407,8 +407,7 @@
                         <div class="col-md-4 mb-3">
                             <div class="form-group">
                                 <label for="exampleFormControlSelect1">Data de Corte</label>
-                                <select class="form-control form-control-sm" id="data-corte-filtro">
-                                    <option> </option>
+                                <input type="text" class="form-control form-control-sm" maxlength="19" size="19" onKeyPress="DataHora(event, this)" id="data-corte-filtro"/>
 
 
 
@@ -3602,9 +3601,15 @@
 
         </div>
 
-        <!-- Alert sucesso -->
-        <div class="alert alert-success sucesso" id="alertSucessoProp" role="alert">
+        <div class="alert alert-danger" id="error" role="alert">
+
         </div>
+
+        <!-- Alert sucesso cadastro -->
+        <div class="alert alert-success" id="success" role="alert">
+
+        </div>
+
 
       </div>
     </div>
@@ -4308,6 +4313,7 @@
                                     </button>
 
                                     <button type="button" class="btn btn-primary btn-icon-label" id="planilhaExcel">
+                                        <!-- <pre id="json"></pre> -->
                                         <span class="btn-inner--icon">
                                             <i class="fas fa-file-excel"></i>
                                         </span>
@@ -4408,11 +4414,11 @@
     <!-- Mascaras -->
     <script src="../assets/js/mascaras.js"></script>
     <script src="../assets/js/mascarasvalores.js"></script>
+    <script src="../assets/service/table2excel.js"></script>
     <!-- Import Get para popular campos -->
     <!-- <script src="../assets/js/cadastro.js"></script> -->
     <script src="../assets/js/propostas.js"></script>
     <script src="../assets/js/incluirProposta.js"></script>
-    <script src="../assets/service/table2excel.js"></script>
 </body>
 
 </html>

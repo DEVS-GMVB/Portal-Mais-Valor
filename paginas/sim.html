@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="../assets/css/purpose.css" id="stylesheet">
     <!-- CSS Personalizado -->
     <link rel="stylesheet" href="../assets/css/personalizado.css" id="stylesheet">
+   
 </head>
 
     <style>
@@ -737,12 +738,13 @@
                     </div>
 
                     <div class="row">
+                        
                         <div class="col-xl-12 col-md-6">
                             <div class="card card-fluid">
 
                                 <div class="card-body">
 
-
+                               
 
                                     <div class="bg-titulo mt-0">
 
@@ -753,116 +755,511 @@
 
                                     </div>
 
-
-                                    <form class="needs-validation mt-4" novalidate>
-
-
-
-
+                                    <br><br>
+                                
                                         <div class="form-row">
 
                                             <div class="col-md-5 mb-3">
                                                 <label for="validationCustom01">Nome</label>
                                                 <input type="text" class="form-control form-control-sm"
-                                                    id="validationCustom01" required>
-
+                                                    id="nome" required>
+    
                                             </div>
-
+    
                                             <div class="col-md-1 mb-3">
                                                 <label for="validationCustom02">DDD</label>
-                                                <select class="form-control form-control-sm"
-                                                    id="exampleFormControlSelect1">
-                                                    <option> </option>
-
-                                                </select>
-
+                                                <input type="text" class="form-control form-control-sm"
+                                                id="ddd" required>
+    
                                             </div>
-
+    
                                             <div class="col-md-3 mb-3">
                                                 <label for="validationCustom01">Telefone</label>
                                                 <input type="text" class="form-control form-control-sm"
-                                                    id="validationCustom01" required>
-
+                                                    id="telefone" required>
+    
                                             </div>
-
+    
                                             <div class="col-md-3 mb-3">
                                                 <label for="validationCustom01">Data de Nascimento</label>
-                                                <input type="text" class="form-control form-control-sm"
-                                                    id="validationCustom01" required>
-
+                                                <input type="date" class="form-control form-control-sm"
+                                                    id="dataNascimento" required>
+    
                                             </div>
-
-
+    
+    
                                             <div class="col-md-5 mb-3">
                                                 <label for="validationCustom01">E-mail</label>
-                                                <input type="text" class="form-control form-control-sm"
-                                                    id="validationCustom01" required>
-
+                                                <input type="email" class="form-control form-control-sm"
+                                                    id="email" required>
+    
                                             </div>
-
-
+    
+    
                                             <div class="col-md-5 mb-3">
                                                 <label for="validationCustom01">CPF</label>
                                                 <input type="text" class="form-control form-control-sm"
-                                                    id="validationCustom01" required>
-
+                                                    id="cpf" required onblur="$(this).mask('000.000.000-00');">
+    
                                             </div>
-
+    
                                             <div class="col-md-2 mb-3">
                                                 <label for="validationCustom01">Renda Mensal</label>
                                                 <input type="text" class="form-control form-control-sm"
-                                                    id="validationCustom01" required>
-
+                                                    id="rendaMensal" required onblur="$(this).mask('000000.00', {reverse: true})">
+    
                                             </div>
-
+    
                                         </div>
-
-
-
-
-
-                              
-
-                                </form>
-
-
-
-
-
-
-                                <div class="opcoes-cadastro" style="text-align: center; margin-inline: block;">
-                                    <a href="/paginas/sim-page1.html">
-                                    <button type="button" class="btn btn-primary btn-icon-label" title="Analisar">
-                                    
+                                        <br><br>
+                                        <div class="opcoes-cadastro" style="text-align: center; margin-inline: block;">
+                                    <button type="button" class="btn btn-primary btn-icon-label" title="Analisar" onclick="gerarToken();loading();">
+    
                                         <span class="btn-inner--icon">
                                             <i class="fas fa-search-dollar"></i>
                                         </span>
                                         <span class="btn-inner--text">Analisar</span>
-                                    </button></a>
+                                    </button>
+                                </div>
+                                <br><br><br><br><br>
 
+                                    <div class="bg-titulo mt-0">
 
+                                        <h3>
+                                            Escolha o produto Disponível
 
-                            
+                                        </h3>
+
+                                    </div>
+
+                                    <br><br>
+                                        <div class="form-row">
+
+                                            <div class="col-md-6 mb-3">
+                                                <div id="cpAutoShow">
+                                                </div>
+                                                <div id="cpAutoValor">
+                                                </div>
+                                                <input type="hidden" id="inputCpAutoValor">
+                                                <div id="cpAutoParcelasMax">
+                                                </div>
+
+                                            </div>
+
+                                            <div class="col-md-6 mb-3">
+                                                <div id="cpPuroShow">
+                                                </div>
+                                                <div id="cpPuroValor">
+                                                </div>
+                                                <input type="hidden" id="inputCpPuroValor">
+                                                <div id="cpPuroParcelasMax">
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+                                        <br><br><br>
+                                <div class="opcoes-cadastro" style="text-align: center; margin-inline: block;">
+                                   
+                                    <button type="button" class="btn btn-primary btn-icon-label" title="Analisar" 
+                                    id="cpAutoKey" onclick="chamaHtml();limiteVencimento();reguaCpAuto();">
+                                    
+                                        <span class="btn-inner--icon">
+                                            <i class="far fa-arrow-left"></i>
+                                        </span>
+                                        
+                                    </button>
+
+                     
+                                        <button type="button" class="btn btn-primary btn-icon-label" title="Analisar"
+                                         id="cpPuroKey" onclick="limiteVencimento(); reguaCpPuro(); excluirCpAuto();" >
+
+                                           
+                                            <span class="btn-inner--icon">
+                                                <i class="far fa-arrow-right"></i>
+                                            </span>
+                                        </button>
+    
                                 </div>
 
+                                <br><br><br>
+                                
+                                <input id="uuid" type="hidden"><!--hidden-->
+                                
+                                <input id="code" type="hidden"><!--hidden-->
+                                
+                                <input id="ficoCode" type="hidden"><!--hidden-->
+                                
+                                <input id="access_token" type="hidden"><!--hidden-->
+                                
+                                <input id="sessionId" type="hidden"><!--hidden-->
+                                
+                                <input id="dataMaxima" type="hidden"><!--hidden-->
+                                
+                                <input id="dataMinima" type="hidden"><!--hidden-->
+                                
+
+
+
+                                    <div class="bg-titulo mt-0">
+    
+                                        <h3>
+                                            Detalhes Simulação
+    
+                                        </h3>
+    
+                                    </div>
+    
+                                  <br><br><br>
+
+                                        <div class="form-row">
+                                            <div class="col-md-4 mb-3">
+                                                <label for="validationCustom02">Forma de Pagamento</label>
+                                                    <select name="" class="form-control form-control-sm" id="formaPagamento" onblur="HabilitarInputParaDebitoEmConta()">
+                                                        <option value=""></option>
+                                                        <option value="9">Boleto</option>
+                                                        <option value="10">Debito Santander</option>
+                                                    </select>
+                                            </div>
+                                            <!--continua-->
+                                            <div class="col-md-3 mb-3">
+                                                <label for="validationCustom01">Agência</label>
+                                                <input type="text" class="form-control form-control-sm" id="agencia" required="">
+    
+                                            </div>
+    
+                                            <div class="col-md-3 mb-3">
+                                                <label for="validationCustom01">Conta</label>
+                                                <input type="text" class="form-control form-control-sm" id="conta" required="">
+    
+                                            </div>
+    
+                                            <div class="col-md-2 mb-3">
+                                                <label for="validationCustom01">Dígito</label>
+                                                <input type="text" class="form-control form-control-sm" id="digito" required="">
+    
+                                            </div>
+    
+    
+                                            <div class="col-md-4 mb-3">
+                                                <label for="validationCustom01">Primeiro Pagamento</label>
+                                                <input type="date" class="form-control form-control-sm" id="vencimento" required="">
+    
+                                            </div>
+    
+                                            <div class="col-md-4 mb-3">
+                                                <label for="validationCustom02">Parcelas</label>
+                                                <select class="form-control form-control-sm" id="qtdParcelas">
+                                                    <option value="3">3</option>
+                                                    <option value="6">6</option>
+                                                    <option value="9">9</option>
+                                                    <option value="12">12</option>
+                                                    <option value="15">15</option>
+                                                    <option value="18">18</option>
+                                                    <option value="21">21</option>
+                                                    <option value="24">24</option>
+                                                    <option value="27">27</option>
+                                                    <option value="30">30</option>
+                                                    <option value="33">33</option>
+                                                    <option value="36">36</option>
+                                                </select>
+    
+                                            </div>
+                                            <div class="col-md-2 mb-3">
+                                                <label for="validationCustom01">cupom </label>
+                                                <input type="text" class="form-control form-control-sm" id="cupom" required="">
+                                               
+                                            </div>
+                                            <div class="col-md-2 mb-3">
+                                                <label for="validationCustom01">Seguro? </label>
+                                                <select class="form-control form-control-sm" id="seguro">
+                                                    <option value="75"></option>
+                                                    <option value="84">SIM</option>
+                                                    <option value="75">NÃO</option>
+                                                </select>
+                                            </div>
+                                            
+                                            <div class="container "><br><br><br><br><br>
+                                                <div class=" col-md-12 mb-3">
+                                                     <div class="slidercontainer">
+                                                        <div class="opcoes-cadastro" style="text-align: center; margin-inline: block;">
+                                                              <label for="validationCustom02">Valor do Empréstimo</label>
+                                                            </div>
+                                                         <input type="range"   min="500" class="slider" id="myRange" name="valorSimulacao" >
+                                                         <div class="opcoes-cadastro" style="text-align: center; margin-inline: block;"> 
+                                                            <div class="container"><h6>R$ <span id="demo"></span></h6></div></div>  
+             
+                                                     </div>
+                                                 </div>
+                                                 <div id="showCpAuto"></div><br>
+                                             </div>
+                                            </div><br><br>
+                                            <div class="opcoes-cadastro" style="text-align: center; margin-inline: block;">
+                                             <button type="button" class="btn btn-primary btn-icon-label" title="Analisar"  onclick="simular()">
+    
+                                                <span class="btn-inner--icon">
+                                                    <i class="fas fa-search-dollar"></i>
+                                                </span>
+                                                <span class="btn-inner--text">Simular</span>
+                                            </button>
+                                        </div><br><br><br><br>
+                                
+                                        <div class="bg-titulo mt-3">
+    
+                                            <h3>
+                                                Resultado
+        
+                                            </h3>
+        
+                                        </div>
+                                        <br><br>
+                           <div class="resultao" style="text-align: center;">
+                                
+                                    <div class="valoremprestimo mt-3" id="">valor do emprestimo solicitado: </div>
+                                    <div class="valoremprestimo mt-3" id="valorEmprestimo2"></div>
+                                    <div class="valoremprestimo mt-3" id="alertaValor"></div>
+
+                                    <div class="valoremprestimo mt-3" id="">total pago no fiNAL</div>
+                                    <div class="valoremprestimo mt-3" id="totalPagofinal"></div>
+                                    
+                                    <div class="valoremprestimo mt-3" id="">qtd parcelas</div>
+                                    <div class="valoremprestimo mt-3" id="qtdParcelas2"></div>
+
+                                    <div class="valoremprestimo mt-3" id="">valor de cada parcela</div>
+                                    <div class="valoremprestimo mt-3" id="valorCadaParcela"></div>
+
+                                    <input type="hidden" id="inputParcelas">
+                                    
+                                    <div class="valoremprestimo mt-3" id="">primeiro pagamento </div>
+                                    <div class="valoremprestimo mt-3" id="vencimento2"></div>
+                                    
+                                    <div class="valoremprestimo mt-3" id="">taxa anual</div>
+                                    <div class="valoremprestimo mt-3" id="taxaAnual"></div>
+
+                                    <input type="hidden" id="inputTaxaAnual">
+                                    
+                                    <div class="valoremprestimo mt-3" id="">taxa mensal</div>
+                                    <div class="valoremprestimo mt-3" id="taxaMensal"></div>
+
+                                    <input type="hidden" id="inputTaxaMensal">
+                                     
+                                    <div class="valoremprestimo mt-3" id="">seguro</div>
+                                    <div class="valoremprestimo mt-3" id="resultadoSeguro"></div>
+
+    
+                             </div>
+                       
                                 </div>
+                                <div class="card-body">
+                                 
+                                   
 
+                                    <div class="bg-titulo mt-3">
+    
+                                        <h3>
+                                            Dados Pessoais
+    
+                                        </h3>
+                                    </div> <br><br><br>
+            
 
+                                        <div class="form-row">
+                                                <input type="hidden" class="form-control form-control-sm" id="code_city" required="">
+                                        
+                                            <div class="col-md-4 mb-3">
+                                                <label for="validationCustom01">CEP</label>
+                                                <input type="text" class="form-control form-control-sm"  id="cep" name="cep" onblur="verificaCep(); preencheAutomatico();" required="">
+    
+                                            </div>
+                                            <div class="col-md-4 mb-3">
+                                                <label for="validationCustom01">Logadouro</label>
+                                                <input type="text" class="form-control form-control-sm" id="rua" required="">
+    
+                                            </div>
+    
+                                            <div class="col-md-2 mb-3">
+                                                <label for="validationCustom01">Número</label>
+                                                <input type="text" class="form-control form-control-sm" id="numero_casa" required="">
+    
+                                            </div>
+    
+                                            <div class="col-md-2 mb-3">
+                                                <label for="validationCustom01">Complemento</label>
+                                                <input type="text" class="form-control form-control-sm" id="complemento" required="">
+    
+                                            </div>
+    
+    
+                                            <div class="col-md-5 mb-3">
+                                                <label for="validationCustom01">Bairro</label>
+                                                <input type="text" class="form-control form-control-sm" id="bairro" required="">
+    
+                                            </div>
+    
+                                            <div class="col-md-5 mb-3">
+                                                <label for="validationCustom01">Cidade</label>
+                                                <input type="text" class="form-control form-control-sm" id="cidade" required="">
+    
+                                            </div>
+    
+                                            <div class="col-md-2 mb-3">
+                                                <label for="validationCustom02">UF</label>
+                                                <select class="form-control form-control-sm" id="uf">
+                                                    <option></option>
+                                                    <option value="AC">Acre</option>
+                                                    <option value="AL">Alagoas</option>
+                                                    <option value="AP">Amapá</option>
+                                                    <option value="AM">Amazonas</option>
+                                                    <option value="BA">Bahia</option>
+                                                    <option value="CE">Ceará</option>
+                                                    <option value="DF">Distrito Federal</option>
+                                                    <option value="ES">Espírito Santo</option>
+                                                    <option value="GO">Goiás</option>
+                                                    <option value="MA">Maranhão</option>
+                                                    <option value="MT">Mato Grosso</option>
+                                                    <option value="MS">Mato Grosso do Sul</option>
+                                                    <option value="MG">Minas Gerais</option>
+                                                    <option value="PA">Pará</option>
+                                                    <option value="PB">Paraíba</option>
+                                                    <option value="PR">Paraná</option>
+                                                    <option value="PE">Pernambuco</option>
+                                                    <option value="PI">Piauí</option>
+                                                    <option value="RJ">Rio de Janeiro</option>
+                                                    <option value="RN">Rio Grande do Norte</option>
+                                                    <option value="RS">Rio Grande do Sul</option>
+                                                    <option value="RO">Rondônia</option>
+                                                    <option value="RR">Roraima</option>
+                                                    <option value="SC">Santa Catarina</option>
+                                                    <option value="SP">São Paulo</option>
+                                                    <option value="SE">Sergipe</option>
+                                                    <option value="TO">Tocantins</option>
+    
+                                                </select>
+    
+                                            </div>
+    
+    
+                                            <div class="col-md-3 mb-3">
+                                                <label for="validationCustom02">Ocupação</label>
+                                                <select class="form-control form-control-sm" id="ocupacao">
+                                                </select>
+    
+                                            </div>
+    
+                                            <div class="col-md-2 mb-3">
+                                                <label for="validationCustom01">Patrimônio (R$)</label>
+                                                <input type="text" class="form-control form-control-sm" id="patrimonio" 
+                                                required="" onblur="$(this).mask('000000.00', {reverse: true})">
+    
+                                            </div>
+    
+    
+                                            <div class="col-md-7 mb-3">
+                                                <label for="validationCustom01">Nome da Mãe</label>
+                                                <input type="text" class="form-control form-control-sm" id="nomeMae" required="">
+    
+                                            </div>
+    
+                                            <div class="col-md-3 mb-3">
+                                                <label for="validationCustom02">Documento</label>
+                                                <input type="text" class="form-control form-control-sm" id="documento" required="">
+    
+                                            </div>
+    
+                                            <div class="col-md-3 mb-3">
+                                                <label for="validationCustom01">Data de Emissão</label>
+                                                <input type="text" class="form-control form-control-sm" 
+                                                id="emissao" required onblur="$(this).mask('99/99/9999')">
+    
+                                            </div>
+                                            <div class="col-md-2 mb-3">
+                                                <label for="validationCustom02">Gênero</label>
+                                                <select class="form-control form-control-sm" id="genero">
+                                                    <option value="M">M </option>
+                                                    <option value="F">F </option>
+    
+                                                </select>
+                                            </div>
+
+                                            <div class="col-md-2 mb-3">
+                                                <label for="validationCustom02">Estado Civil</label>
+            
+                                                <select class="form-control form-control-sm"  name="vMaritalStatus" id="estadoCivil" required>
+                                                    <option value="1">solteiro</option>
+                                                    <option value="3">casado</option>
+                                                    <option value="5">separado</option>
+                                                    <option value="6">divorciado</option>
+                                                    <option value="11">união estável</option>
+                                                    <option value="14">outro</option>
+                                                    <option value="15">viúvo</option>
+                                                </select>
+
+                                            </div>
+    
+                                            <div class="col-md-2 mb-3">
+                                                <label for="validationCustom02">UF Doc.</label>
+                                                <select class="form-control form-control-sm" id="ufDoc">
+                                                    <option value=""> </option>
+                                                    <option value="AC">Acre</option>
+                                                    <option value="AL">Alagoas</option>
+                                                    <option value="AP">Amapá</option>
+                                                    <option value="AM">Amazonas</option>
+                                                    <option value="BA">Bahia</option>
+                                                    <option value="CE">Ceará</option>
+                                                    <option value="DF">Distrito Federal</option>
+                                                    <option value="ES">Espírito Santo</option>
+                                                    <option value="GO">Goiás</option>
+                                                    <option value="MA">Maranhão</option>
+                                                    <option value="MT">Mato Grosso</option>
+                                                    <option value="MS">Mato Grosso do Sul</option>
+                                                    <option value="MG">Minas Gerais</option>
+                                                    <option value="PA">Pará</option>
+                                                    <option value="PB">Paraíba</option>
+                                                    <option value="PR">Paraná</option>
+                                                    <option value="PE">Pernambuco</option>
+                                                    <option value="PI">Piauí</option>
+                                                    <option value="RJ">Rio de Janeiro</option>
+                                                    <option value="RN">Rio Grande do Norte</option>
+                                                    <option value="RS">Rio Grande do Sul</option>
+                                                    <option value="RO">Rondônia</option>
+                                                    <option value="RR">Roraima</option>
+                                                    <option value="SC">Santa Catarina</option>
+                                                    <option value="SP">São Paulo</option>
+                                                    <option value="SE">Sergipe</option>
+                                                    <option value="TO">Tocantins</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <br><br>
+                                    <div class="opcoes-cadastro" style="text-align: center; margin-inline: block;">
+                                        <button type="button" class="btn btn-primary btn-icon-label"
+                                         data-toggle="modal" data-target=".modalvisualizarsim" title="Alterar"
+                                         onclick="modal();finalizar();">
+                                            <span class="btn-inner--icon">
+                                                <i class="fas fa-plus"></i>
+                                            </span>
+                                            <span class="btn-inner--text">Cadastrar Proposta</span>
+                                        </button>
+                                    </div>
+                                    <br><br><br><br><br>
+                                    <input type="hidden" id="numeroProposta">
+                                    <input type="hidden" id="statusProposta">
+                                </div>
+                                
                             </div>
 
 
 
-
-
                         </div>
-
+                        <br><br><br><br><br>
 
                     </div>
 
 
                 </div>
 
-
+            </div>
 
             </div>
 
@@ -872,7 +1269,32 @@
         </div>
         </div>
 
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         <!-- Scripts -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
         <!-- Core JS - includes jquery, bootstrap, popper, in-view and sticky-kit -->
         <script src="../assets/js/purpose.core.js"></script>
         <!-- Page JS -->
@@ -890,6 +1312,13 @@
         <!-- Import Get para popular campos -->
         <script src="../assets/js/cadastro.js"></script>
         <script src="../assets/js/propostas.js"></script>
+        <script src="../assets/js/simulacaoSim.js">
+        </script>
+         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
+         <script src="jquery.blockUI.1.33.js"></script>
     </body>
 
 </html>

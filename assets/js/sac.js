@@ -127,7 +127,7 @@ botao_filtro.addEventListener('click', () => {
                 let gerente = row.insertCell(-1);
                 let alteraVisualiza = row.insertCell(-1);
 
-                
+
                 let protocoloText = document.createTextNode(`${data[i].protocolo}`);
                 protocolo.appendChild(protocoloText);
 
@@ -181,7 +181,7 @@ botao_filtro.addEventListener('click', () => {
 
                 let gerenteText = document.createTextNode(`${data[i].gerente}`);
                 gerente.appendChild(gerenteText);
-            
+
                 //Passando minha proposta neste escopo
                 modal.set(data[i].id_sac, data[i]);
                 modalRow.set(data[i].id_sac, row);
@@ -264,7 +264,7 @@ function change() {
 
 }
 
-function insert(){
+function insert() {
 
     let protocolo = $('#protocolo-campo').val()
     let classificacao = $('#classificacao-campo').val()
@@ -293,31 +293,31 @@ function insert(){
     myHeaders.append("Content-Type", "application/json")
 
     const body = {
-        protocolo:protocolo,
-        classificacao:classificacao,
-        status:status,
-        banco:banco,
-        valor_operacao:vlOperacao,
-        contrato:contrato,
-        data_recebimento:dtRecebimento,
-        data_inclusao:dtInclusao,
-        data_resposta:dtResposta,
-        tempo_atuacao:tmpAtuacao,
-        nome:nmCliente,
-        cpf:cpf,
-        telefone:telefone,
-        email:email,
-        parceiro:parceiro,
-        supervisor:supervisor,
-        gerente:gerente,
-        protocolo_banco:protocoloBanco,
-        empresa:empresa,
-        procedente:procedente,
-        questionamento:questionamento,
-        resposta:resposta,
-        cpf_parceiro:dataSession.cpf_user,
-        cpf_supervisor:dataSession.supervisor_cpf,
-        cpf_gerente:dataSession.gerente_cpf
+        protocolo: protocolo,
+        classificacao: classificacao,
+        status: status,
+        banco: banco,
+        valor_operacao: vlOperacao,
+        contrato: contrato,
+        data_recebimento: dtRecebimento,
+        data_inclusao: dtInclusao,
+        data_resposta: dtResposta,
+        tempo_atuacao: tmpAtuacao,
+        nome: nmCliente,
+        cpf: cpf,
+        telefone: telefone,
+        email: email,
+        parceiro: parceiro,
+        supervisor: supervisor,
+        gerente: gerente,
+        protocolo_banco: protocoloBanco,
+        empresa: empresa,
+        procedente: procedente,
+        questionamento: questionamento,
+        resposta: resposta,
+        cpf_parceiro: dataSession.cpf_user,
+        cpf_supervisor: dataSession.supervisor_cpf,
+        cpf_gerente: dataSession.gerente_cpf
     }
 
     const raw = JSON.stringify(body)
@@ -332,26 +332,26 @@ function insert(){
     fetch(URL + "/user/sac/incluir", requestOptions).
     then(response => response.json()).
     then(function (res) {
-    console.log(body)
+        console.log(body)
 
-    const resultInsert = insertAnexo(res)
-    Promise.resolve(resultInsert).then(function (value){
-        $('#SucessoSac').show();
-        $('#SucessoSac').fadeIn(300).delay(3000).fadeOut(400);
-        document.getElementById("SucessoSac").textContent = "Sac incluido"
+        const resultInsert = insertAnexo(res)
+        Promise.resolve(resultInsert).then(function (value) {
+            $('#SucessoSac').show();
+            $('#SucessoSac').fadeIn(300).delay(3000).fadeOut(400);
+            document.getElementById("SucessoSac").textContent = "Sac incluido"
 
-    })    
+        })
     }).catch(error => console.log('erro: ', error))
 }
 
-async function insertAnexo(res){
+async function insertAnexo(res) {
     const fileInputs = document.querySelectorAll('div#div-fundo input[type="file"]')
     const id = res.id_sac
 
     var res = new FormData()
     fileInputs.forEach(file => {
         res.append(file.name, file.files[0])
-      });
+    });
 
     await fetch(URL + `/user/sac/anexo?id_sac=${id}`, {
         method: 'POST',
@@ -432,7 +432,10 @@ function update(id) {
     fetch(URL + "/user/sac/atualizar", requestOptions)
         .then(response => response.json())
         .then(result => {
-            console.log(result);
+
+            const resultInsert = insertAnexo(result)
+            Promise.resolve(resultInsert).then(function (value) {})
+
             updateTbody(result, nodeRow)
             $('#SucessoSac').show();
             $('#SucessoSac').fadeIn(300).delay(3000).fadeOut(400);
@@ -467,7 +470,16 @@ function popula(id_sac) {
     $('#resposta-campo').val(id_sac.resposta)
 }
 
-function updateTbody(data,linha) {
+const botao_excel = document.getElementById("planilhaExcel");
+
+botao_excel.addEventListener('click', () => {
+  var table2excel = new Table2Excel();
+  table2excel.export(document.querySelectorAll("table"));
+})
+
+
+
+function updateTbody(data, linha) {
     let cells = linha.cells;
     cells[0].textContent = data.protocolo
     cells[1].textContent = data.classificacao
@@ -488,11 +500,3 @@ function updateTbody(data,linha) {
     cells[16].textContent = data.supervisor;
     cells[17].textContent = data.gerente
 }
-
-const botao_excel = document.getElementById("planilhaExcel");
-
-botao_excel.addEventListener('click', () => {
-  var table2excel = new Table2Excel();
-  table2excel.export(document.querySelectorAll("table"));
-
-})

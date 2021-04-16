@@ -31,6 +31,7 @@ function Insert(){
     myHeaders.append("Content-Type", "application/json")
 
     const body = {
+        data_inclusao: dateNow(),
         cpf:cpf,
         agencia:agencia,
         conta:conta,

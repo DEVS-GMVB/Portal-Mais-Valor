@@ -82,76 +82,10 @@ const etapaSmsFiltro = document.getElementById("etapa-sms-filtro");
 const bancoMaster = document.getElementById("banco-master-filtro");
 
 
-//gets para popular options 
-
-window.onload = function () {
-
-  var myHeaders = new Headers();
-  myHeaders.append("Content-Type", "application/json");
-
-  let requestOptions = {
-    method: 'GET',
-    redirect: 'follow'
-  }
-
-  fetch(URL + "/user/proposta/produto", requestOptions)
-    .then(response => response.json())
-    .then(function (data) {
-      data.forEach(element => {
-        produto.innerHTML += `<option value =${element.produto}>${element.produto}</option>`;
-      });
-    })
 
 
-  fetch(URL + "/user/proposta/tipo", requestOptions)
-    .then(response => response.json())
-    .then(function (data) {
-      data.forEach(element => {
-        tipoOperacao.innerHTML += `<option value =${element.tipo}>${element.tipo}</option>`;
-      });
-    })
-
-  fetch(URL + "/user/proposta/bancos", requestOptions)
-    .then(response => response.json())
-    .then(function (data) {
-      data.forEach(element => {
-        bancoPortador.innerHTML += `<option value =${element.banco}>${element.banco}</option>`;
-        bancoPortabilidadeFiltro.innerHTML += `<option value =${element.banco}>${element.banco}</option>`;
-        bancoFiltro.innerHTML += `<option value =${element.banco}>${element.banco}</option>`;
-      });
-    })
-
-  fetch(URL + "/user/proposta/empresas", requestOptions)
-    .then(response => response.json())
-    .then(function (data) {
-      data.forEach(element => {
-        empresaFiltro.innerHTML += `<option value =${element.empresa}>${element.empresa}</option>`;
-      });
-    })
-
-  fetch(URL + "/user/proposta/substatus", requestOptions)
-    .then(response => response.json())
-    .then(function (data) {
-      data.forEach(element => {
-        substatusFiltros.innerHTML += `<option value =${element.sub_status}>${element.sub_status}</option>`;
-      });
-    })
-
-  fetch(URL + "/user/proposta/produto", requestOptions)
-    .then(response => response.json())
-    .then(function (data) {
-      data.forEach(element => {
-        produtoFiltro.innerHTML += `<option value =${element.produto}>${element.produto}</option>`;
-      });
-    })
-
-
-}
 
 const changeInserir = document.getElementById("changeInsert");
-
-
-//INSERT
 
 
 changeInserir.addEventListener('click', () => {
@@ -249,9 +183,9 @@ changeInserir.addEventListener('click', () => {
 
         }).catch(error => console.log('error', error))
 
-      $('#alertSucessoProp').show();
-      $('#alertSucessoProp').fadeIn(300).delay(3000).fadeOut(400);
-      document.getElementById("alertSucessoProp").textContent = "Proposta incluida com sucesso"
+      $('#success').show();
+      $('#success').fadeIn(300).delay(3000).fadeOut(400);
+      document.getElementById("success").textContent = "Proposta incluida com sucesso"
     })
 
     return;

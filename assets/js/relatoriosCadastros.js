@@ -7,7 +7,7 @@ const BASE_PARCEIROS = document.getElementById("btn-parceiros");
 const BASE_CALLCENTER = document.getElementById("btn-callcenter");
 const BASE_IDENTIFICACAO = document.getElementById("btn-indetificacao");
 const BASE_PROPOSTAS = document.getElementById("btn-propostas");
-const BASE_PROPOSTABB = document.getElementById("btn-propostabb");
+const BASE_PROPOSTASBB = document.getElementById("btn-propostasbb");
 
 BASE_PAGAMENTO.addEventListener('click', () => {
     const requestOptions = {
@@ -118,16 +118,16 @@ BASE_PROPOSTAS.addEventListener('click', () => {
         .catch(error => console.log('error', error));
 })
 
-BASE_PROPOSTABB.addEventListener('click', () => {
+BASE_PROPOSTASBB.addEventListener('click', () => {
     const requestOptions = {
         method: 'GET',
         redirect: 'follow'
       };
-
+      
       fetch(URL+"/propostabb", requestOptions)
         .then(response => response.json())
         .then(data => {
-            alasql('SELECT * INTO XLSX("propostas.xlsx", {headers: true}) FROM ?', [data]);
+            alasql('SELECT * INTO XLSX("propostasbb.xlsx", {headers: true}) FROM ?', [data]);
         })
         .catch(error => console.log('error', error));
 })

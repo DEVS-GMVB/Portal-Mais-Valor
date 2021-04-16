@@ -40,7 +40,6 @@ input {
    margin: 0% auto;
    width: 700px;
    display: flex;
-   /* background-color: aqua; sac */
 }
 
 #downloadMargem{
@@ -48,10 +47,11 @@ input {
 }
 
 #idLabel{
-   background-color: #9399a3;
+   background-color: #eff2f7;
    border-radius: 22px;
    color: black;
    width: 300px;
+   transition: all .2s ease; 
 }
 
 #idLabel:hover{
@@ -75,6 +75,7 @@ input {
 
 }
 
+
 /*sac*/
 #idLabel-email{
    background-color: #cdd6e6;
@@ -93,3 +94,43 @@ input {
       display: flex;
    }
 }
+
+
+
+/* Configuracao Régua  Simulacao de valor do emprestimo   */
+
+.slidecontainer {
+  width: 100%;
+}
+
+.slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 15px;
+  background: gray;
+  outline: none;
+  opacity: 0.9;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+
+.slider:hover {
+  opacity: 0.9;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  background: #0275d8;
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 10px;
+  height: 10px;
+  background: #0275d8;
+  cursor: pointer;
+}
+

@@ -167,6 +167,8 @@ window.onload = function () {
 
 }
 const colocar = document.getElementById('incluir');
+
+
 colocar.addEventListener('click', () => {
 
     var node = document.getElementById("list");
@@ -266,7 +268,7 @@ colocar.addEventListener('click', () => {
 
                 //Atrr
                 cont++;
-               // console.log(row);
+                console.log(row);
                 indexObj.push(row)
 
                 alteraVisualiza.innerHTML = `
@@ -294,8 +296,7 @@ colocar.addEventListener('click', () => {
 
 
 function editar(cpfCnpj, indexObj) {
-    //console.log("Cliquei em Alterar icon me trouxe isso: " + indexObj);
-
+    // console.log("Cliquei em Alterar icon me trouxe isso: " + indexObj);
 
     //javascript para interromper o fluxo dos modais iguais;
     document.getElementById("acesso-tab").disabled = false;
@@ -584,10 +585,19 @@ buttonIncluir.addEventListener('click', () => {
 
 })
 
+let apagar = document.getElementById("apagarFiltrosCadastro")
+apagar.addEventListener('click', () => {
+    $("#apagarFiltros").each(function () {
+        this.reset();
+    })
+})
+
+
 const botao_excel = document.getElementById("planilhaExcel");
+
 
 botao_excel.addEventListener('click', () => {
   var table2excel = new Table2Excel();
-  table2excel.export(document.querySelectorAll("#table"));
+  table2excel.export(document.querySelector("#table"));
 
 })

@@ -2,7 +2,8 @@ const URL = 'http://localhost:3000/user';
 
 // BTN
 const incluir = document.getElementById("btn-incluir");
-const btnApagar = document.getElementById("btn-apagar");
+const apagar = document.getElementById("btn-apagar")
+
 const mapRow = new Map();
 
 const arrays = {
@@ -10,24 +11,21 @@ const arrays = {
     contadorRow: 0
 }
 
-const cleanModal = {
-    empty: function () {
-        $('.needs-validation').each(function () {
-            this.reset();
-        });
-        const spans = document.querySelectorAll('label span')
-        spans.forEach(item => {
+apagar.addEventListener('click', () => {
+
+    const spans = document.querySelectorAll('label span')
+    spans.forEach(item => {
         item.innerHTML = 
         `
             Choose a file…
         `
     })
-    }
-}
 
-btnApagar.addEventListener('click', (e) => {
-    cleanModal.empty()
+    $(".needs-validation").each(function () {
+        this.reset();
+    })
 })
+
 
 incluir.addEventListener('click', (e) => {
     const titulo = $("#campo-titulo").val();
@@ -116,7 +114,7 @@ incluir.addEventListener('click', (e) => {
                     
                     `:
                     incluirAnexos(data).then(function (result) {
-                        console.log(result)
+
                         row.innerHTML =
                             `
                             <td>
@@ -177,15 +175,6 @@ incluir.addEventListener('click', (e) => {
         .catch(error => console.error('Deu erro interno', error))
 })
 
-/*  <a href="../../API_Portal_GMVB/tmp/uploads/0c0c261172f2ff4e1b123a3316398548- git.docx" download>
-                            <button type="button"
-                            class="btn btn-sm btn-secondary btn-icon rounded-pill" id="btn-download1">
-                            <span class="btn-inner--icon"><i
-                                    class="far fa-download"></i></span>
-                            <span class="btn-inner--text">${result.url_img}</span>
-                            </button>
-                        </a>*/
-
 async function incluirAnexos(data) {
     let dados;
     var input = document.querySelectorAll("input[type='file']")
@@ -228,8 +217,5 @@ function Delete(id, row){
     .then(data => {
         document.getElementById("list").deleteRow($('#list tr')[row]);
         arrays.contadorRow--;
-
-        console.log(id)
-        console.log('Deletado')
     }).catch(error => console.log('erro: ', error))
 }

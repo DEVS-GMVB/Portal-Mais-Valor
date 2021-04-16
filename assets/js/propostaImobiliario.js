@@ -2,9 +2,8 @@ const URL = 'http://localhost:3000';
 
 let lista = document.getElementById('lista1');
 let buttonFiltro = document.getElementById('filtrar');
-var array = data;
 
-//Refatoração utilização da estrutura de dados map
+//Map
 const hashMapImobiliario = new Map();
 
 function dateNow() {
@@ -180,6 +179,8 @@ buttonIncluir.addEventListener('click', () => {
   fetch("http://localhost:3000/user/imobiliario/inclusao/arquivos", requestOptions)
     .then(function (response) {
       response.json().then(function (data) {
+        console.log(data);
+
         Swal.fire({
           position: 'center',
           icon: 'success',
@@ -403,7 +404,7 @@ buttonFiltro.addEventListener('click', () => {
   var myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/json");
   var raw = JSON.stringify({
-    "parceiro": dataSession.nome,//'PROMOTOR THAIS/THAIS SANTOS DEVAI'
+    "parceiro": dataSession.nome,
     "nome_operador": pesquisaNomeOperador.value,
     "gerente": pesquisaGerente.value,
     "supervisor": pesquisaSupervisor.value,
@@ -426,7 +427,7 @@ buttonFiltro.addEventListener('click', () => {
     body: raw,
     redirect: 'follow'
   };
-  fetch("http://localhost:3000/user/imobiliario/pesquisar", requestOptions)
+  fetch(URL + "/user/imobiliario/pesquisar", requestOptions)
     .then(response => response.json()
       .then(data => {
 
@@ -482,10 +483,12 @@ buttonFiltro.addEventListener('click', () => {
 
 })
 
+
+
 const botao_excel = document.getElementById("planilhaExcel");
 
 botao_excel.addEventListener('click', () => {
   var table2excel = new Table2Excel();
-  table2excel.export(document.querySelectorAll("#table"));
+  table2excel.export(document.querySelectorAll("table"));
 
 })
