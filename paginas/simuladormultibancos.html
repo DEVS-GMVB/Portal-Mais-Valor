@@ -45,6 +45,478 @@
         }
     </style>
 
+    <!--Modal Salva/Cadastrar Nova Simulação-->
+
+    <div class="modal fade modal-incluirproposta" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <img src="logocolorido.png" style="height: 70px; right: 70px;">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+
+                    <div class="bg-titulo mt-0">
+
+                        <h3>Dados da Proposta</h3>
+
+                    </div>
+
+                    <form class="needs-validation" novalidate>
+
+                        <div class="form-row mt-4">
+
+
+                            <div class="col-md-3 mb-3">
+                                <label for="validationCustom01">Número da Proposta</label>
+                                <input type="text" class="form-control form-control-sm" id="numero-proposta-incluir">
+
+                            </div>
+
+                            <div class="col-md-3 mb-3">
+                                <label for="validationCustom01">Data Cadastro</label>
+                                <input type="text" class="form-control form-control-sm" id="data-cadastro-incluir"
+                                    maxlength="19" size="19" onKeyPress="DataHora(event, this)">
+
+                            </div>
+
+                            <div class="col-md-3 mb-3">
+                                <label for="validationCustom01">Banco</label>
+                                <input type="text" class="form-control form-control-sm" id="banco-incluir">
+
+                            </div>
+
+                            <div class="col-md-3 mb-3">
+                                <label for="validationCustom01">Status</label>
+                                <input type="text" class="form-control form-control-sm" id="status-inclir">
+
+                            </div>
+
+                            <div class="col-md-3 mb-3">
+                                <div class="form-group">
+                                    <label for="exampleFormControlSelect1">Produto</label>
+                                    <select class="form-control form-control-sm" id="produto-incluir">
+                                        <option> </option>
+                                    </select>
+                                </div>
+
+                            </div>
+
+                            <div class="col-md-3 mb-3">
+                                <div class="form-group">
+                                    <label for="exampleFormControlSelect1">Tipo de Operação</label>
+                                    <select class="form-control form-control-sm" id="tipo-operacao-incluir">
+                                        <option> </option>
+
+
+
+                                    </select>
+                                </div>
+
+                            </div>
+
+
+                            <div class="col-md-3 mb-3">
+                                <label for="validationCustom01">Valor Entregue</label>
+                                <input type="text" class="form-control form-control-sm" id="valor-entregue-incluir"
+                                    onKeyPress="return(MascaraMoeda(this,'.',',',event))">
+
+                            </div>
+
+                            <div class="col-md-3 mb-3">
+                                <label for="validationCustom01">Valor Troco</label>
+                                <input type="text" class="form-control form-control-sm" id="valor-troco-incluir"
+                                    onKeyPress="return(MascaraMoeda(this,'.',',',event))">
+
+                            </div>
+
+
+
+                            <div class="col-md-6 mb-3">
+                                <div class="form-group">
+                                    <label for="exampleFormControlSelect1">Convênio</label>
+                                    <input type="text" class="form-control form-control-sm" id="convenio-incluir">
+                                    <!-- <select class="form-control form-control-sm" id="convenio-incluir">
+                                        <option> </option>
+                                        <option>20991 - INSS</option>
+                                        <option>2345 - MINISTERIO DO EXERCITO</option> 
+                                        <option>35783 - SIAPE</option> 
+                                        <option>2000 - MARINHA</option> 
+                                        <option>DEMAIS CONVENIO</option> 
+                                    </select> -->
+                                </div>
+      
+                            </div>
+
+                            <div class="col-md-6 mb-3">
+                                <div class="form-group">
+                                    <label for="exampleFormControlSelect1">Banco Portador</label>
+                                    <select class="form-control form-control-sm" id="banco-portador-incluir">
+                                        <option> </option>
+
+
+                                    </select>
+                                </div>
+
+                            </div>
+
+                            <div class="col-md-3 mb-3">
+                                <label for="validationCustom01">Portabilidade</label>
+                                <select class="form-control form-control-sm" id="portabilidade-incluir">
+                                    <option value=""></option>
+                                    <option value="NÃO">NÃO</option>
+                                    <option value="SIM">SIM</option>
+                                </select>
+                            </div>
+
+                            <div class="col-md-3 mb-3">
+                                <label for="validationCustom01">Valor Parcela</label>
+                                <input type="text" class="form-control form-control-sm" id="valor-parcela-incluir"
+                                    onKeyPress="return(MascaraMoeda(this,'.',',',event))">
+
+                            </div>
+
+                            <div class="col-md-3 mb-3">
+                                <div class="form-group">
+                                    <label for="exampleFormControlSelect1">Seguro</label>
+                                    <select class="form-control form-control-sm" id="seguro-incluir">
+                                        <option value=""> </option>
+                                        <option value="NÃO">NÃO</option>
+                                        <option value="SIM">SIM</option>
+                                    </select>
+                                </div>
+
+                            </div>
+
+
+                            <div class="col-md-3 mb-3">
+                                <label for="validationCustom01">Parcelas Pagas (PORT/REFIN)</label>
+                                <input type="text" class="form-control form-control-sm" id="parcelas-pagas-incluir">
+
+                            </div>
+
+
+
+
+
+                        </div>
+
+                    </form>
+
+                    <div class="bg-titulo mt-0">
+
+                        <h3>Dados do Cliente</h3>
+
+                    </div>
+
+
+                    <form class="needs-validation" novalidate>
+
+                        <div class="form-row mt-4">
+
+
+                            <div class="col-md-4 mb-3">
+                                <label for="validationCustom01">Nome Cliente</label>
+                                <input type="text" class="form-control form-control-sm" id="nome-cliente-incluir">
+
+                            </div>
+
+                            <div class="col-md-4 mb-3">
+                                <label for="validationCustom01">CPF Cliente</label>
+                                <input type="text" class="form-control form-control-sm" id="cpf-cliente-incluir"
+                                    placeholder="Ex: 000.000.000-00" onkeypress='mascaraMutuario(this,cpfCnpj)'
+                                    maxlength="14">
+
+                            </div>
+
+                            <div class="col-md-1 mb-3">
+                                <label for="validationCustom01">DDD</label>
+                                <input type="text" class="form-control form-control-sm" id="ddd-incluir" maxlength="3"
+                                    onKeyDown="fMasc( this, nContrtato );">
+
+                            </div>
+
+                            <div class="col-md-3 mb-3">
+                                <label for="validationCustom01">Telefone Cliente</label>
+                                <input type="text" class="form-control form-control-sm" id="telefone-cliente-incluir"
+                                    onkeypress='mascaraMutuario(this,mTelefoneCliente)' maxlength="10">
+
+                            </div>
+
+                            <div class="col-md-4 mb-1">
+                                <div class="form-group">
+                                    <label for="exampleFormControlSelect1">Correntista?</label>
+                                    <select class="form-control form-control-sm" id="correntista-incluir">
+                                        <option> </option>
+                                        <option> SIM </option>
+                                        <option> NÃO </option>
+                                    </select>
+                                </div>
+
+                            </div>
+
+                            <div class="col-md-4 mb-1">
+                                <label for="validationCustom01">Telefone SMS Cliente</label>
+                                <input type="text" class="form-control form-control-sm" id="telefone-sms-incluir"
+                                    onkeypress='mascaraMutuario(this,mTelefoneCliente)' maxlength="10">
+
+                            </div>
+
+
+                            <div class="col-md-4 mb-1">
+                                <label for="validationCustom01">Matrícula (NB/RA)</label>
+                                <input type="text" class="form-control form-control-sm" id="matricula-incluir">
+
+                            </div>
+
+                            <div class="col-md-5 mb-1">
+                                <div class="form-group">
+                                    <label for="exampleFormControlSelect1">Deseja Agendar Horário Para
+                                        Confirmação?</label>
+                                    <select class="form-control form-control-sm"
+                                        id="agendar-horario-confirmacao-incluir">
+                                        <option> </option>
+                                        <option> SIM </option>
+                                        <option> NÃO </option>
+                                    </select>
+                                </div>
+
+                            </div>
+
+
+                            <div class="col-md-3 mb-1">
+                                <label for="validationCustom01">Melhor Data - Confirmação Cliente</label>
+                                <input type="date" class="form-control form-control-sm" id="melhor-data-incluir">
+                            </div>
+
+
+                            <div class="col-md-4 mb-1">
+                                <div class="form-group">
+                                    <label for="exampleFormControlSelect1">Melhor Horário - Confirmação Cliente</label>
+                                    <select class="form-control form-control-sm" id="melhor-horario-incluir">
+                                        <option value=""></option>
+                                        <option value="08:00 as 08:59">08:00 as 08:59</option>
+                                        <option value="09:00 as 09:59">09:00 as 09:59</option>
+                                        <option value="10:00 as 10:59">10:00 as 10:59</option>
+                                        <option value="11:00 as 11:59">11:00 as 11:59</option>
+                                        <option value="12:00 as 12:59">12:00 as 12:59</option>
+                                        <option value="13:00 as 13:59">13:00 as 13:59</option>
+                                        <option value="14:00 as 14:59">14:00 as 14:59</option>
+                                        <option value="15:00 as 15:59">15:00 as 15:59</option>
+                                        <option value="16:00 as 16:59">16:00 as 16:59</option>
+                                        <option value="17:00 as 17:59">17:00 as 17:59</option>
+                                        <option value="18:00 as 18:59">18:00 as 18:59</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3 mb-1">
+                                <div class="form-group">
+                                    <label for="exampleFormControlSelect1">Exército Temporário</label>
+                                    <select class="form-control form-control-sm" id="exercito-temporario-incluir">
+                                        <option> </option>
+                                        <option> SIM </option>
+                                        <option> NÃO </option>
+                                    </select>
+                                </div>
+
+                            </div>
+
+                            <div class="col-md-3 mb-1">
+                                <label for="validationCustom01">Código Único Exército</label>
+                                <input type="text" class="form-control form-control-sm" id="codigo-exercito-incluir">
+
+                            </div>
+
+                            <div class="col-md-3 mb-1">
+                                <div class="form-group">
+                                    <label for="exampleFormControlSelect1">Sexo</label>
+                                    <select class="form-control form-control-sm" id="sexo-incluir">
+                                        <option> </option>
+                                        <option> MASCULINO </option>
+                                        <option> FEMININO </option>
+                                    </select>
+                                </div>
+
+                            </div>
+
+
+                            <div class="col-md-3 mb-1">
+                                <label for="validationCustom01">Data Nascimento</label>
+                                <input type="text" class="form-control form-control-sm" id="data-nascimento-incluir"
+                                    maxlength="10" onKeyDown="mascaraMutuario( this, data );">
+
+                            </div>
+
+                            <div class="col-md-8 mb-3">
+                                <label for="validationCustom01">E-mail</label>
+                                <input type="text" class="form-control form-control-sm" id="email-incluir">
+
+                            </div>
+
+
+                            <div class="col-md-4 mb-3">
+                                <div class="form-group">
+                                    <label for="exampleFormControlSelect1">UF</label>
+                                    <select class="form-control form-control-sm" id="uf-incluir">
+                                        <option value=""></option>
+                                        <option value="RO">RO</option>
+                                        <option value="AC">AC</option>
+                                        <option value="AM">AM</option>
+                                        <option value="RR">RR</option>
+                                        <option value="PA">PA</option>
+                                        <option value="AP">AP</option>
+                                        <option value="TO">TO</option>
+                                        <option value="MA">MA</option>
+                                        <option value="PI">PI</option>
+                                        <option value="CE">CE</option>
+                                        <option value="RN">RN</option>
+                                        <option value="PB">PB</option>
+                                        <option value="PE">PE</option>
+                                        <option value="AL">AL</option>
+                                        <option value="SE">SE</option>
+                                        <option value="BA">BA</option>
+                                        <option value="MG">MG</option>
+                                        <option value="ES">ES</option>
+                                        <option value="RJ">RJ</option>
+                                        <option value="SP">SP</option>
+                                        <option value="PR">PR</option>
+                                        <option value="SC">SC</option>
+                                        <option value="RS">RS</option>
+                                        <option value="MS">MS</option>
+                                        <option value="MT">MT</option>
+                                        <option value="GO">GO</option>
+                                        <option value="DF">DF</option>
+                                    </select>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </form>
+
+                    <div class="bg-titulo mt-0">
+
+                        <h3>Observação</h3>
+
+                    </div>
+
+                    <div class="observacao mt-3" style="text-align: center;">
+                        <label for="exampleFormControlSelect1">Observação</label>
+                        <textarea class="form-control" placeholder="" rows="3" id="observacao-incluir"></textarea>
+                    </div>
+
+
+                    <div class="bg-titulo mt-3">
+
+                        <h3>Anexos</h3>
+
+                    </div>
+
+
+                    <form class="needs-validation" novalidate id="files">
+
+                        <div class="form-row mt-4 mx-6">
+
+
+                            <div class="col-md-6 mb-3">
+                                <label for="exampleFormControlFile1"><b>Proposta:</b></label>
+                                <input type="file" name="proposta" class="form-control-file" id="proposta-file">
+                            </div>
+
+
+                            <div class="col-md-6 mb-3">
+                                <label for="exampleFormControlFile1"><b>Identificação:</b></label>
+                                <input type="file" name="identificacao" class="form-control-file"
+                                    id="exampleFormControlFile1">
+
+                            </div>
+
+                            <div class="col-md-6 mb-3 mt-2">
+                                <label for="exampleFormControlFile1"><b>Endereço:</b></label>
+                                <input type="file" name="endereco" class="form-control-file"
+                                    id="exampleFormControlFile1">
+
+                            </div>
+
+                            <div class="col-md-6 mb-3 mt-2">
+                                <label for="exampleFormControlFile1"><b>Renda:</b></label>
+                                <input type="file" name="renda" class="form-control-file" id="exampleFormControlFile1">
+
+                            </div>
+
+                            <div class="col-md-6 mb-0">
+                                <label for="exampleFormControlFile1"><b>Extrato INSS:</b></label>
+                                <input type="file" name="extratoInss" class="form-control-file"
+                                    id="exampleFormControlFile1">
+
+                            </div>
+
+                        </div>
+
+                        <hr>
+
+                        <div class="form-row mt-0 mx-6">
+
+
+
+                            <div class="col-md-6 mb-3">
+                                <label for="exampleFormControlFile1"><b>Outros 1:</b></label>
+                                <input type="file" name="outros1" class="form-control-file"
+                                    id="exampleFormControlFile1">
+
+                            </div>
+
+                            <div class="col-md-6 mb-3">
+                                <label for="exampleFormControlFile1"><b>Outros 2:</b></label>
+                                <input type="file" name="outros2" class="form-control-file"
+                                    id="exampleFormControlFile1">
+
+                            </div>
+
+                            <div class="col-md-6 mb-3">
+                                <label for="exampleFormControlFile1"><b>Outros 3:</b></label>
+                                <input type="file" name="outros3" class="form-control-file"
+                                    id="exampleFormControlFile1">
+
+                            </div>
+
+                            <div class="col-md-6 mb-3">
+                                <label for="exampleFormControlFile1"><b>Outros 4:</b></label>
+                                <input type="file" name="outros4" class="form-control-file"
+                                    id="exampleFormControlFile1">
+
+                            </div>
+
+                        </div>
+
+                    </form>
+
+                    <div class="opcoes-cadastro mt-4" style="text-align: center; margin-inline: block;" id="id-trocar">
+                        <button type="button" class="btn btn-primary btn-icon-label" id="incluir-button">
+                            <span class="btn-inner--icon">
+                                <i class="fas fa-plus"></i>
+                            </span>
+                            <span class="btn-inner--text">Incluir</span>
+                        </button>
+
+                    </div>
+
+                    <!-- Alert sucesso -->
+                    <div class="alert alert-success sucesso" id="success" role="alert">
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Fim Modal-->
+
 
     <body class="application application-offset">
 
@@ -819,7 +1291,7 @@
                                     </div>
 
 
-                                    <form class="needs-validation mt-4" novalidate>
+                                    <form class="needs-validation mt-4" id="form-reset" novalidate>
 
 
 
@@ -1091,49 +1563,52 @@
                                             <div class="col-md-6 mb-3">
                                                 <label for="validationCustom01">Valor Contrato</label>
                                                 <input type="text" class="form-control form-control-sm"
-                                                    id="campo-valor-contrato" required>
+                                                    id="campo-valor-contrato"
+                                                    onKeyPress="return(MascaraMoeda(this,'.',',',event))" required>
 
                                             </div>
 
                                             <div class="col-md-6 mb-3">
                                                 <label for="campo-valor-parcela">Valor Parcela</label>
                                                 <input type="text" class="form-control form-control-sm"
-                                                    id="campo-valor-parcela" required>
+                                                    id="campo-valor-parcela"
+                                                    onKeyPress="return(MascaraMoeda(this,'.',',',event))" required>
 
                                             </div>
 
                                         </div>
 
-                                        <div class="opcoes-cadastro" style="text-align: center; margin-inline: block;">
-                                            <button type="button" class="btn btn-primary btn-icon-label" data-toggle="modal"
-                                                data-target=".modalteladecadastro" title="Alterar" id="btn-simular">
-                                                <span class="btn-inner--icon">
-                                                    <i class="fas fa-calculator"></i>
-                                                </span>
-                                                <span class="btn-inner--text">Simular</span>
-                                            </button>
-    
-                                            <button type="button" class="btn btn-primary btn-icon-label" id="btn-salvar">
-                                                <span class="btn-inner--icon">
-                                                    <i class="fas fa-save"></i>
-                                                </span>
-                                                <span class="btn-inner--text">Salvar/Cadastrar Simulação</span>
-                                            </button>
-    
-                                            <button type="reset" class="btn btn-primary btn-icon-label"
-                                                id="btn-nova-simulacao">
-                                                <span class="btn-inner--icon">
-                                                    <i class="fas fa-sync-alt"></i>
-                                                </span>
-                                                <span class="btn-inner--text">Nova Simulação</span>
-                                            </button>
-    
-                                        </div>
-
                                     </form>
 
+                                    <div class="opcoes-cadastro" style="text-align: center; margin-inline: block;">
+                                        <button type="button" class="btn btn-primary btn-icon-label" data-toggle="modal"
+                                            data-target=".modalteladecadastro" title="Alterar" id="btn-simular">
+                                            <span class="btn-inner--icon">
+                                                <i class="fas fa-calculator"></i>
+                                            </span>
+                                            <span class="btn-inner--text">Simular</span>
+                                        </button>
 
-                                    
+                                        <button type="button" class="btn btn-primary btn-icon-label" id="btn-salvar"
+                                            data-toggle="modal" data-target=".modal-incluirproposta">
+                                            <span class="btn-inner--icon">
+                                                <i class="fas fa-save"></i>
+                                            </span>
+                                            <span class="btn-inner--text">Salvar/Cadastrar Simulação</span>
+                                        </button>
+
+                                        <button type="reset" class="btn btn-primary btn-icon-label"
+                                            id="btn-nova-simulacao">
+                                            <span class="btn-inner--icon">
+                                                <i class="fas fa-sync-alt"></i>
+                                            </span>
+                                            <span class="btn-inner--text">Nova Simulação</span>
+                                        </button>
+
+                                    </div>
+
+
+
 
                                     <div class="bg-titulo mt-4">
 
@@ -1148,36 +1623,44 @@
 
 
                                     <div class="opcoes-cadastro mt-3" style="text-align: center; margin-inline: block;">
+                                        <a href="http://www.grupogmvb.com/lw/Calculadora de Portabilidade de Crédito v3.8.xls"
+                                            download>
+                                            <button type="button"
+                                                class="btn btn-sm btn-secondary btn-icon rounded-pill">
+                                                <span class="btn-inner--icon"><i class="far fa-download"></i></span>
+                                                <span class="btn-inner--text">Calculadora de Portabilidade de Crédito
+                                                    v3.8</span>
+                                            </button>
+                                        </a>
 
-                                        <button type="button" class="btn btn-sm btn-secondary btn-icon rounded-pill">
-                                            <span class="btn-inner--icon"><i class="far fa-download"></i></span>
-                                            <span class="btn-inner--text">Calculadora de Portabilidade de Crédito
-                                                v3.8</span>
-                                        </button>
-
-                                        <button type="button" class="btn btn-sm btn-secondary btn-icon rounded-pill">
-                                            <span class="btn-inner--icon"><i class="far fa-download"></i></span>
-                                            <span class="btn-inner--text">SIMULADOR DE MARGEM AERONAUTICA v.2</span>
-                                        </button>
-
+                                        <a href="http://www.grupogmvb.com/lw/SIMULADOR AERONAUTICA v2.xlsx"
+                                            target="_blank">
+                                            <button type="button"
+                                                class="btn btn-sm btn-secondary btn-icon rounded-pill">
+                                                <span class="btn-inner--icon"><i class="far fa-download"></i></span>
+                                                <span class="btn-inner--text">SIMULADOR DE MARGEM AERONAUTICA v.2</span>
+                                            </button>
+                                        </a>
 
 
                                     </div>
 
                                     <div class="opcoes-cadastro mt-3" style="text-align: center; margin-inline: block;">
+                                        <a href="http://www.grupogmvb.com/lw/SIMULADOR_EXERCITO_FINALV7.xlsx" download>
+                                            <button type="button mt-3"
+                                                class="btn btn-sm btn-secondary btn-icon rounded-pill">
+                                                <span class="btn-inner--icon"><i class="far fa-download"></i></span>
+                                                <span class="btn-inner--text">SIMULADOR DE MARGEM EXÉRCITO v.7</span>
+                                            </button>
+                                        </a>
 
-                                        <button type="button mt-3"
-                                            class="btn btn-sm btn-secondary btn-icon rounded-pill">
-                                            <span class="btn-inner--icon"><i class="far fa-download"></i></span>
-                                            <span class="btn-inner--text">SIMULADOR DE MARGEM EXÉRCITO v.7</span>
-                                        </button>
-
-                                        <button type="button mt-3"
-                                            class="btn btn-sm btn-secondary btn-icon rounded-pill">
-                                            <span class="btn-inner--icon"><i class="far fa-download"></i></span>
-                                            <span class="btn-inner--text">SIMULADOR MARINHA v.1</span>
-                                        </button>
-
+                                        <a href="http://www.grupogmvb.com/lw/SIMULADOR MARINHA SANTANDER.xlsx">
+                                            <button type="button mt-3"
+                                                class="btn btn-sm btn-secondary btn-icon rounded-pill">
+                                                <span class="btn-inner--icon"><i class="far fa-download"></i></span>
+                                                <span class="btn-inner--text">SIMULADOR MARINHA v.1</span>
+                                            </button>
+                                        </a>
                                     </div>
 
                                 </div>
@@ -1215,7 +1698,7 @@
         <!-- Purpose JS -->
         <script src="../assets/js/purpose.js"></script>
         <!--Script-->
-        <script src="../assets/js/simuladormultibancos.js"></script>
+        <script src="../assets/js/multibancos.js"></script>
         <!-- Demo JS - remove it when starting your project -->
         <script src="../assets/js/demo.js"></script>
         <!-- Mascaras -->
