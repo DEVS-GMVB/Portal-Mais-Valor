@@ -1,22 +1,6 @@
-const URL = 'http://localhost:3000'
-
-let buscar = document.getElementById('btn-buscar');
-let excel = document.getElementById('btn-excel')
-
-const dataSession = {
-    id_acesso: sessionStorage.getItem('id_acesso', 'id_acesso'),
-    status: sessionStorage.getItem('status', 'status'),
-    perfil: sessionStorage.getItem('perfil', 'perfil'),
-    nome: sessionStorage.getItem('nome', 'nome'),
-    supervisor: sessionStorage.getItem('supervisor', 'supervisor'),
-    gerente: sessionStorage.getItem('gerente', 'gerente'),
-    cnpj_matr: sessionStorage.getItem('cnpj_matriz', 'cnpj_matriz'),
-    cpf_user: sessionStorage.getItem('cpf_usuario', 'cpf_usuario'),
-    tipo_usuario: sessionStorage.getItem('tipo_usuario', 'tipo_usuario'),
-    supervisor_cpf: sessionStorage.getItem('supervisor_cpf', 'supervisor_cpf'),
-    gerente_cpf: sessionStorage.getItem('gerente_cpf', 'gerente_cpf')
-}
-
+const URL = 'http://localhost:3000';
+const buscar = document.getElementById('btn-buscar');
+const btnExcel = document.getElementById("btn-excel");
 
 window.onload = () => {
     const requestOptions = {
@@ -43,8 +27,22 @@ window.onload = () => {
         .catch(error => console.log('error', error));
 }
 
+const dataSession = {
+    id_acesso: sessionStorage.getItem('id_acesso', 'id_acesso'),
+    status: sessionStorage.getItem('status', 'status'),
+    perfil: sessionStorage.getItem('perfil', 'perfil'),
+    nome: sessionStorage.getItem('nome', 'nome'),
+    supervisor: sessionStorage.getItem('supervisor', 'supervisor'),
+    gerente: sessionStorage.getItem('gerente', 'gerente'),
+    cnpj_matr: sessionStorage.getItem('cnpj_matriz', 'cnpj_matriz'),
+    cpf_user: sessionStorage.getItem('cpf_usuario', 'cpf_usuario'),
+    tipo_usuario: sessionStorage.getItem('tipo_usuario', 'tipo_usuario'),
+    supervisor_cpf: sessionStorage.getItem('supervisor_cpf', 'supervisor_cpf'),
+    gerente_cpf: sessionStorage.getItem('gerente_cpf', 'gerente_cpf')
+}
+
 buscar.addEventListener('click', () => {
-    
+
     var node = document.getElementById("tbody-2");
     while (node.hasChildNodes()) {
         node.removeChild(node.lastChild);
@@ -56,8 +54,8 @@ buscar.addEventListener('click', () => {
     const semana = $("#campo-semana").val();
 
     const body = {
-        cnpj: dataSession.cpf_user,//'434.479.388-97',
-        semana:semana
+        cnpj: '434.479.388-97',
+        semana: semana
     }
 
     const raw = JSON.stringify(body)
@@ -72,7 +70,7 @@ buscar.addEventListener('click', () => {
     fetch(URL + '/user/semanal/busca', requestOptions).
     then(response => response.json().then(function (data) {
 
-        for(let i = 0; i < data.length; i++){
+        for (let i = 0; i < data.length; i++) {
             let specific_tbody = document.getElementById('tbody-2');
             let row = specific_tbody.insertRow(-1);
             let proposta = row.insertCell(-1);
@@ -125,7 +123,7 @@ buscar.addEventListener('click', () => {
 
             let vlPontuacaoText = document.createTextNode(`${data[i].valor_pontuacao}`);
             vlPontuacao.appendChild(vlPontuacaoText);
-            
+
             let semanatext = document.createTextNode(`${data[i].semana}`);
             semana.appendChild(semanatext);
 
@@ -134,7 +132,8 @@ buscar.addEventListener('click', () => {
     })).catch(error => console.log('error: ', error))
 })
 
-excel.addEventListener('click', ()=>{
-    var table2excel = new Table2Excel();
-  table2excel.export(document.querySelectorAll("#table-2"));
+btnExcel.addEventListener('click', () => {
+    let table2excel = new Table2Excel();
+    table2excel.export(document.querySelector("#table-2"));
+
 })
