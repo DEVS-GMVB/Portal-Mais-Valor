@@ -111,9 +111,7 @@ buscar.addEventListener('click', () => {
         .catch(error => console.log('error', error));
 })
 
-
 excel.addEventListener('click', () => {
     let table2excel = new Table2Excel();
     table2excel.export(document.querySelector("#table-1"));
 })
-
