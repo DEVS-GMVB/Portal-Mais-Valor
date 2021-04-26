@@ -1,6 +1,6 @@
 const URL = "http://localhost:3000/user";
 //Selects
-const produtoSelect = document.getElementById("campo-produto");
+const produtoSelect = document.getElementById("campo_produto");
 const tipoSelect = document.getElementById("campo-tipo");
 const bancoOrigiSelect = document.getElementById("campo-banco");
 const statusSelect = document.getElementById("campo-status");
