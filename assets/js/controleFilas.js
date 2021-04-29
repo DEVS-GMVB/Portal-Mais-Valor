@@ -208,11 +208,10 @@ window.onload = () => {
             })
         })
         .catch(error => console.error(error));
-console.log('opa')
+
     fetch(`${URL}/filas/saldo/buscar`, requestOptions)
         .then(response => response.json())
         .then(function (data) {
-            console.log('oi')
             let totalProducao = 0;
             let totalQuantidade = 0;
             let totalAceito = 0;
@@ -227,7 +226,7 @@ console.log('opa')
                         <th scope="row">${item.data_atualizacao}</th>
                         <th scope="row">${item.qtd_dentro}</th>
                         <th scope="row">${item.qtd_fora}</th>
-                        <th scope="row">${totalProducao+=parseFloat(item.valor)}</th>
+                        <th scope="row">${totalProducao+=parseFloat(item.valor.replace(",","."))}</th>
                         <th scope="row">${totalQuantidade+=Number(item.qtd)}</th>
                         <th scope="row">${totalAceito+=Number(item.qtd_dentro)}</th>
                         <th scope="row">${totalNegado+=Number(item.qtd_fora)}</th> 
@@ -272,7 +271,3 @@ function dataAtualFormatada() {
     const ano = data.getFullYear();
     return `${dia}/${mes}/${ano}`;
 }
-
-setInterval(() => {
-    location.reload();
-}, 60000);
