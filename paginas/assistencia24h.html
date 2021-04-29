@@ -72,7 +72,7 @@
                             <div class="col-md-6 mb-3">
                                 <div class="form-group">
                                     <label for="exampleFormControlSelect1">Tipo Contratação</label>
-                                    <select class="form-control form-control-sm" id="fTipoContrataco">
+                                    <select class="form-control form-control-sm" id="fTipoContratacao">
                                         <option> </option>
                                         <option value="Cartao de Credito">Cartao de Crédito</option>
                                         <option value="Conta bancaria">Conta Bancaria</option>
@@ -155,12 +155,11 @@
                         <h3>Dados Cadastrais</h3>
 
                     </div>
-
                     <form class="needs-validation" novalidate>
 
                         <div class="form-row mt-3">
 
-
+                            <input type="hidden" class="form-control col-md-2 form-control-sm" id="codigo">
                             <div class="col-md-6 mb-3">
                                 <label for="validationCustom01">Nome do Cliente</label>
                                 <input type="text" class="form-control form-control-sm" id="nome">
@@ -329,8 +328,8 @@
                                 <label for="validationCustom01">Tipo Assistência</label>
                                 <select class="form-control form-control-sm" id="tipoAssistencia">
                                     <option value=""></option>
-                                    <option value="670">Residencial</option>
-                                    <option value="669">Pessoal</option>
+                                    <option value="670">residencial</option>
+                                    <option value="669">saude</option>
                                 </select>
 
                             </div>
@@ -1080,7 +1079,7 @@
 
                                     <div class="opcoes-cadastro mt-1" style="text-align: center; margin-inline: block;">
 
-                                        <button name="btnFP" onclick="nomeBotao(this.name);" type="button" class="btn btn-primary btn-icon-label" data-toggle="modal"
+                                        <button name="btnFP" onclick="nomeBotao(this.name); " type="button" class="btn btn-primary btn-icon-label" data-toggle="modal"
                                             data-target=".modal-incluirproposta-parc">
                                             <span class="btn-inner--icon">
                                                 <i class="fas fa-plus"></i>
@@ -1095,6 +1094,14 @@
                                             </span>
                                             <span class="btn-inner--text">Filtros de Pesquisa</span>
                                         </button>
+
+                                        <button name="btnFiltrosPesquisa" id="btnapagar" type="button" 
+                                        class="btn btn-primary btn-icon-label" data-toggle="modal" onclick="apagarFiltros();">
+                                        <span class="btn-inner--icon">
+                                            <i class="fas fa-trash-alt"></i>
+                                        </span>
+                                        <span class="btn-inner--text"> Apagar Filtros </span>
+                                    </button>
 
                                     </div>
 
@@ -1119,58 +1126,6 @@
                                             </thead>
 
                                             <tbody class="list" id="list">
-
-                                               <tr>
-
-                                                <td style="text-align: center;">
-                                                   
-                                                    000.000.000 - 00
-
-                                                </td>
-
-                                                <td style="text-align: center;"> BRUNO CEZAR</td>
-                                              
-                                                <td style="text-align: center;"> XXXXXX XXXXXX</td>
-                                                <td style="text-align: center;"> XXXXXXXXX XXXXXXXX</td>
-                                                 <td class="text-right" style="text-align: center;">
-                                                    <!-- Actions -->
-                                                    <div class="actions ml-3" style="text-align: center;">
-                                                        <a href="#" name="linkAlterar" onclick="nomeBotao(this.name);" class="action-item mr-2 " data-toggle="modal"
-                                                            data-target=".modal-incluirproposta-parc" title="Alterar">
-                                                            <i class="fas fa-external-link-alt"></i>
-                                                        </a>
-                                                    
-                                                    </div>
-                                                </td>
-                                             
-
-                                                </tr>
-
-                                                <tr>
-
-                                                    <td style="text-align: center;">
-                                                       
-                                                        000.000.000 - 00
-    
-                                                    </td>
-    
-                                                    <td style="text-align: center;"> BRUNO CEZAR</td>
-                                                  
-                                                    <td style="text-align: center;"> XXXXXX XXXXXX</td>
-                                                    <td style="text-align: center;"> XXXXXXXXX XXXXXXXX</td>
-                                                     <td class="text-right" style="text-align: center;">
-                                                        <!-- Actions -->
-                                                        <div class="actions ml-3" style="text-align: center;">
-                                                            <a href="#" class="action-item mr-2 " data-toggle="modal"
-                                                                data-target=".modal-incluirproposta-parc" title="Alterar">
-                                                                <i class="fas fa-external-link-alt"></i>
-                                                            </a>
-                                                        
-                                                        </div>
-                                                    </td>
-                                                 
-    
-                                                    </tr>
 
                                             </tbody>
                                         </table>
