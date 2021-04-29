@@ -1,25 +1,24 @@
-const URL = `http://localhost:3000/user`;
+const URL = "http://localhost:3000/user";
 
-const dadosPropostas = document.getElementById('tbody-dados-proposta');
-const integradasDia = document.getElementById('tbody-integradas-dia');
-const integradaMes = document.getElementById('tbody-integradas-mes');
-
-function dataAtualFormatada() {
-    const data = new Date()
-    const dia = data.getDate().toString().padStart(2, '0');
-    const mes = (data.getMonth() + 1).toString().padStart(2, '0');
-    const ano = data.getFullYear();
-    return `${dia}/${mes}/${ano}`;
-}
+//Tbody's
+const dadosPropostas = document.getElementById("dados-proposta");
+const integradasDia = document.getElementById("integradas-dia");
+const integradaMes = document.getElementById("integradas-mes");
+const farolTotal = document.getElementById("farol-total");
+const preCadastro = document.getElementById("tbody-pre-cadastro");
+const preAnalise = document.getElementById("tbody-fase-pre-analise");
+const faseConfirmacao = document.getElementById("tbody-fase-confirmacao");
+const faseDigitacao = document.getElementById("tbody-fase-digitacao");
+const faseSaldo = document.getElementById("tbody-fase-saldo");
+const faseAcompanhamento = document.getElementById("tbody-fase-acompanhamento");
 
 window.onload = () => {
-
     const requestOptions = {
         method: "GET",
         redirect: "follow"
     }
 
-  const dataAtual = dataAtualFormatada();
+    const dataAtual = dataAtualFormatada();
 
 
     fetch(`${URL}/filas/dadospropostas/busca`, requestOptions)
@@ -61,6 +60,7 @@ window.onload = () => {
         .catch(error => console.error(error))
         
 
+
     fetch(`${URL}/filas/integradasmes/buscar`, requestOptions)
         .then(response => response.json())
         .then(function (data) {
@@ -80,51 +80,199 @@ window.onload = () => {
             </tr>
             `
         })
-        .catch(error => console.error(error))
+        .catch(error => console.error(error));
 
-    var node = document.getElementById("tbody-pre-cadastro");
-    while (node.hasChildNodes()) {
-        node.removeChild(node.lastChild);
-    }
-
-    const myHeaders = new Headers();
-    myHeaders.append("Content-Type", "application/json");
-
-    fetch(URL+"/filas/precadastro/busca", requestOptions)
+    fetch(`${URL}/filas/precadastro/busca`, requestOptions)
         .then(response => response.json())
-        .then(data => {
-            for (let i = 0; i < data.length; i++) {
-                let specific_tbody = document.getElementById('tbody-pre-cadastro');
-                let row = specific_tbody.insertRow(-1);
-                let status = row.insertCell(-1);
-                let quantidade = row.insertCell(-1);
-                let producao = row.insertCell(-1);
-                let atualizacao = row.insertCell(-1);
-                let aceito = row.insertCell(-1);
-                let negado = row.insertCell(-1);
-                let total = row.insertCell(-1);
+        .then(function (data) {
+            const linhas = data.registrosLinhas;
+            let totalProducao = 0;
+            let totalQuantidade = 0;
+            let totalAceito = 0;
+            let totalNegado = 0;
+            linhas.forEach(item => {
+                preCadastro.innerHTML +=
+                    `
+                    <tr style="text-align: center;">
+                        <th scope="row">${item.status}</th>
+                        <th scope="row">${item.qtd}</th>
+                        <th scope="row">${item.valor}</th>
+                        <th scope="row">${item.data_envio}</th>
+                        <th scope="row">${item.qtd_dentro}</th>
+                        <th scope="row">${item.qtd_fora}</th>
+                        <th scope="row">${totalProducao+=parseFloat(item.valor.replace(",","."))}</th>
+                        <th scope="row">${totalQuantidade+=Number(item.qtd)}</th>
+                        <th scope="row">${totalAceito+=Number(item.qtd_dentro)}</th>
+                        <th scope="row">${totalNegado+=Number(item.qtd_fora)}</th>  
+                    </tr>
+                `
+            })
+        })
+        .catch(error => console.error(error));
 
-                let statusText = document.createTextNode(`${data[i].status}`);
-                status.appendChild(statusText);
+    fetch(`${URL}/filas/faroltotal/buscar`, requestOptions)
+        .then(response => response.json())
+        .then(function (data) {
+            const {
+                qtd_dentro,
+                qtd_fora
+            } = data[0];
 
-                let quantidadeText = document.createTextNode(`${data[i].qtd}`);
-                quantidade.appendChild(quantidadeText);
+            farolTotal.innerHTML =
+                `<tr style="text-align: center;">
+                            
+                <td>${qtd_dentro}</td>
+                <td>${qtd_fora}</td>
+           
+            </tr>`
+        })
+        .catch(error => console.error(error));
 
-                let producaoText = document.createTextNode(`${data[i].valor}`);
-                producao.appendChild(producaoText);
+    fetch(`${URL}/filas/preanalise/buscar`, requestOptions)
+        .then(response => response.json())
+        .then(function (data) {
+            let totalProducao = 0;
+            let totalQuantidade = 0;
+            let totalAceito = 0;
+            let totalNegado = 0;
+            data.forEach(item => {
+                preAnalise.innerHTML +=
+                    `
+                    <tr style="text-align: center;">
+                        <th scope="row">${item.status}</th>
+                        <th scope="row">${item.qtd}</th>
+                        <th scope="row">${item.valor}</th>
+                        <th scope="row">${item.data_atualizacao}</th>
+                        <th scope="row">${item.qtd_dentro}</th>
+                        <th scope="row">${item.qtd_fora}</th>
+                        <th scope="row">${totalProducao+=parseFloat(item.valor.replace(",","."))}</th>
+                        <th scope="row">${totalQuantidade+=Number(item.qtd)}</th>
+                        <th scope="row">${totalAceito+=Number(item.qtd_dentro)}</th>
+                        <th scope="row">${totalNegado+=Number(item.qtd_fora)}</th> 
+                    </tr>
+                `
+            })
+        })
+        .catch(error => console.error(error));
 
-                let atualizacaoText = document.createTextNode(`${data[i].data_envio}`);
-                atualizacao.appendChild(atualizacaoText);
+    fetch(`${URL}/filas/confirmacao/buscar`, requestOptions)
+        .then(response => response.json())
+        .then(function (data) {
+            let totalProducao = 0;
+            let totalQuantidade = 0;
+            let totalAceito = 0;
+            let totalNegado = 0;
+            data.forEach(item => {
+                faseConfirmacao.innerHTML +=
+                    `
+                    <tr style="text-align: center;">
+                        <th scope="row">${item.status}</th>
+                        <th scope="row">${item.qtd}</th>
+                        <th scope="row">${item.valor}</th>
+                        <th scope="row">${item.data_atualizacao}</th>
+                        <th scope="row">${item.qtd_dentro}</th>
+                        <th scope="row">${item.qtd_fora}</th>
+                        <th scope="row">${totalProducao+parseFloat(item.valor.replace(",","."))}</th>
+                        <th scope="row">${totalQuantidade+=Number(item.qtd)}</th>
+                        <th scope="row">${totalAceito+=Number(item.qtd_dentro)}</th>
+                        <th scope="row">${totalNegado+=Number(item.qtd_fora)}</th> 
+                    </tr>
+                `
+            })
+        })
+        .catch(error => console.error(error));
 
-                let aceitoText = document.createTextNode(`${data[i].qtd_dentro}`);
-                aceito.appendChild(aceitoText);
+    fetch(`${URL}/filas/digitacao/buscar`, requestOptions)
+        .then(response => response.json())
+        .then(function (data) {
+            let totalProducao = 0;
+            let totalQuantidade = 0;
+            let totalAceito = 0;
+            let totalNegado = 0;
+            data.forEach(item => {
+                faseDigitacao.innerHTML +=
+                    `
+                    <tr style="text-align: center;">
+                        <th scope="row">${item.status}</th>
+                        <th scope="row">${item.qtd}</th>
+                        <th scope="row">${item.valor}</th>
+                        <th scope="row">${item.data_atualizacao}</th>
+                        <th scope="row">${item.qtd_dentro}</th>
+                        <th scope="row">${item.qtd_fora}</th>
+                        <th scope="row">${totalProducao+=parseFloat(item.valor.replace(",","."))}</th>
+                        <th scope="row">${totalQuantidade+=Number(item.qtd)}</th>
+                        <th scope="row">${totalAceito+=Number(item.qtd_dentro)}</th>
+                        <th scope="row">${totalNegado+=Number(item.qtd_fora)}</th> 
+                    </tr>
+                `
+            })
+        })
+        .catch(error => console.error(error));
+console.log('opa')
+    fetch(`${URL}/filas/saldo/buscar`, requestOptions)
+        .then(response => response.json())
+        .then(function (data) {
+            console.log('oi')
+            let totalProducao = 0;
+            let totalQuantidade = 0;
+            let totalAceito = 0;
+            let totalNegado = 0;
+            data.forEach(item => {
+                faseSaldo.innerHTML +=
+                    `
+                    <tr style="text-align: center;">
+                        <th scope="row">${item.status}</th>
+                        <th scope="row">${item.qtd}</th>
+                        <th scope="row">${item.valor}</th>
+                        <th scope="row">${item.data_atualizacao}</th>
+                        <th scope="row">${item.qtd_dentro}</th>
+                        <th scope="row">${item.qtd_fora}</th>
+                        <th scope="row">${totalProducao+=parseFloat(item.valor)}</th>
+                        <th scope="row">${totalQuantidade+=Number(item.qtd)}</th>
+                        <th scope="row">${totalAceito+=Number(item.qtd_dentro)}</th>
+                        <th scope="row">${totalNegado+=Number(item.qtd_fora)}</th> 
+                    </tr>
+                `
+            })
+        })
+        .catch(error => console.error(error));
 
-                let negadoText = document.createTextNode(`${data[i].qtd_fora}`);
-                negado.appendChild(negadoText);
-
-                let totalText = document.createTextNode(``);
-                total.appendChild(totalText);
-            }
-        }).catch(error => console.log('error', error));
-
+    fetch(`${URL}/filas/acompanhamento/buscar`, requestOptions)
+        .then(response => response.json())
+        .then(function (data) {
+            let totalProducao = 0;
+            let totalQuantidade = 0;
+            let totalAceito = 0;
+            let totalNegado = 0;
+            data.forEach(item => {
+                faseAcompanhamento.innerHTML +=
+                    `
+                    <tr style="text-align: center;">
+                        <th scope="row">${item.status}</th>
+                        <th scope="row">${item.qtd}</th>
+                        <th scope="row">${item.valor}</th>
+                        <th scope="row">${item.data_atualizacao}</th>
+                        <th scope="row">${item.qtd_dentro}</th>
+                        <th scope="row">${item.qtd_fora}</th>
+                        <th scope="row">${totalProducao+=parseFloat(item.valor.replace(",","."))}</th>
+                        <th scope="row">${totalQuantidade+=Number(item.qtd)}</th>
+                        <th scope="row">${totalAceito+=Number(item.qtd_dentro)}</th>
+                        <th scope="row">${totalNegado+=Number(item.qtd_fora)}</th> 
+                    </tr>
+                `
+            })
+        })
+        .catch(error => console.error(error));
 }
+
+function dataAtualFormatada() {
+    const data = new Date();
+    const dia = data.getDate().toString().padStart(2, '0');
+    const mes = (data.getMonth() + 1).toString().padStart(2, '0');
+    const ano = data.getFullYear();
+    return `${dia}/${mes}/${ano}`;
+}
+
+setInterval(() => {
+    location.reload();
+}, 60000);
