@@ -749,11 +749,11 @@
                                                 <option> </option>                                   
                                                 <!-- <select size="1" name="calculadora" onchange="window.location.href = this.value;"> -->
                                                     <option value="INSS - PORTABILIDADE">INSS - PORTABILIDADE</option>
-                                                    <option value="">INSS - NOVO</option>
-                                                    <option value="">INSS - REFIN</option>
-                                                    <option value="">SIAPE - NOVO</option>
-                                                    <option value="">SIAPE - REFIN</option>
-                                                    <option value="">GOVERNO DE SÃO PAULO - NOVO / REFIN</option>
+                                                    <option value="INSS - NOVO">INSS - NOVO</option>
+                                                    <option value="INSS - REFIN">INSS - REFIN</option>
+                                                    <option value="SIAPE - NOVO">SIAPE - NOVO</option>
+                                                    <option value="SIAPE - REFIN">SIAPE - REFIN</option>
+                                                    <option value="GOVERNO DE SÃO PAULO - NOVO / REFIN">GOVERNO DE SÃO PAULO - NOVO / REFIN</option>
                                                     <option value="">POLÍCIA MILITAR DE SP - NOVO / REFIN</option>
                                                     <option value="">SPPREV - NOVO / REFIN</option>
                                                     <option value="">TJ SP - NOVO / REFIN</option>
@@ -1838,6 +1838,8 @@
     <script src="../assets/libs/apexcharts/dist/apexcharts.min.js"></script>
     <script src="../assets/libs/moment/min/moment.min.js"></script>
     <script src="../assets/libs/fullcalendar/dist/fullcalendar.min.js"></script>
+    <!--Script-->
+    <script src="../assets/js/simulacoes/index.js" type="module"></script>
     <!-- Purpose JS -->
     <script src="../assets/js/purpose.js"></script>
     <!-- Demo JS - remove it when starting your project -->
@@ -1847,23 +1849,6 @@
     <script src="../assets/js/mascarasvalores.js"></script>
     <!-- Import Get para popular campos -->
     <!-- <script src="../assets/js/simulacoes/InssNovo.js"></script> -->
-    
-    <script>
-        let convenio = document.getElementById('campo-convenio');
-        let btn = document.getElementById('btn-simular');
-        let ns = document.getElementById('btn-nova-simulacao');
-        btn.addEventListener('click', () => {
-            if (convenio.value == 'INSS - PORTABILIDADE') {
-                import('../assets/js/simulacoes/InssNovo.js');
-                console.log('apertou');
-            }
-        })
-
-        ns.addEventListener('click', () => {
-            import('../assets/paginas/analisadordecredito.html')
-        })
-
-    </script>
 
 </body>
 
