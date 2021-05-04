@@ -24,6 +24,12 @@ window.onload = () => {
     fetch(`${URL}/filas/dadospropostas/busca`, requestOptions)
         .then(response => response.json())
         .then(function (data) {
+
+            if(!data[0].valor) {
+                delete data[0].valor;
+            }
+
+
             const {
                 qtd,
                 valor
@@ -34,7 +40,7 @@ window.onload = () => {
             <tr style="text-align: center;">
                 <th scope="row">${dataAtual}</th>
                 <td>${qtd}</td>
-                <td>${valor}</td>
+                <td>${(valor) ? valor : ""}</td>
             </tr>
             `
         })
@@ -43,6 +49,11 @@ window.onload = () => {
     fetch(`${URL}/filas/integradasdia/buscar`, requestOptions)
         .then(response => response.json())
         .then(function (data) {
+
+            if(!data[0].valor) {
+                delete data[0].valor;
+            }
+
             const {
                 qtd,
                 valor
@@ -53,12 +64,12 @@ window.onload = () => {
             <tr style="text-align: center;">
                 <th scope="row">${dataAtual}</th>
                 <td>${qtd}</td>
-                <td>${valor}</td>
+                <td>${(valor) ? valor : ""}</td>
             </tr>
             `
         })
         .catch(error => console.error(error))
-        
+
 
 
     fetch(`${URL}/filas/integradasmes/buscar`, requestOptions)
@@ -100,10 +111,13 @@ window.onload = () => {
                         <th scope="row">${item.data_envio}</th>
                         <th scope="row">${item.qtd_dentro}</th>
                         <th scope="row">${item.qtd_fora}</th>
-                        <th scope="row">${totalProducao+=parseFloat(item.valor.replace(",","."))}</th>
+                        <th scope="row">${(totalProducao+=parseFloat(item.valor.replace(',','.').replace('R$','')) * 1000).toLocaleString('pt-br', {
+                            style: "currency",
+                            currency: "BRL"
+                        })}</th>
                         <th scope="row">${totalQuantidade+=Number(item.qtd)}</th>
                         <th scope="row">${totalAceito+=Number(item.qtd_dentro)}</th>
-                        <th scope="row">${totalNegado+=Number(item.qtd_fora)}</th>  
+                        <th scope="row">${totalNegado+=Number(item.qtd_fora)}</th> 
                     </tr>
                 `
             })
@@ -145,7 +159,10 @@ window.onload = () => {
                         <th scope="row">${item.data_atualizacao}</th>
                         <th scope="row">${item.qtd_dentro}</th>
                         <th scope="row">${item.qtd_fora}</th>
-                        <th scope="row">${totalProducao+=parseFloat(item.valor.replace(",","."))}</th>
+                        <th scope="row">${(totalProducao+=parseFloat(item.valor.replace(',','.').replace('R$','')) * 1000).toLocaleString('pt-br', {
+                            style: "currency",
+                            currency: "BRL"
+                        })}</th>
                         <th scope="row">${totalQuantidade+=Number(item.qtd)}</th>
                         <th scope="row">${totalAceito+=Number(item.qtd_dentro)}</th>
                         <th scope="row">${totalNegado+=Number(item.qtd_fora)}</th> 
@@ -172,7 +189,10 @@ window.onload = () => {
                         <th scope="row">${item.data_atualizacao}</th>
                         <th scope="row">${item.qtd_dentro}</th>
                         <th scope="row">${item.qtd_fora}</th>
-                        <th scope="row">${totalProducao+parseFloat(item.valor.replace(",","."))}</th>
+                        <th scope="row">${(totalProducao+=parseFloat(item.valor.replace(',','.').replace('R$','')) * 1000).toLocaleString('pt-br', {
+                            style: "currency",
+                            currency: "BRL"
+                        })}</th>
                         <th scope="row">${totalQuantidade+=Number(item.qtd)}</th>
                         <th scope="row">${totalAceito+=Number(item.qtd_dentro)}</th>
                         <th scope="row">${totalNegado+=Number(item.qtd_fora)}</th> 
@@ -199,7 +219,10 @@ window.onload = () => {
                         <th scope="row">${item.data_atualizacao}</th>
                         <th scope="row">${item.qtd_dentro}</th>
                         <th scope="row">${item.qtd_fora}</th>
-                        <th scope="row">${totalProducao+=parseFloat(item.valor.replace(",","."))}</th>
+                        <th scope="row">${(totalProducao+=parseFloat(item.valor.replace(',','.').replace('R$','')) * 1000).toLocaleString('pt-br', {
+                            style: "currency",
+                            currency: "BRL"
+                        })}</th>
                         <th scope="row">${totalQuantidade+=Number(item.qtd)}</th>
                         <th scope="row">${totalAceito+=Number(item.qtd_dentro)}</th>
                         <th scope="row">${totalNegado+=Number(item.qtd_fora)}</th> 
@@ -226,7 +249,10 @@ window.onload = () => {
                         <th scope="row">${item.data_atualizacao}</th>
                         <th scope="row">${item.qtd_dentro}</th>
                         <th scope="row">${item.qtd_fora}</th>
-                        <th scope="row">${totalProducao+=parseFloat(item.valor.replace(",","."))}</th>
+                        <th scope="row">${(totalProducao+=parseFloat(item.valor.replace(',','.').replace('R$','')) * 1000).toLocaleString('pt-br', {
+                            style: "currency",
+                            currency: "BRL"
+                        })}</th>
                         <th scope="row">${totalQuantidade+=Number(item.qtd)}</th>
                         <th scope="row">${totalAceito+=Number(item.qtd_dentro)}</th>
                         <th scope="row">${totalNegado+=Number(item.qtd_fora)}</th> 
@@ -253,7 +279,10 @@ window.onload = () => {
                         <th scope="row">${item.data_atualizacao}</th>
                         <th scope="row">${item.qtd_dentro}</th>
                         <th scope="row">${item.qtd_fora}</th>
-                        <th scope="row">${totalProducao+=parseFloat(item.valor.replace(",","."))}</th>
+                        <th scope="row">${(totalProducao+=parseFloat(item.valor.replace(',','.').replace('R$','')) * 1000).toLocaleString('pt-br', {
+                            style: "currency",
+                            currency: "BRL"
+                        })}</th>
                         <th scope="row">${totalQuantidade+=Number(item.qtd)}</th>
                         <th scope="row">${totalAceito+=Number(item.qtd_dentro)}</th>
                         <th scope="row">${totalNegado+=Number(item.qtd_fora)}</th> 
@@ -263,6 +292,7 @@ window.onload = () => {
         })
         .catch(error => console.error(error));
 }
+
 
 function dataAtualFormatada() {
     const data = new Date();

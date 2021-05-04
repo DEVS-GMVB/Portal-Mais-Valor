@@ -146,48 +146,8 @@ class PoliciaMilitar {
             </button>`
         }
 
-        //Quantidade parcelas;
-        if ((this.#dataDias >= 6911 && this.#dataDias < 25526) && this.#qtdParcelas > 96) {
-            btn_parcelas_bradesco.innerHTML =
-                `<button type="button"
-            class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
-            <span class="btn-inner--icon"><i
-            class="fas fa-times"></i></span>
-            <span class="btn-inner--text">NEGADO</span>
-            </button>`
-        } else if ((this.#dataDias >= 25527 && this.#dataDias < 27716) && this.#qtdParcelas > 96){
-            btn_parcelas_bradesco.innerHTML =
-                `<button type="button"
-            class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
-            <span class="btn-inner--icon"><i
-            class="fas fa-times"></i></span>
-            <span class="btn-inner--text">NEGADO</span>
-            </button>`
-        } else if ((this.#dataDias >= 27717 && this.#dataDias < 28081) && this.#qtdParcelas > 48){
-            btn_parcelas_bradesco.innerHTML =
-                `<button type="button"
-            class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
-            <span class="btn-inner--icon"><i
-            class="fas fa-times"></i></span>
-            <span class="btn-inner--text">NEGADO</span>
-            </button>`
-        } else if ((this.#dataDias >= 28082 && this.#dataDias < 28446) && this.#qtdParcelas > 36){
-            btn_parcelas_bradesco.innerHTML =
-                `<button type="button"
-            class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
-            <span class="btn-inner--icon"><i
-            class="fas fa-times"></i></span>
-            <span class="btn-inner--text">NEGADO</span>
-            </button>`
-        } else if ((this.#dataDias >= 28447 && this.#dataDias < 28811) && this.#qtdParcelas > 24){
-            btn_parcelas_bradesco.innerHTML =
-                `<button type="button"
-            class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
-            <span class="btn-inner--icon"><i
-            class="fas fa-times"></i></span>
-            <span class="btn-inner--text">NEGADO</span>
-            </button>`
-        } else if ((this.#dataDias >= 28812 && this.#dataDias < 29176) && this.#qtdParcelas > 12){
+        //Quantidade parcelas
+        if ((this.#dataDias >= 6911 && this.#dataDias < 29176) && this.#qtdParcelas > 12) {
             btn_parcelas_bradesco.innerHTML =
                 `<button type="button"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
@@ -204,23 +164,7 @@ class PoliciaMilitar {
         }
 
         //Saldo maximo
-        if ((this.#dataDias >= 6911 && this.#dataDias < 25526) && this.#valor > 250000) {
-            btn_max_bradesco.innerHTML =
-                `<button type="button"
-            class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
-            <span class="btn-inner--icon"><i
-            class="fas fa-times"></i></span>
-            <span class="btn-inner--text">NEGADO</span>
-            </button>`
-        } else if((this.#dataDias >= 25527 && this.#dataDias < 27716) && this.#valor > 100000) {
-            btn_max_bradesco.innerHTML =
-                `<button type="button"
-            class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
-            <span class="btn-inner--icon"><i
-            class="fas fa-times"></i></span>
-            <span class="btn-inner--text">NEGADO</span>
-            </button>`
-        } else if((this.#dataDias >= 27717 && this.#dataDias < 29176) && this.#valor > 10000) {
+        if ((this.#dataDias >= 6911 && this.#dataDias < 29176) && this.#valor > 10000) {
             btn_max_bradesco.innerHTML =
                 `<button type="button"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
@@ -288,39 +232,7 @@ class PoliciaMilitar {
         }
 
         //Saldo maximo
-        if ((this.#dataDias >= 6911 && this.#dataDias < 24796) && this.#valor > 230000) {
-            btn_max_ole.innerHTML =
-                `<button type="button"
-            class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
-            <span class="btn-inner--icon"><i
-            class="fas fa-times"></i></span>
-            <span class="btn-inner--text">NEGADO</span>
-            </button>`
-        } else if((this.#dataDias >= 24797 && this.#dataDias < 25526) && this.#valor > 190000) {
-            btn_max_ole.innerHTML =
-                `<button type="button"
-            class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
-            <span class="btn-inner--icon"><i
-            class="fas fa-times"></i></span>
-            <span class="btn-inner--text">NEGADO</span>
-            </button>`
-        } else if((this.#dataDias >= 25527 && this.#dataDias < 25891) && this.#valor > 150000) {
-            btn_max_ole.innerHTML =
-                `<button type="button"
-            class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
-            <span class="btn-inner--icon"><i
-            class="fas fa-times"></i></span>
-            <span class="btn-inner--text">NEGADO</span>
-            </button>`
-        } else if((this.#dataDias >= 25892 && this.#dataDias < 26256) && this.#valor > 12000) {
-            btn_max_ole.innerHTML =
-                `<button type="button"
-            class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
-            <span class="btn-inner--icon"><i
-            class="fas fa-times"></i></span>
-            <span class="btn-inner--text">NEGADO</span>
-            </button>`
-        } else if((this.#dataDias >= 26257 && this.#dataDias < 27351) && this.#valor > 20000) {
+        if ((this.#dataDias >= 6911 && this.#dataDias < 27351) && this.#valor > 12000) {
             btn_max_ole.innerHTML =
                 `<button type="button"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
@@ -446,63 +358,7 @@ class PoliciaMilitar {
         }
 
         //Quantidade de parcelas
-        if ((this.#dataDias >= 6911 && this.#dataDias < 25526) && this.#qtdParcelas > 96) {
-            btn_parcelas_pan.innerHTML =
-                `<button type="button"
-            class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
-                <span class="btn-inner--icon"><i
-                class="fas fa-times"></i></span>
-                <span class="btn-inner--text">NEGADO</span>
-            </button>`
-        } else if((this.#dataDias >= 25527 && this.#dataDias < 26986) && this.#qtdParcelas > 84) {
-            btn_parcelas_pan.innerHTML =
-                `<button type="button"
-            class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
-                <span class="btn-inner--icon"><i
-                class="fas fa-times"></i></span>
-                <span class="btn-inner--text">NEGADO</span>
-            </button>`
-        } else if((this.#dataDias >= 26987 && this.#dataDias < 27351) && this.#qtdParcelas > 72) {
-            btn_parcelas_pan.innerHTML =
-                `<button type="button"
-            class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
-                <span class="btn-inner--icon"><i
-                class="fas fa-times"></i></span>
-                <span class="btn-inner--text">NEGADO</span>
-            </button>`
-        } else if((this.#dataDias >= 27352 && this.#dataDias < 27716) && this.#qtdParcelas > 60) {
-            btn_parcelas_pan.innerHTML =
-                `<button type="button"
-            class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
-                <span class="btn-inner--icon"><i
-                class="fas fa-times"></i></span>
-                <span class="btn-inner--text">NEGADO</span>
-            </button>`
-        } else if((this.#dataDias >= 27717 && this.#dataDias < 28081) && this.#qtdParcelas > 48) {
-            btn_parcelas_pan.innerHTML =
-                `<button type="button"
-            class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
-                <span class="btn-inner--icon"><i
-                class="fas fa-times"></i></span>
-                <span class="btn-inner--text">NEGADO</span>
-            </button>`
-        } else if((this.#dataDias >= 28082 && this.#dataDias < 28446) && this.#qtdParcelas > 36) {
-            btn_parcelas_pan.innerHTML =
-                `<button type="button"
-            class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
-                <span class="btn-inner--icon"><i
-                class="fas fa-times"></i></span>
-                <span class="btn-inner--text">NEGADO</span>
-            </button>`
-        } else if((this.#dataDias >= 28447 && this.#dataDias < 28811) && this.#qtdParcelas > 24) {
-            btn_parcelas_pan.innerHTML =
-                `<button type="button"
-            class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
-                <span class="btn-inner--icon"><i
-                class="fas fa-times"></i></span>
-                <span class="btn-inner--text">NEGADO</span>
-            </button>`
-        } else if((this.#dataDias >= 28812 && this.#dataDias < 29176) && this.#qtdParcelas > 12) {
+        if ((this.#dataDias >= 6911 && this.#dataDias < 29176) && this.#qtdParcelas > 12) {
             btn_parcelas_pan.innerHTML =
                 `<button type="button"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
@@ -519,63 +375,7 @@ class PoliciaMilitar {
         }
 
         //Saldo maximo
-        if ((this.#dataDias >= 6911 && this.#dataDias < 25526) && this.#valor > 250000) {
-            btn_max_pan.innerHTML =
-                `<button type="button"
-            class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
-                <span class="btn-inner--icon"><i
-                class="fas fa-times"></i></span>
-                <span class="btn-inner--text">NEGADO</span>
-            </button>`
-        } else if((this.#dataDias >= 25527 && this.#dataDias < 26986) && this.#valor > 70000) {
-            btn_max_pan.innerHTML =
-                `<button type="button"
-            class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
-                <span class="btn-inner--icon"><i
-                class="fas fa-times"></i></span>
-                <span class="btn-inner--text">NEGADO</span>
-            </button>`
-        } else if((this.#dataDias >= 26987 && this.#dataDias < 27351) && this.#valor > 70000) {
-            btn_max_pan.innerHTML =
-                `<button type="button"
-            class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
-                <span class="btn-inner--icon"><i
-                class="fas fa-times"></i></span>
-                <span class="btn-inner--text">NEGADO</span>
-            </button>`
-        } else if((this.#dataDias >= 27352 && this.#dataDias < 27716) && this.#valor > 50000) {
-            btn_max_pan.innerHTML =
-                `<button type="button"
-            class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
-                <span class="btn-inner--icon"><i
-                class="fas fa-times"></i></span>
-                <span class="btn-inner--text">NEGADO</span>
-            </button>`
-        } else if((this.#dataDias >= 27717 && this.#dataDias < 28081) && this.#valor > 40000) {
-            btn_max_pan.innerHTML =
-                `<button type="button"
-            class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
-                <span class="btn-inner--icon"><i
-                class="fas fa-times"></i></span>
-                <span class="btn-inner--text">NEGADO</span>
-            </button>`
-        } else if((this.#dataDias >= 28082 && this.#dataDias < 28446) && this.#valor > 30000) {
-            btn_max_pan.innerHTML =
-                `<button type="button"
-            class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
-                <span class="btn-inner--icon"><i
-                class="fas fa-times"></i></span>
-                <span class="btn-inner--text">NEGADO</span>
-            </button>`
-        } else if((this.#dataDias >= 28447 && this.#dataDias < 28811) && this.#valor > 20000) {
-            btn_max_pan.innerHTML =
-                `<button type="button"
-            class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
-                <span class="btn-inner--icon"><i
-                class="fas fa-times"></i></span>
-                <span class="btn-inner--text">NEGADO</span>
-            </button>`
-        } else if((this.#dataDias >= 28812 && this.#dataDias < 29176) && this.#valor > 10000) {
+        if ((this.#dataDias >= 6911 && this.#dataDias < 29176) && this.#valor > 10000) {
             btn_max_pan.innerHTML =
                 `<button type="button"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
@@ -645,15 +445,7 @@ class PoliciaMilitar {
             `
         }
 
-        if ((this.#dataDias >= 7642 && this.#dataDias < 25891) && this.#valor > 250000) {
-            btn_max_daycoval.innerHTML =
-                `<button type="button"
-            class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
-            <span class="btn-inner--icon"><i
-            class="fas fa-times"></i></span>
-            <span class="btn-inner--text">NEGADO</span>
-            </button>`
-        } else if((this.#dataDias >= 25892 && this.#dataDias < 27351) && this.#valor > 75000) {
+        if ((this.#dataDias >= 7642 && this.#dataDias < 27351) && this.#valor > 27351) {
             btn_max_daycoval.innerHTML =
                 `<button type="button"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
@@ -727,8 +519,6 @@ class PoliciaMilitar {
         const DIAS_TOTAL_NASCIMENTO = DIAS_NASCIMENTO_ATUAIS + (MES_NASCIMENTO_ATUAIS * 30) + (ANOS_NASCIMENTO_ATUAIS * 365);
 
         const DIFF_DATE = DIAS_TOTAL_ATUAIS - DIAS_TOTAL_NASCIMENTO;
-
-        console.log(DIFF_DATE);
 
         return parseInt(DIFF_DATE);
     };

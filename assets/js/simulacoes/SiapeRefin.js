@@ -156,37 +156,7 @@ class SiapeRefin {
         }
 
         // Quantidade de Parcelas
-        if((this.#dataDias >= 6911 && this.#dataDias < 25891) && (this.#qtdParcelas > 96)) {
-            btn_parcelas_bradesco.innerHTML = 
-            `
-                <button type="button"
-                class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
-                    <span class="btn-inner--icon"><i
-                    class="fas fa-times"></i></span>
-                    <span class="btn-inner--text">NEGADO</span>
-                </button>
-            `
-        } else if((this.#dataDias >= 25892 && this.#dataDias < 28081) && (this.#qtdParcelas > 72)) {
-            btn_parcelas_bradesco.innerHTML = 
-            `
-                <button type="button"
-                class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
-                    <span class="btn-inner--icon"><i
-                    class="fas fa-times"></i></span>
-                    <span class="btn-inner--text">NEGADO</span>
-                </button>
-            `
-        } else if((this.#dataDias >= 28082 && this.#dataDias < 28446) && (this.#qtdParcelas > 60)) {
-            btn_parcelas_bradesco.innerHTML = 
-            `
-                <button type="button"
-                class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
-                    <span class="btn-inner--icon"><i
-                    class="fas fa-times"></i></span>
-                    <span class="btn-inner--text">NEGADO</span>
-                </button>
-            `
-        } else if((this.#dataDias >= 28447 && this.#dataDias < 28811) && (this.#qtdParcelas > 48)) {
+        if((this.#dataDias >= 6911 && this.#dataDias < 28811) && (this.#qtdParcelas > 48)) {
             btn_parcelas_bradesco.innerHTML = 
             `
                 <button type="button"
@@ -207,37 +177,7 @@ class SiapeRefin {
         }
 
         //Saldo Máximo
-        if((this.#dataDias >= 6911 && 25891) && (this.#valor > 300000)) {
-            btn_max_bradesco.innerHTML = 
-            `
-                <button type="button"
-                class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
-                    <span class="btn-inner--icon"><i
-                    class="fas fa-times"></i></span>
-                    <span class="btn-inner--text">NEGADO</span>
-                </button>
-            ` 
-        } else if((this.#dataDias >= 25892 && 28081) && this.#valor > 80000) {
-            btn_max_bradesco.innerHTML = 
-            `
-                <button type="button"
-                class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
-                    <span class="btn-inner--icon"><i
-                    class="fas fa-times"></i></span>
-                    <span class="btn-inner--text">NEGADO</span>
-                </button>
-            ` 
-        } else if((this.#dataDias >= 28082 && 28446) && this.#valor > 10000) {
-            btn_max_bradesco.innerHTML = 
-            `
-                <button type="button"
-                class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
-                    <span class="btn-inner--icon"><i
-                    class="fas fa-times"></i></span>
-                    <span class="btn-inner--text">NEGADO</span>
-                </button>
-            ` 
-        } else if((this.#dataDias >= 28447 && 28811) && this.#valor > 10000) {
+        if((this.#dataDias >= 6911 && 28811) && (this.#valor > 10000)) {
             btn_max_bradesco.innerHTML = 
             `
                 <button type="button"
@@ -323,47 +263,7 @@ class SiapeRefin {
         }
 
         //Saldo Máximo
-        if((this.#dataDias >= 6911 && this.#dataDias < 27351) && this.#valor > 230000) {
-            btn_max_ole.innerHTML = 
-            `
-                <button type="button"
-                class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
-                    <span class="btn-inner--icon"><i
-                    class="fas fa-times"></i></span>
-                    <span class="btn-inner--text">NEGADO</span>
-                </button>
-            `
-        } else if((this.#dataDias >= 24797 && this.#dataDias < 25526) && this.#valor > 190000) {
-            btn_max_ole.innerHTML = 
-            `
-                <button type="button"
-                class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
-                    <span class="btn-inner--icon"><i
-                    class="fas fa-times"></i></span>
-                    <span class="btn-inner--text">NEGADO</span>
-                </button>
-            `
-        } else if((this.#dataDias >= 25527 && this.#dataDias < 25891) && this.#valor > 150000) {
-            btn_max_ole.innerHTML = 
-            `
-                <button type="button"
-                class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
-                    <span class="btn-inner--icon"><i
-                    class="fas fa-times"></i></span>
-                    <span class="btn-inner--text">NEGADO</span>
-                </button>
-            `
-        } else if((this.#dataDias >= 25892 && this.#dataDias < 26256) && this.#valor > 120000) {
-            btn_max_ole.innerHTML = 
-            `
-                <button type="button"
-                class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
-                    <span class="btn-inner--icon"><i
-                    class="fas fa-times"></i></span>
-                    <span class="btn-inner--text">NEGADO</span>
-                </button>
-            `
-        } else if((this.#dataDias >= 26257 && this.#dataDias < 27351) && this.#valor > 20000) {
+        if((this.#dataDias >= 6911 && this.#dataDias < 27351) && (this.#valor > 20000)) {
             btn_max_ole.innerHTML = 
             `
                 <button type="button"
@@ -428,37 +328,7 @@ class SiapeRefin {
         }
 
         // Quantidade de parcelas
-        if((this.#dataDias >= 26645 && this.#dataDias < 26986) && (this.#qtdParcelas > 84 && this.#qtdParcelas < 24)) {
-            btn_parcelas_parana.innerHTML = 
-            `
-                <button type="button"
-                class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
-                    <span class="btn-inner--icon"><i
-                    class="fas fa-times"></i></span>
-                    <span class="btn-inner--text">NEGADO</span>
-                </button>
-            `
-        } else if((this.#dataDias >= 26987 && this.#dataDias < 27716) && (this.#qtdParcelas > 60 && this.#qtdParcelas < 24)) {
-            btn_parcelas_parana.innerHTML = 
-            `
-                <button type="button"
-                class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
-                    <span class="btn-inner--icon"><i
-                    class="fas fa-times"></i></span>
-                    <span class="btn-inner--text">NEGADO</span>
-                </button>
-            `
-        } else if((this.#dataDias >= 27717 && this.#dataDias < 28446) && (this.#qtdParcelas > 36 && this.#qtdParcelas < 24)) {
-            btn_parcelas_parana.innerHTML = 
-            `
-                <button type="button"
-                class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
-                    <span class="btn-inner--icon"><i
-                    class="fas fa-times"></i></span>
-                    <span class="btn-inner--text">NEGADO</span>
-                </button>
-            `
-        } else if((this.#dataDias >= 28447 && this.#dataDias < 28811) && (this.#qtdParcelas > 48 && this.#qtdParcelas < 24)) {
+        if((this.#dataDias >= 26645 && this.#dataDias < 28811) && (this.#qtdParcelas > 36 && this.#qtdParcelas < 24)) {
             btn_parcelas_parana.innerHTML = 
             `
                 <button type="button"
@@ -479,37 +349,7 @@ class SiapeRefin {
         }
 
         //Saldo Máximo
-        if((this.#dataDias >= 26645 && this.#dataDias < 26986) && this.#valor > 90000) {
-            btn_max_parana.innerHTML = 
-            `
-                <button type="button"
-                class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
-                    <span class="btn-inner--icon"><i
-                    class="fas fa-times"></i></span>
-                    <span class="btn-inner--text">NEGADO</span>
-                </button>
-            `
-        } else if ((this.#dataDias >= 26987 && this.#dataDias < 27716) && this.#valor > 50000) {
-            btn_max_parana.innerHTML = 
-            `
-                <button type="button"
-                class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
-                    <span class="btn-inner--icon"><i
-                    class="fas fa-times"></i></span>
-                    <span class="btn-inner--text">NEGADO</span>
-                </button>
-            `
-        } else if ((this.#dataDias >= 27717 && this.#dataDias < 28446) && this.#valor > 30000) {
-            btn_max_parana.innerHTML = 
-            `
-                <button type="button"
-                class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
-                    <span class="btn-inner--icon"><i
-                    class="fas fa-times"></i></span>
-                    <span class="btn-inner--text">NEGADO</span>
-                </button>
-            `
-        } else if ((this.#dataDias >= 28447 && this.#dataDias < 28811) && this.#valor > 10000) {
+        if((this.#dataDias >= 26645 && this.#dataDias < 28811) && (this.#valor > 10000)) {
             btn_max_parana.innerHTML = 
             `
                 <button type="button"
@@ -574,57 +414,7 @@ class SiapeRefin {
         }
 
         // Quantidade de parcelas
-        if((this.#dataDias >= 8371 && this.#dataDias < 26621) && this.#qtdParcelas > 96) {
-            btn_parcelas_pan.innerHTML = 
-            `
-                <button type="button"
-                class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
-                    <span class="btn-inner--icon"><i
-                    class="fas fa-times"></i></span>
-                    <span class="btn-inner--text">NEGADO</span>
-                </button>
-            `
-        } else if ((this.#dataDias >= 26622 && this.#dataDias < 26986) && this.#qtdParcelas > 72) {
-            btn_parcelas_pan.innerHTML = 
-            `
-                <button type="button"
-                class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
-                    <span class="btn-inner--icon"><i
-                    class="fas fa-times"></i></span>
-                    <span class="btn-inner--text">NEGADO</span>
-                </button>
-            `
-        } else if ((this.#dataDias >= 26987 && this.#dataDias < 27716) && this.#qtdParcelas > 48) {
-            btn_parcelas_pan.innerHTML = 
-            `
-                <button type="button"
-                class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
-                    <span class="btn-inner--icon"><i
-                    class="fas fa-times"></i></span>
-                    <span class="btn-inner--text">NEGADO</span>
-                </button>
-            `
-        } else if ((this.#dataDias >= 27717 && this.#dataDias < 28446) && this.#qtdParcelas > 36) {
-            btn_parcelas_pan.innerHTML = 
-            `
-                <button type="button"
-                class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
-                    <span class="btn-inner--icon"><i
-                    class="fas fa-times"></i></span>
-                    <span class="btn-inner--text">NEGADO</span>
-                </button>
-            `
-        } else if ((this.#dataDias >= 28446 && this.#dataDias < 28811) && this.#qtdParcelas > 24) {
-            btn_parcelas_pan.innerHTML = 
-            `
-                <button type="button"
-                class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
-                    <span class="btn-inner--icon"><i
-                    class="fas fa-times"></i></span>
-                    <span class="btn-inner--text">NEGADO</span>
-                </button>
-            `
-        } else if ((this.#dataDias >= 28812 && this.#dataDias < 29176) && this.#qtdParcelas > 12) {
+        if((this.#dataDias >= 8371 && this.#dataDias < 29176) && this.#qtdParcelas > 12) {
             btn_parcelas_pan.innerHTML = 
             `
                 <button type="button"
@@ -645,67 +435,7 @@ class SiapeRefin {
         }
 
         //Saldo Máximo
-        if((this.#dataDias >= 8371 && this.#dataDias < 24066) && this.#valor > 250000) {
-            btn_max_pan.innerHTML = 
-            `
-                <button type="button"
-                class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
-                    <span class="btn-inner--icon"><i
-                    class="fas fa-times"></i></span>
-                    <span class="btn-inner--text">NEGADO</span>
-                </button>
-            `
-        } else if((this.#dataDias >= 24067 && this.#dataDias < 25526) && this.#valor > 180000) {
-            btn_max_pan.innerHTML = 
-            `
-                <button type="button"
-                class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
-                    <span class="btn-inner--icon"><i
-                    class="fas fa-times"></i></span>
-                    <span class="btn-inner--text">NEGADO</span>
-                </button>
-            `
-        } else if((this.#dataDias >= 25527 && this.#dataDias < 26621) && this.#valor > 10000) {
-            btn_max_pan.innerHTML = 
-            `
-                <button type="button"
-                class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
-                    <span class="btn-inner--icon"><i
-                    class="fas fa-times"></i></span>
-                    <span class="btn-inner--text">NEGADO</span>
-                </button>
-            `
-        } else if((this.#dataDias >= 26622 && this.#dataDias < 26986) && this.#valor > 90000) {
-            btn_max_pan.innerHTML = 
-            `
-                <button type="button"
-                class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
-                    <span class="btn-inner--icon"><i
-                    class="fas fa-times"></i></span>
-                    <span class="btn-inner--text">NEGADO</span>
-                </button>
-            `
-        } else if((this.#dataDias >= 26987 && this.#dataDias < 27716) && this.#valor > 50000) {
-            btn_max_pan.innerHTML = 
-            `
-                <button type="button"
-                class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
-                    <span class="btn-inner--icon"><i
-                    class="fas fa-times"></i></span>
-                    <span class="btn-inner--text">NEGADO</span>
-                </button>
-            `
-        } else if((this.#dataDias >= 27717 && this.#dataDias < 28446) && this.#valor > 50000) {
-            btn_max_pan.innerHTML = 
-            `
-                <button type="button"
-                class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
-                    <span class="btn-inner--icon"><i
-                    class="fas fa-times"></i></span>
-                    <span class="btn-inner--text">NEGADO</span>
-                </button>
-            `
-        } else if((this.#dataDias >= 28447 && this.#dataDias < 29176) && this.#valor > 10000) {
+        if((this.#dataDias >= 8371 && this.#dataDias < 29176) && (this.#valor > 10000)) {
             btn_max_pan.innerHTML = 
             `
                 <button type="button"
@@ -746,6 +476,92 @@ class SiapeRefin {
             `
         }
 
+        // Paraná
+
+        //Idade
+        if(this.#dataDias > 28811) {
+            btn_idade_parana.innerHTML = 
+            `
+                <button type="button"
+                class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
+                    <span class="btn-inner--icon"><i
+                    class="fas fa-times"></i></span>
+                    <span class="btn-inner--text">NEGADO</span>
+                </button>
+            ` 
+        } else {
+            btn_idade_parana.innerHTML = 
+            `
+            <button type="button" class="btn btn-sm btn-soft-success btn-icon rounded-pill">
+                <span class="btn-inner--icon"><i class="far fa-check"></i></span>
+                <span class="btn-inner--text">ACEITA</span>
+            </button>
+            `
+        }
+
+        // Quantidade de parcelas
+        if((this.#dataDias >= 26645 && this.#dataDias < 28811) && (this.#qtdParcelas > 36 && this.#qtdParcelas < 24)) {
+            btn_parcelas_parana.innerHTML = 
+            `
+                <button type="button"
+                class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
+                    <span class="btn-inner--icon"><i
+                    class="fas fa-times"></i></span>
+                    <span class="btn-inner--text">NEGADO</span>
+                </button>
+            `
+        } else {
+            btn_parcelas_parana.innerHTML =
+            `
+            <button type="button" class="btn btn-sm btn-soft-success btn-icon rounded-pill">
+                <span class="btn-inner--icon"><i class="far fa-check"></i></span>
+                <span class="btn-inner--text">ACEITA</span>
+            </button>
+            `
+        }
+
+        //Saldo Máximo
+        if((this.#dataDias >= 26645 && this.#dataDias < 28811) && (this.#valor > 10000)) {
+            btn_max_parana.innerHTML = 
+            `
+                <button type="button"
+                class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
+                    <span class="btn-inner--icon"><i
+                    class="fas fa-times"></i></span>
+                    <span class="btn-inner--text">NEGADO</span>
+                </button>
+            `
+        } else {
+            btn_max_parana.innerHTML =
+            `
+            <button type="button" class="btn btn-sm btn-soft-success btn-icon rounded-pill">
+                <span class="btn-inner--icon"><i class="far fa-check"></i></span>
+                <span class="btn-inner--text">ACEITA</span>
+            </button>
+            `
+        }
+
+        //Saldo Mínimo
+        if(this.#valor < 1) {
+            btn_min_parana.innerHTML = 
+            `
+                <button type="button"
+                class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
+                    <span class="btn-inner--icon"><i
+                    class="fas fa-times"></i></span>
+                    <span class="btn-inner--text">NEGADO</span>
+                </button>
+            `
+        } else {
+            btn_min_parana.innerHTML =
+            `
+            <button type="button" class="btn btn-sm btn-soft-success btn-icon rounded-pill">
+                <span class="btn-inner--icon"><i class="far fa-check"></i></span>
+                <span class="btn-inner--text">ACEITA</span>
+            </button>
+            `
+        }
+
         // Pan
 
         //Idade
@@ -770,57 +586,7 @@ class SiapeRefin {
         }
 
         // Quantidade de parcelas
-        if((this.#dataDias >= 8371 && this.#dataDias < 26621) && this.#qtdParcelas > 96) {
-            btn_parcelas_pan.innerHTML = 
-            `
-                <button type="button"
-                class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
-                    <span class="btn-inner--icon"><i
-                    class="fas fa-times"></i></span>
-                    <span class="btn-inner--text">NEGADO</span>
-                </button>
-            `
-        } else if ((this.#dataDias >= 26622 && this.#dataDias < 26986) && this.#qtdParcelas > 72) {
-            btn_parcelas_pan.innerHTML = 
-            `
-                <button type="button"
-                class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
-                    <span class="btn-inner--icon"><i
-                    class="fas fa-times"></i></span>
-                    <span class="btn-inner--text">NEGADO</span>
-                </button>
-            `
-        } else if ((this.#dataDias >= 26987 && this.#dataDias < 27716) && this.#qtdParcelas > 48) {
-            btn_parcelas_pan.innerHTML = 
-            `
-                <button type="button"
-                class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
-                    <span class="btn-inner--icon"><i
-                    class="fas fa-times"></i></span>
-                    <span class="btn-inner--text">NEGADO</span>
-                </button>
-            `
-        } else if ((this.#dataDias >= 27717 && this.#dataDias < 28446) && this.#qtdParcelas > 36) {
-            btn_parcelas_pan.innerHTML = 
-            `
-                <button type="button"
-                class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
-                    <span class="btn-inner--icon"><i
-                    class="fas fa-times"></i></span>
-                    <span class="btn-inner--text">NEGADO</span>
-                </button>
-            `
-        } else if ((this.#dataDias >= 28446 && this.#dataDias < 28811) && this.#qtdParcelas > 46) {
-            btn_parcelas_pan.innerHTML = 
-            `
-                <button type="button"
-                class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
-                    <span class="btn-inner--icon"><i
-                    class="fas fa-times"></i></span>
-                    <span class="btn-inner--text">NEGADO</span>
-                </button>
-            `
-        } else if ((this.#dataDias >= 28812 && this.#dataDias < 29176) && this.#qtdParcelas > 12) {
+        if((this.#dataDias >= 8371 && this.#dataDias < 29176) && this.#qtdParcelas > 12) {
             btn_parcelas_pan.innerHTML = 
             `
                 <button type="button"
@@ -841,67 +607,7 @@ class SiapeRefin {
         }
 
         //Saldo Máximo
-        if((this.#dataDias >= 8371 && this.#dataDias < 24066) && this.#valor > 250000) {
-            btn_max_pan.innerHTML = 
-            `
-                <button type="button"
-                class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
-                    <span class="btn-inner--icon"><i
-                    class="fas fa-times"></i></span>
-                    <span class="btn-inner--text">NEGADO</span>
-                </button>
-            `
-        } else if ((this.#dataDias >= 24067 && this.#dataDias < 25526) && this.#valor > 180000) {
-            btn_max_pan.innerHTML = 
-            `
-                <button type="button"
-                class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
-                    <span class="btn-inner--icon"><i
-                    class="fas fa-times"></i></span>
-                    <span class="btn-inner--text">NEGADO</span>
-                </button>
-            `
-        } else if ((this.#dataDias >= 25527 && this.#dataDias < 26621) && this.#valor > 10000) {
-            btn_max_pan.innerHTML = 
-            `
-                <button type="button"
-                class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
-                    <span class="btn-inner--icon"><i
-                    class="fas fa-times"></i></span>
-                    <span class="btn-inner--text">NEGADO</span>
-                </button>
-            `
-        } else if ((this.#dataDias >= 26622 && this.#dataDias < 26986) && this.#valor > 90000) {
-            btn_max_pan.innerHTML = 
-            `
-                <button type="button"
-                class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
-                    <span class="btn-inner--icon"><i
-                    class="fas fa-times"></i></span>
-                    <span class="btn-inner--text">NEGADO</span>
-                </button>
-            `
-        } else if ((this.#dataDias >= 26987 && this.#dataDias < 27716) && this.#valor > 50000) {
-            btn_max_pan.innerHTML = 
-            `
-                <button type="button"
-                class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
-                    <span class="btn-inner--icon"><i
-                    class="fas fa-times"></i></span>
-                    <span class="btn-inner--text">NEGADO</span>
-                </button>
-            `
-        } else if ((this.#dataDias >= 27717 && this.#dataDias < 28446) && this.#valor > 50000) {
-            btn_max_pan.innerHTML = 
-            `
-                <button type="button"
-                class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
-                    <span class="btn-inner--icon"><i
-                    class="fas fa-times"></i></span>
-                    <span class="btn-inner--text">NEGADO</span>
-                </button>
-            `
-        } else if ((this.#dataDias >= 28447 && this.#dataDias < 29176) && this.#valor > 10000) {
+        if((this.#dataDias >= 8371 && this.#dataDias < 29176) && (this.#valor > 10000)) {
             btn_max_pan.innerHTML = 
             `
                 <button type="button"
@@ -987,17 +693,7 @@ class SiapeRefin {
         }
 
         //Saldo Máximo
-        if((this.#dataDias >= 7642 && this.#dataDias < 25891) && this.#valor > 250000) {
-            btn_max_daycoval.innerHTML = 
-            `
-                <button type="button"
-                class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
-                    <span class="btn-inner--icon"><i
-                    class="fas fa-times"></i></span>
-                    <span class="btn-inner--text">NEGADO</span>
-                </button>
-            `
-        } else if ((this.#dataDias >= 25892 && this.#dataDias < 27351) && this.#valor > 75000) {
+        if((this.#dataDias >= 7642 && this.#dataDias < 27351) && (this.#valor > 75000)) {
             btn_max_daycoval.innerHTML = 
             `
                 <button type="button"
@@ -1041,7 +737,7 @@ class SiapeRefin {
         }
 
         // Quantidade de parcelas
-        if(this.#qtdParcelas > 96 || this.#qtdParcelas < 2) {
+        if(this.#qtdParcelas > 96 && this.#qtdParcelas < 2) {
             btn_parcelas_bb.innerHTML = 
             `
                 <button type="button"

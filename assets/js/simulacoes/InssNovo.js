@@ -53,14 +53,6 @@ class InssNovo {
 
         //Idade
         if (dataDias > 29579) {
-            btn_idade_sant.innerHTML = ` 
-            <button type="button" class="btn btn-sm btn-soft-success btn-icon rounded-pill">
-            <span class="btn-inner--icon"><i class="far fa-check"></i></span>
-            <span class="btn-inner--text">ACEITA</span>
-            </button>
-            `
-
-        } else {
             btn_idade_sant.innerHTML =
                 `
             <button type="button"
@@ -68,6 +60,14 @@ class InssNovo {
             <span class="btn-inner--icon"><i
             class="fas fa-times"></i></span>
             <span class="btn-inner--text">NEGADO</span>
+            </button>
+            `
+
+        } else {
+            btn_idade_sant.innerHTML = ` 
+            <button type="button" class="btn btn-sm btn-soft-success btn-icon rounded-pill">
+            <span class="btn-inner--icon"><i class="far fa-check"></i></span>
+            <span class="btn-inner--text">ACEITA</span>
             </button>
             `
         }
@@ -717,22 +717,22 @@ class InssNovo {
 
     dataDiff(nascimento) {
         const DATA_ATUAL = new Date().toLocaleDateString();
-    
+
         const DIAS_ATUAIS = parseInt(DATA_ATUAL.substring(0, 2));
         const MES_DIAS_ATUAIS = parseInt(DATA_ATUAL.substring(3, 5));
         const ANOS_DIAS_ATUAIS = parseInt(DATA_ATUAL.substring(6, 10));
-    
+
         const DIAS_NASCIMENTO_ATUAIS = parseInt(nascimento.substring(0, 2));
         const MES_NASCIMENTO_ATUAIS = parseInt(nascimento.substring(3, 5));
         const ANOS_NASCIMENTO_ATUAIS = parseInt(nascimento.substring(6, 10));
-    
+
         const DIAS_TOTAL_ATUAIS = DIAS_ATUAIS + (MES_DIAS_ATUAIS * 30) + (ANOS_DIAS_ATUAIS * 365);
         const DIAS_TOTAL_NASCIMENTO = DIAS_NASCIMENTO_ATUAIS + (MES_NASCIMENTO_ATUAIS * 30) + (ANOS_NASCIMENTO_ATUAIS * 365);
-    
+
         const DIFF_DATE = DIAS_TOTAL_ATUAIS - DIAS_TOTAL_NASCIMENTO;
-    
+
         return parseInt(DIFF_DATE);
-    };    
+    };
 }
 
 
