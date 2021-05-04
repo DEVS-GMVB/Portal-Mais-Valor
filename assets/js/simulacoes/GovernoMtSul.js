@@ -1,10 +1,9 @@
-class PoliciaMilitar {
+class GovernoMtSul {
     #dataDias = this.dataDiff();
     #valor = parseFloat(document.getElementById('campo-valor').value);
     #qtdParcelas = parseInt(document.getElementById('campo-quantidade-parcelas').value);
 
-
-    obterVerificacoesPoliciaMilitar() {
+    obterVerificacoesGovernoMtSul() {
         //Botões Santander
         const btn_idade_sant = document.getElementById('div-idade-santander');
         const btn_parcelas_sant = document.getElementById('btn-qtd-parcelas-santander');
@@ -46,6 +45,8 @@ class PoliciaMilitar {
         const btn_parcelas_pan = document.getElementById('div-parcelas-pan');
         const btn_max_pan = document.getElementById('div-max-pan');
         const btn_min_pan = document.getElementById('div-min-pan');
+
+        //Santander
 
         //Politica de Idade
         if(this.#dataDias > 29906) {
@@ -653,7 +654,7 @@ class PoliciaMilitar {
             class="fas fa-times"></i></span>
             <span class="btn-inner--text">NEGADO</span>
             </button>`
-        } else if((this.#dataDias >= 25892 && this.#dataDias < 27351) && this.#valor > 75000) {
+        } else if((this.#dataDias >= 25892 && this.#dataDias < 27351) && this.#valor > 50000) {
             btn_max_daycoval.innerHTML =
                 `<button type="button"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
@@ -732,6 +733,7 @@ class PoliciaMilitar {
 
         return parseInt(DIFF_DATE);
     };
+
 }
 
-export default PoliciaMilitar;
+export default GovernoMtSul;

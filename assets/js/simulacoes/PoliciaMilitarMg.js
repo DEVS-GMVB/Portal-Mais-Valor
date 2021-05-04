@@ -1,10 +1,9 @@
-class PoliciaMilitar {
+class PoliciaMilitarMg {
     #dataDias = this.dataDiff();
     #valor = parseFloat(document.getElementById('campo-valor').value);
     #qtdParcelas = parseInt(document.getElementById('campo-quantidade-parcelas').value);
 
-
-    obterVerificacoesPoliciaMilitar() {
+    obterVerificacoesPoliciaMilitarMg() {
         //Botões Santander
         const btn_idade_sant = document.getElementById('div-idade-santander');
         const btn_parcelas_sant = document.getElementById('btn-qtd-parcelas-santander');
@@ -46,6 +45,8 @@ class PoliciaMilitar {
         const btn_parcelas_pan = document.getElementById('div-parcelas-pan');
         const btn_max_pan = document.getElementById('div-max-pan');
         const btn_min_pan = document.getElementById('div-min-pan');
+
+        //Santander
 
         //Politica de Idade
         if(this.#dataDias > 29906) {
@@ -107,6 +108,7 @@ class PoliciaMilitar {
             `
         }
 
+        //Saldo minimo
         if(this.#valor < 300) {
             btn_min_sant.innerHTML = 
             `
@@ -312,7 +314,7 @@ class PoliciaMilitar {
             class="fas fa-times"></i></span>
             <span class="btn-inner--text">NEGADO</span>
             </button>`
-        } else if((this.#dataDias >= 25892 && this.#dataDias < 26256) && this.#valor > 12000) {
+        } else if((this.#dataDias >= 25892 && this.#dataDias < 26256) && this.#valor > 120000) {
             btn_max_ole.innerHTML =
                 `<button type="button"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
@@ -320,7 +322,7 @@ class PoliciaMilitar {
             class="fas fa-times"></i></span>
             <span class="btn-inner--text">NEGADO</span>
             </button>`
-        } else if((this.#dataDias >= 26257 && this.#dataDias < 27351) && this.#valor > 20000) {
+        } else if((this.#dataDias >= 26257 && this.#dataDias < 27351) && this.#valor > 2000) {
             btn_max_ole.innerHTML =
                 `<button type="button"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
@@ -372,6 +374,7 @@ class PoliciaMilitar {
             `
         }
 
+        //Quantidades de parcelas
         if (this.#qtdParcelas > 96 && this.#qtdParcelas < 36) {
             btn_parcelas_parana.innerHTML =
                 `<button type="button"
@@ -390,6 +393,7 @@ class PoliciaMilitar {
             `
         }
 
+        //Saldo maximo
         if ((this.#dataDias >= 6911 && this.#dataDias < 28446) && this.#valor > 200000) {
             btn_max_parana.innerHTML =
                 `<button type="button"
@@ -408,6 +412,7 @@ class PoliciaMilitar {
             `
         }
 
+        //Saldo minimo
         if (this.#valor < 1) {
             btn_min_parana.innerHTML =
                 `<button type="button"
@@ -421,7 +426,7 @@ class PoliciaMilitar {
                 `
             <button type="button" class="btn btn-sm btn-soft-success btn-icon rounded-pill">
                 <span class="btn-inner--icon"><i class="far fa-check"></i></span>
-                <span class="btn-inner--text">ACEITO</span>
+                <span class="btn-inner--text">ACEITA</span>
             </button>
             `
         }
@@ -609,6 +614,8 @@ class PoliciaMilitar {
         }
 
         //DayCoval------------
+
+        //Idade
         if (this.#dataDias > 27351) {
             btn_idade_daycoval.innerHTML =
                 `<button type="button"
@@ -622,11 +629,12 @@ class PoliciaMilitar {
                 `
             <button type="button" class="btn btn-sm btn-soft-success btn-icon rounded-pill">
                 <span class="btn-inner--icon"><i class="far fa-check"></i></span>
-                <span class="btn-inner--text">ACEITO</span>
+                <span class="btn-inner--text">ACEITA</span>
             </button>
             `
         }
 
+        //Quantidade de parcelas
         if (this.#qtdParcelas > 96) {
             btn_parcelas_daycoval.innerHTML =
                 `<button type="button"
@@ -640,11 +648,12 @@ class PoliciaMilitar {
                 `
             <button type="button" class="btn btn-sm btn-soft-success btn-icon rounded-pill">
                 <span class="btn-inner--icon"><i class="far fa-check"></i></span>
-                <span class="btn-inner--text">ACEITO</span>
+                <span class="btn-inner--text">ACEITA</span>
             </button>
             `
         }
 
+        //Saldo maximo
         if ((this.#dataDias >= 7642 && this.#dataDias < 25891) && this.#valor > 250000) {
             btn_max_daycoval.innerHTML =
                 `<button type="button"
@@ -653,7 +662,7 @@ class PoliciaMilitar {
             class="fas fa-times"></i></span>
             <span class="btn-inner--text">NEGADO</span>
             </button>`
-        } else if((this.#dataDias >= 25892 && this.#dataDias < 27351) && this.#valor > 75000) {
+        } else if((this.#dataDias >= 25892 && this.#dataDias < 27351) && this.#valor > 50000) {
             btn_max_daycoval.innerHTML =
                 `<button type="button"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
@@ -672,6 +681,8 @@ class PoliciaMilitar {
         }
 
         // BANCO DO BRASIL------------------
+
+        //Idade
         if (this.#dataDias > 29541) {
             btn_idade_bb.innerHTML =
                 `<button type="button"
@@ -685,11 +696,12 @@ class PoliciaMilitar {
                 `
             <button type="button" class="btn btn-sm btn-soft-success btn-icon rounded-pill">
                 <span class="btn-inner--icon"><i class="far fa-check"></i></span>
-                <span class="btn-inner--text">ACEITO</span>
+                <span class="btn-inner--text">ACEITA</span>
             </button>
             `
         }
 
+        //Quantidade de parcelas
         if (this.#qtdParcelas > 96 || this.#qtdParcelas < 2) {
             btn_parcelas_bb.innerHTML =
                 `<button type="button"
@@ -732,6 +744,7 @@ class PoliciaMilitar {
 
         return parseInt(DIFF_DATE);
     };
+
 }
 
-export default PoliciaMilitar;
+export default PoliciaMilitarMg;
