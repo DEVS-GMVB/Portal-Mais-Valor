@@ -45,8 +45,6 @@ class GovernoSp {
          //Botões BB
          let btn_idade_bb = document.getElementById('div-idade-bancobrasil');
          let btn_parcelas_bb = document.getElementById('div-parcela-bancobrasil');
-         let btn_max_bb = document.getElementById('div-max-bancobrasil');
- 
 
         //SANTANDER ---------------------------------------------------------------------------------------------------------
 
@@ -574,6 +572,118 @@ class GovernoSp {
         }
 
         //Saldo minimo
+        if (valor < 200) {
+            btn_min_pan.innerHTML =
+            `<button type="button"
+            class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
+            <span class="btn-inner--icon"><i
+            class="fas fa-times"></i></span>
+            <span class="btn-inner--text">NEGADO</span>
+            </button>`
+        } else {
+            btn_min_pan.innerHTML = 
+            `<button type="button" class="btn btn-sm btn-soft-success btn-icon rounded-pill">
+            <span class="btn-inner--icon"><i class="far fa-check"></i></span>
+            <span class="btn-inner--text">ACEITA</span>
+            </button>`
+        }
+
+        //DAYCOVAL ---------------------------------------------------------------------------------------------------------
+        
+        //Idade
+        if (dataDias > 27351) {
+            btn_idade_daycoval.innerHTML = 
+            `<button type="button"
+            class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
+            <span class="btn-inner--icon"><i
+            class="fas fa-times"></i></span>
+            <span class="btn-inner--text">NEGADO</span>
+            </button>`
+        } else {
+            btn_idade_daycoval.innerHTML = 
+            `<button type="button" class="btn btn-sm btn-soft-success btn-icon rounded-pill">
+            <span class="btn-inner--icon"><i class="far fa-check"></i></span>
+            <span class="btn-inner--text">ACEITA</span>
+            </button>`
+        }
+
+        //Quantidade de parcelas
+        if (qtdParcelas > 96) {
+            btn_parcelas_daycoval.innerHTML = 
+            `<button type="button"
+            class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
+            <span class="btn-inner--icon"><i
+            class="fas fa-times"></i></span>
+            <span class="btn-inner--text">NEGADO</span>
+            </button>`
+        } else {
+            btn_parcelas_daycoval.innerHTML = 
+            `<button type="button" class="btn btn-sm btn-soft-success btn-icon rounded-pill">
+            <span class="btn-inner--icon"><i class="far fa-check"></i></span>
+            <span class="btn-inner--text">ACEITA</span>
+            </button>`
+        }
+
+        //Saldo maximo
+        if (dataDias >= 7642 && dataDias < 25891 && valor > 250000){
+            btn_max_daycoval.innerHTML = 
+            `<button type="button"
+            class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
+            <span class="btn-inner--icon"><i
+            class="fas fa-times"></i></span>
+            <span class="btn-inner--text">NEGADO</span>
+            </button>`
+        }else if (dataDias >= 25892 && dataDias < 27351 && valor > 75000){
+            btn_max_daycoval.innerHTML = 
+            `<button type="button"
+            class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
+            <span class="btn-inner--icon"><i
+            class="fas fa-times"></i></span>
+            <span class="btn-inner--text">NEGADO</span>
+            </button>`
+        } else {
+            btn_max_daycoval.innerHTML = 
+            `<button type="button" class="btn btn-sm btn-soft-success btn-icon rounded-pill">
+            <span class="btn-inner--icon"><i class="far fa-check"></i></span>
+            <span class="btn-inner--text">ACEITA</span>
+            </button>`
+        }
+
+        //BB ---------------------------------------------------------------------------------------------------------
+        
+        //Idade
+        if (dataDias > 29541) {
+            btn_idade_bb.innerHTML = 
+            `<button type="button"
+            class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
+            <span class="btn-inner--icon"><i
+            class="fas fa-times"></i></span>
+            <span class="btn-inner--text">NEGADO</span>
+            </button>`
+        } else {
+            btn_idade_bb.innerHTML = 
+            `<button type="button" class="btn btn-sm btn-soft-success btn-icon rounded-pill">
+            <span class="btn-inner--icon"><i class="far fa-check"></i></span>
+            <span class="btn-inner--text">ACEITA</span>
+            </button>`
+        }
+
+        //Quantidade de parcelas
+        if (qtdParcelas > 96 || qtdParcelas < 2) {
+            btn_parcelas_bb.innerHTML = 
+            `<button type="button"
+            class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
+            <span class="btn-inner--icon"><i
+            class="fas fa-times"></i></span>
+            <span class="btn-inner--text">NEGADO</span>
+            </button>`
+        } else {
+            btn_parcelas_bb.innerHTML = 
+            `<button type="button" class="btn btn-sm btn-soft-success btn-icon rounded-pill">
+            <span class="btn-inner--icon"><i class="far fa-check"></i></span>
+            <span class="btn-inner--text">ACEITA</span>
+            </button>`
+        }
     }
 
     dataDiff(nascimento) {
