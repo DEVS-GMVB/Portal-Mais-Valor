@@ -17,6 +17,16 @@ import BombeiroMg from './BombeiroMg.js';
 import GovernoParana from './GovernoParana.js';
 import GovernoSc from './GovernoSc.js';
 import GovernoGo from './GovernoGo.js';
+import GovernoAcre from './GovernoAcre.js';
+import GovernoBahia from './GovernoBahia.js';
+import Exercito from './Exercito.js';
+import Aeronautica from './Aeronautica.js';
+import Marinha from './Marinha.js';
+import TribunalDf from './TribunalDf.js';
+import TribunalJustiçaPara from './TribunalJustiçaPara.js';
+import Trt1 from './Trt1.js';
+import Aspara from './Aspara.js';
+import SenadoFederal from './SenadoFederal.js';
 
 const convenio = document.getElementById('campo-convenio');
 const btn = document.getElementById('btn-simular');
@@ -112,6 +122,60 @@ btn.addEventListener('click', () => {
             const governoGo = new GovernoGo();
             governoGo.obterVerificacoesGovernoGo();
             break;
+
+        case 'GOVERNO ACRE - NOVO / REFIN':
+            const governoAcre = new GovernoAcre();
+            governoAcre.obterVerificacoesGovernoBahia();
+            break;
+
+        case 'GOVERNO BAHIA - NOVO / REFIN':
+            const governoBahia = new GovernoBahia();
+            governoBahia.obterVerificacoesGovernoBahia();
+            break;
+
+        case 'EXERCITO - NOVO / REFIN': 
+            const exercito = new Exercito();
+            exercito.obterVerificacoesExercito();
+            break;
+
+        case 'AERONAUTICA - NOVO / REFIN':
+            const aeronautica = new Aeronautica();
+            aeronautica.obterVerificacoesAeronautica();
+            break;
+
+        case 'MARINHA - NOVO / REFIN':
+            const marinha = new Marinha();
+            marinha.obterVerificacoesMarinha();
+            break;
+
+        case 'TRIBUNAL JUSTIÇA DF - NOVO / REFIN':
+            const tribunalDf = new TribunalDf();
+            tribunalDf.obterVerificacoesTribunalDf();
+            break;
+        case 'TRIBUNAL JUSTIÇA PARÁ - NOVO / REFIN':
+            const tribunalJusticaPara = new TribunalJustiçaPara();
+            tribunalJusticaPara.obterVerificacoesTJPara();
+            break;
+
+        case 'TRT - 1ª REGIÃO - NOVO / REFIN':
+            const trt1 = new Trt1();
+            trt1.obterVerificacoesTrt1();
+            break;
+
+        case 'ASSEMBLÉIA LEGISLATIVA PARÁ - NOVO / REFIN':
+            const aspara = new Aspara();
+            aspara.obterVerificacoesAspara();
+            break;
+
+        case 'SUPERIOR TJ - NOVO / REFIN':
+
+            break;
+
+        case 'SENADO FEDERAL - NOVO / REFIN':
+            const senadoFederal = new SenadoFederal();
+            senadoFederal.obterVerificacoesSenadoFederal();
+            break;
+        
         default:
             console.log('Error is not verifications');
     }
