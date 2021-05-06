@@ -27,8 +27,26 @@ import TribunalJstiçaPara from './TribunalJustiçaPara.js';
 import Trt1 from './Trt1.js';
 import Aspara from './Aspara.js';
 import SuperiorTj from './SuperiorTj.js';
-//Senado federal 
+import SenadoFederal from './SenadoFederal.js';
 import CamaraDeputado from './CamaraDeputado.js';
+import PrefeituraSA from './PrefeituraSA.js';
+import PrefeituraCuritiba from './PrefeituraCuritiba.js';
+import PrefeituraPiracicaba from './PrefeituraPiracicaba.js';
+import PrefeituraRJ from './PrefeituraRJ.js';
+import PrefeituraCampoGrande from './PrefeituraCampoGrande.js';
+import PrefeituraSBC from './PrefeituraSBC.js';
+import PrefeituraRegistro from './PrefeituraRegistro.js';
+import PrefeituraGuaruja from './PrefeituraGuaruja.js';
+import PrefeituraSP from './PrefeituraSP.js';
+import IpremSp from './IpremSp.js';
+import PrefeituraManaus from './PrefeituraManaus.js';
+import PrefeituraBarueri from './PrefeituraBarueri.js';
+import PrefeituraTaboao from './PrefeituraTaboao.js';
+import PrefeituraItanhaem from './PrefeituraItanhaem.js';
+import PrefeituraBh from './PrefeituraBh.js';
+import PrefeituraPg from './PrefeituraPg.js';
+import PrefeituraCaraguatatuba from './PrefeituraCaraguatatuba.js';
+import PrefeituraFerrazV from './PrefeituraFerrazV.js';
 
 const convenio = document.getElementById('campo-convenio');
 const btn = document.getElementById('btn-simular');
@@ -118,45 +136,64 @@ btn.addEventListener('click', () => {
         const superiorTj = new SuperiorTj();
         superiorTj.obterVerificacoesSuperiorTj();
     } else if (convenio.value === 'SENADO FEDERAL - NOVO / REFIN') {
-
+        const senadoFederal = new SenadoFederal();
+        senadoFederal.obterVerificacoesSenadoFederal();
     } else if (convenio.value === 'CAMARA DOS DEPUTADOS - NOVO / REFIN') {
         const camaraDeputado = new CamaraDeputado();
         camaraDeputado.obterVerificacoesCamaraDeputado();
     } else if (convenio.value === 'PREFEITURA SANTO ANDRÉ - NOVO / REFIN') {
-
+        const prefeituraSA = new PrefeituraSA();
+        prefeituraSA.obterVerificacoesPrefeituraSA();
     } else if (convenio.value === 'PREFEITURA CURITIBA - NOVO / REFIN') {
-
+        const prefeituraCuritiba = new PrefeituraCuritiba();
+        prefeituraCuritiba.obterVerificacoesPrefeituraCuritiba();
     } else if (convenio.value === 'PREFEITURA PIRACICABA - NOVO / REFIN') {
-
+        const prefeituraPiracicaba = new PrefeituraPiracicaba();
+        prefeituraPiracicaba.obterVerificacoesPrefeituraPiracicaba();
     } else if (convenio.value === 'PREFEITURA RIO DE JANEIRO - NOVO / REFIN') {
-
+        const prefeituraRj = new PrefeituraRJ();
+        prefeituraRj.obterVerificacoesPrefeituraRJ();
     } else if (convenio.value === 'PREFEITURA CAMPO GRANDE - NOVO / REFIN') {
-
+        const prefeituraCampoGrande = new PrefeituraCampoGrande();
+        prefeituraCampoGrande.obterVerificacoesPrefeituraCampoGrande();
     } else if (convenio.value === 'PREFEITURA SÃO BERNARDO DO CAMPO - NOVO / REFIN') {
-
+        const prefeituraSBC = new PrefeituraSBC();
+        prefeituraSBC.obterVerificacoesPrefeituraSBC();
     } else if (convenio.value === 'PREFEITURA REGISTRO - NOVO / REFIN') {
-
+        const prefeituraRegistro = new PrefeituraRegistro();
+        prefeituraRegistro.obterVerificacoesPrefeituraRegistro();
     } else if (convenio.value === 'PREFEITURA GUARUJÁ - NOVO / REFIN') {
-
+        const prefeituraGuaruja = new PrefeituraGuaruja();
+        prefeituraGuaruja.obterVerificacoesPrefeituraGuaruja();
     } else if (convenio.value === 'PREFEITURA SÃO PAULO - NOVO / REFIN') {
-
+        const prefeituraSP = new PrefeituraSP();
+        prefeituraSP.obterVerificacoesPrefeituraSP();
     } else if (convenio.value === 'IPREM SÃO PAULO - NOVO / REFIN') {
-
+        const ipremSp = new IpremSp();
+        ipremSp.obterVerificacoesIpremSp();
     } else if (convenio.value === 'PREFEITURA MANAUS - NOVO / REFIN') {
-
+        const prefeituraManaus = new PrefeituraManaus();
+        prefeituraManaus.obterVerificacoesPrefeituraManaus();
     } else if (convenio.value === 'PREFEITURA BARUERI - NOVO / REFIN') {
-
+        const prefeituraBarueri = new PrefeituraBarueri();
+        prefeituraBarueri.obterVerificacoesPrefeituraBarueri();
     } else if (convenio.value === 'PREFEITURA TABOÃO DA SERRA - NOVO / REFIN') {
-
+        const prefeituraTaboao = new PrefeituraTaboao();
+        prefeituraTaboao.obterVerificacoesPrefeituraTaboao();
     } else if (convenio.value === 'PREFEITURA ITANHAÉM - NOVO / REFIN') {
-
+        const prefeituraItanhaem = new PrefeituraItanhaem();
+        prefeituraItanhaem.obterVerificacoesPrefeituraItanhaem();
     } else if (convenio.value === 'PREFEITURA BELO HORIZONTE - NOVO / REFIN') {
-
+        const prefeituraBh = new PrefeituraBh();
+        prefeituraBh.obterVerificacoesPrefeituraBh();
     } else if (convenio.value === 'PREFEITURA PRAIA GRANDE - NOVO / REFIN') {
-
+        const prefeituraPg = new PrefeituraPg();
+        prefeituraPg.obterVerificacoesPrefeituraPg();
     } else if (convenio.value === 'PREFEITURA CARAGUATATUBA - NOVO / REFIN') {
-
+        const prefeituraCaraguatatuba = new PrefeituraCaraguatatuba();
+        prefeituraCaraguatatuba.obterVerificacoesPrefeituraCaraguatatuba();
     } else if (convenio.value === 'PREFEITURA FERRAZ DE VASCONCELOS - NOVO / REFIN') {
-
+        const prefeituraFerrazV = new PrefeituraFerrazV();
+        prefeituraFerrazV.obterVerificacoesPrefeituraFerrazV();
     }
 });
