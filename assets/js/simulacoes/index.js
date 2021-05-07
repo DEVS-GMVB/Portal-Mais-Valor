@@ -1,9 +1,9 @@
-import Portabilidade from './Portabilidade.js';
-import InssNovo from './InssNovo.js';
+import Portabilidade from './Portabilidade.js'; //Esse
+import InssNovo from './InssNovo.js'; //Esse
 import InssRefin from './InssRefin.js';
-import SiapeNovo from './SiapeNovo.js';
+import SiapeNovo from './SiapeNovo.js'; //Esse
 import SiapeRefin from './SiapeRefin.js';
-import GovernoSp from './GovernoSp.js';
+import GovernoSp from './GovernoSp.js'; //Esse
 import PoliciaMilitar from './PoliciaMilitar.js';
 import SpprevNovo from './SpprevNovo.js';
 import TjSp from './TjSp.js';
