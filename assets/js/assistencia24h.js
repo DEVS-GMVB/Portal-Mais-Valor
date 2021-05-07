@@ -690,7 +690,7 @@ var arrayValorTotal = []
 
 now = new Date  
 if (now.getDay () ==5){
-document.write ("Hoje é  dia de enviar o arquivo");
+document.getElementById ("demo").innerHTML = "dia de envio do arquivo ";
 filtraAssistenciasDebito();
 } 
 else{
