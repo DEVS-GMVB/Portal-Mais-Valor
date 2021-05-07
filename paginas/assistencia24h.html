@@ -86,8 +86,8 @@
                                     <label for="exampleFormControlSelect1">Tipo da Assistência</label>
                                     <select class="form-control form-control-sm" id="fTipoAssistencia">
                                         <option></option>
-                                        <option value="Residencial">Residencial</option>
-                                        <option value="Pessoal">Pessoal</option>
+                                        <option value="residencial">Residencial</option>
+                                        <option value="saude">Pessoal</option>
                                     </select>
                                 </div>
 
@@ -153,7 +153,7 @@
                     <div class="bg-titulo mt-0">
 
                         <h3>Dados Cadastrais</h3>
-
+                        <div id="demo"></div>
                     </div>
                     <form class="needs-validation" novalidate>
 
@@ -163,7 +163,6 @@
                             <div class="col-md-6 mb-3">
                                 <label for="validationCustom01">Nome do Cliente</label>
                                 <input type="text" class="form-control form-control-sm" id="nome">
-
                             </div>
 
                             <div class="col-md-6 mb-3">
@@ -211,12 +210,12 @@
 
                             <div class="col-md-6 mb-3">
                                 <label for="validationCustom01">cidade</label>
-                                <input type="text" class="form-control form-control-sm" id="cidade">
+                                <input type="text" class="form-control form-control-sm" id="cidade2">
                             </div>
 
                             <div class="col-md-3 mb-3">
                                 <label for="validationCustom01">estado</label>
-                                <input type="text" class="form-control form-control-sm" id="estado">
+                                <input type="text" class="form-control form-control-sm" id="estado2">
                             </div>
 
                             <div class="col-md-6 mb-3">
@@ -252,9 +251,9 @@
 
                     </div>
 
-
+                
                     <form class="needs-validation" novalidate>
-
+                        <input type="hidden" class="form-control form-control-sm" id="valor_assistencia">
                         <div class="form-row mt-3">
 
 
