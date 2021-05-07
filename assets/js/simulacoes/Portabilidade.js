@@ -52,7 +52,7 @@ class Portabilidade{
         if (dataDias + (qtdParcelas * 30) > 31440) {
             btn_idade_sant.innerHTML = 
             `
-                <button type="button"
+                <button type="button" title="Terminar o contrato com (85 anos 11 meses)"
                 class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                     <span class="btn-inner--icon"><i
                     class="fas fa-times"></i></span>
@@ -92,7 +92,7 @@ class Portabilidade{
         if (valor < 1000) {
             btn_min_sant.innerHTML =
             `
-                <button type="button"
+                <button type="button" title="SALDO MINIMO - R$ 200,00"
                 class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                     <span class="btn-inner--icon"><i
                     class="fas fa-times"></i></span>
@@ -116,7 +116,7 @@ class Portabilidade{
         if (dataDias + (qtdParcelas * 30) > 29979) {
             btn_idade_bradesco.innerHTML =
             `
-                <button type="button"
+                <button type="button" title="Homem  terminar com 77 anos -  Mulher  terminar com 80 anos "
                 class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                     <span class="btn-inner--icon"><i
                     class="fas fa-times"></i></span>
@@ -156,7 +156,7 @@ class Portabilidade{
         if (valor < 501){
             btn_min_bradesco.innerHTML = 
             `
-                <button type="button"
+                <button type="button" title="SALDO MINIMO - R$ 200,00"
                 class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                     <span class="btn-inner--icon"><i
                     class="fas fa-times"></i></span>
@@ -176,9 +176,8 @@ class Portabilidade{
 
         //Saldo maximo
         if (dataDias < 6604) {
-            btn_max_bradesco.innerHTML = 
             `
-                <button type="button"
+            <button type="button" title="Homem de 26 anos a 70 anos (80 mil ) - de 70 anos + 1 mês 71 anos ( 60 mil) / Mulher  de 24 anos a 70 anos ( 80 mil) - de 70 anos + 1 mês até 74 anos ( 60mil)"
                 class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                     <span class="btn-inner--icon"><i
                     class="fas fa-times"></i></span>
@@ -188,7 +187,7 @@ class Portabilidade{
         } else if (dataDias > 27789){
             btn_max_bradesco.innerHTML = 
             `
-                <button type="button"
+            <button type="button" title="Homem de 26 anos a 70 anos (80 mil ) - de 70 anos + 1 mês 71 anos ( 60 mil) / Mulher  de 24 anos a 70 anos ( 80 mil) - de 70 anos + 1 mês até 74 anos ( 60mil)"
                 class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                     <span class="btn-inner--icon"><i
                     class="fas fa-times"></i></span>
@@ -198,7 +197,7 @@ class Portabilidade{
         } else if (valor > 70000){
             btn_max_bradesco.innerHTML = 
             `
-                <button type="button"
+            <button type="button" title="Homem de 26 anos a 70 anos (80 mil ) - de 70 anos + 1 mês 71 anos ( 60 mil) / Mulher  de 24 anos a 70 anos ( 80 mil) - de 70 anos + 1 mês até 74 anos ( 60mil)"
                 class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                     <span class="btn-inner--icon"><i
                     class="fas fa-times"></i></span>
@@ -215,7 +214,7 @@ class Portabilidade{
         } else if (dataDias >= 22310 && dataDias  < 24135 && valor > 60000) {
             btn_max_bradesco.innerHTML = 
             `
-                <button type="button"
+            <button type="button" title="Homem de 26 anos a 70 anos (80 mil ) - de 70 anos + 1 mês 71 anos ( 60 mil) / Mulher  de 24 anos a 70 anos ( 80 mil) - de 70 anos + 1 mês até 74 anos ( 60mil)"
                 class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                     <span class="btn-inner--icon"><i
                     class="fas fa-times"></i></span>
@@ -225,7 +224,7 @@ class Portabilidade{
         } else if (dataDias >= 24136 && dataDias < 25961 && valor > 50000) {
             btn_max_bradesco.innerHTML =
             `
-                <button type="button"
+            <button type="button" title="Homem de 26 anos a 70 anos (80 mil ) - de 70 anos + 1 mês 71 anos ( 60 mil) / Mulher  de 24 anos a 70 anos ( 80 mil) - de 70 anos + 1 mês até 74 anos ( 60mil)"
                 class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                     <span class="btn-inner--icon"><i
                     class="fas fa-times"></i></span>
@@ -235,7 +234,7 @@ class Portabilidade{
         } else if (dataDias >= 25962 && dataDias < 27788 && valor > 25000) {
             btn_max_bradesco.innerHTML =
             `
-                <button type="button"
+            <button type="button" title="Homem de 26 anos a 70 anos (80 mil ) - de 70 anos + 1 mês 71 anos ( 60 mil) / Mulher  de 24 anos a 70 anos ( 80 mil) - de 70 anos + 1 mês até 74 anos ( 60mil)"
                 class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                     <span class="btn-inner--icon"><i
                     class="fas fa-times"></i></span>
@@ -257,7 +256,7 @@ class Portabilidade{
         if (dataDias + (valor * 30) > 29614) {
             btn_idade_ole.innerHTML = 
             `
-                <button type="button"
+                <button type="button" title="Terminar o contrato com (85 anos 11 meses)"
                 class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                     <span class="btn-inner--icon"><i
                     class="fas fa-times"></i></span>
@@ -279,7 +278,7 @@ class Portabilidade{
         if (valor < 300) {
             btn_min_ole.innerHTML = 
             `
-                <button type="button"
+                <button type="button" title="SALDO MINIMO - R$ 200,00"
                 class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                     <span class="btn-inner--icon"><i
                     class="fas fa-times"></i></span>
@@ -301,8 +300,8 @@ class Portabilidade{
         if (dataDias < 9525) {
             btn_max_ole.innerHTML =
             `
-                <button type="button"
-                class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
+                <button type="button" title="Homem de 26 anos a 70 anos (80 mil ) - de 70 anos + 1 mês 71 anos ( 60 mil) / Mulher  de 24 anos a 70 anos ( 80 mil) - de 70 anos + 1 mês até 74 anos ( 60mil)"
+                class="btn btn-sm btn-soft-danger btn-icon rounded-pill" >
                     <span class="btn-inner--icon"><i
                     class="fas fa-times"></i></span>
                     <span class="btn-inner--text">NEGADO</span>
@@ -311,7 +310,7 @@ class Portabilidade{
         } else if (dataDias > 29614){
             btn_max_ole.innerHTML = 
             `
-                <button type="button"
+                <button type="button" title="Homem de 26 anos a 70 anos (80 mil ) - de 70 anos + 1 mês 71 anos ( 60 mil) / Mulher  de 24 anos a 70 anos ( 80 mil) - de 70 anos + 1 mês até 74 anos ( 60mil)"
                 class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                     <span class="btn-inner--icon"><i
                     class="fas fa-times"></i></span>
@@ -321,7 +320,7 @@ class Portabilidade{
         } else if (valor > 85000){
             btn_max_ole.innerHTML = 
             `
-                <button type="button"
+                <button type="button" title="Homem de 26 anos a 70 anos (80 mil ) - de 70 anos + 1 mês 71 anos ( 60 mil) / Mulher  de 24 anos a 70 anos ( 80 mil) - de 70 anos + 1 mês até 74 anos ( 60mil)"
                 class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                     <span class="btn-inner--icon"><i
                     class="fas fa-times"></i></span>
@@ -338,7 +337,7 @@ class Portabilidade{
         } else if (dataDias >= 25233 && dataDias < 26692 && valor > 70000) {
             btn_max_ole.innerHTML = 
             `
-                <button type="button"
+                <button type="button" title="Homem de 26 anos a 70 anos (80 mil ) - de 70 anos + 1 mês 71 anos ( 60 mil) / Mulher  de 24 anos a 70 anos ( 80 mil) - de 70 anos + 1 mês até 74 anos ( 60mil)"
                 class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                     <span class="btn-inner--icon"><i
                     class="fas fa-times"></i></span>
@@ -348,7 +347,7 @@ class Portabilidade{
         } else if (dataDias >= 26693 && dataDias < 27788 && valor > 30000){
             btn_max_ole.innerHTML = 
             `
-                <button type="button"
+                <button type="button" title="Homem de 26 anos a 70 anos (80 mil ) - de 70 anos + 1 mês 71 anos ( 60 mil) / Mulher  de 24 anos a 70 anos ( 80 mil) - de 70 anos + 1 mês até 74 anos ( 60mil)"
                 class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                     <span class="btn-inner--icon"><i
                     class="fas fa-times"></i></span>
@@ -358,7 +357,7 @@ class Portabilidade{
         } else if (dataDias >= 27789 && dataDias < 28518 && valor > 15000){
             btn_max_ole.innerHTML = 
             `
-                <button type="button"
+                <button type="button" title="Homem de 26 anos a 70 anos (80 mil ) - de 70 anos + 1 mês 71 anos ( 60 mil) / Mulher  de 24 anos a 70 anos ( 80 mil) - de 70 anos + 1 mês até 74 anos ( 60mil)"
                 class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                     <span class="btn-inner--icon"><i
                     class="fas fa-times"></i></span>
@@ -368,7 +367,7 @@ class Portabilidade{
         } else if (dataDias >= 28519 && dataDias < 29614 && valor > 15000){
             btn_max_ole.innerHTML = 
             `
-                <button type="button"
+                <button type="button" title="Homem de 26 anos a 70 anos (80 mil ) - de 70 anos + 1 mês 71 anos ( 60 mil) / Mulher  de 24 anos a 70 anos ( 80 mil) - de 70 anos + 1 mês até 74 anos ( 60mil)"
                 class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                     <span class="btn-inner--icon"><i
                     class="fas fa-times"></i></span>
