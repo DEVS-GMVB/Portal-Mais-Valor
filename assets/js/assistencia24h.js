@@ -4,6 +4,9 @@ const arrays = {
   arrayLinhas: arrayLinhas = []
 }
 
+//usar variavel de sessao para o id parceiro 
+//pegar essa variavel com get e jogar na funcao todosPorParceiro()
+var valor_seguro=0;
 //ao carregar a pagina...
 window.onload = function todosPorParceiro(){ 
 
@@ -126,20 +129,22 @@ window.onload = function todosPorParceiro(){
 
         function assistencia(token){
 
+          var nome = document.getElementById("nome").value;
           var ddd = document.getElementById("ddd").value;
           var telefone =document.getElementById("telefone").value;
           var cpf =document.getElementById("cpf").value;
           var email = document.getElementById("email").value;
           var data_nascimento = document.getElementById("nascimento").value;
-          var cidade = document.getElementById("cidade").value;
+          var cidade = document.getElementById("cidade2").value;
           var bairro = document.getElementById("bairro").value;
           var numero = document.getElementById("numero").value;
-          var estado = document.getElementById("estado").value;
+          var estado = document.getElementById("estado2").value;
           var rua = document.getElementById("rua").value;
           var cep = document.getElementById("cep").value;
           var product_id = document.getElementById("tipoAssistencia").value;
           var quote = 0;
           var uuid =0;
+          
 
               if (product_id == 670){
                   quote = 413;
@@ -157,7 +162,7 @@ window.onload = function todosPorParceiro(){
            var raw = JSON.stringify({
               "product_ids":[product_id],
               "insurance_holder":{
-                  "name":"nome",
+                  "name": nome,
                   "phones":[{
                       "area_code": ddd,
                       "extension":"",
@@ -196,8 +201,11 @@ window.onload = function todosPorParceiro(){
         fetch("https://api.suthubservice.com/v2/quote/"+quote+"", requestOptions)
         .then(response => response.json())
         .then(function (response) {
+          
           uuid = response.data.contract_id,
-          enviarEmail(token, uuid);
+          valor_seguro = response.data.payment_options[0].valor_total
+          document.getElementById("valor_assistencia").value = valor_seguro
+          enviarEmail(token, uuid, nome, email);
         }) 
         .catch(error => console.log('error', error));
         
@@ -205,7 +213,7 @@ window.onload = function todosPorParceiro(){
 };
 
     
-  function enviarEmail(token, uuid, nome){
+  function enviarEmail(token, uuid, nome, email){
     //Envio de email colocar uuid como parametro 
               var myHeaders = new Headers();
               myHeaders.append("token", token);
@@ -213,7 +221,7 @@ window.onload = function todosPorParceiro(){
 
               var raw = JSON.stringify(
                   {"email":{
-                      "recipients":["email@email.com"],
+                      "recipients":[email],
                       "contact_name":nome,
                       "uuid":uuid}
                   }
@@ -229,7 +237,6 @@ window.onload = function todosPorParceiro(){
               fetch("https://api.suthubservice.com/v2/email/2", requestOptions)
               .then(response => response.json())
               .then(function (response) {
-                console.log(response)
                   contrato(token,uuid);
               }) 
               .catch(error => console.log('error', error));
@@ -257,7 +264,7 @@ window.onload = function todosPorParceiro(){
             fetch("https://api.suthubservice.com/v2/MaisValor/contract/"+uuid+"/sendSMS?product="+product+"", requestOptions)
             .then(response => response.json())
             .then(function (response) {
-
+              console.log(response)
                 if(response.status == "SMS sent."){
                       incluirBd();
                 }
@@ -268,15 +275,17 @@ window.onload = function todosPorParceiro(){
 
 
   function incluirBd(){
-            //Dados do Cliente
+             //CHAMAR VALOR DO SEGURO DO CAMPO HIDDEN
+            var valorAssistencia = document.getElementById("valor_assistencia").value
+            console.log(valorAssistencia)
             var ddd = document.getElementById("ddd").value;
             var telefone =document.getElementById("telefone").value;
             var cpf =document.getElementById("cpf").value;
             var email = document.getElementById("email").value;
             var data_nascimento = document.getElementById("nascimento").value;
             var bairro = document.getElementById("bairro").value;
-            var cidade = document.getElementById("cidade").value;
-            var estado = document.getElementById("estado").value;
+            var cidade = document.getElementById("cidade2").value;
+            var estado = document.getElementById("estado2").value;
             var rua = document.getElementById("rua").value;
             var numero = document.getElementById("numero").value;
             var cep = document.getElementById("cep").value;
@@ -342,10 +351,9 @@ window.onload = function todosPorParceiro(){
                 "gerente": gerente,
                 "data_inclusao": data_inclusao,
                 "responsavel_alteracao": responsavel_alteracao,
-                "data_alteracao": data_alteracao
+                "data_alteracao": data_alteracao,
+                "valor_assistencia": valorAssistencia
               });
-
-
 
               var requestOptions = {
                 method: 'POST',
@@ -357,8 +365,8 @@ window.onload = function todosPorParceiro(){
         fetch("http://localhost:3000/user/assistencia/incluir", requestOptions)
           .then(response => response.json())
           .then(function (response) {
-            window.location.href = "http://127.0.0.1:5501/paginas/assistencia24h.html"
             console.log(response)
+            window.location.href = "http://127.0.0.1:5501/paginas/assistencia24h.html"
 
         }) 
           .catch(error => console.log('error', error));
@@ -468,29 +476,32 @@ window.onload = function todosPorParceiro(){
 
     var idBotaoAlterar = ""; 
     function pegarIdBotaoAlterar(id){
-
+            
             idBotaoAlterar = id; 
             var tagPai ="row"+id;
             let teste = document.getElementById(tagPai);
             var cpfChildren =   teste.children[0].id;
             var nomeChildren =   teste.children[1].id;
             var tipoCChildren =   teste.children[2].id;
-            var tipoAChildren =   teste.children[3].id;  
+            var tipoAChildren =   teste.children[3].id;
             var valoCpf = document.getElementById(cpfChildren);
             var valoNome = document.getElementById(nomeChildren);
             var valoTipoC = document.getElementById(tipoCChildren);
             var valoTipoA = document.getElementById(tipoAChildren);
+          
             var cpfformatado = valoCpf.innerHTML;
             var nomeformatado = valoNome.innerHTML;
             var tipoCformatado = valoTipoC.innerHTML;
             var tipoAformatado = valoTipoA.innerHTML;
+
 
             selecaoParaalteracao(cpfformatado, nomeformatado, tipoCformatado, tipoAformatado)
 
     };
  
 
-    function selecaoParaalteracao(cpfformatado, nomeformatado, tipoCformatado, tipoAformatado){
+    function selecaoParaalteracao(cpfformatado, nomeformatado, tipoCformatado, tipoAformatado){//
+
           var myHeaders = new Headers();
           myHeaders.append("Content-Type", "application/json");
 
@@ -511,6 +522,7 @@ window.onload = function todosPorParceiro(){
           fetch("http://localhost:3000/user/assistencia/filtrarParaAlterar", requestOptions)
             .then(response => response.json())
             .then(function (data) {
+console.log(data)
               var codigo = data.codigo ;
               var nome = data.cliente_nome ;
               var data_nascimento = data.data_nascimento
@@ -551,8 +563,8 @@ window.onload = function todosPorParceiro(){
               document.getElementById("cpf").value = cpf;
               document.getElementById("rua").value = rua;
               document.getElementById("bairro").value = bairro;
-              document.getElementById("cidade").value = cidade;
-              document.getElementById("estado").value = estado;
+              document.getElementById("cidade2").value = cidade;
+              document.getElementById("estado2").value = estado;
               document.getElementById("numero").value = numero;
               document.getElementById("cep").value = cep;
               document.getElementById("email").value = email;
@@ -582,7 +594,7 @@ window.onload = function todosPorParceiro(){
 
 
     function updateBd(){
-          //pegar id_assistencia do input hidden 
+      
           //Dados do Cliente
           var ddd = document.getElementById("ddd").value;
           var codigo = document.getElementById("codigo").value;
@@ -592,8 +604,8 @@ window.onload = function todosPorParceiro(){
           var email = document.getElementById("email").value;
           var data_nascimento = document.getElementById("nascimento").value;
           var bairro = document.getElementById("bairro").value;
-          var cidade = document.getElementById("cidade").value;
-          var estado = document.getElementById("estado").value;
+          var cidade = document.getElementById("cidade2").value;
+          var estado = document.getElementById("estado2").value;
           var rua = document.getElementById("rua").value;
           var cep = document.getElementById("cep").value;
           var product_id = document.getElementById("tipoAssistencia").value;
@@ -671,6 +683,116 @@ window.onload = function todosPorParceiro(){
                 .catch(error => console.log('error', error));
 
     }
+
+    
+
+var arrayValorTotal = []
+
+now = new Date  
+if (now.getDay () ==5){
+document.write ("Hoje é  dia de enviar o arquivo");
+filtraAssistenciasDebito();
+} 
+else{
+    document.write ("Hoje não é dia de enviar o arquivo ");
+}
+
+function filtraAssistenciasDebito(){//
+
+var myHeaders = new Headers();
+myHeaders.append("Content-Type", "application/json");
+
+var raw = JSON.stringify({
+  "status": "Assistencia Solicitada",
+  "tipo_contratacao": "Conta bancaria"
+});
+
+var requestOptions = {
+  method: 'POST',
+  headers: myHeaders,
+  body: raw,
+  redirect: 'follow'
+};
+
+fetch("http://localhost:3000/user/assistencia/cnab", requestOptions)
+  .then(response => response.json())
+  .then((function (data) {
+                  var count = data.length; 
+                  var i = 0;
+                  var valor_total = 0;
+
+                  for(i;i<count; i++){
+
+                        var nome = data[i].cliente_nome;
+                        nome = nome.replaceAll(" ","");
+                        var agencia = data[i].agencia;
+                        var cpf = data[i].cliente_cpf;
+                        cpf = cpf.replace(/\.|\-/g, '');
+                        var numero_arquivo = i;
+                        var cidade =  data[i].cidade;
+                        var estado =  data[i].estado;
+                        var valor_assistencia =  data[i].valor_assistencia;
+                        var valorFormatado = parseFloat(valor_assistencia)
+                        var valorFinal =  valor_total += valorFormatado;
+                        ///////////////////////////colocar esse valor na requisicao //////////////////////////////
+                    
+                  criarTxt(i, agencia, cpf ,  nome, numero_arquivo,cidade,estado, valor_assistencia, count, valorFinal)
+
+                  }
+                
+                }))
+  .catch(error => console.log('error', error));
+
+}
+
+
+
+function criarTxt(i , agencia, cpf ,  nome, numero_arquivo, cidade, estado, valor_assistencia,count, valorFinal){
+   
+let data = new Date();
+let diaHoje = ("0" + data.getDate()).slice(-2);
+let mesHoje = ("0" + (data.getMonth() + 1)).slice(-2);
+let anoHoje = data.getFullYear();
+hoje = anoHoje + mesHoje + diaHoje;
+
+
+var myHeaders = new Headers();
+myHeaders.append("Content-Type", "application/json");
+
+var raw = JSON.stringify({
+  "agencia": agencia,
+  "cliente_cpf": cpf,
+  "cliente_nome": nome,
+  "numero_arquivo": i+1,
+  "cidade": cidade,
+  "estado": estado,
+  "valor_assistencia": valor_assistencia,
+  "qtdRegistros":count *2+1,
+  "valor_final": valorFinal,
+  "data_hoje": hoje //+ cabecalho em cada lettra A e rodape 
+});
+
+var requestOptions = {
+  method: 'POST',
+  headers: myHeaders,
+  body: raw,
+  redirect: 'follow'
+};
+
+fetch("http://localhost:3000/user/assistencia/txt", requestOptions)
+  .then(response => response.json())
+  .then(result => console.log(result))
+  .catch(error => console.log('error', error));
+  
+}
+
+//colocar a soma total na requisicao 
+//acertar data de geracao do arquivo no cabecalho A
+//ike
+//arquivo de envio mensal
+//envio de email
+//apos o envio dar um update no banco de dados nas assistencias correpsondentes 
+
     
 
 
