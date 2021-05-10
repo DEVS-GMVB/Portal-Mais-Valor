@@ -52,7 +52,7 @@ class Trt1 {
         if(this.#dataDias > 29541) {
             btn_idade_sant.innerHTML =
             `
-                <button type="button"
+                <button type="button" title="Terminar o contrato com (80 ANOS 11 MESES 29 DIAS)"
                 class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                     <span class="btn-inner--icon"><i
                     class="fas fa-times"></i></span>
@@ -72,7 +72,7 @@ class Trt1 {
         if (this.#qtdParcelas.value > 120 || this.#qtdParcelas.value < 3) {
             btn_parcelas_sant.innerHTML =
                 `
-            <button type="button"
+            <button type="button" title="PARCELA ACIMA DE 120X OU MENOR QUE 3X"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                 <span class="btn-inner--icon"><i
                 class="fas fa-times"></i></span>
@@ -91,7 +91,7 @@ class Trt1 {
         if(this.#valor > 200000) {
             btn_max_sant.innerHTML = 
             `
-            <button type="button"
+            <button type="button" title="SALDO MAXIMO - R$ 200000"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                 <span class="btn-inner--icon"><i
                 class="fas fa-times"></i></span>
@@ -112,7 +112,7 @@ class Trt1 {
         if(this.#valor < 300) {
             btn_min_sant.innerHTML = 
             `
-            <button type="button"
+            <button type="button" title="SALDO MINÍMO R$ 300"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                 <span class="btn-inner--icon"><i
                 class="fas fa-times"></i></span>
@@ -151,7 +151,7 @@ class Trt1 {
         //Quantidade parcelas;
         if (this.#qtdParcelas > 120) {
             btn_parcelas_bradesco.innerHTML =
-                `<button type="button"
+                `<button type="button" title="PARCELA ACIMA DE 120X"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
             <span class="btn-inner--icon"><i
             class="fas fa-times"></i></span>
@@ -259,7 +259,7 @@ class Trt1 {
         //Quantidade de parcelas
         if (this.#qtdParcelas > 96) {
             btn_parcelas_ole.innerHTML =
-                `<button type="button"
+                `<button type="button" title="PARCELA ACIMA DE 96X"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
             <span class="btn-inner--icon"><i
             class="fas fa-times"></i></span>
@@ -325,7 +325,7 @@ class Trt1 {
         //Saldo minimo
         if (this.#valor < 250) {
             btn_min_ole.innerHTML =
-                `<button type="button"
+                `<button type="button" title="SALDO MINÍMO R$ 250"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
             <span class="btn-inner--icon"><i
             class="fas fa-times"></i></span>
@@ -363,7 +363,7 @@ class Trt1 {
         //Quantidades de parcelas
         if (this.#qtdParcelas > 72) {
             btn_parcelas_parana.innerHTML =
-                `<button type="button"
+                `<button type="button" title="PARCELA ACIMA DE 72X"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                 <span class="btn-inner--icon"><i
                 class="fas fa-times"></i></span>
@@ -382,7 +382,7 @@ class Trt1 {
         //Saldo maximo
         if (this.#valor > 50000) {
             btn_max_parana.innerHTML = 
-            `<button type="button"
+            `<button type="button" title="SALDO MAXIMO - R$ 200000"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                 <span class="btn-inner--icon"><i
                 class="fas fa-times"></i></span>
@@ -401,7 +401,7 @@ class Trt1 {
         //Saldo minimo
         if (this.#valor < 1) {
             btn_min_parana.innerHTML =
-                `<button type="button"
+                `<button type="button" title="SALDO MINÍMO R$ 1,00"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                 <span class="btn-inner--icon"><i
                 class="fas fa-times"></i></span>
@@ -589,7 +589,7 @@ class Trt1 {
         //Saldo Minimo
         if(this.#valor < 200) {
             btn_min_pan.innerHTML =
-                `<button type="button"
+                `<button type="button" title="SALDO MINÍMO R$ 200"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                 <span class="btn-inner--icon"><i
                 class="fas fa-times"></i></span>
@@ -627,7 +627,7 @@ class Trt1 {
         //Quantidade de parcelas
         if (this.#qtdParcelas > 96) {
             btn_parcelas_daycoval.innerHTML =
-            `<button type="button"
+            `<button type="button" title="PARCELA ACIMA DE 96X"
         class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
         <span class="btn-inner--icon"><i
         class="fas fa-times"></i></span>
@@ -673,7 +673,7 @@ class Trt1 {
         //Idade
         if (this.#dataDias > 29541) {
             btn_idade_bb.innerHTML =
-                `<button type="button"
+                `<button type="button" title="Terminar o contrato com (75 ANOS 11 MESES 29 DIAS)"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
             <span class="btn-inner--icon"><i
             class="fas fa-times"></i></span>
@@ -692,7 +692,7 @@ class Trt1 {
         //Quantidade de parcelas
         if (this.#qtdParcelas > 120 || this.#qtdParcelas < 2) {
             btn_parcelas_bb.innerHTML =
-                `<button type="button"
+                `<button type="button" title="PARCELA ACIMA DE 120X OU MENOR QUE 2X"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                 <span class="btn-inner--icon"><i
                 class="fas fa-times"></i></span>
@@ -709,9 +709,9 @@ class Trt1 {
         }
 
         //Saldo maximo
-        if (this.#valor > 100000) {
+        if (this.#dataDias > 100000) {
             btn_max_bb.innerHTML =
-                `<button type="button"
+                `<button type="button" title="SALDO MAXIMO - R$ 100000"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                 <span class="btn-inner--icon"><i
                 class="fas fa-times"></i></span>

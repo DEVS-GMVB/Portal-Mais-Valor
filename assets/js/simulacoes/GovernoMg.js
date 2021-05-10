@@ -410,7 +410,7 @@ class GovernoMg {
         //Saldo minimo
         if (this.#valor < 250) {
             btn_min_ole.innerHTML =
-                `<button type="button"
+                `<button type="button" title="Saldo mínimo de R$ 250,00"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
             <span class="btn-inner--icon"><i
             class="fas fa-times"></i></span>
@@ -427,7 +427,7 @@ class GovernoMg {
         //PARANÁ--------------------------
         if (this.#dataDias > 28811) {
             btn_idade_parana.innerHTML =
-                `<button type="button"
+                `<button type="button" title="Terminar o contrato com (80 ANOS 11 MESES 29 DIAS)"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
             <span class="btn-inner--icon"><i
             class="fas fa-times"></i></span>
@@ -463,7 +463,7 @@ class GovernoMg {
 
         if ((this.#dataDias >= 6911 && this.#dataDias < 28446) && this.#valor > 200000) {
             btn_max_parana.innerHTML =
-                `<button type="button"
+                `<button type="button" title="Salod máximo para essa idade é de R$ 200.000,00"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                 <span class="btn-inner--icon"><i
                 class="fas fa-times"></i></span>
@@ -481,7 +481,7 @@ class GovernoMg {
 
         if (this.#valor < 1) {
             btn_min_parana.innerHTML =
-                `<button type="button"
+                `<button type="button" title="Saldo Mínimo de R$ 1,00"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                 <span class="btn-inner--icon"><i
                 class="fas fa-times"></i></span>
@@ -502,7 +502,7 @@ class GovernoMg {
         //Idade
         if (this.#dataDias > 29176) {
             btn_idade_pan.innerHTML =
-                `<button type="button"
+                `<button type="button" title="Terminar o contrato com (80 ANOS 11 MESES 29 DIAS)"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                 <span class="btn-inner--icon"><i
                 class="fas fa-times"></i></span>
@@ -519,7 +519,7 @@ class GovernoMg {
         //Quantidade de parcelas
         if ((this.#dataDias >= 6911 && this.#dataDias < 25526) && this.#qtdParcelas > 96) {
             btn_parcelas_pan.innerHTML =
-                `<button type="button"
+                `<button type="button" title="Quantidade maior que 96 ou menor que 36"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                 <span class="btn-inner--icon"><i
                 class="fas fa-times"></i></span>
@@ -527,7 +527,7 @@ class GovernoMg {
             </button>`
         } else if((this.#dataDias >= 25527 && this.#dataDias < 26986) && this.#qtdParcelas > 84) {
             btn_parcelas_pan.innerHTML =
-                `<button type="button"
+                `<button type="button" title="Quantidade maior que 96 ou menor que 36"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                 <span class="btn-inner--icon"><i
                 class="fas fa-times"></i></span>
@@ -535,7 +535,7 @@ class GovernoMg {
             </button>`
         } else if((this.#dataDias >= 26987 && this.#dataDias < 27351) && this.#qtdParcelas > 72) {
             btn_parcelas_pan.innerHTML =
-                `<button type="button"
+                `<button type="button" title="Quantidade maior que 96 ou menor que 36"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                 <span class="btn-inner--icon"><i
                 class="fas fa-times"></i></span>
@@ -543,7 +543,7 @@ class GovernoMg {
             </button>`
         } else if((this.#dataDias >= 27352 && this.#dataDias < 27716) && this.#qtdParcelas > 60) {
             btn_parcelas_pan.innerHTML =
-                `<button type="button"
+                `<button type="button" title="Quantidade maior que 96 ou menor que 36"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                 <span class="btn-inner--icon"><i
                 class="fas fa-times"></i></span>
@@ -551,7 +551,7 @@ class GovernoMg {
             </button>`
         } else if((this.#dataDias >= 27717 && this.#dataDias < 28081) && this.#qtdParcelas > 48) {
             btn_parcelas_pan.innerHTML =
-                `<button type="button"
+                `<button type="button" title="Quantidade maior que 96 ou menor que 36"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                 <span class="btn-inner--icon"><i
                 class="fas fa-times"></i></span>
@@ -559,7 +559,7 @@ class GovernoMg {
             </button>`
         } else if((this.#dataDias >= 28082 && this.#dataDias < 28446) && this.#qtdParcelas > 36) {
             btn_parcelas_pan.innerHTML =
-                `<button type="button"
+                `<button type="button" title="Quantidade maior que 96 ou menor que 36"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                 <span class="btn-inner--icon"><i
                 class="fas fa-times"></i></span>
@@ -567,7 +567,7 @@ class GovernoMg {
             </button>`
         } else if((this.#dataDias >= 28447 && this.#dataDias < 28811) && this.#qtdParcelas > 24) {
             btn_parcelas_pan.innerHTML =
-                `<button type="button"
+                `<button type="button" title="Quantidade maior que 96 ou menor que 36"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                 <span class="btn-inner--icon"><i
                 class="fas fa-times"></i></span>
@@ -575,7 +575,7 @@ class GovernoMg {
             </button>`
         } else if((this.#dataDias >= 28812 && this.#dataDias < 29176) && this.#qtdParcelas > 12) {
             btn_parcelas_pan.innerHTML =
-                `<button type="button"
+                `<button type="button" title="Quantidade maior que 96 ou menor que 36"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                 <span class="btn-inner--icon"><i
                 class="fas fa-times"></i></span>
@@ -592,7 +592,7 @@ class GovernoMg {
         //Saldo maximo
         if ((this.#dataDias >= 6911 && this.#dataDias < 25526) && this.#valor > 250000) {
             btn_max_pan.innerHTML =
-                `<button type="button"
+                `<button type="button" title="Saldo Máximo para esta idade é de R$ 250.000,00"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                 <span class="btn-inner--icon"><i
                 class="fas fa-times"></i></span>
@@ -600,7 +600,7 @@ class GovernoMg {
             </button>`
         } else if((this.#dataDias >= 25527 && this.#dataDias < 26986) && this.#valor > 70000) {
             btn_max_pan.innerHTML =
-                `<button type="button"
+                `<button type="button" title="Saldo Máximo para esta idade é de R$ 70.000,00"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                 <span class="btn-inner--icon"><i
                 class="fas fa-times"></i></span>
@@ -608,7 +608,7 @@ class GovernoMg {
             </button>`
         } else if((this.#dataDias >= 26987 && this.#dataDias < 27351) && this.#valor > 70000) {
             btn_max_pan.innerHTML =
-                `<button type="button"
+                `<button type="button" title="Saldo Máximo para esta idade é de R$ 70.000,00"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                 <span class="btn-inner--icon"><i
                 class="fas fa-times"></i></span>
@@ -616,7 +616,7 @@ class GovernoMg {
             </button>`
         } else if((this.#dataDias >= 27352 && this.#dataDias < 27716) && this.#valor > 50000) {
             btn_max_pan.innerHTML =
-                `<button type="button"
+                `<button type="button" title="Saldo Máximo para esta idade é de R$ 50.000,00"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                 <span class="btn-inner--icon"><i
                 class="fas fa-times"></i></span>
@@ -624,7 +624,7 @@ class GovernoMg {
             </button>`
         } else if((this.#dataDias >= 27717 && this.#dataDias < 28081) && this.#valor > 40000) {
             btn_max_pan.innerHTML =
-                `<button type="button"
+                `<button type="button" title="Saldo Máximo para esta idade é de R$ 40.000,00"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                 <span class="btn-inner--icon"><i
                 class="fas fa-times"></i></span>
@@ -632,7 +632,7 @@ class GovernoMg {
             </button>`
         } else if((this.#dataDias >= 28082 && this.#dataDias < 28446) && this.#valor > 30000) {
             btn_max_pan.innerHTML =
-                `<button type="button"
+                `<button type="button" title="Saldo Máximo para esta idade é de R$ 30.000,00"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                 <span class="btn-inner--icon"><i
                 class="fas fa-times"></i></span>
@@ -640,7 +640,7 @@ class GovernoMg {
             </button>`
         } else if((this.#dataDias >= 28447 && this.#dataDias < 28811) && this.#valor > 20000) {
             btn_max_pan.innerHTML =
-                `<button type="button"
+                `<button type="button" title="Saldo Máximo para esta idade é de R$ 20.000,00"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                 <span class="btn-inner--icon"><i
                 class="fas fa-times"></i></span>
@@ -648,7 +648,7 @@ class GovernoMg {
             </button>`
         } else if((this.#dataDias >= 28812 && this.#dataDias < 29176) && this.#valor > 10000) {
             btn_max_pan.innerHTML =
-                `<button type="button"
+                `<button type="button" title="Saldo Máximo para esta idade é de R$ 10.000,00"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                 <span class="btn-inner--icon"><i
                 class="fas fa-times"></i></span>
@@ -665,7 +665,7 @@ class GovernoMg {
         //Saldo Minimo
         if(this.#valor < 200) {
             btn_min_pan.innerHTML =
-                `<button type="button"
+                `<button type="button" title="Saldo Minimo de R$ 200,00"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                 <span class="btn-inner--icon"><i
                 class="fas fa-times"></i></span>

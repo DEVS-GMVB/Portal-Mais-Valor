@@ -52,7 +52,7 @@ class Aeronautica {
         if(this.#dataDias > 29541) {
             btn_idade_sant.innerHTML =
             `
-                <button type="button"
+                <button type="button" title="Terminar o contrato com (80 ANOS 11 MESES 29 DIAS)"
                 class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                     <span class="btn-inner--icon"><i
                     class="fas fa-times"></i></span>
@@ -72,7 +72,7 @@ class Aeronautica {
         if (this.#qtdParcelas.value > 96 || this.#qtdParcelas.value < 3) {
             btn_parcelas_sant.innerHTML =
                 `
-            <button type="button"
+            <button type="button"  title="PARCELA ACIMA DE 84X"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                 <span class="btn-inner--icon"><i
                 class="fas fa-times"></i></span>
@@ -91,7 +91,8 @@ class Aeronautica {
         if(this.#valor > 200000) {
             btn_max_sant.innerHTML = 
             `
-            <button type="button"
+            <button type="button" title="De 18 anos a 69 anos 11 meses 29 dias R$ 300.000,00 - M�X PARC: 96 meses
+            De 70 anos a 75 anos 11 meses 29 dias R$ 200.000,00 - M�X PARC: 96 meses"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                 <span class="btn-inner--icon"><i
                 class="fas fa-times"></i></span>
@@ -112,7 +113,7 @@ class Aeronautica {
         if(this.#valor < 300) {
             btn_min_sant.innerHTML = 
             `
-            <button type="button"
+            <button type="button" title="SALDO MIN�MO - R$ 300,00"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                 <span class="btn-inner--icon"><i
                 class="fas fa-times"></i></span>
@@ -134,7 +135,7 @@ class Aeronautica {
         //Idade
         if (this.#dataDias > 27716) {
             btn_idade_bradesco.innerHTML =
-                `<button type="button"
+                `<button type="button" title="Terminar o contrato com (75 ANOS 11 MESES 29 DIAS)"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
             <span class="btn-inner--icon"><i
             class="fas fa-times"></i></span>
@@ -151,7 +152,17 @@ class Aeronautica {
         //Quantidade parcelas;
         if (this.#qtdParcelas > 96) {
             btn_parcelas_bradesco.innerHTML =
-                `<button type="button"
+                `<button type="button" title="De 18 anos a 60 anos 11 meses 29 dias 
+                R$ 70.000,00 - M�X PARC: 84 meses
+                
+                De 61 anos a 65 anos 11 meses 29 dias 
+                R$ 60.000,00 - M�X PARC: 84 meses
+                
+                De 66 anos a 70 anos 11 meses 29 dias 
+                R$ 50.000,00 - M�X PARC: 84 meses
+                
+                De 71 anos a 75 anos 11 meses 29 dias 
+                R$ 25.000,00 - M�X PARC: 84 meses"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
             <span class="btn-inner--icon"><i
             class="fas fa-times"></i></span>
@@ -169,7 +180,11 @@ class Aeronautica {
         //Saldo maximo
         if ((this.#dataDias >= 6911 && this.#dataDias < 25526) && this.#valor > 300000) {
             btn_max_bradesco.innerHTML =
-                `<button type="button"
+                `<button type="button" title="De 18 anos a 69 anos 11 meses 29 dias 
+                R$ 300.000,00 - M�X PARC: 96 meses
+                
+                De 70 anos a 75 anos 11 meses 29 dias 
+                R$ 200.000,00 - M�X PARC: 96 meses"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
             <span class="btn-inner--icon"><i
             class="fas fa-times"></i></span>
@@ -177,7 +192,11 @@ class Aeronautica {
             </button>`
         } else if((this.#dataDias >= 25527 && this.#dataDias < 27716) && this.#valor > 200000) {
             btn_max_bradesco.innerHTML =
-                `<button type="button"
+                `<button type="button" title="De 18 anos a 69 anos 11 meses 29 dias 
+                R$ 300.000,00 - M�X PARC: 96 meses
+                
+                De 70 anos a 75 anos 11 meses 29 dias 
+                R$ 200.000,00 - M�X PARC: 96 meses"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
             <span class="btn-inner--icon"><i
             class="fas fa-times"></i></span>
@@ -194,7 +213,7 @@ class Aeronautica {
         //Saldo minimo
         if (this.#valor < 900) {
             btn_min_bradesco.innerHtml =
-                `<button type="button"
+                `<button type="button" title="SALDO MIN�MO - R$ 900,01"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
             <span class="btn-inner--icon"><i
             class="fas fa-times"></i></span>
@@ -211,7 +230,7 @@ class Aeronautica {
         //OLE ---------------------------------------------------------------------------------------------------
         if (this.#dataDias > 27351) {
             btn_idade_ole.innerHTML =
-                `<button type="button"
+                `<button type="button" title="Terminar o contrato com (75 ANOS 11 MESES 29 DIAS)"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
             <span class="btn-inner--icon"><i
             class="fas fa-times"></i></span>
@@ -245,7 +264,11 @@ class Aeronautica {
         //Saldo maximo
         if ((this.#dataDias >= 6911 && this.#dataDias < 24796) && this.#valor > 230000) {
             btn_max_ole.innerHTML =
-                `<button type="button"
+                `<button type="button"  title="De 18 a 67 anos e 11 meses R$ 230.000,00
+                De 68 a 69 anos e 11 meses R$ 190.000,00
+                De 70 a 70 anos e 11 meses R$ 150.000,00
+                De 71 a 71 anos e 11 meses R$ 120.000,00
+                De 72 a 74 anos e 11 meses R$   20.000,00     
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
             <span class="btn-inner--icon"><i
             class="fas fa-times"></i></span>
@@ -253,7 +276,11 @@ class Aeronautica {
             </button>`
         } else if((this.#dataDias >= 24797 && this.#dataDias < 25526) && this.#valor > 190000) {
             btn_max_ole.innerHTML =
-                `<button type="button"
+                `<button type="button"  title="De 18 a 67 anos e 11 meses R$ 230.000,00
+                De 68 a 69 anos e 11 meses R$ 190.000,00
+                De 70 a 70 anos e 11 meses R$ 150.000,00
+                De 71 a 71 anos e 11 meses R$ 120.000,00
+                De 72 a 74 anos e 11 meses R$   20.000,00     
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
             <span class="btn-inner--icon"><i
             class="fas fa-times"></i></span>
@@ -261,7 +288,11 @@ class Aeronautica {
             </button>`
         } else if((this.#dataDias >= 25527 && this.#dataDias < 25891) && this.#valor > 150000) {
             btn_max_ole.innerHTML =
-                `<button type="button"
+                `<button type="button"  title="De 18 a 67 anos e 11 meses R$ 230.000,00
+                De 68 a 69 anos e 11 meses R$ 190.000,00
+                De 70 a 70 anos e 11 meses R$ 150.000,00
+                De 71 a 71 anos e 11 meses R$ 120.000,00
+                De 72 a 74 anos e 11 meses R$   20.000,00     
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
             <span class="btn-inner--icon"><i
             class="fas fa-times"></i></span>
@@ -269,7 +300,11 @@ class Aeronautica {
             </button>`
         } else if((this.#dataDias >= 25892 && this.#dataDias < 26256) && this.#valor > 120000) {
             btn_max_ole.innerHTML =
-                `<button type="button"
+                `<button type="button"  title="De 18 a 67 anos e 11 meses R$ 230.000,00
+                De 68 a 69 anos e 11 meses R$ 190.000,00
+                De 70 a 70 anos e 11 meses R$ 150.000,00
+                De 71 a 71 anos e 11 meses R$ 120.000,00
+                De 72 a 74 anos e 11 meses R$   20.000,00     
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
             <span class="btn-inner--icon"><i
             class="fas fa-times"></i></span>
@@ -277,7 +312,11 @@ class Aeronautica {
             </button>`
         } else if((this.#dataDias >= 26257 && this.#dataDias < 27351) && this.#valor > 20000) {
             btn_max_ole.innerHTML =
-                `<button type="button"
+                `<button type="button"  title="De 18 a 67 anos e 11 meses R$ 230.000,00
+                De 68 a 69 anos e 11 meses R$ 190.000,00
+                De 70 a 70 anos e 11 meses R$ 150.000,00
+                De 71 a 71 anos e 11 meses R$ 120.000,00
+                De 72 a 74 anos e 11 meses R$   20.000,00     
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
             <span class="btn-inner--icon"><i
             class="fas fa-times"></i></span>
@@ -294,14 +333,14 @@ class Aeronautica {
         //Saldo minimo
         if (this.#valor < 250) {
             btn_min_ole.innerHTML =
-                `<button type="button"
+                `<button type="button" title="SALDO MIN�MO - R$ 300,00"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
             <span class="btn-inner--icon"><i
             class="fas fa-times"></i></span>
             <span class="btn-inner--text">NEGADO</span>
             </button>`
         } else {
-            btn_min_ole.innerHTML =
+            btn_min_ole.innerHTML = 
                 `<button type="button" class="btn btn-sm btn-soft-success btn-icon rounded-pill">
             <span class="btn-inner--icon"><i class="far fa-check"></i></span>
             <span class="btn-inner--text">ACEITA</span>
@@ -311,7 +350,7 @@ class Aeronautica {
         //PARANÁ--------------------------
         if (this.#dataDias > 29176) {
             btn_idade_parana.innerHTML =
-                `<button type="button"
+                `<button type="button" title="Terminar o contrato com (75 ANOS 11 MESES 29 DIAS)"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
             <span class="btn-inner--icon"><i
             class="fas fa-times"></i></span>
@@ -445,7 +484,7 @@ class Aeronautica {
         //Idade
         if (this.#dataDias > 29176) {
             btn_idade_pan.innerHTML =
-                `<button type="button"
+                `<button type="button" title="Terminar o contrato com (75 ANOS 11 MESES 29 DIAS)"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                 <span class="btn-inner--icon"><i
                 class="fas fa-times"></i></span>
@@ -462,7 +501,12 @@ class Aeronautica {
         //Quantidade de parcelas
         if (this.#qtdParcelas > 96) {
             btn_parcelas_pan.innerHTML =
-                `<button type="button"
+                `<button type="button" title="DE 22 A 74 ANOS 11 MESES E 29 DIAS  CONFORME MARGEM MAX PARC: 72
+                DE 75 A 75 ANOS 11 MESES E 29 DIAS R$ 30.000,00 MAX PARC: 60
+                DE 76 A 76 ANOS 11 MESES E 29 DIAS R$ 20.000,00 MAX PARC: 48
+                DE 77 A 77 ANOS 11 MESES E 29 DIAS R$ 15.000,00 MAX PARC: 36
+                DE 78 A 78 ANOS 11 M3ESES E 29 DIAS R$ 4.000,00 MAX PARC: 24
+                DE 79 A 79 ANOS 11 MESES E 29 DIAS R$ 2.000,00 MAX PARC 12"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                 <span class="btn-inner--icon"><i
                 class="fas fa-times"></i></span>
@@ -479,7 +523,11 @@ class Aeronautica {
         //Saldo maximo
         if ((this.#dataDias >= 8371 && this.#dataDias < 24066) && this.#qtdParcelas > 96) {
             btn_max_pan.innerHTML =
-                `<button type="button"
+                `<button type="button" title="
+                De 22 anos a 65 anos 11 meses 29 dias M�X PARC: 96 meses
+                De 66 anos a 70 anos 11 meses 29 dias R$ 80.000,00 - M�X PARC: 96 meses
+                De 71 anos a 75 anos 11 meses 29 dias R$ 50.000,00 - M�X PARC: 60 meses
+                De 76 anos a 79 anos 11 meses 29 dias R$ 8.000,00 - M�X PARC: 12 meses"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                 <span class="btn-inner--icon"><i
                 class="fas fa-times"></i></span>
@@ -487,7 +535,11 @@ class Aeronautica {
             </button>`
         } else if((this.#dataDias >= 24067 && this.#dataDias < 25891) && this.#qtdParcelas > 96 && this.#valor > 80000) {
             btn_max_pan.innerHTML =
-                `<button type="button"
+                `<button type="button" title="
+                De 22 anos a 65 anos 11 meses 29 dias M�X PARC: 96 meses
+                De 66 anos a 70 anos 11 meses 29 dias R$ 80.000,00 - M�X PARC: 96 meses
+                De 71 anos a 75 anos 11 meses 29 dias R$ 50.000,00 - M�X PARC: 60 meses
+                De 76 anos a 79 anos 11 meses 29 dias R$ 8.000,00 - M�X PARC: 12 meses"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                 <span class="btn-inner--icon"><i
                 class="fas fa-times"></i></span>
@@ -495,7 +547,11 @@ class Aeronautica {
             </button>`
         } else if((this.#dataDias >= 25892 && this.#dataDias < 27716) && this.#qtdParcelas > 60 && this.#valor > 50000) {
             btn_max_pan.innerHTML =
-                `<button type="button"
+                `<button type="button" title="
+                De 22 anos a 65 anos 11 meses 29 dias M�X PARC: 96 meses
+                De 66 anos a 70 anos 11 meses 29 dias R$ 80.000,00 - M�X PARC: 96 meses
+                De 71 anos a 75 anos 11 meses 29 dias R$ 50.000,00 - M�X PARC: 60 meses
+                De 76 anos a 79 anos 11 meses 29 dias R$ 8.000,00 - M�X PARC: 12 meses"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                 <span class="btn-inner--icon"><i
                 class="fas fa-times"></i></span>
@@ -503,7 +559,11 @@ class Aeronautica {
             </button>`
         } else if((this.#dataDias >= 27717 && this.#dataDias < 29176) && this.#qtdParcelas > 12 && this.#valor > 8000) {
             btn_max_pan.innerHTML =
-                `<button type="button"
+                `<button type="button" title="
+                De 22 anos a 65 anos 11 meses 29 dias M�X PARC: 96 meses
+                De 66 anos a 70 anos 11 meses 29 dias R$ 80.000,00 - M�X PARC: 96 meses
+                De 71 anos a 75 anos 11 meses 29 dias R$ 50.000,00 - M�X PARC: 60 meses
+                De 76 anos a 79 anos 11 meses 29 dias R$ 8.000,00 - M�X PARC: 12 meses"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                 <span class="btn-inner--icon"><i
                 class="fas fa-times"></i></span>
@@ -520,7 +580,7 @@ class Aeronautica {
         //Saldo Minimo
         if(this.#valor < 200) {
             btn_min_pan.innerHTML =
-                `<button type="button"
+                `<button type="button" title="SALDO MIN�MO - R$ 300,00"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                 <span class="btn-inner--icon"><i
                 class="fas fa-times"></i></span>
@@ -539,7 +599,7 @@ class Aeronautica {
         //Idade
         if (this.#dataDias > 27351) {
             btn_idade_daycoval.innerHTML =
-                `<button type="button"
+                `<button type="button" title="Terminar o contrato com (75 ANOS 11 MESES 29 DIAS)"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
             <span class="btn-inner--icon"><i
             class="fas fa-times"></i></span>
@@ -558,7 +618,7 @@ class Aeronautica {
         //Quantidade de parcelas
         if (this.#qtdParcelas > 96) {
             btn_parcelas_daycoval.innerHTML =
-                `<button type="button"
+                `<button type="button" title="Maior que 84 parcelas"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                 <span class="btn-inner--icon"><i
                 class="fas fa-times"></i></span>
@@ -577,7 +637,7 @@ class Aeronautica {
         //Saldo maximo
         if ((this.#dataDias >= 7642 && this.#dataDias < 25891) && this.#valor > 250000) {
             btn_max_daycoval.innerHTML =
-                `<button type="button"
+                `<button type="button" title="DE 21  A 69 ANOS 11 MESES E 29 DIAS  R$ 250.000,00 DE 70 A 74 ANOS 11 MESES E 29 DIAS R$ 75.000,00"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
             <span class="btn-inner--icon"><i
             class="fas fa-times"></i></span>
@@ -585,7 +645,7 @@ class Aeronautica {
             </button>`
         } else if((this.#dataDias >= 25892 && this.#dataDias < 27351) && this.#valor > 75000) {
             btn_max_daycoval.innerHTML =
-                `<button type="button"
+                `<button type="button" title="DE 21  A 69 ANOS 11 MESES E 29 DIAS  R$ 250.000,00 DE 70 A 74 ANOS 11 MESES E 29 DIAS R$ 75.000,00"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
             <span class="btn-inner--icon"><i
             class="fas fa-times"></i></span>
@@ -606,7 +666,7 @@ class Aeronautica {
         //Idade
         if (this.#dataDias > 29541) {
             btn_idade_bb.innerHTML =
-                `<button type="button"
+                `<button type="button" title="Terminar o contrato com (75 ANOS 11 MESES 29 DIAS)"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
             <span class="btn-inner--icon"><i
             class="fas fa-times"></i></span>
@@ -625,7 +685,7 @@ class Aeronautica {
         //Quantidade de parcelas
         if (this.#qtdParcelas > 96 || this.#qtdParcelas < 2) {
             btn_parcelas_bb.innerHTML =
-                `<button type="button"
+                `<button type="button" title="Maior que 84 parcelas"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                 <span class="btn-inner--icon"><i
                 class="fas fa-times"></i></span>
@@ -643,7 +703,7 @@ class Aeronautica {
 
         if(this.#valor > 100000) {
             btn_max_bb.innerHTML =
-                `<button type="button"
+                `<button type="button"  title="DE 21  A 69 ANOS 11 MESES E 29 DIAS  R$ 250.000,00 DE 70 A 74 ANOS 11 MESES E 29 DIAS R$ 75.000,00"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                 <span class="btn-inner--icon"><i
                 class="fas fa-times"></i></span>

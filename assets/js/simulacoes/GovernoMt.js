@@ -91,7 +91,7 @@ class GovernoMt {
         if(this.#valor > 200000) {
             btn_max_sant.innerHTML = 
             `
-            <button type="button" title="Saldo Mínimo R$ 200.000,00"
+            <button type="button" title="Saldo Máximo R$ 200.000,00"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                 <span class="btn-inner--icon"><i
                 class="fas fa-times"></i></span>
@@ -150,7 +150,7 @@ class GovernoMt {
         //Quantidade parcelas;
         if ((this.#dataDias >= 6911 && this.#dataDias < 25526) && this.#qtdParcelas > 96) {
             btn_parcelas_bradesco.innerHTML =
-                `<button type="button" title="Parcelas maior que 96"
+                `<button type="button" title="Maior que 96 parcelas"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
             <span class="btn-inner--icon"><i
             class="fas fa-times"></i></span>
@@ -158,7 +158,7 @@ class GovernoMt {
             </button>`
         } else if ((this.#dataDias >= 25527 && this.#dataDias < 27716) && this.#qtdParcelas > 96){
             btn_parcelas_bradesco.innerHTML =
-                `<button type="button" 
+                `<button type="button"  title="Maior que 96 parcelas"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
             <span class="btn-inner--icon"><i
             class="fas fa-times"></i></span>
@@ -166,7 +166,7 @@ class GovernoMt {
             </button>`
         } else if ((this.#dataDias >= 27717 && this.#dataDias < 28081) && this.#qtdParcelas > 48){
             btn_parcelas_bradesco.innerHTML =
-                `<button type="button"
+                `<button type="button" title="Maior que 96 parcelas"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
             <span class="btn-inner--icon"><i
             class="fas fa-times"></i></span>
@@ -174,7 +174,7 @@ class GovernoMt {
             </button>`
         } else if ((this.#dataDias >= 28082 && this.#dataDias < 28446) && this.#qtdParcelas > 36){
             btn_parcelas_bradesco.innerHTML =
-                `<button type="button"
+                `<button type="button" title="Maior que 96 parcelas"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
             <span class="btn-inner--icon"><i
             class="fas fa-times"></i></span>
@@ -182,7 +182,7 @@ class GovernoMt {
             </button>`
         } else if ((this.#dataDias >= 28447 && this.#dataDias < 28811) && this.#qtdParcelas > 24){
             btn_parcelas_bradesco.innerHTML =
-                `<button type="button"
+                `<button type="button" title="Maior que 96 parcelas"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
             <span class="btn-inner--icon"><i
             class="fas fa-times"></i></span>
@@ -190,7 +190,7 @@ class GovernoMt {
             </button>`
         } else if ((this.#dataDias >= 28812 && this.#dataDias < 29176) && this.#qtdParcelas > 12){
             btn_parcelas_bradesco.innerHTML =
-                `<button type="button"
+                `<button type="button" title="Maior que 96 parcelas"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
             <span class="btn-inner--icon"><i
             class="fas fa-times"></i></span>
@@ -240,7 +240,7 @@ class GovernoMt {
         //Saldo minimo
         if (this.#valor < 30) {
             btn_min_bradesco.innerHtml =
-                `<button type="button"
+                `<button type="button"title="Saldo Mínimo de R$ 30,00"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
             <span class="btn-inner--icon"><i
             class="fas fa-times"></i></span>
@@ -477,7 +477,7 @@ class GovernoMt {
             </button>`
         } else if((this.#dataDias >= 25527 && this.#dataDias < 26986) && this.#qtdParcelas > 84) {
             btn_parcelas_pan.innerHTML =
-                `<button type="button"
+                `<button type="button" title="Maior que 96 parcelas ou menor que 36
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                 <span class="btn-inner--icon"><i
                 class="fas fa-times"></i></span>
@@ -485,7 +485,7 @@ class GovernoMt {
             </button>`
         } else if((this.#dataDias >= 26987 && this.#dataDias < 27351) && this.#qtdParcelas > 72) {
             btn_parcelas_pan.innerHTML =
-                `<button type="button"
+                `<button type="button" title="Maior que 96 parcelas ou menor que 36
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                 <span class="btn-inner--icon"><i
                 class="fas fa-times"></i></span>
@@ -493,7 +493,7 @@ class GovernoMt {
             </button>`
         } else if((this.#dataDias >= 27352 && this.#dataDias < 27716) && this.#qtdParcelas > 60) {
             btn_parcelas_pan.innerHTML =
-                `<button type="button"
+                `<button type="button" title="Maior que 96 parcelas ou menor que 36
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                 <span class="btn-inner--icon"><i
                 class="fas fa-times"></i></span>
@@ -501,7 +501,7 @@ class GovernoMt {
             </button>`
         } else if((this.#dataDias >= 27717 && this.#dataDias < 28081) && this.#qtdParcelas > 48) {
             btn_parcelas_pan.innerHTML =
-                `<button type="button"
+                `<button type="button" title="Maior que 96 parcelas ou menor que 36
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                 <span class="btn-inner--icon"><i
                 class="fas fa-times"></i></span>
@@ -509,7 +509,7 @@ class GovernoMt {
             </button>`
         } else if((this.#dataDias >= 28082 && this.#dataDias < 28446) && this.#qtdParcelas > 36) {
             btn_parcelas_pan.innerHTML =
-                `<button type="button"
+                `<button type="button" title="Maior que 96 parcelas ou menor que 36
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                 <span class="btn-inner--icon"><i
                 class="fas fa-times"></i></span>
@@ -517,7 +517,7 @@ class GovernoMt {
             </button>`
         } else if((this.#dataDias >= 28447 && this.#dataDias < 28811) && this.#qtdParcelas > 24) {
             btn_parcelas_pan.innerHTML =
-                `<button type="button"
+                `<button type="button" title="Maior que 96 parcelas ou menor que 36
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                 <span class="btn-inner--icon"><i
                 class="fas fa-times"></i></span>
@@ -525,7 +525,7 @@ class GovernoMt {
             </button>`
         } else if((this.#dataDias >= 28812 && this.#dataDias < 29176) && this.#qtdParcelas > 12) {
             btn_parcelas_pan.innerHTML =
-                `<button type="button"
+                `<button type="button" title="Maior que 96 parcelas ou menor que 36
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                 <span class="btn-inner--icon"><i
                 class="fas fa-times"></i></span>
