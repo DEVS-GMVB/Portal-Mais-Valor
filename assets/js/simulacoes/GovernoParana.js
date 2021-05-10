@@ -52,7 +52,7 @@ class GovernoParana {
         if(this.#dataDias > 29906) {
             btn_idade_sant.innerHTML =
             `
-                <button type="button"
+                <button type="button" title="Terminar o contrato com (80 ANOS 11 MESES 29 DIAS)" 
                 class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                     <span class="btn-inner--icon"><i
                     class="fas fa-times"></i></span>
@@ -72,7 +72,7 @@ class GovernoParana {
         if (this.#qtdParcelas.value > 96 || this.#qtdParcelas.value < 3) {
             btn_parcelas_sant.innerHTML =
                 `
-            <button type="button"
+            <button type="button" title="parcelas maior que 96 ou menor que 3"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                 <span class="btn-inner--icon"><i
                 class="fas fa-times"></i></span>
@@ -91,7 +91,7 @@ class GovernoParana {
         if(this.#valor > 200000) {
             btn_max_sant.innerHTML = 
             `
-            <button type="button"
+            <button type="button" title="saldo máximo R$ 200.000,00"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                 <span class="btn-inner--icon"><i
                 class="fas fa-times"></i></span>
@@ -112,7 +112,7 @@ class GovernoParana {
         if(this.#valor < 300) {
             btn_min_sant.innerHTML = 
             `
-            <button type="button"
+            <button type="button" title="saldo mínimo de R$ 300,00"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                 <span class="btn-inner--icon"><i
                 class="fas fa-times"></i></span>
@@ -134,7 +134,7 @@ class GovernoParana {
         //Idade
         if (this.#dataDias > 29176) {
             btn_idade_bradesco.innerHTML =
-                `<button type="button"
+                `<button type="button" title="Terminar o contrato com (79 ANOS 11 MESES 29 DIAS)"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
             <span class="btn-inner--icon"><i
             class="fas fa-times"></i></span>
@@ -151,7 +151,12 @@ class GovernoParana {
         //Quantidade parcelas;
         if ((this.#dataDias >= 6911 && this.#dataDias < 25526) && this.#qtdParcelas > 96) {
             btn_parcelas_bradesco.innerHTML =
-                `<button type="button"
+                `<button type="button" title="DE 18 A 69 ANOS 11 MESES E 29 DIAS R$ 250.000,00 MAX PARC
+                DE 70 A 75 ANOS 11 MESES E 29 DIAS R$ 100.000,00 MAX PARC 96
+                DE 76 A 76 ANOS 11 MESES E 29 DIAS R$ 10.000,00 MAX PARC 48
+                DE 77 A 77 ANOS 11 MESES E 29 DIAS R$ 10.000,00 MAX PARC 36
+                DE 78 A 78 ANOS 11 MESES E 29 DIAS R$ 10.000,00 MAX PARC 24
+                DE 79 A 79 ANOS 11 MESES E 29 DIAS R$ 10.000,00 MAX PARC 12"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
             <span class="btn-inner--icon"><i
             class="fas fa-times"></i></span>
@@ -159,7 +164,12 @@ class GovernoParana {
             </button>`
         } else if ((this.#dataDias >= 25527 && this.#dataDias < 27716) && this.#qtdParcelas > 96){
             btn_parcelas_bradesco.innerHTML =
-                `<button type="button"
+                `<button type="button" title="DE 18 A 69 ANOS 11 MESES E 29 DIAS R$ 250.000,00 MAX PARC
+                DE 70 A 75 ANOS 11 MESES E 29 DIAS R$ 100.000,00 MAX PARC 96
+                DE 76 A 76 ANOS 11 MESES E 29 DIAS R$ 10.000,00 MAX PARC 48
+                DE 77 A 77 ANOS 11 MESES E 29 DIAS R$ 10.000,00 MAX PARC 36
+                DE 78 A 78 ANOS 11 MESES E 29 DIAS R$ 10.000,00 MAX PARC 24
+                DE 79 A 79 ANOS 11 MESES E 29 DIAS R$ 10.000,00 MAX PARC 12"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
             <span class="btn-inner--icon"><i
             class="fas fa-times"></i></span>
@@ -167,7 +177,12 @@ class GovernoParana {
             </button>`
         } else if ((this.#dataDias >= 27717 && this.#dataDias < 28081) && this.#qtdParcelas > 48){
             btn_parcelas_bradesco.innerHTML =
-                `<button type="button"
+                `<button type="button" title="DE 18 A 69 ANOS 11 MESES E 29 DIAS R$ 250.000,00 MAX PARC
+                DE 70 A 75 ANOS 11 MESES E 29 DIAS R$ 100.000,00 MAX PARC 96
+                DE 76 A 76 ANOS 11 MESES E 29 DIAS R$ 10.000,00 MAX PARC 48
+                DE 77 A 77 ANOS 11 MESES E 29 DIAS R$ 10.000,00 MAX PARC 36
+                DE 78 A 78 ANOS 11 MESES E 29 DIAS R$ 10.000,00 MAX PARC 24
+                DE 79 A 79 ANOS 11 MESES E 29 DIAS R$ 10.000,00 MAX PARC 12"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
             <span class="btn-inner--icon"><i
             class="fas fa-times"></i></span>
@@ -175,7 +190,12 @@ class GovernoParana {
             </button>`
         } else if ((this.#dataDias >= 28082 && this.#dataDias < 28446) && this.#qtdParcelas > 36){
             btn_parcelas_bradesco.innerHTML =
-                `<button type="button"
+                `<button type="button" title="DE 18 A 69 ANOS 11 MESES E 29 DIAS R$ 250.000,00 MAX PARC
+                DE 70 A 75 ANOS 11 MESES E 29 DIAS R$ 100.000,00 MAX PARC 96
+                DE 76 A 76 ANOS 11 MESES E 29 DIAS R$ 10.000,00 MAX PARC 48
+                DE 77 A 77 ANOS 11 MESES E 29 DIAS R$ 10.000,00 MAX PARC 36
+                DE 78 A 78 ANOS 11 MESES E 29 DIAS R$ 10.000,00 MAX PARC 24
+                DE 79 A 79 ANOS 11 MESES E 29 DIAS R$ 10.000,00 MAX PARC 12"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
             <span class="btn-inner--icon"><i
             class="fas fa-times"></i></span>
@@ -191,7 +211,12 @@ class GovernoParana {
             </button>`
         } else if ((this.#dataDias >= 28812 && this.#dataDias < 29176) && this.#qtdParcelas > 12){
             btn_parcelas_bradesco.innerHTML =
-                `<button type="button"
+                `<button type="button" title="DE 18 A 69 ANOS 11 MESES E 29 DIAS R$ 250.000,00 MAX PARC
+                DE 70 A 75 ANOS 11 MESES E 29 DIAS R$ 100.000,00 MAX PARC 96
+                DE 76 A 76 ANOS 11 MESES E 29 DIAS R$ 10.000,00 MAX PARC 48
+                DE 77 A 77 ANOS 11 MESES E 29 DIAS R$ 10.000,00 MAX PARC 36
+                DE 78 A 78 ANOS 11 MESES E 29 DIAS R$ 10.000,00 MAX PARC 24
+                DE 79 A 79 ANOS 11 MESES E 29 DIAS R$ 10.000,00 MAX PARC 12"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
             <span class="btn-inner--icon"><i
             class="fas fa-times"></i></span>
@@ -208,7 +233,12 @@ class GovernoParana {
         //Saldo maximo
         if ((this.#dataDias >= 6911 && this.#dataDias < 25526) && this.#valor > 250000) {
             btn_max_bradesco.innerHTML =
-                `<button type="button"
+                `<button type="button" title="DE 18 A 69 ANOS 11 MESES E 29 DIAS R$ 250.000,00 MAX PARC
+                DE 70 A 75 ANOS 11 MESES E 29 DIAS R$ 100.000,00 MAX PARC 96
+                DE 76 A 76 ANOS 11 MESES E 29 DIAS R$ 10.000,00 MAX PARC 48
+                DE 77 A 77 ANOS 11 MESES E 29 DIAS R$ 10.000,00 MAX PARC 36
+                DE 78 A 78 ANOS 11 MESES E 29 DIAS R$ 10.000,00 MAX PARC 24
+                DE 79 A 79 ANOS 11 MESES E 29 DIAS R$ 10.000,00 MAX PARC 12 
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
             <span class="btn-inner--icon"><i
             class="fas fa-times"></i></span>
@@ -216,7 +246,12 @@ class GovernoParana {
             </button>`
         } else if((this.#dataDias >= 25527 && this.#dataDias < 27716) && this.#valor > 100000) {
             btn_max_bradesco.innerHTML =
-                `<button type="button"
+                `<button type="button" title="DE 18 A 69 ANOS 11 MESES E 29 DIAS R$ 250.000,00 MAX PARC
+                DE 70 A 75 ANOS 11 MESES E 29 DIAS R$ 100.000,00 MAX PARC 96
+                DE 76 A 76 ANOS 11 MESES E 29 DIAS R$ 10.000,00 MAX PARC 48
+                DE 77 A 77 ANOS 11 MESES E 29 DIAS R$ 10.000,00 MAX PARC 36
+                DE 78 A 78 ANOS 11 MESES E 29 DIAS R$ 10.000,00 MAX PARC 24
+                DE 79 A 79 ANOS 11 MESES E 29 DIAS R$ 10.000,00 MAX PARC 12 
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
             <span class="btn-inner--icon"><i
             class="fas fa-times"></i></span>
@@ -224,7 +259,12 @@ class GovernoParana {
             </button>`
         } else if((this.#dataDias >= 27717 && this.#dataDias < 29176) && this.#valor > 10000) {
             btn_max_bradesco.innerHTML =
-                `<button type="button"
+                `<button type="button" title="DE 18 A 69 ANOS 11 MESES E 29 DIAS R$ 250.000,00 MAX PARC
+                DE 70 A 75 ANOS 11 MESES E 29 DIAS R$ 100.000,00 MAX PARC 96
+                DE 76 A 76 ANOS 11 MESES E 29 DIAS R$ 10.000,00 MAX PARC 48
+                DE 77 A 77 ANOS 11 MESES E 29 DIAS R$ 10.000,00 MAX PARC 36
+                DE 78 A 78 ANOS 11 MESES E 29 DIAS R$ 10.000,00 MAX PARC 24
+                DE 79 A 79 ANOS 11 MESES E 29 DIAS R$ 10.000,00 MAX PARC 12 
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
             <span class="btn-inner--icon"><i
             class="fas fa-times"></i></span>
@@ -241,7 +281,7 @@ class GovernoParana {
         //Saldo minimo
         if (this.#valor < 30) {
             btn_min_bradesco.innerHtml =
-                `<button type="button"
+                `<button type="button" title="saldo mínimo de R$ 30,00"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
             <span class="btn-inner--icon"><i
             class="fas fa-times"></i></span>
@@ -258,7 +298,7 @@ class GovernoParana {
         //OLE ---------------------------------------------------------------------------------------------------
         if (this.#dataDias > 27351) {
             btn_idade_ole.innerHTML =
-                `<button type="button"
+                `<button type="button" title="Terminar o contrato com (74 ANOS 11 MESES 29 DIAS)"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
             <span class="btn-inner--icon"><i
             class="fas fa-times"></i></span>
@@ -275,7 +315,7 @@ class GovernoParana {
         //Quantidade de parcelas
         if (this.#qtdParcelas > 96) {
             btn_parcelas_ole.innerHTML =
-                `<button type="button"
+                `<button type="button"  title="Maior que 96 parcelas"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
             <span class="btn-inner--icon"><i
             class="fas fa-times"></i></span>
@@ -292,7 +332,11 @@ class GovernoParana {
         //Saldo maximo
         if ((this.#dataDias >= 6911 && this.#dataDias < 24796) && this.#valor > 230000) {
             btn_max_ole.innerHTML =
-                `<button type="button"
+                `<button type="button" title="De 18 a 67 anos e 11 meses R$ 230.000,00
+                De 68 a 69 anos e 11 meses R$ 190.000,00
+                De 70 a 70 anos e 11 meses R$ 150.000,00
+                De 71 a 71 anos e 11 meses R$ 120.000,00
+                De 72 a 74 anos e 11 meses R$ 20.000,00         
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
             <span class="btn-inner--icon"><i
             class="fas fa-times"></i></span>
@@ -300,7 +344,11 @@ class GovernoParana {
             </button>`
         } else if((this.#dataDias >= 24797 && this.#dataDias < 25526) && this.#valor > 190000) {
             btn_max_ole.innerHTML =
-                `<button type="button"
+                `<button type="button"title="De 18 a 67 anos e 11 meses R$ 230.000,00
+                De 68 a 69 anos e 11 meses R$ 190.000,00
+                De 70 a 70 anos e 11 meses R$ 150.000,00
+                De 71 a 71 anos e 11 meses R$ 120.000,00
+                De 72 a 74 anos e 11 meses R$ 20.000,00         
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
             <span class="btn-inner--icon"><i
             class="fas fa-times"></i></span>
@@ -308,7 +356,11 @@ class GovernoParana {
             </button>`
         } else if((this.#dataDias >= 25527 && this.#dataDias < 25891) && this.#valor > 150000) {
             btn_max_ole.innerHTML =
-                `<button type="button"
+                `<button type="button"title="De 18 a 67 anos e 11 meses R$ 230.000,00
+                De 68 a 69 anos e 11 meses R$ 190.000,00
+                De 70 a 70 anos e 11 meses R$ 150.000,00
+                De 71 a 71 anos e 11 meses R$ 120.000,00
+                De 72 a 74 anos e 11 meses R$ 20.000,00         
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
             <span class="btn-inner--icon"><i
             class="fas fa-times"></i></span>
@@ -316,7 +368,11 @@ class GovernoParana {
             </button>`
         } else if((this.#dataDias >= 25892 && this.#dataDias < 26256) && this.#valor > 120000) {
             btn_max_ole.innerHTML =
-                `<button type="button"
+                `<button type="button" title="De 18 a 67 anos e 11 meses R$ 230.000,00
+                De 68 a 69 anos e 11 meses R$ 190.000,00
+                De 70 a 70 anos e 11 meses R$ 150.000,00
+                De 71 a 71 anos e 11 meses R$ 120.000,00
+                De 72 a 74 anos e 11 meses R$ 20.000,00         
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
             <span class="btn-inner--icon"><i
             class="fas fa-times"></i></span>
@@ -324,7 +380,11 @@ class GovernoParana {
             </button>`
         } else if((this.#dataDias >= 26257 && this.#dataDias < 27351) && this.#valor > 2000) {
             btn_max_ole.innerHTML =
-                `<button type="button"
+                `<button type="button" title="De 18 a 67 anos e 11 meses R$ 230.000,00
+                De 68 a 69 anos e 11 meses R$ 190.000,00
+                De 70 a 70 anos e 11 meses R$ 150.000,00
+                De 71 a 71 anos e 11 meses R$ 120.000,00
+                De 72 a 74 anos e 11 meses R$ 20.000,00         
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
             <span class="btn-inner--icon"><i
             class="fas fa-times"></i></span>
@@ -341,7 +401,7 @@ class GovernoParana {
         //Saldo minimo
         if (this.#valor < 250) {
             btn_min_ole.innerHTML =
-                `<button type="button"
+                `<button type="button" title="saldo minimo R$ 250,00"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
             <span class="btn-inner--icon"><i
             class="fas fa-times"></i></span>
@@ -358,7 +418,7 @@ class GovernoParana {
         //PARANÁ--------------------------
         if (this.#dataDias > 28811) {
             btn_idade_parana.innerHTML =
-                `<button type="button"
+                `<button type="button" title="Terminar o contrato com (75 ANOS 11 MESES 29 DIAS)"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
             <span class="btn-inner--icon"><i
             class="fas fa-times"></i></span>
@@ -396,7 +456,13 @@ class GovernoParana {
         //Saldo maximo
         if ((this.#dataDias >= 6911 && this.#dataDias < 28446) && this.#valor > 200000) {
             btn_max_parana.innerHTML =
-                `<button type="button"
+                `<button type="button" title="AT&Eacute; 73 ANOSR$ 60.000,00 - M&Aacute;X PARC: 84
+                74 ANOS R$ 60.000,00 - M&Aacute;X PARC: 72                            
+                75 ANOS R$ 25.000,00 - MAX PARC: 60                              
+                76 ANOS R$ 16.000,00 - M&Aacute;X PARC: 48                              
+                77 ANOS R$ 10.000,00 - MAX PARC: 36                                    
+                78 ANOS R$ 1.000,00 - MAX PARC: 24                                     
+                79 ANOS R$ 500,00 - MAX PARC: 12            
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                 <span class="btn-inner--icon"><i
                 class="fas fa-times"></i></span>
@@ -415,7 +481,7 @@ class GovernoParana {
         //Saldo minimo
         if (this.#valor < 1) {
             btn_min_parana.innerHTML =
-                `<button type="button"
+                `<button type="button" title="saldo minimo R$ 1"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                 <span class="btn-inner--icon"><i
                 class="fas fa-times"></i></span>
@@ -436,7 +502,7 @@ class GovernoParana {
         //Idade
         if (this.#dataDias > 29176) {
             btn_idade_pan.innerHTML =
-                `<button type="button"
+                `<button type="button" title="Terminar o contrato com (79 ANOS 11 MESES 29 DIAS)"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                 <span class="btn-inner--icon"><i
                 class="fas fa-times"></i></span>
@@ -453,7 +519,13 @@ class GovernoParana {
         //Quantidade de parcelas
         if ((this.#dataDias >= 6911 && this.#dataDias < 25526) && this.#qtdParcelas > 96) {
             btn_parcelas_pan.innerHTML =
-                `<button type="button"
+                `<button type="button" title="AT&Eacute; 73 ANOSR$ 60.000,00 - M&Aacute;X PARC: 84
+                74 ANOS R$ 60.000,00 - M&Aacute;X PARC: 72                            
+                75 ANOS R$ 25.000,00 - MAX PARC: 60                              
+                76 ANOS R$ 16.000,00 - M&Aacute;X PARC: 48                              
+                77 ANOS R$ 10.000,00 - MAX PARC: 36                                    
+                78 ANOS R$ 1.000,00 - MAX PARC: 24                                     
+                79 ANOS R$ 500,00 - MAX PARC: 12 
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                 <span class="btn-inner--icon"><i
                 class="fas fa-times"></i></span>
@@ -461,7 +533,13 @@ class GovernoParana {
             </button>`
         } else if((this.#dataDias >= 25527 && this.#dataDias < 26986) && this.#qtdParcelas > 84) {
             btn_parcelas_pan.innerHTML =
-                `<button type="button"
+                `<button type="button" title="AT&Eacute; 73 ANOSR$ 60.000,00 - M&Aacute;X PARC: 84
+                74 ANOS R$ 60.000,00 - M&Aacute;X PARC: 72                            
+                75 ANOS R$ 25.000,00 - MAX PARC: 60                              
+                76 ANOS R$ 16.000,00 - M&Aacute;X PARC: 48                              
+                77 ANOS R$ 10.000,00 - MAX PARC: 36                                    
+                78 ANOS R$ 1.000,00 - MAX PARC: 24                                     
+                79 ANOS R$ 500,00 - MAX PARC: 12 
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                 <span class="btn-inner--icon"><i
                 class="fas fa-times"></i></span>
@@ -469,7 +547,13 @@ class GovernoParana {
             </button>`
         } else if((this.#dataDias >= 26987 && this.#dataDias < 27351) && this.#qtdParcelas > 72) {
             btn_parcelas_pan.innerHTML =
-                `<button type="button"
+                `<button type="button" title="AT&Eacute; 73 ANOSR$ 60.000,00 - M&Aacute;X PARC: 84
+                74 ANOS R$ 60.000,00 - M&Aacute;X PARC: 72                            
+                75 ANOS R$ 25.000,00 - MAX PARC: 60                              
+                76 ANOS R$ 16.000,00 - M&Aacute;X PARC: 48                              
+                77 ANOS R$ 10.000,00 - MAX PARC: 36                                    
+                78 ANOS R$ 1.000,00 - MAX PARC: 24                                     
+                79 ANOS R$ 500,00 - MAX PARC: 12 
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                 <span class="btn-inner--icon"><i
                 class="fas fa-times"></i></span>
@@ -477,7 +561,13 @@ class GovernoParana {
             </button>`
         } else if((this.#dataDias >= 27352 && this.#dataDias < 27716) && this.#qtdParcelas > 60) {
             btn_parcelas_pan.innerHTML =
-                `<button type="button"
+                `<button type="button" title="AT&Eacute; 73 ANOSR$ 60.000,00 - M&Aacute;X PARC: 84
+                74 ANOS R$ 60.000,00 - M&Aacute;X PARC: 72                            
+                75 ANOS R$ 25.000,00 - MAX PARC: 60                              
+                76 ANOS R$ 16.000,00 - M&Aacute;X PARC: 48                              
+                77 ANOS R$ 10.000,00 - MAX PARC: 36                                    
+                78 ANOS R$ 1.000,00 - MAX PARC: 24                                     
+                79 ANOS R$ 500,00 - MAX PARC: 12 
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                 <span class="btn-inner--icon"><i
                 class="fas fa-times"></i></span>
@@ -485,7 +575,13 @@ class GovernoParana {
             </button>`
         } else if((this.#dataDias >= 27717 && this.#dataDias < 28081) && this.#qtdParcelas > 48) {
             btn_parcelas_pan.innerHTML =
-                `<button type="button"
+                `<button type="button" title="AT&Eacute; 73 ANOSR$ 60.000,00 - M&Aacute;X PARC: 84
+                74 ANOS R$ 60.000,00 - M&Aacute;X PARC: 72                            
+                75 ANOS R$ 25.000,00 - MAX PARC: 60                              
+                76 ANOS R$ 16.000,00 - M&Aacute;X PARC: 48                              
+                77 ANOS R$ 10.000,00 - MAX PARC: 36                                    
+                78 ANOS R$ 1.000,00 - MAX PARC: 24                                     
+                79 ANOS R$ 500,00 - MAX PARC: 12 
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                 <span class="btn-inner--icon"><i
                 class="fas fa-times"></i></span>
@@ -501,7 +597,13 @@ class GovernoParana {
             </button>`
         } else if((this.#dataDias >= 28447 && this.#dataDias < 28811) && this.#qtdParcelas > 24) {
             btn_parcelas_pan.innerHTML =
-                `<button type="button"
+                `<button type="button" title="AT&Eacute; 73 ANOSR$ 60.000,00 - M&Aacute;X PARC: 84
+                74 ANOS R$ 60.000,00 - M&Aacute;X PARC: 72                            
+                75 ANOS R$ 25.000,00 - MAX PARC: 60                              
+                76 ANOS R$ 16.000,00 - M&Aacute;X PARC: 48                              
+                77 ANOS R$ 10.000,00 - MAX PARC: 36                                    
+                78 ANOS R$ 1.000,00 - MAX PARC: 24                                     
+                79 ANOS R$ 500,00 - MAX PARC: 12 
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                 <span class="btn-inner--icon"><i
                 class="fas fa-times"></i></span>
@@ -509,7 +611,13 @@ class GovernoParana {
             </button>`
         } else if((this.#dataDias >= 28812 && this.#dataDias < 29176) && this.#qtdParcelas > 12) {
             btn_parcelas_pan.innerHTML =
-                `<button type="button"
+                `<button type="button"title="AT&Eacute; 73 ANOSR$ 60.000,00 - M&Aacute;X PARC: 84
+                74 ANOS R$ 60.000,00 - M&Aacute;X PARC: 72                            
+                75 ANOS R$ 25.000,00 - MAX PARC: 60                              
+                76 ANOS R$ 16.000,00 - M&Aacute;X PARC: 48                              
+                77 ANOS R$ 10.000,00 - MAX PARC: 36                                    
+                78 ANOS R$ 1.000,00 - MAX PARC: 24                                     
+                79 ANOS R$ 500,00 - MAX PARC: 12 
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                 <span class="btn-inner--icon"><i
                 class="fas fa-times"></i></span>
@@ -526,7 +634,13 @@ class GovernoParana {
         //Saldo maximo
         if ((this.#dataDias >= 6911 && this.#dataDias < 25526) && this.#valor > 250000) {
             btn_max_pan.innerHTML =
-                `<button type="button"
+                `<button type="button" title="AT&Eacute; 73 ANOSR$ 60.000,00 - M&Aacute;X PARC: 84
+                74 ANOS R$ 60.000,00 - M&Aacute;X PARC: 72                            
+                75 ANOS R$ 25.000,00 - MAX PARC: 60                              
+                76 ANOS R$ 16.000,00 - M&Aacute;X PARC: 48                              
+                77 ANOS R$ 10.000,00 - MAX PARC: 36                                    
+                78 ANOS R$ 1.000,00 - MAX PARC: 24                                     
+                79 ANOS R$ 500,00 - MAX PARC: 12            
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                 <span class="btn-inner--icon"><i
                 class="fas fa-times"></i></span>
@@ -534,7 +648,13 @@ class GovernoParana {
             </button>`
         } else if((this.#dataDias >= 25527 && this.#dataDias < 26986) && this.#valor > 70000) {
             btn_max_pan.innerHTML =
-                `<button type="button"
+                `<button type="button" title="AT&Eacute; 73 ANOSR$ 60.000,00 - M&Aacute;X PARC: 84
+                74 ANOS R$ 60.000,00 - M&Aacute;X PARC: 72                            
+                75 ANOS R$ 25.000,00 - MAX PARC: 60                              
+                76 ANOS R$ 16.000,00 - M&Aacute;X PARC: 48                              
+                77 ANOS R$ 10.000,00 - MAX PARC: 36                                    
+                78 ANOS R$ 1.000,00 - MAX PARC: 24                                     
+                79 ANOS R$ 500,00 - MAX PARC: 12            
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                 <span class="btn-inner--icon"><i
                 class="fas fa-times"></i></span>
@@ -542,7 +662,13 @@ class GovernoParana {
             </button>`
         } else if((this.#dataDias >= 26987 && this.#dataDias < 27351) && this.#valor > 70000) {
             btn_max_pan.innerHTML =
-                `<button type="button"
+                `<button type="button" title="AT&Eacute; 73 ANOSR$ 60.000,00 - M&Aacute;X PARC: 84
+                74 ANOS R$ 60.000,00 - M&Aacute;X PARC: 72                            
+                75 ANOS R$ 25.000,00 - MAX PARC: 60                              
+                76 ANOS R$ 16.000,00 - M&Aacute;X PARC: 48                              
+                77 ANOS R$ 10.000,00 - MAX PARC: 36                                    
+                78 ANOS R$ 1.000,00 - MAX PARC: 24                                     
+                79 ANOS R$ 500,00 - MAX PARC: 12            
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                 <span class="btn-inner--icon"><i
                 class="fas fa-times"></i></span>
@@ -550,7 +676,13 @@ class GovernoParana {
             </button>`
         } else if((this.#dataDias >= 27352 && this.#dataDias < 27716) && this.#valor > 50000) {
             btn_max_pan.innerHTML =
-                `<button type="button"
+                `<button type="button" title="AT&Eacute; 73 ANOSR$ 60.000,00 - M&Aacute;X PARC: 84
+                74 ANOS R$ 60.000,00 - M&Aacute;X PARC: 72                            
+                75 ANOS R$ 25.000,00 - MAX PARC: 60                              
+                76 ANOS R$ 16.000,00 - M&Aacute;X PARC: 48                              
+                77 ANOS R$ 10.000,00 - MAX PARC: 36                                    
+                78 ANOS R$ 1.000,00 - MAX PARC: 24                                     
+                79 ANOS R$ 500,00 - MAX PARC: 12            
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                 <span class="btn-inner--icon"><i
                 class="fas fa-times"></i></span>
@@ -558,7 +690,13 @@ class GovernoParana {
             </button>`
         } else if((this.#dataDias >= 27717 && this.#dataDias < 28081) && this.#valor > 40000) {
             btn_max_pan.innerHTML =
-                `<button type="button"
+                `<button type="button" title="AT&Eacute; 73 ANOSR$ 60.000,00 - M&Aacute;X PARC: 84
+                74 ANOS R$ 60.000,00 - M&Aacute;X PARC: 72                            
+                75 ANOS R$ 25.000,00 - MAX PARC: 60                              
+                76 ANOS R$ 16.000,00 - M&Aacute;X PARC: 48                              
+                77 ANOS R$ 10.000,00 - MAX PARC: 36                                    
+                78 ANOS R$ 1.000,00 - MAX PARC: 24                                     
+                79 ANOS R$ 500,00 - MAX PARC: 12            
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                 <span class="btn-inner--icon"><i
                 class="fas fa-times"></i></span>
@@ -566,15 +704,27 @@ class GovernoParana {
             </button>`
         } else if((this.#dataDias >= 28082 && this.#dataDias < 28446) && this.#valor > 30000) {
             btn_max_pan.innerHTML =
-                `<button type="button"
+                `<button type="button" title="AT&Eacute; 73 ANOSR$ 60.000,00 - M&Aacute;X PARC: 84
+                74 ANOS R$ 60.000,00 - M&Aacute;X PARC: 72                            
+                75 ANOS R$ 25.000,00 - MAX PARC: 60                              
+                76 ANOS R$ 16.000,00 - M&Aacute;X PARC: 48                              
+                77 ANOS R$ 10.000,00 - MAX PARC: 36                                    
+                78 ANOS R$ 1.000,00 - MAX PARC: 24                                     
+                79 ANOS R$ 500,00 - MAX PARC: 12            
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                 <span class="btn-inner--icon"><i
                 class="fas fa-times"></i></span>
                 <span class="btn-inner--text">NEGADO</span>
             </button>`
         } else if((this.#dataDias >= 28447 && this.#dataDias < 28811) && this.#valor > 20000) {
-            btn_max_pan.innerHTML =
-                `<button type="button"
+            btn_max_pan.innerHTML = 
+                `<button type="button" title="AT&Eacute; 73 ANOSR$ 60.000,00 - M&Aacute;X PARC: 84
+                74 ANOS R$ 60.000,00 - M&Aacute;X PARC: 72                            
+                75 ANOS R$ 25.000,00 - MAX PARC: 60                              
+                76 ANOS R$ 16.000,00 - M&Aacute;X PARC: 48                              
+                77 ANOS R$ 10.000,00 - MAX PARC: 36                                    
+                78 ANOS R$ 1.000,00 - MAX PARC: 24                                     
+                79 ANOS R$ 500,00 - MAX PARC: 12            
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                 <span class="btn-inner--icon"><i
                 class="fas fa-times"></i></span>
@@ -582,7 +732,13 @@ class GovernoParana {
             </button>`
         } else if((this.#dataDias >= 28812 && this.#dataDias < 29176) && this.#valor > 10000) {
             btn_max_pan.innerHTML =
-                `<button type="button"
+                `<button type="button" title="AT&Eacute; 73 ANOSR$ 60.000,00 - M&Aacute;X PARC: 84
+                74 ANOS R$ 60.000,00 - M&Aacute;X PARC: 72                            
+                75 ANOS R$ 25.000,00 - MAX PARC: 60                              
+                76 ANOS R$ 16.000,00 - M&Aacute;X PARC: 48                              
+                77 ANOS R$ 10.000,00 - MAX PARC: 36                                    
+                78 ANOS R$ 1.000,00 - MAX PARC: 24                                     
+                79 ANOS R$ 500,00 - MAX PARC: 12            
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                 <span class="btn-inner--icon"><i
                 class="fas fa-times"></i></span>
@@ -599,7 +755,7 @@ class GovernoParana {
         //Saldo Minimo
         if(this.#valor < 200) {
             btn_min_pan.innerHTML =
-                `<button type="button"
+                `<button type="button" title="saldo minimo R$ 200,00"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                 <span class="btn-inner--icon"><i
                 class="fas fa-times"></i></span>
@@ -618,7 +774,7 @@ class GovernoParana {
         //Idade
         if (this.#dataDias > 27351) {
             btn_idade_daycoval.innerHTML =
-                `<button type="button"
+                `<button type="button" title="Terminar o contrato com (75 ANOS 11 MESES 29 DIAS)"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
             <span class="btn-inner--icon"><i
             class="fas fa-times"></i></span>
@@ -637,7 +793,7 @@ class GovernoParana {
         //Quantidade de parcelas
         if (this.#qtdParcelas > 96) {
             btn_parcelas_daycoval.innerHTML =
-                `<button type="button"
+                `<button type="button" title="Maior que 84 parcelas"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                 <span class="btn-inner--icon"><i
                 class="fas fa-times"></i></span>
@@ -656,7 +812,7 @@ class GovernoParana {
         //Saldo maximo
         if ((this.#dataDias >= 7642 && this.#dataDias < 25891) && this.#valor > 250000) {
             btn_max_daycoval.innerHTML =
-                `<button type="button"
+                `<button type="button" title="DE 21  A 69 ANOS 11 MESES E 29 DIAS  R$ 250.000,00 DE 70 A 74 ANOS 11 MESES E 29 DIAS R$ 75.000,00"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
             <span class="btn-inner--icon"><i
             class="fas fa-times"></i></span>
@@ -664,7 +820,7 @@ class GovernoParana {
             </button>`
         } else if((this.#dataDias >= 25892 && this.#dataDias < 27351) && this.#valor > 50000) {
             btn_max_daycoval.innerHTML =
-                `<button type="button"
+                `<button type="button" title="DE 21  A 69 ANOS 11 MESES E 29 DIAS  R$ 250.000,00 DE 70 A 74 ANOS 11 MESES E 29 DIAS R$ 75.000,00"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
             <span class="btn-inner--icon"><i
             class="fas fa-times"></i></span>
@@ -685,7 +841,7 @@ class GovernoParana {
         //Idade
         if (this.#dataDias > 29541) {
             btn_idade_bb.innerHTML =
-                `<button type="button"
+                `<button type="button" title="Terminar o contrato com (75 ANOS 11 MESES 29 DIAS)"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
             <span class="btn-inner--icon"><i
             class="fas fa-times"></i></span>
@@ -704,7 +860,7 @@ class GovernoParana {
         //Quantidade de parcelas
         if (this.#qtdParcelas > 96 || this.#qtdParcelas < 2) {
             btn_parcelas_bb.innerHTML =
-                `<button type="button"
+                `<button type="button" title="Maior que 84 parcelas"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                 <span class="btn-inner--icon"><i
                 class="fas fa-times"></i></span>

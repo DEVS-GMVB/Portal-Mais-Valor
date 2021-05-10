@@ -52,7 +52,7 @@ class SuperiorTj {
         if(this.#dataDias > 29541) {
             btn_idade_sant.innerHTML =
             `
-                <button type="button"
+                <button type="button" title="Terminar o contrato com (80 ANOS 11 MESES 29 DIAS)"
                 class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                     <span class="btn-inner--icon"><i
                     class="fas fa-times"></i></span>
@@ -72,7 +72,7 @@ class SuperiorTj {
         if (this.#qtdParcelas.value > 120 || this.#qtdParcelas.value < 3) {
             btn_parcelas_sant.innerHTML =
                 `
-            <button type="button"
+            <button type="button" title="PARCELA ACIMA DE 120X OU MENOR QUE 3X"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                 <span class="btn-inner--icon"><i
                 class="fas fa-times"></i></span>
@@ -91,7 +91,7 @@ class SuperiorTj {
         if(this.#valor > 200000) {
             btn_max_sant.innerHTML = 
             `
-            <button type="button"
+            <button type="button" title="SALDO MAXIMO - R$ 200000"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                 <span class="btn-inner--icon"><i
                 class="fas fa-times"></i></span>
@@ -112,7 +112,7 @@ class SuperiorTj {
         if(this.#valor < 300) {
             btn_min_sant.innerHTML = 
             `
-            <button type="button"
+            <button type="button" title="SALDO MINÍMO - R$ 300,00"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                 <span class="btn-inner--icon"><i
                 class="fas fa-times"></i></span>
@@ -134,7 +134,7 @@ class SuperiorTj {
         //Idade
         if (this.#dataDias > 29176) {
             btn_idade_bradesco.innerHTML =
-                `<button type="button"
+                `<button type="button" title="Terminar o contrato com (75 ANOS 11 MESES 29 DIAS)"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
             <span class="btn-inner--icon"><i
             class="fas fa-times"></i></span>
@@ -151,7 +151,7 @@ class SuperiorTj {
         //Quantidade parcelas;
         if (this.#qtdParcelas > 120) {
             btn_parcelas_bradesco.innerHTML =
-                `<button type="button"
+                `<button type="button" title="SALDO MAXIMO - R$ 120"    
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
             <span class="btn-inner--icon"><i
             class="fas fa-times"></i></span>
@@ -168,7 +168,11 @@ class SuperiorTj {
         //Saldo maximo
         if ((this.#dataDias >= 6911 && this.#dataDias < 25526) && this.#valor > 400000 && this.#qtdParcelas > 120) {
             btn_max_bradesco.innerHTML =
-                `<button type="button"
+                `<button type="button" title="DE 18 A 69 ANOS 11 MESES E 29 DIAS R$ 400.000,00   MAX PARC 120         DE 70 A 75 ANOS 11 MESES E 29 DIAS R$ 150.000,00 MAX  PARC 120
+                DE 76 A 76 ANOS 11 MESES E 29 DIAS R$ 100.000,00 MAX PARC 48
+                DE 77 A 77 ANOS 11 MESES E 29 DIAS R$ 70.000,00 MAX PARC 36
+                DE 78 A 78 ANOS 11 MESES E 29 DIAS R$ 50.000,00 MAX PARC 24
+                DE 79 A 79 ANOS 11 MESES E 29 DIAS R$ 30.000,00 MAX  PARC 12 "
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
             <span class="btn-inner--icon"><i
             class="fas fa-times"></i></span>
@@ -176,7 +180,11 @@ class SuperiorTj {
             </button>`
         } else if ((this.#dataDias >= 25527 && this.#dataDias < 27716) && this.#valor > 150000 && this.#qtdParcelas > 120) {
             btn_max_bradesco.innerHTML =
-                `<button type="button"
+                `<button type="button" title="DE 18 A 69 ANOS 11 MESES E 29 DIAS R$ 400.000,00   MAX PARC 120         DE 70 A 75 ANOS 11 MESES E 29 DIAS R$ 150.000,00 MAX  PARC 120
+                DE 76 A 76 ANOS 11 MESES E 29 DIAS R$ 100.000,00 MAX PARC 48
+                DE 77 A 77 ANOS 11 MESES E 29 DIAS R$ 70.000,00 MAX PARC 36
+                DE 78 A 78 ANOS 11 MESES E 29 DIAS R$ 50.000,00 MAX PARC 24
+                DE 79 A 79 ANOS 11 MESES E 29 DIAS R$ 30.000,00 MAX  PARC 12 "
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
             <span class="btn-inner--icon"><i
             class="fas fa-times"></i></span>
@@ -184,7 +192,11 @@ class SuperiorTj {
             </button>`
         } else if ((this.#dataDias >= 27717 && this.#dataDias < 28081) && this.#valor > 100000 && this.#qtdParcelas > 48) {
             btn_max_bradesco.innerHTML =
-                `<button type="button"
+                `<button type="button" title="DE 18 A 69 ANOS 11 MESES E 29 DIAS R$ 400.000,00   MAX PARC 120         DE 70 A 75 ANOS 11 MESES E 29 DIAS R$ 150.000,00 MAX  PARC 120
+                DE 76 A 76 ANOS 11 MESES E 29 DIAS R$ 100.000,00 MAX PARC 48
+                DE 77 A 77 ANOS 11 MESES E 29 DIAS R$ 70.000,00 MAX PARC 36
+                DE 78 A 78 ANOS 11 MESES E 29 DIAS R$ 50.000,00 MAX PARC 24
+                DE 79 A 79 ANOS 11 MESES E 29 DIAS R$ 30.000,00 MAX  PARC 12 "
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
             <span class="btn-inner--icon"><i
             class="fas fa-times"></i></span>
@@ -192,7 +204,11 @@ class SuperiorTj {
             </button>`
         } else if ((this.#dataDias >= 28082 && this.#dataDias < 28446) && this.#valor > 70000 && this.#qtdParcelas > 36) {
             btn_max_bradesco.innerHTML =
-                `<button type="button"
+                `<button type="button" title="DE 18 A 69 ANOS 11 MESES E 29 DIAS R$ 400.000,00   MAX PARC 120         DE 70 A 75 ANOS 11 MESES E 29 DIAS R$ 150.000,00 MAX  PARC 120
+                DE 76 A 76 ANOS 11 MESES E 29 DIAS R$ 100.000,00 MAX PARC 48
+                DE 77 A 77 ANOS 11 MESES E 29 DIAS R$ 70.000,00 MAX PARC 36
+                DE 78 A 78 ANOS 11 MESES E 29 DIAS R$ 50.000,00 MAX PARC 24
+                DE 79 A 79 ANOS 11 MESES E 29 DIAS R$ 30.000,00 MAX  PARC 12 "
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
             <span class="btn-inner--icon"><i
             class="fas fa-times"></i></span>
@@ -200,7 +216,11 @@ class SuperiorTj {
             </button>`
         } else if ((this.#dataDias >= 28447 && this.#dataDias < 28811) && this.#valor > 50000 && this.#qtdParcelas > 24) {
             btn_max_bradesco.innerHTML =
-                `<button type="button"
+                `<button type="button" title="DE 18 A 69 ANOS 11 MESES E 29 DIAS R$ 400.000,00   MAX PARC 120         DE 70 A 75 ANOS 11 MESES E 29 DIAS R$ 150.000,00 MAX  PARC 120
+                DE 76 A 76 ANOS 11 MESES E 29 DIAS R$ 100.000,00 MAX PARC 48
+                DE 77 A 77 ANOS 11 MESES E 29 DIAS R$ 70.000,00 MAX PARC 36
+                DE 78 A 78 ANOS 11 MESES E 29 DIAS R$ 50.000,00 MAX PARC 24
+                DE 79 A 79 ANOS 11 MESES E 29 DIAS R$ 30.000,00 MAX  PARC 12 "
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
             <span class="btn-inner--icon"><i
             class="fas fa-times"></i></span>
@@ -208,7 +228,11 @@ class SuperiorTj {
             </button>`
         } else if ((this.#dataDias >= 28812 && this.#dataDias < 29176) && this.#valor > 30000 && this.#qtdParcelas > 12) {
             btn_max_bradesco.innerHTML =
-                `<button type="button"
+                `<button type="button" title="DE 18 A 69 ANOS 11 MESES E 29 DIAS R$ 400.000,00   MAX PARC 120         DE 70 A 75 ANOS 11 MESES E 29 DIAS R$ 150.000,00 MAX  PARC 120
+                DE 76 A 76 ANOS 11 MESES E 29 DIAS R$ 100.000,00 MAX PARC 48
+                DE 77 A 77 ANOS 11 MESES E 29 DIAS R$ 70.000,00 MAX PARC 36
+                DE 78 A 78 ANOS 11 MESES E 29 DIAS R$ 50.000,00 MAX PARC 24
+                DE 79 A 79 ANOS 11 MESES E 29 DIAS R$ 30.000,00 MAX  PARC 12 "
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
             <span class="btn-inner--icon"><i
             class="fas fa-times"></i></span>
@@ -261,7 +285,7 @@ class SuperiorTj {
         //Quantidade de parcelas
         if (this.#qtdParcelas > 96) {
             btn_parcelas_ole.innerHTML =
-                `<button type="button"
+                `<button type="button" title="PARCELAS ACIMA DE 96X"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
             <span class="btn-inner--icon"><i
             class="fas fa-times"></i></span>
@@ -327,7 +351,7 @@ class SuperiorTj {
         //Saldo minimo
         if (this.#valor < 250) {
             btn_min_ole.innerHTML =
-                `<button type="button"
+                `<button type="button" title="SALDO MINÍMO - R$ 250,00"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
             <span class="btn-inner--icon"><i
             class="fas fa-times"></i></span>
@@ -365,7 +389,7 @@ class SuperiorTj {
         //Quantidades de parcelas
         if (this.#qtdParcelas > 72) {
             btn_parcelas_parana.innerHTML =
-                `<button type="button"
+                `<button type="button" title="PARCELAS ACIMA DE 72X"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                 <span class="btn-inner--icon"><i
                 class="fas fa-times"></i></span>
@@ -403,7 +427,7 @@ class SuperiorTj {
         //Saldo minimo
         if (this.#valor < 1) {
             btn_min_parana.innerHTML =
-                `<button type="button"
+                `<button type="button" title="SALDO MINÍMO - R$ 1,00"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                 <span class="btn-inner--icon"><i
                 class="fas fa-times"></i></span>
@@ -424,7 +448,7 @@ class SuperiorTj {
         //Idade
         if (this.#dataDias > 29176) {
             btn_idade_pan.innerHTML =
-                `<button type="button"
+                `<button type="button" title="Terminar o contrato com (75 ANOS 11 MESES 29 DIAS)"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                 <span class="btn-inner--icon"><i
                 class="fas fa-times"></i></span>
@@ -441,7 +465,12 @@ class SuperiorTj {
         //Quantidade de parcelas
         if ((this.#dataDias >= 6911 && this.#dataDias < 25526) && this.#qtdParcelas > 96 ) {
             btn_parcelas_pan.innerHTML =
-                `<button type="button"
+                `<button type="button" title="DE 22 A 74 ANOS 11 MESES E 29 DIAS  CONFORME MARGEM MAX PARC: 72
+                DE 75 A 75 ANOS 11 MESES E 29 DIAS R$ 30.000,00 MAX PARC: 60
+                DE 76 A 76 ANOS 11 MESES E 29 DIAS R$ 20.000,00 MAX PARC: 48
+                DE 77 A 77 ANOS 11 MESES E 29 DIAS R$ 15.000,00 MAX PARC: 36
+                DE 78 A 78 ANOS 11 M3ESES E 29 DIAS R$ 4.000,00 MAX PARC: 24
+                DE 79 A 79 ANOS 11 MESES E 29 DIAS R$ 2.000,00 MAX PARC 12"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                 <span class="btn-inner--icon"><i
                 class="fas fa-times"></i></span>
@@ -449,7 +478,12 @@ class SuperiorTj {
             </button>`
         }else if ((this.#dataDias >= 25527 && this.#dataDias < 26986) && this.#qtdParcelas > 84 ) {
                 btn_parcelas_pan.innerHTML =
-                    `<button type="button"
+                    `<button type="button" title="DE 22 A 74 ANOS 11 MESES E 29 DIAS  CONFORME MARGEM MAX PARC: 72
+                    DE 75 A 75 ANOS 11 MESES E 29 DIAS R$ 30.000,00 MAX PARC: 60
+                    DE 76 A 76 ANOS 11 MESES E 29 DIAS R$ 20.000,00 MAX PARC: 48
+                    DE 77 A 77 ANOS 11 MESES E 29 DIAS R$ 15.000,00 MAX PARC: 36
+                    DE 78 A 78 ANOS 11 M3ESES E 29 DIAS R$ 4.000,00 MAX PARC: 24
+                    DE 79 A 79 ANOS 11 MESES E 29 DIAS R$ 2.000,00 MAX PARC 12"
                 class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                     <span class="btn-inner--icon"><i
                     class="fas fa-times"></i></span>
@@ -457,7 +491,12 @@ class SuperiorTj {
                 </button>`
             }else if ((this.#dataDias >= 26987 && this.#dataDias < 27351) && this.#qtdParcelas > 72 ) {
                 btn_parcelas_pan.innerHTML =
-                    `<button type="button"
+                    `<button type="button" title="DE 22 A 74 ANOS 11 MESES E 29 DIAS  CONFORME MARGEM MAX PARC: 72
+                    DE 75 A 75 ANOS 11 MESES E 29 DIAS R$ 30.000,00 MAX PARC: 60
+                    DE 76 A 76 ANOS 11 MESES E 29 DIAS R$ 20.000,00 MAX PARC: 48
+                    DE 77 A 77 ANOS 11 MESES E 29 DIAS R$ 15.000,00 MAX PARC: 36
+                    DE 78 A 78 ANOS 11 M3ESES E 29 DIAS R$ 4.000,00 MAX PARC: 24
+                    DE 79 A 79 ANOS 11 MESES E 29 DIAS R$ 2.000,00 MAX PARC 12"
                 class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                     <span class="btn-inner--icon"><i
                     class="fas fa-times"></i></span>
@@ -465,7 +504,12 @@ class SuperiorTj {
                 </button>`
             }else if ((this.#dataDias >= 27352 && this.#dataDias < 27716) && this.#qtdParcelas > 60 ) {
                 btn_parcelas_pan.innerHTML =
-                    `<button type="button"
+                    `<button type="button" title="DE 22 A 74 ANOS 11 MESES E 29 DIAS  CONFORME MARGEM MAX PARC: 72
+                    DE 75 A 75 ANOS 11 MESES E 29 DIAS R$ 30.000,00 MAX PARC: 60
+                    DE 76 A 76 ANOS 11 MESES E 29 DIAS R$ 20.000,00 MAX PARC: 48
+                    DE 77 A 77 ANOS 11 MESES E 29 DIAS R$ 15.000,00 MAX PARC: 36
+                    DE 78 A 78 ANOS 11 M3ESES E 29 DIAS R$ 4.000,00 MAX PARC: 24
+                    DE 79 A 79 ANOS 11 MESES E 29 DIAS R$ 2.000,00 MAX PARC 12"
                 class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                     <span class="btn-inner--icon"><i
                     class="fas fa-times"></i></span>
@@ -473,7 +517,12 @@ class SuperiorTj {
                 </button>`
             }else if ((this.#dataDias >= 27717 && this.#dataDias < 28081) && this.#qtdParcelas > 48 ) {
                 btn_parcelas_pan.innerHTML =
-                    `<button type="button"
+                    `<button type="button" title="DE 22 A 74 ANOS 11 MESES E 29 DIAS  CONFORME MARGEM MAX PARC: 72
+                    DE 75 A 75 ANOS 11 MESES E 29 DIAS R$ 30.000,00 MAX PARC: 60
+                    DE 76 A 76 ANOS 11 MESES E 29 DIAS R$ 20.000,00 MAX PARC: 48
+                    DE 77 A 77 ANOS 11 MESES E 29 DIAS R$ 15.000,00 MAX PARC: 36
+                    DE 78 A 78 ANOS 11 M3ESES E 29 DIAS R$ 4.000,00 MAX PARC: 24
+                    DE 79 A 79 ANOS 11 MESES E 29 DIAS R$ 2.000,00 MAX PARC 12"
                 class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                     <span class="btn-inner--icon"><i
                     class="fas fa-times"></i></span>
@@ -481,7 +530,12 @@ class SuperiorTj {
                 </button>`
             }else if ((this.#dataDias >= 28082 && this.#dataDias < 28446) && this.#qtdParcelas > 36 ) {
                 btn_parcelas_pan.innerHTML =
-                    `<button type="button"
+                    `<button type="button" title="DE 22 A 74 ANOS 11 MESES E 29 DIAS  CONFORME MARGEM MAX PARC: 72
+                    DE 75 A 75 ANOS 11 MESES E 29 DIAS R$ 30.000,00 MAX PARC: 60
+                    DE 76 A 76 ANOS 11 MESES E 29 DIAS R$ 20.000,00 MAX PARC: 48
+                    DE 77 A 77 ANOS 11 MESES E 29 DIAS R$ 15.000,00 MAX PARC: 36
+                    DE 78 A 78 ANOS 11 M3ESES E 29 DIAS R$ 4.000,00 MAX PARC: 24
+                    DE 79 A 79 ANOS 11 MESES E 29 DIAS R$ 2.000,00 MAX PARC 12"
                 class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                     <span class="btn-inner--icon"><i
                     class="fas fa-times"></i></span>
@@ -489,7 +543,12 @@ class SuperiorTj {
                 </button>`
             }else if ((this.#dataDias >= 28447 && this.#dataDias < 28811) && this.#qtdParcelas > 24 ) {
                 btn_parcelas_pan.innerHTML =
-                    `<button type="button"
+                    `<button type="button" title="DE 22 A 74 ANOS 11 MESES E 29 DIAS  CONFORME MARGEM MAX PARC: 72
+                    DE 75 A 75 ANOS 11 MESES E 29 DIAS R$ 30.000,00 MAX PARC: 60
+                    DE 76 A 76 ANOS 11 MESES E 29 DIAS R$ 20.000,00 MAX PARC: 48
+                    DE 77 A 77 ANOS 11 MESES E 29 DIAS R$ 15.000,00 MAX PARC: 36
+                    DE 78 A 78 ANOS 11 M3ESES E 29 DIAS R$ 4.000,00 MAX PARC: 24
+                    DE 79 A 79 ANOS 11 MESES E 29 DIAS R$ 2.000,00 MAX PARC 12"
                 class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                     <span class="btn-inner--icon"><i
                     class="fas fa-times"></i></span>
@@ -497,7 +556,12 @@ class SuperiorTj {
                 </button>`
             }else if ((this.#dataDias >= 28812 && this.#dataDias < 29176) && this.#qtdParcelas > 12 ) {
                 btn_parcelas_pan.innerHTML =
-                    `<button type="button"
+                    `<button type="button" title="DE 22 A 74 ANOS 11 MESES E 29 DIAS  CONFORME MARGEM MAX PARC: 72
+                    DE 75 A 75 ANOS 11 MESES E 29 DIAS R$ 30.000,00 MAX PARC: 60
+                    DE 76 A 76 ANOS 11 MESES E 29 DIAS R$ 20.000,00 MAX PARC: 48
+                    DE 77 A 77 ANOS 11 MESES E 29 DIAS R$ 15.000,00 MAX PARC: 36
+                    DE 78 A 78 ANOS 11 M3ESES E 29 DIAS R$ 4.000,00 MAX PARC: 24
+                    DE 79 A 79 ANOS 11 MESES E 29 DIAS R$ 2.000,00 MAX PARC 12"
                 class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                     <span class="btn-inner--icon"><i
                     class="fas fa-times"></i></span>
@@ -516,7 +580,15 @@ class SuperiorTj {
         //Saldo maximo
         if ((this.#dataDias >= 8371 && this.#dataDias < 24066) && this.#valor > 400000 && this.#qtdParcelas > 120) {
             btn_max_pan.innerHTML =
-                `<button type="button"
+                `<button type="button" title="
+                DE 22 A 65 ANOS 11 MESES E 29 DIAS R$ 400.000,00 MAX PARC 120
+                DE 66 A 72 ANOS 11 MESES E 29 DIAS R$ 150.000,00 MAX  PARC 120
+                DE 73 A 74 ANOS 11 MESES E 29 DIAS R$ 120.000,00 MAX PARC 72
+                DE 75 A 75 ANOS 11 MESES E 29 DIAS R$ 70.000,00 MAX PARC 60
+                DE 76 A 76 ANOS 11 MESES E 29 DIAS R$ 50.000,00 MAX PARC 48
+                DE 77 A 77 ANOS 11 MESES E 29 DIAS R$ 50.000,00 MAX  PARC 36
+                DE 78 A 78 ANOS 11 MESES E 29 DIAS  R$ 40.000,00 MAX PARC: 24
+                DE 79 A 79 ANOS 11 MESES E 29 DIAS  R$ 30.000,00 MAX PARC: 12"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                 <span class="btn-inner--icon"><i
                 class="fas fa-times"></i></span>
@@ -524,7 +596,15 @@ class SuperiorTj {
             </button>`
         }else if ((this.#dataDias >= 24067 && this.#dataDias < 26621) && this.#valor > 150000 && this.#qtdParcelas> 120) {
                 btn_max_pan.innerHTML =
-                    `<button type="button"
+                    `<button type="button" title="
+                    DE 22 A 65 ANOS 11 MESES E 29 DIAS R$ 400.000,00 MAX PARC 120
+                    DE 66 A 72 ANOS 11 MESES E 29 DIAS R$ 150.000,00 MAX  PARC 120
+                    DE 73 A 74 ANOS 11 MESES E 29 DIAS R$ 120.000,00 MAX PARC 72
+                    DE 75 A 75 ANOS 11 MESES E 29 DIAS R$ 70.000,00 MAX PARC 60
+                    DE 76 A 76 ANOS 11 MESES E 29 DIAS R$ 50.000,00 MAX PARC 48
+                    DE 77 A 77 ANOS 11 MESES E 29 DIAS R$ 50.000,00 MAX  PARC 36
+                    DE 78 A 78 ANOS 11 MESES E 29 DIAS  R$ 40.000,00 MAX PARC: 24
+                    DE 79 A 79 ANOS 11 MESES E 29 DIAS  R$ 30.000,00 MAX PARC: 12"
                 class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                     <span class="btn-inner--icon"><i
                     class="fas fa-times"></i></span>
@@ -532,7 +612,15 @@ class SuperiorTj {
                 </button>`
             }else if ((this.#dataDias >= 26623 && this.#dataDias < 27352) && this.#valor > 120000 && this.#qtdParcelas > 72) {
                 btn_max_pan.innerHTML =
-                    `<button type="button"
+                    `<button type="button" title="
+                    DE 22 A 65 ANOS 11 MESES E 29 DIAS R$ 400.000,00 MAX PARC 120
+                    DE 66 A 72 ANOS 11 MESES E 29 DIAS R$ 150.000,00 MAX  PARC 120
+                    DE 73 A 74 ANOS 11 MESES E 29 DIAS R$ 120.000,00 MAX PARC 72
+                    DE 75 A 75 ANOS 11 MESES E 29 DIAS R$ 70.000,00 MAX PARC 60
+                    DE 76 A 76 ANOS 11 MESES E 29 DIAS R$ 50.000,00 MAX PARC 48
+                    DE 77 A 77 ANOS 11 MESES E 29 DIAS R$ 50.000,00 MAX  PARC 36
+                    DE 78 A 78 ANOS 11 MESES E 29 DIAS  R$ 40.000,00 MAX PARC: 24
+                    DE 79 A 79 ANOS 11 MESES E 29 DIAS  R$ 30.000,00 MAX PARC: 12"
                 class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                     <span class="btn-inner--icon"><i
                     class="fas fa-times"></i></span>
@@ -540,7 +628,15 @@ class SuperiorTj {
                 </button>`
             }else if ((this.#dataDias >= 27352 && this.#dataDias < 27716) && this.#valor > 70000 && this.#qtdParcelas > 60) {
                 btn_max_pan.innerHTML =
-                    `<button type="button"
+                    `<button type="button" title="
+                    DE 22 A 65 ANOS 11 MESES E 29 DIAS R$ 400.000,00 MAX PARC 120
+                    DE 66 A 72 ANOS 11 MESES E 29 DIAS R$ 150.000,00 MAX  PARC 120
+                    DE 73 A 74 ANOS 11 MESES E 29 DIAS R$ 120.000,00 MAX PARC 72
+                    DE 75 A 75 ANOS 11 MESES E 29 DIAS R$ 70.000,00 MAX PARC 60
+                    DE 76 A 76 ANOS 11 MESES E 29 DIAS R$ 50.000,00 MAX PARC 48
+                    DE 77 A 77 ANOS 11 MESES E 29 DIAS R$ 50.000,00 MAX  PARC 36
+                    DE 78 A 78 ANOS 11 MESES E 29 DIAS  R$ 40.000,00 MAX PARC: 24
+                    DE 79 A 79 ANOS 11 MESES E 29 DIAS  R$ 30.000,00 MAX PARC: 12"
                 class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                     <span class="btn-inner--icon"><i
                     class="fas fa-times"></i></span>
@@ -548,7 +644,15 @@ class SuperiorTj {
                 </button>`
             }else if ((this.#dataDias >= 27717 && this.#dataDias < 28081) && this.#valor > 50000 && this.#qtdParcelas > 48) {
                 btn_max_pan.innerHTML =
-                    `<button type="button"
+                    `<button type="button" title="
+                    DE 22 A 65 ANOS 11 MESES E 29 DIAS R$ 400.000,00 MAX PARC 120
+                    DE 66 A 72 ANOS 11 MESES E 29 DIAS R$ 150.000,00 MAX  PARC 120
+                    DE 73 A 74 ANOS 11 MESES E 29 DIAS R$ 120.000,00 MAX PARC 72
+                    DE 75 A 75 ANOS 11 MESES E 29 DIAS R$ 70.000,00 MAX PARC 60
+                    DE 76 A 76 ANOS 11 MESES E 29 DIAS R$ 50.000,00 MAX PARC 48
+                    DE 77 A 77 ANOS 11 MESES E 29 DIAS R$ 50.000,00 MAX  PARC 36
+                    DE 78 A 78 ANOS 11 MESES E 29 DIAS  R$ 40.000,00 MAX PARC: 24
+                    DE 79 A 79 ANOS 11 MESES E 29 DIAS  R$ 30.000,00 MAX PARC: 12"
                 class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                     <span class="btn-inner--icon"><i
                     class="fas fa-times"></i></span>
@@ -556,7 +660,15 @@ class SuperiorTj {
                 </button>`
             }else if ((this.#dataDias >= 28082 && this.#dataDias < 28446) && this.#valor > 50000 && this.#qtdParcelas > 36) {
                 btn_max_pan.innerHTML =
-                    `<button type="button"
+                    `<button type="button" title="
+                    DE 22 A 65 ANOS 11 MESES E 29 DIAS R$ 400.000,00 MAX PARC 120
+                    DE 66 A 72 ANOS 11 MESES E 29 DIAS R$ 150.000,00 MAX  PARC 120
+                    DE 73 A 74 ANOS 11 MESES E 29 DIAS R$ 120.000,00 MAX PARC 72
+                    DE 75 A 75 ANOS 11 MESES E 29 DIAS R$ 70.000,00 MAX PARC 60
+                    DE 76 A 76 ANOS 11 MESES E 29 DIAS R$ 50.000,00 MAX PARC 48
+                    DE 77 A 77 ANOS 11 MESES E 29 DIAS R$ 50.000,00 MAX  PARC 36
+                    DE 78 A 78 ANOS 11 MESES E 29 DIAS  R$ 40.000,00 MAX PARC: 24
+                    DE 79 A 79 ANOS 11 MESES E 29 DIAS  R$ 30.000,00 MAX PARC: 12"
                 class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                     <span class="btn-inner--icon"><i
                     class="fas fa-times"></i></span>
@@ -564,7 +676,15 @@ class SuperiorTj {
                 </button>`
             }else if ((this.#dataDias >= 28447 && this.#dataDias < 28811) && this.#valor > 40000 && this.#qtdParcelas > 24) {
                 btn_max_pan.innerHTML =
-                    `<button type="button"
+                    `<button type="button" title="
+                    DE 22 A 65 ANOS 11 MESES E 29 DIAS R$ 400.000,00 MAX PARC 120
+                    DE 66 A 72 ANOS 11 MESES E 29 DIAS R$ 150.000,00 MAX  PARC 120
+                    DE 73 A 74 ANOS 11 MESES E 29 DIAS R$ 120.000,00 MAX PARC 72
+                    DE 75 A 75 ANOS 11 MESES E 29 DIAS R$ 70.000,00 MAX PARC 60
+                    DE 76 A 76 ANOS 11 MESES E 29 DIAS R$ 50.000,00 MAX PARC 48
+                    DE 77 A 77 ANOS 11 MESES E 29 DIAS R$ 50.000,00 MAX  PARC 36
+                    DE 78 A 78 ANOS 11 MESES E 29 DIAS  R$ 40.000,00 MAX PARC: 24
+                    DE 79 A 79 ANOS 11 MESES E 29 DIAS  R$ 30.000,00 MAX PARC: 12"
                 class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                     <span class="btn-inner--icon"><i
                     class="fas fa-times"></i></span>
@@ -572,7 +692,15 @@ class SuperiorTj {
                 </button>`
             }else if ((this.#dataDias >= 28812 && this.#dataDias < 29176) && this.#valor > 30000 && this.#qtdParcelas > 12) {
                 btn_max_pan.innerHTML =
-                    `<button type="button"
+                    `<button type="button" title="
+                    DE 22 A 65 ANOS 11 MESES E 29 DIAS R$ 400.000,00 MAX PARC 120
+                    DE 66 A 72 ANOS 11 MESES E 29 DIAS R$ 150.000,00 MAX  PARC 120
+                    DE 73 A 74 ANOS 11 MESES E 29 DIAS R$ 120.000,00 MAX PARC 72
+                    DE 75 A 75 ANOS 11 MESES E 29 DIAS R$ 70.000,00 MAX PARC 60
+                    DE 76 A 76 ANOS 11 MESES E 29 DIAS R$ 50.000,00 MAX PARC 48
+                    DE 77 A 77 ANOS 11 MESES E 29 DIAS R$ 50.000,00 MAX  PARC 36
+                    DE 78 A 78 ANOS 11 MESES E 29 DIAS  R$ 40.000,00 MAX PARC: 24
+                    DE 79 A 79 ANOS 11 MESES E 29 DIAS  R$ 30.000,00 MAX PARC: 12"
                 class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                     <span class="btn-inner--icon"><i
                     class="fas fa-times"></i></span>
@@ -591,7 +719,7 @@ class SuperiorTj {
         //Saldo Minimo
         if(this.#valor < 200) {
             btn_min_pan.innerHTML =
-                `<button type="button"
+                `<button type="button" title="SALDO MINÍMO - R$ 200,00"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                 <span class="btn-inner--icon"><i
                 class="fas fa-times"></i></span>
@@ -629,7 +757,7 @@ class SuperiorTj {
         //Quantidade de parcelas
         if (this.#qtdParcelas > 96) {
             btn_parcelas_daycoval.innerHTML =
-            `<button type="button"
+            `<button type="button" title="PARCELA ACIMA DE 96X"
         class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
         <span class="btn-inner--icon"><i
         class="fas fa-times"></i></span>
@@ -675,7 +803,7 @@ class SuperiorTj {
         //Idade
         if (this.#dataDias > 29541) {
             btn_idade_bb.innerHTML =
-                `<button type="button"
+                `<button type="button" title="Terminar o contrato com (75 ANOS 11 MESES 29 DIAS)"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
             <span class="btn-inner--icon"><i
             class="fas fa-times"></i></span>
@@ -694,7 +822,7 @@ class SuperiorTj {
         //Quantidade de parcelas
         if (this.#qtdParcelas > 120 || this.#qtdParcelas < 2) {
             btn_parcelas_bb.innerHTML =
-                `<button type="button"
+                `<button type="button" title="PARCELAS ACIMA DE 120X OU MENNOR QUE 2X"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                 <span class="btn-inner--icon"><i
                 class="fas fa-times"></i></span>
@@ -713,7 +841,7 @@ class SuperiorTj {
         //Saldo maximo
         if (this.#dataDias > 100000) {
             btn_max_bb.innerHTML =
-                `<button type="button"
+                `<button type="button" title="SALDO MAXIMO R$ 100000"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                 <span class="btn-inner--icon"><i
                 class="fas fa-times"></i></span>

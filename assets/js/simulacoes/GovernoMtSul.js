@@ -72,7 +72,7 @@ class GovernoMtSul {
         if (this.#qtdParcelas.value > 96 || this.#qtdParcelas.value < 3) {
             btn_parcelas_sant.innerHTML =
                 `
-            <button type="button"
+            <button type="button" title="Maior que 96 parcelas ou menor que 3 parcelas"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                 <span class="btn-inner--icon"><i
                 class="fas fa-times"></i></span>
@@ -91,7 +91,7 @@ class GovernoMtSul {
         if(this.#valor > 200000) {
             btn_max_sant.innerHTML = 
             `
-            <button type="button"
+            <button type="button" title="SALDO MAXIMO - R$ 200000"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                 <span class="btn-inner--icon"><i
                 class="fas fa-times"></i></span>
@@ -150,7 +150,7 @@ class GovernoMtSul {
         //Quantidade parcelas;
         if ((this.#dataDias >= 6911 && this.#dataDias < 25526) && this.#qtdParcelas > 96) {
             btn_parcelas_bradesco.innerHTML =
-                `<button type="button"
+                `<button type="button" title="Maior que 96 parcelas"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
             <span class="btn-inner--icon"><i
             class="fas fa-times"></i></span>
@@ -158,7 +158,7 @@ class GovernoMtSul {
             </button>`
         } else if ((this.#dataDias >= 25527 && this.#dataDias < 27716) && this.#qtdParcelas > 96){
             btn_parcelas_bradesco.innerHTML =
-                `<button type="button"
+                `<button type="button" title="Maior que 96 parcelas"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
             <span class="btn-inner--icon"><i
             class="fas fa-times"></i></span>
@@ -166,7 +166,7 @@ class GovernoMtSul {
             </button>`
         } else if ((this.#dataDias >= 27717 && this.#dataDias < 28081) && this.#qtdParcelas > 48){
             btn_parcelas_bradesco.innerHTML =
-                `<button type="button"
+                `<button type="button" title="Maior que 96 parcelas"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
             <span class="btn-inner--icon"><i
             class="fas fa-times"></i></span>
@@ -174,7 +174,7 @@ class GovernoMtSul {
             </button>`
         } else if ((this.#dataDias >= 28082 && this.#dataDias < 28446) && this.#qtdParcelas > 36){
             btn_parcelas_bradesco.innerHTML =
-                `<button type="button"
+                `<button type="button" title="Maior que 96 parcelas"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
             <span class="btn-inner--icon"><i
             class="fas fa-times"></i></span>
@@ -182,7 +182,7 @@ class GovernoMtSul {
             </button>`
         } else if ((this.#dataDias >= 28447 && this.#dataDias < 28811) && this.#qtdParcelas > 24){
             btn_parcelas_bradesco.innerHTML =
-                `<button type="button"
+                `<button type="button" title="Maior que 96 parcelas"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
             <span class="btn-inner--icon"><i
             class="fas fa-times"></i></span>
@@ -190,7 +190,7 @@ class GovernoMtSul {
             </button>`
         } else if ((this.#dataDias >= 28812 && this.#dataDias < 29176) && this.#qtdParcelas > 12){
             btn_parcelas_bradesco.innerHTML =
-                `<button type="button"
+                `<button type="button" title="Maior que 96 parcelas"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
             <span class="btn-inner--icon"><i
             class="fas fa-times"></i></span>
@@ -207,7 +207,12 @@ class GovernoMtSul {
         //Saldo maximo
         if ((this.#dataDias >= 6911 && this.#dataDias < 25526) && this.#valor > 250000) {
             btn_max_bradesco.innerHTML =
-                `<button type="button"
+                `<button type="button" title="De 18 a 67 anos e 11 meses R$ 230.000,00
+                De 68 a 69 anos e 11 meses R$ 190.000,00
+                De 70 a 70 anos e 11 meses R$ 150.000,00
+                De 71 a 71 anos e 11 meses R$ 120.000,00
+                De 72 a 74 anos e 11 meses R$ 20.000,00                          
+                "
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
             <span class="btn-inner--icon"><i
             class="fas fa-times"></i></span>
@@ -215,7 +220,12 @@ class GovernoMtSul {
             </button>`
         } else if((this.#dataDias >= 25527 && this.#dataDias < 27716) && this.#valor > 100000) {
             btn_max_bradesco.innerHTML =
-                `<button type="button"
+                `<button type="button" title="De 18 a 67 anos e 11 meses R$ 230.000,00
+                De 68 a 69 anos e 11 meses R$ 190.000,00
+                De 70 a 70 anos e 11 meses R$ 150.000,00
+                De 71 a 71 anos e 11 meses R$ 120.000,00
+                De 72 a 74 anos e 11 meses R$ 20.000,00                          
+                "
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
             <span class="btn-inner--icon"><i
             class="fas fa-times"></i></span>
@@ -223,7 +233,12 @@ class GovernoMtSul {
             </button>`
         } else if((this.#dataDias >= 27717 && this.#dataDias < 29176) && this.#valor > 10000) {
             btn_max_bradesco.innerHTML =
-                `<button type="button"
+                `<button type="button" title="De 18 a 67 anos e 11 meses R$ 230.000,00
+                De 68 a 69 anos e 11 meses R$ 190.000,00
+                De 70 a 70 anos e 11 meses R$ 150.000,00
+                De 71 a 71 anos e 11 meses R$ 120.000,00
+                De 72 a 74 anos e 11 meses R$ 20.000,00                          
+                "
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
             <span class="btn-inner--icon"><i
             class="fas fa-times"></i></span>
@@ -274,7 +289,7 @@ class GovernoMtSul {
         //Quantidade de parcelas
         if (this.#qtdParcelas > 96) {
             btn_parcelas_ole.innerHTML =
-                `<button type="button"
+                `<button type="button" title="Maior que 96 parcelas"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
             <span class="btn-inner--icon"><i
             class="fas fa-times"></i></span>
@@ -375,7 +390,7 @@ class GovernoMtSul {
 
         if (this.#qtdParcelas > 96 && this.#qtdParcelas < 36) {
             btn_parcelas_parana.innerHTML =
-                `<button type="button"
+                `<button type="button" title="Maior que 96 parcelas ou menor que 36 parcelas"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                 <span class="btn-inner--icon"><i
                 class="fas fa-times"></i></span>
@@ -630,7 +645,7 @@ class GovernoMtSul {
 
         if (this.#qtdParcelas > 96) {
             btn_parcelas_daycoval.innerHTML =
-                `<button type="button"
+                `<button type="button" title="Maior que 96 parcelas"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                 <span class="btn-inner--icon"><i
                 class="fas fa-times"></i></span>
@@ -648,7 +663,7 @@ class GovernoMtSul {
 
         if ((this.#dataDias >= 7642 && this.#dataDias < 25891) && this.#valor > 250000) {
             btn_max_daycoval.innerHTML =
-                `<button type="button"
+                `<button type="button" title="DE 21  A 69 ANOS 11 MESES E 29 DIAS  R$ 250.000,00 DE 70 A 74 ANOS 11 MESES E 29 DIAS R$ 75.000,00"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
             <span class="btn-inner--icon"><i
             class="fas fa-times"></i></span>
@@ -656,7 +671,7 @@ class GovernoMtSul {
             </button>`
         } else if((this.#dataDias >= 25892 && this.#dataDias < 27351) && this.#valor > 50000) {
             btn_max_daycoval.innerHTML =
-                `<button type="button"
+                `<button type="button" title="DE 21  A 69 ANOS 11 MESES E 29 DIAS  R$ 250.000,00 DE 70 A 74 ANOS 11 MESES E 29 DIAS R$ 75.000,00"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
             <span class="btn-inner--icon"><i
             class="fas fa-times"></i></span>
@@ -693,7 +708,7 @@ class GovernoMtSul {
 
         if (this.#qtdParcelas > 96 || this.#qtdParcelas < 2) {
             btn_parcelas_bb.innerHTML =
-                `<button type="button"
+                `<button type="button" title="Maior que 96 parcelas ou menor que 2 parcelas"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                 <span class="btn-inner--icon"><i
                 class="fas fa-times"></i></span>
