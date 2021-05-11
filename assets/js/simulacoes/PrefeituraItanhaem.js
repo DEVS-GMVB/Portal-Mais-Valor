@@ -48,11 +48,11 @@ class PrefeituraItanhaem {
 
         //Santander
 
-        //Politica de Idade
+        //Politica de Idade 
         if(this.#dataDias > 29906) {
             btn_idade_sant.innerHTML =
             `
-                <button type="button"
+                <button type="button" title="Terminar o contrato com (80 ANOS 11 MESES 29 DIAS)"
                 class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                     <span class="btn-inner--icon"><i
                     class="fas fa-times"></i></span>
@@ -72,7 +72,7 @@ class PrefeituraItanhaem {
         if (this.#qtdParcelas.value > 120 || this.#qtdParcelas.value < 3) {
             btn_parcelas_sant.innerHTML =
                 `
-            <button type="button"
+            <button type="button" title="PARCELA ACIMA DE 120X OU ABAIXO DE 3X"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                 <span class="btn-inner--icon"><i
                 class="fas fa-times"></i></span>
@@ -112,7 +112,7 @@ class PrefeituraItanhaem {
         if(this.#valor < 300) {
             btn_min_sant.innerHTML = 
             `
-            <button type="button"
+            <button type="button" title="SALDO MINÍMO - R$ 300"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                 <span class="btn-inner--icon"><i
                 class="fas fa-times"></i></span>
@@ -241,7 +241,7 @@ class PrefeituraItanhaem {
         //Saldo minimo
         if (this.#valor < 30) {
             btn_min_bradesco.innerHtml =
-                `<button type="button"
+                `<button type="button" title="SALDO MINÍMO ABAIXO DE 30X"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
             <span class="btn-inner--icon"><i
             class="fas fa-times"></i></span>
@@ -275,7 +275,7 @@ class PrefeituraItanhaem {
         //Quantidade de parcelas
         if (this.#qtdParcelas > 120) {
             btn_parcelas_ole.innerHTML =
-                `<button type="button"
+                `<button type="button" title="PARCELA ACIMA DE 120X"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
             <span class="btn-inner--icon"><i
             class="fas fa-times"></i></span>
@@ -341,7 +341,7 @@ class PrefeituraItanhaem {
 
         if(this.#valor < 250) {
             btn_min_ole.innerHTML =
-                `<button type="button"
+                `<button type="button" title="SALDO MINÍMO - R$ 250"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
             <span class="btn-inner--icon"><i
             class="fas fa-times"></i></span>
@@ -381,7 +381,7 @@ class PrefeituraItanhaem {
         //Quantidades de parcelas
         if (this.#qtdParcelas > 96 ||this.#qtdParcelas < 12) {
             btn_parcelas_parana.innerHTML =
-                `<button type="button"
+                `<button type="button" title="PARCELA ACIMA DE 96X OU ABAIXO DE 12X"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                 <span class="btn-inner--icon"><i
                 class="fas fa-times"></i></span>
@@ -419,7 +419,7 @@ class PrefeituraItanhaem {
         //Saldo minimo
         if (this.#valor < 1) {
             btn_min_parana.innerHTML =
-                `<button type="button"
+                `<button type="button" title="SALDO MINÍMO - R$ 1,00"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                 <span class="btn-inner--icon"><i
                 class="fas fa-times"></i></span>
@@ -604,7 +604,7 @@ class PrefeituraItanhaem {
         //Saldo Minimo
         if(this.#valor < 200) {
             btn_min_pan.innerHTML =
-                `<button type="button"
+                `<button type="button" title="SALDO MINÍMO - R$ 200"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                 <span class="btn-inner--icon"><i
                 class="fas fa-times"></i></span>
@@ -620,10 +620,10 @@ class PrefeituraItanhaem {
 
         //DayCoval------------
 
-        //Idade
+        //Idade 
         if (this.#dataDias > 24066) {
             btn_idade_daycoval.innerHTML =
-                `<button type="button"
+                `<button type="button" title="Terminar o contrato com (75 ANOS 11 MESES 29 DIAS)"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
             <span class="btn-inner--icon"><i
             class="fas fa-times"></i></span>
@@ -642,7 +642,7 @@ class PrefeituraItanhaem {
         //Quantidade de parcelas
         if (this.#qtdParcelas > 120) {
             btn_parcelas_daycoval.innerHTML =
-            `<button type="button"
+            `<button type="button" title="PARCELA ACIMA DE 120X"
         class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
         <span class="btn-inner--icon"><i
         class="fas fa-times"></i></span>
@@ -661,7 +661,7 @@ class PrefeituraItanhaem {
         //Saldo maximo
         if ((this.#dataDias >= 8006 && this.#dataDias < 24066) && this.#valor > 100000) {
             btn_max_daycoval.innerHTML =
-                `<button type="button"
+                `<button type="button" title="DE 21 A 69 ANOS 11 MESES E 29 DIAS  R$ 250.000,00 DE 70 A 74 ANOS 11 MESES E 29 DIAS R$ 75.000,00"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                 <span class="btn-inner--icon"><i
                 class="fas fa-times"></i></span>
@@ -677,10 +677,10 @@ class PrefeituraItanhaem {
 
         // BANCO DO BRASIL------------------
 
-        //Idade
+        //Idade 
         if (this.#dataDias > 29541) {
             btn_idade_bb.innerHTML =
-                `<button type="button"
+                `<button type="button" title="Terminar o contrato com (75 ANOS 11 MESES 29 DIAS)"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
             <span class="btn-inner--icon"><i
             class="fas fa-times"></i></span>
@@ -699,7 +699,7 @@ class PrefeituraItanhaem {
         //Quantidade de parcelas
         if (this.#qtdParcelas > 120 || this.#qtdParcelas < 2) {
             btn_parcelas_bb.innerHTML =
-                `<button type="button"
+                `<button type="button" title="PARCELA ACIMA DE 120X OU ABAIXO DE 2X"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                 <span class="btn-inner--icon"><i
                 class="fas fa-times"></i></span>
