@@ -1,257 +1,376 @@
 <!DOCTYPE html>
-<html lang="pt-5">
+<html lang="en">
 
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="Purpose Application UI is the following chapter we've finished in order to create a complete and robust solution next to the already known Purpose Website UI.">
   <meta name="author" content="Webpixels">
-  <title>Meu Perfil – Portal Mais Valor</title>
-<!-- Favicon -->
-<link rel="icon" href="../assets/img/brand/favicon.png" type="image/png">
-<!-- Font Awesome 5 -->
-<link rel="stylesheet" href="../assets/libs/@fortawesome/fontawesome-free/css/all.min.css"><!-- Page CSS -->
-<link rel="stylesheet" href="../assets/libs/fullcalendar/dist/fullcalendar.min.css">
-<!-- Purpose CSS -->
-<link rel="stylesheet" href="../assets/css/purpose.css" id="stylesheet">
+  <title>Purpose – Application UI Kit</title>
+  <!-- Favicon -->
+  <link rel="icon" href="../../assets/img/brand/favicon.png" type="image/png">
+  <!-- Font Awesome 5 -->
+  <link rel="stylesheet" href="../../assets/libs/@fortawesome/fontawesome-free/css/all.min.css"><!-- Purpose CSS -->
+  <link rel="stylesheet" href="../../assets/css/purpose.css" id="stylesheet">
 </head>
 
-<style>
-  .bg-titulo {
-
-    background-color: #93d482;
-    text-align: center;
-    font-family: -apple-system;
-    border-radius: 10px;
-  }
-
-  .bg-subtitulo {
-
-    background-color: #c0dfb8;
-    text-align: center;
-    font-family: -apple-system;
-    border-radius: 10px;
-
-  }
-</style>
-
-<!-- MODAL CONSULTA INSS-->
-
-<div class="modal fade" id="modal-consultainss" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-  aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="modal-consultainss">Consulta INSS</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <form class="form-inline">
-          <div class="form-group mx-sm-4">
-            <input type="email" class="form-control" id="buscarconsultainss" placeholder="Consulta INSS">
-          </div>
-          <button type="button" class="btn btn-primary">
-            Pesquisar
-          </button>
-
-
-        </form>
-      </div>
-
-    </div>
-  </div>
-</div>
-
-<!-- FIM MODAL CONSULTA INSS-->
-
-
-<!-- MODAL NAO PERTUBE -->
-
-<div class="modal fade modal-naopertube" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
-  aria-hidden="true">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content">
-
-      <div class="modal-header">
-        <h5 class="modal-title h6" id="myLargeModalLabel">Não Pertube</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-
-        <form>
-          <div class="form-row mx-4">
-            <div class="form-group col-md-9">
-              <input type="email" class="form-control" id="inputEmail4" placeholder="DDD e Número de Telefone">
-            </div>
-            <div class="form-group col-md-2">
-              <button type="button" class="btn btn-primary">
-                Pesquisar
-              </button>
-            </div>
-          </div>
-        </form>
-
-        <div class="bg-titulo mt-1">
-
-          <h3>
-            Informações
-
-          </h3>
-
-        </div>
-
-        <table class="table">
-          <thead>
-            <tr>
-              <th scope="col" style="text-align: center;"><b>TELEFONE</b></th>
-              <th scope="col" style="text-align: center;"><b>ORIGEM</b></th>
-              <th scope="col" style="text-align: center;"><b>EMPRESA</b></th>
-              <th scope="col" style="text-align: center;"><b>DATA INÍCIO BLOQUEIO</b></th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th style="text-align: center;">(XX) XXXXX-XXXX</th>
-              <td style="text-align: center;">XXXXXXXXXX</td>
-              <td style="text-align: center;">XXXXXXXXXX</td>
-              <td style="text-align: center;">XX/XX/XXXX</td>
-            </tr>
-            
-            
-          </tbody>
-        </table>
-
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- FINAL MODAL NAO PERTUBE-->
-
-<!-- MODAL CONSULTA AGENCIAS -->
-
-<div class="modal fade modal-consultaagencias" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
-  aria-hidden="true">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content">
-
-      <div class="modal-header">
-        <h5 class="modal-title h6" id="myLargeModalLabel">Consulta Agências</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-
-        <form>
-          <div class="form-row mx-4">
-            <div class="form-group col-md-9">
-              <input type="email" class="form-control" id="inputEmail4" placeholder="CEP">
-            </div>
-            <div class="form-group col-md-2">
-              <button type="button" class="btn btn-primary">
-                Pesquisar
-              </button>
-            </div>
-          </div>
-        </form>
-
-        <div class="bg-titulo mt-1">
-
-          <h3>
-            Agência 1
-
-          </h3>
-
-        </div>
-
-        <table class="table table-responsive">
-          <thead>
-            <tr>
-              <th scope="col" style="text-align: center;"><b>CEP</b></th>
-              <th scope="col" style="text-align: center;"><b>CÓDIGO AGÊNCIA</b></th>
-              <th scope="col" style="text-align: center;"><b>NOME AGÊNCIA</b></th>
-              <th scope="col" style="text-align: center;"><b>UF</b></th>
-              <th scope="col" style="text-align: center;"><b>ENDEREÇO</b></th>
-              <th scope="col" style="text-align: center;"><b>BAIRRO</b></th>
-              <th scope="col" style="text-align: center;"><b>CIDADE</b></th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th style="text-align: center;">(XX) XXXXX-XXXX</th>
-              <td style="text-align: center;">XXXXXXXXXX</td>
-              <td style="text-align: center;">XXXXXXXXXX</td>
-              <td style="text-align: center;">XXXXXXXXXX</td>
-              <td style="text-align: center;">XXXXXXXXXX</td>
-              <td style="text-align: center;">XXXXXXXXXX</td>
-              <td style="text-align: center;">XXXXXXXXXX</td>
-           
-            </tr>
-            
-            
-          </tbody>
-        </table>
-
-        <div class="bg-titulo mt-4">
-
-          <h3>
-            Agência 2
-
-          </h3>
-
-        </div>
-
-        <table class="table table-responsive">
-          <thead>
-            <tr>
-              <th scope="col" style="text-align: center;"><b>CEP</b></th>
-              <th scope="col" style="text-align: center;"><b>CÓDIGO AGÊNCIA</b></th>
-              <th scope="col" style="text-align: center;"><b>NOME AGÊNCIA</b></th>
-              <th scope="col" style="text-align: center;"><b>UF</b></th>
-              <th scope="col" style="text-align: center;"><b>ENDEREÇO</b></th>
-              <th scope="col" style="text-align: center;"><b>BAIRRO</b></th>
-              <th scope="col" style="text-align: center;"><b>CIDADE</b></th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th style="text-align: center;">(XX) XXXXX-XXXX</th>
-              <td style="text-align: center;">XXXXXXXXXX</td>
-              <td style="text-align: center;">XXXXXXXXXX</td>
-              <td style="text-align: center;">XXXXXXXXXX</td>
-              <td style="text-align: center;">XXXXXXXXXX</td>
-              <td style="text-align: center;">XXXXXXXXXX</td>
-              <td style="text-align: center;">XXXXXXXXXX</td>
-           
-            </tr>
-            
-            
-          </tbody>
-        </table>
-
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- FINAL MODAL CONSULTA AGENCIAS -->
-
 <body class="application application-offset">
-
+  <!-- Chat modal -->
+  <!-- Customizer modal -->
+  <div class="modal fade fixed-right" id="modal-chat" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-vertical" role="document">
+      <div class="modal-content">
+        <div class="modal-header align-items-center">
+          <div class="modal-title">
+            <h6 class="mb-0">Chat</h6>
+            <span class="d-block text-sm">3 new conversations</span>
+          </div>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="scrollbar-inner">
+          <!-- Chat contacts -->
+          <div class="list-group list-group-flush">
+            <a href="#" class="list-group-item list-group-item-action">
+              <div class="d-flex align-items-center" data-toggle="tooltip" data-placement="right" data-title="">
+                <div>
+                  <div class="avatar-parent-child">
+                    <img alt="Image placeholder" src="../../assets/img/theme/light/team-1-800x800.jpg" class="avatar  rounded-circle">
+                    <span class="avatar-child avatar-badge bg-warning"></span>
+                  </div>
+                </div>
+                <div class="flex-fill ml-3">
+                  <h6 class="text-sm mb-0">John Sullivan</h6>
+                  <p class="text-sm mb-0">
+                    Working remotely
+                  </p>
+                </div>
+              </div>
+            </a>
+            <a href="#" class="list-group-item list-group-item-action">
+              <div class="d-flex align-items-center" data-toggle="tooltip" data-placement="right" data-title="">
+                <div>
+                  <div class="avatar-parent-child">
+                    <img alt="Image placeholder" src="../../assets/img/theme/light/team-2-800x800.jpg" class="avatar  rounded-circle">
+                    <span class="avatar-child avatar-badge bg-warning"></span>
+                  </div>
+                </div>
+                <div class="flex-fill ml-3">
+                  <h6 class="text-sm mb-0">Heather Wright</h6>
+                  <p class="text-sm mb-0">
+                    Working remotely
+                  </p>
+                </div>
+              </div>
+            </a>
+            <a href="#" class="list-group-item list-group-item-action">
+              <div class="d-flex align-items-center" data-toggle="tooltip" data-placement="right" data-title="">
+                <div>
+                  <div class="avatar-parent-child">
+                    <img alt="Image placeholder" src="../../assets/img/theme/light/team-3-800x800.jpg" class="avatar  rounded-circle">
+                    <span class="avatar-child avatar-badge bg-warning"></span>
+                  </div>
+                </div>
+                <div class="flex-fill ml-3">
+                  <h6 class="text-sm mb-0">James Lewis</h6>
+                  <p class="text-sm mb-0">
+                    Working remotely
+                  </p>
+                </div>
+              </div>
+            </a>
+            <a href="#" class="list-group-item list-group-item-action">
+              <div class="d-flex align-items-center" data-toggle="tooltip" data-placement="right" data-title="">
+                <div>
+                  <div class="avatar-parent-child">
+                    <img alt="Image placeholder" src="../../assets/img/theme/light/team-4-800x800.jpg" class="avatar  rounded-circle">
+                    <span class="avatar-child avatar-badge bg-warning"></span>
+                  </div>
+                </div>
+                <div class="flex-fill ml-3">
+                  <h6 class="text-sm mb-0">Martin Gray</h6>
+                  <p class="text-sm mb-0">
+                    Working remotely
+                  </p>
+                </div>
+              </div>
+            </a>
+            <a href="#" class="list-group-item list-group-item-action">
+              <div class="d-flex align-items-center" data-toggle="tooltip" data-placement="right" data-title="">
+                <div>
+                  <div class="avatar-parent-child">
+                    <img alt="Image placeholder" src="../../assets/img/theme/light/team-5-800x800.jpg" class="avatar  rounded-circle">
+                    <span class="avatar-child avatar-badge bg-warning"></span>
+                  </div>
+                </div>
+                <div class="flex-fill ml-3">
+                  <h6 class="text-sm mb-0">John Snow</h6>
+                  <p class="text-sm mb-0">
+                    Working remotely
+                  </p>
+                </div>
+              </div>
+            </a>
+            <a href="#" class="list-group-item list-group-item-action">
+              <div class="d-flex align-items-center" data-toggle="tooltip" data-placement="right" data-title="">
+                <div>
+                  <div class="avatar-parent-child">
+                    <img alt="Image placeholder" src="../../assets/img/theme/light/team-1-800x800.jpg" class="avatar  rounded-circle">
+                    <span class="avatar-child avatar-badge bg-warning"></span>
+                  </div>
+                </div>
+                <div class="flex-fill ml-3">
+                  <h6 class="text-sm mb-0">John Michael</h6>
+                  <p class="text-sm mb-0">
+                    Working remotely
+                  </p>
+                </div>
+              </div>
+            </a>
+            <a href="#" class="list-group-item list-group-item-action">
+              <div class="d-flex align-items-center" data-toggle="tooltip" data-placement="right" data-title="">
+                <div>
+                  <div class="avatar-parent-child">
+                    <img alt="Image placeholder" src="../../assets/img/theme/light/team-2-800x800.jpg" class="avatar  rounded-circle">
+                    <span class="avatar-child avatar-badge bg-warning"></span>
+                  </div>
+                </div>
+                <div class="flex-fill ml-3">
+                  <h6 class="text-sm mb-0">Monroe Parker</h6>
+                  <p class="text-sm mb-0">
+                    Working remotely
+                  </p>
+                </div>
+              </div>
+            </a>
+            <a href="#" class="list-group-item list-group-item-action">
+              <div class="d-flex align-items-center" data-toggle="tooltip" data-placement="right" data-title="">
+                <div>
+                  <div class="avatar-parent-child">
+                    <img alt="Image placeholder" src="../../assets/img/theme/light/team-3-800x800.jpg" class="avatar  rounded-circle">
+                    <span class="avatar-child avatar-badge bg-warning"></span>
+                  </div>
+                </div>
+                <div class="flex-fill ml-3">
+                  <h6 class="text-sm mb-0">Danielle Levin</h6>
+                  <p class="text-sm mb-0">
+                    Working remotely
+                  </p>
+                </div>
+              </div>
+            </a>
+            <a href="#" class="list-group-item list-group-item-action">
+              <div class="d-flex align-items-center" data-toggle="tooltip" data-placement="right" data-title="">
+                <div>
+                  <div class="avatar-parent-child">
+                    <img alt="Image placeholder" src="../../assets/img/theme/light/team-4-800x800.jpg" class="avatar  rounded-circle">
+                    <span class="avatar-child avatar-badge bg-warning"></span>
+                  </div>
+                </div>
+                <div class="flex-fill ml-3">
+                  <h6 class="text-sm mb-0">Jesse Stevens</h6>
+                  <p class="text-sm mb-0">
+                    Working remotely
+                  </p>
+                </div>
+              </div>
+            </a>
+            <a href="#" class="list-group-item list-group-item-action">
+              <div class="d-flex align-items-center" data-toggle="tooltip" data-placement="right" data-title="">
+                <div>
+                  <div class="avatar-parent-child">
+                    <img alt="Image placeholder" src="../../assets/img/theme/light/team-5-800x800.jpg" class="avatar  rounded-circle">
+                    <span class="avatar-child avatar-badge bg-warning"></span>
+                  </div>
+                </div>
+                <div class="flex-fill ml-3">
+                  <h6 class="text-sm mb-0">John Snow</h6>
+                  <p class="text-sm mb-0">
+                    Working remotely
+                  </p>
+                </div>
+              </div>
+            </a>
+            <a href="#" class="list-group-item list-group-item-action">
+              <div class="d-flex align-items-center" data-toggle="tooltip" data-placement="right" data-title="">
+                <div>
+                  <div class="avatar-parent-child">
+                    <img alt="Image placeholder" src="../../assets/img/theme/light/team-1-800x800.jpg" class="avatar  rounded-circle">
+                    <span class="avatar-child avatar-badge bg-warning"></span>
+                  </div>
+                </div>
+                <div class="flex-fill ml-3">
+                  <h6 class="text-sm mb-0">John Sullivan</h6>
+                  <p class="text-sm mb-0">
+                    Working remotely
+                  </p>
+                </div>
+              </div>
+            </a>
+            <a href="#" class="list-group-item list-group-item-action">
+              <div class="d-flex align-items-center" data-toggle="tooltip" data-placement="right" data-title="">
+                <div>
+                  <div class="avatar-parent-child">
+                    <img alt="Image placeholder" src="../../assets/img/theme/light/team-2-800x800.jpg" class="avatar  rounded-circle">
+                    <span class="avatar-child avatar-badge bg-warning"></span>
+                  </div>
+                </div>
+                <div class="flex-fill ml-3">
+                  <h6 class="text-sm mb-0">Heather Wright</h6>
+                  <p class="text-sm mb-0">
+                    Working remotely
+                  </p>
+                </div>
+              </div>
+            </a>
+            <a href="#" class="list-group-item list-group-item-action">
+              <div class="d-flex align-items-center" data-toggle="tooltip" data-placement="right" data-title="">
+                <div>
+                  <div class="avatar-parent-child">
+                    <img alt="Image placeholder" src="../../assets/img/theme/light/team-3-800x800.jpg" class="avatar  rounded-circle">
+                    <span class="avatar-child avatar-badge bg-warning"></span>
+                  </div>
+                </div>
+                <div class="flex-fill ml-3">
+                  <h6 class="text-sm mb-0">James Lewis</h6>
+                  <p class="text-sm mb-0">
+                    Working remotely
+                  </p>
+                </div>
+              </div>
+            </a>
+            <a href="#" class="list-group-item list-group-item-action">
+              <div class="d-flex align-items-center" data-toggle="tooltip" data-placement="right" data-title="">
+                <div>
+                  <div class="avatar-parent-child">
+                    <img alt="Image placeholder" src="../../assets/img/theme/light/team-4-800x800.jpg" class="avatar  rounded-circle">
+                    <span class="avatar-child avatar-badge bg-warning"></span>
+                  </div>
+                </div>
+                <div class="flex-fill ml-3">
+                  <h6 class="text-sm mb-0">Martin Gray</h6>
+                  <p class="text-sm mb-0">
+                    Working remotely
+                  </p>
+                </div>
+              </div>
+            </a>
+            <a href="#" class="list-group-item list-group-item-action">
+              <div class="d-flex align-items-center" data-toggle="tooltip" data-placement="right" data-title="">
+                <div>
+                  <div class="avatar-parent-child">
+                    <img alt="Image placeholder" src="../../assets/img/theme/light/team-5-800x800.jpg" class="avatar  rounded-circle">
+                    <span class="avatar-child avatar-badge bg-warning"></span>
+                  </div>
+                </div>
+                <div class="flex-fill ml-3">
+                  <h6 class="text-sm mb-0">John Snow</h6>
+                  <p class="text-sm mb-0">
+                    Working remotely
+                  </p>
+                </div>
+              </div>
+            </a>
+            <a href="#" class="list-group-item list-group-item-action">
+              <div class="d-flex align-items-center" data-toggle="tooltip" data-placement="right" data-title="">
+                <div>
+                  <div class="avatar-parent-child">
+                    <img alt="Image placeholder" src="../../assets/img/theme/light/team-1-800x800.jpg" class="avatar  rounded-circle">
+                    <span class="avatar-child avatar-badge bg-warning"></span>
+                  </div>
+                </div>
+                <div class="flex-fill ml-3">
+                  <h6 class="text-sm mb-0">John Michael</h6>
+                  <p class="text-sm mb-0">
+                    Working remotely
+                  </p>
+                </div>
+              </div>
+            </a>
+            <a href="#" class="list-group-item list-group-item-action">
+              <div class="d-flex align-items-center" data-toggle="tooltip" data-placement="right" data-title="">
+                <div>
+                  <div class="avatar-parent-child">
+                    <img alt="Image placeholder" src="../../assets/img/theme/light/team-2-800x800.jpg" class="avatar  rounded-circle">
+                    <span class="avatar-child avatar-badge bg-warning"></span>
+                  </div>
+                </div>
+                <div class="flex-fill ml-3">
+                  <h6 class="text-sm mb-0">Monroe Parker</h6>
+                  <p class="text-sm mb-0">
+                    Working remotely
+                  </p>
+                </div>
+              </div>
+            </a>
+            <a href="#" class="list-group-item list-group-item-action">
+              <div class="d-flex align-items-center" data-toggle="tooltip" data-placement="right" data-title="">
+                <div>
+                  <div class="avatar-parent-child">
+                    <img alt="Image placeholder" src="../../assets/img/theme/light/team-3-800x800.jpg" class="avatar  rounded-circle">
+                    <span class="avatar-child avatar-badge bg-warning"></span>
+                  </div>
+                </div>
+                <div class="flex-fill ml-3">
+                  <h6 class="text-sm mb-0">Danielle Levin</h6>
+                  <p class="text-sm mb-0">
+                    Working remotely
+                  </p>
+                </div>
+              </div>
+            </a>
+            <a href="#" class="list-group-item list-group-item-action">
+              <div class="d-flex align-items-center" data-toggle="tooltip" data-placement="right" data-title="">
+                <div>
+                  <div class="avatar-parent-child">
+                    <img alt="Image placeholder" src="../../assets/img/theme/light/team-4-800x800.jpg" class="avatar  rounded-circle">
+                    <span class="avatar-child avatar-badge bg-warning"></span>
+                  </div>
+                </div>
+                <div class="flex-fill ml-3">
+                  <h6 class="text-sm mb-0">Jesse Stevens</h6>
+                  <p class="text-sm mb-0">
+                    Working remotely
+                  </p>
+                </div>
+              </div>
+            </a>
+            <a href="#" class="list-group-item list-group-item-action">
+              <div class="d-flex align-items-center" data-toggle="tooltip" data-placement="right" data-title="">
+                <div>
+                  <div class="avatar-parent-child">
+                    <img alt="Image placeholder" src="../../assets/img/theme/light/team-5-800x800.jpg" class="avatar  rounded-circle">
+                    <span class="avatar-child avatar-badge bg-warning"></span>
+                  </div>
+                </div>
+                <div class="flex-fill ml-3">
+                  <h6 class="text-sm mb-0">John Snow</h6>
+                  <p class="text-sm mb-0">
+                    Working remotely
+                  </p>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="modal-footer py-3 mt-auto">
+          <a href="#" class="btn btn-block btn-sm btn-neutral btn-icon rounded-pill">
+            <span class="btn-inner--icon"><i class="fab fa-facebook-messenger"></i></span>
+            <span class="btn-inner--text">Open Chat</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
   <!-- Application container -->
   <div class="container-fluid container-application">
     <!-- Sidenav -->
     <div class="sidenav" id="sidenav-main">
       <!-- Sidenav header -->
       <div class="sidenav-header d-flex align-items-center">
-        <a class="navbar-brand" href="../index.html">
-          <img src="../assets/img/brand/white1 copy.png" class="navbar-brand-img" alt="..."
-            style="height: 55px; right: 70px;">
+        <a class="navbar-brand" href="../../index.html">
+          <img src="../../assets/img/brand/white.png" class="navbar-brand-img" alt="...">
         </a>
         <div class="ml-auto">
           <!-- Sidenav toggler -->
@@ -269,14 +388,14 @@
         <!-- Avatar -->
         <div>
           <a href="#" class="avatar rounded-circle avatar-xl">
-            <img alt="Image placeholder" src="../assets/img/theme/light/team-1-800x800.jpg" class="">
+            <img alt="Image placeholder" src="../../assets/img/theme/light/team-1-800x800.jpg" class="">
           </a>
           <div class="mt-4">
-            <h5 class="mb-0 text-white">Jucleia Silva</h5>
-            <span class="d-block text-sm text-white opacity-8 mb-3">Promotor</span>
+            <h5 class="mb-0 text-white">Heather Parker</h5>
+            <span class="d-block text-sm text-white opacity-8 mb-3">Web Architect</span>
             <a href="#" class="btn btn-sm btn-white btn-icon rounded-pill shadow hover-translate-y-n3">
               <span class="btn-inner--icon"><i class="fas fa-coins"></i></span>
-              <span class="btn-inner--text">R$ 30.300,78</span>
+              <span class="btn-inner--text">$2.300</span>
             </a>
           </div>
         </div>
@@ -295,41 +414,50 @@
         </div>
       </div>
       <!-- Application nav -->
-
       <div class="nav-application clearfix">
-        <a href="../paginas/home.html" class="btn btn-square text-sm active">
+        <a href="../../application/home.html" class="btn btn-square text-sm">
           <span class="btn-inner--icon d-block"><i class="fas fa-home fa-2x"></i></span>
           <span class="btn-inner--icon d-block pt-2">Home</span>
         </a>
-        <a href="../paginas/propostas.html" class="btn btn-square text-sm">
-          <span class="btn-inner--icon d-block"> <i class="fas fa-file-invoice-dollar fa-2x"></i></span>
-          <span class="btn-inner--icon d-block pt-2">Propostas</span>
+        <a href="../../application/project/card-listing.html" class="btn btn-square text-sm">
+          <span class="btn-inner--icon d-block"><i class="fas fa-project-diagram fa-2x"></i></span>
+          <span class="btn-inner--icon d-block pt-2">Projects</span>
         </a>
-        <a href="../paginas/comissao.html" class="btn btn-square text-sm">
-          <span class="btn-inner--icon d-block"><i class="fas fa-money-bill-wave fa-2x"></i></span>
-          <span class="btn-inner--icon d-block pt-2">Comissão</span>
+        <a href="../../application/task/table-listing.html" class="btn btn-square text-sm">
+          <span class="btn-inner--icon d-block"><i class="fas fa-tasks fa-2x"></i></span>
+          <span class="btn-inner--icon d-block pt-2">Tasks</span>
         </a>
-
-        <a href="../application/user/card-listing.html" class="btn btn-square text-sm">
-          <span class="btn-inner--icon d-block"><i class="fas fa-exclamation-triangle fa-2x"></i></span>
-          <span class="btn-inner--icon d-block pt-2">Pendências</span>
+        <a href="../../application/task/kanban-board.html" class="btn btn-square text-sm">
+          <span class="btn-inner--icon d-block"><i class="fas fa-columns fa-2x"></i></span>
+          <span class="btn-inner--icon d-block pt-2">Kanban</span>
         </a>
-
-        <a href="../paginas/treinamentos.html" class="btn btn-square text-sm">
-          <span class="btn-inner--icon d-block"><i class="fas fa-user-graduate fa-2x"></i></span>
-          <span class="btn-inner--icon d-block pt-2">Treinamentos</span>
+        <a href="../../application/user/card-listing.html" class="btn btn-square text-sm">
+          <span class="btn-inner--icon d-block"><i class="fas fa-users-cog fa-2x"></i></span>
+          <span class="btn-inner--icon d-block pt-2">Users</span>
         </a>
-
-        <a href="../paginas/comunicados.html" class="btn btn-square text-sm">
-          <span class="btn-inner--icon d-block"><i class="fas fa-bookmark fa-2x"></i></span>
-          <span class="btn-inner--icon d-block pt-2">Comunicados</span>
+        <a href="../../application/user/profile.html" class="btn btn-square text-sm active">
+          <span class="btn-inner--icon d-block"><i class="fas fa-user-ninja fa-2x"></i></span>
+          <span class="btn-inner--icon d-block pt-2">Profile</span>
         </a>
-        <a href="../paginas/cadastro.html" class="btn btn-square text-sm">
-          <span class="btn-inner--icon d-block"><i class="fas fa-user-plus fa-2x"></i></span>
-          <span class="btn-inner--icon d-block pt-2">Cadastro</span>
+        <a href="../../application/shop/invoices.html" class="btn btn-square text-sm">
+          <span class="btn-inner--icon d-block"><i class="fas fa-receipt fa-2x"></i></span>
+          <span class="btn-inner--icon d-block pt-2">Invoices</span>
+        </a>
+        <a href="../../application/widgets.html" class="btn btn-square text-sm">
+          <span class="btn-inner--icon d-block"><i class="fas fa-cogs fa-2x"></i></span>
+          <span class="btn-inner--icon d-block pt-2">Widgets</span>
         </a>
       </div>
-
+      <!-- Misc area -->
+      <div class="card bg-gradient-warning">
+        <div class="card-body">
+          <h5 class="text-white">Hello, Friend!</h5>
+          <p class="text-white mb-4">
+            Why not start using Purpose Application UI Kit and create something amazing today?
+          </p>
+          <a href="https://themes.getbootstrap.com/product/purpose-application-ui-kit/" class="btn btn-sm btn-block btn-white rounded-pill" target="_blank">Get started</a>
+        </div>
+      </div>
     </div>
     <!-- Content -->
     <div class="main-content position-relative">
@@ -905,7 +1033,7 @@
             <div class="col-md-6 d-flex align-items-center justify-content-between justify-content-md-start mb-3 mb-md-0">
               <!-- Page title + Go Back button -->
               <div class="d-inline-block">
-                <h5 class="h4 d-inline-block font-weight-400 mb-0 text-white">Meu Perfil</h5>
+                <h5 class="h4 d-inline-block font-weight-400 mb-0 text-white">My profile</h5>
               </div>
               <!-- Additional info -->
             </div>
@@ -922,7 +1050,7 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-lg-12">
+          <div class="col-lg-4">
             <!-- Profile stats -->
             <div class="card card-fluid">
               <div class="card-header">
@@ -940,13 +1068,7 @@
                   <div class="col-auto">
                     <button type="button" class="btn btn-xs btn-primary btn-icon rounded-pill">
                       <span class="btn-inner--icon"><i class="fas fa-edit"></i></span>
-                      <span class="btn-inner--text">Alterar Senha</span>
-                    </button>
-                  </div>
-                  <div class="col-auto">
-                    <button type="button" class="btn btn-xs btn-primary btn-icon rounded-pill">
-                      <span class="btn-inner--icon"><i class="fas fa-edit"></i></span>
-                      <span class="btn-inner--text">Alterar Avatar</span>
+                      <span class="btn-inner--text">Edit</span>
                     </button>
                   </div>
                 </div>
@@ -955,15 +1077,27 @@
                 <div class="row">
                   <div class="col-4 text-center">
                     <span class="h5 mb-0">86</span>
-                    <span class="d-block text-sm">Total</span>
+                    <span class="d-block text-sm">Images</span>
                   </div>
                   <div class="col-4 text-center">
                     <span class="h5 mb-0">8</span>
-                    <span class="d-block text-sm">Total</span>
+                    <span class="d-block text-sm">Products</span>
                   </div>
                   <div class="col-4 text-center">
                     <span class="h5 mb-0">1578</span>
-                    <span class="d-block text-sm">Total</span>
+                    <span class="d-block text-sm">Followers</span>
+                  </div>
+                </div>
+              </div>
+              <div class="card-footer">
+                <div class="row align-items-center">
+                  <div class="col-6">
+                    <button type="button" class="btn btn-sm px-0 font-weight-bold btn-link text-primary btn-icon">
+                      Message
+                    </button>
+                  </div>
+                  <div class="col-6 text-right">
+                    <button type="button" class="btn btn-xs btn-secondary rounded-pill">Follow</button>
                   </div>
                 </div>
               </div>
@@ -1019,7 +1153,7 @@
               </div>
             </div>
           </div>
-          <div class="col-lg-8">
+          <div class="col-lg-4">
             <!-- Profile performance -->
             <div class="card card-fluid">
               <div class="card-body">
@@ -1066,8 +1200,18 @@
           </div>
         </div>
         <div class="row">
-
           <div class="col-xl-4 col-md-6">
+            <div class="card card-fluid">
+              <div class="card-header">
+                <h6 class="mb-0">Worked hours</h6>
+              </div>
+              <div class="card-body">
+                <!-- Chart -->
+                <div id="apex-worked-hours" data-color="primary" data-height="280"></div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-8 col-md-6">
             <div class="card card-fluid">
               <div class="card-header border-0">
                 <h6 class="mb-0">My projects</h6>
@@ -1212,23 +1356,149 @@
               </div>
             </div>
           </div>
-
-          <div class="col-xl-8 col-md-6">
+        </div>
+        <div class="row">
+          <div class="col-lg-4">
+            <!-- Profile storage -->
             <div class="card card-fluid">
               <div class="card-header">
-                <h6 class="mb-0">Worked hours</h6>
+                <h6 class="mb-0">Cloud storage</h6>
               </div>
               <div class="card-body">
-                <!-- Chart -->
-                <div id="apex-worked-hours" data-color="primary" data-height="280"></div>
+                <div class="progress-circle progress-lg mx-auto" id="progress-circle-1" data-progress="35" data-text="35%" data-color="warning"></div>
+                <div class="d-flex my-4 px-5">
+                  <div class="col">
+                    <span class="badge badge-dot badge-lg h6">
+                      <i class="bg-success"></i>4TB
+                    </span>
+                    <small class="d-block text-muted">Total storage</small>
+                  </div>
+                  <div class="col">
+                    <span class="badge badge-dot badge-lg h6">
+                      <i class="bg-warning"></i>875GB
+                    </span>
+                    <small class="d-block text-muted">Used storage</small>
+                  </div>
+                </div>
+                <a href="#" class="btn btn-block btn-secondary">Upgrade storage</a>
               </div>
             </div>
           </div>
-       
-        </div>
-        <div class="row">
- 
-          <div class="col-lg-12">
+          <div class="col-lg-4">
+            <div class="card card-fluid">
+              <div class="card-header">
+                <div class="d-flex justify-content-between align-items-center">
+                  <div>
+                    <h6 class="mb-0">Recent files</h6>
+                  </div>
+                  <div class="text-right">
+                    <div class="actions">
+                      <a href="#" class="action-item"><i class="fas fa-sync"></i></a>
+                      <div class="dropdown action-item" data-toggle="dropdown">
+                        <a href="#" class="action-item"><i class="fas fa-ellipsis-h"></i></a>
+                        <div class="dropdown-menu dropdown-menu-right">
+                          <a href="#" class="dropdown-item">Refresh</a>
+                          <a href="#" class="dropdown-item">Manage Widgets</a>
+                          <a href="#" class="dropdown-item">Settings</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card-wrapper p-3">
+                <!-- Files -->
+                <div class="card mb-3 border shadow-none">
+                  <div class="px-3 py-3">
+                    <div class="row align-items-center">
+                      <div class="col-auto">
+                        <img alt="Image placeholder" src="../../assets/img/icons/files/pdf.png" class="img-fluid" style="width: 40px;">
+                      </div>
+                      <div class="col ml-n2">
+                        <h6 class="text-sm mb-0">
+                          <a href="#!">design-principles.pdf</a>
+                        </h6>
+                        <p class="card-text small text-muted">
+                          189 KB
+                        </p>
+                      </div>
+                      <div class="col-auto actions">
+                        <div class="dropdown" data-toggle="dropdown">
+                          <a href="#" class="action-item" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fas fa-ellipsis-h"></i>
+                          </a>
+                          <div class="dropdown-menu dropdown-menu-right">
+                            <a href="#" class="dropdown-item">Refresh</a>
+                            <a href="#" class="dropdown-item">Manage Widgets</a>
+                            <a href="#" class="dropdown-item">Settings</a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="card mb-3 border shadow-none">
+                  <div class="px-3 py-3">
+                    <div class="row align-items-center">
+                      <div class="col-auto">
+                        <img alt="Image placeholder" src="../../assets/img/icons/files/psd.png" class="img-fluid" style="width: 40px;">
+                      </div>
+                      <div class="col ml-n2">
+                        <h6 class="text-sm mb-0">
+                          <a href="#!">website-wireframe.psd</a>
+                        </h6>
+                        <p class="card-text small text-muted">
+                          45.9 MB
+                        </p>
+                      </div>
+                      <div class="col-auto actions">
+                        <div class="dropdown" data-toggle="dropdown">
+                          <a href="#" class="action-item" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fas fa-ellipsis-h"></i>
+                          </a>
+                          <div class="dropdown-menu dropdown-menu-right">
+                            <a href="#" class="dropdown-item">Refresh</a>
+                            <a href="#" class="dropdown-item">Manage Widgets</a>
+                            <a href="#" class="dropdown-item">Settings</a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="card mb-3 border shadow-none">
+                  <div class="px-3 py-3">
+                    <div class="row align-items-center">
+                      <div class="col-auto">
+                        <img alt="Image placeholder" src="../../assets/img/icons/files/doc.png" class="img-fluid" style="width: 40px;">
+                      </div>
+                      <div class="col ml-n2">
+                        <h6 class="text-sm mb-0">
+                          <a href="#!">product-guidelines.doc</a>
+                        </h6>
+                        <p class="card-text small text-muted">
+                          87 KB
+                        </p>
+                      </div>
+                      <div class="col-auto actions">
+                        <div class="dropdown" data-toggle="dropdown">
+                          <a href="#" class="action-item" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fas fa-ellipsis-h"></i>
+                          </a>
+                          <div class="dropdown-menu dropdown-menu-right">
+                            <a href="#" class="dropdown-item">Refresh</a>
+                            <a href="#" class="dropdown-item">Manage Widgets</a>
+                            <a href="#" class="dropdown-item">Settings</a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4">
             <!-- Project status -->
             <div class="card card-fluid">
               <div class="card-header">
@@ -1236,7 +1506,7 @@
               </div>
               <div class="card-body">
                 <div class="row mb-3">
-                  <div class="col-11">
+                  <div class="col-9">
                     <div class="progress-wrapper">
                       <span class="progress-label text-muted text-sm">Logo design</span>
                       <div class="progress mt-1 mb-2" style="height: 5px;">
@@ -1244,12 +1514,12 @@
                       </div>
                     </div>
                   </div>
-                  <div class="col-1 align-self-end text-right">
+                  <div class="col-3 align-self-end text-right">
                     <span class="h6 mb-0">40%</span>
                   </div>
                 </div>
                 <div class="row mb-3">
-                  <div class="col-11">
+                  <div class="col-9">
                     <div class="progress-wrapper">
                       <span class="progress-label text-muted text-sm">Website mockup</span>
                       <div class="progress mt-1 mb-2" style="height: 5px;">
@@ -1257,12 +1527,12 @@
                       </div>
                     </div>
                   </div>
-                  <div class="col-1 align-self-end text-right">
+                  <div class="col-3 align-self-end text-right">
                     <span class="h6 mb-0">67%</span>
                   </div>
                 </div>
                 <div class="row mb-3">
-                  <div class="col-11">
+                  <div class="col-9">
                     <div class="progress-wrapper">
                       <span class="progress-label text-muted text-sm">Landing page</span>
                       <div class="progress mt-1 mb-2" style="height: 5px;">
@@ -1270,12 +1540,12 @@
                       </div>
                     </div>
                   </div>
-                  <div class="col-1 align-self-end text-right">
+                  <div class="col-3 align-self-end text-right">
                     <span class="h6 mb-0">89%</span>
                   </div>
                 </div>
                 <div class="row mb-3">
-                  <div class="col-11">
+                  <div class="col-9">
                     <div class="progress-wrapper">
                       <span class="progress-label text-muted text-sm">Mobile testing</span>
                       <div class="progress mt-1 mb-2" style="height: 5px;">
@@ -1283,12 +1553,12 @@
                       </div>
                     </div>
                   </div>
-                  <div class="col-1 align-self-end text-right">
+                  <div class="col-3 align-self-end text-right">
                     <span class="h6 mb-0">55%</span>
                   </div>
                 </div>
                 <div class="row">
-                  <div class="col-11">
+                  <div class="col-9">
                     <div class="progress-wrapper">
                       <span class="progress-label text-muted text-sm">Theme launch</span>
                       <div class="progress mt-1 mb-2" style="height: 5px;">
@@ -1296,7 +1566,7 @@
                       </div>
                     </div>
                   </div>
-                  <div class="col-1 align-self-end text-right">
+                  <div class="col-3 align-self-end text-right">
                     <span class="h6 mb-0">99%</span>
                   </div>
                 </div>
