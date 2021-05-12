@@ -132,7 +132,7 @@ buscar.addEventListener('click', () => {
         node.removeChild(node.lastChild);
     }
 
-    const produto = document.getElementById('campo-produto').value;
+    const produto = document.getElementById('campo_produto').value;
     const banco = document.getElementById('campo-banco').value;
     const tipo = document.getElementById('campo-tipo').value;
     const status = document.getElementById('campo-status').value;
