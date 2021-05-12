@@ -1494,7 +1494,7 @@
                                     <div class="form-row">
                                         <div class="col-md-3 mb-3">
                                             <label for="validationCustom01">Venda</label>
-                                            <select class="form-control form-control-sm" id="status">
+                                            <select class="form-control form-control-sm" id="campo-venda">
                                                 <option> </option>
 
 
@@ -1503,18 +1503,20 @@
                                         </div>
                                         <div class="col-md-3 mb-3">
                                             <label for="validationCustom01">Data Proposta</label>
-                                            <input type="date" class="form-control form-control-sm">
+                                            <input type="text" class="form-control form-control-sm" id="campo-data-proposta"
+                                            onKeyDown="fMasc( this, data );" maxlength="10">
                                             </input>
 
                                         </div>
                                         <div class="col-md-3 mb-3">
                                             <label for="validationCustom01">CPF</label>
-                                            <input type="date" class="form-control form-control-sm">
+                                            <input type="text" class="form-control form-control-sm" id="campo-cpf"
+                                            onkeypress='mascaraMutuario(this,cpfCnpj)' maxlength="14">
                                             </input>
                                         </div>
                                         <div class="col-md-3 mb-3">
                                             <label for="validationCustom01">Proposta</label>
-                                            <input type="date" class="form-control form-control-sm">
+                                            <input type="text" class="form-control form-control-sm" id="campo-proposta">
                                             </input>
                                         </div>
 
@@ -1524,9 +1526,8 @@
                                         <div class="col-md-3 mb-0">
                                             <div class="form-group">
                                                 <label for="exampleFormControlSelect1">Mês</label>
-                                                <select class="form-control form-control-sm" id="status">
+                                                <select class="form-control form-control-sm" id="campo-mes">
                                                     <option> </option>
-
 
                                                 </select>
                                             </div>
@@ -1535,7 +1536,7 @@
                                         <div class="col-md-3 mb-0">
                                             <div class="form-group">
                                                 <label for="exampleFormControlSelect1">Operador</label>
-                                                <select class="form-control form-control-sm" id="status">
+                                                <select class="form-control form-control-sm" id="campo-operador">
                                                     <option> </option>
 
 
@@ -1546,7 +1547,7 @@
                                         <div class="col-md-3 mb-0">
                                             <div class="form-group">
                                                 <label for="exampleFormControlSelect1">Supervisor</label>
-                                                <select class="form-control form-control-sm" id="status">
+                                                <select class="form-control form-control-sm" id="campo-supervisor">
                                                     <option> </option>
 
 
@@ -1557,7 +1558,7 @@
                                         <div class="col-md-3 mb-0">
                                             <div class="form-group">
                                                 <label for="exampleFormControlSelect1">Status Auditoria</label>
-                                                <select class="form-control form-control-sm" id="status">
+                                                <select class="form-control form-control-sm" id="campo-auditoria">
                                                     <option> </option>
 
 
@@ -1571,7 +1572,7 @@
                                         <div class="col-md-3 mb-3">
                                             <div class="form-group">
                                                 <label for="exampleFormControlSelect1">Tipo</label>
-                                                <select class="form-control form-control-sm" id="status">
+                                                <select class="form-control form-control-sm" id="campo-tipo">
                                                     <option> </option>
 
 
@@ -1582,15 +1583,18 @@
                                         <div class="col-md-3 mb-3">
                                             <div class="form-group">
                                                 <label for="exampleFormControlSelect1">Data Inclusão</label>
-                                                <input type="date" class="form-control form-control-sm">
+                                                <input type="text" class="form-control form-control-sm" id="campo-data-inclusao"
+                                                onKeyDown="fMasc( this, data );" maxlength="10">
                                                 </input>
+                                                
                                             </div>
 
                                         </div>
                                         <div class="col-md-3 mb-3">
                                             <div class="form-group">
                                                 <label for="exampleFormControlSelect1">Data Auditoria</label>
-                                                <input type="date" class="form-control form-control-sm">
+                                                <input type="text" class="form-control form-control-sm" id="campo-data-auditoria"
+                                                onKeyDown="fMasc( this, data );" maxlength="10">
                                                 </input>
                                             </div>
 
@@ -1598,7 +1602,7 @@
                                         <div class="col-md-3 mb-3">
                                             <div class="form-group">
                                                 <label for="exampleFormControlSelect1">Status Proposta</label>
-                                                <select class="form-control form-control-sm" id="status">
+                                                <select class="form-control form-control-sm" id="campo-status-proposta">
                                                     <option> </option>
 
 
@@ -1611,7 +1615,7 @@
                                     </div>
 
                                     <div class="opcoes-cadastro" style="text-align: center; margin-inline: block;">
-                                        <button type="button" class="btn btn-primary btn-icon-label">
+                                        <button type="button" class="btn btn-primary btn-icon-label" id="btn-buscar">
                                             <span class="btn-inner--icon">
                                                 <i class="fas fa-search"></i>
                                             </span>
@@ -1619,8 +1623,8 @@
                                         </button>
 
 
-                                        <button type="button" class="btn btn-primary btn-icon-label"
-                                            id="apagarFiltrosCadastro">
+                                        <button type="reset" class="btn btn-primary btn-icon-label"
+                                            id="btn-apagar">
                                             <span class="btn-inner--icon">
                                                 <i class="fas fa-trash-alt"></i>
                                             </span>
@@ -1701,10 +1705,10 @@
 
                                                 <td class="text-right" style="text-align: center;">
                                                     <!-- Actions -->
-                                                    <div class="actions ml-3" style="text-align: center;">
+                                                    <div class="actions ml-3" style="text-align: center;" id="div-visualisar">
                                                         <a href="#" class="action-item mr-2 " data-toggle="modal"
                                                             data-target=".modalvisualizaraudit" title="Visualizar"
-                                                            id="#">
+                                                            id="visualizar">
                                                             <i class="fas fa-eye"></i>
                                                         </a>
 
@@ -1713,10 +1717,10 @@
 
                                                 <td class="text-right" style="text-align: center;">
                                                     <!-- Actions -->
-                                                    <div class="actions ml-3" style="text-align: center;">
+                                                    <div class="actions ml-3" style="text-align: center;" id="div-auditar-proposta">
                                                         <a href="#" class="action-item mr-2 " data-toggle="modal"
                                                             data-target=".modalvisualizaraudit" title="Auditar Proposta"
-                                                            id="#">
+                                                            id="auditar-proposta">
                                                             <i class="fas fa-share-square"></i>
                                                         </a>
 
@@ -1764,14 +1768,8 @@
     <script src="../assets/js/demo.js"></script>
     <!-- AJAX -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <script src="../assets/js/siglae.js"></script>
-    <script src="../assets/js/comissao.js"></script>
-    <script src="../assets/js/cadastro.js"></script>
 
-    <!-- <script src="../assets/js/cadastropesquisar.js"></script> -->
-    <script src="../assets/js/acesso.js"></script>
-
-
+    <script src="../assets/js/Auditoria.js"></script>
 </body>
 
 </html>
