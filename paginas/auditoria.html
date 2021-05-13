@@ -102,7 +102,7 @@
 
                                 <div class="col-md-4 mb-3">
                                     <label for="validationCustom01">Status Auditoria</label>
-                                    <select class="form-control form-control-sm" id="exampleFormControlSelect1">
+                                    <select class="form-control form-control-sm" id="campo-status-auditoria">
                                         <option> </option>
 
                                     </select>
@@ -110,7 +110,7 @@
                                 </div>
                                 <div class="col-md-4 mb-3">
                                     <label for="validationCustom01">Falta</label>
-                                    <select class="form-control form-control-sm" id="exampleFormControlSelect1">
+                                    <select class="form-control form-control-sm" id="campo-falta">
                                         <option> </option>
 
                                     </select>
@@ -118,7 +118,7 @@
                                 </div>
                                 <div class="col-md-4 mb-3">
                                     <label for="validationCustom01">Tipo Falta</label>
-                                    <select class="form-control form-control-sm" id="exampleFormControlSelect1">
+                                    <select class="form-control form-control-sm" id="campo-tipo-falta">
                                         <option> </option>
 
                                     </select>
@@ -126,7 +126,7 @@
                                 </div>
                                 <div class="col-md-12 mb-3">
                                     <label for="validationCustom01">Sub-Status</label>
-                                    <select class="form-control form-control-sm" id="exampleFormControlSelect1">
+                                    <select class="form-control form-control-sm" id="campo-sub-status">
                                         <option> </option>
 
                                     </select>
@@ -135,7 +135,7 @@
                                 <div class="col-md-12 mb-3">
                                     <div class="observacao mt-1" style="text-align: center;">
                                         <label for="exampleFormControlSelect1">Observação Auditoria</label>
-                                        <textarea class="form-control" placeholder="" rows="4"></textarea>
+                                        <textarea class="form-control" placeholder="" rows="4" id="campo-obs-auditoria"></textarea>
                                     </div>
 
                                 </div>
@@ -161,29 +161,29 @@
 
                                 <div class="col-md-3 mb-3">
                                     <label for="validationCustom01">Número da Proposta</label>
-                                    <input type="text" class="form-control form-control-sm" id="validationCustom01"
-                                        required>
+                                    <input type="text" class="form-control form-control-sm" id="campo-numero-proposta"
+                                    onKeyDown="fMasc( this, nContrtato );"  required>
 
                                 </div>
 
                                 <div class="col-md-3 mb-3">
                                     <label for="validationCustom01">Data Venda</label>
-                                    <input type="text" class="form-control form-control-sm" id="validationCustom01"
-                                        required>
+                                    <input type="text" class="form-control form-control-sm" id="campo-data-venda"
+                                    onKeyDown="fMasc( this, data );" maxlength="10"  required>
 
                                 </div>
 
                                 <div class="col-md-3 mb-3">
                                     <label for="validationCustom01">Mês Referencia</label>
-                                    <input type="text" class="form-control form-control-sm" id="validationCustom01"
+                                    <input type="text" class="form-control form-control-sm" id="campo-mes-referencia"
                                         required>
 
                                 </div>
 
                                 <div class="col-md-3 mb-3">
                                     <label for="validationCustom01">Status</label>
-                                    <select class="form-control form-control-sm" id="exampleFormControlSelect1">
-                                        <option> </option>
+                                    <select class="form-control form-control-sm" id="campo-status">
+                                        <option value=""> </option>
 
                                     </select>
 
@@ -191,7 +191,7 @@
 
                                 <div class="col-md-3 mb-3">
                                     <label for="validationCustom01">Linha de Crédito</label>
-                                    <select class="form-control form-control-sm" id="exampleFormControlSelect1">
+                                    <select class="form-control form-control-sm" id="campo-linha-credito">
                                         <option> </option>
 
                                     </select>
@@ -200,42 +200,42 @@
 
                                 <div class="col-md-3 mb-3">
                                     <label for="validationCustom01">Valor Proposta</label>
-                                    <input type="text" class="form-control form-control-sm" id="validationCustom01"
-                                        required>
+                                    <input type="text" class="form-control form-control-sm" id="campo-valor-proposta"
+                                    onKeyPress="return(MascaraMoeda(this,'.',',',event))" required>
 
                                 </div>
 
                                 <div class="col-md-3 mb-3">
                                     <label for="validationCustom01">Valor Troco</label>
-                                    <input type="text" class="form-control form-control-sm" id="validationCustom01"
-                                        required>
+                                    <input type="text" class="form-control form-control-sm" id="campo-valor-troco"
+                                    onKeyPress="return(MascaraMoeda(this,'.',',',event))"   required>
 
                                 </div>
 
                                 <div class="col-md-3 mb-3">
                                     <label for="validationCustom01">Valor Liquido</label>
-                                    <input type="text" class="form-control form-control-sm" id="validationCustom01"
-                                        required>
+                                    <input type="text" class="form-control form-control-sm" id="campo-valor-liquido"
+                                    onKeyPress="return(MascaraMoeda(this,'.',',',event))"  required>
 
                                 </div>
 
                                 <div class="col-md-3 mb-3">
                                     <label for="validationCustom01">Quantidade Parcelas</label>
-                                    <input type="text" class="form-control form-control-sm" id="validationCustom01"
-                                    required>
+                                    <input type="text" class="form-control form-control-sm" id="campo-quantidade-parcelas"
+                                    onKeyDown="fMasc( this, nContrtato );" required>
 
                                 </div>
 
                                 <div class="col-md-3 mb-3">
                                     <label for="validationCustom01">Valor Seguro</label>
-                                    <input type="text" class="form-control form-control-sm" id="validationCustom01"
+                                    <input type="text" class="form-control form-control-sm" id="campo-valor-seguro"
                                         required>
 
                                 </div>
 
                                 <div class="col-md-3 mb-3">
                                     <label for="validationCustom01">Mailing Origem</label>
-                                    <select class="form-control form-control-sm" id="exampleFormControlSelect1">
+                                    <select class="form-control form-control-sm" id="campo-mailing-origem">
                                         <option> </option>
 
                                     </select>
@@ -244,14 +244,14 @@
 
                                 <div class="col-md-3 mb-3">
                                     <label for="validationCustom01">Valor Parcela</label>
-                                    <input type="text" class="form-control form-control-sm" id="validationCustom01"
-                                        required>
+                                    <input type="text" class="form-control form-control-sm" id="campo-valor-parcela"
+                                    onKeyPress="return(MascaraMoeda(this,'.',',',event))"  required>
 
                                 </div>
 
                                 <div class="col-md-4 mb-3">
                                     <label for="validationCustom01">Venda</label>
-                                    <select class="form-control form-control-sm" id="exampleFormControlSelect1">
+                                    <select class="form-control form-control-sm" id="campo-venda-alterar">
                                         <option> </option>
 
                                     </select>
@@ -260,14 +260,14 @@
 
                                 <div class="col-md-4 mb-3">
                                     <label for="validationCustom01">Vencimento 1ª Parcela</label>
-                                    <input type="text" class="form-control form-control-sm" id="validationCustom01"
+                                    <input type="text" class="form-control form-control-sm" id="campo-vencimento-1-parcela"
                                         required>
 
                                 </div>
 
                                 <div class="col-md-4 mb-3">
                                     <label for="validationCustom01">Convênio</label>
-                                    <input type="text" class="form-control form-control-sm" id="validationCustom01"
+                                    <input type="text" class="form-control form-control-sm" id="campo-convenio"
                                     required>
 
                                 </div>
@@ -295,33 +295,33 @@
 
                                 <div class="col-md-4 mb-3">
                                     <label for="validationCustom01">Nome Cliente</label>
-                                    <input type="text" class="form-control form-control-sm" id="validationCustom01"
+                                    <input type="text" class="form-control form-control-sm" id="campo-nome-cliente"
                                         required>
 
                                 </div>
                                 <div class="col-md-4 mb-3">
                                     <label for="validationCustom01">CPF Cliente</label>
-                                    <input type="text" class="form-control form-control-sm" id="validationCustom01"
-                                        required>
+                                    <input type="text" class="form-control form-control-sm" id="campo-cpf-cliente"
+                                    onkeypress='mascaraMutuario(this,cpfCnpj)' maxlength="14"  required>
 
                                 </div>
                                 <div class="col-md-4 mb-3">
                                     <label for="validationCustom01">Telefone Cliente</label>
-                                    <input type="text" class="form-control form-control-sm" id="validationCustom01"
-                                        required>
+                                    <input type="text" class="form-control form-control-sm" id="campo-telefone-cliente"
+                                    onKeyDown="fMasc( this, mTelefone );" maxlength="14" required>
 
                                 </div>
 
                                 <div class="col-md-6 mb-3">
                                     <label for="validationCustom01">Agência Cliente</label>
-                                    <input type="text" class="form-control form-control-sm" id="validationCustom01"
+                                    <input type="text" class="form-control form-control-sm" id="campo-agencia-cliente"
                                         required>
 
                                 </div>
 
                                 <div class="col-md-6 mb-3">
                                     <label for="validationCustom01">Conta Cliente</label>
-                                    <input type="text" class="form-control form-control-sm" id="validationCustom01"
+                                    <input type="text" class="form-control form-control-sm" id="campo-conta-cliente"
                                         required>
 
                                 </div>
@@ -349,7 +349,7 @@
 
                                 <div class="col-md-6 mb-3">
                                     <label for="validationCustom01">Parceiro/Promotor</label>
-                                    <select class="form-control form-control-sm" id="exampleFormControlSelect1">
+                                    <select class="form-control form-control-sm" id="campo-parceiro-promotor">
                                         <option> </option>
 
                                     </select>
@@ -358,35 +358,35 @@
 
                                 <div class="col-md-3 mb-3">
                                     <label for="validationCustom01">Supervisor</label>
-                                    <input type="text" class="form-control form-control-sm" id="validationCustom01"
+                                    <input type="text" class="form-control form-control-sm" id="campo-supervisor-alterar"
                                         required>
 
                                 </div>
 
                                 <div class="col-md-3 mb-3">
                                     <label for="validationCustom01">Gerente</label>
-                                    <input type="text" class="form-control form-control-sm" id="validationCustom01"
+                                    <input type="text" class="form-control form-control-sm" id="campo-gerente-alterar"
                                         required>
 
                                 </div>
 
                                 <div class="col-md-4 mb-3">
                                     <label for="validationCustom01">CPF Parceiro/Promotor</label>
-                                    <input type="text" class="form-control form-control-sm" id="validationCustom01"
-                                        required>
+                                    <input type="text" class="form-control form-control-sm" id="campo-cpf-parc-promo"
+                                    onkeypress='mascaraMutuario(this,cpfCnpj)' maxlength="14"  required>
 
                                 </div>
 
                                 <div class="col-md-4 mb-3">
                                     <label for="validationCustom01">Chave</label>
-                                    <input type="text" class="form-control form-control-sm" id="validationCustom01"
+                                    <input type="text" class="form-control form-control-sm" id="campo-chave"
                                         required>
 
                                 </div>
 
                                 <div class="col-md-4 mb-3">
                                     <label for="validationCustom01">Senha Chave J</label>
-                                    <input type="text" class="form-control form-control-sm" id="validationCustom01"
+                                    <input type="text" class="form-control form-control-sm" id="campo-senha-chave"
                                         required>
 
                                 </div>
@@ -414,7 +414,7 @@
 
                                 <div class="col-md-6 mb-3">
                                     <label for="validationCustom01">Nome Operador</label>
-                                    <select class="form-control form-control-sm" id="exampleFormControlSelect1">
+                                    <select class="form-control form-control-sm" id="campo-nome-operador">
                                         <option> </option>
 
                                     </select>
@@ -423,21 +423,21 @@
 
                                 <div class="col-md-6 mb-3">
                                     <label for="validationCustom01">Supervisor</label>
-                                    <input type="text" class="form-control form-control-sm" id="validationCustom01"
+                                    <input type="text" class="form-control form-control-sm" id="campo-supervisor-alterar2"
                                         required>
 
                                 </div>
 
                                 <div class="col-md-6 mb-3">
                                     <label for="validationCustom01">Gerente</label>
-                                    <input type="text" class="form-control form-control-sm" id="validationCustom01"
+                                    <input type="text" class="form-control form-control-sm" id="campo-gerente-alterar2"
                                         required>
 
                                 </div>
 
                                 <div class="col-md-6 mb-3">
                                     <label for="validationCustom01">Chave J</label>
-                                    <input type="text" class="form-control form-control-sm" id="validationCustom01"
+                                    <input type="text" class="form-control form-control-sm" id="campo-chave-j"
                                         required>
 
                                 </div>
@@ -452,8 +452,8 @@
 
 
 
-                        <div class="opcoes-cadastro mt-3" style="text-align: center; margin-inline: block;">
-                            <button type="button" class="btn btn-primary btn-icon-label">
+                        <div class="opcoes-cadastro mt-3" style="text-align: center; margin-inline: block;" id="div-btn-alterar">
+                            <button type="button" class="btn btn-primary btn-icon-label" id="btn-alterar">
                                 <span class="btn-inner--icon">
                                     <i class="fas fa-plus"></i>
                                 </span>
@@ -696,8 +696,8 @@
 
 
 
-                        <div class="opcoes-cadastro mt-1" style="text-align: center; margin-inline: block;">
-                            <button type="button" class="btn btn-primary btn-icon-label">
+                        <div class="opcoes-cadastro mt-1" style="text-align: center; margin-inline: block;" id="div-btn-observacao">
+                            <button type="button" class="btn btn-primary btn-icon-label" id="btn-observacao">
                                 <span class="btn-inner--icon">
                                     <i class="fas fa-plus"></i>
                                 </span>
@@ -721,7 +721,7 @@
 
 
                         <div class="table-responsive">
-                            <table class="table align-items-center">
+                            <table class="table align-items-center" id="table-logs">
                                 <thead>
                                     <tr>
                                         <th scope="col" class="sort" data-sort="arquivos" style="text-align: center;">
@@ -737,7 +737,7 @@
 
                                     </tr>
                                 </thead>
-                                <tbody class="list">
+                                <tbody class="list" id="tbody-logs">
 
                                     <tr>
 
@@ -842,8 +842,8 @@
 
                         </div>
 
-                        <div class="table-responsive">
-                            <table class="table align-items-center">
+                        <div class="table-responsive" id="div-dados-usuario">
+                            <table class="table align-items-center" id="table-usuario">
                                 <thead>
                                     <tr>
                                         <th scope="col" class="sort" data-sort="arquivos" style="text-align: center;">
@@ -862,7 +862,7 @@
 
                                     </tr>
                                 </thead>
-                                <tbody class="list">
+                                <tbody class="list" id="table-usuario">
 
                                     <tr>
 
@@ -1639,7 +1639,7 @@
                                 <hr>
 
                                 <div class="table-responsive">
-                                    <table class="table align-items-center" id="table">
+                                    <table class="table align-items-center" id="table-principal">
                                         <thead>
                                             <tr class="bg-tabeltacad">
                                                 <th scope="col" class="sort" style="text-align: center;">Protocolo</th>
@@ -1680,7 +1680,7 @@
                                             </tr>
                                         </thead>
 
-                                        <tbody class="list" id="list">
+                                        <tbody class="list" id="tbody-table-principal">
 
                                             <tr style="text-align: center;">
 
@@ -1763,6 +1763,7 @@
     <!-- Purpose JS -->
     <script src="../assets/js/purpose.js"></script>
     <!-- Mascaras -->
+    <script src="../assets/js/mascarasvalores.js"></script>
     <script src="../assets/js/mascaras.js"></script>
     <!-- Demo JS - remove it when starting your project -->
     <script src="../assets/js/demo.js"></script>
