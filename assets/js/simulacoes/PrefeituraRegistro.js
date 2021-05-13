@@ -52,7 +52,7 @@ class PrefeituraRegistro {
         if(this.#dataDias > 29541) {
             btn_idade_sant.innerHTML =
             `
-                <button type="button"
+                <button type="button" title="Terminar o contrato com (80 ANOS 11 MESES 29 DIAS)"
                 class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                     <span class="btn-inner--icon"><i
                     class="fas fa-times"></i></span>
@@ -72,7 +72,7 @@ class PrefeituraRegistro {
         if (this.#qtdParcelas.value > 120 || this.#qtdParcelas.value < 3) {
             btn_parcelas_sant.innerHTML =
                 `
-            <button type="button"
+            <button type="button" title="PARCELA ACIMA DE 84X"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                 <span class="btn-inner--icon"><i
                 class="fas fa-times"></i></span>
@@ -91,7 +91,19 @@ class PrefeituraRegistro {
         if(this.#valor > 200000) {
             btn_max_sant.innerHTML = 
             `
-            <button type="button"
+            <button type="button" title="HOMENS - NOVO                                  
+            0 at&eacute; 25 anos  
+            26 a 70 anos 80.000,00 - M&Aacute;X PARC: 72 meses
+            71 a 75 anos 60.000,00 - M&Aacute;X PARC: 72 meses
+            76 a 90 anos 500,00 - M&Aacute;X PARC: 06 meses
+            Acima 91 anos 250,00 - M&Aacute;X PARC: 06 meses
+            
+            MULHERES - NOVO
+            0 at&eacute; 23 anos
+            24 a 70 anos 80.000,00 - M&Aacute;X PARC: 72 meses
+            71 a 75 anos 60.000,00 - M&Aacute;X PARC: 72 meses
+            76 a 90 anos 500,00 - M&Aacute;X PARC: 06 meses
+            Acima 91 anos 250,00 - M&Aacute;X PARC: 06 meses "
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                 <span class="btn-inner--icon"><i
                 class="fas fa-times"></i></span>
@@ -134,7 +146,7 @@ class PrefeituraRegistro {
         //Idade
         if (this.#dataDias > 29176) {
             btn_idade_bradesco.innerHTML =
-                `<button type="button"
+                `<button type="button" title="Terminar o contrato com (75 ANOS 11 MESES 29 DIAS)"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
             <span class="btn-inner--icon"><i
             class="fas fa-times"></i></span>
@@ -151,7 +163,7 @@ class PrefeituraRegistro {
         //Quantidade parcelas;
         if (this.#qtdParcelas > 96) {
             btn_parcelas_bradesco.innerHTML =
-                `<button type="button"
+                `<button type="button" title="PARCELAS MAIORES QUE 96"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
             <span class="btn-inner--icon"><i
             class="fas fa-times"></i></span>
@@ -168,7 +180,7 @@ class PrefeituraRegistro {
         //Saldo maximo
         if ((this.#dataDias >= 6911 && this.#dataDias < 25526) && this.#valor > 250000 && this.#qtdParcelas > 96) {
             btn_max_bradesco.innerHTML =
-                `<button type="button"
+                `<button type="button" title="DE 21  A 69 ANOS 11 MESES E 29 DIAS  R$ 250.000,00 DE 70 A 74 ANOS 11 MESES E 29 DIAS R$ 75.000,00"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
             <span class="btn-inner--icon"><i
             class="fas fa-times"></i></span>
@@ -176,7 +188,7 @@ class PrefeituraRegistro {
             </button>`
         } else if ((this.#dataDias >= 25527 && this.#dataDias < 27716) && this.#valor > 100000 && this.#qtdParcelas > 96) {
             btn_max_bradesco.innerHTML =
-                `<button type="button"
+                `<button type="button" title="DE 21  A 69 ANOS 11 MESES E 29 DIAS  R$ 250.000,00 DE 70 A 74 ANOS 11 MESES E 29 DIAS R$ 75.000,00"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
             <span class="btn-inner--icon"><i
             class="fas fa-times"></i></span>
@@ -192,7 +204,7 @@ class PrefeituraRegistro {
             </button>`
         } else if ((this.#dataDias >= 28082 && this.#dataDias < 28446) && this.#valor > 10000 && this.#qtdParcelas > 36) {
             btn_max_bradesco.innerHTML =
-                `<button type="button"
+                `<button type="button" title="DE 21  A 69 ANOS 11 MESES E 29 DIAS  R$ 250.000,00 DE 70 A 74 ANOS 11 MESES E 29 DIAS R$ 75.000,00"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
             <span class="btn-inner--icon"><i
             class="fas fa-times"></i></span>
@@ -200,7 +212,7 @@ class PrefeituraRegistro {
             </button>`
         } else if ((this.#dataDias >= 28447 && this.#dataDias < 28811) && this.#valor > 10000 && this.#qtdParcelas > 24) {
             btn_max_bradesco.innerHTML =
-                `<button type="button"
+                `<button type="button" title="DE 21  A 69 ANOS 11 MESES E 29 DIAS  R$ 250.000,00 DE 70 A 74 ANOS 11 MESES E 29 DIAS R$ 75.000,00"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
             <span class="btn-inner--icon"><i
             class="fas fa-times"></i></span>
@@ -208,7 +220,7 @@ class PrefeituraRegistro {
             </button>`
         } else if ((this.#dataDias >= 28812 && this.#dataDias < 29176) && this.#valor > 10000 && this.#qtdParcelas > 12) {
             btn_max_bradesco.innerHTML =
-                `<button type="button"
+                `<button type="button" title="DE 21  A 69 ANOS 11 MESES E 29 DIAS  R$ 250.000,00 DE 70 A 74 ANOS 11 MESES E 29 DIAS R$ 75.000,00"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
             <span class="btn-inner--icon"><i
             class="fas fa-times"></i></span>
@@ -225,7 +237,7 @@ class PrefeituraRegistro {
         //Saldo minimo
         if (this.#valor < 900) {
             btn_min_bradesco.innerHtml =
-                `<button type="button"
+                `<button type="button" title="SALDO MINIMO DE R$ 900,01"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
             <span class="btn-inner--icon"><i
             class="fas fa-times"></i></span>
@@ -242,7 +254,7 @@ class PrefeituraRegistro {
         //OLE ---------------------------------------------------------------------------------------------------
         if (this.#dataDias > 21876) {
             btn_idade_ole.innerHTML =
-                `<button type="button"
+                `<button type="button" title="Terminar o contrato com (75 ANOS 11 MESES 29 DIAS)"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
             <span class="btn-inner--icon"><i
             class="fas fa-times"></i></span>
@@ -259,7 +271,7 @@ class PrefeituraRegistro {
         //Quantidade de parcelas
         if (this.#qtdParcelas > 96) {
             btn_parcelas_ole.innerHTML =
-                `<button type="button"
+                `<button type="button" title="PARCELAS MAIORES QUE 96"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
             <span class="btn-inner--icon"><i
             class="fas fa-times"></i></span>
@@ -276,7 +288,7 @@ class PrefeituraRegistro {
         //Saldo maximo
         if (this.#valor > 230000) {
             btn_max_ole.innerHTML =
-                `<button type="button"
+                `<button type="button" title="DE 21  A 69 ANOS 11 MESES E 29 DIAS  R$ 250.000,00 DE 70 A 74 ANOS 11 MESES E 29 DIAS R$ 75.000,00"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
             <span class="btn-inner--icon"><i
             class="fas fa-times"></i></span>
@@ -293,7 +305,7 @@ class PrefeituraRegistro {
         //Saldo minimo
         if (this.#valor < 300) {
             btn_min_ole.innerHTML =
-                `<button type="button"
+                `<button type="button" title="SALDO MÍNIMO DE R$ 300,00"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
             <span class="btn-inner--icon"><i
             class="fas fa-times"></i></span>
@@ -331,7 +343,7 @@ class PrefeituraRegistro {
         //Quantidades de parcelas
         if (this.#qtdParcelas > 84) {
             btn_parcelas_parana.innerHTML =
-                `<button type="button"
+                `<button type="button" title="PARCELAS MAIORES QUE 84"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                 <span class="btn-inner--icon"><i
                 class="fas fa-times"></i></span>
@@ -578,7 +590,7 @@ class PrefeituraRegistro {
         //Saldo Minimo
         if(this.#valor < 200) {
             btn_min_pan.innerHTML =
-                `<button type="button"
+                `<button type="button" title="SALDO MINIMO DE R$ 200,00"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                 <span class="btn-inner--icon"><i
                 class="fas fa-times"></i></span>
@@ -597,7 +609,7 @@ class PrefeituraRegistro {
         //Idade
         if (this.#dataDias > 27351) {
             btn_idade_daycoval.innerHTML =
-                `<button type="button"
+                `<button type="button" title="Terminar o contrato com (75 ANOS 11 MESES 29 DIAS)"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
             <span class="btn-inner--icon"><i
             class="fas fa-times"></i></span>
@@ -616,7 +628,7 @@ class PrefeituraRegistro {
         //Quantidade de parcelas
         if (this.#qtdParcelas > 120) {
             btn_parcelas_daycoval.innerHTML =
-            `<button type="button"
+            `<button type="button" title="Maior que 84 parcelas"
         class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
         <span class="btn-inner--icon"><i
         class="fas fa-times"></i></span>
@@ -662,7 +674,7 @@ class PrefeituraRegistro {
         //Idade
         if (this.#dataDias > 29541) {
             btn_idade_bb.innerHTML =
-                `<button type="button"
+                `<button type="button" title="Terminar o contrato com (75 ANOS 11 MESES 29 DIAS)"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
             <span class="btn-inner--icon"><i
             class="fas fa-times"></i></span>
@@ -681,7 +693,7 @@ class PrefeituraRegistro {
         //Quantidade de parcelas
         if (this.#qtdParcelas > 72 || this.#qtdParcelas < 2) {
             btn_parcelas_bb.innerHTML =
-                `<button type="button"
+                `<button type="button" title="Maior que 84 parcelas"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                 <span class="btn-inner--icon"><i
                 class="fas fa-times"></i></span>
@@ -700,7 +712,7 @@ class PrefeituraRegistro {
         //Saldo maximo
         if (this.#valor > 100000) {
             btn_max_bb.innerHTML =
-                `<button type="button"
+                `<button type="button" title="DE 21  A 69 ANOS 11 MESES E 29 DIAS  R$ 250.000,00 DE 70 A 74 ANOS 11 MESES E 29 DIAS R$ 75.000,00"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                 <span class="btn-inner--icon"><i
                 class="fas fa-times"></i></span>

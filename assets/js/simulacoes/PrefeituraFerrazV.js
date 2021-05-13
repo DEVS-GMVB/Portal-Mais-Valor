@@ -52,7 +52,7 @@ class PrefeituraFerrazV {
         if(this.#dataDias > 29906) {
             btn_idade_sant.innerHTML =
             `
-                <button type="button"
+                <button type="button" title="Terminar o contrato com (80 ANOS 11 MESES 29 DIAS)"
                 class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                     <span class="btn-inner--icon"><i
                     class="fas fa-times"></i></span>
@@ -71,8 +71,8 @@ class PrefeituraFerrazV {
         //Quantidade parcelas
         if (this.#qtdParcelas.value > 96 || this.#qtdParcelas.value < 3) {
             btn_parcelas_sant.innerHTML =
-                `
-            <button type="button"
+                ` 
+            <button type="button" title="PARCELA ACIMA DE 84X"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                 <span class="btn-inner--icon"><i
                 class="fas fa-times"></i></span>
@@ -91,7 +91,19 @@ class PrefeituraFerrazV {
         if(this.#valor > 200000) {
             btn_max_sant.innerHTML = 
             `
-            <button type="button"
+            <button type="button"  title="HOMENS - NOVO                                  
+            0 at&eacute; 25 anos  
+            26 a 70 anos 80.000,00 - M&Aacute;X PARC: 72 meses
+            71 a 75 anos 60.000,00 - M&Aacute;X PARC: 72 meses
+            76 a 90 anos 500,00 - M&Aacute;X PARC: 06 meses
+            Acima 91 anos 250,00 - M&Aacute;X PARC: 06 meses
+            
+            MULHERES - NOVO
+            0 at&eacute; 23 anos
+            24 a 70 anos 80.000,00 - M&Aacute;X PARC: 72 meses
+            71 a 75 anos 60.000,00 - M&Aacute;X PARC: 72 meses
+            76 a 90 anos 500,00 - M&Aacute;X PARC: 06 meses
+            Acima 91 anos 250,00 - M&Aacute;X PARC: 06 meses "
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                 <span class="btn-inner--icon"><i
                 class="fas fa-times"></i></span>
@@ -112,7 +124,7 @@ class PrefeituraFerrazV {
         if(this.#valor < 300) {
             btn_min_sant.innerHTML = 
             `
-            <button type="button"
+            <button type="button" title="SALDO MIN&Iacute;MO - R$ 300,00"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                 <span class="btn-inner--icon"><i
                 class="fas fa-times"></i></span>
@@ -134,7 +146,7 @@ class PrefeituraFerrazV {
         //Idade
         if (this.#dataDias > 29176) {
             btn_idade_bradesco.innerHTML =
-                `<button type="button"
+                `<button type="button" title="Terminar o contrato com (80 ANOS 11 MESES 29 DIAS)"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
             <span class="btn-inner--icon"><i
             class="fas fa-times"></i></span>
@@ -241,7 +253,7 @@ class PrefeituraFerrazV {
         //Saldo minimo
         if (this.#valor < 30) {
             btn_min_bradesco.innerHtml =
-                `<button type="button"
+                `<button type="button" title="SALDO MININO DE R$ 30,00"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
             <span class="btn-inner--icon"><i
             class="fas fa-times"></i></span>
@@ -260,7 +272,7 @@ class PrefeituraFerrazV {
         //Idade
         if (this.#dataDias > 27351) {
             btn_idade_ole.innerHTML =
-                `<button type="button"
+                `<button type="button" title="Terminar o contrato com (75 ANOS 11 MESES 29 DIAS)"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
             <span class="btn-inner--icon"><i
             class="fas fa-times"></i></span>
@@ -277,7 +289,7 @@ class PrefeituraFerrazV {
         //Quantidade de parcelas
         if (this.#qtdParcelas > 96) {
             btn_parcelas_ole.innerHTML =
-                `<button type="button"
+                `<button type="button" title="PARCELAS MAIORES QUE 96"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
             <span class="btn-inner--icon"><i
             class="fas fa-times"></i></span>
@@ -345,7 +357,7 @@ class PrefeituraFerrazV {
         //Saldo minimo
         if (this.#valor < 250) {
             btn_min_ole.innerHTML =
-                `<button type="button"
+                `<button type="button" titile="SALDO MINIMO R$250,00"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
             <span class="btn-inner--icon"><i
             class="fas fa-times"></i></span>
@@ -364,7 +376,7 @@ class PrefeituraFerrazV {
         //Idade
         if (this.#dataDias > 28811) {
             btn_idade_parana.innerHTML =
-                `<button type="button"
+                `<button type="button" title="Terminar o contrato com (80 ANOS 11 MESES 29 DIAS)"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
             <span class="btn-inner--icon"><i
             class="fas fa-times"></i></span>
@@ -383,7 +395,7 @@ class PrefeituraFerrazV {
         //Quantidades de parcelas
         if (this.#qtdParcelas > 96 || this.#qtdParcelas < 12) {
             btn_parcelas_parana.innerHTML =
-                `<button type="button"
+                `<button type="button" title="PARCELAS MAIORES QUE 96"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                 <span class="btn-inner--icon"><i
                 class="fas fa-times"></i></span>
@@ -402,7 +414,7 @@ class PrefeituraFerrazV {
         //Saldo maximo
         if ((this.#dataDias >= 6911 && this.#valor < 28446) && this.#valor > 200000) {
             btn_max_parana.innerHTML =
-                `<button type="button"
+                `<button type="button" title="SALDO MAXIMO DE R$200.000,00"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
             <span class="btn-inner--icon"><i
             class="fas fa-times"></i></span>
@@ -440,7 +452,7 @@ class PrefeituraFerrazV {
         //Idade
         if (this.#dataDias > 29176) {
             btn_idade_pan.innerHTML =
-                `<button type="button"
+                `<button type="button" title="Terminar o contrato com (80 ANOS 11 MESES 29 DIAS)"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                 <span class="btn-inner--icon"><i
                 class="fas fa-times"></i></span>
@@ -603,7 +615,7 @@ class PrefeituraFerrazV {
         //Saldo Minimo
         if(this.#valor < 200) {
             btn_min_pan.innerHTML =
-                `<button type="button"
+                `<button type="button" title="SALDO MININO DE R$ 200"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                 <span class="btn-inner--icon"><i
                 class="fas fa-times"></i></span>
@@ -622,7 +634,7 @@ class PrefeituraFerrazV {
         //Idade
         if (this.#dataDias > 27351) {
             btn_idade_daycoval.innerHTML =
-                `<button type="button"
+                `<button type="button" title="Terminar o contrato com (75 ANOS 11 MESES 29 DIAS)"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
             <span class="btn-inner--icon"><i
             class="fas fa-times"></i></span>
@@ -641,7 +653,7 @@ class PrefeituraFerrazV {
         //Quantidade de parcelas
         if (this.#qtdParcelas > 96) {
             btn_parcelas_daycoval.innerHTML =
-            `<button type="button"
+            `<button type="button" title="PARCELAS MAIORES QUE 96"
         class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
         <span class="btn-inner--icon"><i
         class="fas fa-times"></i></span>
@@ -660,7 +672,7 @@ class PrefeituraFerrazV {
         //Saldo maximo
         if ((this.#dataDias >= 8006 && this.#dataDias < 25526) && this.#valor > 100000) {
             btn_max_daycoval.innerHTML =
-                `<button type="button"
+                `<button type="button" title="saldo maximo de acordo com esta idade é de R$100.000,00"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                 <span class="btn-inner--icon"><i
                 class="fas fa-times"></i></span>
@@ -668,7 +680,7 @@ class PrefeituraFerrazV {
             </button>`
         } else if ((this.#dataDias >= 25527 && this.#dataDias < 27351) && this.#valor > 50000){
             btn_max_daycoval.innerHTML =
-                `<button type="button"
+                `<button type="button" title="saldo maximo de acordo com esta idade é de r$ 50.000,00"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                 <span class="btn-inner--icon"><i
                 class="fas fa-times"></i></span>
@@ -687,7 +699,7 @@ class PrefeituraFerrazV {
         //Idade
         if (this.#dataDias > 29541) {
             btn_idade_bb.innerHTML =
-                `<button type="button"
+                `<button type="button" title="Terminar o contrato com (75 ANOS 11 MESES 29 DIAS)"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
             <span class="btn-inner--icon"><i
             class="fas fa-times"></i></span>
@@ -706,7 +718,7 @@ class PrefeituraFerrazV {
         //Quantidade de parcelas
         if (this.#qtdParcelas > 72 || this.#qtdParcelas < 2) {
             btn_parcelas_bb.innerHTML =
-                `<button type="button"
+                `<button type="button"  title="Maior que 84 parcelas"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                 <span class="btn-inner--icon"><i
                 class="fas fa-times"></i></span>

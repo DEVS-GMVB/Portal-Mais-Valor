@@ -52,7 +52,7 @@ class PrefeituraBarueri {
         if(this.#dataDias > 29906) {
             btn_idade_sant.innerHTML =
             `
-                <button type="button"
+                <button type="button" title="Terminar o contrato com (80 ANOS 11 MESES 29 DIAS)"
                 class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                     <span class="btn-inner--icon"><i
                     class="fas fa-times"></i></span>
@@ -72,7 +72,7 @@ class PrefeituraBarueri {
         if (this.#qtdParcelas.value > 96 || this.#qtdParcelas.value < 3) {
             btn_parcelas_sant.innerHTML =
                 `
-            <button type="button"
+            <button type="button" title="Parcela acima de 96x ou abaixo de 3x"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                 <span class="btn-inner--icon"><i
                 class="fas fa-times"></i></span>
@@ -91,7 +91,7 @@ class PrefeituraBarueri {
         if(this.#valor > 200000) {
             btn_max_sant.innerHTML = 
             `
-            <button type="button"
+            <button type="button" title="SALDO MAXIMO - R$ 200000"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                 <span class="btn-inner--icon"><i
                 class="fas fa-times"></i></span>
@@ -112,7 +112,7 @@ class PrefeituraBarueri {
         if(this.#valor < 300) {
             btn_min_sant.innerHTML = 
             `
-            <button type="button"
+            <button type="button" title="SALDO MINÍMO - R$ 300"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                 <span class="btn-inner--icon"><i
                 class="fas fa-times"></i></span>
@@ -148,9 +148,9 @@ class PrefeituraBarueri {
             </button>`
         }
 
-        //Saldo maximo
+        //Quantidade de parcelas 
         if ((this.#dataDias >= 6911 && this.#dataDias < 25526) && this.#qtdParcelas > 96) {
-            btn_max_bradesco.innerHTML =
+            btn_parcelas_bradesco.innerHTML =
                 `<button type="button"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
             <span class="btn-inner--icon"><i
@@ -158,7 +158,7 @@ class PrefeituraBarueri {
             <span class="btn-inner--text">NEGADO</span>
             </button>`
         } else if ((this.#dataDias >= 25527 && this.#dataDias < 27716) && this.#qtdParcelas > 96) {
-            btn_max_bradesco.innerHTML =
+            btn_parcelas_bradesco.innerHTML =
                 `<button type="button"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
             <span class="btn-inner--icon"><i
@@ -166,7 +166,7 @@ class PrefeituraBarueri {
             <span class="btn-inner--text">NEGADO</span>
             </button>`
         } else if ((this.#dataDias >= 27717 && this.#dataDias < 28081) && this.#qtdParcelas > 48) {
-            btn_max_bradesco.innerHTML =
+            btn_parcelas_bradesco.innerHTML =
                 `<button type="button"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
             <span class="btn-inner--icon"><i
@@ -174,7 +174,7 @@ class PrefeituraBarueri {
             <span class="btn-inner--text">NEGADO</span>
             </button>`
         } else if ((this.#dataDias >= 28082 && this.#dataDias < 28446) && this.#qtdParcelas > 36) {
-            btn_max_bradesco.innerHTML =
+            btn_parcelas_bradesco.innerHTML =
                 `<button type="button"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
             <span class="btn-inner--icon"><i
@@ -182,7 +182,7 @@ class PrefeituraBarueri {
             <span class="btn-inner--text">NEGADO</span>
             </button>`
         } else if ((this.#dataDias >= 28447 && this.#dataDias < 28811) && this.#qtdParcelas > 24) {
-            btn_max_bradesco.innerHTML =
+            btn_parcelas_bradesco.innerHTML =
                 `<button type="button"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
             <span class="btn-inner--icon"><i
@@ -190,7 +190,7 @@ class PrefeituraBarueri {
             <span class="btn-inner--text">NEGADO</span>
             </button>`
         } else if ((this.#dataDias >= 28812 && this.#dataDias < 29176) && this.#qtdParcelas > 12) {
-            btn_max_bradesco.innerHTML =
+            btn_parcelas_bradesco.innerHTML =
                 `<button type="button"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
             <span class="btn-inner--icon"><i
@@ -198,7 +198,7 @@ class PrefeituraBarueri {
             <span class="btn-inner--text">NEGADO</span>
             </button>`
         } else {
-            btn_max_bradesco.innerHTML =
+            btn_parcelas_bradesco.innerHTML =
                 `<button type="button" class="btn btn-sm btn-soft-success btn-icon rounded-pill">
             <span class="btn-inner--icon"><i class="far fa-check"></i></span>
             <span class="btn-inner--text">ACEITA</span>
@@ -241,7 +241,7 @@ class PrefeituraBarueri {
         //Saldo minimo
         if (this.#valor < 30) {
             btn_min_bradesco.innerHtml =
-                `<button type="button"
+                `<button type="button" title="SALDO MINÍMO - R$ 30"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
             <span class="btn-inner--icon"><i
             class="fas fa-times"></i></span>
@@ -275,7 +275,7 @@ class PrefeituraBarueri {
         //Quantidade de parcelas
         if (this.#qtdParcelas > 96) {
             btn_parcelas_ole.innerHTML =
-                `<button type="button"
+                `<button type="button" title="Parcela acima de 96x"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
             <span class="btn-inner--icon"><i
             class="fas fa-times"></i></span>
@@ -341,7 +341,7 @@ class PrefeituraBarueri {
 
         if(this.#valor < 250) {
             btn_min_ole.innerHTML =
-                `<button type="button"
+                `<button type="button" title="SALDO MINÍMO - R$ 250"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
             <span class="btn-inner--icon"><i
             class="fas fa-times"></i></span>
@@ -381,7 +381,7 @@ class PrefeituraBarueri {
         //Quantidades de parcelas
         if (this.#qtdParcelas > 96 ||this.#qtdParcelas < 12) {
             btn_parcelas_parana.innerHTML =
-                `<button type="button"
+                `<button type="button" title="Parcela acima de 96x ou abaixo de 12x"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                 <span class="btn-inner--icon"><i
                 class="fas fa-times"></i></span>
@@ -419,7 +419,7 @@ class PrefeituraBarueri {
         //Saldo minimo
         if (this.#valor < 1) {
             btn_min_parana.innerHTML =
-                `<button type="button"
+                `<button type="button" title="SALDO MINÍMO - R$ 1,00"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                 <span class="btn-inner--icon"><i
                 class="fas fa-times"></i></span>
@@ -604,7 +604,7 @@ class PrefeituraBarueri {
         //Saldo Minimo
         if(this.#valor < 200) {
             btn_min_pan.innerHTML =
-                `<button type="button"
+                `<button type="button" title="SALDO MINÍMO - R$ 200"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                 <span class="btn-inner--icon"><i
                 class="fas fa-times"></i></span>
@@ -642,7 +642,7 @@ class PrefeituraBarueri {
         //Quantidade de parcelas
         if (this.#qtdParcelas > 96) {
             btn_parcelas_daycoval.innerHTML =
-            `<button type="button"
+            `<button type="button" title="Parcela acima de 96x"
         class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
         <span class="btn-inner--icon"><i
         class="fas fa-times"></i></span>
@@ -685,10 +685,10 @@ class PrefeituraBarueri {
 
         // BANCO DO BRASIL------------------
 
-        //Idade
+        //Idade 
         if (this.#dataDias > 29541) {
             btn_idade_bb.innerHTML =
-                `<button type="button"
+                `<button type="button" title="Terminar o contrato com (75 ANOS 11 MESES 29 DIAS)"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
             <span class="btn-inner--icon"><i
             class="fas fa-times"></i></span>
@@ -707,7 +707,7 @@ class PrefeituraBarueri {
         //Quantidade de parcelas
         if (this.#qtdParcelas > 48 || this.#qtdParcelas < 2) {
             btn_parcelas_bb.innerHTML =
-                `<button type="button"
+                `<button type="button" title="Parcela acima de 48x ou abaixo de 2x"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                 <span class="btn-inner--icon"><i
                 class="fas fa-times"></i></span>

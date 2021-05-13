@@ -91,7 +91,19 @@ class SenadoFederal {
         if (this.#valor > 200000) {
             btn_max_sant.innerHTML =
                 `
-            <button type="button"
+            <button type="button" title="HOMENS - NOVO                                  
+            0 at&eacute; 25 anos  
+            26 a 70 anos 80.000,00 - M&Aacute;X PARC: 72 meses
+            71 a 75 anos 60.000,00 - M&Aacute;X PARC: 72 meses
+            76 a 90 anos 500,00 - M&Aacute;X PARC: 06 meses
+            Acima 91 anos 250,00 - M&Aacute;X PARC: 06 meses
+            
+            MULHERES - NOVO
+            0 at&eacute; 23 anos
+            24 a 70 anos 80.000,00 - M&Aacute;X PARC: 72 meses
+            71 a 75 anos 60.000,00 - M&Aacute;X PARC: 72 meses
+            76 a 90 anos 500,00 - M&Aacute;X PARC: 06 meses
+            Acima 91 anos 250,00 - M&Aacute;X PARC: 06 meses "
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                 <span class="btn-inner--icon"><i
                 class="fas fa-times"></i></span>
@@ -112,7 +124,7 @@ class SenadoFederal {
         if (this.#valor < 300) {
             btn_min_sant.innerHTML =
                 `
-            <button type="button"
+            <button type="button" title="SALDO MIN�MO - R$ 300,00"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                 <span class="btn-inner--icon"><i
                 class="fas fa-times"></i></span>
@@ -178,7 +190,11 @@ class SenadoFederal {
         //Saldo maximo
         if ((this.#dataDias >= 6911 && this.#dataDias < 25526) && this.#valor > 400000 && this.#qtdParcelas > 120) {
             btn_max_bradesco.innerHTML =
-                `<button type="button"
+                `<button type="button" title="DE 18 A 69 ANOS 11 MESES E 29 DIAS R$ 400.000,00   MAX PARC 96           DE 70 A 75 ANOS 11 MESES E 29 DIAS R$ 150.000,00 MAX  PARC 96
+                DE 76 A 76 ANOS 11 MESES E 29 DIAS R$ 100.000,00 MAX PARC 48
+                DE 77 A 77 ANOS 11 MESES E 29 DIAS R$ 70.000,00 MAX PARC 36
+                DE 78 A 78 ANOS 11 MESES E 29 DIAS R$ 50.000,00 MAX PARC 24
+                DE 79 A 79 ANOS 11 MESES E 29 DIAS R$ 30.000,00 MAX  PARC 12"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
             <span class="btn-inner--icon"><i
             class="fas fa-times"></i></span>
@@ -186,7 +202,11 @@ class SenadoFederal {
             </button>`
         } else if ((this.#dataDias >= 25527 && this.#dataDias < 27716) && this.#valor > 150000 && this.#qtdParcelas > 120) {
             btn_max_bradesco.innerHTML =
-                `<button type="button"
+                `<button type="button" title="DE 18 A 69 ANOS 11 MESES E 29 DIAS R$ 400.000,00   MAX PARC 96           DE 70 A 75 ANOS 11 MESES E 29 DIAS R$ 150.000,00 MAX  PARC 96
+                DE 76 A 76 ANOS 11 MESES E 29 DIAS R$ 100.000,00 MAX PARC 48
+                DE 77 A 77 ANOS 11 MESES E 29 DIAS R$ 70.000,00 MAX PARC 36
+                DE 78 A 78 ANOS 11 MESES E 29 DIAS R$ 50.000,00 MAX PARC 24
+                DE 79 A 79 ANOS 11 MESES E 29 DIAS R$ 30.000,00 MAX  PARC 12"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
             <span class="btn-inner--icon"><i
             class="fas fa-times"></i></span>
@@ -194,7 +214,11 @@ class SenadoFederal {
             </button>`
         } else if ((this.#dataDias >= 27717 && this.#dataDias < 28081) && this.#valor > 100000 && this.#qtdParcelas > 48) {
             btn_max_bradesco.innerHTML =
-                `<button type="button"
+                `<button type="button" title="DE 18 A 69 ANOS 11 MESES E 29 DIAS R$ 400.000,00   MAX PARC 96           DE 70 A 75 ANOS 11 MESES E 29 DIAS R$ 150.000,00 MAX  PARC 96
+                DE 76 A 76 ANOS 11 MESES E 29 DIAS R$ 100.000,00 MAX PARC 48
+                DE 77 A 77 ANOS 11 MESES E 29 DIAS R$ 70.000,00 MAX PARC 36
+                DE 78 A 78 ANOS 11 MESES E 29 DIAS R$ 50.000,00 MAX PARC 24
+                DE 79 A 79 ANOS 11 MESES E 29 DIAS R$ 30.000,00 MAX  PARC 12"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
             <span class="btn-inner--icon"><i
             class="fas fa-times"></i></span>
@@ -202,7 +226,11 @@ class SenadoFederal {
             </button>`
         } else if ((this.#dataDias >= 28082 && this.#dataDias < 28446) && this.#valor > 70000 && this.#qtdParcelas > 36) {
             btn_max_bradesco.innerHTML =
-                `<button type="button"
+                `<button type="button" title="DE 18 A 69 ANOS 11 MESES E 29 DIAS R$ 400.000,00   MAX PARC 96           DE 70 A 75 ANOS 11 MESES E 29 DIAS R$ 150.000,00 MAX  PARC 96
+                DE 76 A 76 ANOS 11 MESES E 29 DIAS R$ 100.000,00 MAX PARC 48
+                DE 77 A 77 ANOS 11 MESES E 29 DIAS R$ 70.000,00 MAX PARC 36
+                DE 78 A 78 ANOS 11 MESES E 29 DIAS R$ 50.000,00 MAX PARC 24
+                DE 79 A 79 ANOS 11 MESES E 29 DIAS R$ 30.000,00 MAX  PARC 12"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
             <span class="btn-inner--icon"><i
             class="fas fa-times"></i></span>
@@ -210,7 +238,11 @@ class SenadoFederal {
             </button>`
         } else if ((this.#dataDias >= 28447 && this.#dataDias < 28811) && this.#valor > 50000 && this.#qtdParcelas > 24) {
             btn_max_bradesco.innerHTML =
-                `<button type="button"
+                `<button type="button" title="DE 18 A 69 ANOS 11 MESES E 29 DIAS R$ 400.000,00   MAX PARC 96           DE 70 A 75 ANOS 11 MESES E 29 DIAS R$ 150.000,00 MAX  PARC 96
+                DE 76 A 76 ANOS 11 MESES E 29 DIAS R$ 100.000,00 MAX PARC 48
+                DE 77 A 77 ANOS 11 MESES E 29 DIAS R$ 70.000,00 MAX PARC 36
+                DE 78 A 78 ANOS 11 MESES E 29 DIAS R$ 50.000,00 MAX PARC 24
+                DE 79 A 79 ANOS 11 MESES E 29 DIAS R$ 30.000,00 MAX  PARC 12"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
             <span class="btn-inner--icon"><i
             class="fas fa-times"></i></span>
@@ -218,7 +250,11 @@ class SenadoFederal {
             </button>`
         } else if ((this.#dataDias >= 28812 && this.#dataDias < 29176) && this.#valor > 30000 && this.#qtdParcelas > 12) {
             btn_max_bradesco.innerHTML =
-                `<button type="button"
+                `<button type="button" title="DE 18 A 69 ANOS 11 MESES E 29 DIAS R$ 400.000,00   MAX PARC 96           DE 70 A 75 ANOS 11 MESES E 29 DIAS R$ 150.000,00 MAX  PARC 96
+                DE 76 A 76 ANOS 11 MESES E 29 DIAS R$ 100.000,00 MAX PARC 48
+                DE 77 A 77 ANOS 11 MESES E 29 DIAS R$ 70.000,00 MAX PARC 36
+                DE 78 A 78 ANOS 11 MESES E 29 DIAS R$ 50.000,00 MAX PARC 24
+                DE 79 A 79 ANOS 11 MESES E 29 DIAS R$ 30.000,00 MAX  PARC 12"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
             <span class="btn-inner--icon"><i
             class="fas fa-times"></i></span>
@@ -235,7 +271,7 @@ class SenadoFederal {
         //Saldo minimo
         if (this.#valor < 0) {
             btn_min_bradesco.innerHtml =
-                `<button type="button"
+                `<button type="button" title="SALDO MIN�MO - R$ 900,01"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
             <span class="btn-inner--icon"><i
             class="fas fa-times"></i></span>
@@ -335,7 +371,7 @@ class SenadoFederal {
         //Saldo minimo
         if (this.#valor < 250) {
             btn_min_ole.innerHTML =
-                `<button type="button"
+                `<button type="button" title="Saldo Mínimo de R$ 250,00"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
             <span class="btn-inner--icon"><i
             class="fas fa-times"></i></span>
@@ -392,7 +428,7 @@ class SenadoFederal {
         //Saldo maximo
         if (this.#valor > 50000) {
             btn_max_parana.innerHTML =
-                `<button type="button"
+                `<button type="button" title="Saldo Máximo R$ 50.000,00"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                 <span class="btn-inner--icon"><i
                 class="fas fa-times"></i></span>
@@ -564,7 +600,15 @@ class SenadoFederal {
         //Saldo maximo
         if ((this.#dataDias >= 8371 && this.#dataDias < 24066) && this.#valor > 400000 && this.#qtdParcelas > 120) {
             btn_max_pan.innerHTML =
-                `<button type="button"
+                `<button type="button"  title="
+                DE 22 A 65 ANOS 11 MESES E 29 DIAS R$ 400.000,00   MAX PARC 120
+                DE 66 A 72 ANOS 11 MESES E 29 DIAS R$ 150.000,00 MAX  PARC 120
+                DE 73 A 74 ANOS 11 MESES E 29 DIAS R$ 120.000,00 MAX PARC 72
+                DE 75 A 75 ANOS 11 MESES E 29 DIAS R$ 70.000,00 MAX PARC 60
+                DE 76 A 76 ANOS 11 MESES E 29 DIAS R$ 50.000,00 MAX PARC 48
+                DE 77 A 77 ANOS 11 MESES E 29 DIAS R$ 50.000,00 MAX  PARC 36
+                DE 78 A 78 ANOS 11 MESES E 29 DIAS  R$ 40.000,00 MAX PARC: 24
+                DE 79 A 79 ANOS 11 MESES E 29 DIAS  R$ 30.000,00 MAX PARC: 12"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                 <span class="btn-inner--icon"><i
                 class="fas fa-times"></i></span>
@@ -572,7 +616,15 @@ class SenadoFederal {
             </button>`
         } else if ((this.#dataDias >= 24067 && this.#dataDias < 26621) && this.#valor > 150000 && this.#qtdParcelas > 120) {
             btn_max_pan.innerHTML =
-                `<button type="button"
+                `<button type="button"  title="
+                DE 22 A 65 ANOS 11 MESES E 29 DIAS R$ 400.000,00   MAX PARC 120
+                DE 66 A 72 ANOS 11 MESES E 29 DIAS R$ 150.000,00 MAX  PARC 120
+                DE 73 A 74 ANOS 11 MESES E 29 DIAS R$ 120.000,00 MAX PARC 72
+                DE 75 A 75 ANOS 11 MESES E 29 DIAS R$ 70.000,00 MAX PARC 60
+                DE 76 A 76 ANOS 11 MESES E 29 DIAS R$ 50.000,00 MAX PARC 48
+                DE 77 A 77 ANOS 11 MESES E 29 DIAS R$ 50.000,00 MAX  PARC 36
+                DE 78 A 78 ANOS 11 MESES E 29 DIAS  R$ 40.000,00 MAX PARC: 24
+                DE 79 A 79 ANOS 11 MESES E 29 DIAS  R$ 30.000,00 MAX PARC: 12"
                 class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                     <span class="btn-inner--icon"><i
                     class="fas fa-times"></i></span>
@@ -580,7 +632,15 @@ class SenadoFederal {
                 </button>`
         } else if ((this.#dataDias >= 26623 && this.#dataDias < 27352) && this.#valor > 120000 && this.#qtdParcelas > 72) {
             btn_max_pan.innerHTML =
-                `<button type="button"
+                `<button type="button"  title="
+                DE 22 A 65 ANOS 11 MESES E 29 DIAS R$ 400.000,00   MAX PARC 120
+                DE 66 A 72 ANOS 11 MESES E 29 DIAS R$ 150.000,00 MAX  PARC 120
+                DE 73 A 74 ANOS 11 MESES E 29 DIAS R$ 120.000,00 MAX PARC 72
+                DE 75 A 75 ANOS 11 MESES E 29 DIAS R$ 70.000,00 MAX PARC 60
+                DE 76 A 76 ANOS 11 MESES E 29 DIAS R$ 50.000,00 MAX PARC 48
+                DE 77 A 77 ANOS 11 MESES E 29 DIAS R$ 50.000,00 MAX  PARC 36
+                DE 78 A 78 ANOS 11 MESES E 29 DIAS  R$ 40.000,00 MAX PARC: 24
+                DE 79 A 79 ANOS 11 MESES E 29 DIAS  R$ 30.000,00 MAX PARC: 12"
                 class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                     <span class="btn-inner--icon"><i
                     class="fas fa-times"></i></span>
@@ -588,7 +648,15 @@ class SenadoFederal {
                 </button>`
         } else if ((this.#dataDias >= 27352 && this.#dataDias < 27716) && this.#valor > 70000 && this.#qtdParcelas > 60) {
             btn_max_pan.innerHTML =
-                `<button type="button"
+                `<button type="button"  title="
+                DE 22 A 65 ANOS 11 MESES E 29 DIAS R$ 400.000,00   MAX PARC 120
+                DE 66 A 72 ANOS 11 MESES E 29 DIAS R$ 150.000,00 MAX  PARC 120
+                DE 73 A 74 ANOS 11 MESES E 29 DIAS R$ 120.000,00 MAX PARC 72
+                DE 75 A 75 ANOS 11 MESES E 29 DIAS R$ 70.000,00 MAX PARC 60
+                DE 76 A 76 ANOS 11 MESES E 29 DIAS R$ 50.000,00 MAX PARC 48
+                DE 77 A 77 ANOS 11 MESES E 29 DIAS R$ 50.000,00 MAX  PARC 36
+                DE 78 A 78 ANOS 11 MESES E 29 DIAS  R$ 40.000,00 MAX PARC: 24
+                DE 79 A 79 ANOS 11 MESES E 29 DIAS  R$ 30.000,00 MAX PARC: 12"
                 class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                     <span class="btn-inner--icon"><i
                     class="fas fa-times"></i></span>
@@ -596,7 +664,15 @@ class SenadoFederal {
                 </button>`
         } else if ((this.#dataDias >= 27717 && this.#dataDias < 28081) && this.#valor > 50000 && this.#qtdParcelas > 48) {
             btn_max_pan.innerHTML =
-                `<button type="button"
+                `<button type="button"  title="
+                DE 22 A 65 ANOS 11 MESES E 29 DIAS R$ 400.000,00   MAX PARC 120
+                DE 66 A 72 ANOS 11 MESES E 29 DIAS R$ 150.000,00 MAX  PARC 120
+                DE 73 A 74 ANOS 11 MESES E 29 DIAS R$ 120.000,00 MAX PARC 72
+                DE 75 A 75 ANOS 11 MESES E 29 DIAS R$ 70.000,00 MAX PARC 60
+                DE 76 A 76 ANOS 11 MESES E 29 DIAS R$ 50.000,00 MAX PARC 48
+                DE 77 A 77 ANOS 11 MESES E 29 DIAS R$ 50.000,00 MAX  PARC 36
+                DE 78 A 78 ANOS 11 MESES E 29 DIAS  R$ 40.000,00 MAX PARC: 24
+                DE 79 A 79 ANOS 11 MESES E 29 DIAS  R$ 30.000,00 MAX PARC: 12"
                 class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                     <span class="btn-inner--icon"><i
                     class="fas fa-times"></i></span>
@@ -604,7 +680,15 @@ class SenadoFederal {
                 </button>`
         } else if ((this.#dataDias >= 28082 && this.#dataDias < 28446) && this.#valor > 50000 && this.#qtdParcelas > 36) {
             btn_max_pan.innerHTML =
-                `<button type="button"
+                `<button type="button"  title="
+                DE 22 A 65 ANOS 11 MESES E 29 DIAS R$ 400.000,00   MAX PARC 120
+                DE 66 A 72 ANOS 11 MESES E 29 DIAS R$ 150.000,00 MAX  PARC 120
+                DE 73 A 74 ANOS 11 MESES E 29 DIAS R$ 120.000,00 MAX PARC 72
+                DE 75 A 75 ANOS 11 MESES E 29 DIAS R$ 70.000,00 MAX PARC 60
+                DE 76 A 76 ANOS 11 MESES E 29 DIAS R$ 50.000,00 MAX PARC 48
+                DE 77 A 77 ANOS 11 MESES E 29 DIAS R$ 50.000,00 MAX  PARC 36
+                DE 78 A 78 ANOS 11 MESES E 29 DIAS  R$ 40.000,00 MAX PARC: 24
+                DE 79 A 79 ANOS 11 MESES E 29 DIAS  R$ 30.000,00 MAX PARC: 12"
                 class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                     <span class="btn-inner--icon"><i
                     class="fas fa-times"></i></span>
@@ -612,7 +696,15 @@ class SenadoFederal {
                 </button>`
         } else if ((this.#dataDias >= 28447 && this.#dataDias < 28811) && this.#valor > 40000 && this.#qtdParcelas > 24) {
             btn_max_pan.innerHTML =
-                `<button type="button"
+                `<button type="button"  title="
+                DE 22 A 65 ANOS 11 MESES E 29 DIAS R$ 400.000,00   MAX PARC 120
+                DE 66 A 72 ANOS 11 MESES E 29 DIAS R$ 150.000,00 MAX  PARC 120
+                DE 73 A 74 ANOS 11 MESES E 29 DIAS R$ 120.000,00 MAX PARC 72
+                DE 75 A 75 ANOS 11 MESES E 29 DIAS R$ 70.000,00 MAX PARC 60
+                DE 76 A 76 ANOS 11 MESES E 29 DIAS R$ 50.000,00 MAX PARC 48
+                DE 77 A 77 ANOS 11 MESES E 29 DIAS R$ 50.000,00 MAX  PARC 36
+                DE 78 A 78 ANOS 11 MESES E 29 DIAS  R$ 40.000,00 MAX PARC: 24
+                DE 79 A 79 ANOS 11 MESES E 29 DIAS  R$ 30.000,00 MAX PARC: 12"
                 class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                     <span class="btn-inner--icon"><i
                     class="fas fa-times"></i></span>
@@ -620,7 +712,15 @@ class SenadoFederal {
                 </button>`
         } else if ((this.#dataDias >= 28812 && this.#dataDias < 29176) && this.#valor > 30000 && this.#qtdParcelas > 12) {
             btn_max_pan.innerHTML =
-                `<button type="button"
+                `<button type="button"  title="
+                DE 22 A 65 ANOS 11 MESES E 29 DIAS R$ 400.000,00   MAX PARC 120
+                DE 66 A 72 ANOS 11 MESES E 29 DIAS R$ 150.000,00 MAX  PARC 120
+                DE 73 A 74 ANOS 11 MESES E 29 DIAS R$ 120.000,00 MAX PARC 72
+                DE 75 A 75 ANOS 11 MESES E 29 DIAS R$ 70.000,00 MAX PARC 60
+                DE 76 A 76 ANOS 11 MESES E 29 DIAS R$ 50.000,00 MAX PARC 48
+                DE 77 A 77 ANOS 11 MESES E 29 DIAS R$ 50.000,00 MAX  PARC 36
+                DE 78 A 78 ANOS 11 MESES E 29 DIAS  R$ 40.000,00 MAX PARC: 24
+                DE 79 A 79 ANOS 11 MESES E 29 DIAS  R$ 30.000,00 MAX PARC: 12"
                 class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                     <span class="btn-inner--icon"><i
                     class="fas fa-times"></i></span>
@@ -639,7 +739,7 @@ class SenadoFederal {
         //Saldo Minimo
         if (this.#valor < 200) {
             btn_min_pan.innerHTML =
-                `<button type="button"
+                `<button type="button" title="SALDO MIN�MO - R$ 300,00"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                 <span class="btn-inner--icon"><i
                 class="fas fa-times"></i></span>
@@ -761,7 +861,7 @@ class SenadoFederal {
         //Saldo maximo
         if (this.#valor > 100000) {
             btn_max_bb.innerHTML =
-                `<button type="button"
+                `<button type="button" title="DE 21  A 69 ANOS 11 MESES E 29 DIAS  R$ 250.000,00 DE 70 A 74 ANOS 11 MESES E 29 DIAS R$ 75.000,00"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                 <span class="btn-inner--icon"><i
                 class="fas fa-times"></i></span>

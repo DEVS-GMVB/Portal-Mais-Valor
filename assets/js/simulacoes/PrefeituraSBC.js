@@ -52,7 +52,7 @@ class PrefeituraSBC {
         if(this.#dataDias > 29541) {
             btn_idade_sant.innerHTML =
             `
-                <button type="button"
+                <button type="button" title="Terminar o contrato com (80 ANOS 11 MESES 29 DIAS)"
                 class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                     <span class="btn-inner--icon"><i
                     class="fas fa-times"></i></span>
@@ -72,7 +72,7 @@ class PrefeituraSBC {
         if (this.#qtdParcelas.value > 120 || this.#qtdParcelas.value < 3) {
             btn_parcelas_sant.innerHTML =
                 `
-            <button type="button"
+            <button type="button" title="Parcela acima de 120x ou abaixo de 3x"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                 <span class="btn-inner--icon"><i
                 class="fas fa-times"></i></span>
@@ -91,7 +91,7 @@ class PrefeituraSBC {
         if(this.#valor > 200000) {
             btn_max_sant.innerHTML = 
             `
-            <button type="button"
+            <button type="button" title="SALDO MAXIMO - R$ 200000"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                 <span class="btn-inner--icon"><i
                 class="fas fa-times"></i></span>
@@ -112,7 +112,7 @@ class PrefeituraSBC {
         if(this.#valor < 300) {
             btn_min_sant.innerHTML = 
             `
-            <button type="button"
+            <button type="button" title="SALDO MINÍMO - R$ 300"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                 <span class="btn-inner--icon"><i
                 class="fas fa-times"></i></span>
@@ -151,7 +151,7 @@ class PrefeituraSBC {
         //Quantidade parcelas;
         if (this.#qtdParcelas > 96) {
             btn_parcelas_bradesco.innerHTML =
-                `<button type="button"
+                `<button type="button" title="Parcela acima de 96x"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
             <span class="btn-inner--icon"><i
             class="fas fa-times"></i></span>
@@ -225,7 +225,7 @@ class PrefeituraSBC {
         //Saldo minimo
         if (this.#valor < 900) {
             btn_min_bradesco.innerHtml =
-                `<button type="button"
+                `<button type="button" title="SALDO MINÍMO - R$ 900"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
             <span class="btn-inner--icon"><i
             class="fas fa-times"></i></span>
@@ -261,7 +261,7 @@ class PrefeituraSBC {
         //Quantidade de parcelas
         if (this.#qtdParcelas > 96) {
             btn_parcelas_ole.innerHTML =
-                `<button type="button"
+                `<button type="button" title="Parcela acima de 96x"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
             <span class="btn-inner--icon"><i
             class="fas fa-times"></i></span>
@@ -278,7 +278,7 @@ class PrefeituraSBC {
         //Saldo maximo
         if (this.#valor > 230000) {
             btn_max_ole.innerHTML =
-                `<button type="button"
+                `<button type="button" title="SALDO MAXIMO - R$ 230000"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
             <span class="btn-inner--icon"><i
             class="fas fa-times"></i></span>
@@ -296,7 +296,7 @@ class PrefeituraSBC {
         //Saldo minimo
         if (this.#valor < 300) {
             btn_min_ole.innerHTML =
-                `<button type="button"
+                `<button type="button" title="SALDO MINÍMO - R$ 300"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
             <span class="btn-inner--icon"><i
             class="fas fa-times"></i></span>
@@ -334,7 +334,7 @@ class PrefeituraSBC {
         //Quantidades de parcelas
         if (this.#qtdParcelas > 84) {
             btn_parcelas_parana.innerHTML =
-                `<button type="button"
+                `<button type="button" title="Parcela acima de 84x"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                 <span class="btn-inner--icon"><i
                 class="fas fa-times"></i></span>
@@ -426,7 +426,7 @@ class PrefeituraSBC {
         //Saldo minimo
         if (this.#valor < 1) {
             btn_min_parana.innerHTML =
-                `<button type="button"
+                `<button type="button" title="SALDO MINÍMO - R$ 1,00"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                 <span class="btn-inner--icon"><i
                 class="fas fa-times"></i></span>
@@ -578,7 +578,7 @@ class PrefeituraSBC {
         //Saldo Minimo
         if(this.#valor < 200) {
             btn_min_pan.innerHTML =
-                `<button type="button"
+                `<button type="button" title="SALDO MINÍMO - R$ 200"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                 <span class="btn-inner--icon"><i
                 class="fas fa-times"></i></span>
@@ -593,11 +593,11 @@ class PrefeituraSBC {
         }
 
         //DayCoval------------
-
+        
         //Idade
         if (this.#dataDias > 20416) {
             btn_idade_daycoval.innerHTML =
-                `<button type="button"
+                `<button type="button" title="Terminar o contrato com (75 ANOS 11 MESES 29 DIAS)"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
             <span class="btn-inner--icon"><i
             class="fas fa-times"></i></span>
@@ -616,7 +616,7 @@ class PrefeituraSBC {
         //Quantidade de parcelas
         if (this.#qtdParcelas > 120) {
             btn_parcelas_daycoval.innerHTML =
-            `<button type="button"
+            `<button type="button" title="Parcela acima de 120x"
         class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
         <span class="btn-inner--icon"><i
         class="fas fa-times"></i></span>
@@ -635,7 +635,7 @@ class PrefeituraSBC {
         //Saldo maximo
         if (this.#valor > 100000) {
             btn_max_daycoval.innerHTML =
-                `<button type="button"
+                `<button type="button" title="SALDO MAXIMO - R$ 100000"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                 <span class="btn-inner--icon"><i
                 class="fas fa-times"></i></span>
@@ -650,11 +650,11 @@ class PrefeituraSBC {
         }
 
         // BANCO DO BRASIL------------------
-
+        
         //Idade
         if (this.#dataDias > 29541) {
             btn_idade_bb.innerHTML =
-                `<button type="button"
+                `<button type="button" title="Terminar o contrato com (75 ANOS 11 MESES 29 DIAS)"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
             <span class="btn-inner--icon"><i
             class="fas fa-times"></i></span>
@@ -673,7 +673,7 @@ class PrefeituraSBC {
         //Quantidade de parcelas
         if (this.#qtdParcelas > 72 || this.#qtdParcelas < 2) {
             btn_parcelas_bb.innerHTML =
-                `<button type="button"
+                `<button type="button" title="Parcela acima de 72x ou abaixo de 2x"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                 <span class="btn-inner--icon"><i
                 class="fas fa-times"></i></span>
@@ -692,7 +692,7 @@ class PrefeituraSBC {
         //Saldo maximo
         if (this.#dataDias > 100000) {
             btn_max_bb.innerHTML =
-                `<button type="button"
+                `<button type="button" title="SALDO MAXIMO - R$ 100000"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
                 <span class="btn-inner--icon"><i
                 class="fas fa-times"></i></span>
