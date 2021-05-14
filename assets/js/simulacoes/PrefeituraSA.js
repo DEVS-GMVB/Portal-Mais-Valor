@@ -47,7 +47,6 @@ class PrefeituraSA {
         const btn_min_pan = document.getElementById('div-min-pan');
 
         //Santander
-        
 
         //Politica de Idade
         if(this.#dataDias > 29541) {

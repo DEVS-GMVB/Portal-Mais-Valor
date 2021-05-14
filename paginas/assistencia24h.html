@@ -53,7 +53,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Filtros de Pesquisa</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                    <button  type="button" class="close" data-dismiss="modal" aria-label="Fechar">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
@@ -65,17 +65,17 @@
 
                             <div class="col-md-6 mb-3">
                                 <label for="validationCustom01">CPF</label>
-                                <input type="text" class="form-control form-control-sm" id="validationCustom01">
+                                <input type="text" class="form-control form-control-sm" id="fCpf">
 
                             </div>
 
                             <div class="col-md-6 mb-3">
                                 <div class="form-group">
                                     <label for="exampleFormControlSelect1">Tipo Contratação</label>
-                                    <select class="form-control form-control-sm" id="exampleFormControlSelect1">
+                                    <select class="form-control form-control-sm" id="fTipoContratacao">
                                         <option> </option>
-
-
+                                        <option value="Cartao de Credito">Cartao de Crédito</option>
+                                        <option value="Conta bancaria">Conta Bancaria</option>
                                     </select>
                                 </div>
 
@@ -84,10 +84,10 @@
                             <div class="col-md-4 mb-3">
                                 <div class="form-group">
                                     <label for="exampleFormControlSelect1">Tipo da Assistência</label>
-                                    <select class="form-control form-control-sm" id="exampleFormControlSelect1">
-                                        <option> </option>
-
-
+                                    <select class="form-control form-control-sm" id="fTipoAssistencia">
+                                        <option></option>
+                                        <option value="residencial">Residencial</option>
+                                        <option value="saude">Pessoal</option>
                                     </select>
                                 </div>
 
@@ -96,10 +96,10 @@
                             <div class="col-md-4 mb-3">
                                 <div class="form-group">
                                     <label for="exampleFormControlSelect1">Forma de Contratação</label>
-                                    <select class="form-control form-control-sm" id="exampleFormControlSelect1">
-                                        <option> </option>
-
-
+                                    <select class="form-control form-control-sm" id="fFormaContratacao">
+                                        <option></option>
+                                        <option value="anual">Anual</option>
+                                        <option value="mensal">Mensal</option>
                                     </select>
                                 </div>
 
@@ -108,10 +108,9 @@
                             <div class="col-md-4 mb-3">
                                 <div class="form-group">
                                     <label for="exampleFormControlSelect1">Banco</label>
-                                    <select class="form-control form-control-sm" id="exampleFormControlSelect1">
-                                        <option> </option>
-
-
+                                    <select class="form-control form-control-sm" id="fBanco">
+                                        <option></option>
+                                        <option value="SANTANDER">SANTANDER</option>
                                     </select>
                                 </div>
 
@@ -124,7 +123,7 @@
 
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                        <button type="button" class="btn btn-primary">Filtrar Busca</button>
+                        <button type="button" onclick="filtro();" class="btn btn-primary">Filtrar Busca</button>
                     </div>
 
                 </div>
@@ -154,78 +153,90 @@
                     <div class="bg-titulo mt-0">
 
                         <h3>Dados Cadastrais</h3>
-
+                       
                     </div>
-
                     <form class="needs-validation" novalidate>
 
                         <div class="form-row mt-3">
 
-
+                            <input type="hidden" class="form-control col-md-2 form-control-sm" id="codigo">
                             <div class="col-md-6 mb-3">
                                 <label for="validationCustom01">Nome do Cliente</label>
-                                <input type="text" class="form-control form-control-sm" id="validationCustom01">
-
+                                <input type="text" class="form-control form-control-sm" id="nome">
                             </div>
 
                             <div class="col-md-6 mb-3">
                                 <label for="validationCustom01">CPF</label>
-                                <input type="text" class="form-control form-control-sm" id="validationCustom01">
+                                <input type="text" class="form-control form-control-sm" id="cpf">
 
                             </div>
 
                             <div class="col-md-4 mb-3">
                                 <label for="validationCustom01">Data Nascimento</label>
-                                <input type="text" class="form-control form-control-sm" id="validationCustom01">
+                                <input type="text" class="form-control form-control-sm" id="nascimento">
 
                             </div>
 
                             <div class="col-md-8 mb-3">
                                 <label for="validationCustom01">Endereço Completo</label>
-                                <input type="text" class="form-control form-control-sm" id="validationCustom01">
+                                <input type="text" class="form-control form-control-sm" id="rua">
 
                             </div>
 
 
                             <div class="col-md-3 mb-3">
                                 <label for="validationCustom01">CEP</label>
-                                <input type="text" class="form-control form-control-sm" id="validationCustom01">
+                                <input type="text" class="form-control form-control-sm" id="cep">
 
                             </div>
 
 
-                            <div class="col-md-3 mb-3">
+                            <div class="col-md-6 mb-3">
                                 <label for="validationCustom01">Bairro</label>
-                                <input type="text" class="form-control form-control-sm" id="validationCustom01">
-
+                                <input type="text" class="form-control form-control-sm" id="bairro">
                             </div>
 
 
                             <div class="col-md-3 mb-3">
                                 <label for="validationCustom01">Número</label>
-                                <input type="text" class="form-control form-control-sm" id="validationCustom01">
-
+                                <input type="text" class="form-control form-control-sm" id="numero">
                             </div>
 
 
                             <div class="col-md-3 mb-3">
                                 <label for="validationCustom01">Complemento</label>
-                                <input type="text" class="form-control form-control-sm" id="validationCustom01">
+                                <input type="text" class="form-control form-control-sm" id="complemento">
+                            </div>
 
+                            <div class="col-md-6 mb-3">
+                                <label for="validationCustom01">cidade</label>
+                                <input type="text" class="form-control form-control-sm" id="cidade2">
+                            </div>
+
+                            <div class="col-md-3 mb-3">
+                                <label for="validationCustom01">estado</label>
+                                <input type="text" class="form-control form-control-sm" id="estado2">
                             </div>
 
                             <div class="col-md-6 mb-3">
                                 <div class="form-group">
                                     <label for="exampleFormControlSelect1">E-mail</label>
-                                    <input type="text" class="form-control form-control-sm" id="validationCustom01">
+                                    <input type="text" class="form-control form-control-sm" id="email">
                                 </div>
 
                             </div>
 
-                            <div class="col-md-6 mb-3">
+                            <div class="col-md-2 mb-3">
+                                <div class="form-group">
+                                    <label for="exampleFormControlSelect1">ddd</label>
+                                    <input type="text" class="form-control form-control-sm" id="ddd">
+                                </div>
+
+                            </div>
+                            <div class="col-md-4 mb-3">
                                 <div class="form-group">
                                     <label for="exampleFormControlSelect1">Telefone</label>
-                                    <input type="text" class="form-control form-control-sm" id="validationCustom01">
+                                    <input type="text" class="form-control form-control-sm" id="telefone">
                                 </div>
 
                             </div>
@@ -240,51 +251,55 @@
 
                     </div>
 
-
+                
                     <form class="needs-validation" novalidate>
-
+                        <input type="hidden" class="form-control form-control-sm" id="valor_assistencia">
                         <div class="form-row mt-3">
 
 
-                            <div class="col-md-12 mb-3">
+                            <div class="col-md-9 mb-3">
                                 <label for="validationCustom01">Tipo Contratação</label>
-                                <select class="form-control form-control-sm" id="exampleFormControlSelect1">
-                                    <option> </option>
-                                    <option> </option>
-                                  
+                                <select class="form-control form-control-sm" id="tipoContratacao">
+                                    <option value=""></option>
+                                    <option value="Cartao de Credito">Cartão de crédito </option>
+                                    <option value="Conta bancaria"> Conta Bancaria</option>
                                 </select>
 
                             </div>
 
                             <div class="col-md-3 mb-3">
                                 <label for="validationCustom01">Banco</label>
-                                <select class="form-control form-control-sm" id="exampleFormControlSelect1">
-                                    <option> </option>
-                                    <option> </option>
-                                  
+                                <select class="form-control form-control-sm" id="banco">
+                                    <option value=""></option>
+                                    <option value="SANTANDER">SANTANDER</option>
                                 </select>
 
                             </div>
 
                             <div class="col-md-3 mb-3">
                                 <label for="validationCustom01">Agência</label>
-                                <input type="text" class="form-control form-control-sm" id="validationCustom01">
+                                <input type="text" class="form-control form-control-sm" id="agencia">
 
                             </div>
 
                             <div class="col-md-3 mb-3">
                                 <label for="validationCustom01">Conta</label>
-                                <input type="text" class="form-control form-control-sm" id="validationCustom01">
+                                <input type="text" class="form-control form-control-sm" id="conta">
+
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <label for="validationCustom01">digito</label>
+                                <input type="text" class="form-control form-control-sm" id="digito">
 
                             </div>
 
                             <div class="col-md-3 mb-1">
                                 <div class="form-group">
                                     <label for="exampleFormControlSelect1">Tipo Conta</label>
-                                    <select class="form-control form-control-sm" id="exampleFormControlSelect1">
-                                        <option> </option>
-                                        <option> </option>
-                                      
+                                    <select class="form-control form-control-sm" id="tipoConta">
+                                        <option value=""></option>
+                                        <option value="corrente">Corrente</option>
+                                        <option value="poupanca">Poupanca</option>
                                     </select>
                                 </div>
 
@@ -310,32 +325,37 @@
 
                             <div class="col-md-6 mb-3">
                                 <label for="validationCustom01">Tipo Assistência</label>
-                                <select class="form-control form-control-sm" id="exampleFormControlSelect1">
-                                    <option> </option>
-                                    <option> </option>
-                                  
+                                <select class="form-control form-control-sm" id="tipoAssistencia">
+                                    <option value=""></option>
+                                    <option value="670">residencial</option>
+                                    <option value="669">saude</option>
                                 </select>
 
                             </div>
 
                             <div class="col-md-6 mb-3">
                                 <label for="validationCustom01">Forma Contratação</label>
-                                <select class="form-control form-control-sm" id="exampleFormControlSelect1">
-                                    <option> </option>
-                                    <option> </option>
+                                <select class="form-control form-control-sm" id="formaContratacao">
+                                    <option value=""></option>
+                                    <option value="anual"> Anual</option>
+                                    <option value="mensal">Mensal </option>
+                                </select>
+                            </div>
+
+                            <div class="col-md-6 mb-3">
+                                <label for="validationCustom01">Status</label>
+                                <select class="form-control form-control-sm" id="status">
+                                    <option value=""></option>
+                                    <option value="Assistencia Solicitada"> Assistencia Solicitada </option>
+                                    <option value="Em Andamento"> Em Andamento </option>
+                                    <option value="Assistencia Contratada">Assistencia Contratada</option>
                                   
                                 </select>
 
                             </div>
-
-                            <div class="col-md-12 mb-3">
-                                <label for="validationCustom01">Status</label>
-                                <select class="form-control form-control-sm" id="exampleFormControlSelect1">
-                                    <option> </option>
-                                    <option> </option>
-                                  
-                                </select>
-
+                            <div class="col-md-6 mb-3">
+                                <label for="validationCustom01">Data vencimento</label>
+                                <input type="text" class="form-control form-control-sm" id="vencimento">
                             </div>
 
                         </div>
@@ -345,7 +365,7 @@
 
                     
                     <div class="opcoes-cadastro mt-2" style="text-align: center; margin-inline: block;">
-                        <button type="button" class="btn btn-primary btn-icon-label">
+                        <button type="button" class="btn btn-primary btn-icon-label" onclick="inclusao();" value="1">
                             <span class="btn-inner--icon">
                                 <i class="fas fa-plus"></i>
                             </span>
@@ -1049,7 +1069,7 @@
                         <div class="row justify-content-between align-items-center">
                             <div class="col-md-12 mb-3 mb-md-0">
                                 <h6 class="h3 font-weight-400 mb-0 text-white">Assistência 24 Horas </h6>
-
+                                <div id="demo"></div>
                             </div>
                         </div>
                     </div>
@@ -1062,7 +1082,7 @@
 
                                     <div class="opcoes-cadastro mt-1" style="text-align: center; margin-inline: block;">
 
-                                        <button type="button" class="btn btn-primary btn-icon-label" data-toggle="modal"
+                                        <button name="btnFP" onclick="nomeBotao(this.name); " type="button" class="btn btn-primary btn-icon-label" data-toggle="modal"
                                             data-target=".modal-incluirproposta-parc">
                                             <span class="btn-inner--icon">
                                                 <i class="fas fa-plus"></i>
@@ -1070,13 +1090,21 @@
                                             <span class="btn-inner--text">Nova Proposta</span>
                                         </button>
 
-                                        <button type="button" class="btn btn-primary btn-icon-label" data-toggle="modal"
+                                        <button name="btnFiltrosPesquisa" type="button" class="btn btn-primary btn-icon-label" data-toggle="modal"
                                             data-target=".modal-filtroproposta">
                                             <span class="btn-inner--icon">
                                                 <i class="fas fa-filter"></i>
                                             </span>
                                             <span class="btn-inner--text">Filtros de Pesquisa</span>
                                         </button>
+
+                                        <button name="btnFiltrosPesquisa" id="btnapagar" type="button" 
+                                        class="btn btn-primary btn-icon-label" data-toggle="modal" onclick="apagarFiltros();">
+                                        <span class="btn-inner--icon">
+                                            <i class="fas fa-trash-alt"></i>
+                                        </span>
+                                        <span class="btn-inner--text"> Apagar Filtros </span>
+                                    </button>
 
                                     </div>
 
@@ -1101,58 +1129,6 @@
                                             </thead>
 
                                             <tbody class="list" id="list">
-
-                                               <tr>
-
-                                                <td style="text-align: center;">
-                                                   
-                                                    000.000.000 - 00
-
-                                                </td>
-
-                                                <td style="text-align: center;"> BRUNO CEZAR</td>
-                                              
-                                                <td style="text-align: center;"> XXXXXX XXXXXX</td>
-                                                <td style="text-align: center;"> XXXXXXXXX XXXXXXXX</td>
-                                                 <td class="text-right" style="text-align: center;">
-                                                    <!-- Actions -->
-                                                    <div class="actions ml-3" style="text-align: center;">
-                                                        <a href="#" class="action-item mr-2 " data-toggle="modal"
-                                                            data-target=".modal-incluirproposta-parc" title="Alterar">
-                                                            <i class="fas fa-external-link-alt"></i>
-                                                        </a>
-                                                    
-                                                    </div>
-                                                </td>
-                                             
-
-                                                </tr>
-
-                                                <tr>
-
-                                                    <td style="text-align: center;">
-                                                       
-                                                        000.000.000 - 00
-    
-                                                    </td>
-    
-                                                    <td style="text-align: center;"> BRUNO CEZAR</td>
-                                                  
-                                                    <td style="text-align: center;"> XXXXXX XXXXXX</td>
-                                                    <td style="text-align: center;"> XXXXXXXXX XXXXXXXX</td>
-                                                     <td class="text-right" style="text-align: center;">
-                                                        <!-- Actions -->
-                                                        <div class="actions ml-3" style="text-align: center;">
-                                                            <a href="#" class="action-item mr-2 " data-toggle="modal"
-                                                                data-target=".modal-incluirproposta-parc" title="Alterar">
-                                                                <i class="fas fa-external-link-alt"></i>
-                                                            </a>
-                                                        
-                                                        </div>
-                                                    </td>
-                                                 
-    
-                                                    </tr>
 
                                             </tbody>
                                         </table>
@@ -1194,6 +1170,6 @@
         <!-- Import Get para popular campos -->
         <script src="../assets/js/cadastro.js"></script>
         <script src="../assets/js/propostas.js"></script>
-    </body>
+        <script src="../assets/js/assistencia24h.js"> </script>
 
 </html>

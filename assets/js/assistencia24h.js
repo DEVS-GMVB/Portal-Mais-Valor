@@ -4,6 +4,9 @@ const arrays = {
   arrayLinhas: arrayLinhas = []
 }
 
+//usar variavel de sessao para o id parceiro 
+//pegar essa variavel com get e jogar na funcao todosPorParceiro()
+var valor_seguro=0;
 //ao carregar a pagina...
 window.onload = function todosPorParceiro(){ 
 
@@ -24,7 +27,6 @@ window.onload = function todosPorParceiro(){
       fetch("http://localhost:3000/user/assistencia/filtrartodasporid", requestOptions)
         .then(response => response.json())
         .then(function (data) {
-
             for (let i = 0; i < data.length; i++) {
 
                 let specific_tbody = document.getElementById('list');
@@ -86,7 +88,7 @@ window.onload = function todosPorParceiro(){
 
                   function inclusao(){
                     if(nomeBotaoClicado=="btnFP"){
-                      auth();
+                      auth(); //Verificar se é cartao de credito ou conta corrente antes de gerar... se não for?...
                     }else {
                       updateBd();
                     }
@@ -126,20 +128,22 @@ window.onload = function todosPorParceiro(){
 
         function assistencia(token){
 
+          var nome = document.getElementById("nome").value;
           var ddd = document.getElementById("ddd").value;
           var telefone =document.getElementById("telefone").value;
           var cpf =document.getElementById("cpf").value;
           var email = document.getElementById("email").value;
           var data_nascimento = document.getElementById("nascimento").value;
-          var cidade = document.getElementById("cidade").value;
+          var cidade = document.getElementById("cidade2").value;
           var bairro = document.getElementById("bairro").value;
           var numero = document.getElementById("numero").value;
-          var estado = document.getElementById("estado").value;
+          var estado = document.getElementById("estado2").value;
           var rua = document.getElementById("rua").value;
           var cep = document.getElementById("cep").value;
           var product_id = document.getElementById("tipoAssistencia").value;
           var quote = 0;
           var uuid =0;
+          
 
               if (product_id == 670){
                   quote = 413;
@@ -157,7 +161,7 @@ window.onload = function todosPorParceiro(){
            var raw = JSON.stringify({
               "product_ids":[product_id],
               "insurance_holder":{
-                  "name":"nome",
+                  "name": nome,
                   "phones":[{
                       "area_code": ddd,
                       "extension":"",
@@ -196,8 +200,11 @@ window.onload = function todosPorParceiro(){
         fetch("https://api.suthubservice.com/v2/quote/"+quote+"", requestOptions)
         .then(response => response.json())
         .then(function (response) {
+          
           uuid = response.data.contract_id,
-          enviarEmail(token, uuid);
+          valor_seguro = response.data.payment_options[0].valor_total
+          document.getElementById("valor_assistencia").value = valor_seguro
+          enviarEmail(token, uuid, nome, email);
         }) 
         .catch(error => console.log('error', error));
         
@@ -205,7 +212,7 @@ window.onload = function todosPorParceiro(){
 };
 
     
-  function enviarEmail(token, uuid, nome){
+  function enviarEmail(token, uuid, nome, email){
     //Envio de email colocar uuid como parametro 
               var myHeaders = new Headers();
               myHeaders.append("token", token);
@@ -213,7 +220,7 @@ window.onload = function todosPorParceiro(){
 
               var raw = JSON.stringify(
                   {"email":{
-                      "recipients":["email@email.com"],
+                      "recipients":[email],
                       "contact_name":nome,
                       "uuid":uuid}
                   }
@@ -229,7 +236,6 @@ window.onload = function todosPorParceiro(){
               fetch("https://api.suthubservice.com/v2/email/2", requestOptions)
               .then(response => response.json())
               .then(function (response) {
-                console.log(response)
                   contrato(token,uuid);
               }) 
               .catch(error => console.log('error', error));
@@ -257,7 +263,6 @@ window.onload = function todosPorParceiro(){
             fetch("https://api.suthubservice.com/v2/MaisValor/contract/"+uuid+"/sendSMS?product="+product+"", requestOptions)
             .then(response => response.json())
             .then(function (response) {
-
                 if(response.status == "SMS sent."){
                       incluirBd();
                 }
@@ -268,15 +273,16 @@ window.onload = function todosPorParceiro(){
 
 
   function incluirBd(){
-            //Dados do Cliente
+             //CHAMAR VALOR DO SEGURO DO CAMPO HIDDEN
+            var valorAssistencia = document.getElementById("valor_assistencia").value;
             var ddd = document.getElementById("ddd").value;
             var telefone =document.getElementById("telefone").value;
             var cpf =document.getElementById("cpf").value;
             var email = document.getElementById("email").value;
             var data_nascimento = document.getElementById("nascimento").value;
             var bairro = document.getElementById("bairro").value;
-            var cidade = document.getElementById("cidade").value;
-            var estado = document.getElementById("estado").value;
+            var cidade = document.getElementById("cidade2").value;
+            var estado = document.getElementById("estado2").value;
             var rua = document.getElementById("rua").value;
             var numero = document.getElementById("numero").value;
             var cep = document.getElementById("cep").value;
@@ -293,6 +299,7 @@ window.onload = function todosPorParceiro(){
             var status = document.getElementById("status").value;
             //Dados do Produto
             var formaContratacao = document.getElementById("formaContratacao").value;
+            var vencimento = document.getElementById("vencimento").value;
             //Dados do Parceiro //colocar num input hidden
             var parceiro = "x";
             var id_parceiro = "1";
@@ -341,11 +348,11 @@ window.onload = function todosPorParceiro(){
                 "supervisor": supervisor,
                 "gerente": gerente,
                 "data_inclusao": data_inclusao,
+                "data_vencimento": vencimento,
                 "responsavel_alteracao": responsavel_alteracao,
-                "data_alteracao": data_alteracao
+                "data_alteracao": data_alteracao,
+                "valor_assistencia": valorAssistencia
               });
-
-
 
               var requestOptions = {
                 method: 'POST',
@@ -358,7 +365,6 @@ window.onload = function todosPorParceiro(){
           .then(response => response.json())
           .then(function (response) {
             window.location.href = "http://127.0.0.1:5501/paginas/assistencia24h.html"
-            console.log(response)
 
         }) 
           .catch(error => console.log('error', error));
@@ -468,29 +474,32 @@ window.onload = function todosPorParceiro(){
 
     var idBotaoAlterar = ""; 
     function pegarIdBotaoAlterar(id){
-
+            
             idBotaoAlterar = id; 
             var tagPai ="row"+id;
             let teste = document.getElementById(tagPai);
             var cpfChildren =   teste.children[0].id;
             var nomeChildren =   teste.children[1].id;
             var tipoCChildren =   teste.children[2].id;
-            var tipoAChildren =   teste.children[3].id;  
+            var tipoAChildren =   teste.children[3].id;
             var valoCpf = document.getElementById(cpfChildren);
             var valoNome = document.getElementById(nomeChildren);
             var valoTipoC = document.getElementById(tipoCChildren);
             var valoTipoA = document.getElementById(tipoAChildren);
+          
             var cpfformatado = valoCpf.innerHTML;
             var nomeformatado = valoNome.innerHTML;
             var tipoCformatado = valoTipoC.innerHTML;
             var tipoAformatado = valoTipoA.innerHTML;
+
 
             selecaoParaalteracao(cpfformatado, nomeformatado, tipoCformatado, tipoAformatado)
 
     };
  
 
-    function selecaoParaalteracao(cpfformatado, nomeformatado, tipoCformatado, tipoAformatado){
+    function selecaoParaalteracao(cpfformatado, nomeformatado, tipoCformatado, tipoAformatado){//
+
           var myHeaders = new Headers();
           myHeaders.append("Content-Type", "application/json");
 
@@ -533,6 +542,7 @@ window.onload = function todosPorParceiro(){
               var tipo_assistencia = data.tipo_assistencia;
               var forma_contratacao = data.forma_contratacao;
               var status = data.status;
+              var vencimento = data.data_vencimento;
               var tipo_assistencia2 = "";
               var telefoneFinal = "";
               var telefoneSplit = telefone.split('');
@@ -551,8 +561,8 @@ window.onload = function todosPorParceiro(){
               document.getElementById("cpf").value = cpf;
               document.getElementById("rua").value = rua;
               document.getElementById("bairro").value = bairro;
-              document.getElementById("cidade").value = cidade;
-              document.getElementById("estado").value = estado;
+              document.getElementById("cidade2").value = cidade;
+              document.getElementById("estado2").value = estado;
               document.getElementById("numero").value = numero;
               document.getElementById("cep").value = cep;
               document.getElementById("email").value = email;
@@ -563,6 +573,7 @@ window.onload = function todosPorParceiro(){
               document.getElementById("digito").value = digito;
               document.getElementById("banco").value = banco;
               document.getElementById("tipoContratacao").value = contratacao;
+              document.getElementById("vencimento").value = vencimento ;
 
               if(tipo_assistencia=="residencial"){
                   tipo_assistencia2 = "670";
@@ -582,7 +593,7 @@ window.onload = function todosPorParceiro(){
 
 
     function updateBd(){
-          //pegar id_assistencia do input hidden 
+      
           //Dados do Cliente
           var ddd = document.getElementById("ddd").value;
           var codigo = document.getElementById("codigo").value;
@@ -592,8 +603,8 @@ window.onload = function todosPorParceiro(){
           var email = document.getElementById("email").value;
           var data_nascimento = document.getElementById("nascimento").value;
           var bairro = document.getElementById("bairro").value;
-          var cidade = document.getElementById("cidade").value;
-          var estado = document.getElementById("estado").value;
+          var cidade = document.getElementById("cidade2").value;
+          var estado = document.getElementById("estado2").value;
           var rua = document.getElementById("rua").value;
           var cep = document.getElementById("cep").value;
           var product_id = document.getElementById("tipoAssistencia").value;
@@ -611,6 +622,7 @@ window.onload = function todosPorParceiro(){
 
           //Dados do Produto
           var formaContratacao = document.getElementById("formaContratacao").value;
+          var vencimento = document.getElementById("vencimento").value;
 
           //Dados do Parceiro //colocar num input hidden
           var now = new Date;
@@ -651,7 +663,8 @@ window.onload = function todosPorParceiro(){
                 "tipo_assistencia": produtoEscolhido,
                 "forma_contratacao": formaContratacao,
                 "responsavel_alteracao": responsavel_alteracao,
-                "data_alteracao": data_alteracao
+                "data_alteracao": data_alteracao,
+                "data_vencimento": vencimento
                 });
 
                 var requestOptions = {
@@ -664,18 +677,268 @@ window.onload = function todosPorParceiro(){
                 fetch("http://localhost:3000/user/assistencia/alterar", requestOptions)
                 .then(response => response.json())
                 .then(function (data) {
-                  console.log(data);
                   window.location.href = "http://127.0.0.1:5501/paginas/assistencia24h.html"
 
                 })
                 .catch(error => console.log('error', error));
 
     }
+
     
 
+  ////////////////COMFIGURAÇÕES DE ENVIO TXT ////////////////////
+
+                    var arrayValorTotal = []
+
+                    now = new Date  
+                    if (now.getDay () ==4){
+                    document.getElementById ("demo").innerHTML = "TXT GERADO";
+                    filtraAssistenciasDebito();
+                    } 
+                    else{
+                        document.write ("Hoje não é dia de enviar o arquivo ");
+                    }
+
+                    function filtraAssistenciasDebito(){//
+
+                    var myHeaders = new Headers();
+                    myHeaders.append("Content-Type", "application/json");
+
+                    var raw = JSON.stringify({
+                      "status": "Assistencia Solicitada",
+                      "tipo_contratacao": "Conta bancaria"
+                    });
+
+                    var requestOptions = {
+                      method: 'POST',
+                      headers: myHeaders,
+                      body: raw,
+                      redirect: 'follow'
+                    };
+
+                    fetch("http://localhost:3000/user/assistencia/cnab", requestOptions)
+                      .then(response => response.json())
+                      .then((function (data) {
+
+                                      var count = data.length; 
+                                      var i = 0;
+                                      var valor_total = 0;
+
+                                      for(i;i<count; i++){
+                                      
+                                          //  var codigo = data[i].codigo; 
+                                          //  updateStatusAssistenciaTxt(codigo);
+
+                                            var nome = data[i].cliente_nome;
+                                            nome = nome.replaceAll(" ","");
+                                            var agencia = data[i].agencia;
+                                            var conta = data[i].conta;
+                                            var digito = data[i].digito;
+                                            var conta_digito = conta+" "+digito;
+                                            var cpf = data[i].cliente_cpf;
+                                            var vencimento = data[i].data_vencimento;
+                                            var nascimento = data[i].data_nascimento;
+                                            cpf = cpf.replace(/\.|\-/g, '');
+                                            var cidade =  data[i].cidade;
+                                            var estado =  data[i].estado;
+                                            var valor_assistencia =  data[i].valor_assistencia;
+                                            var valorFormatado = parseFloat(valor_assistencia)
+                                            var valorFinal =  valor_total += valorFormatado;
+                                            var data_venda  = data[i].data_inclusao;
+                                            var rua = data[i].rua;
+                                            var numero = data[i].numero;
+                                            var complemento = data[i].complemento;
+                                            var bairro = data[i].bairro;
+                                            var cep = data[i].cep;
+                                            var id_cliente = data[i].id_cliente;
+                                            var id_contrato = data[i].id_contrato;
+
+                                       
+                                      criarTxt(i, agencia, cpf ,  nome,cidade,estado, valor_assistencia, count, valorFinal,
+                                         conta_digito,vencimento);
+
+
+                                      criarDocumentoIke( id_cliente, id_contrato, i, conta,nome,cpf,cidade,estado, count, 
+                                        nascimento, data_venda, rua , numero, complemento, bairro, cep);
+
+                                      }
+                                     // envioEmailBanco();
+                                      //envio SFTP IKE
+                                    
+                                    }))
+                      .catch(error => console.log('error', error));
+
+                    }
 
 
 
+                    
+                function criarTxt(i , agencia, cpf ,  nome,  cidade, estado, valor_assistencia,count, valorFinal , conta_digito, vencimento){
+
+                    let data = new Date();
+                    let diaHoje = ("0" + data.getDate()).slice(-2);
+                    let mesHoje = ("0" + (data.getMonth() + 1)).slice(-2);
+                    let anoHoje = data.getFullYear();
+                    hoje = anoHoje + mesHoje + diaHoje;
+
+                   var valor_final2 = valorFinal.toString();
+                   var valor_total = valor_final2.replace(".", "");
+
+                    var _str = vencimento;
+                    var vencimento_invertido = _str.split('/').reverse().join('/');
+                    var vencimento_ =vencimento_invertido.replace("/", "");
+                    var vencimento_formatado =vencimento_.replace("/", "");
+
+                    var myHeaders = new Headers();
+                    myHeaders.append("Content-Type", "application/json");
+
+                    var raw = JSON.stringify({
+                      "agencia": agencia,
+                      "cliente_cpf": cpf,
+                      "cliente_nome": nome,
+                      "numero_arquivo": i+1,
+                      "cidade": cidade,
+                      "estado": estado,
+                      "valor_assistencia": valor_assistencia,
+                      "qtdRegistros":count *2+1, //contem cabecalho e 1 rodape
+                      "valor_final": valor_total,
+                      "data_hoje": hoje, 
+                      "id_empresa_banco": conta_digito,
+                      "data_vencimento": vencimento_formatado
+
+
+                    });
+
+                    var requestOptions = {
+                      method: 'POST',
+                      headers: myHeaders,
+                      body: raw,
+                      redirect: 'follow'
+                    };
+
+                    fetch("http://localhost:3000/user/assistencia/txt", requestOptions)
+                      .then(response => response.json())
+                      .then(result => console.log(result))
+                      .catch(error => console.log('error', error));
+                      
+                    }
+
+
+
+
+          //   function updateStatusAssistenciaTxt(codigo){
+
+          //      var myHeaders = new Headers();
+          //       myHeaders.append("Content-Type", "application/json");
+
+          //       var raw = JSON.stringify({
+          //         "codigo": codigo,
+          //         "status": "Em Andamento"
+          //       });
+
+          //       var requestOptions = {
+          //         method: 'POST',
+          //         headers: myHeaders,
+          //         body: raw,
+          //         redirect: 'follow'
+          //       };
+
+          //       fetch("http://localhost:3000/user/assistencia/updateStatus", requestOptions)
+          //         .then(response => response.json())
+          //         .then(result => console.log(result))
+          //         .catch(error => console.log('error', error));
+
+          //   };
+
+
+                                  
+          // function envioEmailBanco(){
+          //         var raw = "";
+
+          //       var requestOptions = {
+          //         method: 'POST',
+          //         body: raw,
+          //         redirect: 'follow'
+          //       };
+
+          //       fetch("http://localhost:3000/user/assistencia/emailBanco", requestOptions)
+          //         .then(response => response.json())
+          //         .then(result => console.log(result))
+          //         .catch(error => console.log('error', error));
+          // }
+
+//***************To do**************** */
+//formatar variaveis no front arquivo IKE  , configurar o SFTP em nodeJS   
+//identificacao do contrato 6digitos + cc   ,   identificacao do cliente cpf + assistencia(residencial ou pessoal )       
+//mascaras inclusao (front end)
+//arquivo mensal (L) Programar envio por data
+
+          function criarDocumentoIke( id_cliente, id_contrato, i, conta,nome,cpf,cidade,estado, count, 
+            nascimento, data_venda, rua , numero, complemento, bairro, cep){
+
+           //formatando data de inclusão
+           var data_venda0 = data_venda.toString()
+           var data_venda1 = data_venda0.match(/\b(\d+\/\d+\/\d+)\b/g)
+           var data_venda3 = data_venda1.toString()
+           var data_venda4 =  data_venda3.split('/')//erro na função split
+
+            if(data_venda4[1]<10){
+              data_venda4[1] ="0" + data_venda4[1];
+            }
+            if(data_venda4[0]<10){
+              data_venda4[0] ="0" + data_venda4[0];
+            }
+            var data_venda_formatada =data_venda4[2]+data_venda4[1]+data_venda4[0];
+            //fim da formatação da data de inclusão
+
+            //formatando data de nascimento 
+            var nascimento4 =  nascimento.split('/')//erro na função split
+            console.log(nascimento4)
+             if(nascimento4[1]<10  &&  nascimento4[1].indexOf("0")===-1 ){
+               nascimento4[1] ="0" + nascimento4[1];
+             }
+             if(nascimento4[0]<10  &&  nascimento4[0].indexOf("0")===-1){
+               nascimento4[0] ="0" + nascimento4[0];
+             }
+             var nascimento_formatado =nascimento4[2]+nascimento4[1]+nascimento4[0];
+            //fim formatação data de nascimento 
+
+
+
+                  var myHeaders = new Headers();
+                  myHeaders.append("Content-Type", "application/json");
+
+                  var raw = JSON.stringify({
+                    "contrato": id_contrato, //gerado pela GMVB (parte do projeto gerar internamente)
+                    "conta": conta,
+                    "qtdRegistros": count,
+                    "cod_interno_cliente": id_cliente,
+                    "nome": nome,
+                    "cpf": cpf,
+                    "data_nascimento": nascimento_formatado,
+                    "data_venda": data_venda_formatada,//limpar horas e caracteres especiais
+                    "endereco": rua,
+                    "numero": numero,
+                    "complemento": complemento,
+                    "bairro": bairro,
+                    "cidade": cidade,
+                    "cep": cep,
+                    "uf": estado,
+                    "numero_sequencial_arquivo": i
+                  });
+
+                  var requestOptions = {
+                    method: 'POST',
+                    headers: myHeaders,
+                    body: raw,
+                    redirect: 'follow'
+                  };
+
+                  fetch("http://localhost:3000/user/assistencia/ike", requestOptions)
+                    .then(response => response.text())
+                    .then(result => console.log(result))
+                    .catch(error => console.log('error', error));
+          }
 
 
 
