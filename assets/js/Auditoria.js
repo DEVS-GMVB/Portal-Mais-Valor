@@ -1,3 +1,4 @@
+
 const URL = `http://localhost:3000/user`;
 
 //Selects
@@ -10,6 +11,16 @@ const supervisorSelect = document.getElementById("campo-supervisor");
 const statusAuditoria = document.getElementById("campo-auditoria");
 const statusProposta = document.getElementById("campo-status-proposta");
 const dadosUsuario = document.getElementById('div-dados-usuario');
+const statusAuditoriaVisualizar = document.getElementById("campo-status-auditoria");
+const faltaSelect = document.getElementById("campo-falta");
+const subStatusSelect = document.getElementById("campo-sub-status");
+const vendaSelectAlterar = document.getElementById("campo-venda-alterar");
+const nomeOperadorAlterar = document.getElementById("campo-nome-operador");
+const tipoFalta = document.getElementById("campo-tipo-falta");
+const statusAlterar = document.getElementById("campo-status");
+
+const mapLinhas = new Map();
+const mapObjetos = new Map();
 
 //Arrays
 const arrays = {
@@ -30,7 +41,8 @@ const dataSession = {
     cpf_user: sessionStorage.getItem('cpf_usuario', 'cpf_usuario'),
     tipo_usuario: sessionStorage.getItem('tipo_usuario', 'tipo_usuario'),
     supervisor_cpf: sessionStorage.getItem('supervisor_cpf', 'supervisor_cpf'),
-    gerente_cpf: sessionStorage.getItem('gerente_cpf', 'gerente_cpf')
+    gerente_cpf: sessionStorage.getItem('gerente_cpf', 'gerente_cpf'),
+    classificacao: sessionStorage.getItem('classificacao')
 }
 
 //Quebra referência de modais iguais
@@ -41,7 +53,6 @@ const quebraReferenciaModais = {
         const selects = document.querySelectorAll('.needs-validation select');
 
         const textAreas = document.querySelectorAll('.needs-validation textarea');
-
 
         inputs.forEach(element => {
             element.removeAttribute('disabled');
@@ -59,6 +70,7 @@ const quebraReferenciaModais = {
 
 //Btns
 const btnFiltro = document.getElementById("btn-buscar");
+const btnAlterar = document.getElementById("btn-alterar");
 
 window.onload = (e) => {
     fetch(`${URL}/auditoria/venda`, {
@@ -71,6 +83,7 @@ window.onload = (e) => {
                     tipo_operacao
                 } of data) {
                 vendas.innerHTML += `<option value="${tipo_operacao}">${tipo_operacao}</option>`;
+                vendaSelectAlterar.innerHTML += `<option value="${tipo_operacao}">${tipo_operacao}</option>`;
             }
 
         })
@@ -86,6 +99,7 @@ window.onload = (e) => {
                     usuario
                 } of data) {
                 operador.innerHTML += `<option value="${usuario}">${usuario}</option>`;
+                nomeOperadorAlterar.innerHTML += `<option value="${usuario}">${usuario}</option>`;
             }
 
         })
@@ -131,6 +145,7 @@ window.onload = (e) => {
                     status_auditoria
                 } of data) {
                 statusAuditoria.innerHTML += `<option value="${status_auditoria}">${status_auditoria}</option>`;
+                statusAuditoriaVisualizar.innerHTML += `<option value="${status_auditoria}">${status_auditoria}</option>`;
             }
         })
         .catch(error => console.error(error));
@@ -145,6 +160,7 @@ window.onload = (e) => {
                     status
                 } of data) {
                 statusProposta.innerHTML += `<option value="${status}">${status}</option>`;
+                statusAlterar.innerHTML += `<option value="${status}">${status}</option>`;
             }
         })
         .catch(error => console.error(error));
@@ -160,6 +176,51 @@ window.onload = (e) => {
                 } of data) {
                 mesSelect.innerHTML += `<option value="${mes}">${mes}</option>`;
             }
+        })
+        .catch(error => console.error(error));
+
+    fetch(`${URL}/auditoria/falta`, {
+            method: 'GET',
+            redirect: 'follow'
+        })
+        .then(response => response.json())
+        .then((data) => {
+            for (const {
+                    falta
+                } of data) {
+                faltaSelect.innerHTML += `<option value="${falta}">${falta}</option>`;
+            }
+
+        })
+        .catch(error => console.error(error));
+
+    fetch(`${URL}/auditoria/substatus`, {
+            method: 'GET',
+            redirect: 'follow'
+        })
+        .then(response => response.json())
+        .then((data) => {
+            for (const {
+                    sub_status
+                } of data) {
+                subStatusSelect.innerHTML += `<option value="${sub_status}">${sub_status}</option>`;
+            }
+
+        })
+        .catch(error => console.error(error));
+
+    fetch(`${URL}/auditoria/tipo/falta`, {
+            method: 'GET',
+            redirect: 'follow'
+        })
+        .then(response => response.json())
+        .then((data) => {
+            for (const {
+                    tipo_falta
+                } of data) {
+                tipoFalta.innerHTML += `<option value="${tipo_falta}">${tipo_falta}</option>`;
+            }
+
         })
         .catch(error => console.error(error));
 }
@@ -208,7 +269,7 @@ btnFiltro.addEventListener('click', () => {
     fetch(`${URL}/auditoria/filtro`, requestOptions)
         .then(response => response.json())
         .then(function (data) {
-            if(data.message === 'nenhum registro encontrado com este filtro') return;
+            if (data.message === 'nenhum registro encontrado com este filtro') return;
 
             arrays.arrayId = []
             for (const i in data) {
@@ -278,8 +339,10 @@ btnFiltro.addEventListener('click', () => {
                 let vinculoText = document.createTextNode(``);
                 vinculo.appendChild(vinculoText)
 
-                arrays.arrayId.push(data[i])
-                arrays.arrayRows.push(row)
+                mapObjetos.set(data[i].id_proposta, data[i]);
+                // arrays.arrayId.push(data[i])
+                // arrays.arrayRows.push(row)
+                mapLinhas.set(data[i].id_proposta, row);
 
                 visualizar.innerHTML = `
                 <td class="text-right" style="text-align: center;">
@@ -287,7 +350,7 @@ btnFiltro.addEventListener('click', () => {
                     <div class="actions ml-3" style="text-align: center;" id="div-visualisar">
                         <a href="#" class="action-item mr-2 " data-toggle="modal"
                             data-target=".modalvisualizaraudit" title="Visualizar"
-                            id="visualizar" onclick="modalAuditoria(arrays.arrayId[${i}], arrays.arrayRows[${i}])">
+                            id="visualizar" onclick="visualizar(mapObjetos.get(${data[i].id_proposta}))">
                             <i class="fas fa-eye"></i>
                         </a>
 
@@ -302,7 +365,7 @@ btnFiltro.addEventListener('click', () => {
                     <div class="actions ml-3" style="text-align: center;" id="div-auditar-proposta">
                         <a href="#" class="action-item mr-2 " data-toggle="modal"
                             data-target=".modalvisualizaraudit" title="Auditar Proposta"
-                            id="auditar-proposta" onclick="update()">
+                            id="auditar-proposta" onclick="update(mapObjetos.get(${data[i].id_proposta}))">
                             <i class="fas fa-share-square"></i>
                         </a>
 
@@ -316,13 +379,15 @@ btnFiltro.addEventListener('click', () => {
 })
 
 //Modal
-function modalAuditoria(data, row) {
+function visualizar(data) {
 
     //Preencher tabela de logs
     buscarLogs(data.id_proposta);
 
+    preencherModalInfo(data);
+
     //Escondendo  os botões
-    document.getElementById('div-btn-alterar').style.display = 'none';
+    document.getElementById('div-btn-alterar').innerHTML = ``;
     document.getElementById('div-btn-observacao').style.display = 'none';
 
     //Bloqueando os campos
@@ -362,49 +427,27 @@ function modalAuditoria(data, row) {
     $('#campo-gerente-alterar2').attr('disabled', true);
     $('#campo-chave-j').attr('disabled', true);
 
-
-    $('#campo-status-auditoria').val(data.status_auditoria);
-    $('#campo-falta').val(data.falta);
-    $('#campo-tipo-falta').val(data.tipo_falta);
-    $('#campo-sub-status').val(data.sub_status);
-    $('#campo-obs-auditoria').val(data.observacao);
-    $('#campo-numero-proposta').val(data.proposta);
-    $('#campo-data-venda').val(data.data_venda);
-    $('#campo-mes-referencia').val(data.mes);
-    $('#campo-status').val(data.status);
-    $('#campo-linha-credito').val(); //Linha de credito
-    $('#campo-valor-proposta').val(data.valor_proposta);
-    $('#campo-valor-troco').val(data.valor_troco);
-    $('#campo-valor-liquido').val(data.valor_liquido);
-    $('#campo-quantidade-parcelas').val(data.qtd_parcela);
-    $('#campo-valor-seguro').val(data.valor_seguro);
-    $('#campo-mailing-origem').val(); //Mailing origem
-    $('#campo-valor-parcela').val(data.valor_parcela);
-    $('#campo-venda-alterar').val(data.tipo_operacao); //Venda
-    $('#campo-vencimento-1-parcela').val(data.vencimento_parcela);
-    $('#campo-convenio').val(data.convenio);
-    $('#campo-nome-cliente').val(data.nome);
-    $('#campo-cpf-cliente').val(data.cpf);
-    $('#campo-telefone-cliente').val(data.telefone_cliente);
-    $('#campo-agencia-cliente').val(data.agencia_cliente);
-    $('#campo-conta-cliente').val(data.conta_cliente);
-    $('#campo-parceiro-promotor').val(data.parceiro);
-    $('#campo-supervisor-alterar').val(data.supervisor);
-    $('#campo-gerente-alterar').val(data.gerente);
-    $('#campo-cpf-parc-promo').val(data.cpf_parceiro);
-    $('#campo-chave').val(); //Chave 
-    $('#campo-senha-chave').val(data.senha_chave);
-    $('#campo-nome-operador').val(data.usuario); //Nome operador
-    $('#campo-supervisor-alterar2').val(data.supervisor_parceiro);
-    $('#campo-gerente-alterar2').val(data.gerente_parceiro);
-    $('#campo-chave-j').val(data.chavej);
 }
 
 //Update
-function update() {
-    document.getElementById("div-btn-alterar").style.display = 'block';
+function update(data) {
+
+    document.getElementById("div-btn-alterar").innerHTML = `
+    <button type="button" class="btn btn-primary btn-icon-label" id="btn-alterar" onclick="updateAuditoria(${data.id_proposta})">
+        <span class="btn-inner--icon">
+            <i class="fas fa-plus"></i>
+        </span>
+        <span class="btn-inner--text">Alterar</span>
+    </button>
+    
+    `;
 
     quebraReferenciaModais.liberaCamposUpdate();
+
+    buscarLogs(data.id_proposta);
+
+    preencherModalInfo(data);
+
 }
 
 //Tabela Dados do Usuario
@@ -454,7 +497,7 @@ function update() {
                         ${dataSession.tipo_usuario}
                     </td>
                     <td style="text-align: center;">
-                        ${dataSession.perfil}
+                        ${dataSession.classificacao}
                     </td>
                 </tr>
             </tbody>
@@ -480,10 +523,9 @@ const buscarLogs = (idProposta) => {
         redirect: 'follow'
     };
 
-    fetch("http://localhost:3000/user/auditoria/buscarlogs", requestOptions)
+    fetch(`${URL}/auditoria/buscarlogs`, requestOptions)
         .then(response => response.json())
         .then(data => {
-            console.log(data);
 
             data.forEach(item => {
                 const rowLogs = document.createElement('tr');
@@ -516,4 +558,163 @@ const buscarLogs = (idProposta) => {
 
         })
         .catch(error => console.log('error', error));
+}
+
+const preencherModalInfo = (data) => {
+    $('#campo-status-auditoria').val(data.status_auditoria);
+    $('#campo-falta').val(data.falta);
+    $('#campo-tipo-falta').val(data.tipo_falta);
+    $('#campo-sub-status').val(data.sub_status);
+    $('#campo-obs-auditoria').val(data.observacao);
+    $('#campo-numero-proposta').val(data.proposta);
+    $('#campo-data-venda').val(data.data_venda);
+    $('#campo-mes-referencia').val(data.mes);
+    $('#campo-status').val(data.status);
+    $('#campo-linha-credito').val(); //Linha de credito
+    $('#campo-valor-proposta').val(data.valor_proposta);
+    $('#campo-valor-troco').val(data.valor_troco);
+    $('#campo-valor-liquido').val(data.valor_liquido);
+    $('#campo-quantidade-parcelas').val(data.qtd_parcela);
+    $('#campo-valor-seguro').val(data.valor_seguro);
+    $('#campo-mailing-origem').val(); //Mailing origem
+    $('#campo-valor-parcela').val(data.valor_parcela);
+    $('#campo-venda-alterar').val(data.tipo_operacao); //Venda
+    $('#campo-vencimento-1-parcela').val(data.vencimento_parcela);
+    $('#campo-convenio').val(data.convenio);
+    $('#campo-nome-cliente').val(data.nome);
+    $('#campo-cpf-cliente').val(data.cpf);
+    $('#campo-telefone-cliente').val(data.telefone_cliente);
+    $('#campo-agencia-cliente').val(data.agencia_cliente);
+    $('#campo-conta-cliente').val(data.conta_cliente);
+    $('#campo-parceiro-promotor').val(data.parceiro);
+    $('#campo-supervisor-alterar').val(data.supervisor);
+    $('#campo-gerente-alterar').val(data.gerente);
+    $('#campo-cpf-parc-promo').val(data.cpf_parceiro);
+    $('#campo-chave').val(); //Chave 
+    $('#campo-senha-chave').val(data.senha_chave);
+    $('#campo-nome-operador').val(data.usuario); //Nome operador
+    $('#campo-supervisor-alterar2').val(data.supervisor_parceiro);
+    $('#campo-gerente-alterar2').val(data.gerente_parceiro);
+    $('#campo-chave-j').val(data.chavej);
+}
+
+const updateAuditoria = (id_proposta) => {
+
+    const status_auditoria = $('#campo-status-auditoria').val();
+    const falta = $('#campo-falta').val();
+    const tipo_falta = $('#campo-tipo-falta').val();
+    const sub_status = $('#campo-sub-status').val();
+    const observacao = $('#campo-obs-auditoria').val();
+    const proposta = $('#campo-numero-proposta').val();
+    const data_venda = $('#campo-data-venda').val();
+    const mes = $('#campo-mes-referencia').val();
+    const status = $('#campo-status').val();
+    // const  = $('#campo-linha-credito').val();
+    const valor_proposta = $('#campo-valor-proposta').val();
+    const valor_troco = $('#campo-valor-troco').val();
+    const valor_liquido = $('#campo-valor-liquido').val();
+    const qtd_parcela = $('#campo-quantidade-parcelas').val();
+    const valor_seguro = $('#campo-valor-seguro').val();
+    // const  = $('#campo-mailing-origem').val();
+    const valor_parcela = $('#campo-valor-parcela').val();
+    const tipo_operacao = $('#campo-venda-alterar').val();
+    const vencimento_parcela = $('#campo-vencimento-1-parcela').val();
+    const convenio = $('#campo-convenio').val();
+    const nome = $('#campo-nome-cliente').val();
+    const cpf = $('#campo-cpf-cliente').val();
+    const telefone_cliente = $('#campo-telefone-cliente').val();
+    const agencia_cliente = $('#campo-agencia-cliente').val();
+    const conta_cliente = $('#campo-conta-cliente').val();
+    const parceiro = $('#campo-parceiro-promotor').val();
+    const supervisor = $('#campo-supervisor-alterar').val();
+    const gerente = $('#campo-gerente-alterar').val();
+    const cpf_parceiro = $('#campo-cpf-parc-promo').val();
+    // const  = $('#campo-chave').val();
+    const senha_chave = $('#campo-senha-chave').val();
+    const usuario = $('#campo-nome-operador').val();
+    const supervisor_parceiro = $('#campo-supervisor-alterar2').val();
+    const gerente_parceiro = $('#campo-gerente-alterar2').val();
+    const chavej = $('#campo-chave-j').val();
+
+    const myHeaders = new Headers();
+    myHeaders.append('Content-Type', 'application/json');
+
+    const raw = JSON.stringify({
+        id_proposta,
+        status_auditoria,
+        falta,
+        tipo_falta,
+        sub_status,
+        observacao,
+        proposta,
+        data_venda,
+        mes,
+        status,
+        //Linha de credito
+        valor_proposta,
+        valor_troco,
+        valor_liquido,
+        qtd_parcela,
+        valor_seguro,
+        //Mailing origem
+        valor_parcela,
+        tipo_operacao,
+        vencimento_parcela,
+        convenio,
+        nome,
+        cpf,
+        telefone_cliente,
+        agencia_cliente,
+        conta_cliente,
+        parceiro,
+        supervisor,
+        gerente,
+        cpf_parceiro,
+        //Chave
+        senha_chave,
+        usuario,
+        supervisor_parceiro,
+        gerente_parceiro,
+        chavej,
+
+    });
+
+    const requestOptions = {
+        method: 'POST',
+        headers: myHeaders,
+        body: raw,
+        redirect: 'follow'
+    }
+
+    fetch(`${URL}/auditoria/alterar`, requestOptions)
+        .then(response => response.json().then((data) => {
+
+            mapObjetos.set(data.id_proposta, data);
+
+            $('#success').show();
+            $('#success').fadeIn(300).delay(3000).fadeOut(400);
+            document.getElementById("success").textContent = "Alterado com sucesso";
+
+            const row = mapLinhas.get(id_proposta);
+            updateRow(row, data);
+        }));
+}
+
+const updateRow = (row, data) => {
+    let cellsTr = row.cells;
+
+    cellsTr[0].textContent = "";
+    cellsTr[1].textContent = data.data_venda;
+    cellsTr[2].textContent = data.data_inclusao;
+    cellsTr[3].textContent = data.valor_proposta;
+    cellsTr[4].textContent = data.tipo;
+    cellsTr[5].textContent = data.tipo_operacao;
+    cellsTr[6].textContent = data.usuario;
+    cellsTr[7].textContent = data.supervisor;
+    cellsTr[8].textContent = data.status;
+    cellsTr[9].textContent = data.status_auditoria;
+    cellsTr[10].textContent = data.sub_status;
+    cellsTr[11].textContent = data.pontuacao;
+    cellsTr[12].textContent = data.responsavel;
+    cellsTr[13].textContent = data.data_alteracao;
 }
