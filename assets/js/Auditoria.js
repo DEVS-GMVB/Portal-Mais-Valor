@@ -1,4 +1,4 @@
-const URL = `http://localhost:3000/user`;
+const URL = `http://localhost:3000/user`; 
 
 //Selects
 const vendas = document.getElementById("campo-venda");
