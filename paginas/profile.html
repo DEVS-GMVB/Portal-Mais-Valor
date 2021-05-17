@@ -35,6 +35,57 @@
   }
 </style>
 
+<!--MODAL ATUALIZAR CADASTRO-->
+
+<!-- Button trigger modal -->
+
+
+<!-- Modal -->
+<div class="modal fade" id="modal-atlcadastro" tabindex="-1" role="dialog" aria-labelledby="modal-atlcadastro" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Atualizar Dados</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        
+        <form>
+    
+        
+          <div class="form-group">
+              <label class="form-control-label">Número Telefone</label>
+              <input type="text" class="form-control input-mask" data-mask="(00) 00000 0000" placeholder="(XX) XXXXX XXXX">
+          </div>
+
+          <div class="form-group">
+              <label class="form-control-label">E-mail</label>
+              <input type="text" class="form-control input-mask"  placeholder="xxxxxxxxxxx@xxxx.xxx">
+          </div>
+          <div class="form-group">
+              <label class="form-control-label">Setor</label>
+              <input type="text" class="form-control input-mask" placeholder="">
+          </div>
+          <div class="form-group">
+              <label class="form-control-label">Supervisor</label>
+              <input type="text" class="form-control input-mask" placeholder="">
+          </div>
+      </form>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+        <button type="button" class="btn btn-primary">Salvar Alterações</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!--FINAL MODAL ATUALIZAR CADASTRO-->
+
 <!-- MODAL CONSULTA INSS-->
 
 <div class="modal fade" id="modal-consultainss" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
@@ -912,11 +963,9 @@
             <div class="col-md-6 d-flex align-items-center justify-content-between justify-content-md-end">
               <div class="actions actions-dark d-inline-block">
                 <a href="#" class="action-item ml-md-4">
-                  <i class="fas fa-file-export mr-2"></i>Export
+                  <i class="fas fa-file-export mr-2"></i>Exportar Informações
                 </a>
-                <a href="#" class="action-item ml-3">
-                  <i class="fas fa-cog mr-2"></i>Settings
-                </a>
+             
               </div>
             </div>
           </div>
@@ -949,7 +998,10 @@
                       <span class="btn-inner--text">Alterar Avatar</span>
                     </button>
                   </div>
+             
                 </div>
+
+                
               </div>
               <div class="card-body">
                 <div class="row">
@@ -972,6 +1024,16 @@
           <div class="col-lg-4">
             <!-- Profile contacts -->
             <div class="card card-fluid">
+
+              <div class="col-auto mt-3" style="text-align: center;">
+                <button type="button" class="btn btn-xs btn-primary btn-icon rounded-pill" data-toggle="modal" data-target="#modal-atlcadastro">
+                  <span class="btn-inner--icon"><i class="fas fa-pencil-alt"></i></span>
+                  <span class="btn-inner--text">Atualizar Dados</span>
+                </button>
+              </div>
+              
+
+
               <div class="card-body">
                 <div class="row align-items-center">
                   <div class="col">
