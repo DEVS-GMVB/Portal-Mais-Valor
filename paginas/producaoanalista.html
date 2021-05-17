@@ -627,21 +627,49 @@
                                         <div class="col-md-5 mb-0">
                                             <div class="form-group">
                                                 <label for="exampleFormControlSelect1">Setor</label>
-                                                <input type="text" class="form-control form-control-sm"
-                                                    id="validationCustom02">
+                                                <select type="text" class="form-control form-control-sm" id="setor">
+                                                    <option value="">TODAS</option>
+
+                                                    <option value="ACOMPANHAMENTO">ACOMPANHAMENTO</option>
+
+                                                    <option value="BACKOFFICE">BACKOFFICE</option>
+
+                                                    <option value="CONFIRMACAO">CONFIRMACAO</option>
+
+                                                    <option value="DIGITACAO">DIGITACAO</option>
+
+                                                    <option value="FORMALIZACAO">FORMALIZACAO</option>
+
+                                                    <option value="MULTIBANCOS">MULTIBANCOS</option>
+
+                                                    <option value="PRE ANALISE">PRE ANALISE</option>
+
+                                                    <option value="SUPORTE">SUPORTE</option>
+                                                </select>
                                             </div>
                                         </div>
 
                                         <div class="col-md-6 mb-0">
                                             <label for="validationCustom02">Supervisor</label>
-                                            <input type="text" class="form-control form-control-sm"
-                                                id="validationCustom02">
+                                            <select type="text" class="form-control form-control-sm" id="supervisor">
+                                                <option value="">TODAS</option>
+
+                                                <option value="ALLANY GALDINO">ALLANY GALDINO</option>
+
+                                                <option value="GUILHERME RECK">GUILHERME RECK</option>
+
+                                                <option value="MONIQUE DE OLIVEIRA">MONIQUE DE OLIVEIRA</option>
+
+                                                <option value="PALOMA DE OLIVEIRA">PALOMA DE OLIVEIRA</option>
+
+                                                <option value="THAYRINE VIEIRA">THAYRINE VIEIRA</option>
+                                            </select>
 
                                         </div>
 
                                         <div class="col-md-1 mt-4 mb-0">
 
-                                            <button type="button" class="btn btn-primary btn-icon-only btn-sm">
+                                            <button type="button" class="btn btn-primary btn-icon-only btn-sm" id="btn-pesquisar">
                                                 <span class="btn-inner--icon">
                                                     <i class="fas fa-search"></i>
                                                 </span>
@@ -664,40 +692,40 @@
 
 
                             <div class="container table-responsive">
-                                <table class="table table-striped table-hover">
+                                <table class="table table-striped table-hover" id="table-producao-total">
 
-                             
-                                
+
+
 
 
                                     <thead class="thead bg-gray-700" style="text-align: center;">
                                         <tr class="text-white">
-                                            <th scope="col"><b>OPERADOR</b>  </th>
+                                            <th scope="col"><b>OPERADOR</b> </th>
                                             <th scope="col"><b>SETOR</b> </th>
                                             <th scope="col"><b>TOTAL</b></th>
-                                    
+
                                         </tr>
 
-                                    <tbody>
+                                    <tbody id="tbody-producao-total">
                                         <tr style="text-align: center;">
                                             <th scope="row">#######</th>
                                             <td>########</td>
                                             <td>########</td>
-                                           
+
                                         </tr>
-                                        
-
-                                    </thead>
 
 
-                              
+                                        </thead>
 
-                                    </table>
-                               
+
+
+
+                                </table>
+
 
                             </div>
 
-                          
+
 
                             <div class="bg-titulo mb-2 mt-4 mx-2">
 
@@ -707,24 +735,24 @@
 
 
                             <div class="container table-responsive">
-                                <table class="table table-striped table-hover">
+                                <table class="table table-striped table-hover" id="table-evolucao-mensal">
 
-                             
-                                
+
+
 
 
                                     <thead class="thead bg-gray-700" style="text-align: center;">
                                         <tr class="text-white">
-                                            <th scope="col"><b>OPERADOR</b>  </th>
+                                            <th scope="col"><b>OPERADOR</b> </th>
                                             <th scope="col"><b>SETOR</b> </th>
                                             <th scope="col"><b>DEZEMBRO/2020</b> </th>
                                             <th scope="col"><b>JANEIRO/2021</b> </th>
                                             <th scope="col"><b>FEVEREIRO/2021</b> </th>
                                             <th scope="col"><b>TOTAL</b></th>
-                                    
+
                                         </tr>
 
-                                    <tbody>
+                                    <tbody id="tbody-evolucao-mensal">
                                         <tr style="text-align: center;">
                                             <th scope="row">#####</th>
                                             <td>######</td>
@@ -732,17 +760,17 @@
                                             <td>######</td>
                                             <td>######</td>
                                             <td>######</td>
-                                           
+
                                         </tr>
-                                        
-
-                                    </thead>
 
 
-                              
+                                        </thead>
 
-                                    </table>
-                               
+
+
+
+                                </table>
+
 
                             </div>
 
@@ -755,15 +783,15 @@
 
 
                             <div class="container table-responsive">
-                                <table class="table table-striped table-hover">
+                                <table class="table table-striped table-hover" id="table-evolucao-diaria">
 
-                             
-                                
+
+
 
 
                                     <thead class="thead bg-gray-700" style="text-align: center;">
                                         <tr class="text-white">
-                                            <th scope="col"><b>OPERADOR</b>  </th>
+                                            <th scope="col"><b>OPERADOR</b> </th>
                                             <th scope="col"><b>DIA 1</b> </th>
                                             <th scope="col"><b>DIA 2</b> </th>
                                             <th scope="col"><b>DIA 3</b> </th>
@@ -795,12 +823,12 @@
                                             <th scope="col"><b>DIA 29</b> </th>
                                             <th scope="col"><b>DIA 30</b> </th>
                                             <th scope="col"><b>DIA 31</b> </th>
-                                            
-                                          
-                                    
+
+
+
                                         </tr>
 
-                                    <tbody>
+                                    <tbody id="tbody-evolucao-diaria">
                                         <tr style="text-align: center;">
                                             <th scope="row">#####</th>
                                             <th scope="row">#</th>
@@ -834,20 +862,20 @@
                                             <th scope="row">#</th>
                                             <th scope="row">#</th>
                                             <th scope="row">#</th>
-                                          
 
-                                           
-                                           
+
+
+
                                         </tr>
-                                        
-
-                                    </thead>
 
 
-                              
+                                        </thead>
 
-                                    </table>
-                               
+
+
+
+                                </table>
+
 
                             </div>
 
@@ -887,6 +915,8 @@
     <script src="../assets/libs/fullcalendar/dist/fullcalendar.min.js"></script>
     <!-- Purpose JS -->
     <script src="../assets/js/purpose.js"></script>
+    <!--Script-->
+    <script src="../assets/js/producaoAnalista.js"></script>
     <!-- Mascaras -->
     <script src="../assets/js/mascaras.js"></script>
     <!-- Demo JS - remove it when starting your project -->
