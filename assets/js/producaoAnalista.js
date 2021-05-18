@@ -16,7 +16,7 @@ pesquisar.addEventListener('click', async () => {
     const supervisor = document.getElementById("supervisor");
     const nivel = document.getElementById("setor");
 
-    objProp["supervisor"] = "COMPANHIA DO CREDITO";
+    objProp["supervisor"] = supervisor.value;
     objProp["nivel"] = nivel.value;
 
     const myHeaders = new Headers();
