@@ -1,157 +1,166 @@
-const URL = 'http://localhost:3000/user'
+const URL = `http://localhost:3000/user`;
+//Botão principal
+const pesquisar = document.getElementById("btn-pesquisar");
+//Obj
+const objProp = new Object();
 
-let pesquisar = document.getElementById('btn-pesquisar');
+pesquisar.addEventListener('click', async () => {
+    const tbodyEvolucaoMensal = document.getElementById("tbody-evolucao-mensal");
+    const tbodyEvolucaoDiaria = document.getElementById("tbody-evolucao-diaria");
+    const tbodyProducaoTotal = document.getElementById("tbody-producao-total");
 
-pesquisar.addEventListener('click', () =>{
+    tbodyEvolucaoMensal.innerHTML = ``;
+    tbodyEvolucaoDiaria.innerHTML = ``;
+    tbodyProducaoTotal.innerHTML = ``;
 
-    var node = document.getElementById("tbody-producao-total");
-    while (node.hasChildNodes()) {
-        node.removeChild(node.lastChild);
-    }
+    const supervisor = document.getElementById("supervisor");
+    const nivel = document.getElementById("setor");
 
-    var node2 = document.getElementById("tbody-evolucao-mensal");
-    while (node2.hasChildNodes()) {
-        node2.removeChild(node2.lastChild);
-    }
-
-    var node3 = document.getElementById("tbody-evolucao-diaria");
-    while (node3.hasChildNodes()) {
-        node3.removeChild(node3.lastChild);
-    }
+    objProp["supervisor"] = "COMPANHIA DO CREDITO";
+    objProp["nivel"] = nivel.value;
 
     const myHeaders = new Headers();
-    myHeaders.append("Content-Type", "application/json")
+    myHeaders.append("Content-Type", "application/json");
 
-    const setor = $("#setor").val();
-    const supervisor = $("#supervisor").val();
+    const raw = JSON.stringify({
+        ...objProp
+    })
 
-    const body = {
-        nivel:setor,
-        supervisor:supervisor
+    const {
+        pesquisaSetor: producaoTotalMedia,
+        pesquisaMes: evolucaoMensal,
+        pesquisaDia: evolucaoDia
+    } = await fetch(`${URL}/producao/analista/filtro`, {
+            method: "POST",
+            headers: myHeaders,
+            body: raw,
+            redirect: "follow"
+        })
+        .then(response => response.json().then(function (data) {
+            return data;
+        }))
+        .catch(error => console.error(error));
+
+    for (const {
+            usuario: operador,
+            nivel: setor,
+            OUTUBRO: dezembro,
+            NOVEMBRO: janeiro,
+            DEZEMBRO: fevereiro
+        } of evolucaoMensal) {
+        const trEl = document.createElement("tr");
+        trEl.style.textAlign = 'center';
+
+        trEl.innerHTML +=
+            `
+            <th scope="row">${operador}</th>
+            <td>${(setor === null ? "" : setor)}</td>
+            <td>${dezembro}</td>
+            <td>${janeiro}</td>
+            <td>${fevereiro}</td>
+            <td>${""}</td>
+        `
+
+        tbodyEvolucaoMensal.appendChild(trEl);
+
     }
 
-    const raw = JSON.stringify(body)
+    for (const {
+            usuario: operador,
+            nivel: setor,
+            total
+        } of producaoTotalMedia) {
+        const trEl = document.createElement("tr");
+        trEl.style.textAlign = 'center';
 
-    const requestOptions = {
-        method: 'POST',
-        headers: myHeaders,
-        body: raw,
-        redirect: 'follow'
+        trEl.innerHTML +=
+            `
+            <th scope="row">${operador}</th>
+            <td>${setor}</td>
+            <td>${total}</td>
+        `
+
+        tbodyProducaoTotal.appendChild(trEl);
+
     }
 
-    fetch(URL + '/producao/analista/filtro', requestOptions).
-    then(response => response.json().then(function (data) {
+    for (const {
+            usuario: operador,
+            01: dia1,
+            02: dia2,
+            03: dia3,
+            04: dia4,
+            05: dia5,
+            06: dia6,
+            07: dia7,
+            08: dia8,
+            09: dia9,
+            10: dia10,
+            11: dia11,
+            12: dia12,
+            13: dia13,
+            14: dia14,
+            15: dia15,
+            16: dia16,
+            17: dia17,
+            18: dia18,
+            19: dia19,
+            20: dia20,
+            21: dia21,
+            22: dia22,
+            23: dia23,
+            24: dia24,
+            25: dia25,
+            26: dia26,
+            27: dia27,
+            28: dia28,
+            29: dia29,
+            30: dia30,
+            31: dia31,
 
-        /*for (let i = 0; i < data.length; i++) {
-            let specific_tbody = document.getElementById('tbody-producao-total');
-            let row = specific_tbody.insertRow(-1);
-            let operador = row.insertCell(-1);
-            let setor = row.insertCell(-1);
-            let total = row.insertCell(-1);
+        } of evolucaoDia) {
+        const trEl = document.createElement("tr");
+        trEl.style.textAlign = 'center';
 
-            let operadorText = document.createTextNode(`${data[i].usuario}`);
-            operador.appendChild(operadorText);
+        trEl.innerHTML +=
+            `
+            <th scope="row">${operador}</th>
+            <th scope="row">${dia1}</th>
+            <th scope="row">${dia2}</th>
+            <th scope="row">${dia3}</th>
+            <th scope="row">${dia4}</th>
+            <th scope="row">${dia5}</th>
+            <th scope="row">${dia6}</th>
+            <th scope="row">${dia7}</th>
+            <th scope="row">${dia8}</th>
+            <th scope="row">${dia9}</th>
+            <th scope="row">${dia10}</th>
+            <th scope="row">${dia11}</th>
+            <th scope="row">${dia12}</th>
+            <th scope="row">${dia13}</th>
+            <th scope="row">${dia14}</th>
+            <th scope="row">${dia15}</th>
+            <th scope="row">${dia16}</th>
+            <th scope="row">${dia17}</th>
+            <th scope="row">${dia18}</th>
+            <th scope="row">${dia19}</th>
+            <th scope="row">${dia20}</th>
+            <th scope="row">${dia21}</th>
+            <th scope="row">${dia22}</th>
+            <th scope="row">${dia23}</th>
+            <th scope="row">${dia24}</th>
+            <th scope="row">${dia25}</th>
+            <th scope="row">${dia26}</th>
+            <th scope="row">${dia27}</th>
+            <th scope="row">${dia28}</th>
+            <th scope="row">${dia29}</th>
+            <th scope="row">${dia30}</th>
+            <th scope="row">${dia31}</th>
+        `
 
-            let setorText = document.createTextNode(`${data[i].nivel}`);
-            setor.appendChild(setorText);
+        tbodyProducaoTotal.appendChild(trEl);
 
-            let totalText = document.createTextNode(`${data[i].total}`);
-            total.appendChild(totalText);
-        }*/
+    }
 
-        for (let i = 0; i < data.length; i++) {
-            let specific_tbody = document.getElementById('tbody-evolucao-mensal');
-            let row = specific_tbody.insertRow(-1);
-            let operador = row.insertCell(-1);
-            let setor = row.insertCell(-1);
-            let dezembro = row.insertCell(-1);
-            let janeiro = row.insertCell(-1);
-            let fevereiro = row.insertCell(-1);
 
-            let operadorText = document.createTextNode(`${data[i].usuario}`);
-            operador.appendChild(operadorText);
-
-            let setorText = document.createTextNode(`${data[i].nivel}`);
-            setor.appendChild(setorText);
-
-            let dezembroText = document.createTextNode(``);
-            dezembro.appendChild(dezembroText);
-
-            let janeiroText = document.createTextNode(``);
-            janeiro.appendChild(janeiroText);
-
-            let fevereiroText = document.createTextNode(``);
-            fevereiro.appendChild(fevereiroText);
-        }
-
-        /*for (let i = 0; i < data.length; i++) {
-            let specific_tbody = document.getElementById('tbody-evolucao-diaria');
-            let row = specific_tbody.insertRow(-1);
-            let operador = row.insertCell(-1);
-            let dia1 = row.insertCell(-1);
-            let dia2 = row.insertCell(-1);
-            let dia3 = row.insertCell(-1);
-            let dia4 = row.insertCell(-1);
-            let dia5 = row.insertCell(-1);
-            let dia6 = row.insertCell(-1);
-            let dia7 = row.insertCell(-1);
-            let dia8 = row.insertCell(-1);
-            let dia9 = row.insertCell(-1);
-            let dia10 = row.insertCell(-1);
-            let dia11 = row.insertCell(-1);
-            let dia12 = row.insertCell(-1);
-            let dia13 = row.insertCell(-1);
-            let dia14 = row.insertCell(-1);
-            let dia15 = row.insertCell(-1);
-            let dia16 = row.insertCell(-1);
-            let dia17 = row.insertCell(-1);
-            let dia18 = row.insertCell(-1);
-            let dia19 = row.insertCell(-1);
-            let dia20 = row.insertCell(-1);
-            let dia21 = row.insertCell(-1);
-            let dia22 = row.insertCell(-1);
-            let dia23 = row.insertCell(-1);
-            let dia24 = row.insertCell(-1);
-            let dia25 = row.insertCell(-1);
-            let dia26 = row.insertCell(-1);
-            let dia27 = row.insertCell(-1);
-            let dia28 = row.insertCell(-1);
-            let dia29 = row.insertCell(-1);
-            let dia30 = row.insertCell(-1);
-            let dia31 = row.insertCell(-1);
-
-            let operadorText = document.createTextNode(`${data[i].usuario}`);
-            operador.appendChild(operadorText);
-
-            let dia1Text = document.createTextNode(data + i + 1);
-            dia1.appendChild(dia1Text);
-
-            let dia2Text = document.createTextNode(``);
-            dia2.appendChild(dia2Text);
-
-            let dia3Text = document.createTextNode(``);
-            dia3.appendChild(dia3Text);
-
-            let dia4Text = document.createTextNode(``);
-            dia4.appendChild(dia4Text);
-
-            let dia5Text = document.createTextNode(``);
-            dia5.appendChild(dia5Text);
-
-            let dia6Text = document.createTextNode(``);
-            dia6.appendChild(dia6Text);
-
-            let dia7Text = document.createTextNode(``);
-            dia7.appendChild(dia7Text);
-
-            let dia8Text = document.createTextNode(``);
-            dia8.appendChild(dia8Text);
-
-            let dia9Text = document.createTextNode(``);
-            dia9.appendChild(dia9Text);
-
-            let dia10Text = document.createTextNode(``);
-        }*/
-        
-    })).catch(error => console.log('error: ', error))
-})
+});
