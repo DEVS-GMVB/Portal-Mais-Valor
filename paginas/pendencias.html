@@ -27,7 +27,7 @@
             background-color: #93d482;
             text-align: center;
             font-family: -apple-system;
-            border-radius: 10px;
+            border-radius: 5px;
         }
 
         .bg-subtitulo {
@@ -44,6 +44,719 @@
             ;
         }
     </style>
+
+    <!-- MODAL 1 PENDENCIAS -->
+
+    <div class="modal fade modal-one-pend" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <img src="logocolorido.png" style="height: 70px; right: 70px;">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <div class="modal-body">
+
+                    <form class="needs-validation" novalidate>
+
+
+
+                        <div class="form-row mt-0">
+
+
+                            <div class="col-md-12 mb-3">
+                                <label for="validationCustom01">Nova Proposta</label>
+                                <input type="text" class="form-control form-control-sm" id="validationCustom01"
+                                    required>
+
+                            </div>
+                            <div class="col-md-12 mb-3">
+                                <label for="validationCustom01">Observação Pendência</label>
+                                <textarea class="form-control" rows="2"></textarea>
+
+                            </div>
+
+                        </div>
+
+                        <form class="needs-validation" novalidate>
+
+                            <div class="form-row mt-3 mx-6">
+
+
+                                <div class="col-md-6 mb-3">
+                                    <label for="exampleFormControlFile1"><b>Saldo 1:</b></label>
+                                    <input type="file" class="form-control-file" id="exampleFormControlFile1">
+
+                                </div>
+
+
+                                <div class="col-md-6 mb-3">
+                                    <label for="exampleFormControlFile1"><b>Saldo 2:</b></label>
+                                    <input type="file" class="form-control-file" id="exampleFormControlFile1">
+
+                                </div>
+
+                                <div class="col-md-6 mb-3 mt-2">
+                                    <label for="exampleFormControlFile1"><b>Saldo 3:</b></label>
+                                    <input type="file" class="form-control-file" id="exampleFormControlFile1">
+
+                                </div>
+
+                            </div>
+
+                        </form>
+
+                        <hr>
+
+                        <div class="opcoes-salvar mt-1" style="text-align: center; margin-inline: block;">
+                            <button type="button" class="btn btn-primary btn-icon-label">
+                                <span class="btn-inner--icon">
+                                    <i class="fas fa-plus"></i>
+                                </span>
+                                <span class="btn-inner--text">Incluir / Salvar Alteração</span>
+                            </button>
+
+                        </div>
+
+
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FINAL MODAL 1-->
+
+    <!-- MODAL 2 PENDENCIAS -->
+
+    <div class="modal fade modal-two-pend" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <img src="logocolorido.png" style="height: 70px; right: 70px;">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <div class="modal-body">
+
+                    <div class="bg-titulo mb-5">
+
+                        <h3>Autorizar Saldo</h3>
+
+                    </div>
+
+                    <form class="needs-validation" novalidate>
+
+                        <div class="form-row mt-0">
+
+
+                            <div class="col-md-12 mb-3">
+                                <label for="validationCustom01">Autoriza Saldo?</label>
+                                <select class="custom-select">
+                                    <option value="1">SIM</option>
+                                    <option value="2">NÃO</option>
+
+                                </select>
+
+                            </div>
+                            <div class="col-md-12 mb-0">
+                                <label for="validationCustom01">Observação Pendência</label>
+                                <textarea class="form-control" rows="2"></textarea>
+
+                            </div>
+
+                        </div>
+
+                        <hr>
+
+                        <div class="opcoes-salvar" style="text-align: center; margin-inline: block;">
+                            <button type="button" class="btn btn-primary btn-icon-label">
+                                <span class="btn-inner--icon">
+                                    <i class="fas fa-plus"></i>
+                                </span>
+                                <span class="btn-inner--text">Incluir / Salvar Alteração</span>
+                            </button>
+
+                        </div>
+
+
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FINAL MODAL 2-->
+
+    <!-- MODAL 3 PENDENCIAS -->
+
+    <div class="modal fade modal-three-pend" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <img src="logocolorido.png" style="height: 70px; right: 70px;">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <div class="modal-body">
+
+                    <div class="bg-titulo mb-4">
+
+                        <h3>Solução de Pendências - Informar Tabela</h3>
+
+                    </div>
+
+                    <form class="needs-validation" novalidate>
+
+
+
+                        <div class="form-row mt-3">
+
+
+                            <div class="col-md-6 mb-3">
+                                <label for="validationCustom01">Tabela</label>
+                                <select class="custom-select custom-select-sm">
+                                    <option value="1"></option>
+                                    <option value="2"></option>
+                                </select>
+
+                            </div>
+
+                            <div class="col-md-6 mb-3">
+                                <label for="validationCustom01">Tipo</label>
+                                <select class="custom-select custom-select-sm">
+                                    <option value="1"></option>
+                                    <option value="2"></option>
+                                </select>
+
+                            </div>
+
+                            <div class="col-md-12 mb-1">
+                                <label for="validationCustom01">Observação Pendência</label>
+                                <textarea class="form-control" rows="2"></textarea>
+
+                            </div>
+
+                        </div>
+
+                        <form class="needs-validation" novalidate>
+
+                            <div class="form-row mt-4 mx-6">
+
+
+                                <div class="col-md-6 mb-2">
+                                    <label for="exampleFormControlFile1"><b>Saldo 1:</b></label>
+                                    <input type="file" class="form-control-file" id="exampleFormControlFile1">
+
+                                </div>
+
+
+                                <div class="col-md-6 mb-2">
+                                    <label for="exampleFormControlFile1"><b>Saldo 2:</b></label>
+                                    <input type="file" class="form-control-file" id="exampleFormControlFile1">
+
+                                </div>
+
+                            </div>
+
+                        </form>
+
+                        <hr>
+
+                        <div class="opcoes-salvar mt-0" style="text-align: center; margin-inline: block;">
+                            <button type="button" class="btn btn-primary btn-icon-label">
+                                <span class="btn-inner--icon">
+                                    <i class="fas fa-plus"></i>
+                                </span>
+                                <span class="btn-inner--text">Incluir / Salvar Alteração</span>
+                            </button>
+
+                        </div>
+
+
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FINAL MODAL 3-->
+
+    <!-- MODAL 4 PENDENCIAS -->
+
+    <div class="modal fade modal-four-pend" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <img src="logocolorido.png" style="height: 70px; right: 70px;">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <div class="modal-body">
+
+                    <div class="bg-titulo mb-4">
+
+                        <h3>Solução de Pendências</h3>
+
+                    </div>
+
+                    <form class="needs-validation" novalidate>
+
+
+
+                        <div class="form-row mt-3">
+
+                            <div class="col-md-12 mb-1">
+                                <label for="validationCustom01">Observação Pendência</label>
+                                <textarea class="form-control" rows="4"></textarea>
+
+                            </div>
+
+                        </div>
+
+                        <form class="needs-validation" novalidate>
+
+                            <div class="form-row mt-4 mx-6">
+
+
+                                <div class="col-md-6 mb-2">
+                                    <label for="exampleFormControlFile1"><b>Pendência 1:</b></label>
+                                    <input type="file" class="form-control-file" id="exampleFormControlFile1">
+
+                                </div>
+
+
+                                <div class="col-md-6 mb-2">
+                                    <label for="exampleFormControlFile1"><b>Pendência 2:</b></label>
+                                    <input type="file" class="form-control-file" id="exampleFormControlFile1">
+
+                                </div>
+
+                                <div class="col-md-6 mb-2">
+                                    <label for="exampleFormControlFile1"><b>Pendência 3:</b></label>
+                                    <input type="file" class="form-control-file" id="exampleFormControlFile1">
+
+                                </div>
+
+
+                                <div class="col-md-6 mb-2">
+                                    <label for="exampleFormControlFile1"><b>Pendência 4:</b></label>
+                                    <input type="file" class="form-control-file" id="exampleFormControlFile1">
+
+                                </div>
+
+                            </div>
+
+                        </form>
+
+                        <hr>
+
+                        <div class="opcoes-salvar mt-0" style="text-align: center; margin-inline: block;">
+                            <button type="button" class="btn btn-primary btn-icon-label">
+                                <span class="btn-inner--icon">
+                                    <i class="fas fa-plus"></i>
+                                </span>
+                                <span class="btn-inner--text">Incluir / Salvar Alteração</span>
+                            </button>
+
+                        </div>
+
+
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FINAL MODAL 4-->
+
+
+    <!-- MODAL 5 PENDENCIAS -->
+
+
+    <div class="modal fade modal-five-pend" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <img src="logocolorido.png" style="height: 70px; right: 70px;">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <div class="modal-body">
+
+                    <div class="bg-titulo mb-4">
+
+                        <h3>Solução de Pendências de Cadastro</h3>
+
+                    </div>
+
+                    <form class="needs-validation" novalidate>
+
+
+
+                        <div class="form-row mt-4">
+
+                            <div class="col-md-12 mb-1">
+                                <label for="validationCustom01">Observação Pendência</label>
+                                <textarea class="form-control" rows="2"></textarea>
+
+                            </div>
+
+                        </div>
+
+                        <form class="needs-validation" novalidate>
+
+                            <div class="form-row mt-4 mx-6">
+
+
+                                <div class="col-md-6 mb-2">
+                                    <label for="exampleFormControlFile1"><b>Cadastro 1:</b></label>
+                                    <input type="file" class="form-control-file" id="exampleFormControlFile1">
+
+                                </div>
+
+
+                                <div class="col-md-6 mb-2">
+                                    <label for="exampleFormControlFile1"><b>Cadastro 2:</b></label>
+                                    <input type="file" class="form-control-file" id="exampleFormControlFile1">
+
+                                </div>
+
+                                <div class="col-md-6 mb-2">
+                                    <label for="exampleFormControlFile1"><b>Cadastro 3:</b></label>
+                                    <input type="file" class="form-control-file" id="exampleFormControlFile1">
+
+                                </div>
+
+
+                                <div class="col-md-6 mb-2">
+                                    <label for="exampleFormControlFile1"><b>Cadastro 4:</b></label>
+                                    <input type="file" class="form-control-file" id="exampleFormControlFile1">
+
+                                </div>
+
+                                <div class="col-md-6 mb-2">
+                                    <label for="exampleFormControlFile1"><b>Cadastro 5:</b></label>
+                                    <input type="file" class="form-control-file" id="exampleFormControlFile1">
+
+                                </div>
+
+                                <div class="col-md-6 mb-2">
+                                    <label for="exampleFormControlFile1"><b>Cadastro 6:</b></label>
+                                    <input type="file" class="form-control-file" id="exampleFormControlFile1">
+
+                                </div>
+
+                                <div class="col-md-6 mb-0">
+                                    <label for="exampleFormControlFile1"><b>Cadastro 7:</b></label>
+                                    <input type="file" class="form-control-file" id="exampleFormControlFile1">
+
+                                </div>
+
+                                <div class="col-md-6 mb-0">
+                                    <label for="exampleFormControlFile1"><b>Cadastro 8:</b></label>
+                                    <input type="file" class="form-control-file" id="exampleFormControlFile1">
+
+                                </div>
+                            </div>
+
+                        </form>
+
+                        <hr>
+
+                        <div class="opcoes-salvar mt-0" style="text-align: center; margin-inline: block;">
+                            <button type="button" class="btn btn-primary btn-icon-label">
+                                <span class="btn-inner--icon">
+                                    <i class="fas fa-plus"></i>
+                                </span>
+                                <span class="btn-inner--text">Incluir / Salvar Alteração</span>
+                            </button>
+
+                        </div>
+
+
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FINAL MODAL 5-->
+
+    <!-- MODAL 6 PENDENCIAS -->
+
+    <div class="modal fade modal-six-pend" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <img src="logocolorido.png" style="height: 70px; right: 70px;">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <div class="modal-body">
+
+                    <form class="needs-validation" novalidate>
+
+                        <div class="form-row mt-2">
+
+                            <div class="col-md-12 mb-3">
+                                <label for="validationCustom01">Convênio</label>
+                                <select class="custom-select">
+                                    <option value="1"></option>
+                                    <option value="2"></option>
+                                    <option value="3"></option>
+                                </select>
+
+                            </div>
+
+                            <div class="col-md-12 mb-0">
+                                <label for="validationCustom01">Produto</label>
+                                <select class="custom-select">
+                                    <option value="1"></option>
+                                    <option value="2"></option>
+                                    <option value="3"></option>
+                                </select>
+
+                            </div>
+
+                        </div>
+
+                        <hr>
+
+                        <div class="opcoes-salvar mt-0" style="text-align: center; margin-inline: block;">
+                            <button type="button" class="btn btn-primary btn-icon-label">
+                                <span class="btn-inner--icon">
+                                    <i class="fas fa-plus"></i>
+                                </span>
+                                <span class="btn-inner--text">Incluir / Salvar Alteração</span>
+                            </button>
+
+                        </div>
+
+
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FINAL MODAL 6-->
+
+      <!-- MODAL 7 PENDENCIAS -->
+
+    <div class="modal fade modal-seven-pend" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <img src="logocolorido.png" style="height: 70px; right: 70px;">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <div class="modal-body">
+
+                    <form class="needs-validation" novalidate>
+
+                        <div class="form-row mt-0">
+
+                         
+
+                            <div class="col-md-6 mb-3">
+                                <label for="validationCustom01">Novo Telefone</label>
+                                <input type="text" class="form-control form-control-sm">
+
+                            </div>
+
+                            <div class="col-md-12 mb-3">
+                                <label for="validationCustom01">Observação Pendência</label>
+                                <textarea class="form-control" rows="2"></textarea>
+
+                            </div>
+
+                            <div class="col-md-12 mb-3">
+                                <label for="validationCustom01">Deseja Agendar Horário Para Confirmação?</label>
+                                <select class="custom-select custom-select-sm">
+                                    <option value="1"></option>
+                                    <option value="2"></option>
+                                </select>
+
+                            </div>
+
+                            <div class="col-md-6 mb-0">
+                                <label for="validationCustom01">Melhor Data - Confirmação Cliente</label>
+                                <input type="text" class="form-control form-control-sm">
+
+                            </div>
+
+                            <div class="col-md-6 mb-0">
+                                <label for="validationCustom01">Melhor Horário - Confirmação Cliente</label>
+                                <input type="text" class="form-control form-control-sm">
+
+                            </div>
+
+                        </div>
+
+                        <hr>
+
+                        <div class="opcoes-salvar mt-0" style="text-align: center; margin-inline: block;">
+                            <button type="button" class="btn btn-primary btn-icon-label">
+                                <span class="btn-inner--icon">
+                                    <i class="fas fa-plus"></i>
+                                </span>
+                                <span class="btn-inner--text">Incluir / Salvar Alteração</span>
+                            </button>
+
+                        </div>
+
+
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FINAL MODAL 7-->
+
+    <!-- MODAL 8 PENDENCIAS -->
+
+        <div class="modal fade modal-eight-pend" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+    
+                    <div class="modal-header">
+                        <img src="logocolorido.png" style="height: 70px; right: 70px;">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+    
+                    <div class="modal-body">
+
+                        <div class="bg-titulo mb-4">
+
+                            <h3>Solução de Pendências - TED DEVOLVIDA</h3>
+    
+                        </div>
+    
+                        <form class="needs-validation" novalidate>
+    
+                            <div class="form-row mt-0">
+    
+                             
+    
+                                <div class="col-md-12 mb-3">
+                                    <label for="validationCustom01">Banco Cliente</label>
+                                    <select class="custom-select custom-select-sm">
+                                        <option value="1"></option>
+                                        <option value="2"></option>
+                                    </select>
+    
+                                </div>
+    
+                                <div class="col-md-6 mb-3">
+                                    <label for="validationCustom01">Agência Cliente</label>
+                                    <input type="text" class="form-control form-control-sm">
+    
+                                </div>
+                                
+                                <div class="col-md-6 mb-3">
+                                    <label for="validationCustom01">Conta Cliente</label>
+                                    <input type="text" class="form-control form-control-sm">
+    
+                                </div>
+
+                                <div class="col-md-12 mb-2">
+                                    <label for="validationCustom01">Observação Pendência</label>
+                                    <textarea class="form-control" rows="2"></textarea>
+    
+                                </div>
+    
+                            </div>
+
+                        </form>
+
+                        <form class="needs-validation" novalidate>
+
+                            <div class="form-row mt-3 mx-6">
+
+
+                                <div class="col-md-6 mb-0">
+                                    <label for="exampleFormControlFile1"><b>Pendência 1:</b></label>
+                                    <input type="file" class="form-control-file" id="exampleFormControlFile1">
+
+                                </div>
+
+
+                                <div class="col-md-6 mb-0">
+                                    <label for="exampleFormControlFile1"><b>Pendência 2:</b></label>
+                                    <input type="file" class="form-control-file" id="exampleFormControlFile1">
+
+                                </div>
+                  
+                            </div>
+
+                        </form>
+
+    
+                            <hr>
+    
+                            <div class="opcoes-salvar mt-0" style="text-align: center; margin-inline: block;">
+                                <button type="button" class="btn btn-primary btn-icon-label">
+                                    <span class="btn-inner--icon">
+                                        <i class="fas fa-plus"></i>
+                                    </span>
+                                    <span class="btn-inner--text">Incluir / Salvar Alteração</span>
+                                </button>
+    
+                            </div>
+    
+    
+                        
+    
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <!-- FINAL MODAL 8-->
+
+
+
 
     <!--MODAL FILTROS DE PESQUISA-->
 
@@ -490,7 +1203,7 @@
 
     <!--FIM DO MODAL FILTROS DE PESQUISA-->
 
-    
+
 
     <body class="application application-offset">
 
@@ -1264,35 +1977,35 @@
 
                                             <tbody class="list" id="list">
 
-                                               <tr>
+                                                <tr>
 
-                                                <td style="text-align: center;">
-                                                    <span class="badge badge-dot">
-                                                        <i class="bg-success"></i>12548763
-                                                    </span>
-                                                </td>
+                                                    <td style="text-align: center;">
+                                                        <span class="badge badge-dot">
+                                                            <i class="bg-success"></i>12548763
+                                                        </span>
+                                                    </td>
 
-                                                <td style="text-align: center;"> BRUNO CEZAR</td>
-                                                <td style="text-align: center;"> 387.411.988-24</td>
-                                                <td style="text-align: center;"> 25/02/2021  14:25:54</td>
-                                                <td style="text-align: center;"> X-PARCEIRO RC CRED</td>
-                                                <td style="text-align: center;"> R$ 10.000,00</td>
-                                                <td style="text-align: center;"> R$ 5.000,00</td>
-                                                <td style="text-align: center;"> 20991-INSS</td>
-                                                <td style="text-align: center;"> SANTANDER</td>
-                                                <td style="text-align: center;"> CONSIGNADO</td>
-                                                <td style="text-align: center;"> NOVO</td>
-                                                <td style="text-align: center;"> CADASTRO</td>
-                                                <td style="text-align: center;"> - </td>
-                                                <td style="text-align: center;"> - </td>
-                                                <td style="text-align: center;"> 0</td>
-                                                <td style="text-align: center;"> BRUNO SOUZA</td>
-                                                <td style="text-align: center;"> - </td>
-                                                <td style="text-align: center;"> NÃO</td>
-                                                <td style="text-align: center;"> SIM</td>
-                                                <td style="text-align: center;"> NÃO</td>
-                                                <td style="text-align: center;"> - </td>
-                                                <td style="text-align: center;"> - </td>
+                                                    <td style="text-align: center;"> BRUNO CEZAR</td>
+                                                    <td style="text-align: center;"> 387.411.988-24</td>
+                                                    <td style="text-align: center;"> 25/02/2021 14:25:54</td>
+                                                    <td style="text-align: center;"> X-PARCEIRO RC CRED</td>
+                                                    <td style="text-align: center;"> R$ 10.000,00</td>
+                                                    <td style="text-align: center;"> R$ 5.000,00</td>
+                                                    <td style="text-align: center;"> 20991-INSS</td>
+                                                    <td style="text-align: center;"> SANTANDER</td>
+                                                    <td style="text-align: center;"> CONSIGNADO</td>
+                                                    <td style="text-align: center;"> NOVO</td>
+                                                    <td style="text-align: center;"> CADASTRO</td>
+                                                    <td style="text-align: center;"> - </td>
+                                                    <td style="text-align: center;"> - </td>
+                                                    <td style="text-align: center;"> 0</td>
+                                                    <td style="text-align: center;"> BRUNO SOUZA</td>
+                                                    <td style="text-align: center;"> - </td>
+                                                    <td style="text-align: center;"> NÃO</td>
+                                                    <td style="text-align: center;"> SIM</td>
+                                                    <td style="text-align: center;"> NÃO</td>
+                                                    <td style="text-align: center;"> - </td>
+                                                    <td style="text-align: center;"> - </td>
 
                                                 </tr>
 
@@ -1303,10 +2016,10 @@
                                                             <i class="bg-danger"></i>54871
                                                         </span>
                                                     </td>
-    
+
                                                     <td style="text-align: center;"> CLAUDIO SILVA</td>
                                                     <td style="text-align: center;"> 254.547.257-53</td>
-                                                    <td style="text-align: center;"> 25/02/2021  14:25:54</td>
+                                                    <td style="text-align: center;"> 25/02/2021 14:25:54</td>
                                                     <td style="text-align: center;"> X-PARCEIRO RC CRED</td>
                                                     <td style="text-align: center;"> R$ 25.000,00</td>
                                                     <td style="text-align: center;"> - </td>
@@ -1325,8 +2038,8 @@
                                                     <td style="text-align: center;"> NÃO</td>
                                                     <td style="text-align: center;"> - </td>
                                                     <td style="text-align: center;"> - </td>
-    
-                                                    </tr>
+
+                                                </tr>
 
                                             </tbody>
                                         </table>
