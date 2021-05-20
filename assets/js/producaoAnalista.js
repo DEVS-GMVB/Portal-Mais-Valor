@@ -25,31 +25,31 @@ pesquisar.addEventListener('click', async () => {
     const {
         pesquisaSetor: producaoTotalMedia,
     } = await fetch(`${URL}/producao/analista/setor`, {
-        method: "POST",
-        headers: myHeaders,
-        body: raw,
-        redirect: "follow"
-    })
-    .then(response => response.json().then(function (data) {
-        return data;
-    }))
-    .catch(error => console.error(error));
+            method: "POST",
+            headers: myHeaders,
+            body: raw,
+            redirect: "follow"
+        })
+        .then(response => response.json().then(function (data) {
+            return data;
+        }))
+        .catch(error => console.error(error));
     for (const {
-        usuario: operador,
-        nivel: setor,
-        total
-    } of producaoTotalMedia) {
-    const trEl = document.createElement("tr");
-    trEl.style.textAlign = 'center';
+            usuario: operador,
+            nivel: setor,
+            total
+        } of producaoTotalMedia) {
+        const trEl = document.createElement("tr");
+        trEl.style.textAlign = 'center';
 
-    trEl.innerHTML +=
-        `
+        trEl.innerHTML +=
+            `
         <th scope="row">${operador}</th>
         <td>${setor}</td>
         <td>${total}</td>
     `
 
-    tbodyProducaoTotal.appendChild(trEl);
+        tbodyProducaoTotal.appendChild(trEl);
 
 }
 
@@ -57,11 +57,11 @@ pesquisar.addEventListener('click', async () => {
 
 pesquisar.addEventListener('click', async () => {
 
-const tbodyEvolucaoMensal = document.getElementById("tbody-evolucao-mensal");
+    const tbodyEvolucaoMensal = document.getElementById("tbody-evolucao-mensal");
 
-tbodyEvolucaoMensal.innerHTML = ``;
+    tbodyEvolucaoMensal.innerHTML = ``;
 
-const supervisor = document.getElementById("supervisor");
+    const supervisor = document.getElementById("supervisor");
     const nivel = document.getElementById("setor");
 
     objProp["supervisor"] = supervisor.value;
@@ -69,6 +69,45 @@ const supervisor = document.getElementById("supervisor");
 
     const myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
+
+    const raw = JSON.stringify({
+        ...objProp
+    })
+
+    const {
+        pesquisaMes: evolucaoMensal,
+    } = await fetch(`${URL}/producao/analista/mes`, {
+            method: "POST",
+            headers: myHeaders,
+            body: raw,
+            redirect: "follow"
+        })
+        .then(response => response.json().then(function (data) {
+            return data;
+        }))
+        .catch(error => console.error(error));
+
+    for (const {
+            usuario: operador,
+            nivel: setor,
+            OUTUBRO: dezembro,
+            NOVEMBRO: janeiro,
+            DEZEMBRO: fevereiro
+        } of evolucaoMensal) {
+        const trEl = document.createElement("tr");
+        trEl.style.textAlign = 'center';
+
+        trEl.innerHTML +=
+            `
+        <th scope="row">${operador}</th>
+        <td>${(setor === null ? "" : setor)}</td>
+        <td>${dezembro}</td>
+        <td>${janeiro}</td>
+        <td>${fevereiro}</td>
+        <td>${""}</td>
+    `
+
+        tbodyEvolucaoMensal.appendChild(trEl);
 
     const raw = JSON.stringify({
         ...objProp
@@ -86,29 +125,6 @@ const supervisor = document.getElementById("supervisor");
         return data;
     }))
     .catch(error => console.error(error));
-
-    for (const {
-        usuario: operador,
-        nivel: setor,
-        OUTUBRO: dezembro,
-        NOVEMBRO: janeiro,
-        DEZEMBRO: fevereiro
-    } of evolucaoMensal) {
-    const trEl = document.createElement("tr");
-    trEl.style.textAlign = 'center';
-
-    trEl.innerHTML +=
-        `
-        <th scope="row">${operador}</th>
-        <td>${(setor === null ? "" : setor)}</td>
-        <td>${dezembro}</td>
-        <td>${janeiro}</td>
-        <td>${fevereiro}</td>
-        <td>${""}</td>
-    `
-
-    tbodyEvolucaoMensal.appendChild(trEl);
-
 }
 
 });
@@ -135,56 +151,56 @@ pesquisar.addEventListener('click', async () => {
     const {
         pesquisaDia: evolucaoDia
     } = await fetch(`${URL}/producao/analista/dia`, {
-        method: "POST",
-        headers: myHeaders,
-        body: raw,
-        redirect: "follow"
-    })
-    .then(response => response.json().then(function (data) {
-        return data;
-    }))
-    .catch(error => console.error(error));
+            method: "POST",
+            headers: myHeaders,
+            body: raw,
+            redirect: "follow"
+        })
+        .then(response => response.json().then(function (data) {
+            return data;
+        }))
+        .catch(error => console.error(error));
 
     for (const {
-        usuario: operador,
-        "01": dia1,
-        "02": dia2,
-        "03": dia3,
-        "04": dia4,
-        "05": dia5,
-        "06": dia6,
-        "07": dia7,
-        "08": dia8,
-        "09": dia9,
-        10: dia10,
-        11: dia11,
-        12: dia12,
-        13: dia13,
-        14: dia14,
-        15: dia15,
-        16: dia16,
-        17: dia17,
-        18: dia18,
-        19: dia19,
-        20: dia20,
-        21: dia21,
-        22: dia22,
-        23: dia23,
-        24: dia24,
-        25: dia25,
-        26: dia26,
-        27: dia27,
-        28: dia28,
-        29: dia29,
-        30: dia30,
-        31: dia31,
+            usuario: operador,
+            "01": dia1,
+            "02": dia2,
+            "03": dia3,
+            "04": dia4,
+            "05": dia5,
+            "06": dia6,
+            "07": dia7,
+            "08": dia8,
+            "09": dia9,
+            10: dia10,
+            11: dia11,
+            12: dia12,
+            13: dia13,
+            14: dia14,
+            15: dia15,
+            16: dia16,
+            17: dia17,
+            18: dia18,
+            19: dia19,
+            20: dia20,
+            21: dia21,
+            22: dia22,
+            23: dia23,
+            24: dia24,
+            25: dia25,
+            26: dia26,
+            27: dia27,
+            28: dia28,
+            29: dia29,
+            30: dia30,
+            31: dia31,
 
-    } of evolucaoDia) {
-    const trEl = document.createElement("tr");
-    trEl.style.textAlign = 'center';
+        } of evolucaoDia) {
+        const trEl = document.createElement("tr");
+        trEl.style.textAlign = 'center';
 
-    trEl.innerHTML +=
-        `
+        trEl.innerHTML +=
+            `
         <th scope="row">${operador}</th>
         <th scope="row">${dia1}</th>
         <th scope="row">${dia2}</th>
@@ -219,9 +235,8 @@ pesquisar.addEventListener('click', async () => {
         <th scope="row">${dia31}</th>
     `
 
-    tbodyEvolucaoDiaria.appendChild(trEl);
+        tbodyEvolucaoDiaria.appendChild(trEl);
 
 }
 
 });
-
