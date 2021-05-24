@@ -32,6 +32,11 @@ let subStatus = document.getElementById('sub-status-proposta');
 let empresaa = document.getElementById('empresa-proposta');
 let supervisor = document.getElementById('supervisor-proposta');
 
+//Arrays
+const arrays = {
+    arrayId: arrayId = []
+}
+
 //Botões
 let btnIncluir = document.getElementById('btn-incluir-proposta'); //btn-incluir-anexos
 let btnPesquisar = document.getElementById('btn-buscar');
@@ -366,9 +371,10 @@ btnIncluir.addEventListener('click', () => {
     then(response => response.json()).
     then(function (res) {
         console.log(body);
+        console.log(res.codigo);
         $('#Sucesso').show();
         $('#Sucesso').fadeIn(300).delay(3000).fadeOut(400);
-        document.getElementById("Sucesso").textContent = "Incluido"
+        document.getElementById("Sucesso").textContent = "Incluido";
     })
 })
 
@@ -417,6 +423,8 @@ btnPesquisar.addEventListener('click', () => {
     fetch(`${URL}/proposta/aguardando/filtro`, requestOptions)
         .then(response => response.json())
         .then(data => {
+
+            arrays.arrayId = [];
             
             for (let i = 0; i < data.length; i++) {
                 let specific_tbody = document.getElementById('tbody-pesquisa');
@@ -483,11 +491,14 @@ btnPesquisar.addEventListener('click', () => {
                 let logAlteracaoText = document.createTextNode(``);
                 logAlteracao.appendChild(logAlteracaoText);
 
+                arrays.arrayId.push(data[i].codigo);
+                console.log(data[i].codigo);
+
                 visualizar.innerHTML =
                     `<div class="actions ml-3" style="text-align: center;">
                 <a href="#" class="action-item mr-2" data-toggle="modal"
-                    data-target=".#"
-                    title="Incluir Documentação">
+                    data-target=".modal-nova-proposta"
+                    title="Incluir Documentação" onclick="Modal(arrays.arrayId[${i}])">
                     <i class="fas fa-eye"></i>
                 </a>
 
@@ -547,3 +558,26 @@ btnPesquisar.addEventListener('click', () => {
             }
         }).catch(error => console.log('error: ', error))
 })
+
+function Modal(codigo){
+    
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+
+    var raw = JSON.stringify({
+        codigo: codigo
+    })
+
+    var requestOptions = {
+        method: 'POST',
+        headers: myHeaders,
+        body: raw,
+        redirect: 'follow'
+    } 
+
+    fetch(`${URL}/proposta/identificacao/modal`, requestOptions).
+    then(response => response.json().then(function (data) {
+        console.log(codigo);
+        $('#numero-proposta').val(data.proposta);
+    })).catch(error => console.log('erro: ', error))
+}
