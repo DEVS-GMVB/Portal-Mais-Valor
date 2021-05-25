@@ -533,10 +533,8 @@
 
                                 <div class="col-md-2 mb-3">
                                     <label for="validationCustom01">Regra Convênio</label>
-                                    <select class="form-control form-control-sm" id="regra-convenio-proposta">
-                                        <option> </option>
-
-                                    </select>
+                                    <input type="text" class="form-control form-control-sm" id="regra-convenio-proposta"
+                                     required>
 
                                 </div>
 
@@ -1030,7 +1028,7 @@
                         </div>
 
                         <!-- Alert sucesso -->
-                    <div class="alert alert-success sucesso" id="Sucesso" role="alert">
+                    <div class="alert alert-success sucesso" id="sucesso" role="alert">
                     </div>
 
 
@@ -1088,15 +1086,15 @@
 
 
 
-                            <div class="form-row mt-4 mx-6">
+                            <div class="form-row mt-4 mx-6" id="files-outros">
 
 
 
                                 <div class="col-md-3 mb-3">
                                     <label for="exampleFormControlTextarea1">Outros 5:</label>
-                                    <input type="file" name="file-1[]" id="file-1" class="custom-input-file"
+                                    <input type="file" name="arquivo5" id="arquivo5" class="custom-input-file"
                                         data-multiple-caption="{count} files selected" multiple />
-                                    <label for="file-1">
+                                    <label for="arquivo5">
                                         <i class="fa fa-upload"></i>
                                         <span>Choose a file…</span>
                                     </label>
@@ -1105,9 +1103,9 @@
 
                                 <div class="col-md-3 mb-3">
                                     <label for="exampleFormControlTextarea1">Outros 6:</label>
-                                    <input type="file" name="file-1[]" id="file-1" class="custom-input-file"
+                                    <input type="file" name="arquivo6" id="arquivo6" class="custom-input-file"
                                         data-multiple-caption="{count} files selected" multiple />
-                                    <label for="file-1">
+                                    <label for="arquivo6">
                                         <i class="fa fa-upload"></i>
                                         <span>Choose a file…</span>
                                     </label>
@@ -1116,9 +1114,9 @@
 
                                 <div class="col-md-3 mb-3">
                                     <label for="exampleFormControlTextarea1">Outros 7:</label>
-                                    <input type="file" name="file-1[]" id="file-1" class="custom-input-file"
+                                    <input type="file" name="arquivo7" id="arquivo7" class="custom-input-file"
                                         data-multiple-caption="{count} files selected" multiple />
-                                    <label for="file-1">
+                                    <label for="arquivo7">
                                         <i class="fa fa-upload"></i>
                                         <span>Choose a file…</span>
                                     </label>
@@ -1127,9 +1125,9 @@
 
                                 <div class="col-md-3 mb-3">
                                     <label for="exampleFormControlTextarea1">Outros 8:</label>
-                                    <input type="file" name="file-1[]" id="file-1" class="custom-input-file"
+                                    <input type="file" name="arquivo8" id="arquivo8" class="custom-input-file"
                                         data-multiple-caption="{count} files selected" multiple />
-                                    <label for="file-1">
+                                    <label for="arquivo8">
                                         <i class="fa fa-upload"></i>
                                         <span>Choose a file…</span>
                                     </label>
@@ -1138,7 +1136,6 @@
 
 
                             </div>
-
 
                         </form>
 
@@ -1202,6 +1199,10 @@
 
 
                         </div>
+
+                        <!-- Alert sucesso -->
+                    <div class="alert alert-success sucesso" id="sucessos" role="alert">
+                    </div>
 
                     </div>
                 </div>

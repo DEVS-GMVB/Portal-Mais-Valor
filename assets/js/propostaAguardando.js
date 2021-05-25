@@ -38,8 +38,9 @@ const arrays = {
 }
 
 //Botões
-let btnIncluir = document.getElementById('btn-incluir-proposta'); //btn-incluir-anexos
+let btnIncluir = document.getElementById('btn-incluir-proposta');
 let btnPesquisar = document.getElementById('btn-buscar');
+let btnAnexo = document.getElementById('btn-incluir-anexos');
 
 //Cep
 const cep = document.getElementById("cep-proposta");
@@ -192,8 +193,7 @@ window.onload = (e) => {
 }
 
 //Incluir
-btnIncluir.addEventListener('click', () => {
-
+btnIncluir.addEventListener('click', async () => {
     let numeroProposta = $("#numero-proposta").val();
     let dtCadastro = $("#data-cadastro-proposta").val();
     let mesRef = $("#mes-referencia-proposta").val();
@@ -367,16 +367,56 @@ btnIncluir.addEventListener('click', () => {
         redirect: 'follow'
     }
 
-    fetch(URL + "/proposta/aguardando/incluir", requestOptions).
+    const codigo = await fetch(URL + "/proposta/aguardando/incluir", requestOptions).
     then(response => response.json()).
     then(function (res) {
-        console.log(body);
-        console.log(res.codigo);
-        $('#Sucesso').show();
-        $('#Sucesso').fadeIn(300).delay(3000).fadeOut(400);
-        document.getElementById("Sucesso").textContent = "Incluido";
-    })
-})
+        $('#sucesso').show();
+        $('#sucesso').fadeIn(300).delay(3000).fadeOut(400);
+        document.getElementById("sucesso").textContent = "Incluido";
+        return res.codigo;
+    });
+
+    objEventClickAnexos.transporterId = codigo;
+    objEventClickAnexos.insert;
+
+});
+
+const objEventClickAnexos = {
+
+    insert: btnAnexo.addEventListener('click', async () => {
+        const codigo = objEventClickAnexos.transporterId;
+
+        let filesInput = document.querySelectorAll("#files-outros input[type='file']");
+
+        var formdata = new FormData();
+        formdata.append("arquivo5", filesInput[0].files[0]);
+        formdata.append("arquivo6", filesInput[1].files[0]);
+        formdata.append("arquivo7", filesInput[2].files[0]);
+        formdata.append("arquivo8", filesInput[3].files[0]);
+
+        const requestOptions = {
+            method: 'POST',
+            body: formdata,
+            redirect: 'follow'
+        };
+
+        const data = await fetch(`${URL}/proposta/aguardando/anexos?codigo=${codigo}`, requestOptions)
+            .then(response => response.json())
+            .catch(error => console.log('error', error));
+
+
+        if (data) {
+
+            $('#sucessos').show();
+            $('#sucessos').fadeIn(300).delay(3000).fadeOut(400);
+            document.getElementById("sucessos").textContent = "Incluido anexo(s)";
+
+            return;
+        } else {
+            console.log("Ocorreu um erro durante a inserção de arquivos");
+        }
+    }),
+}
 
 //Pesquisar
 btnPesquisar.addEventListener('click', () => {
@@ -579,5 +619,80 @@ function Modal(codigo){
     then(response => response.json().then(function (data) {
         console.log(codigo);
         $('#numero-proposta').val(data.proposta);
+        $('#data-cadastro-proposta').val(data.data_inclusao);
+        $('#mes-referencia-proposta').val(data.mes);    
+        $('#banco-proposta').val(data.banco);
+        $('#produto-proposta').val(data.produto);
+        $('#valor-entregue-proposta').val(data.entregue);
+        $('#valor-troco-proposta').val(data.valor_troco);
+        $('#valor-parcela-proposta').val(data.valor_parcela);
+        $('#tipo-operacao-proposta').val(data.tipo);
+        $('#salario-vencimento-proposta').val(data.salario);
+        $('#margem-negativa-proposta').val(data.margem);
+        $('#qtd-parcelas-proposta').val(data.parcela);
+        $('#forma-liberacao-proposta').val(data.forma_liberacao);
+        $('#seguro-proposta').val(data.seguro);
+        $('#agencia-proposta').val(data.agencia);
+        $('#taxa-especial-proposta').val(data.taxaespecial);
+        $('#codigo-validacao-proposta').val(data.codigo_validacao);
+        $('#propostas-portadas-propostas').val();
+        $('#saque-propostas').val(data.saque);
+        $('#valor-saque-propostas').val(data.valor_saque);
+        $('#dt-pri-vencimento-proposta').val(data.primeiro_vencimento);
+        $('#dt-ult-vencimento-proposta').val(data.ultimo_vencimento);
+        $('#vl-parcela-refin-1').val(data.parcela_refin1);
+        $('#vl-parcela-refin-2').val(data.parcela_refin2);
+        $('#vl-parcela-refin-3').val(data.parcela_refin3);
+        $('#vl-parcela-refin-4').val(data.parcela_refin4);
+        $('#vl-parcela-refin-5').val(data.parcela_refin5);
+        $('#vl-parcela-refin-6').val(data.parcela_refin6);
+        $('#forma-calculo-proposta').val();
+        $('#cartao-magnetico-proposta').val(data.cartao_m);
+        $('#banco-portador-proposta').val(data.banco_port1);
+        $('#status-proposta').val(data.status);
+        $('#sub-status-proposta').val(data.sub_status);
+        $('#convenio-proposta').val(data.convenio);
+        $('#regra-convenio-proposta').val(data.regra);
+        $('#especie-proposta').val(data.especie);
+        $('#resultado-averbacao-proposta').val(data.resultado_averbacao);
+        $('#observacao-proposta').val(data.observacao);
+        $('#nm-cliente-proposta').val(data.nome);
+        $('#cpf-cliente-proposta').val(data.cpf);
+        $('#matricula-proposta').val(data.matricula);
+        $('#estado-civil-proposta').val(data.estado_civil);
+        $('#uf-naturalidade-proposta').val(data.uf_naturalidade);
+        $('#naturalidade-proposta').val(data.naturalidade);
+        $('#rg-proposta').val(data.rg);
+        $('#dt-emissao-rg-proposta').val(data.data_emissao);
+        $('#orgao-expeditor-proposta').val(data.orgao_emissor);
+        $('#nm-mae-proposta').val(data.nome_mae);
+        $('#nm-pai-proposta').val(data.nome_pai);
+        $('#dt-admissao-proposta').val();
+        $('#uf-endereco-proposta').val(data.uf);
+        $('#cidade-endereco-proposta').val(data.municipio);
+        $('#endereco-proposta').val(data.endereco);
+        $('#bairro-proposta').val(data.bairro);
+        $('#numero2-proposta').val(data.numero_endereco);
+        $('#complemento-proposta').val(data.complemento);
+        $('#tp-conta-cliente-proposta').val(data.tipo_conta);
+        $('#banco-cliente-proposta').val(data.banco_cliente);
+        $('#agencia-cliente-proposta').val(data.agencia_cliente);
+        $('#conta-cliente-proposta').val(data.conta_cliente);
+        $('#conjuge-proposta').val(data.conjuge);
+        $('#dt-nascimento-proposta').val(data.data_nascimento); 
+        $('#correntista-proposta').val(data.correntista);
+        $('#uf-documento-proposta').val(data.documento_uf);
+        $('#profissao-proposta').val();
+        $('#tp-telefone-proposta').val(data.telefone_tipo_1);
+        $('#ddd-telefone-proposta').val(data.telefone_ddd_1);
+        $('#telefone-cliente-proposta').val(data.telefone_numero_1);
+        $('#tp-funcionario-proposta').val(data.tipo_funcionario);
+        $('#email-proposta').val(data.email_cliente);
+        $('#tp-procedente-proposta').val();
+        $('#sistema-telefone-proposta').val(data.sistema_tel);
+        $('#usuario-proposta').val();
+        $('#supervisor-proposta').val(data.supervisor);
+        $('#empresa-proposta').val(data.empresa);
+        $('#tp-cliente-proposta').val();
     })).catch(error => console.log('erro: ', error))
 }
