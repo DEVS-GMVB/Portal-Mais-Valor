@@ -20,6 +20,13 @@ const bancoPortador = document.getElementById("banco-portador-proposta");
 const cep = document.getElementById("cep-proposta");
 const btnIncluir = document.getElementById('btn-incluir-proposta');
 const btnAnexo = document.getElementById("btn-incluir-anexos");
+let btnPesquisar = document.getElementById('btn-buscar');
+const btnIncluirProposta = document.getElementById('btn-novaProposta');
+
+//Arrays
+const arrays = {
+    arrayId: arrayId = []
+}
 
 const dataSession = {
     id_acesso: sessionStorage.getItem('id_acesso', 'id_acesso'),
@@ -121,9 +128,7 @@ window.onload = () => {
             redirect: 'follow'
         })
         .then(response => response.json().then(function (data) {
-            for (const {
-                    sub_status
-                } of data) {
+            for (const sub_status of data) {
                 subStatus.innerHTML += `<option value="${sub_status}">${sub_status}</option>`;
             }
         }));
@@ -334,7 +339,6 @@ btnIncluir.addEventListener('click', async () => {
     const codigo = await fetch(URL + "/proposta/aguardando/incluir", requestOptions).
     then(response => response.json()).
     then(function (res) {
-        console.log(res);
         $('#sucesso').show();
         $('#sucesso').fadeIn(300).delay(3000).fadeOut(400);
         document.getElementById("sucesso").textContent = "Incluindo";
@@ -348,17 +352,320 @@ btnIncluir.addEventListener('click', async () => {
 
 const objEventClickAnexos = {
 
-    insert: btnAnexo.addEventListener('click', () => {
+    insert: btnAnexo.addEventListener('click', async () => {
         const codigo = objEventClickAnexos.transporterId;
 
         let filesInput = document.querySelectorAll("#files-outros input[type='file']");
 
-        let data = new FormData();
-        filesInput.forEach(file => {
-            console.log(file)
-            console.log(data.append(file.name, file.file[0]))
-        });
+        var formdata = new FormData();
+        formdata.append("arquivo5", filesInput[0].files[0]);
+        formdata.append("arquivo6", filesInput[1].files[0]);
+        formdata.append("arquivo7", filesInput[2].files[0]);
+        formdata.append("arquivo8", filesInput[3].files[0]);
 
-        console.log(data);
+        const requestOptions = {
+            method: 'POST',
+            body: formdata,
+            redirect: 'follow'
+        };
+
+        const data = await fetch(`${URL}/proposta/aguardando/anexos?codigo=${codigo}`, requestOptions)
+            .then(response => response.json())
+            .catch(error => console.log('error', error));
+
+
+        if (data) {
+
+            $('#sucessos').show();
+            $('#sucessos').fadeIn(300).delay(3000).fadeOut(400);
+            document.getElementById("sucessos").textContent = "Incluido anexo(s)";
+
+            return;
+        } else {
+            console.log("Ocorreu um erro durante a inserção de arquivos");
+        }
+    }),
+}
+
+btnIncluirProposta.addEventListener('click', () => {
+    
+});
+
+//Pesquisar
+btnPesquisar.addEventListener('click', () => {
+
+    let node = document.getElementById("tbody-pesquisa")
+    while (node.hasChildNodes()) {
+        node.removeChild(node.lastChild);
+    }
+
+    const cpf = document.getElementById('cpf-pesquisa').value;
+    const status = document.getElementById('status-pesquisa').value;
+    const proposta = document.getElementById('proposta-pesquisa').value;
+    const mes = document.getElementById('mes-pesquisa').value;
+    const tipo = document.getElementById('tipo-pesquisa').value;
+    const dtCadastro = document.getElementById('dt-cadastro-pesquisa').value;
+    const dtAtualizacao = document.getElementById('dt-atualizacao-pesquisa').value;
+    const previsao = document.getElementById('previsao-saldo-pesquisa').value;
+    const banco = document.getElementById('banco-pesquisa').value;
+    const produto = document.getElementById('produto-pesquisa').value;
+
+    const myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+
+    const raw = JSON.stringify({
+        "cpf": cpf,
+        "status": status,
+        "proposta": proposta,
+        "mes": mes,
+        "tipo": tipo,
+        "data_inclusao": dtCadastro,
+        "data_atualizacao": dtAtualizacao,
+        "previsao_retorno": previsao,
+        "banco": banco,
+        "produto": produto
     })
+
+    const requestOptions = {
+        method: 'POST',
+        headers: myHeaders,
+        body: raw,
+        redirect: 'follow'
+    };
+
+    fetch(`${URL}/proposta/aguardando/filtro`, requestOptions)
+        .then(response => response.json())
+        .then(data => {
+
+            arrays.arrayId = [];
+
+            for (let i = 0; i < data.length; i++) {
+                let specific_tbody = document.getElementById('tbody-pesquisa');
+                let row = specific_tbody.insertRow(-1);
+                let proposta = row.insertCell(-1);
+                let nome = row.insertCell(-1);
+                let cpf = row.insertCell(-1);
+                let data_inclusao = row.insertCell(-1);
+                let parceiro = row.insertCell(-1);
+                let entregue = row.insertCell(-1);
+                let convenio = row.insertCell(-1);
+                let banco = row.insertCell(-1);
+                let produto = row.insertCell(-1);
+                let tipo = row.insertCell(-1);
+                let status = row.insertCell(-1);
+                let sub_status = row.insertCell(-1);
+                let data_atualizacao = row.insertCell(-1);
+                let logAlteracao = row.insertCell(-1);
+                let visualizar = row.insertCell(-1);
+                let download = row.insertCell(-1);
+                let documentacao = row.insertCell(-1);
+                let anexo = row.insertCell(-1);
+                let pendencia = row.insertCell(-1);
+
+                let propostaText = document.createTextNode(`${data[i].proposta}`);
+                proposta.appendChild(propostaText);
+
+                let nomeText = document.createTextNode(`${data[i].nome}`);
+                nome.appendChild(nomeText);
+
+                let cpfText = document.createTextNode(`${data[i].cpf}`);
+                cpf.appendChild(cpfText);
+
+                let data_inclusaoText = document.createTextNode(`${data[i].data_inclusao}`);
+                data_inclusao.appendChild(data_inclusaoText);
+
+                let parceiroText = document.createTextNode(`${data[i].parceiro}`);
+                parceiro.appendChild(parceiroText);
+
+                let entregueText = document.createTextNode(`${data[i].entregue}`);
+                entregue.appendChild(entregueText);
+
+                let convenioText = document.createTextNode(`${data[i].convenio}`);
+                convenio.appendChild(convenioText);
+
+                let bancoText = document.createTextNode(`${data[i].banco}`);
+                banco.appendChild(bancoText);
+
+                let produtoText = document.createTextNode(`${data[i].produto}`);
+                produto.appendChild(produtoText);
+
+                let tipoText = document.createTextNode(`${data[i].tipo}`);
+                tipo.appendChild(tipoText);
+
+                let statusText = document.createTextNode(`${data[i].status}`);
+                status.appendChild(statusText);
+
+                let sub_statusText = document.createTextNode(`${data[i].sub_status}`);
+                sub_status.appendChild(sub_statusText);
+
+                let data_atualizacaoText = document.createTextNode(`${data[i].data_atualizacao}`);
+                data_atualizacao.appendChild(data_atualizacaoText);
+
+                let logAlteracaoText = document.createTextNode(``);
+                logAlteracao.appendChild(logAlteracaoText);
+
+                arrays.arrayId.push(data[i].codigo);
+                console.log(data[i].codigo);
+
+                visualizar.innerHTML =
+                    `<div class="actions ml-3" style="text-align: center;">
+                <a href="#" class="action-item mr-2" data-toggle="modal"
+                    data-target=".modal-nova-proposta"
+                    title="Incluir Documentação" onclick="Modal(arrays.arrayId[${i}])">
+                    <i class="fas fa-eye"></i>
+                </a>
+
+            </div>`
+
+                download.innerHTML =
+                    `<td style="text-align: center;">
+
+            <div class="actions ml-3" style="text-align: center;">
+                <a href="#" class="action-item mr-2" data-toggle="modal"
+                    data-target=".#"
+                    title="Incluir Documentação">
+                    <i class="fas fa-download"></i>     
+                </a>
+
+            </div>
+        </td>`
+
+                documentacao.innerHTML =
+                    `<td style="text-align: center;">
+
+        <div class="actions ml-3" style="text-align: center;">
+            <a href="#" class="action-item mr-2" data-toggle="modal"
+                data-target=".#"
+                title="Incluir Documentação">
+                <i class="fas fa-external-link-alt"></i>
+            </a>
+
+        </div>
+    </td>`
+
+                anexo.innerHTML =
+                    `<td style="text-align: center;">
+
+    <div class="actions ml-3" style="text-align: center;">
+        <a href="#" class="action-item mr-2" data-toggle="modal"
+            data-target=".#"
+            title="Incluir Documentação">
+            <i class="fas fa-paperclip"></i>
+        </a>
+
+    </div>
+</td>`
+
+                pendencia.innerHTML =
+                    `<td style="text-align: center;">
+
+<div class="actions ml-3" style="text-align: center;">
+    <a href="#" class="action-item mr-2" data-toggle="modal"
+        data-target=".#"
+        title="Incluir Documentação">
+        <i class="fas fa-file-contract"></i>
+    </a>
+
+</div>
+</td>`
+            }
+        }).catch(error => console.log('error: ', error))
+})
+
+function Modal(codigo) {
+
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+
+    var raw = JSON.stringify({
+        codigo: codigo
+    })
+
+    var requestOptions = {
+        method: 'POST',
+        headers: myHeaders,
+        body: raw,
+        redirect: 'follow'
+    }
+
+    fetch(`${URL}/proposta/identificacao/modal`, requestOptions).
+    then(response => response.json().then(function (data) {
+        console.log(codigo);
+        $('#numero-proposta').val(data.proposta);
+        $('#data-cadastro-proposta').val(data.data_inclusao);
+        $('#mes-referencia-proposta').val(data.mes);
+        $('#banco-proposta').val(data.banco);
+        $('#produto-proposta').val(data.produto);
+        $('#valor-entregue-proposta').val(data.entregue);
+        $('#valor-troco-proposta').val(data.valor_troco);
+        $('#valor-parcela-proposta').val(data.valor_parcela);
+        $('#tipo-operacao-proposta').val(data.tipo);
+        $('#salario-vencimento-proposta').val(data.salario);
+        $('#margem-negativa-proposta').val(data.margem);
+        $('#qtd-parcelas-proposta').val(data.parcela);
+        $('#forma-liberacao-proposta').val(data.forma_liberacao);
+        $('#seguro-proposta').val(data.seguro);
+        $('#agencia-proposta').val(data.agencia);
+        $('#taxa-especial-proposta').val(data.taxaespecial);
+        $('#codigo-validacao-proposta').val(data.codigo_validacao);
+        $('#propostas-portadas-propostas').val();
+        $('#saque-propostas').val(data.saque);
+        $('#valor-saque-propostas').val(data.valor_saque);
+        $('#dt-pri-vencimento-proposta').val(data.primeiro_vencimento);
+        $('#dt-ult-vencimento-proposta').val(data.ultimo_vencimento);
+        $('#vl-parcela-refin-1').val(data.parcela_refin1);
+        $('#vl-parcela-refin-2').val(data.parcela_refin2);
+        $('#vl-parcela-refin-3').val(data.parcela_refin3);
+        $('#vl-parcela-refin-4').val(data.parcela_refin4);
+        $('#vl-parcela-refin-5').val(data.parcela_refin5);
+        $('#vl-parcela-refin-6').val(data.parcela_refin6);
+        $('#forma-calculo-proposta').val();
+        $('#cartao-magnetico-proposta').val(data.cartao_m);
+        $('#banco-portador-proposta').val(data.banco_port1);
+        $('#status-proposta').val(data.status);
+        $('#sub-status-proposta').val(data.sub_status);
+        $('#convenio-proposta').val(data.convenio);
+        $('#regra-convenio-proposta').val(data.regra);
+        $('#especie-proposta').val(data.especie);
+        $('#resultado-averbacao-proposta').val(data.resultado_averbacao);
+        $('#observacao-proposta').val(data.observacao);
+        $('#nm-cliente-proposta').val(data.nome);
+        $('#cpf-cliente-proposta').val(data.cpf);
+        $('#matricula-proposta').val(data.matricula);
+        $('#estado-civil-proposta').val(data.estado_civil);
+        $('#uf-naturalidade-proposta').val(data.uf_naturalidade);
+        $('#naturalidade-proposta').val(data.naturalidade);
+        $('#rg-proposta').val(data.rg);
+        $('#dt-emissao-rg-proposta').val(data.data_emissao);
+        $('#orgao-expeditor-proposta').val(data.orgao_emissor);
+        $('#nm-mae-proposta').val(data.nome_mae);
+        $('#nm-pai-proposta').val(data.nome_pai);
+        $('#dt-admissao-proposta').val();
+        $('#uf-endereco-proposta').val(data.uf);
+        $('#cidade-endereco-proposta').val(data.municipio);
+        $('#endereco-proposta').val(data.endereco);
+        $('#bairro-proposta').val(data.bairro);
+        $('#numero2-proposta').val(data.numero_endereco);
+        $('#complemento-proposta').val(data.complemento);
+        $('#tp-conta-cliente-proposta').val(data.tipo_conta);
+        $('#banco-cliente-proposta').val(data.banco_cliente);
+        $('#agencia-cliente-proposta').val(data.agencia_cliente);
+        $('#conta-cliente-proposta').val(data.conta_cliente);
+        $('#conjuge-proposta').val(data.conjuge);
+        $('#dt-nascimento-proposta').val(data.data_nascimento);
+        $('#correntista-proposta').val(data.correntista);
+        $('#uf-documento-proposta').val(data.documento_uf);
+        $('#profissao-proposta').val();
+        $('#tp-telefone-proposta').val(data.telefone_tipo_1);
+        $('#ddd-telefone-proposta').val(data.telefone_ddd_1);
+        $('#telefone-cliente-proposta').val(data.telefone_numero_1);
+        $('#tp-funcionario-proposta').val(data.tipo_funcionario);
+        $('#email-proposta').val(data.email_cliente);
+        $('#tp-procedente-proposta').val();
+        $('#sistema-telefone-proposta').val(data.sistema_tel);
+        $('#usuario-proposta').val();
+        $('#supervisor-proposta').val(data.supervisor);
+        $('#empresa-proposta').val(data.empresa);
+        $('#tp-cliente-proposta').val();
+    })).catch(error => console.log('erro: ', error))
 }
