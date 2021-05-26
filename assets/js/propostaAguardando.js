@@ -41,6 +41,7 @@ const arrays = {
 let btnIncluir = document.getElementById('btn-incluir-proposta');
 let btnPesquisar = document.getElementById('btn-buscar');
 let btnAnexo = document.getElementById('btn-incluir-anexos');
+let btnIncluirPreventivo = document.getElementById('btn-incluir-preventivo');
 
 //Cep
 const cep = document.getElementById("cep-proposta");
@@ -485,7 +486,7 @@ btnPesquisar.addEventListener('click', () => {
                 let logAlteracao = row.insertCell(-1);
                 let visualizar = row.insertCell(-1);
                 let download = row.insertCell(-1);
-                let documentacao = row.insertCell(-1);
+                //let documentacao = row.insertCell(-1);
                 let anexo = row.insertCell(-1);
                 let pendencia = row.insertCell(-1);
 
@@ -557,18 +558,6 @@ btnPesquisar.addEventListener('click', () => {
             </div>
         </td>`
 
-                documentacao.innerHTML =
-                    `<td style="text-align: center;">
-
-        <div class="actions ml-3" style="text-align: center;">
-            <a href="#" class="action-item mr-2" data-toggle="modal"
-                data-target=".#"
-                title="Incluir Documentação">
-                <i class="fas fa-external-link-alt"></i>
-            </a>
-
-        </div>
-    </td>`
 
                 anexo.innerHTML =
                     `<td style="text-align: center;">
@@ -583,16 +572,14 @@ btnPesquisar.addEventListener('click', () => {
     </div>
 </td>`
 
-                pendencia.innerHTML =
-                    `<td style="text-align: center;">
-
+    pendencia.innerHTML = `
 <div class="actions ml-3" style="text-align: center;">
-    <a href="#" class="action-item mr-2" data-toggle="modal"
+    <a href="../../API_Portal_GMVB/tmp/uploads/${data[i].arquivo5}" class="action-item mr-2" data-toggle="modal"
         data-target=".#"
-        title="Incluir Documentação">
+        title="Incluir Documentação" download="${data[i].arquivo5}">
         <i class="fas fa-file-contract"></i>
+        ${data[i].arquivo5}
     </a>
-
 </div>
 </td>`
             }
@@ -696,3 +683,125 @@ function Modal(codigo){
         $('#tp-cliente-proposta').val();
     })).catch(error => console.log('erro: ', error))
 }
+
+// btnPreventivo.addEventListener('click', () => {
+//     let cpf = $('#cpf-cliente-preventivo').val();
+//     let nome = $('#nome-cliente-preventivo').val();
+//     let cadastro = $('#data-cadastro-preventivo').val();
+//     let mes = $('#mes-referencia-preventivo').val()
+//     let tipo = $('#tipo-preventivo').val();
+//     let status = $('#status-preventivo').val();
+//     let obs = $('#observacao-preventivo').val();
+
+//     const myHeaders = new Headers();
+//     myHeaders.append("Content-Type", "application/json")
+
+//     const body = {
+//         cpf:cpf,
+//         nome:nome,
+//         data_inclusao:cadastro,
+//         mes:mes,
+//         tipo:tipo,
+//         status:status,
+//         observacao:obs
+//     }
+
+//     const raw = JSON.stringify(body)
+
+//     let requestOptions = {
+//         method: 'POST',
+//         headers: myHeaders,
+//         body: raw,
+//         redirect: 'follow'
+//     }
+
+//     fetch(`${URL}/proposta/aguardando/incluir`, requestOptions)
+//             .then(response => response.json())
+//             .then(data => {
+//                console.log(data);
+
+//                const resultInsert = Anexo(data)
+
+//                Promise.resolve(resultInsert).then(function (value) {
+//                 console.log('incluido')
+//             })
+
+//             }).catch(error => console.log('erro: ', error))
+// })
+
+//  async function Anexo(data) {
+//     const myheaders = new Headers();
+//     myheaders.append('Content-Type', 'application/json');
+
+//     const file = document.querySelectorAll('input#arquivo-preventivo input[type="file"]')[0]
+//     const codigo = data.codigo
+
+//     var data = new FormData()
+//     data.append(file.name, file.files[0])
+
+//     await fetch(`${URL}/proposta/aguardando/preventivo?codigo=${codigo}`, {
+//         method: 'POST',
+//         body: data
+//     }).
+//     then(response => response.json().then(function (data) {
+//         obj.transporter = data
+//     })).catch(error => console.log('error: ', error))
+    
+//     return obj.transporter;
+//  }
+
+btnIncluirPreventivo.addEventListener('click', async () => {
+    const cpf = document.getElementById("cpf-cliente-preventivo").value;
+    const nome = document.getElementById("nome-cliente-preventivo").value;
+    const dataCadastro = document.getElementById("data-cadastro-preventivo").value;
+    const mes = document.getElementById("mes-referencia-preventivo").value;
+    const tipo = document.getElementById("tipo-preventivo").value;
+    const status = document.getElementById("status-preventivo").value;
+    const observacao = document.getElementById("observacao-preventivo").value;
+
+    const myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+
+    const raw = JSON.stringify({
+        cpf,
+        nome,
+        data_inclusao: dataCadastro,
+        mes,
+        tipo,
+        status,
+        observacao
+    });
+
+    const {codigo} = await fetch(`${URL}/proposta/aguardando/incluir`, {
+            method: "POST",
+            headers: myHeaders,
+            body: raw,
+            redirect: 'follow'
+        })
+        .then(response => response.json());
+
+    if (codigo) {
+        $('#sucesso-preventivo').show();
+        $('#sucesso-preventivo').fadeIn(300).delay(3000).fadeOut(400);
+        document.getElementById("sucesso-preventivo").textContent = "Incluído";
+
+        const fileInput = document.getElementById("arquivo-preventivo");
+
+        const data = new FormData();
+        data.append("arquivo_prev", fileInput.files[0]);
+        console.log(data);
+
+        const requestOptions = {
+            method: 'POST',
+            body: data,
+            redirect: 'follow'
+        };
+
+        fetch(`${URL}/proposta/aguardando/preventivo?codigo=${codigo}`, requestOptions)
+
+        return;
+    }
+
+    return alert("Ocorreu um erro durante a inserção");
+
+});
