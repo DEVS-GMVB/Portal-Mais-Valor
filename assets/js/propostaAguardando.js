@@ -22,7 +22,7 @@ const btnIncluir = document.getElementById('btn-incluir-proposta');
 const btnAnexo = document.getElementById("btn-incluir-anexos");
 let btnPesquisar = document.getElementById('btn-buscar');
 const btnIncluirProposta = document.getElementById('btn-novaProposta');
-
+const btnIncluirPreventivo = document.getElementById("btn-incluir-preventivo");
 //Arrays
 const arrays = {
     arrayId: arrayId = []
@@ -388,7 +388,12 @@ const objEventClickAnexos = {
 }
 
 btnIncluirProposta.addEventListener('click', () => {
-    
+    const inputs = document.querySelectorAll("#myTabContent input[type=text]");
+    const selects = document.querySelectorAll("#myTabContent select");
+
+    inputs.forEach((el) => el.value = "");
+
+    selects.forEach((el) => el.value = "");
 });
 
 //Pesquisar
@@ -570,7 +575,63 @@ btnPesquisar.addEventListener('click', () => {
 </td>`
             }
         }).catch(error => console.log('error: ', error))
-})
+});
+
+btnIncluirPreventivo.addEventListener('click', async () => {
+    const cpf = document.getElementById("cpf-cliente-preventivo").value;
+    const nome = document.getElementById("nome-cliente-preventivo").value;
+    const dataCadastro = document.getElementById("data-cadastro-preventivo").value;
+    const mes = document.getElementById("mes-referencia-preventivo").value;
+    const tipo = document.getElementById("tipo-preventivo").value;
+    const status = document.getElementById("status-preventivo").value;
+    const observacao = document.getElementById("observacao-preventivo").value;
+
+    const myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+
+    const raw = JSON.stringify({
+        cpf,
+        nome,
+        data_inclusao: dataCadastro,
+        mes,
+        tipo,
+        status,
+        observacao
+    });
+
+    const {codigo} = await fetch(`${URL}/proposta/aguardando/incluir`, {
+            method: "POST",
+            headers: myHeaders,
+            body: raw,
+            redirect: 'follow'
+        })
+        .then(response => response.json());
+
+    if (codigo) {
+        $('#sucesso').show();
+        $('#sucesso').fadeIn(300).delay(3000).fadeOut(400);
+        document.getElementById("sucesso").textContent = "Incluído";
+
+        const fileInput = document.getElementById("arquivo-preventivo");
+
+        const data = new FormData();
+        data.append("arquivo_prev", fileInput.files[0]);
+        console.log(data);
+
+        const requestOptions = {
+            method: 'POST',
+            body: data,
+            redirect: 'follow'
+        };
+
+        fetch(`${URL}/proposta/aguardando/preventivo?codigo=${codigo}`, requestOptions)
+
+        return;
+    }
+
+    return alert("Ocorreu um erro durante a inserção");
+
+});
 
 function Modal(codigo) {
 
