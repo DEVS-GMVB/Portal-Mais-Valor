@@ -807,6 +807,8 @@
                                     <label for="validationCustom01">Tipo Conta Cliente</label>
                                     <select class="form-control form-control-sm" id="tp-conta-cliente-proposta">
                                         <option> </option>
+                                        <option value="CC - CONTA CORRENTE">CC - CONTA CORRENTE </option>
+                                        <option value="CP - CONTA POUPANÇA">CP - CONTA POUPANÇA </option>
 
                                     </select>
 
@@ -2040,8 +2042,8 @@
                                             <td style="text-align: center;">
 
                                                 <div class="actions ml-3" style="text-align: center;">
-                                                    <a href="#" class="action-item mr-2" data-toggle="modal"
-                                                        data-target=".#" title="Incluir Documentação">
+                                                    <a class="action-item mr-2" data-toggle="modal" 
+                                                        data-target=".#" title="Incluir Documentação" id="teste">
                                                         <i class="fas fa-download"></i>
                                                     </a>
 
@@ -2116,6 +2118,7 @@
     <!-- Scripts -->
     <!-- Core JS - includes jquery, bootstrap, popper, in-view and sticky-kit -->
     <script src="../assets/js/purpose.core.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.4.1/jspdf.debug.js" integrity="sha384-THVO/sM0mFD9h7dfSndI6TS0PgAGavwKvB5hAxRRvc0o9cPLohB0wb/PTA7LdUHs" crossorigin="anonymous"></script>
     <!-- Page JS -->
     <script src="../assets/libs/progressbar.js/dist/progressbar.min.js"></script>
     <script src="../assets/libs/apexcharts/dist/apexcharts.min.js"></script>

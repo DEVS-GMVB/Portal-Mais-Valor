@@ -23,6 +23,7 @@ const btnAnexo = document.getElementById("btn-incluir-anexos");
 let btnPesquisar = document.getElementById('btn-buscar');
 const btnIncluirProposta = document.getElementById('btn-novaProposta');
 const btnIncluirPreventivo = document.getElementById("btn-incluir-preventivo");
+const donwloadContrato = document.getElementById("teste");
 //Arrays
 const arrays = {
     arrayId: arrayId = []
@@ -599,7 +600,9 @@ btnIncluirPreventivo.addEventListener('click', async () => {
         observacao
     });
 
-    const {codigo} = await fetch(`${URL}/proposta/aguardando/incluir`, {
+    const {
+        codigo
+    } = await fetch(`${URL}/proposta/aguardando/incluir`, {
             method: "POST",
             headers: myHeaders,
             body: raw,
@@ -730,3 +733,7 @@ function Modal(codigo) {
         $('#tp-cliente-proposta').val();
     })).catch(error => console.log('erro: ', error))
 }
+
+donwloadContrato.addEventListener('click', async () => {
+    window.location.href = `${URL}/proposta/aguardando/download?hash=0e58dd6b9d402fa4ae33a0fba5d1a799- git.docx`;
+});
