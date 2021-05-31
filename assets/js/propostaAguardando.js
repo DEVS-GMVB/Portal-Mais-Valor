@@ -24,6 +24,10 @@ let btnPesquisar = document.getElementById('btn-buscar');
 const btnIncluirProposta = document.getElementById('btn-novaProposta');
 const btnIncluirPreventivo = document.getElementById("btn-incluir-preventivo");
 const donwloadContrato = document.getElementById("teste");
+
+// estrutura de dados
+const mapHash = new Map();
+
 //Arrays
 const arrays = {
     arrayId: arrayId = []
@@ -340,9 +344,9 @@ btnIncluir.addEventListener('click', async () => {
     const codigo = await fetch(URL + "/proposta/aguardando/incluir", requestOptions).
     then(response => response.json()).
     then(function (res) {
-        $('#sucesso').show();
-        $('#sucesso').fadeIn(300).delay(3000).fadeOut(400);
-        document.getElementById("sucesso").textContent = "Incluindo";
+        $('#sucessos').show();
+        $('#sucessos').fadeIn(300).delay(3000).fadeOut(400);
+        document.getElementById("sucessos").textContent = "Incluindo";
         return res.codigo;
     });
 
@@ -357,12 +361,16 @@ const objEventClickAnexos = {
         const codigo = objEventClickAnexos.transporterId;
 
         let filesInput = document.querySelectorAll("#files-outros input[type='file']");
+        let filesInput2 = document.querySelectorAll("#files-outros2 input[type='file']");
 
         var formdata = new FormData();
         formdata.append("arquivo5", filesInput[0].files[0]);
         formdata.append("arquivo6", filesInput[1].files[0]);
         formdata.append("arquivo7", filesInput[2].files[0]);
         formdata.append("arquivo8", filesInput[3].files[0]);
+        formdata.append("arquivo_proposta", filesInput2[0].files[0]);
+        formdata.append("termo", filesInput2[1].files[0]);
+
 
         const requestOptions = {
             method: 'POST',
@@ -374,12 +382,12 @@ const objEventClickAnexos = {
             .then(response => response.json())
             .catch(error => console.log('error', error));
 
+        console.log(data);
 
         if (data) {
-
-            $('#sucessos').show();
-            $('#sucessos').fadeIn(300).delay(3000).fadeOut(400);
-            document.getElementById("sucessos").textContent = "Incluido anexo(s)";
+            $('#sucessoss').show();
+            $('#sucessoss').fadeIn(300).delay(3000).fadeOut(400);
+            document.getElementById("sucessoss").textContent = "Incluido anexo(s)";
 
             return;
         } else {
@@ -391,10 +399,13 @@ const objEventClickAnexos = {
 btnIncluirProposta.addEventListener('click', () => {
     const inputs = document.querySelectorAll("#myTabContent input[type=text]");
     const selects = document.querySelectorAll("#myTabContent select");
+    const files = document.querySelectorAll("body input[type=file]");
 
     inputs.forEach((el) => el.value = "");
 
     selects.forEach((el) => el.value = "");
+
+    files.forEach((el) => el.value = "");
 });
 
 //Pesquisar
@@ -442,7 +453,7 @@ btnPesquisar.addEventListener('click', () => {
     fetch(`${URL}/proposta/aguardando/filtro`, requestOptions)
         .then(response => response.json())
         .then(data => {
-
+            console.log(data);
             arrays.arrayId = [];
 
             for (let i = 0; i < data.length; i++) {
@@ -464,7 +475,6 @@ btnPesquisar.addEventListener('click', () => {
                 let logAlteracao = row.insertCell(-1);
                 let visualizar = row.insertCell(-1);
                 let download = row.insertCell(-1);
-                let documentacao = row.insertCell(-1);
                 let anexo = row.insertCell(-1);
                 let pendencia = row.insertCell(-1);
 
@@ -511,7 +521,7 @@ btnPesquisar.addEventListener('click', () => {
                 logAlteracao.appendChild(logAlteracaoText);
 
                 arrays.arrayId.push(data[i].codigo);
-                console.log(data[i].codigo);
+                mapHash.set(data[i].codigo, data[i]);
 
                 visualizar.innerHTML =
                     `<div class="actions ml-3" style="text-align: center;">
@@ -527,7 +537,7 @@ btnPesquisar.addEventListener('click', () => {
                     `<td style="text-align: center;">
 
             <div class="actions ml-3" style="text-align: center;">
-                <a href="#" class="action-item mr-2" data-toggle="modal"
+                <a href="#" class="action-item mr-2" data-toggle="modal" onclick="downloadContrato(mapHash.get(${data[i].codigo}))"
                     data-target=".#"
                     title="Incluir Documentação">
                     <i class="fas fa-download"></i>     
@@ -536,44 +546,32 @@ btnPesquisar.addEventListener('click', () => {
             </div>
         </td>`
 
-                documentacao.innerHTML =
-                    `<td style="text-align: center;">
-
-        <div class="actions ml-3" style="text-align: center;">
-            <a href="#" class="action-item mr-2" data-toggle="modal"
-                data-target=".#"
-                title="Incluir Documentação">
-                <i class="fas fa-external-link-alt"></i>
-            </a>
-
-        </div>
-    </td>`
 
                 anexo.innerHTML =
                     `<td style="text-align: center;">
 
-    <div class="actions ml-3" style="text-align: center;">
-        <a href="#" class="action-item mr-2" data-toggle="modal"
-            data-target=".#"
-            title="Incluir Documentação">
-            <i class="fas fa-paperclip"></i>
-        </a>
+                <div class="actions ml-3" style="text-align: center;">
+                    <a href="#" class="action-item mr-2" data-toggle="modal"
+                        data-target=".#"
+                        title="Incluir Documentação">
+                        <i class="fas fa-paperclip"></i>
+                    </a>
 
-    </div>
-</td>`
+                </div>
+            </td>`
 
                 pendencia.innerHTML =
                     `<td style="text-align: center;">
 
-<div class="actions ml-3" style="text-align: center;">
-    <a href="#" class="action-item mr-2" data-toggle="modal"
-        data-target=".#"
-        title="Incluir Documentação">
-        <i class="fas fa-file-contract"></i>
-    </a>
+            <div class="actions ml-3" style="text-align: center;">
+                <a href="#" class="action-item mr-2" data-toggle="modal" onclick="downloadTermo(mapHash.get(${data[i].codigo}))"
+                    data-target=".#"
+                    title="Incluir Documentação">
+                    <i class="fas fa-file-contract"></i>
+                </a>
 
-</div>
-</td>`
+            </div>
+            </td>`;
             }
         }).catch(error => console.log('error: ', error))
 });
@@ -734,6 +732,18 @@ function Modal(codigo) {
     })).catch(error => console.log('erro: ', error))
 }
 
-donwloadContrato.addEventListener('click', async () => {
-    window.location.href = `${URL}/proposta/aguardando/download?hash=0e58dd6b9d402fa4ae33a0fba5d1a799- git.docx`;
-});
+function downloadContrato(obj) {
+    if(obj.arquivo_proposta) {
+        window.location.href = `${URL}/proposta/aguardando/download?hash=${obj.arquivo_proposta}`;
+    } else {
+        alert("Arquivo de contrato não inserido na base de dados");
+    }
+}
+
+function downloadTermo({termo}) {
+    if(termo) {
+        window.location.href = `${URL}/proposta/aguardando/download?hash=${termo}`;
+    } else {
+        alert("Arquivo de contrato não inserido na base de dados");
+    }
+}
