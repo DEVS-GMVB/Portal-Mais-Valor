@@ -625,7 +625,8 @@ btnIncluirPreventivo.addEventListener('click', async () => {
             redirect: 'follow'
         };
 
-        fetch(`${URL}/proposta/aguardando/preventivo?codigo=${codigo}`, requestOptions)
+        const teste = await fetch(`${URL}/proposta/aguardando/preventivo?codigo=${codigo}`, requestOptions);
+        console.log(teste)
 
         return;
     }
