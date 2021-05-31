@@ -83,44 +83,45 @@
 
                         <div class="col-md-6 mb-2">
                             <label for="validationCustom01">CPF Cliente</label>
-                            <input type="text" class="form-control form-control-sm" id="cpf-cliente-preventivo" 
-                            onkeypress='mascaraMutuario(this,cpfCnpj)' maxlength="14" required>
+                            <input type="text" class="form-control form-control-sm" id="cpf-cliente-preventivo"
+                                onkeypress='mascaraMutuario(this,cpfCnpj)' maxlength="14" required>
 
                         </div>
 
                         <div class="col-md-6 mb-2">
                             <label for="validationCustom01">Nome Cliente</label>
-                            <input type="text" class="form-control form-control-sm" id="nome-cliente-preventivo" required>
+                            <input type="text" class="form-control form-control-sm" id="nome-cliente-preventivo"
+                                required>
 
                         </div>
 
                         <div class="col-md-6 mb-2">
                             <label for="validationCustom01">Data Cadastro</label>
-                            <input type="text" class="form-control form-control-sm" id="data-cadastro-preventivo" required
-                            onKeyDown="fMasc( this, data );" maxlength="10">
+                            <input type="text" class="form-control form-control-sm" id="data-cadastro-preventivo"
+                                required onKeyDown="fMasc( this, data );" maxlength="10">
 
                         </div>
                         <div class="col-md-6 mb-2">
                             <label for="validationCustom01">Mês Referencia</label>
-                            <input type="text" class="form-control form-control-sm" id="mes-referencia-preventivo" required>
+                            <input type="text" class="form-control form-control-sm" id="mes-referencia-preventivo"
+                                required>
 
                         </div>
 
                         <div class="col-md-6 mb-2">
                             <label for="validationCustom01">Tipo</label>
-                            <select class="form-control form-control-sm" id="tipo-preventivo">
-                                <option> </option>
-
+                            <select class="form-control form-control-sm" id="tipo-preventivo" required>
+                                <option value=""></option>
                             </select>
+
 
                         </div>
 
                         <div class="col-md-6 mb-2">
                             <div class="form-group">
                                 <label for="exampleFormControlSelect1">Status</label>
-                                <select class="form-control form-control-sm" id="status-preventivo">
-                                    <option> </option>
-
+                                <select class="form-control form-control-sm" id="status-preventivo" required>
+                                    <option value=""></option>
                                 </select>
                             </div>
                         </div>
@@ -159,8 +160,8 @@
 
                     <div class="col-md-12 mb-2">
                         <label for="exampleFormControlFile1"><b>Arquivo Preventivo:</b></label>
-                        <input type="file" class="form-control-file" name="arquivo_prev" id="arquivo-preventivo">
-                       
+                        <input type="file" class="form-control-file" id="arquivo-preventivo" name="arquivo_prev">
+
 
                     </div>
 
@@ -173,7 +174,7 @@
 
 
                     <button type="button" class="btn btn-primary btn-icon-label" title="Incluir"
-                    id="btn-incluir-preventivo">
+                        id="btn-incluir-preventivo">
                         <span class="btn-inner--icon">
                             <i class="fas fa-plus"></i>
                         </span>
@@ -182,13 +183,10 @@
 
 
 
-
                 </div>
 
-                <!-- Alert sucesso -->
-                <div class="alert alert-success sucesso" id="sucesso-preventivo" role="alert">
+                <div class="alert alert-success sucesso" id="sucesso" role="alert">
                 </div>
-
 
             </div>
 
@@ -253,7 +251,7 @@
 
                         </div>
 
-                        <form class="needs-validation"  novalidate>
+                        <form class="needs-validation" id="form-proposta" novalidate>
 
 
 
@@ -264,14 +262,14 @@
                                 <div class="col-md-3 mb-3">
                                     <label for="validationCustom01">Número da Proposta</label>
                                     <input type="text" class="form-control form-control-sm" id="numero-proposta"
-                                    onKeyDown="fMasc( this, nContrtato );"   required>
+                                        onKeyDown="fMasc( this, nContrtato );" required>
 
                                 </div>
 
                                 <div class="col-md-3 mb-3">
                                     <label for="validationCustom01">Data Cadastro</label>
                                     <input type="text" class="form-control form-control-sm" id="data-cadastro-proposta"
-                                    onKeyDown="fMasc( this, data );" maxlength="10"   required>
+                                        onKeyDown="fMasc( this, data );" maxlength="10" required>
 
                                 </div>
 
@@ -286,6 +284,8 @@
                                     <label for="validationCustom01">Banco</label>
                                     <select class="form-control form-control-sm" id="banco-proposta">
                                         <option> </option>
+                                        <option> </option>
+                                        <option> </option>
 
                                     </select>
 
@@ -297,6 +297,8 @@
                                         <label for="exampleFormControlSelect1">Produto</label>
                                         <select class="form-control form-control-sm" id="produto-proposta">
                                             <option> </option>
+                                            <option> </option>
+                                            <option> </option>
 
                                         </select>
                                     </div>
@@ -305,15 +307,16 @@
                                 <div class="col-md-3 mb-1">
                                     <label for="validationCustom01">Valor Entregue</label>
                                     <input type="text" class="form-control form-control-sm" id="valor-entregue-proposta"
-                                    onKeyPress="return(MascaraMoeda(this,'.',',',event))"  required>
+                                        onKeyPress="return(MascaraMoeda(this,'.',',',event))" required>
 
                                 </div>
 
                                 <div class="col-md-3 mb-1">
                                     <div class="form-group">
                                         <label for="exampleFormControlSelect1">Valor Troco</label>
-                                        <input type="text" class="form-control form-control-sm" id="valor-troco-proposta"
-                                        onKeyPress="return(MascaraMoeda(this,'.',',',event))" required>
+                                        <input type="text" class="form-control form-control-sm"
+                                            id="valor-troco-proposta"
+                                            onKeyPress="return(MascaraMoeda(this,'.',',',event))" required>
                                     </div>
                                 </div>
 
@@ -321,8 +324,9 @@
                                 <div class="col-md-3 mb-1">
                                     <div class="form-group">
                                         <label for="exampleFormControlSelect1">Valor Parcela</label>
-                                        <input type="text" class="form-control form-control-sm" id="valor-parcela-proposta"
-                                        onKeyPress="return(MascaraMoeda(this,'.',',',event))" required>
+                                        <input type="text" class="form-control form-control-sm"
+                                            id="valor-parcela-proposta"
+                                            onKeyPress="return(MascaraMoeda(this,'.',',',event))" required>
                                     </div>
                                 </div>
 
@@ -332,6 +336,7 @@
                                     <select class="form-control form-control-sm" id="tipo-operacao-proposta">
                                         <option> </option>
 
+
                                     </select>
 
                                 </div>
@@ -339,22 +344,22 @@
                                 <div class="col-md-3 mb-0">
                                     <div class="form-group">
                                         <label for="exampleFormControlSelect1">Salário/Vencimentos</label>
-                                        <input type="text" class="form-control form-control-sm" id="salario-vencimento-proposta"
-                                        required>
+                                        <input type="text" class="form-control form-control-sm"
+                                            id="salario-vencimento-proposta" required>
                                     </div>
                                 </div>
 
                                 <div class="col-md-4 mb-0">
                                     <label for="validationCustom01">Margem Negativa (Caso Tenha)</label>
-                                    <input type="text" class="form-control form-control-sm" id="margem-negativa-proposta"
-                                        required>
+                                    <input type="text" class="form-control form-control-sm"
+                                        id="margem-negativa-proposta" required>
 
                                 </div>
 
                                 <div class="col-md-2 mb-0">
                                     <label for="validationCustom01">Qtd. Parcelas</label>
                                     <input type="text" class="form-control form-control-sm" id="qtd-parcelas-proposta"
-                                    onKeyDown="fMasc( this, nContrtato );"  required>
+                                        onKeyDown="fMasc( this, nContrtato );" required>
 
                                 </div>
 
@@ -370,9 +375,10 @@
                                 <div class="col-md-3 mb-3">
                                     <label for="validationCustom01">Seguro</label>
                                     <select class="form-control form-control-sm" id="seguro-proposta">
-                                        <option> </option>
-                                        <option value="SIM">SIM</option>
+                                        <option value=""> </option>
                                         <option value="NÃO">NÃO</option>
+                                        <option value="SIM">SIM</option>
+
                                     </select>
 
                                 </div>
@@ -393,15 +399,15 @@
 
                                 <div class="col-md-3 mb-3">
                                     <label for="validationCustom01">Código Validação</label>
-                                    <input type="text" class="form-control form-control-sm" id="codigo-validacao-proposta"
-                                        required>
+                                    <input type="text" class="form-control form-control-sm"
+                                        id="codigo-validacao-proposta" required>
 
                                 </div>
 
                                 <div class="col-md-3 mb-3">
                                     <label for="validationCustom01">Propostas Portadas</label>
-                                    <input type="text" class="form-control form-control-sm" id="propostas-portadas-propostas"
-                                        required>
+                                    <input type="text" class="form-control form-control-sm"
+                                        id="propostas-portadas-propostas" required>
 
                                 </div>
 
@@ -417,67 +423,69 @@
                                 <div class="col-md-3 mb-3">
                                     <label for="validationCustom01">Valor Saque</label>
                                     <input type="text" class="form-control form-control-sm" id="valor-saque-propostas"
-                                    onKeyPress="return(MascaraMoeda(this,'.',',',event))"  required>
+                                        onKeyPress="return(MascaraMoeda(this,'.',',',event))" required>
 
                                 </div>
 
                                 <div class="col-md-6 mb-3">
                                     <label for="validationCustom01">Data Primeiro Vencimento</label>
-                                    <input type="text" class="form-control form-control-sm" id="dt-pri-vencimento-proposta"
-                                    onKeyDown="fMasc( this, data );" maxlength="10" required>
+                                    <input type="text" class="form-control form-control-sm"
+                                        id="dt-pri-vencimento-proposta" onKeyDown="fMasc( this, data );" maxlength="10"
+                                        required>
 
                                 </div>
 
                                 <div class="col-md-6 mb-3">
                                     <label for="validationCustom01">Data Ultimo Vencimento</label>
-                                    <input type="text" class="form-control form-control-sm" id="dt-ult-vencimento-proposta"
-                                    onKeyDown="fMasc( this, data );" maxlength="10"   required>
+                                    <input type="text" class="form-control form-control-sm"
+                                        id="dt-ult-vencimento-proposta" onKeyDown="fMasc( this, data );" maxlength="10"
+                                        required>
 
                                 </div>
 
                                 <div class="col-md-6 mb-3">
                                     <label for="validationCustom01">Valor Parcela Refin 1</label>
                                     <input type="text" class="form-control form-control-sm" id="vl-parcela-refin-1"
-                                    onKeyPress="return(MascaraMoeda(this,'.',',',event))"  required>
+                                        onKeyPress="return(MascaraMoeda(this,'.',',',event))" required>
 
                                 </div>
 
                                 <div class="col-md-6 mb-3">
                                     <label for="validationCustom01">Valor Parcela Refin 2</label>
                                     <input type="text" class="form-control form-control-sm" id="vl-parcela-refin-2"
-                                    onKeyPress="return(MascaraMoeda(this,'.',',',event))"  required>
+                                        onKeyPress="return(MascaraMoeda(this,'.',',',event))" required>
 
                                 </div>
 
                                 <div class="col-md-6 mb-3">
                                     <label for="validationCustom01">Valor Parcela Refin 3</label>
                                     <input type="text" class="form-control form-control-sm" id="vl-parcela-refin-3"
-                                    onKeyPress="return(MascaraMoeda(this,'.',',',event))"  required>
+                                        onKeyPress="return(MascaraMoeda(this,'.',',',event))" required>
 
                                 </div>
 
                                 <div class="col-md-6 mb-3">
                                     <label for="validationCustom01">Valor Parcela Refin 4</label>
                                     <input type="text" class="form-control form-control-sm" id="vl-parcela-refin-4"
-                                    onKeyPress="return(MascaraMoeda(this,'.',',',event))"  required>
+                                        onKeyPress="return(MascaraMoeda(this,'.',',',event))" required>
 
                                 </div>
 
                                 <div class="col-md-6 mb-3">
                                     <label for="validationCustom01">Valor Parcela Refin 5</label>
                                     <input type="text" class="form-control form-control-sm" id="vl-parcela-refin-5"
-                                    onKeyPress="return(MascaraMoeda(this,'.',',',event))" required>
+                                        onKeyPress="return(MascaraMoeda(this,'.',',',event))" required>
 
                                 </div>
 
                                 <div class="col-md-6 mb-3">
                                     <label for="validationCustom01">Valor Parcela Refin 6</label>
                                     <input type="text" class="form-control form-control-sm" id="vl-parcela-refin-6"
-                                    onKeyPress="return(MascaraMoeda(this,'.',',',event))"  required>
+                                        onKeyPress="return(MascaraMoeda(this,'.',',',event))" required>
 
                                 </div>
-                                
-                                <div class="col-md-4 mb-3">
+
+                                <div class="col-md-6 mb-3">
                                     <label for="validationCustom01">Fórmula de Cálculo</label>
                                     <select class="form-control form-control-sm" id="forma-calculo-proposta">
                                         <option> </option>
@@ -486,7 +494,7 @@
 
                                 </div>
 
-                                <div class="col-md-4 mb-3">
+                                <div class="col-md-6 mb-3">
                                     <label for="validationCustom01">Cartão Magnético</label>
                                     <select class="form-control form-control-sm" id="cartao-magnetico-proposta">
                                         <option> </option>
@@ -527,18 +535,21 @@
                                     <select class="form-control form-control-sm" id="convenio-proposta">
                                         <option> </option>
                                         <option value="20991 - INSS">20991 - INSS</option>
-                                        <option value="2345 - MINISTERIO DO EXERCITO">2345 - MINISTERIO DO EXERCITO</option> 
-                                        <option value="35783 - SIAPE">35783 - SIAPE</option> 
-                                        <option value="2000 - MARINHA">2000 - MARINHA</option> 
-                                        <option value="DEMAIS CONVENIO">DEMAIS CONVENIO</option> 
+                                        <option value="2345 - MINISTERIO DO EXERCITO">2345 - MINISTERIO DO EXERCITO
+                                        </option>
+                                        <option value="35783 - SIAPE">35783 - SIAPE</option>
+                                        <option value="2000 - MARINHA">2000 - MARINHA</option>
+                                        <option value="DEMAIS CONVENIO">DEMAIS CONVENIO</option>
+
                                     </select>
 
                                 </div>
 
                                 <div class="col-md-2 mb-3">
                                     <label for="validationCustom01">Regra Convênio</label>
-                                    <input type="text" class="form-control form-control-sm" id="regra-convenio-proposta"
-                                     required>
+                                    <input type="text" class="form-control form-control-sm"
+                                        id="regra-convenio-proposta">
+
 
                                 </div>
 
@@ -554,7 +565,8 @@
 
                                 <div class="col-md-12 mb-3">
                                     <label for="validationCustom01">Resultado Averbação</label>
-                                    <textarea class="form-control" rows="2" id="resultado-averbacao-proposta"></textarea>
+                                    <textarea class="form-control" rows="2"
+                                        id="resultado-averbacao-proposta"></textarea>
 
                                 </div>
 
@@ -564,7 +576,7 @@
                                     <textarea class="form-control" rows="2" id="observacao-proposta"></textarea>
 
                                 </div>
-                                
+
 
 
                             </div>
@@ -589,7 +601,7 @@
 
                             <div class="form-row mt-4">
 
-                                
+
                                 <div class="col-md-6 mb-3">
                                     <label for="validationCustom01">Nome Cliente</label>
                                     <input type="text" class="form-control form-control-sm" id="nm-cliente-proposta"
@@ -600,7 +612,7 @@
                                 <div class="col-md-6 mb-3">
                                     <label for="validationCustom01">CPF Cliente</label>
                                     <input type="text" class="form-control form-control-sm" id="cpf-cliente-proposta"
-                                    onkeypress='mascaraMutuario(this,cpfCnpj)' maxlength="14" required>
+                                        onkeypress='mascaraMutuario(this,cpfCnpj)' maxlength="14" required>
 
                                 </div>
 
@@ -615,7 +627,6 @@
                                     <label for="validationCustom01">Estado Civil</label>
                                     <select class="form-control form-control-sm" id="estado-civil-proposta">
                                         <option> </option>
-                                        <option> </option>
                                         <option value="solteiro"> Solteiro </option>
                                         <option value="casado"> Casado </option>
                                         <option value="divorciado"> Divorciado </option>
@@ -628,34 +639,36 @@
                                 <div class="col-md-2 mb-3">
                                     <label for="validationCustom01">UF Naturalidade</label>
                                     <select class="form-control form-control-sm" id="uf-naturalidade-proposta">
-                                        <option> </option>
+                                        <option value=""></option>
                                         <option value="RO">RO</option>
-                                        <option value="AC">AC</option> 
-                                        <option value="AM">AM</option> 
+                                        <option value="AC">AC</option>
+                                        <option value="AM">AM</option>
                                         <option value="RR">RR</option>
                                         <option value="PA">PA</option>
                                         <option value="AP">AP</option>
                                         <option value="TO">TO</option>
                                         <option value="MA">MA</option>
                                         <option value="PI">PI</option>
-                                        <option value="CE">CE</option>  
-                                        <option value="RN">RN</option>  
-                                        <option value="PB">PB</option>  
-                                        <option value="PE">PE</option>  
-                                        <option value="AL">AL</option>  
-                                        <option value="SE">SE</option>  
-                                        <option value="BA">BA</option>  
-                                        <option value="MG">MG</option>  
-                                        <option value="ES">ES</option>  
-                                        <option value="RJ">RJ</option> 
-                                        <option value="SP">SP</option> 
-                                        <option value="PR">PR</option> 
-                                        <option value="SC">SC</option> 
-                                        <option value="RS">RS</option> 
-                                        <option value="MS">MS</option> 
-                                        <option value="MT">MT</option> 
-                                        <option value="GO">GO</option> 
+                                        <option value="CE">CE</option>
+                                        <option value="RN">RN</option>
+                                        <option value="PB">PB</option>
+                                        <option value="PE">PE</option>
+                                        <option value="AL">AL</option>
+                                        <option value="SE">SE</option>
+                                        <option value="BA">BA</option>
+                                        <option value="MG">MG</option>
+                                        <option value="ES">ES</option>
+                                        <option value="RJ">RJ</option>
+                                        <option value="SP">SP</option>
+                                        <option value="PR">PR</option>
+                                        <option value="SC">SC</option>
+                                        <option value="RS">RS</option>
+                                        <option value="MS">MS</option>
+                                        <option value="MT">MT</option>
+                                        <option value="GO">GO</option>
                                         <option value="DF">DF</option>
+
+
                                     </select>
 
                                 </div>
@@ -669,22 +682,21 @@
 
                                 <div class="col-md-2 mb-3">
                                     <label for="validationCustom01">RG</label>
-                                    <input type="text" class="form-control form-control-sm" id="rg-proposta"
-                                        required>
+                                    <input type="text" class="form-control form-control-sm" id="rg-proposta" required>
 
                                 </div>
 
                                 <div class="col-md-2 mb-3">
                                     <label for="validationCustom01">Data Emissão RG</label>
                                     <input type="text" class="form-control form-control-sm" id="dt-emissao-rg-proposta"
-                                    onKeyDown="fMasc( this, data );" maxlength="10" required>
+                                        onKeyDown="fMasc( this, data );" maxlength="10" required>
 
                                 </div>
 
                                 <div class="col-md-2 mb-3">
                                     <label for="validationCustom01">Órgão Expeditor</label>
-                                    <input type="text" class="form-control form-control-sm" id="orgao-expeditor-proposta"
-                                        required>
+                                    <input type="text" class="form-control form-control-sm"
+                                        id="orgao-expeditor-proposta" required>
 
                                 </div>
 
@@ -705,40 +717,42 @@
                                 <div class="col-md-2 mb-3">
                                     <label for="validationCustom01">Data Admissão</label>
                                     <input type="text" class="form-control form-control-sm" id="dt-admissao-proposta"
-                                    onKeyDown="fMasc( this, data );" maxlength="10" required>
+                                        onKeyDown="fMasc( this, data );" maxlength="10" required>
 
                                 </div>
 
                                 <div class="col-md-2 mb-3">
                                     <label for="validationCustom01">UF Endereço</label>
                                     <select class="form-control form-control-sm" id="uf-endereco-proposta">
-                                        <option> </option>
-                                        <option value="AC">AC</option> 
-                                        <option value="AM">AM</option> 
+                                        <option value=""></option>
+                                        <option value="RO">RO</option>
+                                        <option value="AC">AC</option>
+                                        <option value="AM">AM</option>
                                         <option value="RR">RR</option>
                                         <option value="PA">PA</option>
                                         <option value="AP">AP</option>
                                         <option value="TO">TO</option>
                                         <option value="MA">MA</option>
                                         <option value="PI">PI</option>
-                                        <option value="CE">CE</option>  
-                                        <option value="RN">RN</option>  
-                                        <option value="PB">PB</option>  
-                                        <option value="PE">PE</option>  
-                                        <option value="AL">AL</option>  
-                                        <option value="SE">SE</option>  
-                                        <option value="BA">BA</option>  
-                                        <option value="MG">MG</option>  
-                                        <option value="ES">ES</option>  
-                                        <option value="RJ">RJ</option> 
-                                        <option value="SP">SP</option> 
-                                        <option value="PR">PR</option> 
-                                        <option value="SC">SC</option> 
-                                        <option value="RS">RS</option> 
-                                        <option value="MS">MS</option> 
-                                        <option value="MT">MT</option> 
-                                        <option value="GO">GO</option> 
+                                        <option value="CE">CE</option>
+                                        <option value="RN">RN</option>
+                                        <option value="PB">PB</option>
+                                        <option value="PE">PE</option>
+                                        <option value="AL">AL</option>
+                                        <option value="SE">SE</option>
+                                        <option value="BA">BA</option>
+                                        <option value="MG">MG</option>
+                                        <option value="ES">ES</option>
+                                        <option value="RJ">RJ</option>
+                                        <option value="SP">SP</option>
+                                        <option value="PR">PR</option>
+                                        <option value="SC">SC</option>
+                                        <option value="RS">RS</option>
+                                        <option value="MS">MS</option>
+                                        <option value="MT">MT</option>
+                                        <option value="GO">GO</option>
                                         <option value="DF">DF</option>
+
                                     </select>
 
                                 </div>
@@ -746,8 +760,8 @@
 
                                 <div class="col-md-2 mb-3">
                                     <label for="validationCustom01">Cidade Endereço</label>
-                                    <input type="text" class="form-control form-control-sm" id="cidade-endereco-proposta"
-                                        required>
+                                    <input type="text" class="form-control form-control-sm"
+                                        id="cidade-endereco-proposta" required>
 
                                 </div>
 
@@ -755,7 +769,7 @@
                                 <div class="col-md-2 mb-3">
                                     <label for="validationCustom01">CEP </label>
                                     <input type="text" class="form-control form-control-sm" id="cep-proposta"
-                                        required>
+                                        onKeyDown="fMasc( this, mCEP );" maxlength="9" required>
 
                                 </div>
 
@@ -777,7 +791,7 @@
                                 <div class="col-md-2 mb-3">
                                     <label for="validationCustom01">Número </label>
                                     <input type="text" class="form-control form-control-sm" id="numero2-proposta"
-                                    onKeyDown="fMasc( this, nContrtato );"  required>
+                                        onKeyDown="fMasc( this, nContrtato );" required>
 
                                 </div>
 
@@ -793,6 +807,8 @@
                                     <label for="validationCustom01">Tipo Conta Cliente</label>
                                     <select class="form-control form-control-sm" id="tp-conta-cliente-proposta">
                                         <option> </option>
+                                        <option value="CC - CONTA CORRENTE">CC - CONTA CORRENTE </option>
+                                        <option value="CP - CONTA POUPANÇA">CP - CONTA POUPANÇA </option>
 
                                     </select>
 
@@ -800,17 +816,15 @@
 
                                 <div class="col-md-5 mb-3">
                                     <label for="validationCustom01">Banco Cliente</label>
-                                    <select class="form-control form-control-sm" id="banco-cliente-proposta">
-                                        <option> </option>
-
-                                    </select>
+                                    <input type="text" class="form-control form-control-sm"
+                                        id="banco-cliente-proposta" />
 
                                 </div>
 
                                 <div class="col-md-2 mb-3">
                                     <label for="validationCustom01">Agência Cliente </label>
-                                    <input type="text" class="form-control form-control-sm" id="agencia-cliente-proposta"
-                                        required>
+                                    <input type="text" class="form-control form-control-sm"
+                                        id="agencia-cliente-proposta" required>
 
                                 </div>
 
@@ -834,7 +848,7 @@
                                 <div class="col-md-3 mb-3">
                                     <label for="validationCustom01">Data Nascimento </label>
                                     <input type="text" class="form-control form-control-sm" id="dt-nascimento-proposta"
-                                    onKeyDown="fMasc( this, data );" maxlength="10" required>
+                                        onKeyDown="fMasc( this, data );" maxlength="10" required>
 
                                 </div>
 
@@ -842,8 +856,9 @@
                                     <label for="validationCustom01">Correntista?</label>
                                     <select class="form-control form-control-sm" id="correntista-proposta">
                                         <option> </option>
-                                        <option value="SIM">SIM</option>
-                                        <option value="NÃO">NÃO</option>
+                                        <option value="SIM">SIM </option>
+                                        <option value="NÃO">NÃO </option>
+
                                     </select>
 
                                 </div>
@@ -852,33 +867,35 @@
                                 <div class="col-md-2 mb-3">
                                     <label for="validationCustom01">UF Documento</label>
                                     <select class="form-control form-control-sm" id="uf-documento-proposta">
-                                        <option> </option>
-                                        <option value="AC">AC</option> 
-                                        <option value="AM">AM</option> 
+                                        <option value=""></option>
+                                        <option value="RO">RO</option>
+                                        <option value="AC">AC</option>
+                                        <option value="AM">AM</option>
                                         <option value="RR">RR</option>
                                         <option value="PA">PA</option>
                                         <option value="AP">AP</option>
                                         <option value="TO">TO</option>
                                         <option value="MA">MA</option>
                                         <option value="PI">PI</option>
-                                        <option value="CE">CE</option>  
-                                        <option value="RN">RN</option>  
-                                        <option value="PB">PB</option>  
-                                        <option value="PE">PE</option>  
-                                        <option value="AL">AL</option>  
-                                        <option value="SE">SE</option>  
-                                        <option value="BA">BA</option>  
-                                        <option value="MG">MG</option>  
-                                        <option value="ES">ES</option>  
-                                        <option value="RJ">RJ</option> 
-                                        <option value="SP">SP</option> 
-                                        <option value="PR">PR</option> 
-                                        <option value="SC">SC</option> 
-                                        <option value="RS">RS</option> 
-                                        <option value="MS">MS</option> 
-                                        <option value="MT">MT</option> 
-                                        <option value="GO">GO</option> 
+                                        <option value="CE">CE</option>
+                                        <option value="RN">RN</option>
+                                        <option value="PB">PB</option>
+                                        <option value="PE">PE</option>
+                                        <option value="AL">AL</option>
+                                        <option value="SE">SE</option>
+                                        <option value="BA">BA</option>
+                                        <option value="MG">MG</option>
+                                        <option value="ES">ES</option>
+                                        <option value="RJ">RJ</option>
+                                        <option value="SP">SP</option>
+                                        <option value="PR">PR</option>
+                                        <option value="SC">SC</option>
+                                        <option value="RS">RS</option>
+                                        <option value="MS">MS</option>
+                                        <option value="MT">MT</option>
+                                        <option value="GO">GO</option>
                                         <option value="DF">DF</option>
+
                                     </select>
 
                                 </div>
@@ -906,15 +923,16 @@
                                 <div class="col-md-2 mb-3">
                                     <label for="validationCustom01">DDD Telefone </label>
                                     <input type="text" class="form-control form-control-sm" id="ddd-telefone-proposta"
-                                    onKeyDown="fMasc( this, nContrtato );" maxlength="3" required>
+                                        onKeyDown="fMasc( this, nContrtato );" maxlength="3" required>
 
                                 </div>
 
 
                                 <div class="col-md-4 mb-3">
                                     <label for="validationCustom01">Telefone Cliente</label>
-                                    <input type="text" class="form-control form-control-sm" id="telefone-cliente-proposta"
-                                    onKeyDown="fMasc( this, mTelefone );" maxlength="14" required>
+                                    <input type="text" class="form-control form-control-sm"
+                                        id="telefone-cliente-proposta" onKeyDown="fMasc( this, mTelefone );"
+                                        maxlength="14" required>
 
                                 </div>
 
@@ -925,7 +943,7 @@
 
                                     </select>
 
-                                </div>  
+                                </div>
 
                                 <div class="col-md-4 mb-3">
                                     <label for="validationCustom01">E-mail</label>
@@ -941,7 +959,7 @@
 
                                     </select>
 
-                                </div>  
+                                </div>
 
                                 <div class="col-md-3 mb-3">
                                     <label for="validationCustom01">Sistema Telefone</label>
@@ -950,7 +968,7 @@
 
                                     </select>
 
-                                </div>  
+                                </div>
 
                             </div>
 
@@ -965,20 +983,19 @@
                         <form class="needs-validation" novalidate>
 
                             <div class="form-row mt-3">
-                        
+
 
                                 <div class="col-md-12 mb-1">
                                     <div class="form-group">
                                         <label for="exampleFormControlSelect1">Usuário</label>
-                                        <input type="text" class="form-control form-control-sm" id="usuario-proposta" required>
+                                        <input type="text" class="form-control form-control-sm" id="usuario-proposta">
                                     </div>
                                 </div>
 
                                 <div class="col-md-4 mb-1">
                                     <div class="form-group">
                                         <label for="exampleFormControlSelect1">Supervisor</label>
-                                        <select class="form-control form-control-sm"
-                                            id="supervisor-proposta">
+                                        <select class="form-control form-control-sm" id="supervisor-proposta">
                                             <option> </option>
 
                                         </select>
@@ -988,8 +1005,7 @@
                                 <div class="col-md-4 mb-3">
                                     <div class="form-group">
                                         <label for="exampleFormControlSelect1">Empresa</label>
-                                        <select class="form-control form-control-sm"
-                                            id="empresa-proposta">
+                                        <select class="form-control form-control-sm" id="empresa-proposta">
                                             <option> </option>
 
                                         </select>
@@ -999,13 +1015,14 @@
                                 <div class="col-md-4 mb-3">
                                     <div class="form-group">
                                         <label for="exampleFormControlSelect1">Tipo Usuário</label>
-                                        <select class="form-control form-control-sm"
-                                            id="tp-cliente-proposta">
-                                            <option> </option>
-                                            <option value="PARCEIRO EXTERNO">PARCEIRO EXTERNO</option>  
-                                            <option value="PARCEIRO INTERNO">PARCEIRO INTERNO</option>  
-                                            <option value="PROMOTOR">PROMOTOR</option>  
+                                        <select class="form-control form-control-sm" id="tp-cliente-proposta">
+                                            <option value=""> </option>
+                                            <option value="PARCEIRO EXTERNO">PARCEIRO EXTERNO</option>
+                                            <option value="PARCEIRO INTERNO">PARCEIRO INTERNO</option>
+                                            <option value="PROMOTOR">PROMOTOR</option>
                                             <option value="PROMOTOR INTERNO">PROMOTOR INTERNO</option>
+
+
                                         </select>
                                     </div>
                                 </div>
@@ -1020,7 +1037,7 @@
 
 
                             <button type="button" class="btn btn-primary btn-icon-label" title="Incluir"
-                            id="btn-incluir-proposta">
+                                id="btn-incluir-proposta">
                                 <span class="btn-inner--icon">
                                     <i class="fas fa-plus"></i>
                                 </span>
@@ -1029,13 +1046,12 @@
 
 
 
+
                         </div>
 
                         <!-- Alert sucesso -->
-                    <div class="alert alert-success sucesso" id="sucesso" role="alert">
-                    </div>
-
-
+                        <div class="alert alert-success sucesso" id="sucessos" role="alert">
+                        </div>
                     </div>
 
                     <div class="tab-pane fade" id="observacao" role="tabpanel" aria-labelledby="observacao-tab">
@@ -1048,29 +1064,29 @@
 
                         <table class="table ">
                             <thead style="text-align: center;">
-                              <tr>
-                                <th scope="col"><b>OBSERVAÇÃO</b></th>
-                                <th scope="col"><b>RESPONSÁVEL</b></th>
-                                <th scope="col"><b>DATA INCLUSÃO</b></th>
-                              
-                              </tr>
+                                <tr>
+                                    <th scope="col"><b>OBSERVAÇÃO</b></th>
+                                    <th scope="col"><b>RESPONSÁVEL</b></th>
+                                    <th scope="col"><b>DATA INCLUSÃO</b></th>
+
+                                </tr>
                             </thead>
                             <tbody style="text-align: center;" id="tbody-obs-proposta">
-                              <tr>
-                                
-                                <td>XXXXXXXX</td>
-                                <td>XXXXXXXX</td>
-                                <td>XXXXXXXX</td>
-                              </tr>
-                      
+                                <tr>
+
+                                    <td>XXXXXXXX</td>
+                                    <td>XXXXXXXX</td>
+                                    <td>XXXXXXXX</td>
+                                </tr>
+
                             </tbody>
-                          </table>
+                        </table>
 
                         <div class="opcoes-cadastro" style="text-align: center; margin-inline: block;">
 
 
                             <button type="button" class="btn btn-primary btn-icon-label" title="Incluir"
-                            id="btn-incluir-obs-proposta">
+                                id="btn-incluir-obs-proposta">
                                 <span class="btn-inner--icon">
                                     <i class="fas fa-plus"></i>
                                 </span>
@@ -1141,6 +1157,7 @@
 
                             </div>
 
+
                         </form>
 
 
@@ -1154,15 +1171,15 @@
 
 
 
-                            <div class="form-row mt-4 mx-6">
+                            <div class="form-row mt-4 mx-6" id="files-outros2">
 
 
 
                                 <div class="col-md-6 mb-3">
                                     <label for="exampleFormControlTextarea1">Proposta CSG:</label>
-                                    <input type="file" name="file-1[]" id="file-1" class="custom-input-file"
+                                    <input type="file" name="arquivo_proposta" id="arquivo_proposta" class="custom-input-file"
                                         data-multiple-caption="{count} files selected" multiple />
-                                    <label for="file-1">
+                                    <label for="arquivo_proposta">
                                         <i class="fa fa-upload"></i>
                                         <span>Choose a file…</span>
                                     </label>
@@ -1171,16 +1188,16 @@
 
                                 <div class="col-md-6 mb-3">
                                     <label for="exampleFormControlTextarea1">Termo Assinar:</label>
-                                    <input type="file" name="file-1[]" id="file-1" class="custom-input-file"
+                                    <input type="file" name="termo" id="termo" class="custom-input-file"
                                         data-multiple-caption="{count} files selected" multiple />
-                                    <label for="file-1">
+                                    <label for="termo">
                                         <i class="fa fa-upload"></i>
                                         <span>Choose a file…</span>
                                     </label>
 
                                 </div>
 
-               
+
 
 
                             </div>
@@ -1193,7 +1210,7 @@
 
 
                             <button type="button" class="btn btn-primary btn-icon-label" title="Incluir"
-                            id="btn-incluir-anexos">
+                                id="btn-incluir-anexos">
                                 <span class="btn-inner--icon">
                                     <i class="fas fa-plus"></i>
                                 </span>
@@ -1205,8 +1222,8 @@
                         </div>
 
                         <!-- Alert sucesso -->
-                    <div class="alert alert-success sucesso" id="sucessos" role="alert">
-                    </div>
+                        <div class="alert alert-success sucesso" id="sucessoss" role="alert">
+                        </div>
 
                     </div>
                 </div>
@@ -1814,17 +1831,15 @@
                                     <div class="form-row">
                                         <div class="col-md-4 mb-2">
                                             <label for="validationCustom02">CPF</label>
-                                            <input type="text" maxlength="14"
-                                                class="form-control form-control-sm" id="cpf-pesquisa"
-                                                onkeypress='mascaraMutuario(this,cpfCnpj)'>
+                                            <input type="text" maxlength="14" class="form-control form-control-sm"
+                                                id="cpf-pesquisa" onkeypress='mascaraMutuario(this,cpfCnpj)'>
 
                                         </div>
 
                                         <div class="col-md-4 mb-2">
                                             <div class="form-group">
                                                 <label for="exampleFormControlSelect1">Status</label>
-                                                <select class="form-control form-control-sm"
-                                                    id="status-pesquisa">
+                                                <select class="form-control form-control-sm" id="status-pesquisa">
                                                     <option> </option>
 
                                                 </select>
@@ -1841,9 +1856,20 @@
                                         <div class="col-md-3 mb-1">
                                             <div class="form-group">
                                                 <label for="exampleFormControlSelect1">Mês</label>
-                                                <select class="form-control form-control-sm"
-                                                    id="mes-pesquisa">
+                                                <select class="form-control form-control-sm" id="mes-pesquisa">
                                                     <option> </option>
+                                                    <option value="1"> 1 </option>
+                                                    <option value="2"> 2 </option>
+                                                    <option value="3"> 3 </option>
+                                                    <option value="4"> 4 </option>
+                                                    <option value="5"> 5 </option>
+                                                    <option value="6"> 6 </option>
+                                                    <option value="7"> 7 </option>
+                                                    <option value="8"> 8 </option>
+                                                    <option value="9"> 9 </option>
+                                                    <option value="10"> 10 </option>
+                                                    <option value="11"> 11 </option>
+                                                    <option value="12"> 12 </option>
 
                                                 </select>
                                             </div>
@@ -1852,8 +1878,7 @@
                                         <div class="col-md-3 mb-1">
                                             <div class="form-group">
                                                 <label for="exampleFormControlSelect1">Tipo</label>
-                                                <select class="form-control form-control-sm"
-                                                    id="tipo-pesquisa">
+                                                <select class="form-control form-control-sm" id="tipo-pesquisa">
                                                     <option> </option>
 
                                                 </select>
@@ -1884,8 +1909,7 @@
                                         <div class="col-md-6 mb-3">
                                             <div class="form-group">
                                                 <label for="exampleFormControlSelect1">Banco</label>
-                                                <select class="form-control form-control-sm"
-                                                    id="banco-pesquisa">
+                                                <select class="form-control form-control-sm" id="banco-pesquisa">
                                                     <option> </option>
 
                                                 </select>
@@ -1895,8 +1919,7 @@
                                         <div class="col-md-6 mb-3">
                                             <div class="form-group">
                                                 <label for="exampleFormControlSelect1">Produto</label>
-                                                <select class="form-control form-control-sm"
-                                                    id="produto-pesquisa">
+                                                <select class="form-control form-control-sm" id="produto-pesquisa">
                                                     <option> </option>
 
                                                 </select>
@@ -1909,13 +1932,13 @@
                                     <div class="opcoes-cadastro" style="text-align: center; margin-inline: block;">
 
                                         <button type="button" class="btn btn-primary btn-icon-label" data-toggle="modal"
-                                            data-target=".modal-nova-proposta" title="Incluir">
+                                            data-target=".modal-nova-proposta" title="Incluir" id="btn-novaProposta">
                                             <span class="btn-inner--icon">
                                                 <i class="fas fa-plus"></i>
                                             </span>
                                             <span class="btn-inner--text">Incluir Nova Proposta</span>
                                         </button>
-    
+
                                         <button type="button" class="btn btn-primary btn-icon-label" data-toggle="modal"
                                             data-target=".modal-novo-preventivo" title="Incluir">
                                             <span class="btn-inner--icon">
@@ -1923,29 +1946,29 @@
                                             </span>
                                             <span class="btn-inner--text">Incluir Novo Preventivo</span>
                                         </button>
-    
+
                                     </div>
-    
-    
+
+
                                     <div class="opcoes-cadastro mt-3" style="text-align: center; margin-inline: block;">
-    
+
                                         <button type="button" class="btn btn-primary btn-icon-label" id="btn-buscar">
                                             <span class="btn-inner--icon">
                                                 <i class="fas fa-search"></i>
                                             </span>
                                             <span class="btn-inner--text">Buscar</span>
                                         </button>
-    
-    
+
+
                                         <button type="reset" class="btn btn-primary btn-icon-label">
                                             <span class="btn-inner--icon">
                                                 <i class="fas fa-trash-alt"></i>
                                             </span>
                                             <span class="btn-inner--text">Apagar Filtros</span>
                                         </button>
-    
-    
-    
+
+
+
                                     </div>
 
                                 </form>
@@ -1978,9 +2001,6 @@
                                                 </th>
                                                 <th scope="col" style="text-align: center;"><b>DOWNLOAD CONTRATO</b>
                                                 </th>
-                                                <!-- <th scope="col" style="text-align: center;"><b>INCLUIR
-                                                        DOCUMENTAÇÃO</b>
-                                                </th> -->
                                                 <th scope="col" style="text-align: center;"><b>ANEXOS</b>
                                                 </th>
                                                 <th scope="col" style="text-align: center;"><b>PENDÊNCIAS/TERMOS</b>
@@ -1989,7 +2009,7 @@
 
                                             </tr>
                                         </thead>
-                                        <tbody id="tbody-pesquisa" style="text-align: center;">
+                                        <tbody id="tbody-pesquisa">
 
                                             <td style="text-align: center;"> XXXXXXXX </td>
                                             <td style="text-align: center;"> XXXXXXXX </td>
@@ -2009,8 +2029,7 @@
 
                                                 <div class="actions ml-3" style="text-align: center;">
                                                     <a href="#" class="action-item mr-2" data-toggle="modal"
-                                                        data-target=".#"
-                                                        title="Incluir Documentação">
+                                                        data-target=".#" title="Incluir Documentação">
                                                         <i class="fas fa-eye"></i>
                                                     </a>
 
@@ -2020,10 +2039,9 @@
                                             <td style="text-align: center;">
 
                                                 <div class="actions ml-3" style="text-align: center;">
-                                                    <a href="#" class="action-item mr-2" data-toggle="modal"
-                                                        data-target=".#"
-                                                        title="Incluir Documentação">
-                                                        <i class="fas fa-download"></i>     
+                                                    <a class="action-item mr-2" data-toggle="modal" 
+                                                        data-target=".#" title="Incluir Documentação" id="teste">
+                                                        <i class="fas fa-download"></i>
                                                     </a>
 
                                                 </div>
@@ -2033,8 +2051,7 @@
 
                                                 <div class="actions ml-3" style="text-align: center;">
                                                     <a href="#" class="action-item mr-2" data-toggle="modal"
-                                                        data-target=".#"
-                                                        title="Incluir Documentação">
+                                                        data-target=".#" title="Incluir Documentação">
                                                         <i class="fas fa-external-link-alt"></i>
                                                     </a>
 
@@ -2045,8 +2062,7 @@
 
                                                 <div class="actions ml-3" style="text-align: center;">
                                                     <a href="#" class="action-item mr-2" data-toggle="modal"
-                                                        data-target=".#"
-                                                        title="Incluir Documentação">
+                                                        data-target=".#" title="Incluir Documentação">
                                                         <i class="fas fa-paperclip"></i>
                                                     </a>
 
@@ -2057,8 +2073,7 @@
 
                                                 <div class="actions ml-3" style="text-align: center;">
                                                     <a href="#" class="action-item mr-2" data-toggle="modal"
-                                                        data-target=".#"
-                                                        title="Incluir Documentação">
+                                                        data-target=".#" title="Incluir Documentação">
                                                         <i class="fas fa-file-contract"></i>
                                                     </a>
 
@@ -2100,6 +2115,7 @@
     <!-- Scripts -->
     <!-- Core JS - includes jquery, bootstrap, popper, in-view and sticky-kit -->
     <script src="../assets/js/purpose.core.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.4.1/jspdf.debug.js" integrity="sha384-THVO/sM0mFD9h7dfSndI6TS0PgAGavwKvB5hAxRRvc0o9cPLohB0wb/PTA7LdUHs" crossorigin="anonymous"></script>
     <!-- Page JS -->
     <script src="../assets/libs/progressbar.js/dist/progressbar.min.js"></script>
     <script src="../assets/libs/apexcharts/dist/apexcharts.min.js"></script>
@@ -2112,7 +2128,7 @@
     <script src="../assets/js/mascarasvalores.js"></script>
     <!-- Demo JS - remove it when starting your project -->
     <script src="../assets/js/demo.js"></script>
-
+    <!--Script-->
     <script src="../assets/js/propostaAguardando.js"></script>
 </body>
 

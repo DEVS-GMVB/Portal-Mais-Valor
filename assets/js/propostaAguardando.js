@@ -1,7 +1,38 @@
-const URL = `http://localhost:3000/user`;
+const URL = 'http://localhost:3000/user';
 const URL_API_CEP = 'https://viacep.com.br/ws/';
 
-//Usuarios da sessao
+//COMBOS => SELECTS
+const bancoSelect = document.getElementById("banco-proposta");
+const bancoFiltro = document.getElementById("banco-pesquisa");
+const tipoFiltro = document.getElementById("tipo-pesquisa");
+const tipoSelect = document.getElementById("tipo-preventivo");
+const tipoSelect2 = document.getElementById("tipo-operacao-proposta");
+const produtoFiltro = document.getElementById("produto-pesquisa");
+const produtoSelect = document.getElementById("produto-proposta");
+const statusFiltro = document.getElementById("status-pesquisa");
+const statusSelect = document.getElementById("status-preventivo");
+const statusSelect2 = document.getElementById("status-proposta");
+const supervisores = document.getElementById("supervisor-proposta");
+const empresaSelect = document.getElementById("empresa-proposta");
+const subStatus = document.getElementById("sub-status-proposta");
+const bancoPortador = document.getElementById("banco-portador-proposta");
+//EVENTOS
+const cep = document.getElementById("cep-proposta");
+const btnIncluir = document.getElementById('btn-incluir-proposta');
+const btnAnexo = document.getElementById("btn-incluir-anexos");
+let btnPesquisar = document.getElementById('btn-buscar');
+const btnIncluirProposta = document.getElementById('btn-novaProposta');
+const btnIncluirPreventivo = document.getElementById("btn-incluir-preventivo");
+const donwloadContrato = document.getElementById("teste");
+
+// estrutura de dados
+const mapHash = new Map();
+
+//Arrays
+const arrays = {
+    arrayId: arrayId = []
+}
+
 const dataSession = {
     id_acesso: sessionStorage.getItem('id_acesso', 'id_acesso'),
     status: sessionStorage.getItem('status', 'status'),
@@ -16,35 +47,110 @@ const dataSession = {
     gerente_cpf: sessionStorage.getItem('gerente_cpf', 'gerente_cpf')
 }
 
-//Combos
-let bancoPesquisa = document.getElementById('banco-pesquisa')
-let bancoProposta = document.getElementById('banco-proposta');
-let tipoPesquisa = document.getElementById('tipo-pesquisa');
-let tipoPreventivo = document.getElementById('tipo-preventivo');
-let statusPesquisa = document.getElementById('status-pesquisa');
-let statusProposta = document.getElementById('status-proposta');
-let statusPreventivo = document.getElementById('status-preventivo');
-let produtoPesquisa = document.getElementById('produto-pesquisa');
-let produtoProposta = document.getElementById('produto-proposta');
-let tipoOperacao = document.getElementById('tipo-operacao-proposta');
-let bancoPortador = document.getElementById('banco-portador-proposta');
-let subStatus = document.getElementById('sub-status-proposta');
-let empresaa = document.getElementById('empresa-proposta');
-let supervisor = document.getElementById('supervisor-proposta');
+window.onload = () => {
 
-//Arrays
-const arrays = {
-    arrayId: arrayId = []
+    fetch(`${URL}/proposta/aguardando/banco`, {
+            method: 'GET',
+            redirect: 'follow'
+        })
+        .then(response => response.json().then(function (data) {
+            for (const {
+                    banco
+                } of data) {
+                bancoSelect.innerHTML += `<option value="${banco}">${banco}</option>`;
+                bancoFiltro.innerHTML += `<option value="${banco}">${banco}</option>`;
+            }
+        }));
+
+    fetch(`${URL}/proposta/aguardando/tipo`, {
+            method: 'GET',
+            redirect: 'follow'
+        })
+        .then(response => response.json().then(function (data) {
+            for (const {
+                    tipo
+                } of data) {
+                tipoFiltro.innerHTML += `<option value="${tipo}">${tipo}</option>`;
+                tipoSelect.innerHTML += `<option value="${tipo}">${tipo}</option>`;
+                tipoSelect2.innerHTML += `<option value="${tipo}">${tipo}</option>`;
+            }
+        }));
+
+    fetch(`${URL}/proposta/aguardando/produto`, {
+            method: 'GET',
+            redirect: 'follow'
+        })
+        .then(response => response.json().then(function (data) {
+            for (const {
+                    produto
+                } of data) {
+                produtoFiltro.innerHTML += `<option value="${produto}">${produto}</option>`;
+                produtoSelect.innerHTML += `<option value="${produto}">${produto}</option>`;
+            }
+        }));
+
+    fetch(`${URL}/proposta/aguardando/status`, {
+            method: 'GET',
+            redirect: 'follow'
+        })
+        .then(response => response.json().then(function (data) {
+            for (const {
+                    status
+                } of data) {
+                statusFiltro.innerHTML += `<option value="${status}">${status}</option>`;
+                statusSelect.innerHTML += `<option value="${status}">${status}</option>`;
+                statusSelect2.innerHTML += `<option value="${status}">${status}</option>`;
+
+            }
+        }));
+
+    fetch(`${URL}/supervisor`, {
+            method: 'GET',
+            redirect: 'follow'
+        })
+        .then(response => response.json().then(function (data) {
+            for (const {
+                    parceiro
+                } of data) {
+                supervisores.innerHTML += `<option value="${parceiro}">${parceiro}</option>`;
+            }
+        }));
+
+    fetch(`${URL}/proposta/empresas`, {
+            method: 'GET',
+            redirect: 'follow'
+        })
+        .then(response => response.json().then(function (data) {
+            for (const {
+                    empresa
+                } of data) {
+                empresaSelect.innerHTML += `<option value="${empresa}">${empresa}</option>`;
+            }
+        }));
+
+    fetch(`${URL}/proposta/substatus`, {
+            method: 'GET',
+            redirect: 'follow'
+        })
+        .then(response => response.json().then(function (data) {
+            for (const sub_status of data) {
+                subStatus.innerHTML += `<option value="${sub_status}">${sub_status}</option>`;
+            }
+        }));
+
+    fetch(`${URL}/proposta/bancos`, {
+            method: 'GET',
+            redirect: 'follow'
+        })
+        .then(response => response.json().then(function (data) {
+            for (const {
+                    banco
+                } of data) {
+                bancoPortador.innerHTML += `<option value="${banco}">${banco}</option>`;
+            }
+        }));
 }
 
-//Botões
-let btnIncluir = document.getElementById('btn-incluir-proposta');
-let btnPesquisar = document.getElementById('btn-buscar');
-let btnAnexo = document.getElementById('btn-incluir-anexos');
-let btnIncluirPreventivo = document.getElementById('btn-incluir-preventivo');
-
-//Cep
-const cep = document.getElementById("cep-proposta");
 cep.addEventListener('blur', async () => {
 
     const data = await fetch(`${URL_API_CEP}/${cep.value.replace(/-/g, "")}/json`).then(response => (response.status === 200) ? response.json() : {
@@ -61,139 +167,6 @@ cep.addEventListener('blur', async () => {
 
 });
 
-//Preenche data Cadastro
-let today = new Date();
-document.getElementById('data-cadastro-proposta').value = `${today.getDate()}/${(today.getMonth() + 1)}/${today.getFullYear()} ${today.getHours()}:${today.getMinutes()}:${today.getSeconds()}`
-
-window.onload = (e) => {
-    fetch(`${URL}/proposta/aguardando/banco`, {
-            method: 'GET',
-            redirect: 'follow'
-        })
-        .then(response => response.json())
-        .then((data) => {
-            for (const {
-                    banco
-                } of data) {
-                bancoPesquisa.innerHTML += `<option value="${banco}">${banco}</option>`;
-                bancoProposta.innerHTML += `<option value="${banco}">${banco}</option>`;
-            }
-
-        })
-        .catch(error => console.error(error));
-
-    fetch(`${URL}/proposta/aguardando/tipo`, {
-            method: 'GET',
-            redirect: 'follow'
-        })
-        .then(response => response.json())
-        .then((data) => {
-            for (const {
-                    tipo
-                } of data) {
-                tipoPesquisa.innerHTML += `<option value="${tipo}">${tipo}</option>`;
-                tipoPreventivo.innerHTML += `<option value="${tipo}">${tipo}</option>`;
-                tipoOperacao.innerHTML += `<option value="${tipo}">${tipo}</option>`;
-            }
-
-        })
-        .catch(error => console.error(error));
-
-    fetch(`${URL}/proposta/aguardando/status`, {
-            method: 'GET',
-            redirect: 'follow'
-        })
-        .then(response => response.json())
-        .then((data) => {
-            for (const {
-                    status
-                } of data) {
-                statusPesquisa.innerHTML += `<option value="${status}">${status}</option>`;
-                statusProposta.innerHTML += `<option value="${status}">${status}</option>`;
-                statusPreventivo.innerHTML += `<option value="${status}">${status}</option>`;
-            }
-
-        })
-        .catch(error => console.error(error));
-
-    fetch(`${URL}/proposta/aguardando/produto`, {
-            method: 'GET',
-            redirect: 'follow'
-        })
-        .then(response => response.json())
-        .then((data) => {
-            for (const {
-                    produto
-                } of data) {
-                produtoPesquisa.innerHTML += `<option value="${produto}">${produto}</option>`;
-                produtoProposta.innerHTML += `<option value="${produto}">${produto}</option>`;
-            }
-
-        })
-        .catch(error => console.error(error));
-
-    fetch(`${URL}/proposta/bancos`, {
-            method: 'GET',
-            redirect: 'follow'
-        })
-        .then(response => response.json())
-        .then((data) => {
-            for (const {
-                    banco
-                } of data) {
-                bancoPortador.innerHTML += `<option value="${banco}">${banco}</option>`;
-            }
-
-        })
-        .catch(error => console.error(error));
-
-    fetch(`${URL}/proposta/substatus`, {
-            method: 'GET',
-            redirect: 'follow'
-        })
-        .then(response => response.json())
-        .then((data) => {
-            for (const {
-                    sub_status
-                } of data) {
-                subStatus.innerHTML += `<option value="${sub_status}">${sub_status}</option>`;
-            }
-
-        })
-        .catch(error => console.error(error));
-
-    fetch(`${URL}/proposta/empresas`, {
-            method: 'GET',
-            redirect: 'follow'
-        })
-        .then(response => response.json())
-        .then((data) => {
-            for (const {
-                    empresa
-                } of data) {
-                empresaa.innerHTML += `<option value="${empresa}">${empresa}</option>`;
-            }
-
-        })
-        .catch(error => console.error(error));
-
-    fetch(`${URL}/supervisor`, {
-            method: 'GET',
-            redirect: 'follow'
-        })
-        .then(response => response.json())
-        .then((data) => {
-            for (const {
-                    parceiro
-                } of data) {
-                supervisor.innerHTML += `<option value="${parceiro}">${parceiro}</option>`;
-            }
-
-        })
-        .catch(error => console.error(error));
-}
-
-//Incluir
 btnIncluir.addEventListener('click', async () => {
     let numeroProposta = $("#numero-proposta").val();
     let dtCadastro = $("#data-cadastro-proposta").val();
@@ -371,9 +344,9 @@ btnIncluir.addEventListener('click', async () => {
     const codigo = await fetch(URL + "/proposta/aguardando/incluir", requestOptions).
     then(response => response.json()).
     then(function (res) {
-        $('#sucesso').show();
-        $('#sucesso').fadeIn(300).delay(3000).fadeOut(400);
-        document.getElementById("sucesso").textContent = "Incluido";
+        $('#sucessos').show();
+        $('#sucessos').fadeIn(300).delay(3000).fadeOut(400);
+        document.getElementById("sucessos").textContent = "Incluindo";
         return res.codigo;
     });
 
@@ -388,12 +361,16 @@ const objEventClickAnexos = {
         const codigo = objEventClickAnexos.transporterId;
 
         let filesInput = document.querySelectorAll("#files-outros input[type='file']");
+        let filesInput2 = document.querySelectorAll("#files-outros2 input[type='file']");
 
         var formdata = new FormData();
         formdata.append("arquivo5", filesInput[0].files[0]);
         formdata.append("arquivo6", filesInput[1].files[0]);
         formdata.append("arquivo7", filesInput[2].files[0]);
         formdata.append("arquivo8", filesInput[3].files[0]);
+        formdata.append("arquivo_proposta", filesInput2[0].files[0]);
+        formdata.append("termo", filesInput2[1].files[0]);
+
 
         const requestOptions = {
             method: 'POST',
@@ -405,12 +382,12 @@ const objEventClickAnexos = {
             .then(response => response.json())
             .catch(error => console.log('error', error));
 
+        console.log(data);
 
         if (data) {
-
-            $('#sucessos').show();
-            $('#sucessos').fadeIn(300).delay(3000).fadeOut(400);
-            document.getElementById("sucessos").textContent = "Incluido anexo(s)";
+            $('#sucessoss').show();
+            $('#sucessoss').fadeIn(300).delay(3000).fadeOut(400);
+            document.getElementById("sucessoss").textContent = "Incluido anexo(s)";
 
             return;
         } else {
@@ -418,6 +395,18 @@ const objEventClickAnexos = {
         }
     }),
 }
+
+btnIncluirProposta.addEventListener('click', () => {
+    const inputs = document.querySelectorAll("#myTabContent input[type=text]");
+    const selects = document.querySelectorAll("#myTabContent select");
+    const files = document.querySelectorAll("body input[type=file]");
+
+    inputs.forEach((el) => el.value = "");
+
+    selects.forEach((el) => el.value = "");
+
+    files.forEach((el) => el.value = "");
+});
 
 //Pesquisar
 btnPesquisar.addEventListener('click', () => {
@@ -464,9 +453,9 @@ btnPesquisar.addEventListener('click', () => {
     fetch(`${URL}/proposta/aguardando/filtro`, requestOptions)
         .then(response => response.json())
         .then(data => {
-
+            console.log(data);
             arrays.arrayId = [];
-            
+
             for (let i = 0; i < data.length; i++) {
                 let specific_tbody = document.getElementById('tbody-pesquisa');
                 let row = specific_tbody.insertRow(-1);
@@ -486,7 +475,6 @@ btnPesquisar.addEventListener('click', () => {
                 let logAlteracao = row.insertCell(-1);
                 let visualizar = row.insertCell(-1);
                 let download = row.insertCell(-1);
-                //let documentacao = row.insertCell(-1);
                 let anexo = row.insertCell(-1);
                 let pendencia = row.insertCell(-1);
 
@@ -533,7 +521,7 @@ btnPesquisar.addEventListener('click', () => {
                 logAlteracao.appendChild(logAlteracaoText);
 
                 arrays.arrayId.push(data[i].codigo);
-                console.log(data[i].codigo);
+                mapHash.set(data[i].codigo, data[i]);
 
                 visualizar.innerHTML =
                     `<div class="actions ml-3" style="text-align: center;">
@@ -549,7 +537,7 @@ btnPesquisar.addEventListener('click', () => {
                     `<td style="text-align: center;">
 
             <div class="actions ml-3" style="text-align: center;">
-                <a href="#" class="action-item mr-2" data-toggle="modal"
+                <a href="#" class="action-item mr-2" data-toggle="modal" onclick="downloadContrato(mapHash.get(${data[i].codigo}))"
                     data-target=".#"
                     title="Incluir Documentação">
                     <i class="fas fa-download"></i>     
@@ -562,32 +550,92 @@ btnPesquisar.addEventListener('click', () => {
                 anexo.innerHTML =
                     `<td style="text-align: center;">
 
-    <div class="actions ml-3" style="text-align: center;">
-        <a href="#" class="action-item mr-2" data-toggle="modal"
-            data-target=".#"
-            title="Incluir Documentação">
-            <i class="fas fa-paperclip"></i>
-        </a>
+                <div class="actions ml-3" style="text-align: center;">
+                    <a href="#" class="action-item mr-2" data-toggle="modal"
+                        data-target=".#"
+                        title="Incluir Documentação">
+                        <i class="fas fa-paperclip"></i>
+                    </a>
 
-    </div>
-</td>`
+                </div>
+            </td>`
 
-    pendencia.innerHTML = `
-<div class="actions ml-3" style="text-align: center;">
-    <a href="../../API_Portal_GMVB/tmp/uploads/${data[i].arquivo5}" class="action-item mr-2" data-toggle="modal"
-        data-target=".#"
-        title="Incluir Documentação" download="${data[i].arquivo5}">
-        <i class="fas fa-file-contract"></i>
-        ${data[i].arquivo5}
-    </a>
-</div>
-</td>`
+                pendencia.innerHTML =
+                    `<td style="text-align: center;">
+
+            <div class="actions ml-3" style="text-align: center;">
+                <a href="#" class="action-item mr-2" data-toggle="modal" onclick="downloadTermo(mapHash.get(${data[i].codigo}))"
+                    data-target=".#"
+                    title="Incluir Documentação">
+                    <i class="fas fa-file-contract"></i>
+                </a>
+
+            </div>
+            </td>`;
             }
         }).catch(error => console.log('error: ', error))
-})
+});
 
-function Modal(codigo){
-    
+btnIncluirPreventivo.addEventListener('click', async () => {
+    const cpf = document.getElementById("cpf-cliente-preventivo").value;
+    const nome = document.getElementById("nome-cliente-preventivo").value;
+    const dataCadastro = document.getElementById("data-cadastro-preventivo").value;
+    const mes = document.getElementById("mes-referencia-preventivo").value;
+    const tipo = document.getElementById("tipo-preventivo").value;
+    const status = document.getElementById("status-preventivo").value;
+    const observacao = document.getElementById("observacao-preventivo").value;
+
+    const myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+
+    const raw = JSON.stringify({
+        cpf,
+        nome,
+        data_inclusao: dataCadastro,
+        mes,
+        tipo,
+        status,
+        observacao
+    });
+
+    const {
+        codigo
+    } = await fetch(`${URL}/proposta/aguardando/incluir`, {
+            method: "POST",
+            headers: myHeaders,
+            body: raw,
+            redirect: 'follow'
+        })
+        .then(response => response.json());
+
+    if (codigo) {
+        $('#sucesso').show();
+        $('#sucesso').fadeIn(300).delay(3000).fadeOut(400);
+        document.getElementById("sucesso").textContent = "Incluído";
+
+        const fileInput = document.getElementById("arquivo-preventivo");
+
+        const data = new FormData();
+        data.append("arquivo_prev", fileInput.files[0]);
+        console.log(data);
+
+        const requestOptions = {
+            method: 'POST',
+            body: data,
+            redirect: 'follow'
+        };
+
+        fetch(`${URL}/proposta/aguardando/preventivo?codigo=${codigo}`, requestOptions)
+
+        return;
+    }
+
+    return alert("Ocorreu um erro durante a inserção");
+
+});
+
+function Modal(codigo) {
+
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
 
@@ -600,14 +648,14 @@ function Modal(codigo){
         headers: myHeaders,
         body: raw,
         redirect: 'follow'
-    } 
+    }
 
     fetch(`${URL}/proposta/identificacao/modal`, requestOptions).
     then(response => response.json().then(function (data) {
         console.log(codigo);
         $('#numero-proposta').val(data.proposta);
         $('#data-cadastro-proposta').val(data.data_inclusao);
-        $('#mes-referencia-proposta').val(data.mes);    
+        $('#mes-referencia-proposta').val(data.mes);
         $('#banco-proposta').val(data.banco);
         $('#produto-proposta').val(data.produto);
         $('#valor-entregue-proposta').val(data.entregue);
@@ -666,7 +714,7 @@ function Modal(codigo){
         $('#agencia-cliente-proposta').val(data.agencia_cliente);
         $('#conta-cliente-proposta').val(data.conta_cliente);
         $('#conjuge-proposta').val(data.conjuge);
-        $('#dt-nascimento-proposta').val(data.data_nascimento); 
+        $('#dt-nascimento-proposta').val(data.data_nascimento);
         $('#correntista-proposta').val(data.correntista);
         $('#uf-documento-proposta').val(data.documento_uf);
         $('#profissao-proposta').val();
@@ -684,124 +732,18 @@ function Modal(codigo){
     })).catch(error => console.log('erro: ', error))
 }
 
-// btnPreventivo.addEventListener('click', () => {
-//     let cpf = $('#cpf-cliente-preventivo').val();
-//     let nome = $('#nome-cliente-preventivo').val();
-//     let cadastro = $('#data-cadastro-preventivo').val();
-//     let mes = $('#mes-referencia-preventivo').val()
-//     let tipo = $('#tipo-preventivo').val();
-//     let status = $('#status-preventivo').val();
-//     let obs = $('#observacao-preventivo').val();
-
-//     const myHeaders = new Headers();
-//     myHeaders.append("Content-Type", "application/json")
-
-//     const body = {
-//         cpf:cpf,
-//         nome:nome,
-//         data_inclusao:cadastro,
-//         mes:mes,
-//         tipo:tipo,
-//         status:status,
-//         observacao:obs
-//     }
-
-//     const raw = JSON.stringify(body)
-
-//     let requestOptions = {
-//         method: 'POST',
-//         headers: myHeaders,
-//         body: raw,
-//         redirect: 'follow'
-//     }
-
-//     fetch(`${URL}/proposta/aguardando/incluir`, requestOptions)
-//             .then(response => response.json())
-//             .then(data => {
-//                console.log(data);
-
-//                const resultInsert = Anexo(data)
-
-//                Promise.resolve(resultInsert).then(function (value) {
-//                 console.log('incluido')
-//             })
-
-//             }).catch(error => console.log('erro: ', error))
-// })
-
-//  async function Anexo(data) {
-//     const myheaders = new Headers();
-//     myheaders.append('Content-Type', 'application/json');
-
-//     const file = document.querySelectorAll('input#arquivo-preventivo input[type="file"]')[0]
-//     const codigo = data.codigo
-
-//     var data = new FormData()
-//     data.append(file.name, file.files[0])
-
-//     await fetch(`${URL}/proposta/aguardando/preventivo?codigo=${codigo}`, {
-//         method: 'POST',
-//         body: data
-//     }).
-//     then(response => response.json().then(function (data) {
-//         obj.transporter = data
-//     })).catch(error => console.log('error: ', error))
-    
-//     return obj.transporter;
-//  }
-
-btnIncluirPreventivo.addEventListener('click', async () => {
-    const cpf = document.getElementById("cpf-cliente-preventivo").value;
-    const nome = document.getElementById("nome-cliente-preventivo").value;
-    const dataCadastro = document.getElementById("data-cadastro-preventivo").value;
-    const mes = document.getElementById("mes-referencia-preventivo").value;
-    const tipo = document.getElementById("tipo-preventivo").value;
-    const status = document.getElementById("status-preventivo").value;
-    const observacao = document.getElementById("observacao-preventivo").value;
-
-    const myHeaders = new Headers();
-    myHeaders.append("Content-Type", "application/json");
-
-    const raw = JSON.stringify({
-        cpf,
-        nome,
-        data_inclusao: dataCadastro,
-        mes,
-        tipo,
-        status,
-        observacao
-    });
-
-    const {codigo} = await fetch(`${URL}/proposta/aguardando/incluir`, {
-            method: "POST",
-            headers: myHeaders,
-            body: raw,
-            redirect: 'follow'
-        })
-        .then(response => response.json());
-
-    if (codigo) {
-        $('#sucesso-preventivo').show();
-        $('#sucesso-preventivo').fadeIn(300).delay(3000).fadeOut(400);
-        document.getElementById("sucesso-preventivo").textContent = "Incluído";
-
-        const fileInput = document.getElementById("arquivo-preventivo");
-
-        const data = new FormData();
-        data.append("arquivo_prev", fileInput.files[0]);
-        console.log(data);
-
-        const requestOptions = {
-            method: 'POST',
-            body: data,
-            redirect: 'follow'
-        };
-
-        fetch(`${URL}/proposta/aguardando/preventivo?codigo=${codigo}`, requestOptions)
-
-        return;
+function downloadContrato(obj) {
+    if(obj.arquivo_proposta) {
+        window.location.href = `${URL}/proposta/aguardando/download?hash=${obj.arquivo_proposta}`;
+    } else {
+        alert("Arquivo de contrato não inserido na base de dados");
     }
+}
 
-    return alert("Ocorreu um erro durante a inserção");
-
-});
+function downloadTermo({termo}) {
+    if(termo) {
+        window.location.href = `${URL}/proposta/aguardando/download?hash=${termo}`;
+    } else {
+        alert("Arquivo de contrato não inserido na base de dados");
+    }
+}
