@@ -626,7 +626,7 @@ btnIncluirPreventivo.addEventListener('click', async () => {
         };
 
         const teste = await fetch(`${URL}/proposta/aguardando/preventivo?codigo=${codigo}`, requestOptions);
-        console.log(teste)
+        console.log(teste);
 
         return;
     }
