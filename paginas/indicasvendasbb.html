@@ -73,7 +73,7 @@
 
                 </div>
 
-                <form class="needs-validation" novalidate>
+                <form class="needs-validation data-indicaV" novalidate>
 
 
 
@@ -149,6 +149,8 @@
                             <label for="validationCustom01">Proposta Anterior Com Seguro</label>
                             <select class="form-control form-control-sm" id="proposta-anteriorCS-indicaV">
                                 <option> </option>
+                                <option value="SIM">SIM</option>
+                                <option value="NAO">NÃO</option>
 
                             </select>
                         </div>
@@ -175,7 +177,7 @@
 
                 </div>
 
-                <form class="needs-validation" novalidate>
+                <form class="needs-validation data-indicaV" novalidate>
 
 
 
@@ -221,7 +223,7 @@
 
                 </div>
 
-                <form class="needs-validation" novalidate>
+                <form class="needs-validation data-indicaV" novalidate>
 
 
 
@@ -251,7 +253,7 @@
 
                 </div>
 
-                <form class="needs-validation" novalidate>
+                <form class="needs-validation data-indicaV" novalidate>
 
                     <div class="form-row mt-4">
 
@@ -266,12 +268,12 @@
 
                 </form>
 
-                <div class="opcoes-cadastro mt-4" style="text-align: center; margin-inline: block;">
+                <div class="opcoes-cadastro mt-4" style="text-align: center; margin-inline: block;" id="div-btn-incluir-indicaV">
                     <button type="button" class="btn btn-primary btn-icon-label" id="btn-incluir-indicaV">
                         <span class="btn-inner--icon">
                             <i class="fas fa-plus"></i>
                         </span>
-                        <span class="btn-inner--text">Incluir / Salvar Alteração</span>
+                        <span class="btn-inner--text">Incluir</span>
                     </button>
 
                 </div>
@@ -322,7 +324,7 @@
 
                 </div>
 
-                <form class="needs-validation" novalidate>
+                <form class="needs-validation dados-consorcio" novalidate>
 
 
 
@@ -347,8 +349,11 @@
                         </div>
                         <div class="col-md-3 mb-3">
                             <label for="validationCustom01">Status</label>
-                            <select class="form-control form-control-sm" id="status-indicaV">
+                            <select class="form-control form-control-sm" id="status-indicaVC">
                                 <option> </option>
+                                <option value="INDICA VENDAS CADASTRO - CONSORCIO">INDICA VENDAS CADASTRO - CONSORCIO
+                                </option>
+                                <option value="CONSORCIO VENDA - PROPRIA">CONSORCIO VENDA PROPRIA</option>
 
                             </select>
                         </div>
@@ -399,7 +404,7 @@
 
                 </div>
 
-                <form class="needs-validation" novalidate>
+                <form class="needs-validation dados-consorcio" novalidate>
 
 
 
@@ -533,7 +538,7 @@
 
                 </form>
 
-                <div class="opcoes-cadastro mt-4" style="text-align: center; margin-inline: block;">
+                <div class="opcoes-cadastro mt-4" style="text-align: center; margin-inline: block;" id="">
                     <button type="button" class="btn btn-primary btn-icon-label" id="btn-incluir-indicaVC">
                         <span class="btn-inner--icon">
                             <i class="fas fa-plus"></i>
@@ -541,6 +546,10 @@
                         <span class="btn-inner--text">Incluir / Salvar Alteração</span>
                     </button>
 
+                </div>
+
+                <!-- Alert sucesso acesso -->
+                <div class="alert alert-success sucesso" id="sucessos" role="alert">
                 </div>
 
             </div>
@@ -1213,7 +1222,7 @@
                             <div class="opcoes-cadastro mt-3" style="text-align: center; margin-inline: block;">
 
 
-                                <button type="button" class="btn btn-primary btn-icon-label" data-toggle="modal"
+                                <button type="button" class="btn btn-primary btn-icon-label" data-toggle="modal" id="btn-modal-incluir"
                                     data-target=".modal-nvindicavendas" title="Alterar">
                                     <span class="btn-inner--icon">
                                         <i class="fas fa-plus"></i>
@@ -1223,7 +1232,7 @@
 
 
                                 <button type="button" class="btn btn-primary btn-icon-label" data-toggle="modal"
-                                    data-target=".modal-nvindicavendascons" title="Alterar">
+                                    data-target=".modal-nvindicavendascons" title="Alterar" id="btn-incluir-consorcio">
                                     <span class="btn-inner--icon">
                                         <i class="fas fa-plus"></i>
                                     </span>
