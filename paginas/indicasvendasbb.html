@@ -150,6 +150,8 @@
                             <select class="form-control form-control-sm"
                             id="proposta-anteriorCS-indicaV">
                             <option> </option>
+                            <option value="SIM">SIM</option>
+                            <option value="NÃO">NÃO</option>
 
                         </select>
                         </div>
@@ -266,7 +268,7 @@
 
                 </form>
 
-                <div class="opcoes-cadastro mt-4" style="text-align: center; margin-inline: block;">
+                <div class="opcoes-cadastro mt-4" style="text-align: center; margin-inline: block;" id="div-btn-incluir-indicaV">
                     <button type="button" class="btn btn-primary btn-icon-label" id="btn-incluir-indicaV">
                         <span class="btn-inner--icon">
                             <i class="fas fa-plus"></i>
@@ -351,6 +353,8 @@
                             <select class="form-control form-control-sm"
                             id="status-indicaVC">
                             <option> </option>
+                            <option value="INDICA VENDAS CADASTRO - CONSORCIO" disabled selected>INDICA VENDAS CADASTRO - CONSORCIO</option>
+                            <option value="CONSORCIO VENDA - PROPRIA">CONSORCIO VENDA PROPRIA</option>
 
                         </select>
                         </div>
@@ -540,6 +544,10 @@
                         <span class="btn-inner--text">Incluir / Salvar Alteração</span>
                     </button>
     
+                </div>
+
+                <!-- Alert sucesso acesso -->
+                <div class="alert alert-success sucesso" id="sucessos" role="alert">
                 </div>
 
             </div>
@@ -1212,7 +1220,7 @@
 
                                
                                     <button type="button" class="btn btn-primary btn-icon-label" data-toggle="modal"
-                                        data-target=".modal-nvindicavendas" title="Alterar">
+                                        data-target=".modal-nvindicavendas" title="Alterar" id="btn-modal-incluir">
                                         <span class="btn-inner--icon">
                                             <i class="fas fa-plus"></i>
                                         </span>
@@ -1221,7 +1229,7 @@
 
                                             
                                     <button type="button" class="btn btn-primary btn-icon-label" data-toggle="modal"
-                                        data-target=".modal-nvindicavendascons" title="Alterar">
+                                        data-target=".modal-nvindicavendascons" title="Alterar" id="btn-incluir-consorcio">
                                         <span class="btn-inner--icon">
                                             <i class="fas fa-plus"></i>
                                         </span>
