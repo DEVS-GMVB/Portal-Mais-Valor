@@ -1,7 +1,6 @@
 //usar variavel de sessao para o id parceiro session storage 
 
 var valor_seguro = 0;
-var emailBoasVindas = boasVindas()
 
 window.onload = function todosPorParceiro() {
 
