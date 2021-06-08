@@ -1,4 +1,18 @@
-//usar variavel de sessao para o id parceiro session storage 
+
+const dataSession = {
+  id_acesso: sessionStorage.getItem('id_acesso', 'id_acesso'),
+  status: sessionStorage.getItem('status', 'status'),
+  perfil: sessionStorage.getItem('perfil', 'perfil'),
+  nome: sessionStorage.getItem('nome', 'nome'),
+  supervisor: sessionStorage.getItem('supervisor', 'supervisor'),
+  gerente: sessionStorage.getItem('gerente', 'gerente'),
+  cnpj_matr: sessionStorage.getItem('cnpj_matriz', 'cnpj_matriz'),
+  cpf_user: sessionStorage.getItem('cpf_usuario', 'cpf_usuario'),
+  tipo_usuario: sessionStorage.getItem('tipo_usuario', 'tipo_usuario'),
+  supervisor_cpf: sessionStorage.getItem('supervisor_cpf', 'supervisor_cpf'),
+  gerente_cpf: sessionStorage.getItem('gerente_cpf', 'gerente_cpf')
+}
+
 
 var valor_seguro = 0;
 
@@ -284,7 +298,7 @@ function contrato(token, uuid) {
 function incluirBd() {
 
   var vigenciaInicio = vigenciaInicial();
-  var vigenciaFim= vigenciaFinal();
+  var vigenciaFim = vigenciaFinal();
   var valorAssistencia = document.getElementById("valor_assistencia").value;
   if (valorAssistencia == "") valorAssistencia = 238.8;
   var ddd = document.getElementById("ddd").value;
@@ -329,11 +343,16 @@ function incluirBd() {
   vencimento = vencimento.replace("-", "/");
 
   //Dados do Parceiro //colocar num input hidden
-  var parceiro = "x";
-  var id_parceiro = "1";
-  var cpf_parceiro = "000.000.000-00";
-  var gerente = "y";
-  var supervisor = "y";
+  // var parceiro = dataSession.nome;
+  // var id_parceiro = dataSession.id_acesso; 
+  // var cpf_parceiro = dataSession.cpf_user;
+  // var gerente = dataSession.gerente;
+  // var supervisor = dataSession.supervisor;
+  var parceiro = "a";
+  var id_parceiro = "1"; 
+  var cpf_parceiro = "a";
+  var gerente = "a";
+  var supervisor ="a";
   var now = new Date;
   var data_inclusao = "" + now.getDate() + "/" + now.getMonth() + "/" + now.getFullYear() + " " + now.getHours() + ":" + now.getMinutes() + ":" + now.getSeconds()
   var responsavel_alteracao = "z";
@@ -415,7 +434,7 @@ function incluirBd() {
     .then(response => response.json())
     .then(function (response) {
       console.log("incluido no banco de dados com sucesso")
-      window.location.href = "D:/teste17-05/Portal-Mais-Valor/paginas/assistencia24h.html"
+      window.location.href = "D:/teste07-06/Portal-Mais-Valor/paginas/assistencia24h.html"
 
     })
     .catch(error => console.log('error', error));
@@ -512,7 +531,7 @@ function apagarFiltros() {
   while (elemento.firstChild) {
     elemento.removeChild(elemento.firstChild);
   };
-  window.location.href = "D:/teste17-05/Portal-Mais-Valor/paginas/assistencia24h.html";
+  window.location.href = "D:/teste07-06/Portal-Mais-Valor/paginas/assistencia24h.html";
 };
 
 function apagarFiltrosSemRedirecionamento() {
@@ -551,7 +570,7 @@ function pegarIdBotaoAlterar(id) {
 };
 
 
-function selecaoParaalteracao(cpfformatado, nomeformatado, tipoCformatado, tipoAformatado) {//
+function selecaoParaalteracao(cpfformatado, nomeformatado, tipoCformatado, tipoAformatado) { //
 
   var myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/json");
@@ -743,7 +762,7 @@ function updateBd() {
   fetch("http://localhost:3000/user/assistencia/alterar", requestOptions)
     .then(response => response.json())
     .then(function (data) {
-      window.location.href = "D:/teste17-05/Portal-Mais-Valor/paginas/assistencia24h.html"
+      window.location.href = "D:/teste07-06/Portal-Mais-Valor/paginas/assistencia24h.html"
 
     })
     .catch(error => console.log('error', error));
@@ -779,12 +798,12 @@ function setarEnvioDiaHora() {
 setarEnvioDiaHora();
 
 
-   filtraAssistenciasDebito();
+filtraAssistenciasDebito();
 
-function filtraAssistenciasDebito() { 
+function filtraAssistenciasDebito() {
   var now = new Date
   var mes_atual = now.getMonth();
-  var mes = parseInt(mes_atual); 
+  var mes = parseInt(mes_atual);
 
   var myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/json");
@@ -854,7 +873,6 @@ function filtraAssistenciasDebito() {
         var vigencia_fim3 = vigencia_fim2.replace("/", "");
         var vigencia_fim4 = vigencia_fim3.replace("/", "");
 
-        var pagamento = "238,80";
         var mes_ultimo_debito = mes + 1;
 
         if (forma_contratacao == "anual") {
@@ -863,22 +881,21 @@ function filtraAssistenciasDebito() {
         } else if (forma_contratacao == "mensal") {
 
           if (parcelas_restantes == 12) {
-            var valorAss = "1990";//cobrara 2x de 19,90
+            var valorAss = "1990"; //cobrara 2x de 19,90
             criarTxt(i, agencia, cpf, nome, cidade, estado, valorAss, count, valorFinal,
               conta_digito, vencimento);
-              updateParcelasRestantes(codigo, parcelas_atualizadas, mes_ultimo_debito)
+            updateParcelasRestantes(codigo, parcelas_atualizadas, mes_ultimo_debito)
 
           } else if (parcelas_restantes < 12 && parcelas_restantes > 0) {
             var valorAss = "1990";
             updateParcelasRestantes(codigo, parcelas_atualizadas, mes_ultimo_debito)
           }
 
-          
 
         }
 
-        personalizaHtml(id_contrato, nome, cpf, tipo_assistencia, id_cliente, vigencia_inicio, vigencia_fim, pagamento, email) 
-
+        personalizaHtml(id_contrato, nome, cpf, tipo_assistencia, vigencia_inicio, vigencia_fim, forma_contratacao, email)
+        /***************personalizaHtml criar um modelo para assistencia saude************************************************** */
         criarTxt(i, agencia, cpf, nome, cidade, estado, valorAss, count, valorFinal,
           conta_digito, vencimento);
 
@@ -888,8 +905,8 @@ function filtraAssistenciasDebito() {
       }
 
       envioEmailBanco();
-      envioSftp(); 
-     // envioEmailcliente()
+      envioSftp();
+
 
     }))
     .catch(error => console.log('error', error));
@@ -898,6 +915,31 @@ function filtraAssistenciasDebito() {
 
 
 
+var emailteste = "thaynara.rodrigues@gmvb.com.br";
+//envioEmailcliente(emailteste); //só envia se o arquivo ja existe , precisa fazer  funcao assincrona
+
+function envioEmailcliente(emailteste) { //envia e deleta o pdf gerado 
+
+  var myHeaders = new Headers();
+  myHeaders.append("Content-Type", "application/json");
+
+  var raw = JSON.stringify({
+    "email": emailteste
+  });
+
+  var requestOptions = {
+    method: 'POST',
+    headers: myHeaders,
+    body: raw,
+    redirect: 'follow'
+  };
+
+  fetch("http://localhost:3000/user/assistencia/emailcliente", requestOptions)
+    .then(response => response.text())
+    .then(result => console.log(result))
+    .catch(error => console.log('error', error));
+
+}
 
 function criarTxt(i, agencia, cpf, nome, cidade, estado, valorAss, count, valorFinal, conta_digito, vencimento) {
 
@@ -996,7 +1038,7 @@ function envioEmailBanco() {
 
 
 function criarDocumentoIke(id_cliente, id_contrato, i, conta, nome, cpf, cidade, estado, count,
-  nascimento, data_venda, rua, numero, complemento, bairro, cep, vigencia_inicio, vigencia_fim) {//incluir no parametro vigencia inicio e vigencia fim
+  nascimento, data_venda, rua, numero, complemento, bairro, cep, vigencia_inicio, vigencia_fim) { //incluir no parametro vigencia inicio e vigencia fim
 
   //formatando data de inclusão
   var data_venda0 = data_venda.toString()
@@ -1045,7 +1087,7 @@ function criarDocumentoIke(id_cliente, id_contrato, i, conta, nome, cpf, cidade,
     "cep": cep,
     "uf": estado,
     "numero_sequencial_arquivo": i,
-    "vigencia_inicial" : vigencia_inicio,
+    "vigencia_inicial": vigencia_inicio,
     "vigencia_final": vigencia_fim
   });
 
@@ -1106,29 +1148,29 @@ $(function () {
 });
 
 //trnasformar html em pdf 
-function pegarPdf(html,email) { //fazer um post sem variavel 
- var myHeaders = new Headers();
-myHeaders.append("Content-Type", "application/json");
+function pegarPdf(html, email) { //fazer um post sem variavel 
+  var myHeaders = new Headers();
+  myHeaders.append("Content-Type", "application/json");
 
-var raw = JSON.stringify({
-  "html": html,
-  "nomeArquivo":email
-});
+  var raw = JSON.stringify({
+    "html": html,
+    "nomeArquivo": email
+  });
 
-var requestOptions = {
-  method: 'POST',
-  headers: myHeaders,
-  body: raw,
-  redirect: 'follow'
-};
+  var requestOptions = {
+    method: 'POST',
+    headers: myHeaders,
+    body: raw,
+    redirect: 'follow'
+  };
 
-fetch("http://localhost:3000/user/assistencia/htmlToPdf", requestOptions)
-  .then(response => response.text())
-  .then(result => 
-    
-  console.log(result)
+  fetch("http://localhost:3000/user/assistencia/htmlToPdf", requestOptions)
+    .then(response => response.text())
+    .then(result =>
+
+      console.log(result)
     )
-  .catch(error => console.log('error', error));
+    .catch(error => console.log('error', error));
 }
 
 function updateParcelasRestantes(codigo, parcelas_restantes, mes_ultimo_debito) {
@@ -1208,35 +1250,69 @@ function somaDias(dt, qtd) {
 }
 
 
-function vigenciaInicial(){//chamar na hora da inclusao
+function vigenciaInicial() { //chamar na hora da inclusao
 
-  var vencimento =  document.getElementById("vencimento").value;
+  var vencimento = document.getElementById("vencimento").value;
   var vigencia = vencimento.split('-').reverse().join('-');
   var vigencia1 = vigencia.replace("-", "/");
   var vigencia2 = vigencia1.replace("-", "/");
   var vigencia3 = somaDias(vigencia2, 5);
 
-  return  vigencia3;
+  return vigencia3;
 
 }
 
 
-function vigenciaFinal(){
+function vigenciaFinal() {
   var now = new Date
   var ano = now.getFullYear();
   var anoFormatado = parseInt(ano);
-  var anoFinal = anoFormatado+1;
-  var vgInicial =  vigenciaInicial();
+  var anoFinal = anoFormatado + 1;
+  var vgInicial = vigenciaInicial();
   var vigencia = vgInicial.split('/')
   vigencia[2] = anoFinal;
- var vigenciaFinal = vigencia.join('/');
- return vigenciaFinal
+  var vigenciaFinal = vigencia.join('/');
+  return vigenciaFinal
 
 }
 
 
-function personalizaHtml(id_contrato, nome, cpf, plano, id_cliente, vigencia_inicio, vigencia_fim, pagamento, email){
-   //assim que receber a resposta da Ike
+function personalizaHtml(id_contrato, nome, cpf, plano, vigencia_inicio, vigencia_fim, pagamento, email) {
+
+
+  if (plano == "residencial") {
+
+    var beneficio1 = "Chaveiro Emergencial";
+    var beneficio2 = "Eletricista Emergencial";
+    var beneficio3 = "Encanador Emergencial";
+    var beneficio4 = "Help Desk";
+    var beneficio5 = "Indicação de Profissionais";
+    var tipo = "Assistência Residencial 24h";
+    var codigoIke = "3225";
+    var limite1 = "Até 3 intervenções limitado a R$ 150";
+    var limite2 = "Até 3 intervenções limitado a R$ 150";
+    var limite3 = "Até 3 intervenções limitado a R$ 150";
+    var limite4 = "Ilimitado";
+    var limite5 = "Ilimitado";
+
+
+  } else if (plano == "saude") {
+    var beneficio1 = "Desconto Consulta Médica e Exames Lab";
+    var beneficio2 = "Rede de Desconto + Desconto Farmácia";
+    var beneficio3 = "Dental 24 horas";
+    var beneficio4 = "Orientação Psicológica";
+    var beneficio5 = "Transporte Inter Hospitalar";
+    var tipo = "Assistência Saúde 24h";
+    var codigoIke = "3226";
+    var limite1 = "Ilimitado";
+    var limite2 = "Ilimitado";
+    var limite3 = "Até 2 intervenções";
+    var limite4 = "Ilimitado";
+    var limite5 = "Até 1 intervenção até R$ 1.500";
+
+  }
+
+
 
   var certificadoCliente = `
       <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
@@ -1251,20 +1327,20 @@ function personalizaHtml(id_contrato, nome, cpf, plano, id_cliente, vigencia_ini
       <div style="height: 30px; width: 800px; background-color:#d3d3d3; margin-top: 42px;  margin-left: 30px;"></div>
       <div style="height: 30px; width: 800px; background-color:#d3d3d3; margin-top: 42px;  margin-left: 30px;"></div>
       <div style="position:absolute;top:1.94in;left:0.29in;width:3.03in;line-height:0.28in;"><span style="font-style:normal;font-weight:bold;font-size:11pt; font-family:Cabin;color:#17295d">BENEFICIÁRIO: </span><span style="font-style:normal;font-weight:normal;font-size:11pt; font-family:Cabin;color:#17295d">${nome}</span><span style="font-style:normal;font-weight:normal;font-size:11pt; font-family:Cabin;color:#17295d"> </span><br/><span style="font-style:normal;font-weight:bold;font-size:11pt; font-family:Cabin;color:#17295d">CPF: </span><span style="font-style:normal;font-weight:normal;font-size:11pt; font-family:Cabin;color:#17295d">${cpf}</span><span style="font-style:normal;font-weight:normal;font-size:11pt; font-family:Cabin;color:#17295d"> </span><br/></SPAN></div>
-      <div style="position:absolute;top:2.85in;left:0.29in;width:3.71in;line-height:0.28in;"><span style="font-style:normal;font-weight:bold;font-size:11pt; font-family:Cabin;color:#17295d">PLANO: </span><span style="font-style:normal;font-weight:normal;font-size:11pt; font-family:Cabin;color:#17295d">${plano}</span><span style="font-style:normal;font-weight:normal;font-size:11pt; font-family:Cabin;color:#17295d"> </span><br/><span style="font-style:normal;font-weight:bold;font-size:11pt; font-family:Cabin;color:#17295d">CÓDIGO: </span><span style="font-style:normal;font-weight:normal;font-size:11pt; font-family:Cabin;color:#17295d">${id_cliente}</span><span style="font-style:normal;font-weight:normal;font-size:11pt; font-family:Cabin;color:#17295d"> </span><br/></SPAN><span style="font-style:normal;font-weight:bold;font-size:11pt; font-family:Cabin;color:#17295d">VIGÊNCIA: </span><span style="font-style:normal;font-weight:normal;font-size:11pt; font-family:Cabin;color:#17295d">${vigencia_inicio} à ${vigencia_fim} </span><span style="font-style:normal;font-weight:normal;font-size:11pt; font-family:Cabin;color:#17295d"> </span><br/><span style="font-style:normal;font-weight:bold;font-size:11pt; font-family:Cabin;color:#17295d">PAGAMENTO: </span><span style="font-style:normal;font-weight:normal;font-size:11pt; font-family:Cabin;color:#17295d">${pagamento}</span><span style="font-style:normal;font-weight:normal;font-size:11pt; font-family:Cabin;color:#17295d"> </span><br/></SPAN></div>
-      <div style="position:absolute;top:4.35in;left:2.86in;width:3.33in;line-height:0.34in;"><span style="font-style:normal;font-weight:normal;font-size:15pt;font-family:Cabin;color:#17295d">ASSISTÊNCIA RESIDENCIAL 24H</span><span style="font-style:normal;font-weight:normal;font-size:15pt;font-family:Cabin;color:#17295d"> </span><br/></SPAN></div>
-      <div style="position:absolute;top:4.90in;left:1.65in;width:1.72in;line-height:0.21in;"><span style="font-style:normal;font-weight:normal;font-size:9pt;font-family:Cabin;color:#000000">Assistência Residencial 24h</span><span style="font-style:normal;font-weight:normal;font-size:9pt;font-family:Cabin;color:#000000"> </span><br/></SPAN></div>
+      <div style="position:absolute;top:2.85in;left:0.29in;width:3.71in;line-height:0.28in;"><span style="font-style:normal;font-weight:bold;font-size:11pt; font-family:Cabin;color:#17295d">PLANO: </span><span style="font-style:normal;font-weight:normal;font-size:11pt; font-family:Cabin;color:#17295d">${plano}</span><span style="font-style:normal;font-weight:normal;font-size:11pt; font-family:Cabin;color:#17295d"> </span><br/><span style="font-style:normal;font-weight:bold;font-size:11pt; font-family:Cabin;color:#17295d">CÓDIGO: </span><span style="font-style:normal;font-weight:normal;font-size:11pt; font-family:Cabin;color:#17295d">${codigoIke}</span><span style="font-style:normal;font-weight:normal;font-size:11pt; font-family:Cabin;color:#17295d"> </span><br/></SPAN><span style="font-style:normal;font-weight:bold;font-size:11pt; font-family:Cabin;color:#17295d">VIGÊNCIA: </span><span style="font-style:normal;font-weight:normal;font-size:11pt; font-family:Cabin;color:#17295d">${vigencia_inicio} à ${vigencia_fim} </span><span style="font-style:normal;font-weight:normal;font-size:11pt; font-family:Cabin;color:#17295d"> </span><br/><span style="font-style:normal;font-weight:bold;font-size:11pt; font-family:Cabin;color:#17295d">PAGAMENTO: </span><span style="font-style:normal;font-weight:normal;font-size:11pt; font-family:Cabin;color:#17295d">${pagamento}</span><span style="font-style:normal;font-weight:normal;font-size:11pt; font-family:Cabin;color:#17295d"> </span><br/></SPAN></div>
+      <div style="position:absolute;top:4.35in;left:2.86in;width:3.33in;line-height:0.34in;"><span style="font-style:normal;font-weight:normal;font-size:15pt;font-family:Cabin;color:#17295d">${tipo}</span><span style="font-style:normal;font-weight:normal;font-size:15pt;font-family:Cabin;color:#17295d"> </span><br/></SPAN></div>
+      <div style="position:absolute;top:4.90in;left:1.65in;width:1.72in;line-height:0.21in;"><span style="font-style:normal;font-weight:normal;font-size:9pt;font-family:Cabin;color:#000000">${tipo}</span><span style="font-style:normal;font-weight:normal;font-size:9pt;font-family:Cabin;color:#000000"> </span><br/></SPAN></div>
       <div style="position:absolute;top:4.90in;left:6.13in;width:0.78in;line-height:0.21in;"><span style="font-style:normal;font-weight:normal;font-size:9pt;font-family:Cabin;color:#000000">Limite Atual</span><span style="font-style:normal;font-weight:normal;font-size:9pt;font-family:Cabin;color:#000000"> </span><br/></SPAN></div>
-      <div style="position:absolute;top:5.59in;left:1.58in;width:1.88in;line-height:0.29in;"><span style="font-style:normal;font-weight:normal;font-size:11pt; font-family:Cabin;color:#878787">Chaveiro Emergencial</span><span style="font-style:normal;font-weight:normal;font-size:11pt; font-family:Cabin;color:#878787"> </span><br/></SPAN></div>
-      <div style="position:absolute;top:5.59in;left:4.93in;width:3.19in;line-height:0.29in;"><span style="font-style:normal;font-weight:normal;font-size:11pt; font-family:Cabin;color:#878787">Até 3 intervenções limitado a R$ 150</span><span style="font-style:normal;font-weight:normal;font-size:11pt; font-family:Cabin;color:#878787"> </span><br/></SPAN></div>
-      <div style="position:absolute;top:5.95in;left:1.54in;width:1.97in;line-height:0.29in;"><span style="font-style:normal;font-weight:normal;font-size:11pt; font-family:Cabin;color:#878787">Eletricista Emergencial</span><span style="font-style:normal;font-weight:normal;font-size:11pt; font-family:Cabin;color:#878787"> </span><br/></SPAN></div>
-      <div style="position:absolute;top:5.95in;left:4.93in;width:3.19in;line-height:0.29in;"><span style="font-style:normal;font-weight:normal;font-size:11pt; font-family:Cabin;color:#878787">Até 3 intervenções limitado a R$ 150</span><span style="font-style:normal;font-weight:normal;font-size:11pt; font-family:Cabin;color:#878787"> </span><br/></SPAN></div>
-      <div style="position:absolute;top:6.32in;left:1.49in;width:2.06in;line-height:0.29in;"><span style="font-style:normal;font-weight:normal;font-size:11pt; font-family:Cabin;color:#878787">Encanador Emergencial</span><span style="font-style:normal;font-weight:normal;font-size:11pt; font-family:Cabin;color:#878787"> </span><br/></SPAN></div>
-      <div style="position:absolute;top:6.32in;left:4.93in;width:3.19in;line-height:0.29in;"><span style="font-style:normal;font-weight:normal;font-size:11pt; font-family:Cabin;color:#878787">Até 3 intervenções limitado a R$ 150</span><span style="font-style:normal;font-weight:normal;font-size:11pt; font-family:Cabin;color:#878787"> </span><br/></SPAN></div>
-      <div style="position:absolute;top:6.68in;left:2.05in;width:0.93in;line-height:0.29in;"><span style="font-style:normal;font-weight:normal;font-size:11pt; font-family:Cabin;color:#878787">Help Desk</span><span style="font-style:normal;font-weight:normal;font-size:11pt; font-family:Cabin;color:#878787"> </span><br/></SPAN></div>
-      <div style="position:absolute;top:6.68in;left:6.13in;width:0.77in;line-height:0.29in;"><span style="font-style:normal;font-weight:normal;font-size:11pt; font-family:Cabin;color:#878787">Ilimitado</span><span style="font-style:normal;font-weight:normal;font-size:11pt; font-family:Cabin;color:#878787"> </span><br/></SPAN></div>
-      <div style="position:absolute;top:7.05in;left:1.39in;width:2.25in;line-height:0.29in;"><span style="font-style:normal;font-weight:normal;font-size:11pt; font-family:Cabin;color:#878787">Indicação de Profissionais</span><span style="font-style:normal;font-weight:normal;font-size:11pt; font-family:Cabin;color:#878787"> </span><br/></SPAN></div>
-      <div style="position:absolute;top:7.05in;left:6.13in;width:0.77in;line-height:0.29in;"><span style="font-style:normal;font-weight:normal;font-size:11pt; font-family:Cabin;color:#878787">Ilimitado</span><span style="font-style:normal;font-weight:normal;font-size:11pt; font-family:Cabin;color:#878787"> </span><br/></SPAN></div>
+      <div style="position:absolute;top:5.59in;left:1.39in;width:3.19in;line-height:0.29in;"><span style="font-style:normal;font-weight:normal;font-size:11pt; font-family:Cabin;color:#878787">${beneficio1}</span><span style="font-style:normal;font-weight:normal;font-size:11pt; font-family:Cabin;color:#878787"> </span><br/></SPAN></div>
+      <div style="position:absolute;top:5.59in;left:4.93in;width:3.19in;line-height:0.29in;"><span style="font-style:normal;font-weight:normal;font-size:11pt; font-family:Cabin;color:#878787">${limite1}</span><span style="font-style:normal;font-weight:normal;font-size:11pt; font-family:Cabin;color:#878787"> </span><br/></SPAN></div>
+      <div style="position:absolute;top:5.95in;left:1.39in;width:3.19in;line-height:0.29in;"><span style="font-style:normal;font-weight:normal;font-size:11pt; font-family:Cabin;color:#878787">${beneficio2}</span><span style="font-style:normal;font-weight:normal;font-size:11pt; font-family:Cabin;color:#878787"> </span><br/></SPAN></div>
+      <div style="position:absolute;top:5.95in;left:4.93in;width:3.19in;line-height:0.29in;"><span style="font-style:normal;font-weight:normal;font-size:11pt; font-family:Cabin;color:#878787">${limite2}</span><span style="font-style:normal;font-weight:normal;font-size:11pt; font-family:Cabin;color:#878787"> </span><br/></SPAN></div>
+      <div style="position:absolute;top:6.32in;left:1.39in;width:3.19in;line-height:0.29in;"><span style="font-style:normal;font-weight:normal;font-size:11pt; font-family:Cabin;color:#878787">${beneficio3}</span><span style="font-style:normal;font-weight:normal;font-size:11pt; font-family:Cabin;color:#878787"> </span><br/></SPAN></div>
+      <div style="position:absolute;top:6.32in;left:4.93in;width:3.19in;line-height:0.29in;"><span style="font-style:normal;font-weight:normal;font-size:11pt; font-family:Cabin;color:#878787">${limite3}</span><span style="font-style:normal;font-weight:normal;font-size:11pt; font-family:Cabin;color:#878787"> </span><br/></SPAN></div>
+      <div style="position:absolute;top:6.68in;left:1.39in;width:3.19in;line-height:0.29in;"><span style="font-style:normal;font-weight:normal;font-size:11pt; font-family:Cabin;color:#878787">${beneficio4}</span><span style="font-style:normal;font-weight:normal;font-size:11pt; font-family:Cabin;color:#878787"> </span><br/></SPAN></div>
+      <div style="position:absolute;top:6.68in;left:4.93in;width:3.19in;line-height:0.29in;"><span style="font-style:normal;font-weight:normal;font-size:11pt; font-family:Cabin;color:#878787">${limite4}</span><span style="font-style:normal;font-weight:normal;font-size:11pt; font-family:Cabin;color:#878787"> </span><br/></SPAN></div>
+      <div style="position:absolute;top:7.05in;left:1.39in;width:3.19in;line-height:0.29in;"><span style="font-style:normal;font-weight:normal;font-size:11pt; font-family:Cabin;color:#878787">${beneficio5}</span><span style="font-style:normal;font-weight:normal;font-size:11pt; font-family:Cabin;color:#878787"> </span><br/></SPAN></div>
+      <div style="position:absolute;top:7.05in;left:4.93in;width:3.19in;line-height:0.29in;"><span style="font-style:normal;font-weight:normal;font-size:11pt; font-family:Cabin;color:#878787">${limite5}</span><span style="font-style:normal;font-weight:normal;font-size:11pt; font-family:Cabin;color:#878787"> </span><br/></SPAN></div>
       <div style="position:absolute;top:0.31in;left:0.29in;width:2.71in;line-height:0.26in;"><span style="font-style:normal;font-weight:normal;font-size:12pt;font-family:Cabin;color:#000000">SERVIÇOS DE ASSISTÊNCIA 24H</span><span style="font-style:normal;font-weight:normal;font-size:12pt;font-family:Cabin;color:#000000"> </span><br/></SPAN></div>
       <div style="position:absolute;top:0.56in;left:0.29in;width:2.71in;line-height:0.62in;"><span style="font-style:normal;font-weight:normal;font-size:28pt;font-family:Cabin;color:#000000">CERTIFICADO</span><span style="font-style:normal;font-weight:normal;font-size:28pt;font-family:Cabin;color:#000000"> </span><br/></SPAN></div>
       <div style="position:absolute;top:1.21in;left:1.11in;width:0.94in;line-height:0.19in;"><span style="font-style:normal;font-weight:bold;font-size:8pt;font-family:Cabin;color:#ffffff">${id_contrato}</span><span style="font-style:normal;font-weight:bold;font-size:8pt;font-family:Cabin;color:#ffffff"> </span><br/></SPAN></div>
@@ -1527,12 +1603,8 @@ function personalizaHtml(id_contrato, nome, cpf, plano, id_cliente, vigencia_ini
   </body>
       </html>
       `
-var htmlCertificado = certificadoCliente.toString();
+  var htmlCertificado = certificadoCliente.toString();
 
-
-//salvar esse html no servidor com o cpf do cliente como nome de arquivo 
-//depois puxar do servidor e transformar em pdf
-//salvar no servidor e qd receber a resposta da Ike , procurar o cpf e mandar no email correspondente
   pegarPdf(htmlCertificado, email) //transforma o html em pdf 
-  
+
 }
