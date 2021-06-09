@@ -123,7 +123,7 @@
 
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                        <button type="button" onclick="filtro();" class="btn btn-primary">Filtrar Busca</button>
+                        <button type="button" id="filtrarBusca" class="btn btn-primary">Filtrar Busca</button>
                     </div>
 
                 </div>
@@ -363,9 +363,9 @@
                    
 
 
-                    
+                 
                     <div class="opcoes-cadastro mt-2" style="text-align: center; margin-inline: block;">
-                        <button type="button" class="btn btn-primary btn-icon-label" onclick="inclusao(); CriaSpinner();" value="1">
+                        <button type="button" class="btn btn-primary btn-icon-label"  value="1" id="inclusao">
                             <span class="btn-inner--icon">
                                 <i class="fas fa-plus"></i>
                             </span>
@@ -1082,7 +1082,7 @@
 
                                     <div class="opcoes-cadastro mt-1" style="text-align: center; margin-inline: block;">
 
-                                        <button name="btnFP" onclick="nomeBotao(this.name); " type="button" class="btn btn-primary btn-icon-label" data-toggle="modal"
+                                        <button name="btnFP" id="btnFP" type="button" class="btn btn-primary btn-icon-label" data-toggle="modal"
                                             data-target=".modal-incluirproposta-parc">
                                             <span class="btn-inner--icon">
                                                 <i class="fas fa-plus"></i>
@@ -1170,8 +1170,8 @@
         <!-- Import Get para popular campos -->
         <script src="../assets/js/cadastro.js"></script>
         <script src="../assets/js/propostas.js"></script>
-     <script src="../assets/js/assistencia24h.js"></script>
-       <!--  <script  type="module" src="../assets/js/assistencia24h/index.js"></script> -->
+     <!-- <script src="../assets/js/assistencia24h.js"></script> -->
+        <script  type="module" src="../assets/js/assistencia24h/indexAssistencia.js"></script>
          <!--   <script  type="module" src="../assets/js/assistencia24h/alteracao.js"></script>
        <script   type="module" src="../assets/js/assistencia24h/cartaoCredito.js"></script>
         <script  type="module" src="../assets/js/assistencia24h/ConfigEnvioCC.js"></script>
