@@ -167,13 +167,13 @@
 
                             <div class="col-md-6 mb-3">
                                 <label for="validationCustom01">CPF</label>
-                                <input type="text" class="form-control form-control-sm" id="cpf">
+                                <input type="text" class="form-control form-control-sm" id="cpf" onkeypress="$(this).mask('000.000.000-00');">
 
                             </div>
 
                             <div class="col-md-4 mb-3">
                                 <label for="validationCustom01">Data Nascimento</label>
-                                <input type="text" class="form-control form-control-sm" id="nascimento">
+                                <input type="text" class="form-control form-control-sm" id="nascimento" onkeypress="$(this).mask('00/00/0000');">
 
                             </div>
 
@@ -221,7 +221,7 @@
                             <div class="col-md-6 mb-3">
                                 <div class="form-group">
                                     <label for="exampleFormControlSelect1">E-mail</label>
-                                    <input type="text" class="form-control form-control-sm" id="email">
+                                    <input type="email" class="form-control form-control-sm" id="email">
                                 </div>
 
                             </div>
@@ -278,18 +278,18 @@
 
                             <div class="col-md-3 mb-3">
                                 <label for="validationCustom01">Agência</label>
-                                <input type="text" class="form-control form-control-sm" id="agencia">
+                                <input type="text" class="form-control form-control-sm" id="agencia" value="0000">
 
                             </div>
 
                             <div class="col-md-3 mb-3">
                                 <label for="validationCustom01">Conta</label>
-                                <input type="text" class="form-control form-control-sm" id="conta">
+                                <input type="text" class="form-control form-control-sm" id="conta"  value="0000000">
 
                             </div>
                             <div class="col-md-3 mb-3">
                                 <label for="validationCustom01">digito</label>
-                                <input type="text" class="form-control form-control-sm" id="digito">
+                                <input type="text" class="form-control form-control-sm" id="digito"  value="0">
 
                             </div>
 
@@ -297,7 +297,6 @@
                                 <div class="form-group">
                                     <label for="exampleFormControlSelect1">Tipo Conta</label>
                                     <select class="form-control form-control-sm" id="tipoConta">
-                                        <option value=""></option>
                                         <option value="corrente">Corrente</option>
                                         <option value="poupanca">Poupanca</option>
                                     </select>
@@ -355,17 +354,18 @@
                             </div>
                             <div class="col-md-6 mb-3">
                                 <label for="validationCustom01">Data vencimento</label>
-                                <input type="text" class="form-control form-control-sm" id="vencimento">
+                                <input type="date" class="form-control form-control-sm" id="vencimento" onkeypress="$(this).mask('00/00/0000');">
                             </div>
 
                         </div>
 
                     </form>
+                   
 
 
                     
                     <div class="opcoes-cadastro mt-2" style="text-align: center; margin-inline: block;">
-                        <button type="button" class="btn btn-primary btn-icon-label" onclick="inclusao();" value="1">
+                        <button type="button" class="btn btn-primary btn-icon-label" onclick="inclusao(); CriaSpinner();" value="1">
                             <span class="btn-inner--icon">
                                 <i class="fas fa-plus"></i>
                             </span>
@@ -1170,6 +1170,22 @@
         <!-- Import Get para popular campos -->
         <script src="../assets/js/cadastro.js"></script>
         <script src="../assets/js/propostas.js"></script>
-        <script src="../assets/js/assistencia24h.js"> </script>
+     <script src="../assets/js/assistencia24h.js"></script>
+       <!--  <script  type="module" src="../assets/js/assistencia24h/index.js"></script> -->
+         <!--   <script  type="module" src="../assets/js/assistencia24h/alteracao.js"></script>
+       <script   type="module" src="../assets/js/assistencia24h/cartaoCredito.js"></script>
+        <script  type="module" src="../assets/js/assistencia24h/ConfigEnvioCC.js"></script>
+        <script  type="module" src="../assets/js/assistencia24h/criaTxtBanco.js"></script>
+        <script   type="module" src="../assets/js/assistencia24h/criaTxtIke.js"></script>
+        <script  type="module" src="../assets/js/assistencia24h/emailCliente.js"></script>
+        <script  type="module" src="../assets/js/assistencia24h/envioBancoTxt.js"></script>
+        <script   type="module" src="../assets/js/assistencia24h/envioIkeTxt.js"></script>
+        <script  type="module" src="../assets/js/assistencia24h/filtroDebito.js"></script>
+        <script  type="module" src="../assets/js/assistencia24h/filtroUsuario.js"></script>
+        <script  type="module" src="../assets/js/assistencia24h/inclusao.js"></script>
+        <script  type="module" src="../assets/js/assistencia24h/updateAposEnvios.js"></script> -->
+
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
 
 </html>

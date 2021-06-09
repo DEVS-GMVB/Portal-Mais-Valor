@@ -42,8 +42,8 @@
 
 <!-- MODAL NOVO INDICA VENDAS -->
 
-<div class="modal fade modal-nvindicavendas" tabindex="-1" role="dialog"
-    aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
+<div class="modal fade modal-nvindicavendas" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel"
+    aria-hidden="true">
     <div class="modal-dialog modal-xl">
         <div class="modal-content">
 
@@ -73,7 +73,7 @@
 
                 </div>
 
-                <form class="needs-validation" novalidate>
+                <form class="needs-validation data-indicaV" novalidate>
 
 
 
@@ -82,8 +82,8 @@
 
                         <div class="col-md-2 mb-3">
                             <label for="validationCustom01">Data Venda</label>
-                            <input type="text" class="form-control form-control-sm" id="data-indicaV" 
-                            required onKeyDown="fMasc( this, data );" maxlength="10" required>
+                            <input type="text" class="form-control form-control-sm" id="data-indicaV" required
+                                onKeyDown="fMasc( this, data );" maxlength="10" required>
 
                         </div>
                         <div class="col-md-2 mb-3">
@@ -100,36 +100,35 @@
                             <label for="validationCustom01">Convênio</label>
                             <input type="text" class="form-control form-control-sm" id="convenio-indicaV" required>
                         </div>
-                        
+
                         <div class="col-md-3 mb-3">
                             <label for="validationCustom01">Limite de Crédito</label>
-                            <select class="form-control form-control-sm"
-                                    id="limite-credito-indicaV">
-                                    <option> </option>
+                            <select class="form-control form-control-sm" id="limite-credito-indicaV">
+                                <option> </option>
 
-                                </select>
+                            </select>
                         </div>
                         <div class="col-md-3 mb-3">
                             <label for="validationCustom01">Valor Proposta</label>
-                            <input type="text" class="form-control form-control-sm" id="vl-proposta-indicaV" 
-                            onKeyPress="return(MascaraMoeda(this,'.',',',event))" required>
-                        </div> 
-                        
+                            <input type="text" class="form-control form-control-sm" id="vl-proposta-indicaV"
+                                onKeyPress="return(MascaraMoeda(this,'.',',',event))" required>
+                        </div>
+
                         <div class="col-md-3 mb-3">
                             <label for="validationCustom01">Valor Troco</label>
-                            <input type="text" class="form-control form-control-sm" id="vl-troco-indicaV" 
-                            onKeyPress="return(MascaraMoeda(this,'.',',',event))" required>
-                        </div> 
+                            <input type="text" class="form-control form-control-sm" id="vl-troco-indicaV"
+                                onKeyPress="return(MascaraMoeda(this,'.',',',event))" required>
+                        </div>
                         <div class="col-md-3 mb-3">
                             <label for="validationCustom01">Valor Líquido</label>
                             <input type="text" class="form-control form-control-sm" id="vl-liquido-indicaV"
-                            onKeyPress="return(MascaraMoeda(this,'.',',',event))" required>
+                                onKeyPress="return(MascaraMoeda(this,'.',',',event))" required>
                         </div>
 
                         <div class="col-md-3 mb-3">
                             <label for="validationCustom01">Quantidade Parcelas</label>
-                            <input type="text" class="form-control form-control-sm" id="quantidade-parcelas-indicaV" 
-                            onKeyDown="fMasc( this, nContrtato );" required>
+                            <input type="text" class="form-control form-control-sm" id="quantidade-parcelas-indicaV"
+                                onKeyDown="fMasc( this, nContrtato );" required>
                         </div>
                         <div class="col-md-3 mb-3">
                             <label for="validationCustom01">Taxa Juros</label>
@@ -137,35 +136,35 @@
                         </div>
                         <div class="col-md-3 mb-3">
                             <label for="validationCustom01">Vencimento 1ª Parcela</label>
-                            <input type="text" class="form-control form-control-sm" id="vencimento1-parcela-indicaV" required>
+                            <input type="text" class="form-control form-control-sm" id="vencimento1-parcela-indicaV"
+                                required>
                         </div>
                         <div class="col-md-3 mb-3">
                             <label for="validationCustom01">Valor Parcela</label>
-                            <input type="text" class="form-control form-control-sm" id="vl-parcela-indicaV" 
-                            onKeyPress="return(MascaraMoeda(this,'.',',',event))" required>
+                            <input type="text" class="form-control form-control-sm" id="vl-parcela-indicaV"
+                                onKeyPress="return(MascaraMoeda(this,'.',',',event))" required>
                         </div>
 
                         <div class="col-md-4 mb-3">
                             <label for="validationCustom01">Proposta Anterior Com Seguro</label>
-                            <select class="form-control form-control-sm"
-                            id="proposta-anteriorCS-indicaV">
-                            <option> </option>
-                            <option value="SIM">SIM</option>
-                            <option value="NÃO">NÃO</option>
+                            <select class="form-control form-control-sm" id="proposta-anteriorCS-indicaV">
+                                <option> </option>
+                                <option value="SIM">SIM</option>
+                                <option value="NAO">NÃO</option>
 
-                        </select>
+                            </select>
                         </div>
                         <div class="col-md-4 mb-3">
                             <label for="validationCustom01">Valor Seguro Renovado</label>
-                            <input type="text" class="form-control form-control-sm" id="vl-seguro-renovado-indicaV" 
-                            onKeyPress="return(MascaraMoeda(this,'.',',',event))" required>
+                            <input type="text" class="form-control form-control-sm" id="vl-seguro-renovado-indicaV"
+                                onKeyPress="return(MascaraMoeda(this,'.',',',event))" required>
                         </div>
                         <div class="col-md-4 mb-3">
                             <label for="validationCustom01">Valor Seguro Novo</label>
-                            <input type="text" class="form-control form-control-sm" id="vl-seguro-novo-indicaV" 
-                            onKeyPress="return(MascaraMoeda(this,'.',',',event))" required>
+                            <input type="text" class="form-control form-control-sm" id="vl-seguro-novo-indicaV"
+                                onKeyPress="return(MascaraMoeda(this,'.',',',event))" required>
                         </div>
-                       
+
 
                     </div>
 
@@ -177,8 +176,8 @@
                     <h3>Dados do Cliente </h3>
 
                 </div>
-                
-                <form class="needs-validation" novalidate>
+
+                <form class="needs-validation data-indicaV" novalidate>
 
 
 
@@ -192,25 +191,26 @@
                         </div>
                         <div class="col-md-6 mb-3">
                             <label for="validationCustom01">CPF Cliente</label>
-                            <input type="text" class="form-control form-control-sm" id="cpf-cliente-indicaV" 
-                            onkeypress='mascaraMutuario(this,cpfCnpj)' maxlength="14" required>
+                            <input type="text" class="form-control form-control-sm" id="cpf-cliente-indicaV"
+                                onkeypress='mascaraMutuario(this,cpfCnpj)' maxlength="14" required>
 
                         </div>
                         <div class="col-md-4 mb-3">
                             <label for="validationCustom01">Telefone Cliente</label>
-                            <input type="text" class="form-control form-control-sm" id="tel-cliente-indicaV" 
-                            onKeyDown="fMasc( this, mTelefone );" maxlength="14" required>
+                            <input type="text" class="form-control form-control-sm" id="tel-cliente-indicaV"
+                                onKeyDown="fMasc( this, mTelefone );" maxlength="14" required>
 
                         </div>
                         <div class="col-md-4 mb-3">
                             <label for="validationCustom01">Agência Cliente</label>
-                            <input type="text" class="form-control form-control-sm" id="agencia-cliente-indicaV" required>
+                            <input type="text" class="form-control form-control-sm" id="agencia-cliente-indicaV"
+                                required>
                         </div>
                         <div class="col-md-4 mb-3">
                             <label for="validationCustom01">Conta Cliente</label>
                             <input type="text" class="form-control form-control-sm" id="conta-cliente-indicaV" required>
                         </div>
-                        
+
 
                     </div>
 
@@ -223,7 +223,7 @@
 
                 </div>
 
-                <form class="needs-validation" novalidate>
+                <form class="needs-validation data-indicaV" novalidate>
 
 
 
@@ -240,7 +240,7 @@
                             <input type="text" class="form-control form-control-sm" id="senha-chave-j-indicaV" required>
 
                         </div>
-                       
+
 
                     </div>
 
@@ -253,7 +253,7 @@
 
                 </div>
 
-                <form class="needs-validation" novalidate>
+                <form class="needs-validation data-indicaV" novalidate>
 
                     <div class="form-row mt-4">
 
@@ -261,7 +261,7 @@
                             <label for="validationCustom01">Observação</label>
                             <textarea class="form-control" rows="3" id="obs-indicaV"></textarea>
 
-                        </div>                                               
+                        </div>
 
                     </div>
 
@@ -273,9 +273,12 @@
                         <span class="btn-inner--icon">
                             <i class="fas fa-plus"></i>
                         </span>
-                        <span class="btn-inner--text">Incluir / Salvar Alteração</span>
+                        <span class="btn-inner--text">Incluir</span>
                     </button>
-    
+
+                </div>
+
+                <div class="alert alert-success sucesso" id="sucesso" role="alert">
                 </div>
 
                 <!-- Alert sucesso acesso -->
@@ -284,7 +287,7 @@
 
             </div>
 
-         
+
 
         </div>
     </div>
@@ -294,8 +297,8 @@
 
 <!-- MODAL NOVO INDICA VENDAS CONSORCIO-->
 
-<div class="modal fade modal-nvindicavendascons" tabindex="-1" role="dialog"
-    aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
+<div class="modal fade modal-nvindicavendascons" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel"
+    aria-hidden="true">
     <div class="modal-dialog modal-xl">
         <div class="modal-content">
 
@@ -325,7 +328,7 @@
 
                 </div>
 
-                <form class="needs-validation" novalidate>
+                <form class="needs-validation dados-consorcio" novalidate>
 
 
 
@@ -339,8 +342,8 @@
                         </div>
                         <div class="col-md-3 mb-3">
                             <label for="validationCustom01">Data Venda</label>
-                            <input type="text" class="form-control form-control-sm" id="dt-venda-indicaVC" 
-                            onKeyDown="fMasc( this, data );" maxlength="10" required>
+                            <input type="text" class="form-control form-control-sm" id="dt-venda-indicaVC"
+                                onKeyDown="fMasc( this, data );" maxlength="10" required>
 
                         </div>
                         <div class="col-md-3 mb-3">
@@ -350,36 +353,35 @@
                         </div>
                         <div class="col-md-3 mb-3">
                             <label for="validationCustom01">Status</label>
-                            <select class="form-control form-control-sm"
-                            id="status-indicaVC">
-                            <option> </option>
-                            <option value="INDICA VENDAS CADASTRO - CONSORCIO" disabled selected>INDICA VENDAS CADASTRO - CONSORCIO</option>
-                            <option value="CONSORCIO VENDA - PROPRIA">CONSORCIO VENDA PROPRIA</option>
+                            <select class="form-control form-control-sm" id="status-indicaVC">
+                                <option> </option>
+                                <option value="INDICA VENDAS CADASTRO - CONSORCIO">INDICA VENDAS CADASTRO - CONSORCIO
+                                </option>
+                                <option value="CONSORCIO VENDA - PROPRIA">CONSORCIO VENDA PROPRIA</option>
 
-                        </select>
+                            </select>
                         </div>
-                        
+
                         <div class="col-md-3 mb-3">
                             <label for="validationCustom01">Bem Referência</label>
-                            <select class="form-control form-control-sm"
-                                    id="bem-ref-indicaVC">
-                                    <option> </option>
+                            <select class="form-control form-control-sm" id="bem-ref-indicaVC">
+                                <option> </option>
 
-                                </select>
+                            </select>
                         </div>
                         <div class="col-md-3 mb-3">
                             <label for="validationCustom01">Valor do Bem</label>
-                            <input type="text" class="form-control form-control-sm" id="valor-bem-indicaVC" 
-                            onKeyPress="return(MascaraMoeda(this,'.',',',event))" required>
-                        </div> 
+                            <input type="text" class="form-control form-control-sm" id="valor-bem-indicaVC"
+                                onKeyPress="return(MascaraMoeda(this,'.',',',event))" required>
+                        </div>
                         <div class="col-md-3 mb-3">
                             <label for="validationCustom01">Prazo/Cota</label>
                             <input type="text" class="form-control form-control-sm" id="prazo-conta-indicaVC" required>
-                        </div> 
+                        </div>
                         <div class="col-md-3 mb-3">
                             <label for="validationCustom01">Valor Parcela</label>
-                            <input type="text" class="form-control form-control-sm" id="vl-parcela-indicaVC" 
-                            onKeyPress="return(MascaraMoeda(this,'.',',',event))" required>
+                            <input type="text" class="form-control form-control-sm" id="vl-parcela-indicaVC"
+                                onKeyPress="return(MascaraMoeda(this,'.',',',event))" required>
                         </div>
 
                         <div class="col-md-4 mb-3">
@@ -394,7 +396,7 @@
                             <label for="validationCustom01">Renda</label>
                             <input type="text" class="form-control form-control-sm" id="renda-indicaVC" required>
                         </div>
-                     
+
                     </div>
 
 
@@ -405,8 +407,8 @@
                     <h3>Dados do Cliente </h3>
 
                 </div>
-                
-                <form class="needs-validation" novalidate>
+
+                <form class="needs-validation dados-consorcio" novalidate>
 
 
 
@@ -420,33 +422,36 @@
                         </div>
                         <div class="col-md-6 mb-3">
                             <label for="validationCustom01">CPF Cliente</label>
-                            <input type="text" class="form-control form-control-sm" id="cpf-cliente-indicaVC" 
-                            onkeypress='mascaraMutuario(this,cpfCnpj)' maxlength="14" required>
+                            <input type="text" class="form-control form-control-sm" id="cpf-cliente-indicaVC"
+                                onkeypress='mascaraMutuario(this,cpfCnpj)' maxlength="14" required>
 
                         </div>
                         <div class="col-md-4 mb-3">
                             <label for="validationCustom01">Telefone Cliente</label>
-                            <input type="text" class="form-control form-control-sm" id="tel-cliente-indicaVC" 
-                            onKeyDown="fMasc( this, mTelefone );" maxlength="14" required>
+                            <input type="text" class="form-control form-control-sm" id="tel-cliente-indicaVC"
+                                onKeyDown="fMasc( this, mTelefone );" maxlength="14" required>
 
                         </div>
                         <div class="col-md-4 mb-3">
                             <label for="validationCustom01">Agência Cliente</label>
-                            <input type="text" class="form-control form-control-sm" id="agencia-cliente-indicaVC" required>
+                            <input type="text" class="form-control form-control-sm" id="agencia-cliente-indicaVC"
+                                required>
                         </div>
                         <div class="col-md-4 mb-3">
                             <label for="validationCustom01">Conta Cliente</label>
-                            <input type="text" class="form-control form-control-sm" id="conta-cliente-indicaVC" required>
+                            <input type="text" class="form-control form-control-sm" id="conta-cliente-indicaVC"
+                                required>
                         </div>
 
                         <div class="col-md-6 mb-3">
                             <label for="validationCustom01">RG</label>
-                            <input type="text" class="form-control form-control-sm" id="rg-indicaVC" 
-                            onkeypress='mascaraMutuario(this,Rg)' maxlength="14" required>
+                            <input type="text" class="form-control form-control-sm" id="rg-indicaVC"
+                                onkeypress='mascaraMutuario(this,Rg)' maxlength="14" required>
                         </div>
                         <div class="col-md-6 mb-3">
                             <label for="validationCustom01">Órgão Emissor RG</label>
-                            <input type="text" class="form-control form-control-sm" id="orgao-emissor-indicaVC" required>
+                            <input type="text" class="form-control form-control-sm" id="orgao-emissor-indicaVC"
+                                required>
                         </div>
 
                         <div class="col-md-2 mb-3">
@@ -459,8 +464,8 @@
                         </div>
                         <div class="col-md-2 mb-3">
                             <label for="validationCustom01">Número Endereço</label>
-                            <input type="text" class="form-control form-control-sm" id="numero-endereco-indicaVC" 
-                            onKeyDown="fMasc( this, nContrtato );" required>
+                            <input type="text" class="form-control form-control-sm" id="numero-endereco-indicaVC"
+                                onKeyDown="fMasc( this, nContrtato );" required>
                         </div>
                         <div class="col-md-2 mb-3">
                             <label for="validationCustom01">Cidade</label>
@@ -485,9 +490,10 @@
                         </div>
                         <div class="col-md-3 mb-3">
                             <label for="validationCustom01">Data Admissão Empresa</label>
-                            <input type="text" class="form-control form-control-sm" id="dt-admissao-empresa-indicaVC" required>
+                            <input type="text" class="form-control form-control-sm" id="dt-admissao-empresa-indicaVC"
+                                required>
                         </div>
-                        
+
                     </div>
 
                 </form>
@@ -508,11 +514,11 @@
 
                     </div>
 
-                
+
 
                 </div>
 
-             
+
 
                 <div class="bg-subtitulo mt-1 mb-3">
 
@@ -529,21 +535,25 @@
                             <label for="validationCustom01">Observação</label>
                             <textarea class="form-control" rows="3" id="obs-indicaVC"></textarea>
 
-                        </div>                                               
+                        </div>
 
                     </div>
 
 
                 </form>
 
-                <div class="opcoes-cadastro mt-4" style="text-align: center; margin-inline: block;">
+                <div class="opcoes-cadastro mt-4" style="text-align: center; margin-inline: block;" id="">
                     <button type="button" class="btn btn-primary btn-icon-label" id="btn-incluir-indicaVC">
                         <span class="btn-inner--icon">
                             <i class="fas fa-plus"></i>
                         </span>
                         <span class="btn-inner--text">Incluir / Salvar Alteração</span>
                     </button>
-    
+
+                </div>
+
+                <!-- Alert sucesso acesso -->
+                <div class="alert alert-success sucesso" id="sucessos" role="alert">
                 </div>
 
                 <!-- Alert sucesso acesso -->
@@ -552,7 +562,7 @@
 
             </div>
 
-         
+
 
         </div>
     </div>
@@ -1147,8 +1157,7 @@
                                         <div class="col-md-6 mb-1">
                                             <div class="form-group">
                                                 <label for="exampleFormControlSelect1">Status</label>
-                                                <select class="form-control form-control-sm"
-                                                    id="status-pesquisar">
+                                                <select class="form-control form-control-sm" id="status-pesquisar">
                                                     <option> </option>
 
                                                 </select>
@@ -1167,14 +1176,15 @@
                                         <div class="col-md-5 mb-2">
                                             <label for="validationCustom02">CPF</label>
                                             <input type="text" class="form-control form-control-sm" id="cpf-pesquisar"
-                                            onkeypress='mascaraMutuario(this,cpfCnpj)' maxlength="14">
+                                                onkeypress='mascaraMutuario(this,cpfCnpj)' maxlength="14">
 
                                         </div>
 
 
                                         <div class="col-md-2 mb-2">
                                             <label for="validationCustom02">Proposta</label>
-                                            <input type="text" class="form-control form-control-sm" id="proposta-pesquisar">
+                                            <input type="text" class="form-control form-control-sm"
+                                                id="proposta-pesquisar">
                                         </div>
 
                                         <div class="col-md-3 mb-2">
@@ -1188,10 +1198,11 @@
 
                                         <div class="col-md-2 mb-2">
                                             <label for="validationCustom02">Data Venda</label>
-                                            <input type="text" class="form-control form-control-sm" id="dt-venda-pesquisar"
-                                            required onKeyDown="fMasc( this, data );" maxlength="10">
+                                            <input type="text" class="form-control form-control-sm"
+                                                id="dt-venda-pesquisar" required onKeyDown="fMasc( this, data );"
+                                                maxlength="10">
                                         </div>
-                                
+
                                     </div>
 
                             </div>
@@ -1205,43 +1216,43 @@
                                     <span class="btn-inner--text">Buscar</span>
                                 </button>
 
-                                    <button type="reset" class="btn btn-primary btn-icon-label">
-                                        <span class="btn-inner--icon">
-                                            <i class="fas fa-trash-alt"></i>
-                                        </span>
-                                        <span class="btn-inner--text">Apagar Filtros</span>
-                                    </button>
+                                <button type="reset" class="btn btn-primary btn-icon-label">
+                                    <span class="btn-inner--icon">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </span>
+                                    <span class="btn-inner--text">Apagar Filtros</span>
+                                </button>
 
                             </div>
 
-                        </form>
+                            </form>
 
                             <div class="opcoes-cadastro mt-3" style="text-align: center; margin-inline: block;">
 
-                               
-                                    <button type="button" class="btn btn-primary btn-icon-label" data-toggle="modal"
-                                        data-target=".modal-nvindicavendas" title="Alterar" id="btn-modal-incluir">
-                                        <span class="btn-inner--icon">
-                                            <i class="fas fa-plus"></i>
-                                        </span>
-                                        <span class="btn-inner--text">Incluir Novo Indica Vendas</span>
-                                    </button>
 
-                                            
-                                    <button type="button" class="btn btn-primary btn-icon-label" data-toggle="modal"
-                                        data-target=".modal-nvindicavendascons" title="Alterar" id="btn-incluir-consorcio">
-                                        <span class="btn-inner--icon">
-                                            <i class="fas fa-plus"></i>
-                                        </span>
-                                        <span class="btn-inner--text">Incluir Novo Indica Vendas CONSÓRCIO</span>
-                                    </button>
+                                <button type="button" class="btn btn-primary btn-icon-label" data-toggle="modal" id="btn-modal-incluir"
+                                    data-target=".modal-nvindicavendas" title="Alterar">
+                                    <span class="btn-inner--icon">
+                                        <i class="fas fa-plus"></i>
+                                    </span>
+                                    <span class="btn-inner--text">Incluir Novo Indica Vendas</span>
+                                </button>
 
-                             
+
+                                <button type="button" class="btn btn-primary btn-icon-label" data-toggle="modal"
+                                    data-target=".modal-nvindicavendascons" title="Alterar" id="btn-incluir-consorcio">
+                                    <span class="btn-inner--icon">
+                                        <i class="fas fa-plus"></i>
+                                    </span>
+                                    <span class="btn-inner--text">Incluir Novo Indica Vendas CONSÓRCIO</span>
+                                </button>
+
+
 
 
                             </div>
-                         
-                         
+
+
 
                             <hr>
 
@@ -1261,7 +1272,8 @@
                                             <th scope="col" style="text-align: center;"><b>STATUS</b></th>
                                             <th scope="col" style="text-align: center;"><b>SUB-STATUS</b></th>
                                             <th scope="col" style="text-align: center;"><b>DATA RETORNO</b></th>
-                                            <th scope="col" style="text-align: center;"><b>RESPONSÁVEL ATUALIZAÇÃO</b></th>
+                                            <th scope="col" style="text-align: center;"><b>RESPONSÁVEL ATUALIZAÇÃO</b>
+                                            </th>
                                             <th scope="col" style="text-align: center;"><b>DATA ATUALIZAÇÃO</b></th>
                                             <th scope="col" style="text-align: center;"><b>VISUALIZAR</b></th>
                                             <th scope="col" style="text-align: center;"><b>ALTERAR</b></th>
@@ -1269,7 +1281,7 @@
 
                                         </tr>
                                     </thead>
-                                    <tbody id="lista" style="text-align: center;">
+                                    <tbody id="lista" style="text-align: center">
 
                                         <td style="text-align: center;"> XXXXXXXX </td>
                                         <td style="text-align: center;"> XXXXXXXX </td>
@@ -1295,7 +1307,7 @@
 
                                             </div>
                                         </td>
-                                 
+
                                         <td style="text-align: center;">
 
                                             <div class="actions ml-3" style="text-align: center;">
@@ -1306,7 +1318,7 @@
 
                                             </div>
                                         </td>
-                                 
+
 
 
 
@@ -1346,6 +1358,8 @@
     <script src="../assets/libs/apexcharts/dist/apexcharts.min.js"></script>
     <script src="../assets/libs/moment/min/moment.min.js"></script>
     <script src="../assets/libs/fullcalendar/dist/fullcalendar.min.js"></script>
+    <!--Script-->
+    <script src="../assets/js/indicaVendasBB.js"></script>
     <!-- Purpose JS -->
     <script src="../assets/js/purpose.js"></script>
     <!-- Mascaras -->
@@ -1353,8 +1367,6 @@
     <script src="../assets/js/mascarasvalores.js"></script>
     <!-- Demo JS - remove it when starting your project -->
     <script src="../assets/js/demo.js"></script>
-
-    <script src="../assets/js/indicaVendasBB.js"></script>
 </body>
 
 </html>
