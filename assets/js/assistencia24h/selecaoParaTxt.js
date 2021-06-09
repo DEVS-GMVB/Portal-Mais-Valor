@@ -106,9 +106,10 @@ function setarEnvioDiaHora() {
   
           var mes_ultimo_debito = mes + 1;
   
-          if (forma_contratacao == "anual") {
+          if (forma_contratacao == "anual" && parcelas_restantes == 1) {
             var valorAss = "23880";
-  
+            updateParcelasRestantes(codigo, parcelas_atualizadas, mes_ultimo_debito)
+
           } else if (forma_contratacao == "mensal") {
   
             if (parcelas_restantes == 12) {
@@ -134,11 +135,11 @@ function setarEnvioDiaHora() {
   
         }
   
-       // envioEmailBanco();
-       // envioSftp();
+      //  envioEmailBanco();
+      //  envioSftp();
 
-        // var emailteste = "thaynara.rodrigues@gmvb.com.br";
-        // envioEmailcliente(emailteste);//só vai se o pdf foi criado anteriormente
+      //   var emailteste = "thaynara.rodrigues@gmvb.com.br";
+      //   envioEmailcliente(emailteste);//só vai se o pdf foi criado anteriormente
   
   
       }))

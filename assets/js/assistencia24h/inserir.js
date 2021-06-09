@@ -148,7 +148,7 @@ import{ INDEXPAGE, LOCALHOST } from './session.js';
       .then(response => response.json())
       .then(function (response) {
         console.log("incluido no banco de dados com sucesso")
-        window.location.href =  `${INDEXPAGE}/paginas/assistencia24h.html`
+        window.location.href =  `${INDEXPAGE}`
   
       })
       .catch(error => console.log('error', error));

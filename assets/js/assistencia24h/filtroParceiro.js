@@ -9,7 +9,9 @@ function filtro() {
     var fBanco = document.getElementById("fBanco").value;
     var fTipoAssistencia = document.getElementById("fTipoAssistencia").value;
     var fFormaContratacao = document.getElementById("fFormaContratacao").value;
-  
+    var arrayUpdate =[];
+    var arrayLinhas =[];
+
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
   
@@ -63,8 +65,8 @@ function filtro() {
           tipoContratacao.appendChild(contratacao_tipo);
   
   
-          arrays.arrayUpdate[i] = data[i].cpf
-          arrays.arrayLinhas[i] = row
+          arrayUpdate[i] = data[i].cpf
+          arrayLinhas[i] = row
           alteraThis.innerHTML = `
                 <td class="text-right" style="text-align: center;">
                 <!-- Actions -->
