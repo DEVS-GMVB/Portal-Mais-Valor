@@ -5,7 +5,6 @@ import{ INDEXPAGE, LOCALHOST, dataSession  } from './session.js';
  function incluirBd(uuid) {
 
 
-
     var vigenciaInicio = vigenciaInicial();
     var vigenciaFim = vigenciaFinal();
     var valorAssistencia = document.getElementById("valor_assistencia").value;
@@ -52,11 +51,11 @@ import{ INDEXPAGE, LOCALHOST, dataSession  } from './session.js';
     vencimento = vencimento.replace("-", "/");
   
     //Dados do Parceiro //colocar num input hidden
-    var parceiro = dataSession.nome;
-    var id_parceiro = dataSession.id_acesso; 
-    var cpf_parceiro = dataSession.cpf_user;
-    var gerente = dataSession.gerente;
-    var supervisor = dataSession.supervisor;
+    var parceiro = sessionStorage.getItem('nome');
+    var id_parceiro =sessionStorage.getItem('id_acesso');
+    var cpf_parceiro = sessionStorage.getItem('cpf_usuario');
+    var gerente = sessionStorage.getItem('gerente');
+    var supervisor = sessionStorage.getItem('supervisor');
 //     var parceiro = "a";
 //     var id_parceiro = "1"; 
 //     var cpf_parceiro = "a";

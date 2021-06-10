@@ -16,7 +16,7 @@ function filtro() {
     myHeaders.append("Content-Type", "application/json");
   
     var raw = JSON.stringify({
-      "id_parceiro": "1",
+      "id_parceiro": sessionStorage.getItem('id_acesso'),
       "cliente_cpf": fCpf,
       "tipo_contratacao": fTipoContratacao,
       "banco": fBanco,

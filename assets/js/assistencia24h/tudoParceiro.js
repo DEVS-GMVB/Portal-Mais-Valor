@@ -1,6 +1,7 @@
 
-import { LOCALHOST } from './session.js'
-//importar o data.session
+import { LOCALHOST } from './session.js';
+
+
 function todosPorParceiro() {
 
     let arrayUpdate = [];
@@ -9,7 +10,7 @@ function todosPorParceiro() {
     let myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
     let raw = JSON.stringify({
-        "id_parceiro": "1"
+        "id_parceiro": sessionStorage.getItem('id_acesso')
     });
     let requestOptions = {
         method: 'POST',
