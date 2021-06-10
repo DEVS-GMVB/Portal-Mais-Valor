@@ -40,10 +40,6 @@ window.addEventListener("load", function () {
             var btnAlterar = e.target.id;
             pegarIdBotaoAlterar(btnAlterar);
 
-        }else if ( e.target && e.target.name == 'iconeAlterar' ){
-            nomeBotaoClicado = 'botaoAlterar';
-                var target = $(this).closest('[id]');
-                alert(target.data('id'));//id da tag pai
         }
     });
 

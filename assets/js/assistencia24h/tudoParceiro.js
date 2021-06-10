@@ -1,6 +1,6 @@
 
 import { LOCALHOST } from './session.js'
-
+//importar o data.session
 function todosPorParceiro() {
 
     let arrayUpdate = [];
