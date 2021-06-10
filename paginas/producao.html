@@ -81,13 +81,15 @@
 
                             <div class="col-md-6 mb-3">
                                 <label for="exampleFormControlFile1"><b>Integrado Santander</b></label>
-                                <input type="text" class="form-control form-control-sm" id="validationCustom01">
+                                <input type="text" class="form-control form-control-sm" id="integrado-santander"
+                                onKeyPress="return(MascaraMoeda(this,'.',',',event))">
 
                             </div>
 
                             <div class="col-md-6 mb-3">
                                 <label for="exampleFormControlFile1"><b>Digitado Santander</b></label>
-                                <input type="text" class="form-control form-control-sm" id="validationCustom01">
+                                <input type="text" class="form-control form-control-sm" id="digitado-santander"
+                                onKeyPress="return(MascaraMoeda(this,'.',',',event))">
 
                             </div>
 
@@ -110,13 +112,15 @@
 
                             <div class="col-md-6 mb-3">
                                 <label for="exampleFormControlFile1"><b>Integrado MULTI Bancos</b></label>
-                                <input type="text" class="form-control form-control-sm" id="validationCustom01">
+                                <input type="text" class="form-control form-control-sm" id="integrado-multi-bancos"
+                                onKeyPress="return(MascaraMoeda(this,'.',',',event))">
 
                             </div>
 
                             <div class="col-md-6 mb-3">
                                 <label for="exampleFormControlFile1"><b>Digitado MULTI Bancos</b></label>
-                                <input type="text" class="form-control form-control-sm" id="validationCustom01">
+                                <input type="text" class="form-control form-control-sm" id="digitado-multi-bancos"
+                                onKeyPress="return(MascaraMoeda(this,'.',',',event))">
 
                             </div>
 
@@ -138,13 +142,15 @@
 
                             <div class="col-md-6 mb-0">
                                 <label for="exampleFormControlFile1"><b>Integrado BB</b></label>
-                                <input type="text" class="form-control form-control-sm" id="validationCustom01">
+                                <input type="text" class="form-control form-control-sm" id="integrado-bb"
+                                onKeyPress="return(MascaraMoeda(this,'.',',',event))">
 
                             </div>
 
                             <div class="col-md-6 mb-0">
                                 <label for="exampleFormControlFile1"><b>Digitado BB</b></label>
-                                <input type="text" class="form-control form-control-sm" id="validationCustom01">
+                                <input type="text" class="form-control form-control-sm" id="digitado-bb"
+                                onKeyPress="return(MascaraMoeda(this,'.',',',event))">
 
                             </div>
 
@@ -155,13 +161,16 @@
                   
 
                     <div class="opcoes-cadastro mt-4" style="text-align: center; margin-inline: block;">
-                        <button type="button" class="btn btn-primary btn-icon-label">
+                        <button type="button" class="btn btn-primary btn-icon-label" id="incluir">
                             <span class="btn-inner--icon">
                                 <i class="fas fa-plus"></i>
                             </span>
                             <span class="btn-inner--text">Incluir</span>
                         </button>
 
+                    </div>
+                    <!-- Alert sucesso -->
+                    <div class="alert alert-success sucesso" id="success" role="alert">
                     </div>
 
                 </div>
@@ -871,7 +880,7 @@
                                     <div class="opcoes-cadastro mt-1" style="text-align: center; margin-inline: block;">
 
                                         <button type="button" class="btn btn-primary btn-icon-label" data-toggle="modal"
-                                            data-target=".modal-cadastroproducao">
+                                            data-target=".modal-cadastroproducao" id="btn-incluir-producao">
                                             <span class="btn-inner--icon">
                                                 <i class="fas fa-plus"></i>
                                             </span>
@@ -898,7 +907,8 @@
                                                         style="text-align: center;"><b>VALOR DIGITADO</b></th>
                                                     <th scope="col" class="sort" data-sort="vltroco"
                                                         style="text-align: center;"><b>VALOR TOTAL</b></th>
-
+                                                    <th scope="col" class="sort" data-sort="vltroco"
+                                                        style="text-align: center;"><b>ALTERAR</b></th>
 
 
                                                 </tr>
@@ -917,6 +927,16 @@
                                                     <td style="text-align: center;">XXXXXX XXXXXX</td>
                                                     <td style="text-align: center;">XXXXXX XXXXXX</td>
 
+                                                    <td class="text-right" style="text-align: center;">
+                                                        <!-- Actions -->
+                                                        <div class="actions ml-3" style="text-align: center;">
+                                                            <a href="#" class="action-item mr-2 " data-toggle="modal"
+                                                                data-target=".modalincsac" title="Alterar"
+                                                                id="modalAlterar">
+                                                                <i class="fas fa-sync-alt"></i>
+                                                            </a>
+                                                        </div>
+                                                    </td>
 
 
 
@@ -959,9 +979,8 @@
         <!-- Mascaras -->
         <script src="../assets/js/mascaras.js"></script>
         <script src="../assets/js/mascarasvalores.js"></script>
-        <!-- Import Get para popular campos -->
-        <script src="../assets/js/cadastro.js"></script>
-        <script src="../assets/js/propostas.js"></script>
+        <script src="../assets/js/producao.js"></script>
+        
     </body>
 
 </html>
