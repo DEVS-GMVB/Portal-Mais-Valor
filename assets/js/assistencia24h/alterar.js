@@ -162,7 +162,7 @@ var pegarIdBotaoAlterar = (id) => {
 
   //Dados do Parceiro //colocar num input hidden
   var now = new Date;
-  var responsavel_alteracao = "z";
+  var responsavel_alteracao = sessionStorage.getItem('nome');
   var data_alteracao = "" + now.getDate() + "/" + now.getMonth() + "/" + now.getFullYear() + " " + now.getHours() + ":" + now.getMinutes() + ":" + now.getSeconds()
 
   var cpf_formatado1 = cpf.replace('.', '')
