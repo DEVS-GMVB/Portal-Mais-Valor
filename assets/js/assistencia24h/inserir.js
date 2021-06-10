@@ -147,9 +147,14 @@ import{ INDEXPAGE, LOCALHOST, dataSession  } from './session.js';
     fetch(`${LOCALHOST}/user/assistencia/incluir`, requestOptions)
       .then(response => response.json())
       .then(function (response) {
-        console.log("incluido no banco de dados com sucesso")
+
+        if (response != "Por favor, preencha os dados obrigatórios"){
+          alert("Assistencia incluída com sucesso! ");
+        }else if( response == "Por favor, preencha os dados obrigatórios"){
+          alert(response);
+        }
         window.location.href =  `${INDEXPAGE}`
-  
+
       })
       .catch(error => console.log('error', error));
   
