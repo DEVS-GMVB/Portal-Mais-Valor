@@ -1,6 +1,6 @@
 
 import{vigenciaInicial, vigenciaFinal} from  './datasConfig.js';
-import{ INDEXPAGE, LOCALHOST } from './session.js';
+import{ INDEXPAGE, LOCALHOST, dataSession  } from './session.js';
 
  function incluirBd(uuid) {
 
@@ -52,16 +52,16 @@ import{ INDEXPAGE, LOCALHOST } from './session.js';
     vencimento = vencimento.replace("-", "/");
   
     //Dados do Parceiro //colocar num input hidden
-    // var parceiro = dataSession.nome;
-    // var id_parceiro = dataSession.id_acesso; 
-    // var cpf_parceiro = dataSession.cpf_user;
-    // var gerente = dataSession.gerente;
-    // var supervisor = dataSession.supervisor;
-    var parceiro = "a";
-    var id_parceiro = "1"; 
-    var cpf_parceiro = "a";
-    var gerente = "a";
-    var supervisor ="a";
+    var parceiro = dataSession.nome;
+    var id_parceiro = dataSession.id_acesso; 
+    var cpf_parceiro = dataSession.cpf_user;
+    var gerente = dataSession.gerente;
+    var supervisor = dataSession.supervisor;
+//     var parceiro = "a";
+//     var id_parceiro = "1"; 
+//     var cpf_parceiro = "a";
+//     var gerente = "a";
+//     var supervisor ="a";
     var now = new Date;
     var data_inclusao = "" + now.getDate() + "/" + now.getMonth() + "/" + now.getFullYear() + " " + now.getHours() + ":" + now.getMinutes() + ":" + now.getSeconds()
     var responsavel_alteracao = "z";
