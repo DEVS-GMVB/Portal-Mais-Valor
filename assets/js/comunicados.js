@@ -5,6 +5,7 @@ const incluir = document.getElementById("btn-incluir");
 const apagar = document.getElementById("btn-apagar")
 
 const mapRow = new Map();
+const mapObj = new Map();
 
 const arrays = {
     arraysReferenceRow: [],
@@ -13,10 +14,10 @@ const arrays = {
 
 apagar.addEventListener('click', () => {
 
-    const spans = document.querySelectorAll('label span')
+    const spans = document.querySelectorAll('label span');
     spans.forEach(item => {
-        item.innerHTML = 
-        `
+        item.innerHTML =
+            `
             Choose a file…
         `
     })
@@ -114,6 +115,9 @@ incluir.addEventListener('click', (e) => {
                     
                     `:
                     incluirAnexos(data).then(function (result) {
+                        const obj = new Object({...result});
+
+                        mapObj.set(result.id_comunicado, result);
 
                         row.innerHTML =
                             `
@@ -125,15 +129,15 @@ incluir.addEventListener('click', (e) => {
                             </td>
                             <th scope="row">
                                 <button type="button"
-                                class="btn btn-sm btn-secondary btn-icon rounded-pill" id="btn-download1">
+                                class="btn btn-sm btn-secondary btn-icon rounded-pill" id="btn-download1" onclick="downloadFile(obj.${url_img})">
                                 <span class="btn-inner--icon"><i
                                         class="far fa-download"></i></span>
-                                <span class="btn-inner--text">${result.url_img}</span>
+                                <span class="btn-inner--text">${result.url_img.substring(34, result.url_img.length)}</span>
                                 </button>
                             </th>
                             <th scope="row">
                                 <button type="button"
-                                    class="btn btn-sm btn-secondary btn-icon rounded-pill" id="btn-download2">
+                                    class="btn btn-sm btn-secondary btn-icon rounded-pill" id="btn-download2" onclick="downloadFile(${result.url_img1})">
                                     <span class="btn-inner--icon"><i
                                             class="far fa-download"></i></span>
                                     <span class="btn-inner--text">${result.url_img1}</span>
@@ -141,7 +145,7 @@ incluir.addEventListener('click', (e) => {
                             </th>
                             <th scope="row">
                                 <button type="button"
-                                    class="btn btn-sm btn-secondary btn-icon rounded-pill" id="btn-download3">
+                                    class="btn btn-sm btn-secondary btn-icon rounded-pill" id="btn-download3" onclick="downloadFile(${result.url_img2})">
                                     <span class="btn-inner--icon"><i
                                             class="far fa-download"></i></span>
                                     <span class="btn-inner--text">${result.url_img2}</span>
@@ -168,12 +172,27 @@ incluir.addEventListener('click', (e) => {
                             </td> 
                     `
 
-                    
-                })
+
+                    })
 
             }))
         .catch(error => console.error('Deu erro interno', error))
-})
+});
+
+async function downloadFile(hash) {
+    console.log(hash);
+    if(hash) {
+        try {
+            await fetch(`${URL}/comunicado/download?hash=${hash}`, { method: "GET", redirect: "follow" });
+
+        } catch(error) {
+            alert("Arquivo inexistente na base de dados")
+        }
+        
+    } else {
+        alert("Arquivo inexistente neste botão");
+    }
+}
 
 async function incluirAnexos(data) {
     let dados;
@@ -198,7 +217,7 @@ async function incluirAnexos(data) {
     return dados;
 }
 
-function Delete(id, row){
+function Delete(id, row) {
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
 
@@ -213,9 +232,9 @@ function Delete(id, row){
         redirect: 'follow'
     }
     fetch(URL + '/comunicado/deletar', requestOptions)
-    .then(response => response.json())
-    .then(data => {
-        document.getElementById("list").deleteRow($('#list tr')[row]);
-        arrays.contadorRow--;
-    }).catch(error => console.log('erro: ', error))
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById("list").deleteRow($('#list tr')[row]);
+            arrays.contadorRow--;
+        }).catch(error => console.log('erro: ', error))
 }
