@@ -4,8 +4,22 @@ const URL = 'http://localhost:3000/user';
 //Btn
 const incluirBtn = document.getElementById("incluir");
 
-window.onload = () => {
+const btn_incluir_prodcao = document.getElementById("btn-incluir-producao");
+
+//Verify
+const mapObj = new Map();
+
+window.onload = async () => {
+    const resultado = await buscaProducao(sessionStorage.getItem('nome','nome'));
+
+    if(resultado.tipo === 2) {
+        btn_incluir_prodcao.style.display = 'block';
+    } else {
+        btn_incluir_prodcao.style.display = 'none';
+    }
+
     lista();
+    
 }
 
 
@@ -80,45 +94,56 @@ incluirBtn.addEventListener("click", async () => {
     const integrado_prev = document.getElementById("integrado-bb").value;
     const digitado_prev = document.getElementById("digitado-bb").value;
 
-    const btn_incluir_prodcao = document.getElementById("btn-incluir-producao");
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
 
-    const myHeders = new Headers();
-    myHeders.append("Content-Type", "application/json");
+    var raw = JSON.stringify({
+        "integrado_novo": integrado_novo,
+        "digitado_novo": digitado_novo,
+        "ole_valor": ole_valor,
+        "ole_qtd": ole_qtd,
+        "integrado_prev": integrado_prev,
+        "digitado_prev": digitado_prev
+    });
 
-    const raw = JSON.stringify({
-        integrado_novo,
-        digitado_novo,
-        ole_valor,
-        ole_qtd,
-        integrado_prev,
-        digitado_prev,
-        supervisor: sessionStorage.getItem("nome", "nome"),
-        data_cadastro: new Date().toLocaleDateString()
-    })
-
-    const requestOptions = {
-        method: "POST",
-        headers: myHeders,
+    var requestOptions = {
+        method: 'PUT',
+        headers: myHeaders,
         body: raw,
-        redirect: "follow"
-    }
+        redirect: 'follow'
+    };
 
-    const resultInsert = await fetch(`${URL}/producao`, requestOptions).then(response => response.json());
+    const {
+        id_producao
+    } = await buscaProducao(sessionStorage.getItem("nome", "nome"));
 
-    if (typeof resultInsert === "object") {
+    const resultJson = await fetch(`${URL}/producao?codigo=${id_producao}`, requestOptions)
+        .then(response => response.json())
+        .catch(error => console.log('error', error));
+
+
+    if (resultJson) {
+        mapObj.set(resultJson.data_cadastro, resultJson);
+
+
+        if(resultJson.tipo === 1) {
+            btn_incluir_prodcao.style.display = 'none';
+        }
+
+
         const tbody = document.getElementById("list");
 
         $('#success').show();
         $('#success').fadeIn(300).delay(3000).fadeOut(400);
         document.getElementById("success").textContent = "Produção incluida com sucesso";
 
-        // btn_incluir_prodcao.style.display = "none";
-
-        const trEl = createRow(resultInsert);
+        document.getElementById("teste").innerHTML = ``
+        
+        const trEl = createRow(resultJson);
         tbody.prepend(trEl);
     }
-});
 
+});
 
 const createRow = (data) => {
     const trEl = document.createElement("tr");
@@ -146,4 +171,26 @@ const createRow = (data) => {
 
     `
     return trEl;
+}
+
+const buscaProducao = async (supervisor) => {
+    const myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+
+    const raw = JSON.stringify({
+        "supervisor": "ANA PAULA COELHO"
+    });
+
+    const requestOptions = {
+        method: 'POST',
+        headers: myHeaders,
+        body: raw,
+        redirect: 'follow'
+    };
+
+    const resultObj = await fetch(`${URL}/producao/buscar`, requestOptions)
+        .then(response => response.json())
+        .catch(error => console.log('error', error));
+
+    return resultObj;
 }
