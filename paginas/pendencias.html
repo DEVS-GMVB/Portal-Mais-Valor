@@ -48,7 +48,7 @@
     <!-- MODAL 1 PENDENCIAS -->
 
     <div class="modal fade modal-one-pend" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
-        aria-hidden="true">
+        aria-hidden="true" id="div-modal-1">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
 
@@ -61,7 +61,7 @@
 
                 <div class="modal-body">
 
-                    <form class="needs-validation" novalidate>
+                    <form class="needs-validation" novalidate id="form1-modal-1">
 
 
 
@@ -70,39 +70,39 @@
 
                             <div class="col-md-12 mb-3">
                                 <label for="validationCustom01">Nova Proposta</label>
-                                <input type="text" class="form-control form-control-sm" id="validationCustom01"
+                                <input type="text" class="form-control form-control-sm" id="nova-proposta-modal-1"
                                     required>
 
                             </div>
                             <div class="col-md-12 mb-3">
                                 <label for="validationCustom01">Observação Pendência</label>
-                                <textarea class="form-control" rows="2"></textarea>
+                                <textarea class="form-control" rows="2" id="obs-pendencia-modal-1"></textarea>
 
                             </div>
 
                         </div>
 
-                        <form class="needs-validation" novalidate>
+                        <form class="needs-validation" novalidate id="form2-modal-1">
 
                             <div class="form-row mt-3 mx-6">
 
 
                                 <div class="col-md-6 mb-3">
                                     <label for="exampleFormControlFile1"><b>Saldo 1:</b></label>
-                                    <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                                    <input type="file" class="form-control-file" id="saldo1-modal-1">
 
                                 </div>
 
 
                                 <div class="col-md-6 mb-3">
                                     <label for="exampleFormControlFile1"><b>Saldo 2:</b></label>
-                                    <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                                    <input type="file" class="form-control-file" id="saldo2-modal-2">
 
                                 </div>
 
                                 <div class="col-md-6 mb-3 mt-2">
                                     <label for="exampleFormControlFile1"><b>Saldo 3:</b></label>
-                                    <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                                    <input type="file" class="form-control-file" id="saldo3-modal-3">
 
                                 </div>
 
@@ -112,8 +112,9 @@
 
                         <hr>
 
-                        <div class="opcoes-salvar mt-1" style="text-align: center; margin-inline: block;">
-                            <button type="button" class="btn btn-primary btn-icon-label">
+                        <div class="opcoes-salvar mt-1" style="text-align: center; margin-inline: block;"
+                            id="div-btn-modal-1">
+                            <button type="button" class="btn btn-primary btn-icon-label" id="btn-incluir-modal-1">
                                 <span class="btn-inner--icon">
                                     <i class="fas fa-plus"></i>
                                 </span>
@@ -135,7 +136,7 @@
     <!-- MODAL 2 PENDENCIAS -->
 
     <div class="modal fade modal-two-pend" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
-        aria-hidden="true">
+        aria-hidden="true" id="div-modal-2">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
 
@@ -154,14 +155,14 @@
 
                     </div>
 
-                    <form class="needs-validation" novalidate>
+                    <form class="needs-validation" novalidate id="form1-modal-2">
 
                         <div class="form-row mt-0">
 
 
                             <div class="col-md-12 mb-3">
                                 <label for="validationCustom01">Autoriza Saldo?</label>
-                                <select class="custom-select">
+                                <select class="custom-select" id="autoriza-saldo-modal-2">
                                     <option value="1">SIM</option>
                                     <option value="2">NÃO</option>
 
@@ -170,7 +171,7 @@
                             </div>
                             <div class="col-md-12 mb-0">
                                 <label for="validationCustom01">Observação Pendência</label>
-                                <textarea class="form-control" rows="2"></textarea>
+                                <textarea class="form-control" rows="2" id="obs-pendencia-modal-2"></textarea>
 
                             </div>
 
@@ -178,8 +179,9 @@
 
                         <hr>
 
-                        <div class="opcoes-salvar" style="text-align: center; margin-inline: block;">
-                            <button type="button" class="btn btn-primary btn-icon-label">
+                        <div class="opcoes-salvar" style="text-align: center; margin-inline: block;"
+                            id="div-btn-modal-2">
+                            <button type="button" class="btn btn-primary btn-icon-label" id="btn-incluir-modal-2">
                                 <span class="btn-inner--icon">
                                     <i class="fas fa-plus"></i>
                                 </span>
@@ -201,7 +203,7 @@
     <!-- MODAL 3 PENDENCIAS -->
 
     <div class="modal fade modal-three-pend" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
-        aria-hidden="true">
+        aria-hidden="true" id="div-modal-3">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
 
@@ -220,7 +222,7 @@
 
                     </div>
 
-                    <form class="needs-validation" novalidate>
+                    <form class="needs-validation" novalidate id="form1-modal-3">
 
 
 
@@ -229,7 +231,7 @@
 
                             <div class="col-md-6 mb-3">
                                 <label for="validationCustom01">Tabela</label>
-                                <select class="custom-select custom-select-sm">
+                                <select class="custom-select custom-select-sm" id="tabela-modal-3">
                                     <option value="1"></option>
                                     <option value="2"></option>
                                 </select>
@@ -238,7 +240,7 @@
 
                             <div class="col-md-6 mb-3">
                                 <label for="validationCustom01">Tipo</label>
-                                <select class="custom-select custom-select-sm">
+                                <select class="custom-select custom-select-sm" id="tipo-modal-3">
                                     <option value="1"></option>
                                     <option value="2"></option>
                                 </select>
@@ -247,27 +249,27 @@
 
                             <div class="col-md-12 mb-1">
                                 <label for="validationCustom01">Observação Pendência</label>
-                                <textarea class="form-control" rows="2"></textarea>
+                                <textarea class="form-control" rows="2" id="obs-pendencia-modal-3"></textarea>
 
                             </div>
 
                         </div>
 
-                        <form class="needs-validation" novalidate>
+                        <form class="needs-validation" novalidate id="form2-modal-3">
 
                             <div class="form-row mt-4 mx-6">
 
 
                                 <div class="col-md-6 mb-2">
                                     <label for="exampleFormControlFile1"><b>Saldo 1:</b></label>
-                                    <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                                    <input type="file" class="form-control-file" id="saldo1-modal-3">
 
                                 </div>
 
 
                                 <div class="col-md-6 mb-2">
                                     <label for="exampleFormControlFile1"><b>Saldo 2:</b></label>
-                                    <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                                    <input type="file" class="form-control-file" id="saldo2-modal-3">
 
                                 </div>
 
@@ -277,8 +279,9 @@
 
                         <hr>
 
-                        <div class="opcoes-salvar mt-0" style="text-align: center; margin-inline: block;">
-                            <button type="button" class="btn btn-primary btn-icon-label">
+                        <div class="opcoes-salvar mt-0" style="text-align: center; margin-inline: block;"
+                            id="div-btn-modal-3">
+                            <button type="button" class="btn btn-primary btn-icon-label" id="btn-incluir-modal-3">
                                 <span class="btn-inner--icon">
                                     <i class="fas fa-plus"></i>
                                 </span>
@@ -300,7 +303,7 @@
     <!-- MODAL 4 PENDENCIAS -->
 
     <div class="modal fade modal-four-pend" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
-        aria-hidden="true">
+        aria-hidden="true" id="div-modal-4">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
 
@@ -319,7 +322,7 @@
 
                     </div>
 
-                    <form class="needs-validation" novalidate>
+                    <form class="needs-validation" novalidate id="form1-modal-4">
 
 
 
@@ -327,40 +330,40 @@
 
                             <div class="col-md-12 mb-1">
                                 <label for="validationCustom01">Observação Pendência</label>
-                                <textarea class="form-control" rows="4"></textarea>
+                                <textarea class="form-control" rows="4" id="obs-pendencia-modal-4"></textarea>
 
                             </div>
 
                         </div>
 
-                        <form class="needs-validation" novalidate>
+                        <form class="needs-validation" novalidate id="form2-modal-4">
 
                             <div class="form-row mt-4 mx-6">
 
 
                                 <div class="col-md-6 mb-2">
                                     <label for="exampleFormControlFile1"><b>Pendência 1:</b></label>
-                                    <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                                    <input type="file" class="form-control-file" id="pendencia1-modal-4">
 
                                 </div>
 
 
                                 <div class="col-md-6 mb-2">
                                     <label for="exampleFormControlFile1"><b>Pendência 2:</b></label>
-                                    <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                                    <input type="file" class="form-control-file" id="pendencia2-modal-4">
 
                                 </div>
 
                                 <div class="col-md-6 mb-2">
                                     <label for="exampleFormControlFile1"><b>Pendência 3:</b></label>
-                                    <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                                    <input type="file" class="form-control-file" id="pendencia3-modal-4">
 
                                 </div>
 
 
                                 <div class="col-md-6 mb-2">
                                     <label for="exampleFormControlFile1"><b>Pendência 4:</b></label>
-                                    <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                                    <input type="file" class="form-control-file" id="pendencia4-modal-4">
 
                                 </div>
 
@@ -370,8 +373,9 @@
 
                         <hr>
 
-                        <div class="opcoes-salvar mt-0" style="text-align: center; margin-inline: block;">
-                            <button type="button" class="btn btn-primary btn-icon-label">
+                        <div class="opcoes-salvar mt-0" style="text-align: center; margin-inline: block;"
+                            id="div-btn-modal-4">
+                            <button type="button" class="btn btn-primary btn-icon-label" id="btn-incluir-modal-4">
                                 <span class="btn-inner--icon">
                                     <i class="fas fa-plus"></i>
                                 </span>
@@ -395,7 +399,7 @@
 
 
     <div class="modal fade modal-five-pend" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
-        aria-hidden="true">
+        aria-hidden="true" id="div-modal-5">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
 
@@ -414,7 +418,7 @@
 
                     </div>
 
-                    <form class="needs-validation" novalidate>
+                    <form class="needs-validation" novalidate id="form1-modal-5">
 
 
 
@@ -422,64 +426,64 @@
 
                             <div class="col-md-12 mb-1">
                                 <label for="validationCustom01">Observação Pendência</label>
-                                <textarea class="form-control" rows="2"></textarea>
+                                <textarea class="form-control" rows="2" id="obs-pendencia-modal-5"></textarea>
 
                             </div>
 
                         </div>
 
-                        <form class="needs-validation" novalidate>
+                        <form class="needs-validation" novalidate id="form2-modal-5">
 
                             <div class="form-row mt-4 mx-6">
 
 
                                 <div class="col-md-6 mb-2">
                                     <label for="exampleFormControlFile1"><b>Cadastro 1:</b></label>
-                                    <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                                    <input type="file" class="form-control-file" id="cadastro1-modal-5">
 
                                 </div>
 
 
                                 <div class="col-md-6 mb-2">
                                     <label for="exampleFormControlFile1"><b>Cadastro 2:</b></label>
-                                    <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                                    <input type="file" class="form-control-file" id="cadastro2-modal-5">
 
                                 </div>
 
                                 <div class="col-md-6 mb-2">
                                     <label for="exampleFormControlFile1"><b>Cadastro 3:</b></label>
-                                    <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                                    <input type="file" class="form-control-file" id="cadastro3-modal-5">
 
                                 </div>
 
 
                                 <div class="col-md-6 mb-2">
                                     <label for="exampleFormControlFile1"><b>Cadastro 4:</b></label>
-                                    <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                                    <input type="file" class="form-control-file" id="cadastro4-modal-5">
 
                                 </div>
 
                                 <div class="col-md-6 mb-2">
                                     <label for="exampleFormControlFile1"><b>Cadastro 5:</b></label>
-                                    <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                                    <input type="file" class="form-control-file" id="cadastro5-modal-5">
 
                                 </div>
 
                                 <div class="col-md-6 mb-2">
                                     <label for="exampleFormControlFile1"><b>Cadastro 6:</b></label>
-                                    <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                                    <input type="file" class="form-control-file" id="cadastro6-modal-5">
 
                                 </div>
 
                                 <div class="col-md-6 mb-0">
                                     <label for="exampleFormControlFile1"><b>Cadastro 7:</b></label>
-                                    <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                                    <input type="file" class="form-control-file" id="cadastro7-modal-5">
 
                                 </div>
 
                                 <div class="col-md-6 mb-0">
                                     <label for="exampleFormControlFile1"><b>Cadastro 8:</b></label>
-                                    <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                                    <input type="file" class="form-control-file" id="cadastro8-modal-5">
 
                                 </div>
                             </div>
@@ -488,8 +492,9 @@
 
                         <hr>
 
-                        <div class="opcoes-salvar mt-0" style="text-align: center; margin-inline: block;">
-                            <button type="button" class="btn btn-primary btn-icon-label">
+                        <div class="opcoes-salvar mt-0" style="text-align: center; margin-inline: block;"
+                            id="div-btn-modal-5">
+                            <button type="button" class="btn btn-primary btn-icon-label" id="btn-incluir-modal-5">
                                 <span class="btn-inner--icon">
                                     <i class="fas fa-plus"></i>
                                 </span>
@@ -511,7 +516,7 @@
     <!-- MODAL 6 PENDENCIAS -->
 
     <div class="modal fade modal-six-pend" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
-        aria-hidden="true">
+        aria-hidden="true" id="div-modal-6">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
 
@@ -524,13 +529,13 @@
 
                 <div class="modal-body">
 
-                    <form class="needs-validation" novalidate>
+                    <form class="needs-validation" novalidate id="form1-modal-6">
 
                         <div class="form-row mt-2">
 
                             <div class="col-md-12 mb-3">
                                 <label for="validationCustom01">Convênio</label>
-                                <select class="custom-select">
+                                <select class="custom-select" id="convenio-modal-6">
                                     <option value="1"></option>
                                     <option value="2"></option>
                                     <option value="3"></option>
@@ -540,7 +545,7 @@
 
                             <div class="col-md-12 mb-0">
                                 <label for="validationCustom01">Produto</label>
-                                <select class="custom-select">
+                                <select class="custom-select" id="produto-modal-6">
                                     <option value="1"></option>
                                     <option value="2"></option>
                                     <option value="3"></option>
@@ -552,8 +557,9 @@
 
                         <hr>
 
-                        <div class="opcoes-salvar mt-0" style="text-align: center; margin-inline: block;">
-                            <button type="button" class="btn btn-primary btn-icon-label">
+                        <div class="opcoes-salvar mt-0" style="text-align: center; margin-inline: block;"
+                            id="div-btn-modal-6">
+                            <button type="button" class="btn btn-primary btn-icon-label" id="btn-incluir-modal-6">
                                 <span class="btn-inner--icon">
                                     <i class="fas fa-plus"></i>
                                 </span>
@@ -572,10 +578,10 @@
 
     <!-- FINAL MODAL 6-->
 
-      <!-- MODAL 7 PENDENCIAS -->
+    <!-- MODAL 7 PENDENCIAS -->
 
     <div class="modal fade modal-seven-pend" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
-        aria-hidden="true">
+        aria-hidden="true" id="div-modal-7">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
 
@@ -588,27 +594,27 @@
 
                 <div class="modal-body">
 
-                    <form class="needs-validation" novalidate>
+                    <form class="needs-validation" novalidate id="form1-modal-7">
 
                         <div class="form-row mt-0">
 
-                         
+
 
                             <div class="col-md-6 mb-3">
                                 <label for="validationCustom01">Novo Telefone</label>
-                                <input type="text" class="form-control form-control-sm">
+                                <input type="text" class="form-control form-control-sm" id="novo-telefone-modal-6">
 
                             </div>
 
                             <div class="col-md-12 mb-3">
                                 <label for="validationCustom01">Observação Pendência</label>
-                                <textarea class="form-control" rows="2"></textarea>
+                                <textarea class="form-control" rows="2" id="obs-pendencia-modal-7"></textarea>
 
                             </div>
 
                             <div class="col-md-12 mb-3">
                                 <label for="validationCustom01">Deseja Agendar Horário Para Confirmação?</label>
-                                <select class="custom-select custom-select-sm">
+                                <select class="custom-select custom-select-sm" id="deseja-confirmacao-modal-7">
                                     <option value="1"></option>
                                     <option value="2"></option>
                                 </select>
@@ -617,13 +623,14 @@
 
                             <div class="col-md-6 mb-0">
                                 <label for="validationCustom01">Melhor Data - Confirmação Cliente</label>
-                                <input type="text" class="form-control form-control-sm">
+                                <input type="text" class="form-control form-control-sm" id="data-confirmacao-modal-7">
 
                             </div>
 
                             <div class="col-md-6 mb-0">
                                 <label for="validationCustom01">Melhor Horário - Confirmação Cliente</label>
-                                <input type="text" class="form-control form-control-sm">
+                                <input type="text" class="form-control form-control-sm"
+                                    id="horario-confirmacao-modal-7">
 
                             </div>
 
@@ -631,8 +638,9 @@
 
                         <hr>
 
-                        <div class="opcoes-salvar mt-0" style="text-align: center; margin-inline: block;">
-                            <button type="button" class="btn btn-primary btn-icon-label">
+                        <div class="opcoes-salvar mt-0" style="text-align: center; margin-inline: block;"
+                            id="div-btn-modal-7">
+                            <button type="button" class="btn btn-primary btn-icon-label" id="btn-incluir-modal-7">
                                 <span class="btn-inner--icon">
                                     <i class="fas fa-plus"></i>
                                 </span>
@@ -653,107 +661,108 @@
 
     <!-- MODAL 8 PENDENCIAS -->
 
-        <div class="modal fade modal-eight-pend" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
-            aria-hidden="true">
-            <div class="modal-dialog modal-lg">
-                <div class="modal-content">
-    
-                    <div class="modal-header">
-                        <img src="logocolorido.png" style="height: 70px; right: 70px;">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
+    <div class="modal fade modal-eight-pend" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+        aria-hidden="true" id="div-modal-8">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <img src="logocolorido.png" style="height: 70px; right: 70px;">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <div class="modal-body">
+
+                    <div class="bg-titulo mb-4">
+
+                        <h3>Solução de Pendências - TED DEVOLVIDA</h3>
+
                     </div>
-    
-                    <div class="modal-body">
 
-                        <div class="bg-titulo mb-4">
+                    <form class="needs-validation" novalidate id="fomr1-modal-8">
 
-                            <h3>Solução de Pendências - TED DEVOLVIDA</h3>
-    
+                        <div class="form-row mt-0">
+
+
+
+                            <div class="col-md-12 mb-3">
+                                <label for="validationCustom01">Banco Cliente</label>
+                                <select class="custom-select custom-select-sm" id="banco-cliente-modal-8">
+                                    <option value="1"></option>
+                                    <option value="2"></option>
+                                </select>
+
+                            </div>
+
+                            <div class="col-md-6 mb-3">
+                                <label for="validationCustom01">Agência Cliente</label>
+                                <input type="text" class="form-control form-control-sm" id="agencia-cliente-modal-8">
+
+                            </div>
+
+                            <div class="col-md-6 mb-3">
+                                <label for="validationCustom01">Conta Cliente</label>
+                                <input type="text" class="form-control form-control-sm" id="conta-cliente-modal-8">
+
+                            </div>
+
+                            <div class="col-md-12 mb-2">
+                                <label for="validationCustom01">Observação Pendência</label>
+                                <textarea class="form-control" rows="2" id="obs-pendencia-modal-8"></textarea>
+
+                            </div>
+
                         </div>
-    
-                        <form class="needs-validation" novalidate>
-    
-                            <div class="form-row mt-0">
-    
-                             
-    
-                                <div class="col-md-12 mb-3">
-                                    <label for="validationCustom01">Banco Cliente</label>
-                                    <select class="custom-select custom-select-sm">
-                                        <option value="1"></option>
-                                        <option value="2"></option>
-                                    </select>
-    
-                                </div>
-    
-                                <div class="col-md-6 mb-3">
-                                    <label for="validationCustom01">Agência Cliente</label>
-                                    <input type="text" class="form-control form-control-sm">
-    
-                                </div>
-                                
-                                <div class="col-md-6 mb-3">
-                                    <label for="validationCustom01">Conta Cliente</label>
-                                    <input type="text" class="form-control form-control-sm">
-    
-                                </div>
 
-                                <div class="col-md-12 mb-2">
-                                    <label for="validationCustom01">Observação Pendência</label>
-                                    <textarea class="form-control" rows="2"></textarea>
-    
-                                </div>
-    
+                    </form>
+
+                    <form class="needs-validation" novalidate id="form2-modal-8">
+
+                        <div class="form-row mt-3 mx-6">
+
+
+                            <div class="col-md-6 mb-0">
+                                <label for="exampleFormControlFile1"><b>Pendência 1:</b></label>
+                                <input type="file" class="form-control-file" id="pendencia1-modal-8">
+
                             </div>
 
-                        </form>
 
-                        <form class="needs-validation" novalidate>
+                            <div class="col-md-6 mb-0">
+                                <label for="exampleFormControlFile1"><b>Pendência 2:</b></label>
+                                <input type="file" class="form-control-file" id="pendencia2-modal-8">
 
-                            <div class="form-row mt-3 mx-6">
-
-
-                                <div class="col-md-6 mb-0">
-                                    <label for="exampleFormControlFile1"><b>Pendência 1:</b></label>
-                                    <input type="file" class="form-control-file" id="exampleFormControlFile1">
-
-                                </div>
-
-
-                                <div class="col-md-6 mb-0">
-                                    <label for="exampleFormControlFile1"><b>Pendência 2:</b></label>
-                                    <input type="file" class="form-control-file" id="exampleFormControlFile1">
-
-                                </div>
-                  
                             </div>
 
-                        </form>
+                        </div>
 
-    
-                            <hr>
-    
-                            <div class="opcoes-salvar mt-0" style="text-align: center; margin-inline: block;">
-                                <button type="button" class="btn btn-primary btn-icon-label">
-                                    <span class="btn-inner--icon">
-                                        <i class="fas fa-plus"></i>
-                                    </span>
-                                    <span class="btn-inner--text">Incluir / Salvar Alteração</span>
-                                </button>
-    
-                            </div>
-    
-    
-                        
-    
+                    </form>
+
+
+                    <hr>
+
+                    <div class="opcoes-salvar mt-0" style="text-align: center; margin-inline: block;"
+                        id="div-btn-modal-8">
+                        <button type="button" class="btn btn-primary btn-icon-label" id="btn-incluir-modal-8">
+                            <span class="btn-inner--icon">
+                                <i class="fas fa-plus"></i>
+                            </span>
+                            <span class="btn-inner--text">Incluir / Salvar Alteração</span>
+                        </button>
+
                     </div>
+
+
+
+
                 </div>
             </div>
         </div>
-    
-        <!-- FINAL MODAL 8-->
+    </div>
+
+    <!-- FINAL MODAL 8-->
 
 
 
@@ -761,7 +770,7 @@
     <!--MODAL FILTROS DE PESQUISA-->
 
     <div class="modal fade modal-filtroproposta " tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
-        aria-hidden="true">
+        aria-hidden="true" id="div-filtro">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
@@ -771,20 +780,24 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form class="needs-validation" novalidate>
+                    <form class="needs-validation" novalidate id="form1-filtro">
 
                         <div class="form-row mt-0">
                             <div class="col-md-5 mb-3">
                                 <label for="validationCustom01">Usuário</label>
-                                <input type="text" class="form-control form-control-sm" id="validationCustom01">
+                                <input type="text" class="form-control form-control-sm" id="usuario-filtro">
 
                             </div>
 
                             <div class="col-md-3 mb-3">
                                 <div class="form-group">
                                     <label for="exampleFormControlSelect1">Tipo de Usuário</label>
-                                    <select class="form-control form-control-sm" id="exampleFormControlSelect1">
-                                        <option> </option>
+                                    <select class="form-control form-control-sm" id="tp-usuario-filtro">
+                                        <option value=""> </option>
+                                        <option value="PARCEIRO EXTERNO">PARCEIRO EXTERNO</option>
+                                        <option value="PARCEIRO INTERNO">PARCEIRO INTERNO</option>
+                                        <option value="PROMOTOR">PROMOTOR</option>
+                                        <option value="PROMOTOR INTERNO">PROMOTOR INTERNO</option>
 
 
                                     </select>
@@ -794,14 +807,14 @@
 
                             <div class="col-md-4 mb-3">
                                 <label for="validationCustom01">Proposta</label>
-                                <input type="text" class="form-control form-control-sm" id="validationCustom01">
+                                <input type="text" class="form-control form-control-sm" id="proposta-filtro">
 
                             </div>
 
                             <div class="col-md-4 mb-3">
                                 <div class="form-group">
                                     <label for="exampleFormControlSelect1">Status</label>
-                                    <select class="form-control form-control-sm" id="exampleFormControlSelect1">
+                                    <select class="form-control form-control-sm" id="status-filtro">
                                         <option> </option>
                                         <option>TODOS</option>
                                         <option>AGUARDANDO APROVAÇÃO DP</option>
@@ -818,7 +831,7 @@
                             <div class="col-md-3 mb-3">
                                 <div class="form-group">
                                     <label for="exampleFormControlSelect1">Tipo</label>
-                                    <select class="form-control form-control-sm" id="exampleFormControlSelect1">
+                                    <select class="form-control form-control-sm" id="tipo-filtro">
                                         <option> </option>
                                         <option>FUNCIONARIO</option>
                                         <option>GERENTE</option>
@@ -836,7 +849,7 @@
 
                             <div class="col-md-5 mb-3">
                                 <label for="validationCustom01">CPF</label>
-                                <input type="text" class="form-control form-control-sm" id="validationCustom01"
+                                <input type="text" class="form-control form-control-sm" id="cpf-filtro"
                                     onkeypress='mascaraMutuario(this,cpfCnpj)' placeholder="Ex: 000.000.000-00"
                                     maxlength="14">
 
@@ -845,7 +858,7 @@
                             <div class="col-md-5 mb-3">
                                 <div class="form-group">
                                     <label for="exampleFormControlSelect1">Empresa</label>
-                                    <select class="form-control form-control-sm" id="exampleFormControlSelect1">
+                                    <select class="form-control form-control-sm" id="empresa-filtro">
                                         <option> </option>
 
 
@@ -857,8 +870,20 @@
                             <div class="col-md-3 mb-3">
                                 <div class="form-group">
                                     <label for="exampleFormControlSelect1">Mês</label>
-                                    <select class="form-control form-control-sm" id="exampleFormControlSelectMes">
+                                    <select class="form-control form-control-sm" id="mes-filtro">
                                         <option> </option>
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                        <option>6</option>
+                                        <option>7</option>
+                                        <option>8</option>
+                                        <option>9</option>
+                                        <option>10</option>
+                                        <option>11</option>
+                                        <option>12</option>
 
 
                                     </select>
@@ -868,20 +893,20 @@
 
                             <div class="col-md-4 mb-3">
                                 <label for="validationCustom01">Previsão Saldo</label>
-                                <input type="date" class="form-control form-control-sm" id="validationCustom01">
+                                <input type="date" class="form-control form-control-sm" id="previsao-saldo-filtro">
 
                             </div>
 
                             <div class="col-md-3 mb-3">
                                 <label for="validationCustom01">Nova Proposta</label>
-                                <input type="text" class="form-control form-control-sm" id="validationCustom01">
+                                <input type="text" class="form-control form-control-sm" id="nova-proposta-filtro">
 
                             </div>
 
                             <div class="col-md-5 mb-3">
                                 <div class="form-group">
                                     <label for="exampleFormControlSelect1">Banco Portabilidade</label>
-                                    <select class="form-control form-control-sm" id="exampleFormControlSelect1">
+                                    <select class="form-control form-control-sm" id="banco-protabilidade-filtro">
                                         <option> </option>
 
 
@@ -893,7 +918,7 @@
                             <div class="col-md-4 mb-3">
                                 <div class="form-group">
                                     <label for="exampleFormControlSelect1">Ordenar</label>
-                                    <select class="form-control form-control-sm" id="exampleFormControlSelect1">
+                                    <select class="form-control form-control-sm" id="ordenar-filtro">
                                         <option> </option>
 
 
@@ -904,20 +929,20 @@
 
                             <div class="col-md-4 mb-3">
                                 <label for="validationCustom01">Data Cadastro</label>
-                                <input type="date" class="form-control form-control-sm" id="validationCustom01">
+                                <input type="text" class="form-control form-control-sm" id="data-cadastro-filtro" onKeyPress="DataHora(event, this)">
 
                             </div>
 
                             <div class="col-md-4 mb-3">
                                 <label for="validationCustom01">Data Atualização</label>
-                                <input type="date" class="form-control form-control-sm" id="validationCustom01">
+                                <input type="text" class="form-control form-control-sm" id="data-atualizacao-filtro" onKeyPress="DataHora(event, this)">
 
                             </div>
 
                             <div class="col-md-4 mb-3">
                                 <div class="form-group">
                                     <label for="exampleFormControlSelect1">Correntista?</label>
-                                    <select class="form-control form-control-sm" id="exampleFormControlSelect1">
+                                    <select class="form-control form-control-sm" id="correntista-filtro">
                                         <option> SIM </option>
                                         <option> NÃO </option>
 
@@ -930,7 +955,7 @@
                             <div class="col-md-5 mb-3">
                                 <div class="form-group">
                                     <label for="exampleFormControlSelect1">Sub-Status</label>
-                                    <select class="form-control form-control-sm" id="exampleFormControlSelect1">
+                                    <select class="form-control form-control-sm" id="sub-status-filtro">
                                         <option> </option>
 
 
@@ -943,10 +968,10 @@
                             <div class="col-md-4 mb-3">
                                 <div class="form-group">
                                     <label for="exampleFormControlSelect1">Classificação</label>
-                                    <select class="form-control form-control-sm" id="exampleFormControlSelect1">
+                                    <select class="form-control form-control-sm" id="classificacao-filtro">
                                         <option> </option>
-
-
+                                        <option value="CONFIAVEL">CONFIAVEL</option>
+                                        <option value="NOVO FLUXO">NOVO FLUXO</option>
 
                                     </select>
                                 </div>
@@ -956,8 +981,12 @@
                             <div class="col-md-3 mb-3">
                                 <div class="form-group">
                                     <label for="exampleFormControlSelect1">Situação Status</label>
-                                    <select class="form-control form-control-sm" id="exampleFormControlSelect1">
-                                        <option> </option>
+                                    <select class="form-control form-control-sm" id="situacao-status-filtro">
+                                        <option value=""> </option>
+                                        <option value="ATUAÇAO PROMOTOR">ATUAÇAO PROMOTOR</option>
+                                        <option value="INICIADO">INICIADO</option>
+                                        <option value="CANCELADO">CANCELADO</option>
+                                        <option value="INTEGRADO">INTEGRADO</option>
 
 
 
@@ -969,9 +998,14 @@
                             <div class="col-md-4 mb-3">
                                 <div class="form-group">
                                     <label for="exampleFormControlSelect1">Convênio Master</label>
-                                    <select class="form-control form-control-sm" id="exampleFormControlSelect1">
+                                    <select class="form-control form-control-sm" id="convenio-master-filtro">
                                         <option> </option>
-
+                                        <option value="20991 - INSS">20991 - INSS</option>
+                                        <option value="2345 - MINISTERIO DO EXERCITO">2345 - MINISTERIO DO EXERCITO
+                                        </option>
+                                        <option value="35783 - SIAPE">35783 - SIAPE</option>
+                                        <option value="2000 - MARINHA">2000 - MARINHA</option>
+                                        <option value="DEMAIS CONVENIO">DEMAIS CONVENIO</option>
 
 
                                     </select>
@@ -982,7 +1016,7 @@
                             <div class="col-md-4 mb-3">
                                 <div class="form-group">
                                     <label for="exampleFormControlSelect1">Fase - Status</label>
-                                    <select class="form-control form-control-sm" id="exampleFormControlSelect1">
+                                    <select class="form-control form-control-sm" id="fase-staus-filtro">
                                         <option> </option>
 
 
@@ -995,7 +1029,7 @@
                             <div class="col-md-4 mb-3">
                                 <div class="form-group">
                                     <label for="exampleFormControlSelect1">Banco</label>
-                                    <select class="form-control form-control-sm" id="exampleFormControlSelect1">
+                                    <select class="form-control form-control-sm" id="banco-filtro">
                                         <option> </option>
 
 
@@ -1008,7 +1042,7 @@
                             <div class="col-md-5 mb-3">
                                 <div class="form-group">
                                     <label for="exampleFormControlSelect1">Produto</label>
-                                    <select class="form-control form-control-sm" id="exampleFormControlSelect1">
+                                    <select class="form-control form-control-sm" id="produto-filtro">
                                         <option> </option>
 
 
@@ -1021,7 +1055,7 @@
                             <div class="col-md-4 mb-3">
                                 <div class="form-group">
                                     <label for="exampleFormControlSelect1">Classificação</label>
-                                    <select class="form-control form-control-sm" id="exampleFormControlSelect1">
+                                    <select class="form-control form-control-sm" id="classificacao-filtro">
                                         <option> </option>
 
 
@@ -1034,7 +1068,7 @@
                             <div class="col-md-3 mb-3">
                                 <div class="form-group">
                                     <label for="exampleFormControlSelect1">Usuário Master</label>
-                                    <select class="form-control form-control-sm" id="exampleFormControlSelect1">
+                                    <select class="form-control form-control-sm" id="usuario-master-filtro">
                                         <option> </option>
                                         <option>BANNEG</option>
                                         <option>CIA DO CREDITO</option>
@@ -1052,7 +1086,7 @@
                             <div class="col-md-5 mb-3">
                                 <div class="form-group">
                                     <label for="exampleFormControlSelect1">Supervisor</label>
-                                    <select class="form-control form-control-sm" id="exampleFormControlSupervisor">
+                                    <select class="form-control form-control-sm" id="supervisor-filtro">
                                         <option> </option>
 
 
@@ -1065,7 +1099,7 @@
                             <div class="col-md-2 mb-3">
                                 <div class="form-group">
                                     <label for="exampleFormControlSelect1">Produto Master</label>
-                                    <select class="form-control form-control-sm" id="exampleFormControlSelect1">
+                                    <select class="form-control form-control-sm" id="produto-master-filtro">
                                         <option> </option>
                                         <option>CONSIGNADO</option>
                                         <option>SMS</option>
@@ -1079,7 +1113,7 @@
                             <div class="col-md-5 mb-3">
                                 <div class="form-group">
                                     <label for="exampleFormControlSelect1">Gerente</label>
-                                    <select class="form-control form-control-sm" id="exampleFormControlSelectGerente">
+                                    <select class="form-control form-control-sm" id="gerente-filtro">
                                         <option> </option>
 
 
@@ -1092,7 +1126,7 @@
                             <div class="col-md-4 mb-3">
                                 <div class="form-group">
                                     <label for="exampleFormControlSelect1">Tipo Usuário Master</label>
-                                    <select class="form-control form-control-sm" id="exampleFormControlSelect1">
+                                    <select class="form-control form-control-sm" id="tp-usuario-master-filtro">
                                         <option> </option>
                                         <option>PARCEIRO</option>
                                         <option>PROMOTOR</option>
@@ -1104,12 +1138,8 @@
                             <div class="col-md-4 mb-3">
                                 <div class="form-group">
                                     <label for="exampleFormControlSelect1">Data de Corte</label>
-                                    <select class="form-control form-control-sm" id="exampleFormControlSelect1">
-                                        <option> </option>
+                                    <input type="text" class="form-control form-control-sm" id="data-corte-filtro" onKeyPress="DataHora(event, this)">
 
-
-
-                                    </select>
                                 </div>
 
                             </div>
@@ -1117,7 +1147,7 @@
                             <div class="col-md-4 mb-3">
                                 <div class="form-group">
                                     <label for="exampleFormControlSelect1">Empresa SMS</label>
-                                    <select class="form-control form-control-sm" id="exampleFormControlSelect1">
+                                    <select class="form-control form-control-sm" id="empresa-sms-filtro">
                                         <option> </option>
                                         <option>VIC</option>
                                         <option>ZENVIA</option>
@@ -1128,14 +1158,14 @@
 
                             <div class="col-md-4 mb-3">
                                 <label for="validationCustom01">Convênio</label>
-                                <input type="text" class="form-control form-control-sm" id="validationCustom01">
+                                <input type="text" class="form-control form-control-sm" id="convenio-filtro">
 
                             </div>
 
                             <div class="col-md-4 mb-3">
                                 <div class="form-group">
                                     <label for="exampleFormControlSelect1">Vínculo</label>
-                                    <select class="form-control form-control-sm" id="exampleFormControlSelect1">
+                                    <select class="form-control form-control-sm" id="vinculo-filtro">
                                         <option> </option>
 
 
@@ -1148,9 +1178,19 @@
                             <div class="col-md-4 mb-3">
                                 <div class="form-group">
                                     <label for="exampleFormControlSelect1">Horário Agendamento</label>
-                                    <select class="form-control form-control-sm" id="exampleFormControlSelect1">
+                                    <select class="form-control form-control-sm" id="horario-agendamento-filtro">
                                         <option> </option>
-
+                                        <option value="08:00 as 08:59">08:00 as 08:59</option>
+                                        <option value="09:00 as 09:59">09:00 as 09:59</option>
+                                        <option value="10:00 as 10:59">10:00 as 10:59</option>
+                                        <option value="11:00 as 11:59">11:00 as 11:59</option>
+                                        <option value="12:00 as 12:59">12:00 as 12:59</option>
+                                        <option value="13:00 as 13:59">13:00 as 13:59</option>
+                                        <option value="14:00 as 14:59">14:00 as 14:59</option>
+                                        <option value="15:00 as 15:59">15:00 as 15:59</option>
+                                        <option value="16:00 as 16:59">16:00 as 16:59</option>
+                                        <option value="17:00 as 17:59">17:00 as 17:59</option>
+                                        <option value="18:00 as 18:59">18:00 as 18:59</option>
 
 
                                     </select>
@@ -1160,14 +1200,14 @@
 
                             <div class="col-md-4 mb-3">
                                 <label for="validationCustom01">Validade Contrato</label>
-                                <input type="date" class="form-control form-control-sm" id="validationCustom01">
+                                <input type="date" class="form-control form-control-sm" id="validade-contrato-filtro">
 
                             </div>
 
                             <div class="col-md-4 mb-3">
                                 <div class="form-group">
                                     <label for="exampleFormControlSelect1">Etapa SMS</label>
-                                    <select class="form-control form-control-sm" id="exampleFormControlSelect1">
+                                    <select class="form-control form-control-sm" id="etapa-sms-filtro">
                                         <option> </option>
                                         <option>VENDA</option>
                                         <option>AUDITORIA</option>
@@ -1179,7 +1219,7 @@
                             <div class="col-md-4 mb-3">
                                 <div class="form-group">
                                     <label for="exampleFormControlSelect1">Banco Master</label>
-                                    <select class="form-control form-control-sm" id="exampleFormControlSelect1">
+                                    <select class="form-control form-control-sm" id="banco-master-filtro">
                                         <option> </option>
                                         <option>SANTANDER</option>
                                         <option>MULTI BANCOS</option>
@@ -1193,8 +1233,9 @@
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                    <button type="button" class="btn btn-primary">Filtrar Busca</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal"
+                        id="btn-fechar-filtro">Fechar</button>
+                    <button type="button" class="btn btn-primary" id="btn-filtrar-busca">Filtrar Busca</button>
                 </div>
             </div>
         </div>
@@ -1905,15 +1946,7 @@
                                     <div class="opcoes-cadastro mt-1" style="text-align: center; margin-inline: block;">
 
                                         <button type="button" class="btn btn-primary btn-icon-label" data-toggle="modal"
-                                            data-target=".modal-incluirproposta-parc">
-                                            <span class="btn-inner--icon">
-                                                <i class="fas fa-plus"></i>
-                                            </span>
-                                            <span class="btn-inner--text">Nova Pendência</span>
-                                        </button>
-
-                                        <button type="button" class="btn btn-primary btn-icon-label" data-toggle="modal"
-                                            data-target=".modal-filtroproposta">
+                                            data-target=".modal-filtroproposta" id="filtros-pesquisa">
                                             <span class="btn-inner--icon">
                                                 <i class="fas fa-filter"></i>
                                             </span>
@@ -2071,6 +2104,8 @@
         <script src="../assets/libs/apexcharts/dist/apexcharts.min.js"></script>
         <script src="../assets/libs/moment/min/moment.min.js"></script>
         <script src="../assets/libs/fullcalendar/dist/fullcalendar.min.js"></script>
+        <!--Script-->
+        <script src="../assets/js/pendencias.js"></script>
         <!-- Purpose JS -->
         <script src="../assets/js/purpose.js"></script>
         <!-- Demo JS - remove it when starting your project -->
@@ -2079,8 +2114,6 @@
         <script src="../assets/js/mascaras.js"></script>
         <script src="../assets/js/mascarasvalores.js"></script>
         <!-- Import Get para popular campos -->
-        <script src="../assets/js/cadastro.js"></script>
-        <script src="../assets/js/propostas.js"></script>
     </body>
 
 </html>
