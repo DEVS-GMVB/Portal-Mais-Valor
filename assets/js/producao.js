@@ -6,25 +6,30 @@ const incluirBtn = document.getElementById("incluir");
 
 const btn_incluir_prodcao = document.getElementById("btn-incluir-producao");
 
+let divBotao = document.getElementById("div-botao");
+
+const arrays = {
+    arrayId: arrayId = []
+}
+
 //Verify
 const mapObj = new Map();
 
 window.onload = async () => {
-    const resultado = await buscaProducao(sessionStorage.getItem('nome','nome'));
+    const resultado = await buscaProducao(sessionStorage.getItem('nome', 'nome'));
 
-    if(resultado.tipo === 2) {
+    if (resultado.tipo === 2) {
         btn_incluir_prodcao.style.display = 'block';
     } else {
         btn_incluir_prodcao.style.display = 'none';
     }
 
     lista();
-    
+
 }
 
 
 function lista() {
-
     var node = document.getElementById("list");
     while (node.hasChildNodes()) {
         node.removeChild(node.lastChild);
@@ -33,7 +38,7 @@ function lista() {
     const myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json")
 
-    let supervisor = sessionStorage.getItem('nome', 'nome')
+    let supervisor = "ANA PAULA COELHO"
 
     const body = {
         supervisor
@@ -52,6 +57,7 @@ function lista() {
         .then(response => response.json())
         .then(function (data) {
             data.forEach(item => {
+                arrays.arrayId.push(item.id_producao)
 
                 node.innerHTML +=
                     `<tr style="text-align: center;">
@@ -63,15 +69,15 @@ function lista() {
                     <td style="text-align: center;">${item.digitado_prev}</td>
                     <td style="text-align: center;">${item.integrado_prev}</td>
                     <td style="text-align: center;">${item.digitado_novo}</td>
-                    <td style="text-align: center;">${parseFloat(item.digitado_novo.replace(',','.')) + parseFloat(item.digitado_prev.replace(',','.'))}</td>
+                    <td style="text-align: center;">${(item.digitado_novo !== null || item.digitado_prev !== null) ? parseFloat(item.digitado_novo.replace(',','.')) + parseFloat(item.digitado_prev.replace(',','.')) : ''}</td>
         
                     <td class="text-right" style="text-align: center;">
                         <!-- Actions -->
                         <div class="actions ml-3" style="text-align: center;">
-                            <a href="#" class="action-item mr-2 " data-toggle="modal"
-                                data-target=".modalincsac" title="Alterar"
+                            <a href="#" class="action-item mr-2 " data-toggle="modal" onclick="Modal(${arrays.arrayId.pop()})"
+                                data-target=".modal-cadastroproducao" title="Alterar" 
                                 id="modalAlterar">
-                                <i class="fas fa-sync-alt" style="display: ${(item.data_cadastro !== new Date().toLocaleDateString()) ? "none" : "block"};" ></i>
+                                <i class="fas fa-sync-alt" style="display: ${(item.tipo === 1 && item.data_cadastro === new Date().toLocaleDateString()) ? "block" : "none"};" ></i>
                             </a>
                         </div>
                     </td>
@@ -126,7 +132,7 @@ incluirBtn.addEventListener("click", async () => {
         mapObj.set(resultJson.data_cadastro, resultJson);
 
 
-        if(resultJson.tipo === 1) {
+        if (resultJson.tipo === 1) {
             btn_incluir_prodcao.style.display = 'none';
         }
 
@@ -137,8 +143,8 @@ incluirBtn.addEventListener("click", async () => {
         $('#success').fadeIn(300).delay(3000).fadeOut(400);
         document.getElementById("success").textContent = "Produção incluida com sucesso";
 
-        document.getElementById("teste").innerHTML = ``
-        
+        document.getElementById("div-botao").innerHTML = ``
+
         const trEl = createRow(resultJson);
         tbody.prepend(trEl);
     }
@@ -148,6 +154,10 @@ incluirBtn.addEventListener("click", async () => {
 const createRow = (data) => {
     const trEl = document.createElement("tr");
     trEl.style.textAlign = "center";
+
+    //Aqui
+    arrays.arrayId = []
+    arrays.arrayId.push(data.id_producao)
 
     trEl.innerHTML = `
         <td style="text-align: center;">${data.data_cadastro}</td>
@@ -162,8 +172,8 @@ const createRow = (data) => {
             <!-- Actions -->
             <div class="actions ml-3" style="text-align: center;">
                 <a href="#" class="action-item mr-2 " data-toggle="modal"
-                    data-target=".modalincsac" title="Alterar"
-                    id="modalAlterar">
+                    data-target=".modal-cadastroproducao" title="Alterar"
+                    id="modalAlterar" onclick="Modal(${data.id_producao})">
                     <i class="fas fa-sync-alt" style="display: ${(data.data_cadastro !== new Date().toLocaleDateString()) ? "none" : "block"};" ></i>
                 </a>
             </div>
@@ -193,4 +203,99 @@ const buscaProducao = async (supervisor) => {
         .catch(error => console.log('error', error));
 
     return resultObj;
+}
+
+function Modal(id) {
+    console.log(id);
+
+    //console.log(row)
+
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+
+    var raw = JSON.stringify({
+        id_producao: id
+    })
+
+    var requestOptions = {
+        method: 'POST',
+        headers: myHeaders,
+        body: raw,
+        redirect: 'follow'
+    }
+
+    fetch(`${URL}/producao/modal`, requestOptions).
+    then(response => response.json().then(function (data) {
+        console.log(data);
+
+        $("#integrado-santander").val(data.integrado_novo);
+        $("#digitado-santander").val(data.digitado_novo);
+        $("#integrado-multi-bancos").val(data.ole_valor);
+        $("#digitado-multi-bancos").val(data.ole_qtd);
+        $("#integrado-bb").val(data.integrado_prev);
+        $("#digitado-bb").val(data.digitado_prev);
+    })).catch(error => console.log('erro: ', error))
+
+    divBotao.innerHTML =
+        `<button type="button" class="btn btn-primary btn-icon-label" onclick="Update(${id})">
+    <span class="btn-inner--icon">
+        <i class="fas fa-plus"></i>
+    </span>
+    <span class="btn-inner--text">Alterar</span>
+    </button>`
+}
+
+
+function Update(id) {
+
+    const myheaders = new Headers()
+    myheaders.append('Content-Type', 'application/json')
+
+    const integradoSant = $("#integrado-santander").val();
+    const digitadoSant = $("#digitado-santander").val();
+    const integradoMulti = $("#integrado-multi-bancos").val();
+    const digitadoMulti = $("#digitado-multi-bancos").val();
+    const integradoBB = $("#integrado-bb").val();
+    const digitadoBB = $("#digitado-bb").val();
+
+    const body = {
+        id_producao: id,
+        integrado_novo: integradoSant,
+        digitado_novo: digitadoSant,
+        ole_valor: integradoMulti,
+        ole_qtd: digitadoMulti,
+        integrado_prev: integradoBB,
+        digitado_prev: digitadoBB,
+    }
+
+    const raw = JSON.stringify(body)
+
+    const requestOptions = {
+        method: 'POST',
+        headers: myheaders,
+        body: raw,
+        redirect: 'follow'
+    }
+
+    fetch(`${URL}/producao/alterar`, requestOptions).
+    then(response => response.json().then(function (data) {
+
+        console.log(data.digitado_novo)
+        $('#success').show();
+        $('#success').fadeIn(300).delay(3000).fadeOut(400);
+        document.getElementById("success").textContent = "Produção alterada com sucesso";
+
+        // updateTbody(row)
+
+        document.getElementById('list').rows[0].innerHTML =
+            `<td style="text-align: center;">${new Date().toLocaleDateString()}</td>
+        <td style="text-align: center;">${sessionStorage.getItem("nome", "nome")}</td>
+        <td style="text-align: center;">${data.digitado_novo}</td>
+        <td style="text-align: center;">${data.ole_qtd}</td>
+        <td style="text-align: center;">${data.ole_valor}</td>
+        <td style="text-align: center;">${data.digitado_novo}</td>
+        <td style="text-align: center;">${parseFloat(data.digitado_novo.replace(',','.')) + parseFloat(data.digitado_prev.replace(',','.'))}</td>
+        `
+
+    })).catch(error => console.log('error: ', error))
 }
