@@ -31,7 +31,6 @@ const dataSession = {
     gerente_cpf: sessionStorage.getItem('gerente_cpf', 'gerente_cpf')
 }
 
-
 window.onload = () => {
     const myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
@@ -40,8 +39,6 @@ window.onload = () => {
         method: 'GET',
         redirect: 'follow'
     };
-
-
 
     fetch(URL + "/user/proposta/produto", requestOptions)
         .then(response => response.json())
@@ -353,4 +350,21 @@ function modal6(proposta) {
     then(response => response.json().then(function (data) {
         $("#convenio-modal-6").val(data.convenio)
     })).catch(error => console.log('erro: ', error))
+
 }
+
+    function modal4Update(data) {
+        // $("#obs-pendencia-modal-4").val(data.observacao);
+
+        const codigo = data.proposta;
+
+        const formData = new FormData();
+
+        const fields = document.querySelectorAll("form-modal4 input[type='file']");
+
+        fields.forEach(file => {
+            formData.append(file.name, file.files[0]);
+        });
+
+
+    }
