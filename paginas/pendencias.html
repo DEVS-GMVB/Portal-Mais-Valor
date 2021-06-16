@@ -336,34 +336,34 @@
 
                         </div>
 
-                        <form class="needs-validation" novalidate id="form2-modal-4">
+                        <form class="needs-validation" novalidate id="form2-modal-4" id="fomr-modal4">
 
                             <div class="form-row mt-4 mx-6">
 
 
                                 <div class="col-md-6 mb-2">
                                     <label for="exampleFormControlFile1"><b>Pendência 1:</b></label>
-                                    <input type="file" class="form-control-file" id="pendencia1-modal-4">
+                                    <input type="file" class="form-control-file" name="arquivo_pendente1" id="pendencia1-modal-4">
 
                                 </div>
 
 
                                 <div class="col-md-6 mb-2">
                                     <label for="exampleFormControlFile1"><b>Pendência 2:</b></label>
-                                    <input type="file" class="form-control-file" id="pendencia2-modal-4">
+                                    <input type="file" class="form-control-file" name="arquivo_pendente2" id="pendencia2-modal-4">
 
                                 </div>
 
                                 <div class="col-md-6 mb-2">
                                     <label for="exampleFormControlFile1"><b>Pendência 3:</b></label>
-                                    <input type="file" class="form-control-file" id="pendencia3-modal-4">
+                                    <input type="file" class="form-control-file" name="arquivo_pendente1n" id="pendencia3-modal-4">
 
                                 </div>
 
 
                                 <div class="col-md-6 mb-2">
                                     <label for="exampleFormControlFile1"><b>Pendência 4:</b></label>
-                                    <input type="file" class="form-control-file" id="pendencia4-modal-4">
+                                    <input type="file" class="form-control-file" name="arquivo_pendente2n" id="pendencia4-modal-4">
 
                                 </div>
 
@@ -816,12 +816,19 @@
                                     <label for="exampleFormControlSelect1">Status</label>
                                     <select class="form-control form-control-sm" id="status-filtro">
                                         <option> </option>
-                                        <option>TODOS</option>
-                                        <option>AGUARDANDO APROVAÇÃO DP</option>
-                                        <option>ATIVO</option>
-                                        <option>INATIVO</option>
-                                        <option>BLOQUEADO</option>
-
+                                        <option value="PENDENTE">PENDENTE</option>
+                                        <option value="ANEXAR EXTRATO DE CONSIGNACOES">ANEXAR EXTRATO DE CONSIGNACOES</option>
+                                        <option value="MODALIDADE DIVERGENTE ENTRE CSG E CONTRATO">MODALIDADE DIVERGENTE ENTRE CSG E CONTRATO</option>
+                                        <option value="CONVENIO DIVERGENTE DA CCB">CONVENIO DIVERGENTE DA CCB</option>
+                                        <option value="PENDENTE CSG">PENDENTE CSG</option>
+                                        <option value="INFORMAR TABELA DE SALDO">INFORMAR TABELA DE SALDO</option>
+                                        <option value="SALDO COLETAR ASSINATURA">SALDO COLETAR ASSINATURA</option>
+                                        <option value="SALDO RECEBIDO - AGUARDANDO AUTORIZACAO">SALDO RECEBIDO - AGUARDANDO AUTORIZACAO</option>
+                                        <option value="SALDO - PENDENTE NS">SALDO - PENDENTE NS</option>
+                                        <option value="SALDO - PENDENTE NS SMS">SALDO - PENDENTE NS SMS</option>
+                                        <option value="SEM CONTATO COM O CLIENTE - SALDO BRADESCO">SEM CONTATO COM O CLIENTE - SALDO BRADESCO</option>
+                                        <option value="SALDO A MAIOR MOBILE COLETAR ASSINATURA">SALDO A MAIOR MOBILE COLETAR ASSINATURA</option>
+                                        <option value="SEM CONTATO COM O CLIENTE - ANEXAR GRAVACAO">SEM CONTATO COM O CLIENTE - ANEXAR GRAVACAO</option>
 
                                     </select>
                                 </div>
@@ -929,13 +936,15 @@
 
                             <div class="col-md-4 mb-3">
                                 <label for="validationCustom01">Data Cadastro</label>
-                                <input type="text" class="form-control form-control-sm" id="data-cadastro-filtro" onKeyPress="DataHora(event, this)">
+                                <input type="text" class="form-control form-control-sm" id="data-cadastro-filtro"
+                                    onKeyPress="DataHora(event, this)">
 
                             </div>
 
                             <div class="col-md-4 mb-3">
                                 <label for="validationCustom01">Data Atualização</label>
-                                <input type="text" class="form-control form-control-sm" id="data-atualizacao-filtro" onKeyPress="DataHora(event, this)">
+                                <input type="text" class="form-control form-control-sm" id="data-atualizacao-filtro"
+                                    onKeyPress="DataHora(event, this)">
 
                             </div>
 
@@ -1138,7 +1147,8 @@
                             <div class="col-md-4 mb-3">
                                 <div class="form-group">
                                     <label for="exampleFormControlSelect1">Data de Corte</label>
-                                    <input type="text" class="form-control form-control-sm" id="data-corte-filtro" onKeyPress="DataHora(event, this)">
+                                    <input type="text" class="form-control form-control-sm" id="data-corte-filtro"
+                                        onKeyPress="DataHora(event, this)">
 
                                 </div>
 
@@ -2038,7 +2048,16 @@
                                                     <td style="text-align: center;"> SIM</td>
                                                     <td style="text-align: center;"> NÃO</td>
                                                     <td style="text-align: center;"> - </td>
-                                                    <td style="text-align: center;"> - </td>
+                                                    <td style="text-align: center;">
+                                                        <!-- Actions -->
+                                                        <div class="actions ml-3" style="text-align: center;">
+                                                            <a href="#" class="action-item mr-2 " data-toggle="modal"
+                                                                data-target=".modalincsac" title="Alterar"
+                                                                id="modalAlterar">
+                                                                <i class="fas fa-sync-alt"></i>
+                                                            </a>
+                                                        </div>
+                                                    </td>
 
                                                 </tr>
 
@@ -2070,7 +2089,16 @@
                                                     <td style="text-align: center;"> NÃO</td>
                                                     <td style="text-align: center;"> NÃO</td>
                                                     <td style="text-align: center;"> - </td>
-                                                    <td style="text-align: center;"> - </td>
+                                                    <td style="text-align: center;">
+                                                        <!-- Actions -->
+                                                        <div class="actions ml-3" style="text-align: center;">
+                                                            <a href="#" class="action-item mr-2 " data-toggle="modal"
+                                                                data-target=".modalincsac" title="Alterar"
+                                                                id="modalAlterar">
+                                                                <i class="fas fa-sync-alt"></i>
+                                                            </a>
+                                                        </div>
+                                                    </td>
 
                                                 </tr>
 
