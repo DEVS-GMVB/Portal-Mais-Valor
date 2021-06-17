@@ -9,6 +9,10 @@ const substatusFiltro = document.getElementById("sub-status-filtro");
 const supervisorFiltro = document.getElementById("supervisor-filtro");
 const gerenteFiltro = document.getElementById("gerente-filtro");
 
+//ComboModais
+const produtoModal6 = document.getElementById("produto-modal-6");
+const bancoModal8 = document.getElementById("banco-cliente-modal-8");
+
 //Eventos/Btns
 const filtroBtn = document.getElementById("btn-filtrar-busca");
 
@@ -49,6 +53,7 @@ window.onload = () => {
         .then(function (data) {
             data.forEach(element => {
                 produtoFiltro.innerHTML += `<option value =${element.produto}>${element.produto}</option>`;
+                produtoModal6.innerHTML += `<option value =${element.produto}>${element.produto}</option>`;
             });
         })
 
@@ -58,6 +63,7 @@ window.onload = () => {
         .then(function (data) {
             data.forEach(element => {
                 bancoPortabilidadeFiltro.innerHTML += `<option value =${element.banco}>${element.banco}</option>`;
+                bancoModal8.innerHTML += `<option value =${element.banco}>${element.banco}</option>`;
             });
         })
 
@@ -360,7 +366,7 @@ function modal6(proposta) {
 
 }
 
-function modal5 (proposta){
+function modal5(proposta) {
     console.log(proposta)
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
@@ -495,26 +501,22 @@ function modal4(proposta) {
 
 }
 
-    function modal4Update(data) {
-        // $("#obs-pendencia-modal-4").val(data.observacao);
+function modal4Update(data) {
+    // $("#obs-pendencia-modal-4").val(data.observacao);
 
-        const codigo = data.proposta;
+    const codigo = data.proposta;
 
-        const formData = new FormData();
+    const formData = new FormData();
 
-        const fields = document.querySelectorAll("form-modal4 input[type='file']");
+    const fields = document.querySelectorAll("form-modal4 input[type='file']");
 
-        fields.forEach(file => {
-            formData.append(file.name, file.files[0]);
-        });
+    fields.forEach(file => {
+        formData.append(file.name, file.files[0]);
+    });
 
 
-    }
+}
 
-    function downloadAnexo (obj) {
-        if(obj.proposta) {
-            window.location.href = `${URL}/pendencia/download?hash=${obj.arquivo1}`;
-        } else {
-            alert("Arquivo de contrato não inserido na base de dados");
-        }
-    }
+function downloadFile({arquivo_pendente1}) {
+
+}

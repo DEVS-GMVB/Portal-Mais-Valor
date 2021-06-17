@@ -240,11 +240,11 @@ function DataHora(evento, objeto) {
         event.returnValue = false;
 }
 
-// function mHora(val) {
-//     val = val.split(":");
-//     return (parseInt(val[0]) > 19)? "HZ:M0" : "H0:M0"
+function mHora(val) {
+    val = val.split(":");
+    return (parseInt(val[0]) > 19)? "HZ:M0" : "H0:M0"
 
-// }
+}
 
 function mQtde(v) {
     v = /d{3}-\d{3}-\d{4}/
