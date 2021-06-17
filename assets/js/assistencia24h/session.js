@@ -12,8 +12,8 @@
     gerente_cpf: sessionStorage.getItem('gerente_cpf')
   }
 
- const INDEXPAGE = "http://127.0.0.1:5501/paginas/assistencia24h.html";
- const LOCALHOST = "http://localhost:3000";
+ const INDEXPAGE = "https://www.grupogmvb.com/Portal-Mais-Valor/paginas/assistencia24h.html";
+ const LOCALHOST = "https://back-portal.herokuapp.com";
 
 
  export { dataSession , INDEXPAGE , LOCALHOST};
