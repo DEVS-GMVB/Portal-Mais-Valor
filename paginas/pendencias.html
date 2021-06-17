@@ -71,6 +71,7 @@
                             <div class="col-md-12 mb-3">
                                 <label for="validationCustom01">Nova Proposta</label>
                                 <input type="text" class="form-control form-control-sm" id="nova-proposta-modal-1"
+                                    onKeyDown="fMasc( this, nContrtato );"
                                     required>
 
                             </div>
@@ -241,8 +242,13 @@
                             <div class="col-md-6 mb-3">
                                 <label for="validationCustom01">Tipo</label>
                                 <select class="custom-select custom-select-sm" id="tipo-modal-3">
-                                    <option value="1"></option>
-                                    <option value="2"></option>
+                                    <option value="FUNCIONARIO">FUNCIONARIO</option>
+                                    <option value="GERENTE">GERENTE</option>
+                                    <option value="GENRENTE-MEI">GERENTE-MEI</option>
+                                    <option value="PROMOTOR">PROMOTOR</option>
+                                    <option value="PROMOTOR-MEI">PROMOTOR-MEI</option>
+                                    <option value="SUPERVISOR">SUPERVISOR</option>
+                                    <option value="SUPERVISOR-MEI">SUPERVISOR-MEI</option>
                                 </select>
 
                             </div>
@@ -535,10 +541,7 @@
 
                             <div class="col-md-12 mb-3">
                                 <label for="validationCustom01">Convênio</label>
-                                <select class="custom-select" id="convenio-modal-6">
-                                    <option value="1"></option>
-                                    <option value="2"></option>
-                                    <option value="3"></option>
+                                <input type="text" class="custom-select" id="convenio-modal-6">
                                 </select>
 
                             </div>
@@ -547,8 +550,6 @@
                                 <label for="validationCustom01">Produto</label>
                                 <select class="custom-select" id="produto-modal-6">
                                     <option value="1"></option>
-                                    <option value="2"></option>
-                                    <option value="3"></option>
                                 </select>
 
                             </div>
@@ -602,7 +603,8 @@
 
                             <div class="col-md-6 mb-3">
                                 <label for="validationCustom01">Novo Telefone</label>
-                                <input type="text" class="form-control form-control-sm" id="novo-telefone-modal-6">
+                                <input type="text" class="form-control form-control-sm" id="novo-telefone-modal-6"
+                                    onKeyDown="fMasc( this, mTelefone );">
 
                             </div>
 
@@ -615,21 +617,23 @@
                             <div class="col-md-12 mb-3">
                                 <label for="validationCustom01">Deseja Agendar Horário Para Confirmação?</label>
                                 <select class="custom-select custom-select-sm" id="deseja-confirmacao-modal-7">
-                                    <option value="1"></option>
-                                    <option value="2"></option>
+                                    <option value="">-</option>
+                                    <option value="SIM">SIM</option>
+                                    <option value="NÃO">NÃO</option>
                                 </select>
 
                             </div>
 
                             <div class="col-md-6 mb-0">
                                 <label for="validationCustom01">Melhor Data - Confirmação Cliente</label>
-                                <input type="text" class="form-control form-control-sm" id="data-confirmacao-modal-7">
+                                <input type="text" class="form-control form-control-sm" id="data-confirmacao-modal-7"
+                                    onKeyDown="fMasc( this, data );">
 
                             </div>
 
                             <div class="col-md-6 mb-0">
                                 <label for="validationCustom01">Melhor Horário - Confirmação Cliente</label>
-                                <input type="text" class="form-control form-control-sm"
+                                <input type="text" class="form-control form-control-sm" onKeyDown="fMasc( this, mHora );"
                                     id="horario-confirmacao-modal-7">
 
                             </div>
@@ -691,7 +695,6 @@
                                 <label for="validationCustom01">Banco Cliente</label>
                                 <select class="custom-select custom-select-sm" id="banco-cliente-modal-8">
                                     <option value="1"></option>
-                                    <option value="2"></option>
                                 </select>
 
                             </div>
@@ -807,7 +810,8 @@
 
                             <div class="col-md-4 mb-3">
                                 <label for="validationCustom01">Proposta</label>
-                                <input type="text" class="form-control form-control-sm" id="proposta-filtro">
+                                <input type="text" class="form-control form-control-sm" id="proposta-filtro"
+                                    onKeyDown="fMasc( this, nContrtato );">
 
                             </div>
 
@@ -829,10 +833,6 @@
                                         <option value="SEM CONTATO COM O CLIENTE - SALDO BRADESCO">SEM CONTATO COM O CLIENTE - SALDO BRADESCO</option>
                                         <option value="SALDO A MAIOR MOBILE COLETAR ASSINATURA">SALDO A MAIOR MOBILE COLETAR ASSINATURA</option>
                                         <option value="SEM CONTATO COM O CLIENTE - ANEXAR GRAVACAO">SEM CONTATO COM O CLIENTE - ANEXAR GRAVACAO</option>
-<<<<<<< HEAD
-=======
-
->>>>>>> 0563c2c81324ffc61d3867e25866fbaace9e43f3
                                     </select>
                                 </div>
 
@@ -843,13 +843,13 @@
                                     <label for="exampleFormControlSelect1">Tipo</label>
                                     <select class="form-control form-control-sm" id="tipo-filtro">
                                         <option> </option>
-                                        <option>FUNCIONARIO</option>
-                                        <option>GERENTE</option>
-                                        <option>GERENTE-MEI</option>
-                                        <option>PROMOTOR</option>
-                                        <option>PROMOTOR-MEI</option>
-                                        <option>SUPERVISOR</option>
-                                        <option>SUPERVISOR-MEI</option>
+                                        <option value="FUNCIONARIO">FUNCIONARIO</option>
+                                        <option value="GERENTE">GERENTE</option>
+                                        <option value="GENRENTE-MEI">GERENTE-MEI</option>
+                                        <option value="PROMOTOR">PROMOTOR</option>
+                                        <option value="PROMOTOR-MEI">PROMOTOR-MEI</option>
+                                        <option value="SUPERVISOR">SUPERVISOR</option>
+                                        <option value="SUPERVISOR-MEI">SUPERVISOR-MEI</option>
 
 
                                     </select>
@@ -909,7 +909,8 @@
 
                             <div class="col-md-3 mb-3">
                                 <label for="validationCustom01">Nova Proposta</label>
-                                <input type="text" class="form-control form-control-sm" id="nova-proposta-filtro">
+                                <input type="text" class="form-control form-control-sm" id="nova-proposta-filtro"
+                                    onKeyDown="fMasc( this, nContrtato );">
 
                             </div>
 
@@ -1140,8 +1141,8 @@
                                     <label for="exampleFormControlSelect1">Tipo Usuário Master</label>
                                     <select class="form-control form-control-sm" id="tp-usuario-master-filtro">
                                         <option> </option>
-                                        <option>PARCEIRO</option>
-                                        <option>PROMOTOR</option>
+                                        <option value="PARCEIRO">PARCEIRO</option>
+                                        <option value="PROMOTOR">PROMOTOR</option>
                                     </select>
                                 </div>
 

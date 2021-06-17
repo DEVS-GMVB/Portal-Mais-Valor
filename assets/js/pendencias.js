@@ -12,6 +12,10 @@ const gerenteFiltro = document.getElementById("gerente-filtro");
 //Eventos/Btns
 const filtroBtn = document.getElementById("btn-filtrar-busca");
 
+// estrutura de dados
+const mapHash = new Map();
+
+//Array 
 const arrays = {
     arrayProposta: arrayProposta = [],
 }
@@ -268,10 +272,12 @@ filtroBtn.addEventListener('click', async () => {
         telefoneconstanotfc.appendChild(telefoneconstanotfcText);
 
         arrays.arrayProposta.push(data[i].proposta)
+        mapHash.set(data[i].proposta, data[i]);
 
         anexos.innerHTML = `<td id="" class="text-right" style="text-align: center;">
                              <div class="actions ml-3" style="text-align: center;">
-                              <a href="#" class="action-item mr-2 " data-toggle="modal" title="download" >
+                              <a href="#" class="action-item mr-2 " data-toggle="modal" title="download" 
+                              onclick="downloadAnexo(mapHash.get(${data[i].proposta}))>
                                 <i class="fas fa-download"></i>
                               </a>
                              </div>
@@ -290,7 +296,7 @@ filtroBtn.addEventListener('click', async () => {
             alteraVisualiza.innerHTML =
                 `<div class="actions ml-3" style="text-align: center;">
             <a href="#" class="action-item mr-2 " data-toggle="modal" data-target=".modal-five-pend" title="Alterar">
-                <i class="fas fa-external-link-alt"></i>
+                <i class="fas fa-external-link-alt" onclick="modal5(arrays.arrayProposta[${i}])"></i>
             </a>
         </div>`
         } else if (data[i].status === "INFORMAR TABELA DE SALDO - BRADESCO") {
@@ -298,7 +304,7 @@ filtroBtn.addEventListener('click', async () => {
             alteraVisualiza.innerHTML =
                 `<div class="actions ml-3" style="text-align: center;">
             <a href="#" class="action-item mr-2 " data-toggle="modal" data-target=".modal-three-pend" title="Alterar">
-                <i class="fas fa-external-link-alt"></i>
+                <i class="fas fa-external-link-alt" onclick="modal3(arrays.arrayProposta[${i}])"></i>
             </a>
         </div>`
         } else if (data[i].status === "SALDO RECEBIDO - AGUARDANDO AUTORIZACAO") {
@@ -306,7 +312,7 @@ filtroBtn.addEventListener('click', async () => {
             alteraVisualiza.innerHTML =
                 `<div class="actions ml-3" style="text-align: center;">
             <a href="#" class="action-item mr-2 " data-toggle="modal" data-target=".modal-two-pend" title="Alterar">
-                <i class="fas fa-external-link-alt"></i>
+                <i class="fas fa-external-link-alt" onclick="modal2(arrays.arrayProposta[${i}])"></i>
             </a>
         </div>`
         } else if (data[i].status === "SEM CONTATO COM O CLIENTE - ANEXAR GRAVACAO") {
@@ -314,15 +320,15 @@ filtroBtn.addEventListener('click', async () => {
             alteraVisualiza.innerHTML =
                 `<div class="actions ml-3" style="text-align: center;">
             <a href="#" class="action-item mr-2 " data-toggle="modal" data-target=".modal-seven-pend" title="Alterar">
-                <i class="fas fa-external-link-alt" ></i>
+                <i class="fas fa-external-link-alt" onclick="modal7(arrays.arrayProposta[${i}])"></i>
             </a>
         </div>`
         } else {
             //Modal 4
             alteraVisualiza.innerHTML =
                 `<div class="actions ml-3" style="text-align: center;">
-            <a href="#" class="action-item mr-2 " data-toggle="modal" data-target=".modal-seven-pend" title="Alterar">
-                <i class="fas fa-external-link-alt"></i>
+            <a href="#" class="action-item mr-2 " data-toggle="modal" data-target=".modal-four-pend" title="Alterar">
+                <i class="fas fa-external-link-alt" onclick="modal4(arrays.arrayProposta[${i}])"></i>
             </a>
         </div>`
         }
@@ -349,6 +355,142 @@ function modal6(proposta) {
     fetch(`${URL}/user/pendencia/modal`, requestOptions).
     then(response => response.json().then(function (data) {
         $("#convenio-modal-6").val(data.convenio)
+        $("#produto-modal-6").val(data.produto)
+    })).catch(error => console.log('erro: ', error))
+
+}
+
+function modal5 (proposta){
+    console.log(proposta)
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+
+    var raw = JSON.stringify({
+        proposta: proposta
+    })
+
+    var requestOptions = {
+        method: 'POST',
+        headers: myHeaders,
+        body: raw,
+        redirect: 'follow'
+    }
+
+    fetch(`${URL}/user/pendencia/modal`, requestOptions).
+    then(response => response.json().then(function (data) {
+        $("#obs-pendencia-modal-5").val(data.obs_pendencia)
+        $("#cadastro1-modal-5").val(data.arq_cad1)
+        $("#cadastro2-modal-5").val(data.arq_cad2)
+        $("#cadastro3-modal-5").val(data.arq_cad3)
+        $("#cadastro4-modal-5").val(data.arq_cad4)
+        $("#cadastro5-modal-5").val(data.arq_cad1n)
+        $("#cadastro6-modal-5").val(data.arq_cad2n)
+        $("#cadastro7-modal-5").val(data.arq_cad3n)
+        $("#cadastro8-modal-5").val(data.arq_cad4n)
+    })).catch(error => console.log('erro: ', error))
+
+}
+
+function modal3(proposta) {
+    console.log(proposta)
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+
+    var raw = JSON.stringify({
+        proposta: proposta
+    })
+
+    var requestOptions = {
+        method: 'POST',
+        headers: myHeaders,
+        body: raw,
+        redirect: 'follow'
+    }
+
+    fetch(`${URL}/user/pendencia/modal`, requestOptions).
+    then(response => response.json().then(function (data) {
+        $("#tipo-modal-3").val(data.tipo)
+        $("#obs-pendencia-modal-3").val(data.obs_pendencia)
+        $("#saldo1-modal-3").val(data.saldo_port1)
+        $("#saldo2-modal-3").val(data.saldo_port2)
+        $("#saldo3-modal-3").val(data.saldo_port3)
+    })).catch(error => console.log('erro: ', error))
+
+}
+
+function modal2(proposta) {
+    console.log(proposta)
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+
+    var raw = JSON.stringify({
+        proposta: proposta
+    })
+
+    var requestOptions = {
+        method: 'POST',
+        headers: myHeaders,
+        body: raw,
+        redirect: 'follow'
+    }
+
+    fetch(`${URL}/user/pendencia/modal`, requestOptions).
+    then(response => response.json().then(function (data) {
+        $("#obs-pendencia-modal-2").val(data.obs_pendencia)
+    })).catch(error => console.log('erro: ', error))
+
+}
+
+function modal7(proposta) {
+    console.log(proposta)
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+
+    var raw = JSON.stringify({
+        proposta: proposta
+    })
+
+    var requestOptions = {
+        method: 'POST',
+        headers: myHeaders,
+        body: raw,
+        redirect: 'follow'
+    }
+
+    fetch(`${URL}/user/pendencia/modal`, requestOptions).
+    then(response => response.json().then(function (data) {
+        $("#novo-telefone-modal-6").val(data.telefone)
+        $("#obs-pendencia-modal-7").val(data.obs_pendencia)
+        $("#deseja-confirmacao-modal-7").val()
+        $("#data-confirmacao-modal-7").val()
+        $("#horario-confirmacao-modal-7").val(data.horario)
+    })).catch(error => console.log('erro: ', error))
+
+}
+
+function modal4(proposta) {
+    console.log(proposta)
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+
+    var raw = JSON.stringify({
+        proposta: proposta
+    })
+
+    var requestOptions = {
+        method: 'POST',
+        headers: myHeaders,
+        body: raw,
+        redirect: 'follow'
+    }
+
+    fetch(`${URL}/user/pendencia/modal`, requestOptions).
+    then(response => response.json().then(function (data) {
+        $("#obs-pendencia-modal-4").val(data.obs_pendencia)
+        $("#pendencia1-modal-4").val(data.arquivo_pendente1)
+        $("#pendencia2-modal-4").val(data.arquivo_pendente2)
+        $("#pendencia3-modal-4").val(data.arquivo_pendente1n)
+        $("#pendencia4-modal-4").val(data.arquivo_pendente2n)
     })).catch(error => console.log('erro: ', error))
 
 }
@@ -367,4 +509,12 @@ function modal6(proposta) {
         });
 
 
+    }
+
+    function downloadAnexo (obj) {
+        if(obj.proposta) {
+            window.location.href = `${URL}/pendencia/download?hash=${obj.arquivo1}`;
+        } else {
+            alert("Arquivo de contrato não inserido na base de dados");
+        }
     }
