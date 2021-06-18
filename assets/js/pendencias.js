@@ -380,7 +380,7 @@ function modal6(proposta) {
 
 function modal5(proposta) {
 
-    
+
     $('.needs-validation').each(function () {
         this.reset();
     });
@@ -426,7 +426,7 @@ function modal5(proposta) {
 
 function modal3(proposta) {
 
-    
+
     $('.needs-validation').each(function () {
         this.reset();
     });
@@ -583,7 +583,7 @@ function modal4(proposta) {
 
 }
 
-function modal4Update(data) {
+function updateFiles(data) {
     // $("#obs-pendencia-modal-4").val(data.observacao);
 
     const codigo = data.proposta;
@@ -596,10 +596,9 @@ function modal4Update(data) {
         formData.append(file.name, file.files[0]);
     });
 
-
 }
 
-function update(proposta){
+function update(proposta) {
 
     console.log(proposta)
     // console.log('oi')
@@ -614,10 +613,10 @@ function update(proposta){
     const obs2 = $("#obs-pendencia-modal-2").val()
 
     const body = {
-        proposta:proposta,
-        convenio:convenio6,
-        produto:produto6,
-        obs_pendencia: (obs5 !== "" && obs5 !== null)? obs5:obs3
+        proposta: proposta,
+        convenio: convenio6,
+        produto: produto6,
+        obs_pendencia: (obs5 !== "" && obs5 !== null) ? obs5 : obs3
     }
 
     const raw = JSON.stringify(body)
@@ -630,7 +629,7 @@ function update(proposta){
     }
 
     fetch(`${URL}/user/pendencia/alterar`, requestOptions).
-    then(response => response.json().then(function (data){
+    then(response => response.json().then(function (data) {
         console.log(body)
         console.log('alterado')
     }))

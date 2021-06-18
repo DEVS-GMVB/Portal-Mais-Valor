@@ -108,7 +108,7 @@ changeInserir.addEventListener('click', () => {
         proposta: numeroProposta.value,
         data_envio: dataCadastroIncluir.value,
         banco: banco.value,
-        // status:status.value,
+        status:status.value,
         produto: produto.value,
         tipo: tipoOperacao.value,
         entregue: valorEntregue.value,
@@ -160,6 +160,7 @@ changeInserir.addEventListener('click', () => {
 
           // console.log(data);
           var codigo = data.codigo;
+          console.log(codigo)
 
           var input = document.querySelectorAll('form#files input[type="file"]')
 
