@@ -232,7 +232,7 @@ filtroBtn.addEventListener('click', async () => {
         let api_sim = row.insertCell(-1);
         let gravacao = row.insertCell(-1);
         let telefoneconstanotfc = row.insertCell(-1);
-        let anexos = row.insertCell(-1);
+        //let anexos = row.insertCell(-1);
         let alteraVisualiza = row.insertCell(-1);
 
 
@@ -280,14 +280,13 @@ filtroBtn.addEventListener('click', async () => {
         arrays.arrayProposta.push(data[i].proposta)
         mapHash.set(data[i].proposta, data[i]);
 
-        anexos.innerHTML = `<td id="" class="text-right" style="text-align: center;">
-                             <div class="actions ml-3" style="text-align: center;">
-                              <a href="#" class="action-item mr-2 " data-toggle="modal" title="download" 
-                              onclick="downloadAnexo(mapHash.get(${data[i].proposta}))>
-                                <i class="fas fa-download"></i>
-                              </a>
-                             </div>
-                           </td>`;
+        // anexos.innerHTML = `<td id="" class="text-right" style="text-align: center;">
+        //                      <div class="actions ml-3" style="text-align: center;">
+        //                       <a href="#" class="action-item mr-2 " data-toggle="modal" title="download">
+        //                         <i class="fas fa-download" onclick="downloadAnexo(mapHash.get(${data[i].proposta}))"></i>
+        //                       </a>
+        //                      </div>
+        //                    </td>`;
 
         if (data[i].status === "MODALIDADE DIVERGENTE ENTRE CSG E CONTRATO" || data[i].status === "CONVENIO DIVERGENTE DA CCB") {
             //Modal 6
@@ -344,6 +343,10 @@ filtroBtn.addEventListener('click', async () => {
 
 function modal6(proposta) {
 
+    $('.needs-validation').each(function () {
+        this.reset();
+    });
+
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
 
@@ -364,9 +367,24 @@ function modal6(proposta) {
         $("#produto-modal-6").val(data.produto)
     })).catch(error => console.log('erro: ', error))
 
+    document.getElementById('div-btn-modal-6').innerHTML = `
+        <button type="button" class="btn btn-primary btn-icon-label" id="btn-incluir-modal-6"
+        onclick="update(${proposta})">
+                                <span class="btn-inner--icon">
+                                    <i class="fas fa-plus"></i>
+                                </span>
+                                <span class="btn-inner--text">Salvar Alteração 6</span>
+                            </button>`
+
 }
 
 function modal5(proposta) {
+
+    
+    $('.needs-validation').each(function () {
+        this.reset();
+    });
+
     console.log(proposta)
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
@@ -395,9 +413,24 @@ function modal5(proposta) {
         $("#cadastro8-modal-5").val(data.arq_cad4n)
     })).catch(error => console.log('erro: ', error))
 
+    document.getElementById('div-btn-modal-5').innerHTML = `
+        <button type="button" class="btn btn-primary btn-icon-label" id="btn-incluir-modal-5"
+        onclick="update(${proposta})">
+                                <span class="btn-inner--icon">
+                                    <i class="fas fa-plus"></i>
+                                </span>
+                                <span class="btn-inner--text">Salvar Alteração 5</span>
+                            </button>`
+
 }
 
 function modal3(proposta) {
+
+    
+    $('.needs-validation').each(function () {
+        this.reset();
+    });
+
     console.log(proposta)
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
@@ -422,9 +455,23 @@ function modal3(proposta) {
         $("#saldo3-modal-3").val(data.saldo_port3)
     })).catch(error => console.log('erro: ', error))
 
+    document.getElementById('div-btn-modal-3').innerHTML = `
+<button type="button" class="btn btn-primary btn-icon-label" id="btn-incluir-modal-3"
+onclick="update(${proposta})">
+                        <span class="btn-inner--icon">
+                            <i class="fas fa-plus"></i>
+                        </span>
+                        <span class="btn-inner--text">Salvar Alteração 3</span>
+                    </button>`
+
 }
 
 function modal2(proposta) {
+
+    $('.needs-validation').each(function () {
+        this.reset();
+    });
+
     console.log(proposta)
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
@@ -445,9 +492,23 @@ function modal2(proposta) {
         $("#obs-pendencia-modal-2").val(data.obs_pendencia)
     })).catch(error => console.log('erro: ', error))
 
+    document.getElementById('div-btn-modal-2').innerHTML = `
+    <button type="button" class="btn btn-primary btn-icon-label" id="btn-incluir-modal-2"
+    onclick="update(${proposta})">
+                            <span class="btn-inner--icon">
+                                <i class="fas fa-plus"></i>
+                            </span>
+                            <span class="btn-inner--text">Salvar Alteração 2</span>
+                        </button>`
+
 }
 
 function modal7(proposta) {
+
+    $('.needs-validation').each(function () {
+        this.reset();
+    });
+
     console.log(proposta)
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
@@ -472,9 +533,22 @@ function modal7(proposta) {
         $("#horario-confirmacao-modal-7").val(data.horario)
     })).catch(error => console.log('erro: ', error))
 
+    document.getElementById('div-btn-modal-7').innerHTML = `
+<button type="button" class="btn btn-primary btn-icon-label" id="btn-incluir-modal-7">
+                        <span class="btn-inner--icon">
+                            <i class="fas fa-plus"></i>
+                        </span>
+                        <span class="btn-inner--text">Salvar Alteração 7</span>
+                    </button>`
+
 }
 
 function modal4(proposta) {
+
+    $('.needs-validation').each(function () {
+        this.reset();
+    });
+
     console.log(proposta)
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
@@ -499,6 +573,14 @@ function modal4(proposta) {
         $("#pendencia4-modal-4").val(data.arquivo_pendente2n)
     })).catch(error => console.log('erro: ', error))
 
+    document.getElementById('div-btn-modal-4').innerHTML = `
+<button type="button" class="btn btn-primary btn-icon-label" id="btn-incluir-modal-4">
+                        <span class="btn-inner--icon">
+                            <i class="fas fa-plus"></i>
+                        </span>
+                        <span class="btn-inner--text">Salvar Alteração 4</span>
+                    </button>`
+
 }
 
 function modal4Update(data) {
@@ -517,6 +599,39 @@ function modal4Update(data) {
 
 }
 
-function downloadFile({arquivo_pendente1}) {
+function update(proposta){
 
+    console.log(proposta)
+    // console.log('oi')
+
+    const myheaders = new Headers()
+    myheaders.append('Content-Type', 'application/json')
+
+    const convenio6 = $("#convenio-modal-6").val()
+    const produto6 = $("#produto-modal-6").val()
+    const obs5 = $("#obs-pendencia-modal-5").val()
+    const obs3 = $("#obs-pendencia-modal-3").val()
+    const obs2 = $("#obs-pendencia-modal-2").val()
+
+    const body = {
+        proposta:proposta,
+        convenio:convenio6,
+        produto:produto6,
+        obs_pendencia: (obs5 !== "" && obs5 !== null)? obs5:obs3
+    }
+
+    const raw = JSON.stringify(body)
+
+    const requestOptions = {
+        method: 'POST',
+        headers: myheaders,
+        body: raw,
+        redirect: 'follow'
+    }
+
+    fetch(`${URL}/user/pendencia/alterar`, requestOptions).
+    then(response => response.json().then(function (data){
+        console.log(body)
+        console.log('alterado')
+    }))
 }
