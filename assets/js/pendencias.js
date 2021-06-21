@@ -17,7 +17,7 @@ const bancoModal8 = document.getElementById("banco-cliente-modal-8");
 const filtroBtn = document.getElementById("btn-filtrar-busca");
 
 // estrutura de dados
-const mapHash = new Map();
+const mapRows = new Map();
 
 //Array 
 const arrays = {
@@ -278,7 +278,7 @@ filtroBtn.addEventListener('click', async () => {
         telefoneconstanotfc.appendChild(telefoneconstanotfcText);
 
         arrays.arrayProposta.push(data[i].proposta)
-        mapHash.set(data[i].proposta, data[i]);
+        mapRows.set(data[i].proposta, row);
 
         // anexos.innerHTML = `<td id="" class="text-right" style="text-align: center;">
         //                      <div class="actions ml-3" style="text-align: center;">
@@ -369,13 +369,81 @@ function modal6(proposta) {
 
     document.getElementById('div-btn-modal-6').innerHTML = `
         <button type="button" class="btn btn-primary btn-icon-label" id="btn-incluir-modal-6"
-        onclick="update(${proposta})">
+        onclick="update6(${proposta})">
                                 <span class="btn-inner--icon">
                                     <i class="fas fa-plus"></i>
                                 </span>
                                 <span class="btn-inner--text">Salvar Alteração 6</span>
                             </button>`
 
+}
+
+function update6(proposta) {
+
+    console.log(proposta)
+    // console.log('oi')
+
+    const myheaders = new Headers()
+    myheaders.append('Content-Type', 'application/json')
+
+    const convenio6 = $("#convenio-modal-6").val()
+    const produto6 = $("#produto-modal-6").val()
+
+    const body = {
+        proposta: proposta,
+        convenio: convenio6,
+        produto: produto6,
+    }
+
+    const raw = JSON.stringify(body)
+
+    const requestOptions = {
+        method: 'POST',
+        headers: myheaders,
+        body: raw,
+        redirect: 'follow'
+    }
+
+    fetch(`${URL}/user/pendencia/alterar`, requestOptions).
+    then(response => response.json().then(function (data) {
+        $('#sucesso6').show();
+        $('#sucesso6').fadeIn(300).delay(3000).fadeOut(400);
+        document.getElementById("sucesso6").textContent = "Pendência alterada com sucesso!"
+
+        document.getElementById("list").innerHTML =
+            `<td style="text-align: center;">
+        <span class="badge badge-dot">
+            <i class="bg-success"></i>${data.proposta}
+        </span>
+    </td>
+
+    <td style="text-align: center;"> ${data.nome}</td>
+    <td style="text-align: center;"> ${data.cpf}</td>
+    <td style="text-align: center;"> ${data.data_envio}</td>
+    <td style="text-align: center;"> ${data.parceiro}</td>
+    <td style="text-align: center;"> ${data.entregue}</td>
+    <td style="text-align: center;"> ${data.valor_troco}</td>
+    <td style="text-align: center;"> ${data.convenio}</td>
+    <td style="text-align: center;"> ${data.banco}</td>
+    <td style="text-align: center;"> ${data.produto}</td>
+    <td style="text-align: center;"> ${data.tipo}</td>
+    <td style="text-align: center;"> ${data.status}</td>
+    <td style="text-align: center;"> ${data.sub_status}</td>
+    <td style="text-align: center;"> ${data.data_atualizacao} </td>
+    <td style="text-align: center;"> ${data.qtd_robo}</td>
+    <td style="text-align: center;"> ${data.data_log1}</td>
+    <td style="text-align: center;"> ${data.previsao_retorno} </td>
+    <td style="text-align: center;"> ${data.id_sim}</td>
+    <td style="text-align: center;"> ${data.gravacao}</td>
+    <td style="text-align: center;"> ${data.tfc}</td>
+    <td style="text-align: center;">
+    
+    <div class="actions ml-3" style="text-align: center;">
+                        <a href="#" class="action-item mr-2 " data-toggle="modal" data-target=".modal-six-pend" title="Alterar">
+                            <i class="fas fa-external-link-alt" onclick="modal6(${proposta})"></i>
+                        </a>
+                    </div> </td>`
+    }))
 }
 
 function modal5(proposta) {
@@ -403,25 +471,52 @@ function modal5(proposta) {
     fetch(`${URL}/user/pendencia/modal`, requestOptions).
     then(response => response.json().then(function (data) {
         $("#obs-pendencia-modal-5").val(data.obs_pendencia)
-        $("#cadastro1-modal-5").val(data.arq_cad1)
-        $("#cadastro2-modal-5").val(data.arq_cad2)
-        $("#cadastro3-modal-5").val(data.arq_cad3)
-        $("#cadastro4-modal-5").val(data.arq_cad4)
-        $("#cadastro5-modal-5").val(data.arq_cad1n)
-        $("#cadastro6-modal-5").val(data.arq_cad2n)
-        $("#cadastro7-modal-5").val(data.arq_cad3n)
-        $("#cadastro8-modal-5").val(data.arq_cad4n)
     })).catch(error => console.log('erro: ', error))
 
     document.getElementById('div-btn-modal-5').innerHTML = `
         <button type="button" class="btn btn-primary btn-icon-label" id="btn-incluir-modal-5"
-        onclick="update(${proposta})">
+        onclick="update5(${proposta})">
                                 <span class="btn-inner--icon">
                                     <i class="fas fa-plus"></i>
                                 </span>
                                 <span class="btn-inner--text">Salvar Alteração 5</span>
                             </button>`
 
+}
+
+function update5(proposta) {
+
+    console.log(proposta)
+    // console.log('oi')
+
+    const myheaders = new Headers()
+    myheaders.append('Content-Type', 'application/json')
+
+    const obs = $("#obs-pendencia-modal-5").val()
+
+    const body = {
+        proposta: proposta,
+        obs_pendencia: obs
+    }
+
+    const raw = JSON.stringify(body)
+
+    const requestOptions = {
+        method: 'POST',
+        headers: myheaders,
+        body: raw,
+        redirect: 'follow'
+    }
+
+    fetch(`${URL}/user/pendencia/alterar`, requestOptions).
+    then(response => response.json().then(async function (data) {
+        const data2 = await updateFilesModal5(data.proposta);
+        console.log(data2);
+
+        $('#sucesso5').show();
+        $('#sucesso5').fadeIn(300).delay(3000).fadeOut(400);
+        document.getElementById("sucesso5").textContent = "Pendência alterada com sucesso!"
+    }))
 }
 
 function modal3(proposta) {
@@ -448,22 +543,90 @@ function modal3(proposta) {
 
     fetch(`${URL}/user/pendencia/modal`, requestOptions).
     then(response => response.json().then(function (data) {
-        $("#tipo-modal-3").val(data.tipo)
-        $("#obs-pendencia-modal-3").val(data.obs_pendencia)
-        $("#saldo1-modal-3").val(data.saldo_port1)
-        $("#saldo2-modal-3").val(data.saldo_port2)
-        $("#saldo3-modal-3").val(data.saldo_port3)
+        $("#tipo-modal-3").val(data.tipo);
+        $("#obs-pendencia-modal-3").val(data.obs_pendencia);
     })).catch(error => console.log('erro: ', error))
 
     document.getElementById('div-btn-modal-3').innerHTML = `
 <button type="button" class="btn btn-primary btn-icon-label" id="btn-incluir-modal-3"
-onclick="update(${proposta})">
+onclick="update3(${proposta})">
                         <span class="btn-inner--icon">
                             <i class="fas fa-plus"></i>
                         </span>
                         <span class="btn-inner--text">Salvar Alteração 3</span>
                     </button>`
 
+}
+
+function update3(proposta) {
+    const myheaders = new Headers()
+    myheaders.append('Content-Type', 'application/json')
+
+    const tipo = $("#tipo-modal-3").val()
+    const obs = $("#obs-pendencia-modal-3").val()
+
+    const body = {
+        proposta: proposta,
+        tipo: tipo,
+        obs_pendencia: obs
+    }
+
+    const raw = JSON.stringify(body)
+
+    const requestOptions = {
+        method: 'POST',
+        headers: myheaders,
+        body: raw,
+        redirect: 'follow'
+    }
+
+    fetch(`${URL}/user/pendencia/alterar`, requestOptions).
+    then(response => response.json().then(async function (data) {
+        console.log(data);
+        updateFilesModal3(data.proposta);
+
+        updateTable(data, mapRows.get(data.proposta));
+
+        $('#sucesso3').show();
+        $('#sucesso3').fadeIn(300).delay(3000).fadeOut(400);
+        document.getElementById("sucesso3").textContent = "Pendência alterada com sucesso!";
+
+
+        //     document.getElementById("list").innerHTML =
+        //         `<td style="text-align: center;">
+        //     <span class="badge badge-dot">
+        //         <i class="bg-success"></i>${data.proposta}
+        //     </span>
+        // </td>
+
+        // <td style="text-align: center;"> ${data.nome}</td>
+        // <td style="text-align: center;"> ${data.cpf}</td>
+        // <td style="text-align: center;"> ${data.data_envio}</td>
+        // <td style="text-align: center;"> ${data.parceiro}</td>
+        // <td style="text-align: center;"> ${data.entregue}</td>
+        // <td style="text-align: center;"> ${data.valor_troco}</td>
+        // <td style="text-align: center;"> ${(data.convenio)}</td>
+        // <td style="text-align: center;"> ${data.banco_origi}</td>
+        // <td style="text-align: center;"> ${data.produto}</td>
+        // <td style="text-align: center;"> ${data.tipo}</td>
+        // <td style="text-align: center;"> ${data.status}</td>
+        // <td style="text-align: center;"> ${data.sub_status}</td>
+        // <td style="text-align: center;"> ${data.data_atualizacao} </td>
+        // <td style="text-align: center;"> ${data.qtd_robo}</td>
+        // <td style="text-align: center;"> ${data.data_log1}</td>
+        // <td style="text-align: center;"> ${data.previsao_retorno} </td>
+        // <td style="text-align: center;"> ${data.id_sim}</td>
+        // <td style="text-align: center;"> ${data.gravacao}</td>
+        // <td style="text-align: center;"> ${data.tfc}</td>
+
+        // <td style="text-align: center;">
+
+        // <div class="actions ml-3" style="text-align: center;">
+        //                     <a href="#" class="action-item mr-2 " data-toggle="modal" data-target=".modal-six-pend" title="Alterar">
+        //                         <i class="fas fa-external-link-alt" onclick="modal3(${proposta})"></i>
+        //                     </a>
+        //                 </div> </td>`
+    }))
 }
 
 function modal2(proposta) {
@@ -494,13 +657,45 @@ function modal2(proposta) {
 
     document.getElementById('div-btn-modal-2').innerHTML = `
     <button type="button" class="btn btn-primary btn-icon-label" id="btn-incluir-modal-2"
-    onclick="update(${proposta})">
+    onclick="update2(${proposta})">
                             <span class="btn-inner--icon">
                                 <i class="fas fa-plus"></i>
                             </span>
                             <span class="btn-inner--text">Salvar Alteração 2</span>
                         </button>`
 
+}
+
+function update2(proposta) {
+
+    console.log(proposta)
+    // console.log('oi')
+
+    const myheaders = new Headers()
+    myheaders.append('Content-Type', 'application/json')
+
+    const obs = $("#obs-pendencia-modal-2").val()
+
+    const body = {
+        proposta: proposta,
+        obs_pendencia: obs
+    }
+
+    const raw = JSON.stringify(body)
+
+    const requestOptions = {
+        method: 'POST',
+        headers: myheaders,
+        body: raw,
+        redirect: 'follow'
+    }
+
+    fetch(`${URL}/user/pendencia/alterar`, requestOptions).
+    then(response => response.json().then(function (data) {
+        $('#sucesso2').show();
+        $('#sucesso2').fadeIn(300).delay(3000).fadeOut(400);
+        document.getElementById("sucesso2").textContent = "Pendência alterada com sucesso!"
+    }))
 }
 
 function modal7(proposta) {
@@ -534,13 +729,53 @@ function modal7(proposta) {
     })).catch(error => console.log('erro: ', error))
 
     document.getElementById('div-btn-modal-7').innerHTML = `
-<button type="button" class="btn btn-primary btn-icon-label" id="btn-incluir-modal-7">
+<button type="button" class="btn btn-primary btn-icon-label" id="btn-incluir-modal-7"
+onclick="update7(${proposta})">
                         <span class="btn-inner--icon">
                             <i class="fas fa-plus"></i>
                         </span>
                         <span class="btn-inner--text">Salvar Alteração 7</span>
                     </button>`
 
+}
+
+function update7(proposta) {
+
+    console.log(proposta)
+    // console.log('oi')
+
+    const myheaders = new Headers()
+    myheaders.append('Content-Type', 'application/json')
+
+    const telefone = $("#novo-telefone-modal-6").val()
+    const obs = $("#obs-pendencia-modal-7").val()
+    //const agendamento = $("#deseja-confirmacao-modal-7").val()
+    const data = $("#data-confirmacao-modal-7").val()
+    const horario = $("#horario-confirmacao-modal-7").val()
+
+    const body = {
+        proposta: proposta,
+        obs_pendencia: obs,
+        telefone: telefone,
+        horario: horario,
+        agendamento: data
+    }
+
+    const raw = JSON.stringify(body)
+
+    const requestOptions = {
+        method: 'POST',
+        headers: myheaders,
+        body: raw,
+        redirect: 'follow'
+    }
+
+    fetch(`${URL}/user/pendencia/alterar`, requestOptions).
+    then(response => response.json().then(function (data) {
+        $('#sucesso7').show();
+        $('#sucesso7').fadeIn(300).delay(3000).fadeOut(400);
+        document.getElementById("sucesso7").textContent = "Pendência alterada com sucesso!"
+    }))
 }
 
 function modal4(proposta) {
@@ -567,14 +802,11 @@ function modal4(proposta) {
     fetch(`${URL}/user/pendencia/modal`, requestOptions).
     then(response => response.json().then(function (data) {
         $("#obs-pendencia-modal-4").val(data.obs_pendencia)
-        $("#pendencia1-modal-4").val(data.arquivo_pendente1)
-        $("#pendencia2-modal-4").val(data.arquivo_pendente2)
-        $("#pendencia3-modal-4").val(data.arquivo_pendente1n)
-        $("#pendencia4-modal-4").val(data.arquivo_pendente2n)
     })).catch(error => console.log('erro: ', error))
 
     document.getElementById('div-btn-modal-4').innerHTML = `
-<button type="button" class="btn btn-primary btn-icon-label" id="btn-incluir-modal-4">
+    <button type="button" class="btn btn-primary btn-icon-label" id="btn-incluir-modal-4"
+    onclick="update4(${proposta})">
                         <span class="btn-inner--icon">
                             <i class="fas fa-plus"></i>
                         </span>
@@ -583,40 +815,15 @@ function modal4(proposta) {
 
 }
 
-function updateFiles(data) {
-    // $("#obs-pendencia-modal-4").val(data.observacao);
-
-    const codigo = data.proposta;
-
-    const formData = new FormData();
-
-    const fields = document.querySelectorAll("form-modal4 input[type='file']");
-
-    fields.forEach(file => {
-        formData.append(file.name, file.files[0]);
-    });
-
-}
-
-function update(proposta) {
-
-    console.log(proposta)
-    // console.log('oi')
-
+function update4(proposta) {
     const myheaders = new Headers()
     myheaders.append('Content-Type', 'application/json')
 
-    const convenio6 = $("#convenio-modal-6").val()
-    const produto6 = $("#produto-modal-6").val()
-    const obs5 = $("#obs-pendencia-modal-5").val()
-    const obs3 = $("#obs-pendencia-modal-3").val()
-    const obs2 = $("#obs-pendencia-modal-2").val()
+    const obs = $("#obs-pendencia-modal-4").val()
 
     const body = {
         proposta: proposta,
-        convenio: convenio6,
-        produto: produto6,
-        obs_pendencia: (obs5 !== "" && obs5 !== null) ? obs5 : obs3
+        obs_pendencia: obs
     }
 
     const raw = JSON.stringify(body)
@@ -629,8 +836,106 @@ function update(proposta) {
     }
 
     fetch(`${URL}/user/pendencia/alterar`, requestOptions).
-    then(response => response.json().then(function (data) {
-        console.log(body)
-        console.log('alterado')
+    then(response => response.json().then(async function (data) {
+        const data2 = await updateFilesModal4(data.proposta);
+
+        $('#sucesso4').show();
+        $('#sucesso4').fadeIn(300).delay(3000).fadeOut(400);
+        document.getElementById("sucesso4").textContent = "Pendência alterada com sucesso!"
     }))
+}
+
+async function updateFilesModal4(proposta) {
+    const fields = document.querySelectorAll("#arquivos-campos input[type='file']");
+
+    const formdata = new FormData();
+    formdata.append("arquivo_pendente1", fields[0].files[0]);
+    formdata.append("arquivo_pendente2", fields[1].files[0]);
+    formdata.append("arquivo_pendente1n", fields[2].files[0]);
+    formdata.append("arquivo_pendente2n", fields[3].files[0]);
+
+
+    const requestOptions = {
+        method: 'POST',
+        body: formdata,
+        redirect: 'follow'
+    };
+
+    const dataResult = await fetch(`${URL}/user/pendencia/arquivo?proposta=${proposta}`, requestOptions)
+        .then(response => response.json())
+        .catch(error => console.log('error', error));
+
+    return dataResult;
+}
+
+async function updateFilesModal3(proposta) {
+    const fields = document.querySelectorAll("#form1-modal-3 input[type='file']");
+    console.log(fields);
+
+    const formdata = new FormData();
+    formdata.append("saldo_port1", fields[0].files[0]);
+    formdata.append("saldo_port2", fields[1].files[0]);
+
+    const requestOptions = {
+        method: 'POST',
+        body: formdata,
+        redirect: 'follow'
+    };
+
+    const dataResult = await fetch(`${URL}/user/pendencia/arquivo?proposta=${proposta}`, requestOptions)
+        .then(response => response.json())
+        .catch(error => console.log('error', error));
+
+    return dataResult;
+}
+
+async function updateFilesModal5(proposta) {
+    const fields = document.querySelectorAll("#form1-modal-5 input[type='file']");
+
+    const formdata = new FormData();
+    formdata.append("arq_cad1", fields[0].files[0]);
+    formdata.append("arq_cad2", fields[1].files[0]);
+    formdata.append("arq_cad3", fields[2].files[0]);
+    formdata.append("arq_cad4", fields[3].files[0]);
+    formdata.append("arq_cad1n", fields[4].files[0]);
+    formdata.append("arq_cad2n", fields[5].files[0]);
+    formdata.append("arq_cad3n", fields[6].files[0]);
+    formdata.append("arq_cad4n", fields[7].files[0]);
+
+    const requestOptions = {
+        method: 'POST',
+        body: formdata,
+        redirect: 'follow'
+    };
+
+    const dataResult = await fetch(`${URL}/user/pendencia/arquivo?proposta=${proposta}`, requestOptions)
+        .then(response => response.json())
+        .catch(error => console.log('error', error));
+
+    return dataResult;
+}
+
+function updateTable(data, row) {
+    const r = row.cells;
+
+    r[0].textContent = data.proposta
+    r[1].textContent = data.nome
+    r[2].textContent = data.cpf
+    r[3].textContent = data.data_envio
+    r[4].textContent = data.parceiro
+    r[5].textContent = data.entregue
+    r[6].textContent = data.valor_troco
+    r[7].textContent = data.convenio
+    r[8].textContent = data.banco_origi
+    r[9].textContent = data.produto
+    r[10].textContent = data.tipo
+    r[11].textContent = data.status
+    r[12].textContent = data.sub_status
+    r[13].textContent = data.data_atualizacao
+    r[14].textContent = data.qtd_robo     
+    r[15].textContent = data.data_log1
+    r[16].textContent = data.previsao_retorno
+    r[17].textContent = data.id_sim
+    r[18].textContent = data.gravacao
+    r[19].textContent = data.tfc
 }
