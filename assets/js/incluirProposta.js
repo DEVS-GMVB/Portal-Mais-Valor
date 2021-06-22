@@ -91,6 +91,7 @@ const changeInserir = document.getElementById("changeInsert");
 changeInserir.addEventListener('click', () => {
   quebraReferenciaModaisProxy.trocaButtonInsert();
   quebraReferenciaModaisProxy.limparCampos();
+  desbloqueiaCampos();
 
   const idTrocar = document.getElementById("id-trocar")
 
@@ -107,7 +108,7 @@ changeInserir.addEventListener('click', () => {
         gerente: dataSession.supervisor,
         proposta: numeroProposta.value,
         data_envio: dataCadastroIncluir.value,
-        banco: banco.value,
+        banco_origi: banco.value,
         status:status.value,
         produto: produto.value,
         tipo: tipoOperacao.value,

@@ -379,10 +379,6 @@ function modal6(proposta) {
 }
 
 function update6(proposta) {
-
-    console.log(proposta)
-    // console.log('oi')
-
     const myheaders = new Headers()
     myheaders.append('Content-Type', 'application/json')
 
@@ -406,43 +402,46 @@ function update6(proposta) {
 
     fetch(`${URL}/user/pendencia/alterar`, requestOptions).
     then(response => response.json().then(function (data) {
+        console.log(data);
+        updateTable(data, mapRows.get(data.proposta));
+
         $('#sucesso6').show();
         $('#sucesso6').fadeIn(300).delay(3000).fadeOut(400);
-        document.getElementById("sucesso6").textContent = "Pendência alterada com sucesso!"
+        document.getElementById("sucesso6").textContent = "Pendência alterada com sucesso!";
 
-        document.getElementById("list").innerHTML =
-            `<td style="text-align: center;">
-        <span class="badge badge-dot">
-            <i class="bg-success"></i>${data.proposta}
-        </span>
-    </td>
+        //     document.getElementById("list").innerHTML =
+        //         `<td style="text-align: center;">
+        //     <span class="badge badge-dot">
+        //         <i class="bg-success"></i>${data.proposta}
+        //     </span>
+        // </td>
 
-    <td style="text-align: center;"> ${data.nome}</td>
-    <td style="text-align: center;"> ${data.cpf}</td>
-    <td style="text-align: center;"> ${data.data_envio}</td>
-    <td style="text-align: center;"> ${data.parceiro}</td>
-    <td style="text-align: center;"> ${data.entregue}</td>
-    <td style="text-align: center;"> ${data.valor_troco}</td>
-    <td style="text-align: center;"> ${data.convenio}</td>
-    <td style="text-align: center;"> ${data.banco}</td>
-    <td style="text-align: center;"> ${data.produto}</td>
-    <td style="text-align: center;"> ${data.tipo}</td>
-    <td style="text-align: center;"> ${data.status}</td>
-    <td style="text-align: center;"> ${data.sub_status}</td>
-    <td style="text-align: center;"> ${data.data_atualizacao} </td>
-    <td style="text-align: center;"> ${data.qtd_robo}</td>
-    <td style="text-align: center;"> ${data.data_log1}</td>
-    <td style="text-align: center;"> ${data.previsao_retorno} </td>
-    <td style="text-align: center;"> ${data.id_sim}</td>
-    <td style="text-align: center;"> ${data.gravacao}</td>
-    <td style="text-align: center;"> ${data.tfc}</td>
-    <td style="text-align: center;">
-    
-    <div class="actions ml-3" style="text-align: center;">
-                        <a href="#" class="action-item mr-2 " data-toggle="modal" data-target=".modal-six-pend" title="Alterar">
-                            <i class="fas fa-external-link-alt" onclick="modal6(${proposta})"></i>
-                        </a>
-                    </div> </td>`
+        // <td style="text-align: center;"> ${data.nome}</td>
+        // <td style="text-align: center;"> ${data.cpf}</td>
+        // <td style="text-align: center;"> ${data.data_envio}</td>
+        // <td style="text-align: center;"> ${data.parceiro}</td>
+        // <td style="text-align: center;"> ${data.entregue}</td>
+        // <td style="text-align: center;"> ${data.valor_troco}</td>
+        // <td style="text-align: center;"> ${data.convenio}</td>
+        // <td style="text-align: center;"> ${data.banco}</td>
+        // <td style="text-align: center;"> ${data.produto}</td>
+        // <td style="text-align: center;"> ${data.tipo}</td>
+        // <td style="text-align: center;"> ${data.status}</td>
+        // <td style="text-align: center;"> ${data.sub_status}</td>
+        // <td style="text-align: center;"> ${data.data_atualizacao} </td>
+        // <td style="text-align: center;"> ${data.qtd_robo}</td>
+        // <td style="text-align: center;"> ${data.data_log1}</td>
+        // <td style="text-align: center;"> ${data.previsao_retorno} </td>
+        // <td style="text-align: center;"> ${data.id_sim}</td>
+        // <td style="text-align: center;"> ${data.gravacao}</td>
+        // <td style="text-align: center;"> ${data.tfc}</td>
+        // <td style="text-align: center;">
+
+        // <div class="actions ml-3" style="text-align: center;">
+        //                     <a href="#" class="action-item mr-2 " data-toggle="modal" data-target=".modal-six-pend" title="Alterar">
+        //                         <i class="fas fa-external-link-alt" onclick="modal6(${proposta})"></i>
+        //                     </a>
+        //                 </div> </td>`
     }))
 }
 
@@ -485,10 +484,6 @@ function modal5(proposta) {
 }
 
 function update5(proposta) {
-
-    console.log(proposta)
-    // console.log('oi')
-
     const myheaders = new Headers()
     myheaders.append('Content-Type', 'application/json')
 
@@ -511,7 +506,8 @@ function update5(proposta) {
     fetch(`${URL}/user/pendencia/alterar`, requestOptions).
     then(response => response.json().then(async function (data) {
         const data2 = await updateFilesModal5(data.proposta);
-        console.log(data2);
+
+        updateTable(data, mapRows.get(data.proposta));
 
         $('#sucesso5').show();
         $('#sucesso5').fadeIn(300).delay(3000).fadeOut(400);
@@ -630,7 +626,6 @@ function update3(proposta) {
 }
 
 function modal2(proposta) {
-
     $('.needs-validation').each(function () {
         this.reset();
     });
@@ -667,10 +662,6 @@ function modal2(proposta) {
 }
 
 function update2(proposta) {
-
-    console.log(proposta)
-    // console.log('oi')
-
     const myheaders = new Headers()
     myheaders.append('Content-Type', 'application/json')
 
@@ -692,6 +683,8 @@ function update2(proposta) {
 
     fetch(`${URL}/user/pendencia/alterar`, requestOptions).
     then(response => response.json().then(function (data) {
+        updateTable(data, mapRows.get(data.proposta));
+
         $('#sucesso2').show();
         $('#sucesso2').fadeIn(300).delay(3000).fadeOut(400);
         document.getElementById("sucesso2").textContent = "Pendência alterada com sucesso!"
@@ -740,10 +733,6 @@ onclick="update7(${proposta})">
 }
 
 function update7(proposta) {
-
-    console.log(proposta)
-    // console.log('oi')
-
     const myheaders = new Headers()
     myheaders.append('Content-Type', 'application/json')
 
@@ -772,6 +761,8 @@ function update7(proposta) {
 
     fetch(`${URL}/user/pendencia/alterar`, requestOptions).
     then(response => response.json().then(function (data) {
+        updateTable(data, mapRows.get(data.proposta));
+
         $('#sucesso7').show();
         $('#sucesso7').fadeIn(300).delay(3000).fadeOut(400);
         document.getElementById("sucesso7").textContent = "Pendência alterada com sucesso!"
@@ -837,6 +828,8 @@ function update4(proposta) {
 
     fetch(`${URL}/user/pendencia/alterar`, requestOptions).
     then(response => response.json().then(async function (data) {
+        updateTable(data, mapRows.get(data.proposta));
+
         const data2 = await updateFilesModal4(data.proposta);
 
         $('#sucesso4').show();
@@ -932,7 +925,7 @@ function updateTable(data, row) {
     r[11].textContent = data.status
     r[12].textContent = data.sub_status
     r[13].textContent = data.data_atualizacao
-    r[14].textContent = data.qtd_robo     
+    r[14].textContent = data.qtd_robo
     r[15].textContent = data.data_log1
     r[16].textContent = data.previsao_retorno
     r[17].textContent = data.id_sim
