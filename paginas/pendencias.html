@@ -651,14 +651,14 @@
                             <div class="col-md-6 mb-0">
                                 <label for="validationCustom01">Melhor Data - Confirmação Cliente</label>
                                 <input type="text" class="form-control form-control-sm" id="data-confirmacao-modal-7"
-                                    onKeyDown="fMasc( this, data );">
+                                maxlength="19" size="19" onKeyPress="DataHora(event, this)">
 
                             </div>
 
                             <div class="col-md-6 mb-0">
                                 <label for="validationCustom01">Melhor Horário - Confirmação Cliente</label>
                                 <input type="text" class="form-control form-control-sm"
-                                    onKeyDown="fMasc( this, mHora );" id="horario-confirmacao-modal-7">
+                                maxlength="8" size="8" onKeyPress="Hora(event, this)" id="horario-confirmacao-modal-7">
 
                             </div>
 
@@ -2054,7 +2054,7 @@
                                                 </tr>
                                             </thead>
 
-                                            <tbody class="list" id="list">
+                                            <tbody class="list" id="list" style="text-align: center;">
 
                                                 <tr>
 
