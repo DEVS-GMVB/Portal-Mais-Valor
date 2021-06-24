@@ -97,4 +97,4 @@ atualizarPerfil.addEventListener('click', async () => {
     }
 
     alert("Erro durante a atualização")
-})
+});

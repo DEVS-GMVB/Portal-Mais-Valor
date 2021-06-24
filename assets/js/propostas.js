@@ -250,7 +250,6 @@ filtros.addEventListener('click', () => {
   fetch(URL + "/user/proposta/filtro", requestOptions).
   then(response => response.json()).
   then(function (data) {
-
     //HashMap estrutura de dados
     for (let i = 0; i < data.length; i++) {
 
@@ -322,7 +321,7 @@ filtros.addEventListener('click', () => {
       telefoneconstanotfc.appendChild(telefoneconstanotfcText);
 
       //Passando minha proposta neste escopo
-      modal.set(data[i].codigo, data[i])
+      modal.set(data[i].codigo, data[i]);
 
       anexos.innerHTML = `<td id="" class="text-right" style="text-align: center;">
                              <div class="actions ml-3" style="text-align: center;">
