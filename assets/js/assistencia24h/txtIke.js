@@ -1,5 +1,5 @@
 
-
+import { LOCALHOST } from './session.js';
 
 function criarDocumentoIke(id_cliente, id_contrato, i, conta, nome, cpf, cidade, estado, count,
     nascimento, data_venda, rua, numero, complemento, bairro, cep, vigencia_inicio, vigencia_fim) { //incluir no parametro vigencia inicio e vigencia fim
@@ -62,7 +62,7 @@ function criarDocumentoIke(id_cliente, id_contrato, i, conta, nome, cpf, cidade,
       redirect: 'follow'
     };
   
-    fetch("http://localhost:3000/user/assistencia/ike", requestOptions)
+    fetch(`${LOCALHOST}/user/assistencia/ike`, requestOptions)
       .then(response => response.text())
       .then(result => console.log(result))
       .catch(error => console.log('error', error));
@@ -85,7 +85,7 @@ function criarDocumentoIke(id_cliente, id_contrato, i, conta, nome, cpf, cidade,
       redirect: 'follow'
     };
   
-    fetch("http://localhost:3000/user/assistencia/ikeEnvio", requestOptions)
+    fetch(`${LOCALHOST}/user/assistencia/ikeEnvio`, requestOptions)
       .then(response => response.text())
       .then(result => console.log(result))
       .catch(error => console.log('error', error));

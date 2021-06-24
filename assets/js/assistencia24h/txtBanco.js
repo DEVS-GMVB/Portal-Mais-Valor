@@ -1,6 +1,6 @@
 
 
-
+import { LOCALHOST } from './session.js';
 
 function criarTxt(i, agencia, cpf, nome, cidade, estado, valorAss, count, valorFinal, conta_digito, vencimento) {
 
@@ -45,7 +45,7 @@ function criarTxt(i, agencia, cpf, nome, cidade, estado, valorAss, count, valorF
       redirect: 'follow'
     };
   
-    fetch("http://localhost:3000/user/assistencia/txt", requestOptions)
+    fetch(`${LOCALHOST}/user/assistencia/txt`, requestOptions)
       .then(response => response.json())
       .then(result => console.log(result))
       .catch(error => console.log('error', error));
@@ -72,7 +72,7 @@ function criarTxt(i, agencia, cpf, nome, cidade, estado, valorAss, count, valorF
       redirect: 'follow'
     };
   
-    fetch("http://localhost:3000/user/assistencia/updateStatus", requestOptions)
+    fetch(`${LOCALHOST}/user/assistencia/updateStatus`, requestOptions)
       .then(response => response.json())
       .then(result => console.log(result))
       .catch(error => console.log('error', error));
@@ -90,7 +90,7 @@ function criarTxt(i, agencia, cpf, nome, cidade, estado, valorAss, count, valorF
       redirect: 'follow'
     };
   
-    fetch("http://localhost:3000/user/assistencia/emailBanco", requestOptions)
+    fetch(`${LOCALHOST}/user/assistencia/emailBanco`, requestOptions)
       .then(response => response.json())
       .then(result => console.log(result))
       .catch(error => console.log('error', error));
