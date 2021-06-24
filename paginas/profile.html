@@ -15,6 +15,7 @@
   <link rel="stylesheet" href="../assets/libs/fullcalendar/dist/fullcalendar.min.css">
   <!-- Purpose CSS -->
   <link rel="stylesheet" href="../assets/css/purpose.css" id="stylesheet">
+  <link rel="stylesheet" href="../assets/css/personalizado.css" id="stylesheet">
 </head>
 
 <style>
@@ -63,42 +64,42 @@
 
             <div class="col-md-12 mb-3">
               <label for="validationCustom01">Número de Telefone</label>
-              <input type="text" class="form-control form-control-sm" id="validationCustom01" required>
+              <input type="text" class="form-control form-control-sm" id="numero-telefone-dados" required>
 
             </div>
             <div class="col-md-12 mb-3">
               <label for="validationCustom01">E-mail</label>
-              <input type="text" class="form-control form-control-sm" id="validationCustom01" required>
+              <input type="text" class="form-control form-control-sm" id="email-dados" required>
 
             </div>
             <div class="col-md-12 mb-3">
               <label for="validationCustom01">Enedereço: (Rua/Av.)</label>
-              <input type="text" class="form-control form-control-sm" id="validationCustom01" required>
+              <input type="text" class="form-control form-control-sm" id="endereco-dados" required>
 
             </div>
             <div class="col-md-4 mb-3">
               <label for="validationCustom01">CEP</label>
-              <input type="text" class="form-control form-control-sm" id="validationCustom01" required>
+              <input type="text" class="form-control form-control-sm" id="cep-dados" required>
             </div>
             <div class="col-md-2 mb-3">
               <label for="validationCustom01">Nº</label>
-              <input type="text" class="form-control form-control-sm" id="validationCustom01" required>
+              <input type="text" class="form-control form-control-sm" id="n-dados" required>
             </div>
             <div class="col-md-6 mb-3">
               <label for="validationCustom01">Complemento</label>
-              <input type="text" class="form-control form-control-sm" id="validationCustom01" required>
+              <input type="text" class="form-control form-control-sm" id="complemento-dados" required>
             </div>
             <div class="col-md-6 mb-3">
               <label for="validationCustom01">Bairro</label>
-              <input type="text" class="form-control form-control-sm" id="validationCustom01" required>
+              <input type="text" class="form-control form-control-sm" id="bairro-dados" required>
             </div>
             <div class="col-md-6 mb-3">
               <label for="validationCustom01">Cidade</label>
-              <input type="text" class="form-control form-control-sm" id="validationCustom01" required>
+              <input type="text" class="form-control form-control-sm" id="cidade-dados" required>
             </div>
             <div class="col-md-12 mb-0">
               <label for="validationCustom01">Estado</label>
-              <input type="text" class="form-control form-control-sm" id="validationCustom01" required>
+              <input type="text" class="form-control form-control-sm" id="estado-dados" required>
             </div>
 
           </div>
@@ -110,8 +111,9 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-        <button type="button" class="btn btn-primary">Salvar Alterações</button>
+        <button type="button" class="btn btn-primary" id="salvar-alteracoes">Salvar Alterações</button>
       </div>
+      <div class="alert alert-success" id="success" role="alert"></div>
     </div>
   </div>
 </div>
@@ -1111,7 +1113,7 @@
 
               <div class="col-auto mt-3" style="text-align: center;">
                 <button type="button" class="btn btn-xs btn-primary btn-icon rounded-pill" data-toggle="modal"
-                  data-target="#modal-atlcadastro">
+                  data-target="#modal-atlcadastro" id="atualizar-dados">
                   <span class="btn-inner--icon"><i class="fas fa-pencil-alt"></i></span>
                   <span class="btn-inner--text">Atualizar Dados</span>
                 </button>
@@ -1517,6 +1519,8 @@
   <script src="../../assets/js/purpose.js"></script>
   <!-- Demo JS - remove it when starting your project -->
   <script src="../../assets/js/demo.js"></script>
+
+  <script src="../assets/js/profile.js"></script>
 </body>
 
 </html>
