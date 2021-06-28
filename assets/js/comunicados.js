@@ -115,8 +115,6 @@ incluir.addEventListener('click', (e) => {
                     
                     `:
                     incluirAnexos(data).then(function (result) {
-                        const obj = new Object({...result});
-
                         mapObj.set(result.id_comunicado, result);
 
                         row.innerHTML =
@@ -129,26 +127,26 @@ incluir.addEventListener('click', (e) => {
                             </td>
                             <th scope="row">
                                 <button type="button"
-                                class="btn btn-sm btn-secondary btn-icon rounded-pill" id="btn-download1" onclick="downloadFile(obj.${url_img})">
+                                class="btn btn-sm btn-secondary btn-icon rounded-pill" id="btn-download1" onclick="downloadFile(mapObj.get(${result.id_comunicado}).url_img)">
                                 <span class="btn-inner--icon"><i
                                         class="far fa-download"></i></span>
-                                <span class="btn-inner--text">${result.url_img.substring(34, result.url_img.length)}</span>
+                                <span class="btn-inner--text">${(result.url_img) ? result.url_img.substring(34, result.url_img.length) : ""}</span>
                                 </button>
                             </th>
                             <th scope="row">
                                 <button type="button"
-                                    class="btn btn-sm btn-secondary btn-icon rounded-pill" id="btn-download2" onclick="downloadFile(${result.url_img1})">
+                                    class="btn btn-sm btn-secondary btn-icon rounded-pill" id="btn-download2" onclick="downloadFile(mapObj.get(${result.id_comunicado}).url_img1)">
                                     <span class="btn-inner--icon"><i
                                             class="far fa-download"></i></span>
-                                    <span class="btn-inner--text">${result.url_img1}</span>
+                                    <span class="btn-inner--text">${(result.url_img1) ? result.url_img1.substring(34, result.url_img1.length) : ""}</span>
                                 </button>
                             </th>
                             <th scope="row">
                                 <button type="button"
-                                    class="btn btn-sm btn-secondary btn-icon rounded-pill" id="btn-download3" onclick="downloadFile(${result.url_img2})">
+                                    class="btn btn-sm btn-secondary btn-icon rounded-pill" id="btn-download3" onclick="downloadFile(mapObj.get(${result.id_comunicado}).url_img2)">
                                     <span class="btn-inner--icon"><i
                                             class="far fa-download"></i></span>
-                                    <span class="btn-inner--text">${result.url_img2}</span>
+                                    <span class="btn-inner--text">${(result.url_img2) ? result.url_img2.substring(34, result.url_img2.length) : ""}</span>
                                 </button>
                             </th>
                             <td>
@@ -182,12 +180,7 @@ incluir.addEventListener('click', (e) => {
 async function downloadFile(hash) {
     console.log(hash);
     if(hash) {
-        try {
-            await fetch(`${URL}/comunicado/download?hash=${hash}`, { method: "GET", redirect: "follow" });
-
-        } catch(error) {
-            alert("Arquivo inexistente na base de dados")
-        }
+        window.location.href = `${URL}/proposta/aguardando/download?hash=${hash}`; 
         
     } else {
         alert("Arquivo inexistente neste botão");
