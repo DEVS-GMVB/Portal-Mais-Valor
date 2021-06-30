@@ -1296,3 +1296,7 @@ function santanderArquivosTreinamentos(){
     </tr>
     `
 }
+
+function roteiroSantander() {
+    tbodyRoteiros.innerHTML = ``;
+}
