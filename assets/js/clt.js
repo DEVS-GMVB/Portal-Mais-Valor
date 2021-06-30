@@ -1,8 +1,8 @@
 const filho14 = document.getElementById('id-filhos-14');
-//Table
-const table = document.getElementById("list");
+const quantos = document.getElementById('id-quantos');
 
 document.getElementById('id-filhos-14').addEventListener('blur', ()=>{
+
     if (filho14.value === 'SIM'){
         $("#id-quantos").attr('disabled', false);
     } else {
@@ -10,16 +10,3 @@ document.getElementById('id-filhos-14').addEventListener('blur', ()=>{
     }
 
 })
-
-
-const reoloadTable = (qtd) => {
-    if(qtd !== "" && qtd !== null && qdt !== undefined) {
-        for(let i in qtd) {
-            table.innerHTML = 
-            `
-                <tr></tr>
-            `
-        }
-    }
-} 
-
