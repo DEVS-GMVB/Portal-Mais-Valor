@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="pt-5">
+
+<head>
+    <meta charset=" utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description"
+        content="Purpose Application UI is the following chapter we've finished in order to create a complete and robust solution next to the already known Purpose Website UI.">
+    <meta name="author" content="Webpixels">
+    <title>Cadastro - Portal Mais Valor</title>
+    <!-- Favicon -->
+    <link rel="icon" href="../../assets/img/brand/favicon.png" type="image/png">
+    <!-- Font Awesome 5 -->
+    <link rel="stylesheet" href="../../assets/libs/@fortawesome/fontawesome-free/css/all.min.css">
+    <!-- Page CSS -->
+    <link rel="stylesheet" href="../../assets/libs/fullcalendar/dist/fullcalendar.min.css">
+    <!-- Purpose CSS -->
+    <link rel="stylesheet" href="../../assets/css/purpose.css" id="stylesheet">
+    <!-- CSS Personalizado -->
+    <link rel="stylesheet" href="../../assets/css/personalizado.css" id="stylesheet">
+
+</head>
+
+<style>
+    .bg-titulo {
+
+        background-color: #93d482;
+        text-align: center;
+        font-family: -apple-system;
+        border-radius: 10px;
+    }
+
+    .bg-subtitulo {
+
+        background-color: #c0dfb8;
+        text-align: center;
+        font-family: -apple-system;
+        border-radius: 10px;
+
+    }
+</style>
+
+
+<body class="application application-offset">
+
+    <!-- Application container -->
+    <div class="container-fluid container-application">
+        <!-- Content -->
+        <div class="main-content position-relative">
+
+            <!-- Page content -->
+            <div class="page-content">
+                <!-- Page title -->
+                <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 2rem;">
+                    <div class="page-title">
+                        <div class="row justify-content-between align-items-center">
+                            <div class="col-md-12 mb-3 mb-md-0">
+                                <h6 class="h3 font-weight-400 mb-0 text-white">Cadastro </h6>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <img src="../../assets/img/brand/white1 copy.png" class="navbar-brand-img" alt="..."
+                            style="height: 70px; right: 70px;">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xl-12 col-md-6">
+                        <div class="card card-fluid">
+
+                            <div class="card-body">
+
+                                <div class="bg-titulo mt-4">
+                                    <h3>Dados Pessoais</h3>
+        
+                                </div>
+
+                                <form class="needs-validation" novalidate>
+
+                                    <div class="form-row mt-4">
+                                        <div class="col-md-2 mb-3">
+                                            <div class="form-group">
+                                                <label for="exampleFormControlSelect1">Nome</label>
+
+                                                <input type="text" class="form-control form-control-sm"
+                                                    id="id-nome" required />
+                                            </div>
+
+                                        </div>
+
+                                        <div class="col-md-5 mb-3">
+                                            <label for="validationCustom01">Endereço Completo</label>
+                                            <input type="text" class="form-control form-control-sm" id="id-endereco"
+                                                required>
+
+                                        </div>
+                                        <div class="col-md-5 mb-3">
+                                            <label for="validationCustom01">Número</label>
+                                            <input type="text" class="form-control form-control-sm"
+                                                id="id-numero" required>
+
+                                        </div>
+
+                                    </div>
+
+                                    <div class="form-row mt-0">
+
+
+
+                                        <div class="col-md-2 mb-3">
+                                            <label for="validationCustom01">Bairro</label>
+                                            <input type="text" class="form-control form-control-sm"
+                                                id="id-bairro" required>
+
+                                        </div>
+
+                                        <div class="col-md-4 mb-3">
+                                            <div class="form-group">
+                                                <label for="exampleFormControlSelect1">Cidade</label>
+                                                <input type="text" class="form-control form-control-sm"
+                                                    id="id-cidade" required />
+                                            </div>
+
+                                        </div>
+
+                                        <div class="col-md-3 mb-3">
+                                            <label for="validationCustom01">UF</label>
+
+                                            <input type="text" min="1921-01-01" class="form-control form-control-sm"
+                                                id="id-uf" required>
+
+                                        </div>
+
+                                        <div class="col-md-3 mb-3">
+                                            <label for="validationCustom01">Telefone Residencial</label>
+                                            <input type="text" class="form-control form-control-sm" onKeyDown="fMasc(this, mTelefone);" 
+                                            id="id-telefone" maxlength="14" required>
+
+                                        </div>
+                                    </div>
+
+                                    <div class="form-row mt-0">
+                                        <div class="col-md-4 mb-3">
+                                            <div class="form-group">
+                                                <label for="exampleFormControlSelect1">Celular</label>
+                                                <input type="text" class="form-control form-control-sm"
+                                                    id="id-celular" onKeyDown="fMasc(this, mTelefone);" required />
+
+                                            </div>
+
+                                        </div>
+
+                                        <div class="col-md-5 mb-3">
+                                            <label for="validationCustom01">Email</label>
+                                            <input type="text" class="form-control form-control-sm"
+                                                id="id-email" required />
+
+                                        </div>
+
+                                        <div class="col-md-3 mb-3">
+                                            <label for="validationCustom01">Nome do Pai</label>
+                                            <input type="text" class="form-control form-control-sm"
+                                                id="id-nome-pai"
+                                                required>
+
+                                        </div>
+                                    </div>
+                                    <div class="form-row mt-0">
+                                        <div class="col-md-2 mb-3">
+                                            <label for="validationCustom01">Nome da Mãe</label>
+                                            <input type="text" min="1921-01-01" class="form-control form-control-sm"
+                                                id="id-nome-mae" required />
+
+                                        </div>
+
+                                        <div class="col-md-4 mb-3">
+                                            <label for="validationCustom01">Estado Civil</label>
+                                            <input type="text" name='cpfcnpj' class="form-control form-control-sm" id="id-estado-civil"
+                                                required />
+
+                                        </div>
+
+                                        <div class="col-md-2 mb-3">
+                                            <div class="form-group">
+                                                <label for="exampleFormControlSelect1">Filhos:</label>
+                                                <select class="form-control form-control-sm"
+                                                    id="id-filhos" required>
+                                                    <option> </option>
+                                                    <option value="SIM">SIM</option>
+                                                    <option value="NAO">NÃO</option>
+                                                </select>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="col-md-2 mb-3">
+                                            <label for="validationCustom01">Cidade/UF Nascimento</label>
+                                            <input type="text" class="form-control form-control-sm"
+                                                id="id-cidade-uf" required>
+
+                                        </div>
+
+
+
+                                    
+
+                                    <div class="col-md-2 mb-3">
+                                        <label for="validationCustom01">Escolaridade</label>
+                                        <input type="text" class="form-control form-control-sm" id="id-escolaridade"
+                                            required>
+                        
+                                    </div>
+                        
+                                    <div class="col-md-3 mb-3">
+                                        <label for="validationCustom01">Curso</label>
+                                        <input type="text" class="form-control form-control-sm" id="id-curso"
+                                            required>
+                        
+                                    </div>
+                        
+                                        <div class="col-md-2 mb-3">
+                                            <label for="validationCustom01">Data de Nascimento</label>
+                                            <input type="text" class="form-control form-control-sm"
+                                                id="id-dt-nasci" onKeyDown="fMasc( this, data );" maxlength="10" required>
+                        
+                                        </div>
+
+                                        <div class="col-md-3 mb-3">
+                                            <label for="validationCustom01">CPF</label>
+                                            <input type="text" maxlength="14" name='cpfcnpj'
+                                                onkeypress='mascaraMutuario(this,cpfCnpj)' class="form-control form-control-sm"
+                                                id="id-cpf" required>
+        
+                                        </div>
+
+                                        <div class="col-md-3 mb-3">
+                                            <label for="validationCustom01">RG</label>
+                                            <input type="text" maxlength="12" name='cpfcnpj'
+                                                onkeypress='mascaraMutuario(this,cpfCnpj)' class="form-control form-control-sm"
+                                                id="id-rg" required>
+        
+                                        </div>
+
+                                        <div class="col-md-3 mb-3">
+                                            <label for="validationCustom01">Nome a ser colocado no crachá</label>
+                                            <input type="text" class="form-control form-control-sm" id="id-cracha"
+                                                required>
+                            
+                                        </div>
+
+                                        <div class="col-md-3 mb-4">
+                                            <div class="form-group">
+                                                <label for="exampleFormControlSelect1">Possui Filhos Menores de 14 anos</label>
+                                                <select class="form-control form-control-sm"
+                                                    id="id-filhos-14" required>
+                                                    <option> </option>
+                                                    <option value="SIM">SIM</option>
+                                                    <option value="NAO">NÃO</option>
+                                                </select>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="col-md-3 mb-3">
+                                            <label for="validationCustom01">Quantos</label>
+                                            <input type="text" class="form-control form-control-sm" id="id-quantos"
+                                            onKeyDown="fMasc( this, nContrtato );" maxlength="2" disabled  required>
+                            
+                                        </div>
+
+                                        <div id="tabela">
+                                            <h1>tabela</h1>
+                                        </div>
+                                        
+                                </div>
+                            
+                        
+                            </form>
+
+                             <div class="bg-titulo mt-1">
+
+                                <h3>Nº Reservita</h3>
+    
+                            </div>
+
+                            <form class="needs-validation" novalidate>
+
+
+
+                                <div class="form-row mt-4">
+    
+                                   
+                                        <div class="col-md-3 mb-3">
+                                            <label for="validationCustom01">Data</label>
+                                            <input type="text" class="form-control form-control-sm"
+                                                id="id-dt-reservita" onKeyDown="fMasc( this, data );" maxlength="10" required>
+                        
+                                        
+                                        </div>
+
+                                        <div class="col-md-3 mb-3">
+                                            <label for="validationCustom01">Número do PIS / Cartão do Cidadão</label>
+                                            <input type="text" class="form-control form-control-sm" id="id-pis"
+                                            onKeyDown="fMasc( this, nContrtato );"  required>
+                            
+                                        </div>
+                                        
+
+                                        <div class="col-md-3 mb-3">
+                                            <label for="validationCustom01">Org. Exp.</label>
+                                            <input type="text" class="form-control form-control-sm" id="id-org-exp"
+                                                required>
+                            
+                                        </div>
+
+                                        <div class="col-md-3 mb-3">
+                                            <label for="validationCustom01">UF</label>
+                                            <input type="text" class="form-control form-control-sm" id="id-uf-reservita"
+                                                required>
+                            
+                                        </div>
+                                    </div>
+
+                                    <div class="form-row mt-4">
+                                        <div class="col-md-3 mb-3">
+                                            <div class="form-group">
+                                                <label for="exampleFormControlSelect1">Possuo nº de PIS</label>
+                                                <select class="form-control form-control-sm"
+                                                    id="n-pis" required>
+                                                    <option> </option>
+                                                    <option value="SIM">SIM</option>
+                                                    <option value="NAO">NÃO</option>
+        
+                                                </select>
+                                            </div>
+        
+                                        </div>
+
+                                        <div class="col-md-3 mb-3">
+                                            <label for="validationCustom01">CTPS</label>
+                                            <input type="text" class="form-control form-control-sm" id="id-ctps"
+                                                required>
+                            
+                                        </div>
+
+                                        <div class="col-md-3 mb-3">
+                                            <label for="validationCustom01">Série</label>
+                                            <input type="text" class="form-control form-control-sm" id="id-serie"
+                                                required>
+                            
+                                        </div>
+
+                                        <div class="col-md-3 mb-3">
+                                            <label for="validationCustom01">Estado</label>
+                                            <input type="text" class="form-control form-control-sm" id="id-estado"
+                                                required>
+                            
+                                        </div>
+
+                                        <div class="col-md-3 mb-3">
+                                            <label for="validationCustom01">Titulo de Eleitor</label>
+                                            <input type="text" class="form-control form-control-sm" id="id-secao"
+                                                required>
+                            
+                                        </div>
+
+                                        <div class="col-md-3 mb-3">
+                                            <label for="validationCustom01">Zona</label>
+                                            <input type="text" class="form-control form-control-sm" id="id-zona"
+                                                required>
+                            
+                                        </div>
+
+                                        <div class="col-md-3 mb-3">
+                                            <label for="validationCustom01">Seção</label>
+                                            <input type="text" class="form-control form-control-sm" id="id-secao"
+                                                required>
+                            
+                                        </div> 
+                                    </div>
+                                    </form> 
+
+                                    <div class="bg-titulo mt-1">
+
+                                        <h3>DADOS BANCÁRIOS</h3>
+            
+                                    </div>
+        
+                                    <form class="needs-validation" novalidate>
+        
+        
+        
+                                        <div class="form-row mt-4">
+
+                                            <div class="col-md-3 mb-3">
+                                                <label for="validationCustom01">Banco</label>
+                                                <input type="text" class="form-control form-control-sm" id="id-banco"
+                                                    required>
+                                
+                                            </div>
+
+                                            <div class="col-md-3 mb-3">
+                                                <label for="validationCustom01">Agência</label>
+                                                <input type="text" class="form-control form-control-sm" id="id-agencia"
+                                                    required>
+                                
+                                            </div>
+                                            <div class="col-md-3 mb-3">
+                                                <label for="validationCustom01">Conta Corrente</label>
+                                                <input type="text" class="form-control form-control-sm" id="id-conta-corrente"
+                                                    required>
+                                
+                                            </div>
+
+                                            <div class="col-md-3 mb-3">
+                                                <div class="form-group">
+                                                    <label for="exampleFormControlSelect1">Ação</label>
+                                                    <select class="form-control form-control-sm"
+                                                        id="id-acao" required>
+                                                        <option> </option>
+                                                        <option value="CONSIGNADO">CONSIGNADO</option>
+                                                        <option value="OUTROS">OUTROS</option>
+            
+                                                    </select>
+                                                </div>
+            
+                                            </div>
+                                        </div>
+                                        </form>
+                                
+
+                                    
+
+                                    <div class="opcoes-cadastro" style="text-align: center; margin-inline: block;">
+                                        <a class="" id="cadastro-tabb" data-toggle="tab" href="#cadastro" role="tab"
+                                            aria-controls="comissao" aria-selected="false">
+                                            <button type="button" class="btn btn-primary btn-icon-label"
+                                                data-toggle="modal" data-target=".modalteladecadastro" title="Alterar"
+                                                id="buttonIncluir">
+                                                <span class="btn-inner--icon">
+                                                    <i class="fas fa-plus"></i>
+                                                </span>
+                                                <span class="btn-inner--text">Incluir</span>
+                                            </button>
+                                        </a>
+                                    </div>
+
+                                </form>
+
+
+                                <hr>
+
+                            </div>
+
+
+                        </div>
+
+
+                    </div>
+
+
+
+                </div>
+
+            </div>
+
+
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <!-- Core JS - includes jquery, bootstrap, popper, in-view and sticky-kit -->
+    <script src="../../assets/js/purpose.core.js"></script>
+    <!-- Page JS -->
+    <script src="../../assets/libs/progressbar.js/dist/progressbar.min.js"></script>
+    <script src="../../assets/libs/apexcharts/dist/apexcharts.min.js"></script>
+    <script src="../../assets/libs/moment/min/moment.min.js"></script>
+    <!-- <script src="../assets/libs/fullcalendar/dist/fullcalendar.min.js"></script> -->
+    <!-- Purpose JS -->
+    <script src="../../assets/js/purpose.js"></script>
+    <!-- Mascaras -->
+    <script src="../../assets/js/mascaras.js"></script>
+    <!-- Demo JS - remove it when starting your project -->
+    <script src="../../assets/js/demo.js"></script>
+
+    <script src="../../assets/js/clt.js"></script>
+
+</body>
+
+</html>
