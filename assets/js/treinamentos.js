@@ -858,7 +858,6 @@ function roteirosPan(){
 `
 }
 
-<<<<<<< HEAD
 function santanderArquivosTreinamentos(){
     tbodyArquivosTreinamentos.innerHTML =
     `<tr style="text-align: center;">
@@ -943,39 +942,6 @@ function santanderArquivosTreinamentos(){
     <th scope="row">
         <a class="btn btn-sm btn-secondary btn-icon rounded-pill" style="color: black; cursor:pointer;"
         href="http://localhost:3000/user/treinamentos/SANTANDER1/CONVÊNIO ESTADO DO ESPÍRITO SANTO.pdf">
-            <span class="btn-inner--icon"><i class="fas fa-file-excel"></i></span>
-            <span class="btn-inner--text">DOWNLOAD</span>
-        </a>
-    </th>
-    </tr>
-
-    <tr style="text-align: center;">
-    <th><b>CONVÊNIO KROTON </b></th>
-    <th scope="row">
-        <a class="btn btn-sm btn-secondary btn-icon rounded-pill" style="color: black; cursor:pointer;"
-        href="http://localhost:3000/user/treinamentos/SANTANDER1/CONVÊNIO KROTON.pdf">
-            <span class="btn-inner--icon"><i class="fas fa-file-excel"></i></span>
-            <span class="btn-inner--text">DOWNLOAD</span>
-        </a>
-    </th>
-    </tr>
-
-    <tr style="text-align: center;">
-    <th><b>CONVÊNIO PRONTIL </b></th>
-    <th scope="row">
-        <a class="btn btn-sm btn-secondary btn-icon rounded-pill" style="color: black; cursor:pointer;"
-        href="http://localhost:3000/user/treinamentos/SANTANDER1/CONVÊNIO PRONIL.pdf">
-            <span class="btn-inner--icon"><i class="fas fa-file-excel"></i></span>
-            <span class="btn-inner--text">DOWNLOAD</span>
-        </a>
-    </th>
-    </tr>
-
-    <tr style="text-align: center;">
-    <th><b>CONVÊNIOS ESPECIAIS </b></th>
-    <th scope="row">
-        <a class="btn btn-sm btn-secondary btn-icon rounded-pill" style="color: black; cursor:pointer;"
-        href="http://localhost:3000/user/treinamentos/SANTANDER1/convenios especiais.xlsx">
             <span class="btn-inner--icon"><i class="fas fa-file-excel"></i></span>
             <span class="btn-inner--text">DOWNLOAD</span>
         </a>
@@ -1116,9 +1082,6 @@ function santanderArquivosTreinamentos(){
     `
 }
 
-function roteiroSantander() {
-=======
 function roteirosSantander(){
->>>>>>> c58eeacf3858dc9512687643e063767bb12d9b91
     tbodyRoteiros.innerHTML = ``;
 }
