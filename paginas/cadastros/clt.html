@@ -55,7 +55,7 @@
                     <div class="page-title">
                         <div class="row justify-content-between align-items-center">
                             <div class="col-md-12 mb-3 mb-md-0">
-                                <h6 class="h3 font-weight-400 mb-0 text-white">Cadastro </h6>
+                                <h6 class="h3 font-weight-400 mb-0 text-white">Ficha Cadastral </h6>
 
                             </div>
                         </div>
@@ -80,7 +80,15 @@
                                 <form class="needs-validation" novalidate>
 
                                     <div class="form-row mt-4">
-                                        <div class="col-md-2 mb-3">
+                                        <div class="col-md-3 mb-3">
+                                            <label for="validationCustom01">CPF</label>
+                                            <input type="text" maxlength="14" name='cpfcnpj'
+                                                onkeypress='mascaraMutuario(this,cpfCnpj)'
+                                                class="form-control form-control-sm" id="id-cpf" required>
+
+                                        </div>
+
+                                        <div class="col-md-3 mb-3">
                                             <div class="form-group">
                                                 <label for="exampleFormControlSelect1">Nome</label>
 
@@ -90,23 +98,31 @@
 
                                         </div>
 
-                                        <div class="col-md-5 mb-3">
+                                        <div class="col-md-2 mb-3">
+                                            <label for="validationCustom01">CEP</label>
+                                            <input type="text" class="form-control form-control-sm" id="cep-campo"
+                                                onkeydown="mascaraMutuario(this, mCEP)" required>
+
+                                        </div>
+
+                                        <div class="col-md-4 mb-3">
                                             <label for="validationCustom01">Endereço Completo</label>
                                             <input type="text" class="form-control form-control-sm" id="id-endereco"
                                                 required>
 
                                         </div>
-                                        <div class="col-md-5 mb-3">
-                                            <label for="validationCustom01">Número</label>
-                                            <input type="text" class="form-control form-control-sm" id="id-numero"
-                                                required>
-
-                                        </div>
+                                        
 
                                     </div>
 
                                     <div class="form-row mt-0">
 
+                                        <div class="col-md-3 mb-3">
+                                            <label for="validationCustom01">Número</label>
+                                            <input type="text" class="form-control form-control-sm" id="id-numero"
+                                                required>
+
+                                        </div>
 
 
                                         <div class="col-md-2 mb-3">
@@ -116,7 +132,7 @@
 
                                         </div>
 
-                                        <div class="col-md-4 mb-3">
+                                        <div class="col-md-3 mb-3">
                                             <div class="form-group">
                                                 <label for="exampleFormControlSelect1">Cidade</label>
                                                 <input type="text" class="form-control form-control-sm" id="id-cidade"
@@ -125,15 +141,43 @@
 
                                         </div>
 
-                                        <div class="col-md-3 mb-3">
+                                        <div class="col-md-2 mb-3">
                                             <label for="validationCustom01">UF</label>
 
-                                            <input type="text" min="1921-01-01" class="form-control form-control-sm"
-                                                id="id-uf" required>
+                                            <select class="form-control form-control-sm" id="id-uf" required>
+                                                <option></option>
+                                                <option value="AC">Acre</option>
+                                                <option value="AL">Alagoas</option>
+                                                <option value="AP">Amapá</option>
+                                                <option value="AM">Amazonas</option>
+                                                <option value="BA">Bahia</option>
+                                                <option value="CE">Ceará</option>
+                                                <option value="DF">Distrito Federal</option>
+                                                <option value="ES">Espírito Santo</option>
+                                                <option value="GO">Goiás</option>
+                                                <option value="MA">Maranhão</option>
+                                                <option value="MT">Mato Grosso</option>
+                                                <option value="MS">Mato Grosso do Sul</option>
+                                                <option value="MG">Minas Gerais</option>
+                                                <option value="PA">Pará</option>
+                                                <option value="PB">Paraíba</option>
+                                                <option value="PR">Paraná</option>
+                                                <option value="PE">Pernambuco</option>
+                                                <option value="PI">Piauí</option>
+                                                <option value="RJ">Rio de Janeiro</option>
+                                                <option value="RN">Rio Grande do Norte</option>
+                                                <option value="RS">Rio Grande do Sul</option>
+                                                <option value="RO">Rondônia</option>
+                                                <option value="RR">Roraima</option>
+                                                <option value="SC">Santa Catarina</option>
+                                                <option value="SP">São Paulo</option>
+                                                <option value="SE">Sergipe</option>
+                                                <option value="TO">Tocantins</option>
+                                            </select>
 
                                         </div>
 
-                                        <div class="col-md-3 mb-3">
+                                        <div class="col-md-2 mb-3">
                                             <label for="validationCustom01">Telefone Residencial</label>
                                             <input type="text" class="form-control form-control-sm"
                                                 onKeyDown="fMasc(this, mTelefone);" id="id-telefone" maxlength="14"
@@ -147,7 +191,8 @@
                                             <div class="form-group">
                                                 <label for="exampleFormControlSelect1">Celular</label>
                                                 <input type="text" class="form-control form-control-sm" id="id-celular"
-                                                    onKeyDown="fMasc(this, mTelefone);" required />
+                                                    onkeydown="mascaraMutuario(this, mTelefone);" maxlength="14"
+                                                    required />
 
                                             </div>
 
@@ -177,8 +222,15 @@
 
                                         <div class="col-md-4 mb-3">
                                             <label for="validationCustom01">Estado Civil</label>
-                                            <input type="text" name='cpfcnpj' class="form-control form-control-sm"
+                                            <select name='cpfcnpj' class="form-control form-control-sm"
                                                 id="id-estado-civil" required />
+                                                <option> </option>
+                                                <option value="solteiro"> Solteiro </option>
+                                                <option value="casado"> Casado </option>
+                                                <option value="divorciado"> Divorciado </option>
+                                                <option value="viuvo"> Viúvo </option>
+                                                <option value="Separado judicialmente"> Separado judicialmente </option>
+                                            </select>
 
                                         </div>
 
@@ -196,8 +248,36 @@
 
                                         <div class="col-md-2 mb-3">
                                             <label for="validationCustom01">Cidade/UF Nascimento</label>
-                                            <input type="text" class="form-control form-control-sm" id="id-cidade-uf"
-                                                required>
+                                            <select class="form-control form-control-sm" id="id-cidade-uf" required>
+                                                <option></option>
+                                                <option value="AC">Acre</option>
+                                                <option value="AL">Alagoas</option>
+                                                <option value="AP">Amapá</option>
+                                                <option value="AM">Amazonas</option>
+                                                <option value="BA">Bahia</option>
+                                                <option value="CE">Ceará</option>
+                                                <option value="DF">Distrito Federal</option>
+                                                <option value="ES">Espírito Santo</option>
+                                                <option value="GO">Goiás</option>
+                                                <option value="MA">Maranhão</option>
+                                                <option value="MT">Mato Grosso</option>
+                                                <option value="MS">Mato Grosso do Sul</option>
+                                                <option value="MG">Minas Gerais</option>
+                                                <option value="PA">Pará</option>
+                                                <option value="PB">Paraíba</option>
+                                                <option value="PR">Paraná</option>
+                                                <option value="PE">Pernambuco</option>
+                                                <option value="PI">Piauí</option>
+                                                <option value="RJ">Rio de Janeiro</option>
+                                                <option value="RN">Rio Grande do Norte</option>
+                                                <option value="RS">Rio Grande do Sul</option>
+                                                <option value="RO">Rondônia</option>
+                                                <option value="RR">Roraima</option>
+                                                <option value="SC">Santa Catarina</option>
+                                                <option value="SP">São Paulo</option>
+                                                <option value="SE">Sergipe</option>
+                                                <option value="TO">Tocantins</option>
+                                            </select>
 
                                         </div>
 
@@ -207,8 +287,32 @@
 
                                         <div class="col-md-2 mb-3">
                                             <label for="validationCustom01">Escolaridade</label>
-                                            <input type="text" class="form-control form-control-sm" id="id-escolaridade"
-                                                required>
+                                            <select class="form-control form-control-sm" id="id-escolaridade" required>
+                                                <option value=""></option>
+                                                <option value="Fundamental - Incompleto">Fundamental - Incompleto
+                                                </option>
+                                                <option value="Fundamental - Completo">Fundamental - Completo</option>
+                                                <option value="Médio - Incompleto">Médio - Incompleto</option>
+                                                <option value="Médio - Completo">Médio - Completo</option>
+                                                <option value="Superior - Incompleto">Superior - Incompleto</option>
+                                                <option value="Superior - Completo">Superior - Completo</option>
+                                                <option value="Pós-graduação (Lato senso) - Incompleto">Pós-graduação
+                                                    (Lato senso) - Incompleto</option>
+                                                <option value="Pós-graduação (Lato senso) - Completo">Pós-graduação
+                                                    (Lato senso) - Completo</option>
+                                                <option
+                                                    value="Pós-graduação (Stricto sensu, nível mestrado) - Incompleto">
+                                                    Pós-graduação (Stricto sensu, nível mestrado) - Incompleto</option>
+                                                <option value="Pós-graduação (Stricto sensu, nível mestrado) - Completo
+                                                ">Pós-graduação (Stricto sensu, nível mestrado) - Completo
+                                                </option>
+                                                <option
+                                                    value="Pós-graduação (Stricto sensu, nível doutor) - Incompleto">
+                                                    Pós-graduação (Stricto sensu, nível doutor) - Incompleto</option>
+                                                <option value="Pós-graduação (Stricto sensu, nível doutor) - Completo">
+                                                    Pós-graduação (Stricto sensu, nível doutor) - Completo</option>
+
+                                            </select>
 
                                         </div>
 
@@ -219,18 +323,10 @@
 
                                         </div>
 
-                                        <div class="col-md-2 mb-3">
+                                        <div class="col-md-3 mb-3">
                                             <label for="validationCustom01">Data de Nascimento</label>
                                             <input type="text" class="form-control form-control-sm" id="id-dt-nasci"
                                                 onKeyDown="fMasc( this, data );" maxlength="10" required>
-
-                                        </div>
-
-                                        <div class="col-md-3 mb-3">
-                                            <label for="validationCustom01">CPF</label>
-                                            <input type="text" maxlength="14" name='cpfcnpj'
-                                                onkeypress='mascaraMutuario(this,cpfCnpj)'
-                                                class="form-control form-control-sm" id="id-cpf" required>
 
                                         </div>
 
@@ -239,13 +335,6 @@
                                             <input type="text" maxlength="12" name='cpfcnpj'
                                                 onkeypress='mascaraMutuario(this,cpfCnpj)'
                                                 class="form-control form-control-sm" id="id-rg" required>
-
-                                        </div>
-
-                                        <div class="col-md-3 mb-3">
-                                            <label for="validationCustom01">Nome a ser colocado no crachá</label>
-                                            <input type="text" class="form-control form-control-sm" id="id-cracha"
-                                                required>
 
                                         </div>
 
@@ -265,7 +354,7 @@
                                         <div class="col-md-3 mb-3">
                                             <label for="validationCustom01">Quantos</label>
                                             <input type="text" class="form-control form-control-sm" id="id-quantos"
-                                                onKeyDown="fMasc( this, nContrtato );" maxlength="2" disabled required>
+                                                onKeyDown="fMasc( this, nContrtato );" maxlength="2" required>
 
                                         </div>
 
@@ -280,7 +369,7 @@
 
                                 <div class="bg-titulo mt-1">
 
-                                    <h3>Nº Reservita</h3>
+                                    <h3>Dados Documentação</h3>
 
                                 </div>
 
@@ -316,8 +405,36 @@
 
                                         <div class="col-md-3 mb-3">
                                             <label for="validationCustom01">UF</label>
-                                            <input type="text" class="form-control form-control-sm" id="id-uf-reservita"
-                                                required>
+                                            <select class="form-control form-control-sm" id="id-uf-reservita" required>
+                                                <option></option>
+                                                <option value="AC">Acre</option>
+                                                <option value="AL">Alagoas</option>
+                                                <option value="AP">Amapá</option>
+                                                <option value="AM">Amazonas</option>
+                                                <option value="BA">Bahia</option>
+                                                <option value="CE">Ceará</option>
+                                                <option value="DF">Distrito Federal</option>
+                                                <option value="ES">Espírito Santo</option>
+                                                <option value="GO">Goiás</option>
+                                                <option value="MA">Maranhão</option>
+                                                <option value="MT">Mato Grosso</option>
+                                                <option value="MS">Mato Grosso do Sul</option>
+                                                <option value="MG">Minas Gerais</option>
+                                                <option value="PA">Pará</option>
+                                                <option value="PB">Paraíba</option>
+                                                <option value="PR">Paraná</option>
+                                                <option value="PE">Pernambuco</option>
+                                                <option value="PI">Piauí</option>
+                                                <option value="RJ">Rio de Janeiro</option>
+                                                <option value="RN">Rio Grande do Norte</option>
+                                                <option value="RS">Rio Grande do Sul</option>
+                                                <option value="RO">Rondônia</option>
+                                                <option value="RR">Roraima</option>
+                                                <option value="SC">Santa Catarina</option>
+                                                <option value="SP">São Paulo</option>
+                                                <option value="SE">Sergipe</option>
+                                                <option value="TO">Tocantins</option>
+                                            </select>
 
                                         </div>
                                     </div>
@@ -359,7 +476,7 @@
 
                                         <div class="col-md-3 mb-3">
                                             <label for="validationCustom01">Titulo de Eleitor</label>
-                                            <input type="text" class="form-control form-control-sm" id="id-titulo"
+                                            <input type="text" class="form-control form-control-sm" id="id-titulo" onkeydown="mascaraMutuario(this, nContrtato)" maxlength="12"
                                                 required>
 
                                         </div>
@@ -374,6 +491,13 @@
                                         <div class="col-md-3 mb-3">
                                             <label for="validationCustom01">Seção</label>
                                             <input type="text" class="form-control form-control-sm" id="id-secao"
+                                                required>
+
+                                        </div>
+
+                                        <div class="col-md-3 mb-3">
+                                            <label for="validationCustom01">Numero Reservista</label>
+                                            <input type="text" class="form-control form-control-sm" id="id_reservista" onkeydown="mascaraMutuario(this, nContrtato)"
                                                 required>
 
                                         </div>
@@ -472,62 +596,75 @@
 
                                         <div class="col-md-4 mb-3">
                                             <label for="exampleFormControlFile1"><b>Carteira de Trabalho :</b></label>
-                                            <input type="file" class="form-control-file" id="carteira_trabalho_arq" name="carteira_trabalho_arq">
-                                        
+                                            <input type="file" class="form-control-file" id="carteira_trabalho_arq"
+                                                name="carteira_trabalho_arq">
+
                                         </div>
 
                                         <div class="col-md-4 mb-3">
                                             <label for="exampleFormControlFile1"><b>Titulo Eleitor :</b></label>
-                                            <input type="file" class="form-control-file" id="titulo_eleitor_arq" name="titulo_eleitor_arq">
-                                        
+                                            <input type="file" class="form-control-file" id="titulo_eleitor_arq"
+                                                name="titulo_eleitor_arq">
+
                                         </div>
 
                                         <div class="col-md-4 mb-3">
                                             <label for="exampleFormControlFile1"><b>Certificado Reservista :</b></label>
-                                            <input type="file" class="form-control-file" id="reservista_arq" name="reservista_arq">
-                                        
+                                            <input type="file" class="form-control-file" id="reservista_arq"
+                                                name="reservista_arq">
+
                                         </div>
 
                                         <div class="col-md-4 mb-3">
-                                            <label for="exampleFormControlFile1"><b>Certidão Casamento / Nascimento :</b></label>
-                                            <input type="file" class="form-control-file" id="certidao_arq" name="certidao_arq">
-                                        
+                                            <label for="exampleFormControlFile1"><b>Certidão Casamento / Nascimento
+                                                    :</b></label>
+                                            <input type="file" class="form-control-file" id="certidao_arq"
+                                                name="certidao_arq">
+
                                         </div>
 
                                         <div class="col-md-4 mb-3">
-                                            <label for="exampleFormControlFile1"><b>Rg Filhos menores 14 anos :</b></label>
-                                            <input type="file" class="form-control-file" id="rg_filhos14_arq" name="rg_filhos14_arq">
-                                        
+                                            <label for="exampleFormControlFile1"><b>Rg Filhos menores 14 anos
+                                                    :</b></label>
+                                            <input type="file" class="form-control-file" id="rg_filhos14_arq"
+                                                name="rg_filhos14_arq">
+
                                         </div>
 
                                         <div class="col-md-4 mb-3">
                                             <label for="exampleFormControlFile1"><b>Pis :</b></label>
                                             <input type="file" class="form-control-file" id="pis_arq" name="pis_arq">
-                                        
+
                                         </div>
 
                                         <div class="col-md-4 mb-3">
                                             <label for="exampleFormControlFile1"><b>Atencendentes Criminais</b></label>
-                                            <input type="file" class="form-control-file" id="criminais_arq" name="criminais_arq">
-                                        
+                                            <input type="file" class="form-control-file" id="criminais_arq"
+                                                name="criminais_arq">
+
                                         </div>
 
                                         <div class="col-md-4 mb-3">
-                                            <label for="exampleFormControlFile1"><b>Comprovante Escolaridade :</b></label>
-                                            <input type="file" class="form-control-file" id="escolaridade_arq" name="escolaridade_arq">
-                                        
+                                            <label for="exampleFormControlFile1"><b>Comprovante Escolaridade
+                                                    :</b></label>
+                                            <input type="file" class="form-control-file" id="escolaridade_arq"
+                                                name="escolaridade_arq">
+
                                         </div>
 
                                         <div class="col-md-4 mb-3">
-                                            <label for="exampleFormControlFile1"><b>Cartão Dados Conta Corrente :</b></label>
-                                            <input type="file" class="form-control-file" id="cartao_arq" name="cartao_arq">
-                                        
+                                            <label for="exampleFormControlFile1"><b>Cartão Dados Conta Corrente
+                                                    :</b></label>
+                                            <input type="file" class="form-control-file" id="cartao_arq"
+                                                name="cartao_arq">
+
                                         </div>
 
                                         <div class="col-md-4 mb-3">
                                             <label for="exampleFormControlFile1"><b>Outros :</b></label>
-                                            <input type="file" class="form-control-file" id="outros_arq" name="outros_arq">
-                                        
+                                            <input type="file" class="form-control-file" id="outros_arq"
+                                                name="outros_arq">
+
                                         </div>
 
                                     </div>
