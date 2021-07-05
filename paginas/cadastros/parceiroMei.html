@@ -90,6 +90,13 @@
 
                                         </div>
 
+                                        <div class="col-md-3 mb-3">
+                                            <label for="validationCustom01">CEP:</label>
+                                            <input type="text" class="form-control form-control-sm" id="cep-campo"
+                                                onkeypress="mascaraMutuario(this, mCEP)" maxlength="9" required>
+
+                                        </div>
+
                                         <div class="col-md-4 mb-3">
                                             <label for="validationCustom01">Endereço Completo</label>
                                             <input type="text" class="form-control form-control-sm" id="id-endereco"
@@ -103,12 +110,7 @@
 
                                         </div>
 
-                                        <div class="col-md-3 mb-3">
-                                            <label for="validationCustom01">CEP:</label>
-                                            <input type="text" class="form-control form-control-sm" id="cep-campo"
-                                                onkeypress="mascaraMutuario(this, nContrtato)" required>
-
-                                        </div>
+                                        
 
                                     </div>
 
@@ -135,15 +137,43 @@
                                         <div class="col-md-3 mb-3">
                                             <label for="validationCustom01">UF</label>
 
-                                            <input type="text" min="1921-01-01" class="form-control form-control-sm"
-                                                id="id-uf" required>
+                                            <select class="form-control form-control-sm" id="id-uf" required>
+                                                <option></option>
+                                                <option value="AC">Acre</option>
+                                                <option value="AL">Alagoas</option>
+                                                <option value="AP">Amapá</option>
+                                                <option value="AM">Amazonas</option>
+                                                <option value="BA">Bahia</option>
+                                                <option value="CE">Ceará</option>
+                                                <option value="DF">Distrito Federal</option>
+                                                <option value="ES">Espírito Santo</option>
+                                                <option value="GO">Goiás</option>
+                                                <option value="MA">Maranhão</option>
+                                                <option value="MT">Mato Grosso</option>
+                                                <option value="MS">Mato Grosso do Sul</option>
+                                                <option value="MG">Minas Gerais</option>
+                                                <option value="PA">Pará</option>
+                                                <option value="PB">Paraíba</option>
+                                                <option value="PR">Paraná</option>
+                                                <option value="PE">Pernambuco</option>
+                                                <option value="PI">Piauí</option>
+                                                <option value="RJ">Rio de Janeiro</option>
+                                                <option value="RN">Rio Grande do Norte</option>
+                                                <option value="RS">Rio Grande do Sul</option>
+                                                <option value="RO">Rondônia</option>
+                                                <option value="RR">Roraima</option>
+                                                <option value="SC">Santa Catarina</option>
+                                                <option value="SP">São Paulo</option>
+                                                <option value="SE">Sergipe</option>
+                                                <option value="TO">Tocantins</option>
+                                            </select>
 
                                         </div>
 
                                         <div class="col-md-3 mb-3">
                                             <label for="validationCustom01">Complemento</label>
-                                            <input type="text" class="form-control form-control-sm" 
-                                            id="id-complemento" required>
+                                            <input type="text" class="form-control form-control-sm" id="id-complemento"
+                                                required>
 
                                         </div>
                                     </div>
@@ -255,9 +285,8 @@
 
                                         <div class="col-md-3 mb-3">
                                             <label for="validationCustom01">CPF</label>
-                                            <input type="text" class="form-control form-control-sm"
-                                                id="cpf-cnpj" onkeypress='mascaraMutuario(this,cpfCnpj)'
-                                                maxlength="14" required>
+                                            <input type="text" class="form-control form-control-sm" id="cpf-cnpj"
+                                                onkeypress='mascaraMutuario(this,cpfCnpj)' maxlength="14" required>
 
                                         </div>
 
@@ -298,43 +327,71 @@
 
                                         <div class="col-md-3 mb-3">
                                             <label for="validationCustom01">Endereço Residencial</label>
-                                            <input type="text" class="form-control form-control-sm" id="id-endereco"
+                                            <input type="text" class="form-control form-control-sm" id="id-endereco2"
                                                 required>
 
                                         </div>
 
                                         <div class="col-md-3 mb-3">
                                             <label for="validationCustom01">Complemento</label>
-                                            <input type="text" class="form-control form-control-sm" id="id-complemento"
+                                            <input type="text" class="form-control form-control-sm" id="id-complemento2"
                                                 required>
 
                                         </div>
 
                                         <div class="col-md-3 mb-3">
                                             <label for="validationCustom01">Bairro</label>
-                                            <input type="text" class="form-control form-control-sm" id="id-bairro"
+                                            <input type="text" class="form-control form-control-sm" id="id-bairro2"
                                                 required>
 
                                         </div>
 
                                         <div class="col-md-3 mb-3">
                                             <label for="validationCustom01">Cidade</label>
-                                            <input type="text" class="form-control form-control-sm" id="id-cidade"
+                                            <input type="text" class="form-control form-control-sm" id="id-cidade2"
                                                 required>
 
                                         </div>
 
                                         <div class="col-md-3 mb-3">
                                             <label for="validationCustom01">UF</label>
-                                            <input type="text" class="form-control form-control-sm" id="id-uf"
-                                                required>
+                                            <select class="form-control form-control-sm" id="id-uf2" required>
+                                                <option></option>
+                                                <option value="AC">Acre</option>
+                                                <option value="AL">Alagoas</option>
+                                                <option value="AP">Amapá</option>
+                                                <option value="AM">Amazonas</option>
+                                                <option value="BA">Bahia</option>
+                                                <option value="CE">Ceará</option>
+                                                <option value="DF">Distrito Federal</option>
+                                                <option value="ES">Espírito Santo</option>
+                                                <option value="GO">Goiás</option>
+                                                <option value="MA">Maranhão</option>
+                                                <option value="MT">Mato Grosso</option>
+                                                <option value="MS">Mato Grosso do Sul</option>
+                                                <option value="MG">Minas Gerais</option>
+                                                <option value="PA">Pará</option>
+                                                <option value="PB">Paraíba</option>
+                                                <option value="PR">Paraná</option>
+                                                <option value="PE">Pernambuco</option>
+                                                <option value="PI">Piauí</option>
+                                                <option value="RJ">Rio de Janeiro</option>
+                                                <option value="RN">Rio Grande do Norte</option>
+                                                <option value="RS">Rio Grande do Sul</option>
+                                                <option value="RO">Rondônia</option>
+                                                <option value="RR">Roraima</option>
+                                                <option value="SC">Santa Catarina</option>
+                                                <option value="SP">São Paulo</option>
+                                                <option value="SE">Sergipe</option>
+                                                <option value="TO">Tocantins</option>
+                                            </select>
 
                                         </div>
 
                                         <div class="col-md-3 mb-3">
                                             <label for="validationCustom01">CEP</label>
-                                            <input type="text" class="form-control form-control-sm" id="cep-campo"
-                                                required>
+                                            <input type="text" class="form-control form-control-sm" id="id-cep"
+                                                onkeypress="mascaraMutuario(this, mCEP)" maxlength="9" required>
 
                                         </div>
 

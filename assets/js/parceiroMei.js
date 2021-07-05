@@ -1,11 +1,55 @@
 const URL = `http://localhost:3000/user`;
-const URL_API_CEP = 'https://viacep.com.br/ws/';
-
+const URL_API_CEP = 'https://viacep.com.br/ws';
 //btn
 const incluir = document.getElementById('buttonIncluir');
 
+const cep = document.getElementById("cep-campo");
+const cep2 = document.getElementById("id-cep");
+
+cep2.addEventListener('blur', async (e) => {
+
+    if (e.target.value === '' || e.target.value === null) {
+        $("#id-cidade2").val('');
+        $("#id-endereco2").val('');
+        $("#id-bairro2").val('');
+        $("#id-uf2").val('');
+
+        return;
+    }
+
+    const data = await fetch(`${URL_API_CEP}/${cep2.value.replace(/-/g, "")}/json`).then(response => (response.status === 200) ? response.json() : {
+        message: "CEP Inválido"
+    });
+
+    $("#id-cidade2").val(data.localidade);
+    $("#id-endereco2").val(data.logradouro);
+    $("#id-bairro2").val(data.bairro);
+    $("#id-uf2").val(data.uf)
+});
+
+cep.addEventListener('blur', async (e) => {
+
+    if (e.target.value === '' || e.target.value === null) {
+        $("#id-cidade").val('');
+        $("#id-endereco").val('');
+        $("#id-bairro").val('');
+        $("#id-uf").val('');
+
+        return;
+    }
+
+    const data = await fetch(`${URL_API_CEP}/${cep.value.replace(/-/g, "")}/json`).then(response => (response.status === 200) ? response.json() : {
+        message: "CEP Inválido"
+    });
+
+    $("#id-cidade").val(data.localidade);
+    $("#id-endereco").val(data.logradouro);
+    $("#id-bairro").val(data.bairro);
+    $("#id-uf").val(data.uf)
+});
+
 incluir.addEventListener('click', async () => {
-    const nome = $("#id-nome").val(); 
+    const nome = $("#id-nome").val();
     const endereco = $("#id-endereco").val();
     const numero = $("#id-numero").val();
     const cep = $("#cep-campo").val();
@@ -13,9 +57,12 @@ incluir.addEventListener('click', async () => {
     const cidade = $("#id-cidade").val();
     const uf = $("#id-uf").val();
     const complemento = $("#id-complemento").val();
-    const telefone = $("#id-telefone").val();  
+    const telefone = $("#id-telefone").val();
+
     const email = $("#id-email").val();
     const nomeContato = $("#id-email").val();
+
+
     const pagamentoCartao = $("#pagamento-via-cartao").val();
     const favorecido = $("#campo-favorecido").val();
     const cpf = $("#cpf-cnpj").val();
@@ -40,34 +87,35 @@ incluir.addEventListener('click', async () => {
     console.log(rg)
 
     const body = {
-         nome_completo: nome,
-         nome_completo: nomeContato,
-         logradouro: endereco,
-         logradouro: enderecoResidencial,
-         numero_l: numero,
-         cep: cep,
-         cep: cep2,
-         bairro: bairro,
-         bairro: bairro2,
-         cidade: cidade,
-         cidade: cidade2,
-         uf: uf,
-         uf: uf2,
-         complemento: complemento,
-         complemento: complemento2,
+        nome_completo: nome,
+        nome_completo: nomeContato,
+        logradouro: endereco,
+        logradouro: enderecoResidencial,
+        numero_l: numero,
+        cep: cep,
+        cep: cep2,
+        bairro: bairro,
+        bairro: bairro2,
+        cidade: cidade,
+        cidade: cidade2,
+        uf: uf,
+        uf: uf2,
+        complemento: complemento,
+        complemento: complemento2,
         telefone: telefone,
         telefone: celular,
-         email,
-         tipo_pagamento: pagamentoCartao,
-         favorecido,
-         cnpj: rg,
-         cpf,
-         banco,
-         agencia,
-         conta: cCorrente,
-         data_nascimento: nasci,
-         nome_mae: nmMae,
-         certificacao,
+        email,
+        tipo_pagamento: pagamentoCartao,
+        favorecido,
+        cnpj: rg,
+        cpf,
+        banco,
+        agencia,
+        conta: cCorrente,
+        data_nascimento: nasci,
+        // nome_pai: nmPai,
+        nome_mae: nmMae,
+        certificacao,
         status: 'AGUARDANDO APROVAÇÃO DP'
     }
 
@@ -89,30 +137,25 @@ incluir.addEventListener('click', async () => {
 
         $('#success').fadeIn(300).delay(3000).fadeOut(400);
 
-         document.getElementById("success").textContent = "Incluido";
-
-         
+        document.getElementById("success").textContent = "Incluido";
 
         const dataJson = await inclusaoArquivos(res.id_parceiro);
 
-        console.log(dataJson);
-
-        if(dataJson) {
+        if (dataJson) {
             console.log(dataJson);
-            console.log('foi')
         }
     })
 
 })
 
 async function inclusaoArquivos(id_parceiro) {
-    // console.log(id_parceiro);
+    console.log(id_parceiro);
     const filesInputs = document.querySelectorAll("#files input[type='file']");
 
     const formData = new FormData();
 
     filesInputs.forEach(fileEl => {
-        formData.set(fileEl.name, fileEl.files[0]);
+        formData.append(fileEl.name, fileEl.files[0]);
 
     });
 
@@ -123,20 +166,8 @@ async function inclusaoArquivos(id_parceiro) {
     then(res => res.json()).
     catch(error => console.log(error));
 
+    console.log(data)
+
     return data;
 
 }
-
-const cep = document.getElementById("cep-campo");
-
-cep.addEventListener('blur', async () => {
-
-    const data = await fetch(`${URL_API_CEP}/${cep.value.replace(/-/g, "")}/json`).then(response => (response.status === 200) ? response.json() : {
-        message: "CEP Inválido"
-    });
-
-    $("#id-cidade").val(data.localidade);
-    $("#id-endereco").val(data.logradouro);
-    $("#id-bairro").val(data.bairro);
-    $("#id-uf").val(data.uf)
-});

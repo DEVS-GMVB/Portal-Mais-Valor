@@ -1,10 +1,35 @@
 const URL = `http://localhost:3000/user`;
-
+const URL_API_CEP = 'https://viacep.com.br/ws';
 //btn
 const incluir = document.getElementById('buttonIncluir');
 //liberar button
 const filho14 = document.getElementById('id-filhos-14');
 const quantos = document.getElementById('id-quantos');
+
+const cep = document.getElementById("cep-campo");
+
+cep.addEventListener('blur', async (e) => {
+    console.log(e.target.value === '')
+
+    if(e.target.value === '' || e.target.value === null) {
+        $("#id-cidade").val('');
+        $("#id-endereco").val('');
+        $("#id-bairro").val('');
+        $("#id-uf").val('');
+
+        return;
+    }
+
+
+    const data = await fetch(`${URL_API_CEP}/${cep.value.replace(/-/g, "")}/json`).then(response => (response.status === 200) ? response.json() : {
+        message: "CEP Inválido"
+    });
+
+    $("#id-cidade").val(data.localidade);
+    $("#id-endereco").val(data.logradouro);
+    $("#id-bairro").val(data.bairro);
+    $("#id-uf").val(data.uf)
+});
 
 document.getElementById('id-filhos-14').addEventListener('blur', () => {
 
@@ -126,7 +151,7 @@ incluir.addEventListener('click', async () => {
 
         console.log(dataJson);
 
-        if(dataJson) {
+        if (dataJson) {
             console.log(dataJson);
         }
     })
@@ -150,5 +175,3 @@ async function uploadFiles(id_parceiro) {
 
     return dataResponse;
 }
-
-uploadFiles();
