@@ -1,0 +1,961 @@
+<!DOCTYPE html>
+<html lang="pt-5">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description"
+    content="Purpose Application UI is the following chapter we've finished in order to create a complete and robust solution next to the already known Purpose Website UI.">
+  <meta name="author" content="Webpixels">
+  <title>Portal Mais Valor</title>
+  <!-- Favicon -->
+  <link rel="icon" href="../assets/img/brand/favicon.png" type="image/png">
+  <!-- Font Awesome 5 -->
+  <link rel="stylesheet" href="../assets/libs/@fortawesome/fontawesome-free/css/all.min.css"><!-- Page CSS -->
+  <link rel="stylesheet" href="../assets/libs/fullcalendar/dist/fullcalendar.min.css">
+  <!-- Purpose CSS -->
+  <link rel="stylesheet" href="../assets/css/purpose.css" id="stylesheet">
+</head>
+
+<style>
+  .bg-titulo {
+
+    background-color: #93d482;
+    text-align: center;
+    font-family: -apple-system;
+    border-radius: 10px;
+  }
+
+  .bg-subtitulo {
+
+    background-color: #c0dfb8;
+    text-align: center;
+    font-family: -apple-system;
+    border-radius: 10px;
+
+  }
+</style>
+
+<!-- MODAL CONSULTA INSS-->
+
+<div class="modal fade" id="modal-consultainss" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modal-consultainss">Consulta INSS</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form class="form-inline">
+          <div class="form-group mx-sm-4">
+            <input type="email" class="form-control" id="buscarconsultainss" placeholder="Consulta INSS">
+          </div>
+          <button type="button" class="btn btn-primary">
+            Pesquisar
+          </button>
+
+
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- FIM MODAL CONSULTA INSS-->
+
+
+<!-- MODAL NAO PERTUBE -->
+
+<div class="modal fade modal-naopertube" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h5 class="modal-title h6" id="myLargeModalLabel">Não Pertube</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+        <form>
+          <div class="form-row mx-4">
+            <div class="form-group col-md-9">
+              <input type="email" class="form-control" id="inputEmail4" placeholder="DDD e Número de Telefone">
+            </div>
+            <div class="form-group col-md-2">
+              <button type="button" class="btn btn-primary">
+                Pesquisar
+              </button>
+            </div>
+          </div>
+        </form>
+
+        <div class="bg-titulo mt-1">
+
+          <h3>
+            Informações
+
+          </h3>
+
+        </div>
+
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col" style="text-align: center;"><b>TELEFONE</b></th>
+              <th scope="col" style="text-align: center;"><b>ORIGEM</b></th>
+              <th scope="col" style="text-align: center;"><b>EMPRESA</b></th>
+              <th scope="col" style="text-align: center;"><b>DATA INÍCIO BLOQUEIO</b></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th style="text-align: center;">(XX) XXXXX-XXXX</th>
+              <td style="text-align: center;">XXXXXXXXXX</td>
+              <td style="text-align: center;">XXXXXXXXXX</td>
+              <td style="text-align: center;">XX/XX/XXXX</td>
+            </tr>
+
+
+          </tbody>
+        </table>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FINAL MODAL NAO PERTUBE-->
+
+<!-- MODAL CONSULTA AGENCIAS -->
+
+<div class="modal fade modal-consultaagencias" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h5 class="modal-title h6" id="myLargeModalLabel">Consulta Agências</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+        <form>
+          <div class="form-row mx-4">
+            <div class="form-group col-md-9">
+              <input type="email" class="form-control" id="inputEmail4" placeholder="CEP">
+            </div>
+            <div class="form-group col-md-2">
+              <button type="button" class="btn btn-primary">
+                Pesquisar
+              </button>
+            </div>
+          </div>
+        </form>
+
+        <div class="bg-titulo mt-1">
+
+          <h3>
+            Agência 1
+
+          </h3>
+
+        </div>
+
+        <table class="table table-responsive">
+          <thead>
+            <tr>
+              <th scope="col" style="text-align: center;"><b>CEP</b></th>
+              <th scope="col" style="text-align: center;"><b>CÓDIGO AGÊNCIA</b></th>
+              <th scope="col" style="text-align: center;"><b>NOME AGÊNCIA</b></th>
+              <th scope="col" style="text-align: center;"><b>UF</b></th>
+              <th scope="col" style="text-align: center;"><b>ENDEREÇO</b></th>
+              <th scope="col" style="text-align: center;"><b>BAIRRO</b></th>
+              <th scope="col" style="text-align: center;"><b>CIDADE</b></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th style="text-align: center;">(XX) XXXXX-XXXX</th>
+              <td style="text-align: center;">XXXXXXXXXX</td>
+              <td style="text-align: center;">XXXXXXXXXX</td>
+              <td style="text-align: center;">XXXXXXXXXX</td>
+              <td style="text-align: center;">XXXXXXXXXX</td>
+              <td style="text-align: center;">XXXXXXXXXX</td>
+              <td style="text-align: center;">XXXXXXXXXX</td>
+
+            </tr>
+
+
+          </tbody>
+        </table>
+
+        <div class="bg-titulo mt-4">
+
+          <h3>
+            Agência 2
+
+          </h3>
+
+        </div>
+
+        <table class="table table-responsive">
+          <thead>
+            <tr>
+              <th scope="col" style="text-align: center;"><b>CEP</b></th>
+              <th scope="col" style="text-align: center;"><b>CÓDIGO AGÊNCIA</b></th>
+              <th scope="col" style="text-align: center;"><b>NOME AGÊNCIA</b></th>
+              <th scope="col" style="text-align: center;"><b>UF</b></th>
+              <th scope="col" style="text-align: center;"><b>ENDEREÇO</b></th>
+              <th scope="col" style="text-align: center;"><b>BAIRRO</b></th>
+              <th scope="col" style="text-align: center;"><b>CIDADE</b></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th style="text-align: center;">(XX) XXXXX-XXXX</th>
+              <td style="text-align: center;">XXXXXXXXXX</td>
+              <td style="text-align: center;">XXXXXXXXXX</td>
+              <td style="text-align: center;">XXXXXXXXXX</td>
+              <td style="text-align: center;">XXXXXXXXXX</td>
+              <td style="text-align: center;">XXXXXXXXXX</td>
+              <td style="text-align: center;">XXXXXXXXXX</td>
+
+            </tr>
+
+
+          </tbody>
+        </table>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FINAL MODAL CONSULTA AGENCIAS -->
+
+
+
+
+<body class="application application-offset">
+  <script>
+    console.log(sessionStorage.getItem('cnpj_matriz', 'cnpj_matriz'));
+    console.log(sessionStorage.getItem('data_nascimento', 'data_nascimento'));
+    console.log(sessionStorage.getItem('id_acesso', 'id_acesso'));
+    console.log(sessionStorage.getItem('nome', 'nome'));
+    console.log(sessionStorage.getItem('perfil', 'perfil'));
+    console.log(sessionStorage.getItem('status', 'status'));
+    console.log(sessionStorage.getItem('tipo_parceiro2', 'tipo_parceiro2'))
+    console.log(sessionStorage.getItem('supervisor_cpf', 'supervisor_cpf'))
+    console.log(sessionStorage.getItem('gerente_cpf', 'gerente_cpf'))
+  </script>
+  <!-- Application container -->
+  <div class="container-fluid container-application">
+    <!-- Sidenav -->
+    <div class="sidenav" id="sidenav-main">
+      <!-- Sidenav header -->
+      <div class="sidenav-header d-flex align-items-center">
+        <a class="navbar-brand" href="../index.html">
+          <img src="../assets/img/brand/white1 copy.png" class="navbar-brand-img" alt="..."
+            style="height: 55px; right: 70px;">
+        </a>
+        <div class="ml-auto">
+          <!-- Sidenav toggler -->
+          <div class="sidenav-toggler sidenav-toggler-dark d-md-none" data-action="sidenav-unpin"
+            data-target="#sidenav-main">
+            <div class="sidenav-toggler-inner">
+              <i class="sidenav-toggler-line bg-white"></i>
+              <i class="sidenav-toggler-line bg-white"></i>
+              <i class="sidenav-toggler-line bg-white"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- User mini profile -->
+      <div class="sidenav-user d-flex flex-column align-items-center justify-content-between text-center">
+        <!-- Avatar -->
+        <div>
+          <a href="#" class="avatar rounded-circle avatar-xl">
+            <img alt="Image placeholder" src="../assets/img/theme/light/team-1-800x800.jpg" class="">
+          </a>
+          <div class="mt-4">
+            <h5 class="mb-0 text-white">Jucleia Silva</h5>
+            <span class="d-block text-sm text-white opacity-8 mb-3">Promotor</span>
+            <a href="#" class="btn btn-sm btn-white btn-icon rounded-pill shadow hover-translate-y-n3">
+              <span class="btn-inner--icon"><i class="fas fa-coins"></i></span>
+              <span class="btn-inner--text">R$ 30.300,78</span>
+            </a>
+          </div>
+        </div>
+        <!-- User info -->
+        <!-- Actions -->
+        <div class="w-100 mt-4 actions d-flex justify-content-between">
+          <a href="../application/user/profile.html" class="action-item action-item-lg text-white pl-0">
+            <i class="fas fa-user"></i>
+          </a>
+          <a href="#modal-chat" class="action-item action-item-lg text-white" data-toggle="modal">
+            <i class="fas fa-comment-alt"></i>
+          </a>
+          <a href="../application/shop/invoices.html" class="action-item action-item-lg text-white pr-0">
+            <i class="fas fa-receipt"></i>
+          </a>
+        </div>
+      </div>
+      <!-- Application nav -->
+      <div class="nav-application clearfix">
+        <a href="../paginas/home.html" class="btn btn-square text-sm active">
+          <span class="btn-inner--icon d-block"><i class="fas fa-home fa-2x"></i></span>
+          <span class="btn-inner--icon d-block pt-2">Home</span>
+        </a>
+        <a href="../paginas/propostas.html" class="btn btn-square text-sm">
+          <span class="btn-inner--icon d-block"> <i class="fas fa-file-invoice-dollar fa-2x"></i></span>
+          <span class="btn-inner--icon d-block pt-2">Propostas</span>
+        </a>
+        <a href="../paginas/comissao.html" class="btn btn-square text-sm">
+          <span class="btn-inner--icon d-block"><i class="fas fa-money-bill-wave fa-2x"></i></span>
+          <span class="btn-inner--icon d-block pt-2">Comissão</span>
+        </a>
+
+        <a href="../paginas/pendencias.html" class="btn btn-square text-sm">
+          <span class="btn-inner--icon d-block"><i class="fas fa-exclamation-triangle fa-2x"></i></span>
+          <span class="btn-inner--icon d-block pt-2">Pendências</span>
+        </a>
+
+        <a href="../paginas/treinamentos.html" class="btn btn-square text-sm">
+          <span class="btn-inner--icon d-block"><i class="fas fa-user-graduate fa-2x"></i></span>
+          <span class="btn-inner--icon d-block pt-2">Treinamentos</span>
+        </a>
+
+        <a href="../paginas/comunicados.html" class="btn btn-square text-sm">
+          <span class="btn-inner--icon d-block"><i class="fas fa-bookmark fa-2x"></i></span>
+          <span class="btn-inner--icon d-block pt-2">Comunicados</span>
+        </a>
+        <a href="../paginas/cadastro.html" class="btn btn-square text-sm">
+          <span class="btn-inner--icon d-block"><i class="fas fa-user-plus fa-2x"></i></span>
+          <span class="btn-inner--icon d-block pt-2">Cadastro</span>
+        </a>
+      </div>
+    </div>
+    <!-- Content -->
+    <div class="main-content position-relative">
+      <!-- Main nav -->
+      <nav class="navbar navbar-main navbar-expand-lg navbar-dark bg-primary navbar-border" id="navbar-main">
+        <div class="container-fluid">
+          <!-- Brand + Toggler (for mobile devices) -->
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-main-collapse"
+            aria-controls="navbar-main-collapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <!-- User's navbar -->
+          <div class="navbar-user d-lg-none ml-auto">
+            <ul class="navbar-nav flex-row align-items-center">
+              <li class="nav-item">
+                <a href="#" class="nav-link nav-link-icon sidenav-toggler" data-action="sidenav-pin"
+                  data-target="#sidenav-main"><i class="fas fa-bars"></i></a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link nav-link-icon" data-action="omnisearch-open" data-target="#omnisearch"><i
+                    class="fas fa-search"></i></a>
+              </li>
+              <li class="nav-item dropdown dropdown-animate">
+                <a class="nav-link nav-link-icon" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
+                  aria-expanded="false"><i class="fas fa-bell"></i></a>
+                <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg dropdown-menu-arrow p-0">
+                  <div class="py-3 px-3">
+                    <h5 class="heading h6 mb-0">Comunicados </h5>
+                  </div>
+                  <div class="list-group list-group-flush">
+                    <a href="#" class="list-group-item list-group-item-action">
+                      <div class="d-flex align-items-center" data-toggle="tooltip" data-placement="right"
+                        data-title="2 hrs ago">
+                        <div>
+                          <span class="avatar bg-primary text-white rounded-circle">AM</span>
+                        </div>
+                        <div class="flex-fill ml-3">
+                          <div class="h6 text-sm mb-0">Alex Michael <small class="float-right text-muted">2 hrs
+                              ago</small></div>
+                          <p class="text-sm lh-140 mb-0">
+                            Some quick example text to build on the card title.
+                          </p>
+                        </div>
+                      </div>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action">
+                      <div class="d-flex align-items-center" data-toggle="tooltip" data-placement="right"
+                        data-title="3 hrs ago">
+                        <div>
+                          <span class="avatar bg-warning text-white rounded-circle">SW</span>
+                        </div>
+                        <div class="flex-fill ml-3">
+                          <div class="h6 text-sm mb-0">Sandra Wayne <small class="float-right text-muted">3 hrs
+                              ago</small></div>
+                          <p class="text-sm lh-140 mb-0">
+                            Some quick example text to build on the card title.
+                          </p>
+                        </div>
+                      </div>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action">
+                      <div class="d-flex align-items-center" data-toggle="tooltip" data-placement="right"
+                        data-title="5 hrs ago">
+                        <div>
+                          <span class="avatar bg-info text-white rounded-circle">JM</span>
+                        </div>
+                        <div class="flex-fill ml-3">
+                          <div class="h6 text-sm mb-0">Jason Miller <small class="float-right text-muted">5 hrs
+                              ago</small></div>
+                          <p class="text-sm lh-140 mb-0">
+                            Some quick example text to build on the card title.
+                          </p>
+                        </div>
+                      </div>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action">
+                      <div class="d-flex align-items-center" data-toggle="tooltip" data-placement="right"
+                        data-title="2 hrs ago">
+                        <div>
+                          <span class="avatar bg-dark text-white rounded-circle">MJ</span>
+                        </div>
+                        <div class="flex-fill ml-3">
+                          <div class="h6 text-sm mb-0">Mike Thomson <small class="float-right text-muted">2 hrs
+                              ago</small></div>
+                          <p class="text-sm lh-140 mb-0">
+                            Some quick example text to build on the card title.
+                          </p>
+                        </div>
+                      </div>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action">
+                      <div class="d-flex align-items-center" data-toggle="tooltip" data-placement="right"
+                        data-title="3 hrs ago">
+                        <div>
+                          <span class="avatar bg-primary text-white rounded-circle">RN</span>
+                        </div>
+                        <div class="flex-fill ml-3">
+                          <div class="h6 text-sm mb-0">Richard Nixon <small class="float-right text-muted">3 hrs
+                              ago</small></div>
+                          <p class="text-sm lh-140 mb-0">
+                            Some quick example text to build on the card title.
+                          </p>
+                        </div>
+                      </div>
+                    </a>
+                  </div>
+                  <div class="py-3 text-center">
+                    <a href="#" class="link link-sm link--style-3">Ver mais Comunicados</a>
+                  </div>
+                </div>
+              </li>
+              <li class="nav-item dropdown dropdown-animate">
+                <a class="nav-link pr-lg-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
+                  aria-expanded="false">
+                  <span class="avatar avatar-sm rounded-circle">
+                    <img alt="Image placeholder" src="../assets/img/theme/light/team-4-800x800.jpg">
+                  </span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-sm dropdown-menu-right dropdown-menu-arrow">
+                  <h6 class="dropdown-header px-0">Hi, Heather!</h6>
+                  <a href="../application/user/profile.html" class="dropdown-item">
+                    <i class="fas fa-user"></i>
+                    <span>My profile</span>
+                  </a>
+                  <a href="../application/account/settings.html" class="dropdown-item">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                  </a>
+                  <a href="../application/account/billing.html" class="dropdown-item">
+                    <i class="fas fa-credit-card"></i>
+                    <span>Billing</span>
+                  </a>
+                  <a href="../application/shop/orders.html" class="dropdown-item">
+                    <i class="fas fa-shopping-basket"></i>
+                    <span>Orders</span>
+                  </a>
+                  <div class="dropdown-divider"></div>
+                  <a href="../application/authentication/login.html" class="dropdown-item">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                  </a>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <!-- Navbar nav -->
+          <div class="collapse navbar-collapse navbar-collapse-fade" id="navbar-main-collapse">
+            <ul class="navbar-nav align-items-lg-center">
+              <!-- Overview  -->
+              <li class="nav-item d-lg-none ">
+                <a class="nav-link" href="../index.html">
+                  Overview
+                </a>
+              </li>
+              <li class="border-top opacity-2 my-2"></li>
+              <!-- Home  -->
+              <li class="nav-item ">
+                <a class="nav-link pl-lg-0" href="../paginas/home.html">
+                  Home
+                </a>
+              </li>
+              <!-- Application menu -->
+              <li class="nav-item dropdown dropdown-animate" data-toggle="hover">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
+                  aria-expanded="false">
+                  Esteira
+                </a>
+                <div class="dropdown-menu dropdown-menu-arrow p-lg-0">
+                  <!-- Top dropdown menu -->
+                  <div class="p-lg-4">
+                    <div class="dropdown dropdown-animate dropdown-submenu" data-toggle="hover">
+                      <a href="#" class="dropdown-item dropdown-toggle" role="button" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        Propostas
+                      </a>
+                      <div class="dropdown-menu"><a class="dropdown-item" href="../paginas/propostas.html">
+                          Propostas
+                        </a>
+                        <a class="dropdown-item" href="../paginas/propostasimobiliario.html">
+                          Propostas Imobiliário
+                        </a>
+
+                        <a class="dropdown-item" href="../paginas/identificacaodeproposta.html">
+                          Identificação de Proposta
+                        </a>
+
+                        <a class="dropdown-item" href="../paginas/auditoria.html">
+                          Auditoria
+                        </a>
+
+                        <a class="dropdown-item" href="../paginas/assistencia24h.html">
+                          Assistência 24horas
+                        </a>
+
+                        <a class="dropdown-item" href="../paginas/propostasagdcontr.html">
+                          Propostas Aguardando Contrato
+                        </a>
+
+                      </div>
+                    </div>
+
+
+
+                    <div class="dropdown dropdown-animate dropdown-submenu" data-toggle="hover">
+                      <a href="#" class="dropdown-item dropdown-toggle" role="button" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        Solicitações
+                      </a>
+                      <div class="dropdown-menu"><a class="dropdown-item" href="../paginas/saldodevedor.html">
+                          Saldo Devedor
+                        </a>
+                        <a class="dropdown-item" href="../paginas/consultademargem.html">
+                          Consulta de Margem
+                        </a>
+                        <a class="dropdown-item" href="../paginas/consultasaldofer.html">
+                          Consulta de Saldo Fer
+                        </a>
+                        <a class="dropdown-item" href="../paginas/atualizacaocadastralcli.html">
+                          Atualização Cadastral Cliente
+                        </a>
+                        <a class="dropdown-item" href="../paginas/solicitacaocancelamento.html">
+                          Solicitação Cancelamento
+                        </a>
+                        <a class="dropdown-item" href="../paginas/apropropostadigital.html">
+                          Aprovação Proposta- Digital
+                        </a>
+                        <a class="dropdown-item" href="../paginas/averbacaogoias.html">
+                          Averbação Goias
+
+                        </a>
+                        <a class="dropdown-item" href="../paginas/autoriinsssms.html">
+                          Autorização INSS - VIA SMS
+                        </a>
+                        <a class="dropdown-item" href="../paginas/consultademargemgovsp.html">
+                          Consulta Margem Gov. SP
+                        </a>
+                        <a class="dropdown-item" href="../paginas/listanegra.html">
+                          Lista Negra
+                        </a>
+                        <a class="dropdown-item" href="../paginas/parceirosrestritos.html">
+                          Parceiros Restritos
+                        </a>
+                        <a class="dropdown-item" href="../paginas/lacpagamento.html">
+                          Lançamento Pagamento
+                        </a>
+
+                      </div>
+                    </div>
+
+                    <div class="dropdown dropdown-animate dropdown-submenu" data-toggle="hover">
+
+                      <a href="#" class="dropdown-item dropdown-toggle" role="button" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        Dashboard
+                      </a>
+
+                      <div class="dropdown-menu">
+                        <a class="dropdown-item" href="../paginas/#.html">
+                          Dashboard
+                        </a>
+                        <a class="dropdown-item" href="../paginas/#.html">
+                          Dashboard
+                        </a>
+                        <a class="dropdown-item" href="../paginas/dashboardproducao.html">
+                          Dash Produção
+                        </a>
+
+                      </div>
+                    </div>
+
+                    <a class="dropdown-item" href="../paginas/sac.html">
+                      SAC
+                    </a>
+
+                    <a class="dropdown-item" href="../paginas/treinamentos.html">
+                      Treinamentos
+                    </a>
+
+
+
+                    <div class="dropdown dropdown-animate dropdown-submenu" data-toggle="hover">
+                      <a href="#" class="dropdown-item dropdown-toggle" role="button" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        Relatórios
+                      </a>
+                      <div class="dropdown-menu"><a class="dropdown-item" href="../paginas/relatoriocadastros.html">
+                          Relatórios Cadastros
+                        </a>
+                        <a class="dropdown-item" href="../paginas/relatoriocampsemanal.html">
+                          Relatório Campanha Semanal
+                        </a>
+                        <a class="dropdown-item" href="../paginas/controledefilas.html">
+                          Controle de Filas
+                        </a>
+                        <a class="dropdown-item" href="../paginas/producaoanalista.html">
+                          Produção Analista
+                        </a>
+                        <a class="dropdown-item" href="../paginas/relatorioslogs.html">
+                          Relatório LOGS
+                        </a>
+                        <a class="dropdown-item" href="../paginas/relatoriossms.html">
+                          Relatório SMS
+                        </a>
+                        <a class="dropdown-item" href="../paginas/relatoriospend.html">
+                          Relatório Pendências
+                        </a>
+                        <a class="dropdown-item" href="../paginas/producaoanalista.html">
+                          Relatório Analista
+                        </a>
+
+                      </div>
+
+                    </div>
+
+                    <a class="dropdown-item" href="../paginas/comunicados.html">
+                      Comunicados
+                    </a>
+
+                    <a class="dropdown-item" href="../paginas/producao.html">
+                      Produção
+                    </a>
+
+                    <a class="dropdown-item" href="../paginas/indicasvendasbb.html">
+                      Indica Vendas BB
+                    </a>
+
+                  </div>
+
+                </div>
+
+              </li>
+
+              <li class="nav-item dropdown dropdown-animate" data-toggle="hover">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
+                  aria-expanded="false">
+                  Produtos
+                </a>
+                <div class="dropdown-menu dropdown-menu-arrow p-lg-0">
+                  <!-- Top dropdown menu -->
+                  <div class="p-lg-4">
+                    <div class="dropdown dropdown-animate dropdown-submenu" data-toggle="hover">
+                      <a href="#" class="dropdown-item dropdown-toggle" role="button" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        Integrações
+                      </a>
+                      <div class="dropdown-menu"><a class="dropdown-item" href="../paginas/consultainss.html"
+                          data-toggle="modal" data-target="#modal-consultainss">
+                          Consulta INSS
+                        </a>
+                        <a class="dropdown-item" href="../paginas/naopertube.html" data-toggle="modal"
+                          data-target=".modal-naopertube">
+                          Não Pertube
+                        </a>
+
+                        <a class="dropdown-item" href="../paginas/consultaagencias.html" data-toggle="modal"
+                          data-target=".modal-consultaagencias">
+                          Consulta Agências
+                        </a>
+
+                      </div>
+                    </div>  
+                    <div class="dropdown dropdown-animate dropdown-submenu" data-toggle="hover">
+                      <a href="#" class="dropdown-item dropdown-toggle" role="button" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        Simulações
+                      </a>
+                      <div class="dropdown-menu">
+                        <a class="dropdown-item" href="../paginas/simuladormultibancos.html">
+                          Multibancos
+                        </a>
+                        <a class="dropdown-item" href="../paginas/prestamista.html">
+                          Prestamista
+
+                        </a>
+                        <a class="dropdown-item" href="../paginas/sim.html">
+                          SIM
+                        </a>
+                        <a class="dropdown-item" href="../paginas/pan.html">
+                          PAN
+                        </a>
+
+
+                      </div>
+
+                    </div>
+
+                    <a class="dropdown-item" href="../paginas/analisadordecredito.html">
+                      Analisador de Crédito
+                    </a>
+
+                  </div>
+
+                </div>
+
+              </li>
+
+          </div>
+
+
+      </nav>
+
+
+
+      <!-- Docs menu -->
+      <li class="nav-item d-lg-none">
+        <a class="nav-link" href="../docs/index.html">
+          Docs
+        </a>
+      </li>
+      <li class="nav-item d-lg-none">
+        <a class="nav-link" href="../application/authentication/register.html">
+          Register
+        </a>
+      </li>
+      <li class="nav-item d-lg-none">
+        <a class="nav-link" href="../application/authentication/login.html">
+          Sign in
+        </a>
+      </li>
+      </ul>
+
+      <!-- Right menu -->
+      <ul class="navbar-nav ml-lg-auto align-items-center d-none d-lg-flex">
+        <li class="nav-item">
+          <a href="#" class="nav-link nav-link-icon sidenav-toggler" data-action="sidenav-pin"
+            data-target="#sidenav-main"><i class="fas fa-bars"></i></a>
+        </li>
+        <li class="nav-item">
+          <a href="#" class="nav-link nav-link-icon" data-action="omnisearch-open" data-target="#omnisearch"><i
+              class="fas fa-search"></i></a>
+        </li>
+
+        <li class="nav-item dropdown dropdown-animate">
+          <a class="nav-link nav-link-icon" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false"><i class="fas fa-bell"></i></a>
+          <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg dropdown-menu-arrow p-0">
+            <div class="py-3 px-3">
+              <h5 class="heading h6 mb-0">Comunicados</h5>
+            </div>
+            <div class="list-group list-group-flush">
+              <a href="#" class="list-group-item list-group-item-action">
+                <div class="d-flex align-items-center" data-toggle="tooltip" data-placement="right"
+                  data-title="2 hrs ago">
+                  <div>
+                    <span class="avatar bg-primary text-white rounded-circle">AM</span>
+                  </div>
+                  <div class="flex-fill ml-3">
+                    <div class="h6 text-sm mb-0">Alex Michael <small class="float-right text-muted">2 hrs
+                        ago</small></div>
+                    <p class="text-sm lh-140 mb-0">
+                      Some quick example text to build on the card title.
+                    </p>
+                  </div>
+                </div>
+              </a>
+              <a href="#" class="list-group-item list-group-item-action">
+                <div class="d-flex align-items-center" data-toggle="tooltip" data-placement="right"
+                  data-title="3 hrs ago">
+                  <div>
+                    <span class="avatar bg-warning text-white rounded-circle">SW</span>
+                  </div>
+                  <div class="flex-fill ml-3">
+                    <div class="h6 text-sm mb-0">Sandra Wayne <small class="float-right text-muted">3 hrs
+                        ago</small></div>
+                    <p class="text-sm lh-140 mb-0">
+                      Some quick example text to build on the card title.
+                    </p>
+                  </div>
+                </div>
+              </a>
+              <a href="#" class="list-group-item list-group-item-action">
+                <div class="d-flex align-items-center" data-toggle="tooltip" data-placement="right"
+                  data-title="5 hrs ago">
+                  <div>
+                    <span class="avatar bg-info text-white rounded-circle">JM</span>
+                  </div>
+                  <div class="flex-fill ml-3">
+                    <div class="h6 text-sm mb-0">Jason Miller <small class="float-right text-muted">5 hrs
+                        ago</small></div>
+                    <p class="text-sm lh-140 mb-0">
+                      Some quick example text to build on the card title.
+                    </p>
+                  </div>
+                </div>
+              </a>
+              <a href="#" class="list-group-item list-group-item-action">
+                <div class="d-flex align-items-center" data-toggle="tooltip" data-placement="right"
+                  data-title="2 hrs ago">
+                  <div>
+                    <span class="avatar bg-dark text-white rounded-circle">MJ</span>
+                  </div>
+                  <div class="flex-fill ml-3">
+                    <div class="h6 text-sm mb-0">Mike Thomson <small class="float-right text-muted">2 hrs
+                        ago</small></div>
+                    <p class="text-sm lh-140 mb-0">
+                      Some quick example text to build on the card title.
+                    </p>
+                  </div>
+                </div>
+              </a>
+              <a href="#" class="list-group-item list-group-item-action">
+                <div class="d-flex align-items-center" data-toggle="tooltip" data-placement="right"
+                  data-title="3 hrs ago">
+                  <div>
+                    <span class="avatar bg-primary text-white rounded-circle">RN</span>
+                  </div>
+                  <div class="flex-fill ml-3">
+                    <div class="h6 text-sm mb-0">Richard Nixon <small class="float-right text-muted">3 hrs
+                        ago</small></div>
+                    <p class="text-sm lh-140 mb-0">
+                      Some quick example text to build on the card title.
+                    </p>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div class="py-3 text-center">
+              <a href="#" class="link link-sm link--style-3">Ver mais comunicados</a>
+            </div>
+          </div>
+        </li>
+        <li class="nav-item dropdown dropdown-animate">
+          <a class="nav-link pr-lg-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false">
+            <div class="media media-pill align-items-center">
+              <span class="avatar rounded-circle">
+                <img alt="Image placeholder" src="../assets/img/theme/light/team-1-800x800.jpg">
+              </span>
+              <div class="ml-2 d-none d-lg-block">
+                <span class="mb-0 text-sm  font-weight-bold">Jucleia Silva</span>
+              </div>
+            </div>
+          </a>
+          <div class="dropdown-menu dropdown-menu-sm dropdown-menu-right dropdown-menu-arrow">
+
+            <a href="profile.html" class="dropdown-item">
+              <i class="fas fa-user"></i>
+              <span>Meu Perfil</span>
+            </a>
+            <a href="#!" class="dropdown-item">
+              <i class="fas fa-cog"></i>
+              <span>Suporte</span>
+            </a>
+
+            <div class="dropdown-divider"></div>
+            <a href="#!" class="dropdown-item">
+              <i class="fas fa-sign-out-alt"></i>
+              <span>Sair</span>
+            </a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+  </nav>
+  <!-- Omnisearch -->
+  <div id="omnisearch" class="omnisearch">
+    <div class="container">
+      <!-- Search form -->
+      <form class="omnisearch-form">
+        <div class="form-group">
+          <div class="input-group input-group-merge input-group-flush">
+            <div class="input-group-prepend">
+              <span class="input-group-text"><i class="fas fa-search"></i></span>
+            </div>
+            <input type="text" class="form-control" placeholder="Realize aqui sua busca...">
+          </div>
+        </div>
+      </form>
+
+    </div>
+  </div>
+  </div>
+
+
+
+
+  <!-- Page content -->
+  <div class="page-content">
+    <!-- Page title -->
+    <div class="page-title">
+      <div class="row justify-content-between align-items-center">
+        <div class="col-md-12 mb-3 mb-md-0">
+          <h5 class="h3 font-weight-400 mb-0 text-white">Olá <b>Jucleia Silva</b>!</h5>
+          <span class="text-sm text-white opacity-7">Seja bem vindo a<b> Esteira</b>, use o menu para
+            navegar pelas áreas.</span>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+
+    </div>
+
+  </div>
+  </div>
+
+</body>
+
+
+
+<!-- Scripts -->
+<!-- Core JS - includes jquery, bootstrap, popper, in-view and sticky-kit -->
+<script src="../assets/js/purpose.core.js"></script>
+<!-- Page JS -->
+<script src="../assets/libs/progressbar.js/dist/progressbar.min.js"></script>
+<script src="../assets/libs/apexcharts/dist/apexcharts.min.js"></script>
+<script src="../assets/libs/moment/min/moment.min.js"></script>
+<script src="../assets/libs/fullcalendar/dist/fullcalendar.min.js"></script>
+<!-- Purpose JS -->
+<script src="../assets/js/purpose.js"></script>
+<!-- Demo JS - remove it when starting your project -->
+<script src="../assets/js/demo.js"></script>
+
+</body>
+
+</html>
