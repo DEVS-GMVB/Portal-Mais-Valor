@@ -390,111 +390,7 @@ function safraArquivosTreinamentos() {
     `
 }
 
-function safraArquivosRoteiros() {
-    tbodyRoteiros.innerHTML = 
-    `
-        <tr style="text-align: center;">
-            <th><b>${('SAFRA AERONAUTICA EXTERNO 01 09 2020').toUpperCase()}</b></th>
-            <th scope="row">
-                <a href="http://localhost:3000/user/treinamentos/SAFRA ROTEIROS/SAFRA AERONAUTICA_RO EXTERNO 01_09_2020.pdf" class="btn btn-sm btn-secondary btn-icon rounded-pill" id="BTN-CANCELAMENTO-DE-PROPOSTAS" style="cursor: pointer; color:black;">
-                    <span class="btn-inner--icon"><i class="fas fa-file-excel"></i></span>
-                    <span class="btn-inner--text">DOWNLOAD</span>
-                </a>
-            </th>
-        </tr>
-
-        <tr style="text-align: center;">
-            <th><b> ${('SAFRA GOV BA EXTERNO 25 09 2020').toUpperCase()}</b></th>
-            <th scope="row">
-                <a href="http://localhost:3000/user/treinamentos/SAFRA ROTEIROS/SAFRA GOV BA RO EXTERNO 25_09_2020.pdf" class="btn btn-sm btn-secondary btn-icon rounded-pill" id="BTN-COMO-CALCULAR-A-MARGEM-NO-GOV-SP" style="cursor: pointer; color:black;">
-                    <span class="btn-inner--icon"><i class="fas fa-file-pdf"></i></span>
-                    <span class="btn-inner--text">DOWNLOAD</span>
-                </a>
-            </th>
-        </tr>
-
-        <tr style="text-align: center;">
-            <th><b> ${('SAFRA GOV GO INTERNO 04 09 2020').toUpperCase()}</b></th>
-            <th scope="row">
-                <a href="http://localhost:3000/user/treinamentos/SAFRA ROTEIROS/SAFRA GOV GO RO INTERNO 04_09_2020.pdf" class="btn btn-sm btn-secondary btn-icon rounded-pill" id="BTN-COMO-CALCULAR-A-MARGEM-NO-GOV-SP" style="cursor: pointer; color:black;">
-                    <span class="btn-inner--icon"><i class="fas fa-file-pdf"></i></span>
-                    <span class="btn-inner--text">DOWNLOAD</span>
-                </a>
-            </th>
-        </tr>
-
-        <tr style="text-align: center;">
-            <th><b> ${('SAFRA GOV PR ROTEIRO EXTERNO 14 09 2020').toUpperCase()}</b></th>
-            <th scope="row">
-                <a href="http://localhost:3000/user/treinamentos/SAFRA ROTEIROS/SAFRA GOV PR ROTEIRO EXTERNO 14_09_2020.pdf" class="btn btn-sm btn-secondary btn-icon rounded-pill" id="BTN-COMO-CALCULAR-A-MARGEM-NO-GOV-SP" style="cursor: pointer; color:black;">
-                    <span class="btn-inner--icon"><i class="fas fa-file-pdf"></i></span>
-                    <span class="btn-inner--text">DOWNLOAD</span>
-                </a>
-            </th>
-        </tr>
-
-        <tr style="text-align: center;">
-            <th><b> ${('SAFRA INSS EXTERNO 15 09 20').toUpperCase()}</b></th>
-            <th scope="row">
-                <a href="http://localhost:3000/user/treinamentos/SAFRA ROTEIROS/SAFRA INSS_RO EXTERNO_15_09_20.pdf" class="btn btn-sm btn-secondary btn-icon rounded-pill" id="BTN-COMO-CALCULAR-A-MARGEM-NO-GOV-SP" style="cursor: pointer; color:black;">
-                    <span class="btn-inner--icon"><i class="fas fa-file-pdf"></i></span>
-                    <span class="btn-inner--text">DOWNLOAD</span>
-                </a>
-            </th>
-        </tr>
-
-        <tr style="text-align: center;">
-            <th><b> ${('safra PREF CAMPINAS INTERNO 04 08 2020').toUpperCase()}</b></th>
-            <th scope="row">
-                <a href="http://localhost:3000/user/treinamentos/SAFRA ROTEIROS/safra PREF CAMPINAS RO INTERNO 04_08_2020 (1).pdf" class="btn btn-sm btn-secondary btn-icon rounded-pill" id="BTN-COMO-CALCULAR-A-MARGEM-NO-GOV-SP" style="cursor: pointer; color:black;">
-                    <span class="btn-inner--icon"><i class="fas fa-file-pdf"></i></span>
-                    <span class="btn-inner--text">DOWNLOAD</span>
-                </a>
-            </th>
-        </tr>
-
-        <tr style="text-align: center;">
-            <th><b> ${('SAFRA Resumo gov go 21 09').toUpperCase()}</b></th>
-            <th scope="row">
-                <a href="http://localhost:3000/user/treinamentos/SAFRA ROTEIROS/SAFRA Resumo RO gov go 21-09.pdf" class="btn btn-sm btn-secondary btn-icon rounded-pill" id="BTN-COMO-CALCULAR-A-MARGEM-NO-GOV-SP" style="cursor: pointer; color:black;">
-                    <span class="btn-inner--icon"><i class="fas fa-file-pdf"></i></span>
-                    <span class="btn-inner--text">DOWNLOAD</span>
-                </a>
-            </th>
-        </tr>
-
-        <tr style="text-align: center;">
-            <th><b> ${('SAFRA EXTERNO CAMPREV SP 21 08 2020').toUpperCase()}</b></th>
-            <th scope="row">
-                <a href="http://localhost:3000/user/treinamentos/SAFRA ROTEIROS/SAFRA RO EXTERNO CAMPREV SP 21_08_2020.pdf" class="btn btn-sm btn-secondary btn-icon rounded-pill" id="BTN-COMO-CALCULAR-A-MARGEM-NO-GOV-SP" style="cursor: pointer; color:black;">
-                    <span class="btn-inner--icon"><i class="fas fa-file-pdf"></i></span>
-                    <span class="btn-inner--text">DOWNLOAD</span>
-                </a>
-            </th>
-        </tr>
-
-        <tr style="text-align: center;">
-            <th><b> ${('SAFRA MARINHA EXTERNO 01 09 2020').toUpperCase()}</b></th>
-            <th scope="row">
-                <a href="http://localhost:3000/user/treinamentos/SAFRA ROTEIROS/SAFRA RO MARINHA EXTERNO_01_09_2020 (1).pdf" class="btn btn-sm btn-secondary btn-icon rounded-pill" id="BTN-COMO-CALCULAR-A-MARGEM-NO-GOV-SP" style="cursor: pointer; color:black;">
-                    <span class="btn-inner--icon"><i class="fas fa-file-pdf"></i></span>
-                    <span class="btn-inner--text">DOWNLOAD</span>
-                </a>
-            </th>
-        </tr>
-
-        <tr style="text-align: center;">
-            <th><b> ${('safra MARINHA EXTERNO 01 09 2020').toUpperCase()}</b></th>
-            <th scope="row">
-                <a href="http://localhost:3000/user/treinamentos/SAFRA ROTEIROS/safra RO MARINHA EXTERNO_01_09_2020 (2).pdf" class="btn btn-sm btn-secondary btn-icon rounded-pill" id="BTN-COMO-CALCULAR-A-MARGEM-NO-GOV-SP" style="cursor: pointer; color:black;">
-                    <span class="btn-inner--icon"><i class="fas fa-file-pdf"></i></span>
-                    <span class="btn-inner--text">DOWNLOAD</span>
-                </a>
-            </th>
-        </tr>
-
-    `
-}
+function safraArquivosRoteiros() {}
 
 function arquivosCrefisa() {
     tbodyArquivosTreinamentos.innerHTML =
@@ -800,7 +696,6 @@ function roteiroOle() {
         ``
 }
 
-
 function arquivosPan(){
     tbodyArquivosTreinamentos.innerHTML = 
     `<tr style="text-align: center;">
@@ -934,17 +829,6 @@ function arquivosPan(){
         </a>
     </th>
     </tr>
-
-    <tr style="text-align: center;">
-    <th><b>STATUS DE ESTEIRA QUE GERAM MAIS DÚVIDAS </b></th>
-    <th scope="row">
-        <a class="btn btn-sm btn-secondary btn-icon rounded-pill" style="color: black; cursor:pointer;"
-        href="http://localhost:3000/user/treinamentos/MATERIAL BANCO PAN/STATUS DE ESTEIRA QUE GERAM MAIS DÚVIDAS.pdf">
-            <span class="btn-inner--icon"><i class="fas fa-file-excel"></i></span>
-            <span class="btn-inner--text">DOWNLOAD</span>
-        </a>
-    </th>
-    </tr>
     `
 }
 
@@ -971,78 +855,78 @@ function roteirosPan(){
         </a>
     </th>
 </tr>
-
-<tr style="text-align: center;">
-    <th><b>AERO</b></th>
-    <th scope="row">
-        <a class="btn btn-sm btn-secondary btn-icon rounded-pill" style="color: black; cursor:pointer;"
-        href="http://localhost:3000/user/treinamentos/MATERIAL BANCO PAN/RO PAN AERO.pdf">
-            <span class="btn-inner--icon"><i class="fas fa-file-pdf"></i></span>
-            <span class="btn-inner--text">DOWNLOAD</span>
-        </a>
-    </th>
-</tr>
-
-<tr style="text-align: center;">
-    <th><b>INISS</b></th>
-    <th scope="row">
-        <a class="btn btn-sm btn-secondary btn-icon rounded-pill" style="color: black; cursor:pointer;"
-        href="http://localhost:3000/user/treinamentos/MATERIAL BANCO PAN/RO PAN INSS.pdf">
-            <span class="btn-inner--icon"><i class="fas fa-file-pdf"></i></span>
-            <span class="btn-inner--text">DOWNLOAD</span>
-        </a>
-    </th>
-</tr>
-
-<tr style="text-align: center;">
-    <th><b>SIAPE</b></th>
-    <th scope="row">
-        <a class="btn btn-sm btn-secondary btn-icon rounded-pill" style="color: black; cursor:pointer;"
-        href="http://localhost:3000/user/treinamentos/MATERIAL BANCO PAN/RO SIAPE.pdf">
-            <span class="btn-inner--icon"><i class="fas fa-file-pdf"></i></span>
-            <span class="btn-inner--text">DOWNLOAD</span>
-        </a>
-    </th>
-</tr>
-
-<tr style="text-align: center;">
-    <th><b>GOVERNO MA. - EMPRESTIMO</b></th>
-    <th scope="row">
-        <a class="btn btn-sm btn-secondary btn-icon rounded-pill" style="color: black; cursor:pointer;"
-        href="http://localhost:3000/user/treinamentos/MATERIAL BANCO PAN/RO_GOV.MA_Emprestimo_04.05_V47.pdf">
-            <span class="btn-inner--icon"><i class="fas fa-file-pdf"></i></span>
-            <span class="btn-inner--text">DOWNLOAD</span>
-        </a>
-    </th>
-</tr>
-
-<tr style="text-align: center;">
-    <th><b>GOVERNO SP. - EMPRESTIMO</b></th>
-    <th scope="row">
-        <a class="btn btn-sm btn-secondary btn-icon rounded-pill" style="color: black; cursor:pointer;"
-        href="http://localhost:3000/user/treinamentos/MATERIAL BANCO PAN/RO_GOV.SP_Emprestimo_04.54_V37.pdf">
-            <span class="btn-inner--icon"><i class="fas fa-file-pdf"></i></span>
-            <span class="btn-inner--text">DOWNLOAD</span>
-        </a>
-    </th>
-</tr>
-
-<tr style="text-align: center;">
-    <th><b>SPPREV - EMPRESTIMO</b></th>
-    <th scope="row">
-        <a class="btn btn-sm btn-secondary btn-icon rounded-pill" style="color: black; cursor:pointer;"
-        href="http://localhost:3000/user/treinamentos/MATERIAL BANCO PAN/RO_SPPREV_Emprestimo_04.58_V06.pdf">
-            <span class="btn-inner--icon"><i class="fas fa-file-pdf"></i></span>
-            <span class="btn-inner--text">DOWNLOAD</span>
-        </a>
-    </th>
-</tr>
 `
 }
 
-function arquivosSantander(){
+function santanderArquivosTreinamentos(){
     tbodyArquivosTreinamentos.innerHTML =
     `<tr style="text-align: center;">
+    <th><b>${('Biometria Facial - Convênios2').toUpperCase()}</b></th>
+    <th scope="row">
+        <a class="btn btn-sm btn-secondary btn-icon rounded-pill" style="color: black; cursor:pointer;"
+        href="http://localhost:3000/user/treinamentos/SANTANDER 2/Biometria Facial - Convênios2.xlsx">
+            <span class="btn-inner--icon"><i class="fas fa-file-pdf"></i></span>
+            <span class="btn-inner--text">DOWNLOAD</span>
+        </a>
+    </th>
+</tr>
+
+<tr style="text-align: center;">
+    <th><b>${('Calculadora de Portabilidade de Crédito v6.0 - Update').toUpperCase()}</b></th>
+    <th scope="row">
+        <a class="btn btn-sm btn-secondary btn-icon rounded-pill" style="color: black; cursor:pointer;"
+        href="http://localhost:3000/user/treinamentos/SANTANDER 2/Calculadora de Portabilidade de Crédito_v6.0 - Update.xlsb">
+            <span class="btn-inner--icon"><i class="fas fa-file-pdf"></i></span>
+            <span class="btn-inner--text">DOWNLOAD</span>
+        </a>
+    </th>
+</tr>
+
+<tr style="text-align: center;">
+    <th><b>${('CÓDIGO DE CONDUTA DE CORRESPONDENTES').toUpperCase()}</b></th>
+    <th scope="row">
+        <a class="btn btn-sm btn-secondary btn-icon rounded-pill" style="color: black; cursor:pointer;"
+        href="http://localhost:3000/user/treinamentos/SANTANDER 2/CÓDIGO DE CONDUTA DE CORRESPONDENTES.pdf">
+            <span class="btn-inner--icon"><i class="fas fa-file-pdf"></i></span>
+            <span class="btn-inner--text">DOWNLOAD</span>
+        </a>
+    </th>
+</tr>
+
+<tr style="text-align: center;">
+    <th><b>${('CONVÊNIO KROTON').toUpperCase()}</b></th>
+    <th scope="row">
+        <a class="btn btn-sm btn-secondary btn-icon rounded-pill" style="color: black; cursor:pointer;"
+        href="http://localhost:3000/user/treinamentos/SANTANDER 2/CONVÊNIO KROTON.pdf">
+            <span class="btn-inner--icon"><i class="fas fa-file-pdf"></i></span>
+            <span class="btn-inner--text">DOWNLOAD</span>
+        </a>
+    </th>
+</tr>
+
+<tr style="text-align: center;">
+    <th><b>${('CONVÊNIO PRONIL').toUpperCase()}</b></th>
+    <th scope="row">
+        <a class="btn btn-sm btn-secondary btn-icon rounded-pill" style="color: black; cursor:pointer;"
+        href="http://localhost:3000/user/treinamentos/SANTANDER 2/CONVÊNIO PRONIL.pdf">
+            <span class="btn-inner--icon"><i class="fas fa-file-pdf"></i></span>
+            <span class="btn-inner--text">DOWNLOAD</span>
+        </a>
+    </th>
+</tr>
+
+<tr style="text-align: center;">
+    <th><b>${('convenios especiais').toUpperCase()}</b></th>
+    <th scope="row">
+        <a class="btn btn-sm btn-secondary btn-icon rounded-pill" style="color: black; cursor:pointer;"
+        href="http://localhost:3000/user/treinamentos/SANTANDER 2/convenios especiais.xlsx">
+            <span class="btn-inner--icon"><i class="fas fa-file-pdf"></i></span>
+            <span class="btn-inner--text">DOWNLOAD</span>
+        </a>
+    </th>
+</tr>
+    
+    <tr style="text-align: center;">
     <th><b>BIOMETRIA FACIAL </b></th>
     <th scope="row">
         <a class="btn btn-sm btn-secondary btn-icon rounded-pill" style="color: black; cursor:pointer;"
@@ -1058,39 +942,6 @@ function arquivosSantander(){
     <th scope="row">
         <a class="btn btn-sm btn-secondary btn-icon rounded-pill" style="color: black; cursor:pointer;"
         href="http://localhost:3000/user/treinamentos/SANTANDER1/CONVÊNIO ESTADO DO ESPÍRITO SANTO.pdf">
-            <span class="btn-inner--icon"><i class="fas fa-file-excel"></i></span>
-            <span class="btn-inner--text">DOWNLOAD</span>
-        </a>
-    </th>
-    </tr>
-
-    <tr style="text-align: center;">
-    <th><b>CONVÊNIO KROTON </b></th>
-    <th scope="row">
-        <a class="btn btn-sm btn-secondary btn-icon rounded-pill" style="color: black; cursor:pointer;"
-        href="http://localhost:3000/user/treinamentos/SANTANDER1/CONVÊNIO KROTON.pdf">
-            <span class="btn-inner--icon"><i class="fas fa-file-excel"></i></span>
-            <span class="btn-inner--text">DOWNLOAD</span>
-        </a>
-    </th>
-    </tr>
-
-    <tr style="text-align: center;">
-    <th><b>CONVÊNIO PRONTIL </b></th>
-    <th scope="row">
-        <a class="btn btn-sm btn-secondary btn-icon rounded-pill" style="color: black; cursor:pointer;"
-        href="http://localhost:3000/user/treinamentos/SANTANDER1/CONVÊNIO PRONIL.pdf">
-            <span class="btn-inner--icon"><i class="fas fa-file-excel"></i></span>
-            <span class="btn-inner--text">DOWNLOAD</span>
-        </a>
-    </th>
-    </tr>
-
-    <tr style="text-align: center;">
-    <th><b>CONVÊNIOS ESPECIAIS </b></th>
-    <th scope="row">
-        <a class="btn btn-sm btn-secondary btn-icon rounded-pill" style="color: black; cursor:pointer;"
-        href="http://localhost:3000/user/treinamentos/SANTANDER1/convenios especiais.xlsx">
             <span class="btn-inner--icon"><i class="fas fa-file-excel"></i></span>
             <span class="btn-inner--text">DOWNLOAD</span>
         </a>
@@ -1229,4 +1080,8 @@ function arquivosSantander(){
     </th>
     </tr>
     `
+}
+
+function roteirosSantander(){
+    tbodyRoteiros.innerHTML = ``;
 }
