@@ -410,6 +410,7 @@ function alteracaoCadastro(idParceiro, td) {
     let usaSiglaE = document.getElementById('exampleFormControlUsaSigla').value;
     let usaSilgaI = document.getElementById('exampleFormControlSiglaI').value;
     let observ = document.getElementById('exampleFormControlObs').value;
+    let senhaSigla = document.getElementById('id-senhasiglae').value;
 
 
 
@@ -533,7 +534,8 @@ function alteracaoCadastro(idParceiro, td) {
         //PerceiroPromotor
         usa_esteira1: usaSiglaE,
         usa_siglai1: usaSilgaI,
-        observacao: observ
+        observacao: observ,
+        senha_siglae: senhaSigla
     })
 
     var requestOptions = {
