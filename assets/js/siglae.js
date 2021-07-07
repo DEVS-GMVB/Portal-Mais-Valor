@@ -126,6 +126,7 @@ function incluirCadastro() {
     const usaSiglaE = document.getElementById('exampleFormControlUsaSigla').value;
     const usaSilgaI = document.getElementById('exampleFormControlSiglaI').value;
     const observ = document.getElementById('exampleFormControlObs').value;
+    const senhaSiglae = document.getElementById("id-senhasiglae").value;
 
     var raw = JSON.stringify({
 
@@ -236,6 +237,7 @@ function incluirCadastro() {
 
         //Siglae
         siglae: sigla,
+        senha_siglae: senhaSiglae,
         codigo_corban: codEscritorio,
         nome_corban: nmEscritorio,
         status_e: stat,
@@ -246,7 +248,8 @@ function incluirCadastro() {
         //PerceiroPromotor
         usa_esteira1: usaSiglaE,
         usa_siglai1: usaSilgaI,
-        observacao: observ
+        observacao: observ,
+        senha_siglae: senhaSiglae
     })
 
     var requestOptions = {
@@ -411,8 +414,6 @@ function alteracaoCadastro(idParceiro, td) {
     let usaSilgaI = document.getElementById('exampleFormControlSiglaI').value;
     let observ = document.getElementById('exampleFormControlObs').value;
     let senhaSigla = document.getElementById('id-senhasiglae').value;
-
-
 
     var raw = JSON.stringify({
 

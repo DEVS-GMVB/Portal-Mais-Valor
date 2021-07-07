@@ -214,6 +214,8 @@ colocar.addEventListener('click', () => {
         .then(response => response.json())
         .then(result => {
 
+            console.log(result);
+
             cont = -1;
             array = result;
 
@@ -375,6 +377,9 @@ function editar(cpfCnpj, indexObj) {
     fetch(URL + "/user/cadastro/modal", requestOptions)
         .then(response => response.json())
         .then(function (data) {
+
+            console.log(data);
+
             // console.log(data.dados_cadastro.id_parceiro);
             //Alteração de buttons de cadastro, para alterar
             let idParceiro = data.dados_cadastro.id_parceiro
@@ -511,6 +516,7 @@ function editar(cpfCnpj, indexObj) {
 
                 //SILGLA E
                 $("#validationSigla").val(data.dados_sigla.siglae);
+                $("#id-senhasiglae").val(data.dados_cadastro.senha_siglae);
                 $("#validationCodigoEscritorio").val(data.dados_sigla.codigo_corban);
                 $("#validationNomeEscritorio").val(data.dados_sigla.nome_corban);
                 $("#validationDataInativacao").val(data.dados_sigla.data_inativacao)
