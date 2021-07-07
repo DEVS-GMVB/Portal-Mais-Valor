@@ -126,6 +126,7 @@ function incluirCadastro() {
     const usaSiglaE = document.getElementById('exampleFormControlUsaSigla').value;
     const usaSilgaI = document.getElementById('exampleFormControlSiglaI').value;
     const observ = document.getElementById('exampleFormControlObs').value;
+    const senhaSigla = document.getElementById('id-senhasiglae').value;
 
     var raw = JSON.stringify({
 
@@ -246,7 +247,8 @@ function incluirCadastro() {
         //PerceiroPromotor
         usa_esteira1: usaSiglaE,
         usa_siglai1: usaSilgaI,
-        observacao: observ
+        observacao: observ,
+        senha_siglae: senhaSigla
     })
 
     var requestOptions = {
@@ -261,6 +263,7 @@ function incluirCadastro() {
         //   console.log(response)
         .then(function (data) {
             console.log(data);
+            console.log(raw);
             if (data.sucesso === "usuario cadastrado com sucesso") {
                 $('#alertSucessoCadastro').show();
                 $('#alertSucessoCadastro').fadeIn(300).delay(3000).fadeOut(400);

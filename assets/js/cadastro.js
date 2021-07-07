@@ -521,7 +521,7 @@ function editar(cpfCnpj, indexObj) {
                 $("#exampleFormControlSiglaI").val(data.dados_sigla.usa_siglai1);
                 $("#exampleFormControlObs").val(data.dados_sigla.observacao);
                 $("#exampleFormControlStatusSiglas").val(data.dados_sigla.status_e);
-
+                $("#id-senhasiglae").val(data.dados_sigla.senha_siglae);
 
             }
 
