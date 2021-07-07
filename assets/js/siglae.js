@@ -114,7 +114,7 @@ function incluirCadastro() {
     const dtCancelamento = document.getElementById('dtCancelamentoChavej').value;
 
     //Siglae
-    const sigla = document.getElementById('validationSigla').value;
+    const siglae = document.getElementById('validationSigla').value;
     const codEscritorio = document.getElementById('validationCodigoEscritorio').value;
     const nmEscritorio = document.getElementById('validationNomeEscritorio').value;
     const stat = document.getElementById('exampleFormControlStatusSiglas').value;
@@ -236,7 +236,7 @@ function incluirCadastro() {
         data_inativacao: dtCancelamento,
 
         //Siglae
-        siglae: sigla,
+        siglae,
         senha_siglae: senhaSiglae,
         codigo_corban: codEscritorio,
         nome_corban: nmEscritorio,
@@ -261,15 +261,14 @@ function incluirCadastro() {
 
     fetch(URL + "/user/cadastro/inclusao", requestOptions)
         .then(response => response.json())
-        //   console.log(response)
         .then(function (data) {
+
             console.log(data);
             if (data.sucesso === "usuario cadastrado com sucesso") {
                 $('#alertSucessoCadastro').show();
                 $('#alertSucessoCadastro').fadeIn(300).delay(3000).fadeOut(400);
                 document.getElementById("alertSucessoCadastro").textContent = "Cadastro incluido com sucesso"
-                // alert("Cadastro incluido com sucesso!")
-                // console.log(data)
+
             }
 
             if (data.resp === "não foi possivel cadastrar usuario, cpf existente na base de dados") {
@@ -402,6 +401,8 @@ function alteracaoCadastro(idParceiro, td) {
 
     //Siglae
     let sigla = document.getElementById('validationSigla').value;
+    console.log(sigla);
+
     let codEscritorio = document.getElementById('validationCodigoEscritorio').value;
     let nmEscritorio = document.getElementById('validationNomeEscritorio').value;
     let stat = document.getElementById('exampleFormControlStatusSiglas').value;
@@ -531,7 +532,7 @@ function alteracaoCadastro(idParceiro, td) {
         data_inativacao: dtInativacao,
         motivo_pendencia: motPendencia,
         sigla_prospect: siglaPorsp,
-        cpf_usuario_1: cpfcnpjSigla,
+        cpf_sigla: cpfcnpjSigla,
         //PerceiroPromotor
         usa_esteira1: usaSiglaE,
         usa_siglai1: usaSilgaI,

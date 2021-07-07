@@ -516,7 +516,7 @@ function editar(cpfCnpj, indexObj) {
 
                 //SILGLA E
                 $("#validationSigla").val(data.dados_sigla.siglae);
-                $("#id-senhasiglae").val(data.dados_cadastro.senha_siglae);
+                $("#id-senhasiglae").val(data.dados_sigla.senha_siglae);
                 $("#validationCodigoEscritorio").val(data.dados_sigla.codigo_corban);
                 $("#validationNomeEscritorio").val(data.dados_sigla.nome_corban);
                 $("#validationDataInativacao").val(data.dados_sigla.data_inativacao)
