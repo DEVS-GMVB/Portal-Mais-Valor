@@ -7,17 +7,14 @@
     <meta name="description"
         content="Purpose Application UI is the following chapter we've finished in order to create a complete and robust solution next to the already known Purpose Website UI.">
     <meta name="author" content="Webpixels">
-    <title>Comunicados - Portal Mais Valor</title>
+    <title>Produtos – Portal Mais Valor</title>
     <!-- Favicon -->
     <link rel="icon" href="../assets/img/brand/favicon.png" type="image/png">
     <!-- Font Awesome 5 -->
-    <link rel="stylesheet" href="../assets/libs/@fortawesome/fontawesome-free/css/all.min.css">
-    <!-- Page CSS -->
+    <link rel="stylesheet" href="../assets/libs/@fortawesome/fontawesome-free/css/all.min.css"><!-- Page CSS -->
     <link rel="stylesheet" href="../assets/libs/fullcalendar/dist/fullcalendar.min.css">
     <!-- Purpose CSS -->
     <link rel="stylesheet" href="../assets/css/purpose.css" id="stylesheet">
-    <!-- CSS Personalizado -->
-    <link rel="stylesheet" href="../assets/css/personalizado.css" id="stylesheet">
 </head>
 
 <style>
@@ -37,131 +34,229 @@
         border-radius: 10px;
 
     }
-
-    .anexocampo1 {
-        text-align: align-self auto;
-        ;
-    }
 </style>
 
-<!-- Large modal -->
+
+<!-- MODAL CONSULTA INSS-->
+
+<div class="modal fade" id="modal-consultainss" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modal-consultainss">Consulta INSS</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form class="form-inline">
+                    <div class="form-group mx-sm-4">
+                        <input type="email" class="form-control" id="buscarconsultainss" placeholder="Consulta INSS">
+                    </div>
+                    <button type="button" class="btn btn-primary">
+                        Pesquisar
+                    </button>
 
 
-<div class="modal fade moda-alterar-comunicados" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- FIM MODAL CONSULTA INSS-->
+
+
+<!-- MODAL NAO PERTUBE -->
+
+<div class="modal fade modal-naopertube" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
     aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
 
             <div class="modal-header">
-                <img src="logocolorido.png" style="height: 70px; right: 70px;">
+                <h5 class="modal-title h6" id="myLargeModalLabel">Não Pertube</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
 
-
-                <form class="needs-validation" novalidate>
-
-
-
-                    <div class="form-row mt-2 mx-6">
-
-
-                        <div class="col-md-12 mb-3">
-                            <label for="validationCustom01">Título Comunicado</label>
-                            <input type="text" class="form-control form-control-sm" id="campo-titulo" required>
-
+                <form>
+                    <div class="form-row mx-4">
+                        <div class="form-group col-md-9">
+                            <input type="email" class="form-control" id="inputEmail4"
+                                placeholder="DDD e Número de Telefone">
                         </div>
-                        <div class="col-md-12 mb-3">
-                            <label for="exampleFormControlTextarea1">Texto</label>
-                            <textarea class="form-control" id="campo-texto" rows="3"></textarea>
+                        <div class="form-group col-md-2">
+                            <button type="button" class="btn btn-primary">
+                                Pesquisar
+                            </button>
                         </div>
-
-                        <div class="col-md-4 mb-3">
-                            <label for="exampleFormControlTextarea1">Imagem:</label>
-                            <input type="file" name="url_img" id="url_img" class="custom-input-file"
-                                data-multiple-caption="{count} files selected" multiple />
-                            <label for="url_img">
-                                <i class="fa fa-upload"></i>
-                                <span>Choose a file…</span>
-                            </label>
-
-                        </div>
-
-                        <div class="col-md-4 mb-3">
-                            <label for="exampleFormControlTextarea1">Imagem 2:</label>
-                            <input type="file" name="url_img1" id="url_img1" class="custom-input-file"
-                                data-multiple-caption="{count} files selected" multiple />
-                            <label for="url_img1">
-                                <i class="fa fa-upload"></i>
-                                <span>Choose a file…</span>
-                            </label>
-
-                        </div>
-
-                        <div class="col-md-4 mb-3">
-                            <label for="exampleFormControlTextarea1">Imagem 3:</label>
-                            <input type="file" name="url_img2" id="url_img2" class="custom-input-file"
-                                data-multiple-caption="{count} files selected" multiple />
-                            <label for="url_img2">
-                                <i class="fa fa-upload"></i>
-                                <span>Choose a file…</span>
-                            </label>
-
-                        </div>
-
-                        <div class="col-md-12 mb-3">
-                            <div class="form-group">
-                                <label for="exampleFormControlSelect1">Status</label>
-                                <select class="form-control form-control-sm" id="campo-status" required>
-                                    <option> </option>
-                                    <option> ATIVO </option>
-                                    <option> INATIVO </option>
-
-                                </select>
-                            </div>
-
-                        </div>
-
-
-
                     </div>
-
-
                 </form>
 
-                <div class="opcoes-cadastro" style="text-align: center; margin-inline: block;">
+                <div class="bg-titulo mt-1">
 
-                    <button type="button" class="btn btn-primary btn-icon-label" title="Analisar" data-toggle="modal"
-                        data-target=".moda-alterar-comunicados" id="btn-incluir">
+                    <h3>
+                        Informações
 
-                        <span class="btn-inner--icon">
-                            <i class="fas fa-plus"></i>
-                        </span>
-                        <span class="btn-inner--text">Incluir/ Alterar</span>
-                    </button>
-
-
-
+                    </h3>
 
                 </div>
 
-                <!-- Alert sucesso acesso -->
-                <div class="alert alert-success sucesso" id="sucesso" role="alert">
-                </div>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col" style="text-align: center;"><b>TELEFONE</b></th>
+                            <th scope="col" style="text-align: center;"><b>ORIGEM</b></th>
+                            <th scope="col" style="text-align: center;"><b>EMPRESA</b></th>
+                            <th scope="col" style="text-align: center;"><b>DATA INÍCIO BLOQUEIO</b></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th style="text-align: center;">(XX) XXXXX-XXXX</th>
+                            <td style="text-align: center;">XXXXXXXXXX</td>
+                            <td style="text-align: center;">XXXXXXXXXX</td>
+                            <td style="text-align: center;">XX/XX/XXXX</td>
+                        </tr>
 
 
-
-
+                    </tbody>
+                </table>
 
             </div>
         </div>
     </div>
 </div>
 
+<!-- FINAL MODAL NAO PERTUBE-->
+
+<!-- MODAL CONSULTA AGENCIAS -->
+
+<div class="modal fade modal-consultaagencias" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h5 class="modal-title h6" id="myLargeModalLabel">Consulta Agências</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+
+                <form>
+                    <div class="form-row mx-4">
+                        <div class="form-group col-md-9">
+                            <input type="email" class="form-control" id="inputEmail4" placeholder="CEP">
+                        </div>
+                        <div class="form-group col-md-2">
+                            <button type="button" class="btn btn-primary">
+                                Pesquisar
+                            </button>
+                        </div>
+                    </div>
+                </form>
+
+                <div class="bg-titulo mt-1">
+
+                    <h3>
+                        Agência 1
+
+                    </h3>
+
+                </div>
+
+                <table class="table table-responsive">
+                    <thead>
+                        <tr>
+                            <th scope="col" style="text-align: center;"><b>CEP</b></th>
+                            <th scope="col" style="text-align: center;"><b>CÓDIGO AGÊNCIA</b></th>
+                            <th scope="col" style="text-align: center;"><b>NOME AGÊNCIA</b></th>
+                            <th scope="col" style="text-align: center;"><b>UF</b></th>
+                            <th scope="col" style="text-align: center;"><b>ENDEREÇO</b></th>
+                            <th scope="col" style="text-align: center;"><b>BAIRRO</b></th>
+                            <th scope="col" style="text-align: center;"><b>CIDADE</b></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th style="text-align: center;">(XX) XXXXX-XXXX</th>
+                            <td style="text-align: center;">XXXXXXXXXX</td>
+                            <td style="text-align: center;">XXXXXXXXXX</td>
+                            <td style="text-align: center;">XXXXXXXXXX</td>
+                            <td style="text-align: center;">XXXXXXXXXX</td>
+                            <td style="text-align: center;">XXXXXXXXXX</td>
+                            <td style="text-align: center;">XXXXXXXXXX</td>
+
+                        </tr>
+
+
+                    </tbody>
+                </table>
+
+                <div class="bg-titulo mt-4">
+
+                    <h3>
+                        Agência 2
+
+                    </h3>
+
+                </div>
+
+                <table class="table table-responsive">
+                    <thead>
+                        <tr>
+                            <th scope="col" style="text-align: center;"><b>CEP</b></th>
+                            <th scope="col" style="text-align: center;"><b>CÓDIGO AGÊNCIA</b></th>
+                            <th scope="col" style="text-align: center;"><b>NOME AGÊNCIA</b></th>
+                            <th scope="col" style="text-align: center;"><b>UF</b></th>
+                            <th scope="col" style="text-align: center;"><b>ENDEREÇO</b></th>
+                            <th scope="col" style="text-align: center;"><b>BAIRRO</b></th>
+                            <th scope="col" style="text-align: center;"><b>CIDADE</b></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th style="text-align: center;">(XX) XXXXX-XXXX</th>
+                            <td style="text-align: center;">XXXXXXXXXX</td>
+                            <td style="text-align: center;">XXXXXXXXXX</td>
+                            <td style="text-align: center;">XXXXXXXXXX</td>
+                            <td style="text-align: center;">XXXXXXXXXX</td>
+                            <td style="text-align: center;">XXXXXXXXXX</td>
+                            <td style="text-align: center;">XXXXXXXXXX</td>
+
+                        </tr>
+
+
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- FINAL MODAL CONSULTA AGENCIAS -->
 
 <body class="application application-offset">
+
+    <script>
+        console.log(sessionStorage.getItem('cnpj_matriz', 'cnpj_matriz'));
+        console.log(sessionStorage.getItem('data_nascimento', 'data_nascimento'));
+        console.log(sessionStorage.getItem('id_acesso', 'id_acesso'));
+        console.log(sessionStorage.getItem('nome', 'nome'));
+        console.log(sessionStorage.getItem('perfil', 'perfil'));
+        console.log(sessionStorage.getItem('status', 'status'));
+        console.log(sessionStorage.getItem('tipo_parceiro2', 'tipo_parceiro2'))
+        console.log(sessionStorage.getItem('supervisor_cpf', 'supervisor_cpf'))
+        console.log(sessionStorage.getItem('gerente_cpf', 'gerente_cpf'))
+    </script>
 
     <!-- Application container -->
     <div class="container-fluid container-application">
@@ -222,14 +317,13 @@
                     <span class="btn-inner--icon d-block"><i class="fas fa-home fa-2x"></i></span>
                     <span class="btn-inner--icon d-block pt-2">Home</span>
                 </a>
-
-                <a href="../paginas/profile.html" class="btn btn-square text-sm ">
-                    <span class="btn-inner--icon d-block"><i class="fas fa-user fa-2x"></i></span>
-                    <span class="btn-inner--icon d-block pt-2">Meu Perfil</span>
+                <a href="../paginas/home_mis.html" class="btn btn-square text-sm active">
+                    <span class="btn-inner--icon d-block"> <i class="fas fa-project-diagram fa-2x"></i></span>
+                    <span class="btn-inner--icon d-block pt-2">Produtos</span>
                 </a>
 
 
-                <a href="../paginas/comunicados.html" class="btn btn-square text-sm active">
+                <a href="../paginas/comunicados.html" class="btn btn-square text-sm">
                     <span class="btn-inner--icon d-block"><i class="fas fa-bookmark fa-2x"></i></span>
                     <span class="btn-inner--icon d-block pt-2">Comunicados</span>
                 </a>
@@ -238,6 +332,7 @@
                     <span class="btn-inner--icon d-block pt-2">Sair</span>
                 </a>
             </div>
+
         </div>
         <!-- Content -->
         <div class="main-content position-relative">
@@ -386,14 +481,100 @@
                     </div>
                     <!-- Navbar nav -->
                     <div class="collapse navbar-collapse navbar-collapse-fade" id="navbar-main-collapse">
+                        <ul class="navbar-nav align-items-lg-center">
+                            <!-- Overview  -->
+                            <li class="nav-item d-lg-none ">
+                                <a class="nav-link" href="../index.html">
+                                    Overview
+                                </a>
+                            </li>
+                            <li class="border-top opacity-2 my-2"></li>
+                            <!-- Home  -->
+                            <li class="nav-item ">
+                                <a class="nav-link pl-lg-0" href="../application/home.html">
+                                    Home
+                                </a>
+                            </li>
+                            <!-- Application menu -->
+                            <li class="nav-item dropdown dropdown-animate" data-toggle="hover">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
+                                    aria-haspopup="true" aria-expanded="false">
+                                    Produtos
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-arrow p-lg-0">
+                                    <!-- Top dropdown menu -->
+                                    <div class="p-lg-4">
+
+                                      <div class="dropdown dropdown-animate dropdown-submenu" data-toggle="hover">
+                                        <a href="#" class="dropdown-item dropdown-toggle" role="button" data-toggle="dropdown"
+                                          aria-haspopup="true" aria-expanded="false">
+                                          Integrações
+                                        </a>
+                                        <div class="dropdown-menu"><a class="dropdown-item" href="../paginas/consultainss.html"
+                                            data-toggle="modal" data-target="#modal-consultainss">
+                                            Consulta INSS
+                                          </a>
+                                          <a class="dropdown-item" href="../paginas/naopertube.html" data-toggle="modal"
+                                            data-target=".modal-naopertube">
+                                            Não Pertube
+                                          </a>
+                  
+                                          <a class="dropdown-item" href="../paginas/consultaagencias.html" data-toggle="modal"
+                                            data-target=".modal-consultaagencias">
+                                            Consulta Agências
+                                          </a>
+                  
+                                        </div>
+                                      </div>
+
+                                      <div class="dropdown dropdown-animate dropdown-submenu" data-toggle="hover">
+                                        <a href="#" class="dropdown-item dropdown-toggle" role="button" data-toggle="dropdown"
+                                          aria-haspopup="true" aria-expanded="false">
+                                          Simulações
+                                        </a>
+                                        <div class="dropdown-menu">
+                                          <a class="dropdown-item" href="../paginas/simuladormultibancos.html">
+                                            Multibancos
+                                          </a>
+                                          <a class="dropdown-item" href="../paginas/prestamista.html">
+                                            Prestamista
+                  
+                                          </a>
+                                          <a class="dropdown-item" href="../paginas/sim.html">
+                                            SIM
+                                          </a>
+                                          <a class="dropdown-item" href="../paginas/pan.html">
+                                            PAN
+                                          </a>
+                  
+                  
+                                        </div>
+                  
+                                      </div>
+
+                                      <a class="dropdown-item" href="../paginas/analisadordecredito.html">
+                                        Analisador de Crédito
+                                      </a>
+
+                                      <a class="dropdown-item" href="../paginas/treinamentos.html">
+                                        Treinamentos
+                                      </a>
+
+
+
+                                    </div>
+                            </li>
+
+
+                        </ul>
+
                         <!-- Right menu -->
                         <ul class="navbar-nav ml-lg-auto align-items-center d-none d-lg-flex">
                             <li class="nav-item">
                                 <a href="#" class="nav-link nav-link-icon sidenav-toggler" data-action="sidenav-pin"
                                     data-target="#sidenav-main"><i class="fas fa-bars"></i></a>
                             </li>
-
-
+                        
                             <li class="nav-item dropdown dropdown-animate">
                                 <a class="nav-link nav-link-icon" href="#" role="button" data-toggle="dropdown"
                                     aria-haspopup="true" aria-expanded="false"><i class="fas fa-bell"></i></a>
@@ -506,7 +687,6 @@
                                         <i class="fas fa-cog"></i>
                                         <span>Suporte</span>
                                     </a>
-
                                     <div class="dropdown-divider"></div>
                                     <a href="#!" class="dropdown-item">
                                         <i class="fas fa-sign-out-alt"></i>
@@ -518,147 +698,132 @@
                     </div>
                 </div>
             </nav>
-
+            <!-- Omnisearch -->
+            <div id="omnisearch" class="omnisearch">
+                <div class="container">
+                    <!-- Search form -->
+                    <form class="omnisearch-form">
+                        <div class="form-group">
+                            <div class="input-group input-group-merge input-group-flush">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-search"></i></span>
+                                </div>
+                                <input type="text" class="form-control" placeholder="Type and hit enter ...">
+                            </div>
+                        </div>
+                    </form>
+                    <div class="omnisearch-suggestions">
+                        <h6 class="heading">Search Suggestions</h6>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <ul class="list-unstyled mb-0">
+                                    <li>
+                                        <a class="list-link" href="#">
+                                            <i class="fas fa-search"></i>
+                                            <span>macbook pro</span> in Laptops
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="list-link" href="#">
+                                            <i class="fas fa-search"></i>
+                                            <span>iphone 8</span> in Smartphones
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="list-link" href="#">
+                                            <i class="fas fa-search"></i>
+                                            <span>macbook pro</span> in Laptops
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="list-link" href="#">
+                                            <i class="fas fa-search"></i>
+                                            <span>beats pro solo 3</span> in Headphones
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="list-link" href="#">
+                                            <i class="fas fa-search"></i>
+                                            <span>smasung galaxy 10</span> in Phones
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <!-- Page content -->
             <div class="page-content">
                 <!-- Page title -->
                 <div class="page-title">
                     <div class="row justify-content-between align-items-center">
-                        <div class="col-md-12 mb-3 mb-md-0">
-                            <h6 class="h3 font-weight-400 mb-0 text-white">Comunicados </h6>
-
+                        <div class="col-md-6 mb-3 mb-md-0">
+                            <h5 class="h3 font-weight-400 mb-0 text-white">Olá <b>Jucleia Silva</b>!</h5>
+                            <span class="text-sm text-white opacity-8">Seja bem vindo a <b>Produtos Mais Valor</b>, use o
+                                menu para
+                                navegar pelas áreas.</span>
                         </div>
                     </div>
                 </div>
-
                 <div class="row">
-                    <div class="col-xl-12 col-md-6">
+               
+                    <div class="col-xl-6 col-md-6">
                         <div class="card card-fluid">
-
-                            <div class="card-body">
-
-                                <div class="opcoes-cadastro" style="text-align: center; margin-inline: block;">
-
-                                    <button type="button" class="btn btn-primary btn-icon-label" title="Analisar"
-                                        data-toggle="modal" data-target=".moda-alterar-comunicados" id="btn-apagar">
-
-                                        <span class="btn-inner--icon">
-                                            <i class="fas fa-plus"></i>
+                            <div class="card-body text-center d-flex flex-column justify-content-center">
+                                <h5 class="mb-4">Emails sent</h5>
+                                <div class="progress-circle progress-lg mx-auto" id="progress-5" data-progress="50"
+                                    data-text="98" data-textclass="h1" data-color="warning"></div>
+                                <div class="d-flex mt-4">
+                                    <div class="col">
+                                        <span class="d-block badge badge-dot badge-lg h6">
+                                            <i class="bg-danger"></i>30 not sent
                                         </span>
-                                        <span class="btn-inner--text">Incluir Novo Comunicado</span>
-                                    </button>
-
-
+                                        <span class="d-block badge badge-dot badge-lg h6">
+                                            <i class="bg-success"></i>68 success
+                                        </span>
+                                    </div>
+                                    <div class="col">
+                                        <span class="d-block badge badge-dot badge-lg h6">
+                                            <i class="bg-warning"></i>38 opened
+                                        </span>
+                                        <span class="d-block badge badge-dot badge-lg h6">
+                                            <i class="bg-danger"></i>SMTP error
+                                        </span>
+                                    </div>
                                 </div>
-
-                                <div class="table-responsive mt-4">
-                                    <table class="table align-items-center" id="table">
-                                        <thead>
-                                            <tr>
-                                                <th scope="col" style="text-align: center;"><b>Título Chamado</b></th>
-                                                <th scope="col" style="text-align: center;"><b>Descrição do Chamado</b>
-                                                </th>
-                                                <th scope="col" style="text-align: center;"><b></b></th>
-                                                <th scope="col" style="text-align: center;"><b>Downloads</b></th>
-                                                <th scope="col" style="text-align: center;"><b></b></th>
-                                                <th scope="col" style="text-align: center;"><b>Ações</b></th>
-
-
-                                            </tr>
-                                        </thead>
-                                        <tbody id="list">
-
-                                            <!-- <tr>
-                                                <td>
-                                                    XXXXXXXXXX
-                                                </td>
-                                                <td>
-                                                    XXXXXXXXXXXXXXXX
-                                                </td>
-                                                <th scope="row">
-                                                        <button type="button"
-                                                        class="btn btn-sm btn-secondary btn-icon rounded-pill" id="btn-download1">
-                                                        <span class="btn-inner--icon"><i
-                                                                class="far fa-download"></i></span>
-                                                        <span class="btn-inner--text">Download</span>
-                                                        </button>
-                                                </th>
-                                                <th scope="row">
-                                                    <button type="button"
-                                                        class="btn btn-sm btn-secondary btn-icon rounded-pill" id="btn-download2">
-                                                        <span class="btn-inner--icon"><i
-                                                                class="far fa-download"></i></span>
-                                                        <span class="btn-inner--text">Download</span>
-                                                    </button>
-                                                </th>
-                                                <th scope="row">
-                                                    <button type="button"
-                                                        class="btn btn-sm btn-secondary btn-icon rounded-pill" id="btn-download3">
-                                                        <span class="btn-inner--icon"><i
-                                                                class="far fa-download"></i></span>
-                                                        <span class="btn-inner--text">Download</span>
-                                                    </button>
-                                                </th>
-                                                <td>
-                                                    <div class="d-flex align-items-center justify-content-end">
-
-
-                                                        <!-- Actions -->
-                                            <!-- <div class="actions ml-3">
-                                                            <a href="#" class="action-item mr-2" title="Alterar"
-                                                                data-toggle="modal"
-                                                                data-target=".moda-alterar-comunicados">
-                                                                <i class="far fa-pencil-alt"></i>
-                                                            </a>
-                                                            <a href="#" class="action-item mr-2" data-toggle="tooltip"
-                                                                title="Archive">
-                                                                <i class="fas fa-trash-alt"></i>
-                                                            </a>
-
-                                                        </div>
-                                                    </div> -->
-
-                                            <!-- </td> -->
-                                            <!-- </tr> -->
-
-
-                                        </tbody>
-                                    </table>
-                                </div>
-
-
-
-
-
-
-
-
-
-
-
-
+                                <a href="#" class="btn btn-block btn-secondary mt-auto">Open insights</a>
                             </div>
-
-
                         </div>
-
-
-
-
-
                     </div>
+
+                    <div class="col-xl-6 col-md-6">
+                        <div class="card card-fluid">
+                          <div class="card-header">
+                            <h6 class="mb-0">Engagement</h6>
+                          </div>
+                          <div class="card-body">
+                            <!-- Chart -->
+                            <div id="apex-engagement" data-color="primary" data-height="280"></div>
+                          </div>
+                        </div>
+                      </div>
 
 
                 </div>
-
-
             </div>
+            <!-- Footer -->
+            <div class="footer pt-5 pb-4 footer-light" id="footer-main">
+                <div class="row text-center text-sm-left align-items-sm-center">
+                    <div class="col-sm-6">
+                        <p class="text-sm mb-0">&copy; 2021 <a href="https://www.grupomaisvalor.com.br"
+                                class="h6 text-sm" target="_blank">Grupo Mais Valor</a>. </p>
+                    </div>
 
+                </div>
+            </div>
+        </div>
     </div>
-
-
-
-
     <!-- Scripts -->
     <!-- Core JS - includes jquery, bootstrap, popper, in-view and sticky-kit -->
     <script src="../assets/js/purpose.core.js"></script>
@@ -671,12 +836,6 @@
     <script src="../assets/js/purpose.js"></script>
     <!-- Demo JS - remove it when starting your project -->
     <script src="../assets/js/demo.js"></script>
-    <!--Script-->
-    <script src="../assets/js/comunicados.js"></script>
-    <!-- Mascaras -->
-    <script src="../assets/js/mascaras.js"></script>
-    <script src="../assets/js/mascarasvalores.js"></script>
-    <!-- Import Get para popular campos -->
 </body>
 
 </html>
