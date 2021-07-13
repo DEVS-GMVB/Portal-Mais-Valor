@@ -124,7 +124,8 @@ incluir.addEventListener('click', async () => {
         agencia,
         conta: cCorrente,
         //acao
-        status: 'AGUARDANDO APROVAÇÃO DP'
+        status: 'AGUARDANDO APROVAÇÃO DP',
+        data_criacao: new Date().toLocaleDateString()
     }
 
     const raw = JSON.stringify(body)
