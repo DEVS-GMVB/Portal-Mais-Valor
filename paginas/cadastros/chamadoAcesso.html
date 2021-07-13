@@ -39,6 +39,634 @@
     }
 </style>
 
+<!-- Extra large modal 2-->
+
+<div class="modal fade modal-alterar-saldodevedor2" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <img src="../../paginas/login e recover/logocolorido.png" style="height: 70px; right: 70px;">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+
+                <div class="bg-subtitulo mt-1">
+
+                    <h3>Dados - Criação de Acessos </h3>
+
+                </div>
+
+                <form class="needs-validation" id="dados-alteracao" novalidate>
+
+
+
+                    <div class="form-row mt-4">
+
+
+                        <div class="col-md-4 mb-3">
+                            <label for="validationCustom01">Nome</label>
+                            <input type="text" class="form-control form-control-sm" id="campo-nome2" required>
+
+                        </div>
+
+                        <div class="col-md-4 mb-3">
+                            <label for="validationCustom01">CPF</label>
+                            <input type="text" class="form-control form-control-sm" id="campo-cpf2"
+                                onkeypress='mascaraMutuario(this,cpfCnpj)' maxlength="14" required>
+
+                        </div>
+
+                        <div class="col-md-4 mb-3">
+                            <label for="validationCustom01">RG</label>
+                            <input type="text" class="form-control form-control-sm" id="campo-rg2"
+                                onkeypress='mascaraMutuario(this,cpfCnpj)' maxlength="13" required>
+
+                        </div>
+
+                        <div class="col-md-4 mb-3">
+                            <label for="validationCustom01">Data Nascimento</label>
+                            <input type="text" class="form-control form-control-sm" id="campo-nascimento2"
+                                onKeyDown="fMasc( this, data );" maxlength="10" required>
+                        </div>
+
+                        <div class="col-md-4 mb-3">
+                            <label for="validationCustom01">Nome da Mãe</label>
+                            <input type="text" class="form-control form-control-sm" id="campo-mae-nome2" required>
+
+                        </div>
+
+                        <div class="col-md-4 mb-3">
+                            <label for="validationCustom01">Certificação</label>
+                            <input type="text" class="form-control form-control-sm" id="campo-certificacao2" required>
+
+                        </div>
+
+                        <div class="col-md-4 mb-3">
+                            <label for="validationCustom01">Telefone Celular</label>
+                            <input type="text" class="form-control form-control-sm" onKeyDown="fMasc(this, mTelefone);"
+                                id="campo-telefone2" maxlength="14" required>
+
+                        </div>
+
+                        <div class="col-md-4 mb-3">
+                            <label for="validationCustom01">Endereço Residencial</label>
+                            <input type="text" class="form-control form-control-sm" id="campo-endereco2" required>
+
+                        </div>
+
+                        <div class="col-md-4 mb-3">
+                            <label for="validationCustom01">Complemento</label>
+                            <input type="text" class="form-control form-control-sm" id="campo-complemento2" required>
+
+                        </div>
+
+                        <div class="col-md-4 mb-3">
+                            <label for="validationCustom01">Bairro</label>
+                            <input type="text" class="form-control form-control-sm" id="campo-bairro2" required>
+
+                        </div>
+
+                        <div class="col-md-4 mb-3">
+                            <label for="validationCustom01">Cidade</label>
+                            <input type="text" class="form-control form-control-sm" id="campo-cidade2" required>
+
+                        </div>
+
+                        <div class="col-md-4 mb-3">
+                            <label for="validationCustom01">UF</label>
+                            <select class="form-control form-control-sm" id="campo-uf2" required disabled>
+                                <option></option>
+                                <option value="AC">Acre</option>
+                                <option value="AL">Alagoas</option>
+                                <option value="AP">Amapá</option>
+                                <option value="AM">Amazonas</option>
+                                <option value="BA">Bahia</option>
+                                <option value="CE">Ceará</option>
+                                <option value="DF">Distrito Federal</option>
+                                <option value="ES">Espírito Santo</option>
+                                <option value="GO">Goiás</option>
+                                <option value="MA">Maranhão</option>
+                                <option value="MT">Mato Grosso</option>
+                                <option value="MS">Mato Grosso do Sul</option>
+                                <option value="MG">Minas Gerais</option>
+                                <option value="PA">Pará</option>
+                                <option value="PB">Paraíba</option>
+                                <option value="PR">Paraná</option>
+                                <option value="PE">Pernambuco</option>
+                                <option value="PI">Piauí</option>
+                                <option value="RJ">Rio de Janeiro</option>
+                                <option value="RN">Rio Grande do Norte</option>
+                                <option value="RS">Rio Grande do Sul</option>
+                                <option value="RO">Rondônia</option>
+                                <option value="RR">Roraima</option>
+                                <option value="SC">Santa Catarina</option>
+                                <option value="SP">São Paulo</option>
+                                <option value="SE">Sergipe</option>
+                                <option value="TO">Tocantins</option>
+                            </select>
+
+                        </div>
+
+                        <div class="col-md-4 mb-3">
+                            <label for="validationCustom01">CEP</label>
+                            <input type="text" class="form-control form-control-sm" id="campo-cidade2"
+                                onkeypress="mascaraMutuario(this, mCEP)" maxlength="9" required>
+
+                        </div>
+
+                    </div>
+
+
+                </form>
+
+                <div class="bg-subtitulo mt-1">
+
+                    <h3>Acessos </h3>
+
+                </div>
+
+                <form class="needs-validation" novalidate>
+
+
+
+                    <div class="form-row mt-4" style="margin-left: 2rem;">
+
+                        <div class="col-md-2 mb-2">
+                            <input class="form-check-input" type="checkbox" value="1" id="check-bradesco2" disabled>
+                            <label class="form-check-label" for="flexCheckDefault">
+                                Bradesco
+                            </label>
+                        </div>
+
+                        <div class="col-md-2 mb-3">
+                            <input class="form-check-input" type="checkbox" value="1" id="check-crefisa2" disabled>
+                            <label class="form-check-label" for="flexCheckChecked">
+                                Crefisa
+                            </label>
+                        </div>
+
+                        <div class="col-md-2 mb-3">
+                            <input class="form-check-input" type="checkbox" value="1" id="check-pan2" disabled>
+                            <label class="form-check-label" for="flexCheckChecked">
+                                Pan
+                            </label>
+                        </div>
+
+                        <div class="col-md-2 mb-3">
+                            <input class="form-check-input" type="checkbox" value="1" id="check-sim2" disabled>
+                            <label class="form-check-label" for="flexCheckChecked">
+                                Sim
+                            </label>
+                        </div>
+                        <div class="col-md-2 mb-3">
+                            <input class="form-check-input" type="checkbox" value="1" id="check-cetelem2" disabled>
+                            <label class="form-check-label" for="flexCheckChecked">
+                                Cetelem
+                            </label>
+                        </div>
+
+                        <div class="col-md-2 mb-3">
+                            <input class="form-check-input" type="checkbox" value="1" id="check-daycoval2" disabled>
+                            <label class="form-check-label" for="flexCheckChecked">
+                                Daycoval
+                            </label>
+                        </div>
+
+                        <div class="col-md-2 mb-3">
+                            <input class="form-check-input" type="checkbox" value="1" id="check-parana2" disabled>
+                            <label class="form-check-label" for="flexCheckChecked">
+                                Parana
+                            </label>
+                        </div>
+
+
+                        <div class="col-md-2 mb-3">
+                            <input class="form-check-input" type="checkbox" value="1" id="check-f5bgm2" disabled>
+                            <label class="form-check-label" for="flexCheckChecked">
+                                F5 Bmg
+                            </label>
+                        </div>
+
+                        <div class="col-md-2 mb-3">
+                            <input class="form-check-input" type="checkbox" value="1" id="check-consorciobb2" disabled>
+                            <label class="form-check-label" for="flexCheckChecked">
+                                Consorcio BB
+                            </label>
+                        </div>
+
+                        <div class="col-md-2 mb-3">
+                            <input class="form-check-input" type="checkbox" value="1" id="check-imobiliario2" disabled>
+                            <label class="form-check-label" for="flexCheckChecked">
+                                Imobiliario
+                            </label>
+                        </div>
+
+                        <div class="col-md-2 mb-3">
+                            <input class="form-check-input" type="checkbox" value="1" id="check-santander2" disabled>
+                            <label class="form-check-label" for="flexCheckChecked">
+                                Santander
+                            </label>
+                        </div>
+
+                        <div class="col-md-2 mb-3">
+                            <input class="form-check-input" type="checkbox" value="1" id="check-wimo2" disabled>
+                            <label class="form-check-label" for="flexCheckChecked">
+                                Consorcio Wimo
+                            </label>
+                        </div>
+
+                        <div class="col-md-2 mb-3">
+                            <input class="form-check-input" type="checkbox" value="1" id="check-itau2" disabled>
+                            <label class="form-check-label" for="flexCheckChecked">
+                                Itau
+                            </label>
+                        </div>
+
+                        <div class="col-md-2 mb-3">
+                            <input class="form-check-input" type="checkbox" value="1" id="check-safra2" disabled>
+                            <label class="form-check-label" for="flexCheckChecked">
+                                Safra
+                            </label>
+                        </div>
+
+                        <div class="col-md-2 mb-3">
+                            <input class="form-check-input" type="checkbox" value="1" id="check-vendas2" disabled>
+                            <label class="form-check-label" for="flexCheckChecked">
+                                BB Indica Vendas
+                            </label>
+                        </div>
+
+                        <div class="col-md-2 mb-3">
+                            <input class="form-check-input" type="checkbox" value="1" id="check-ole2" disabled>
+                            <label class="form-check-label" for="flexCheckChecked">
+                                Ole
+                            </label>
+                        </div>
+
+                        <div class="col-md-2 mb-3">
+                            <input class="form-check-input" type="checkbox" value="1" id="check-brasil2" disabled>
+                            <label class="form-check-label" for="flexCheckChecked">
+                                Banco do Brasil
+                            </label>
+                        </div>
+
+                        <div class="col-md-2 mb-3">
+                            <input class="form-check-input" type="checkbox" value="1" id="check-portal2" disabled>
+                            <label class="form-check-label" for="flexCheckChecked">
+                                Esteira Portal
+                            </label>
+                        </div>
+
+                        <div class="col-md-2 mb-3">
+                            <input class="form-check-input" type="checkbox" value="1" id="check-crm2" disabled>
+                            <label class="form-check-label" for="flexCheckChecked">
+                                CRM
+                            </label>
+                        </div>
+
+                    </div>
+                </form>
+
+
+                <div id="div-acessos-banco">
+                    <div class="bg-subtitulo mt-1">
+
+                        <h3>Respostas </h3>
+
+                    </div>
+
+                    <form class="needs-validation" novalidate>
+                        <div class="form-row mt-4">
+                            <div class="col-md-6 mb-3">
+                                <label for="validationCustom01">Bradesco Login</label>
+                                <input type="text" class="form-control form-control-sm" id="bradesco-login" disabled
+                                    required>
+
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="validationCustom01">Bradesco Senha</label>
+                                <input type="text" class="form-control form-control-sm" id="bradesco-senha" disabled
+                                    required>
+
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="validationCustom01">Crefisa Login</label>
+                                <input type="text" class="form-control form-control-sm" id="crefisa-login" disabled
+                                    required>
+
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="validationCustom01">Crefisa Senha</label>
+                                <input type="text" class="form-control form-control-sm" id="crefisa-senha" disabled
+                                    required>
+
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="validationCustom01">Pan Login</label>
+                                <input type="text" class="form-control form-control-sm" id="Pan-login" disabled
+                                    required>
+
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="validationCustom01">Pan Senha</label>
+                                <input type="text" class="form-control form-control-sm" id="Pan-senha" disabled
+                                    required>
+
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="validationCustom01">Sim Login</label>
+                                <input type="text" class="form-control form-control-sm" id="Sim-login" disabled
+                                    required>
+
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="validationCustom01">Sim Senha</label>
+                                <input type="text" class="form-control form-control-sm" id="Sim-senha" disabled
+                                    required>
+
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="validationCustom01">Cetelem Login</label>
+                                <input type="text" class="form-control form-control-sm" id="cetelem-login" disabled
+                                    required>
+
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="validationCustom01">Cetelem Senha</label>
+                                <input type="text" class="form-control form-control-sm" id="cetelem-senha" disabled
+                                    required>
+
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="validationCustom01">Daycoval Login</label>
+                                <input type="text" class="form-control form-control-sm" id="daycoval-login" disabled
+                                    required>
+
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="validationCustom01">Daycoval Senha</label>
+                                <input type="text" class="form-control form-control-sm" id="daycoval-senha" disabled
+                                    required>
+
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="validationCustom01">Parana Login</label>
+                                <input type="text" class="form-control form-control-sm" id="parana-login" disabled
+                                    required>
+
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="validationCustom01">Parana Senha</label>
+                                <input type="text" class="form-control form-control-sm" id="parana-senha" disabled
+                                    required>
+
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="validationCustom01">F5 Bmg Login</label>
+                                <input type="text" class="form-control form-control-sm" id="f5bmg-login" disabled
+                                    required>
+
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="validationCustom01">F5 Bmg Senha</label>
+                                <input type="text" class="form-control form-control-sm" id="f5bmg-senha" disabled
+                                    required>
+
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="validationCustom01">Consorcio BB Login</label>
+                                <input type="text" class="form-control form-control-sm" id="consorcio-bb-login" disabled
+                                    required>
+
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="validationCustom01">Consorcio BB Senha</label>
+                                <input type="text" class="form-control form-control-sm" id="consorcio-bb-senha" disabled
+                                    required>
+
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="validationCustom01">Imobiliario Login</label>
+                                <input type="text" class="form-control form-control-sm" id="imobiliario-login" disabled
+                                    required>
+
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="validationCustom01">Imobiliario Senha</label>
+                                <input type="text" class="form-control form-control-sm" id="imobiliario-senha" disabled
+                                    required>
+
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="validationCustom01">Santander Login</label>
+                                <input type="text" class="form-control form-control-sm" id="santander-login" disabled
+                                    required>
+
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="validationCustom01">Santander Senha</label>
+                                <input type="text" class="form-control form-control-sm" id="santander-senha" disabled
+                                    required>
+
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="validationCustom01">Consorcio Wimo Login</label>
+                                <input type="text" class="form-control form-control-sm" id="wimo-login" disabled
+                                    required>
+
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="validationCustom01">Consorcio Wimo Senha</label>
+                                <input type="text" class="form-control form-control-sm" id="wimo-senha" disabled
+                                    required>
+
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="validationCustom01">Itau Login</label>
+                                <input type="text" class="form-control form-control-sm" id="itau-login" disabled
+                                    required>
+
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="validationCustom01">Itau Senha</label>
+                                <input type="text" class="form-control form-control-sm" id="itau-senha" disabled
+                                    required>
+
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="validationCustom01">Safra Login</label>
+                                <input type="text" class="form-control form-control-sm" id="safra-login" disabled
+                                    required>
+
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="validationCustom01">Safra Senha</label>
+                                <input type="text" class="form-control form-control-sm" id="safra-senha" disabled
+                                    required>
+
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="validationCustom01">BB Indica Vendas Login</label>
+                                <input type="text" class="form-control form-control-sm" id="indica-login" disabled
+                                    required>
+
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="validationCustom01">BB Indica Vendas Senha</label>
+                                <input type="text" class="form-control form-control-sm" id="indica-senha" disabled
+                                    required>
+
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="validationCustom01">Ole Login</label>
+                                <input type="text" class="form-control form-control-sm" id="ole-login" disabled
+                                    required>
+
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="validationCustom01">Ole Senha</label>
+                                <input type="text" class="form-control form-control-sm" id="ole-senha" disabled
+                                    required>
+
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="validationCustom01">Banco do Brasil Login</label>
+                                <input type="text" class="form-control form-control-sm" id="banco-brasil-login" disabled
+                                    required>
+
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="validationCustom01">Banco do Brasil Senha</label>
+                                <input type="text" class="form-control form-control-sm" id="banco-brasil-senha" disabled
+                                    required>
+
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="validationCustom01">Esteira Login</label>
+                                <input type="text" class="form-control form-control-sm" id="esteira-login" disabled
+                                    required>
+
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="validationCustom01">Esteira Senha</label>
+                                <input type="text" class="form-control form-control-sm" id="esteira-senha" disabled
+                                    required>
+
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="validationCustom01">CRM Login</label>
+                                <input type="text" class="form-control form-control-sm" id="crm-login" disabled
+                                    required>
+
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="validationCustom01">CRM Senha</label>
+                                <input type="text" class="form-control form-control-sm" id="crm-senha" disabled
+                                    required>
+
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="bg-subtitulo mt-1">
+
+                    <h3>Anexos </h3>
+
+                </div>
+
+                <form class="needs-validation" novalidate id="files">
+
+                    <div class="form-row mt-4">
+                        <div class="col-md-4 mb-3">
+                            <input type="file" class="custom-input-file" data-multiple-caption="{count} files selected"
+                            multiple id="rg_arq2" name="rg_arq">
+                            <label for="exampleFormControlFile1">
+                                <i class="fa fa-upload"></i>
+                                <b>RG :</b>
+                            </label>
+
+                        </div>
+
+                        <div class="col-md-4 mb-3">
+                            <input type="file" class="custom-input-file" data-multiple-caption="{count} files selected"
+                                multiple id="cpf_arq2" name="cpf_arq" />
+                            <label for="exampleFormControlFile1">
+                                <i class="fa fa-upload"></i>
+                                <b>CPF :</b>
+                            </label>
+                        
+                        </div>
+
+                        <div class="col-md-4 mb-3">
+                            <input type="file" class="custom-input-file" data-multiple-caption="{count} files selected"
+                            multiple id="aneps2" name="aneps_arq">
+                            <label for="exampleFormControlFile1">
+                                <i class="fa fa-upload"></i>
+                                <b>Aneps :</b>
+                            </label>
+
+                        </div>
+
+                        <div class="col-md-4 mb-3">
+                            <input type="file" class="custom-input-file" data-multiple-caption="{count} files selected"
+                            multiple id="pis_arq2" name="pis_arq">
+                            <label for="exampleFormControlFile1">
+                                <i class="fa fa-upload"></i>
+                                <b>PIS :</b>
+                            </label>
+
+                        </div>
+
+                        <div class="col-md-4 mb-3">
+                            <input type="file" class="custom-input-file" data-multiple-caption="{count} files selected"
+                            multiple id="titulo_arq2" name="titulo_arq">
+                            <label for="exampleFormControlFile1">
+                                <i class="fa fa-upload"></i>
+                                <b>Titulo de Eleitor :</b>
+                            </label>
+
+                        </div>
+
+                        <div class="col-md-4 mb-3">
+                            <input type="file" class="custom-input-file" data-multiple-caption="{count} files selected"
+                            multiple id="comprovante_endereco_arq2"
+                                name="comprovante_endereco_arq">
+                            <label for="exampleFormControlFile1">
+                                <i class="fa fa-upload"></i>
+                                <b>Comprovante de Endereço :</b>
+                            </label>
+
+                        </div>
+                    </div>
+                </form>
+
+                <form class="needs-validation" novalidate>
+
+                    <div class="opcoes-cadastro mt-1" style="text-align: center; margin-inline: block;" id="divButton2">
+                        <button type="button" class="btn btn-primary btn-icon-label" id="btn-alterar">
+                            <span class="btn-inner--icon">
+                                <i class="fas fa-plus"></i>
+                            </span>
+                            <span class="btn-inner--text">Alterar</span>
+                        </button>
+                    </div>
+                </form>
+
+                <!-- </form> -->
+                <!-- Alert sucesso acesso -->
+                <div class="alert alert-success sucesso" id="alert-sucesso2" role="alert">
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
 <!-- Extra large modal -->
 
 <div class="modal fade modal-alterar-saldodevedor" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel"
@@ -95,13 +723,13 @@
 
                         <div class="col-md-4 mb-3">
                             <label for="validationCustom01">Nome da Mãe</label>
-                            <input type="text" class="form-control form-control-sm" id="campo-nome" required>
+                            <input type="text" class="form-control form-control-sm" id="campo-nome-mae" required>
 
                         </div>
 
                         <div class="col-md-4 mb-3">
                             <label for="validationCustom01">Certificação</label>
-                            <input type="text" class="form-control form-control-sm" id="campo-nome" required>
+                            <input type="text" class="form-control form-control-sm" id="campo-certificacao" required>
 
                         </div>
 
@@ -173,7 +801,7 @@
 
                         <div class="col-md-4 mb-3">
                             <label for="validationCustom01">CEP</label>
-                            <input type="text" class="form-control form-control-sm" id="campo-cidade"
+                            <input type="text" class="form-control form-control-sm" id="campo-cep"
                                 onkeypress="mascaraMutuario(this, mCEP)" maxlength="9" required>
 
                         </div>
@@ -196,140 +824,153 @@
                     <div class="form-row mt-4" style="margin-left: 2rem;">
 
                         <div class="col-md-2 mb-2">
-                            <input class="form-check-input" type="checkbox" value="" id="check-bradesco">
-                            <label class="form-check-label" for="flexCheckDefault">
+                            <input class="form-check-input" type="checkbox" value="1" id="check-bradesco">
+                            <label class="form-check-label" for="check-bradesco">
                                 Bradesco
                             </label>
                         </div>
 
                         <div class="col-md-2 mb-3">
-                            <input class="form-check-input" type="checkbox" value="" id="check-crefisa">
-                            <label class="form-check-label" for="flexCheckChecked">
+                            <input class="form-check-input" type="checkbox" value="1" id="check-crefisa">
+                            <label class="form-check-label" for="check-crefisa">
                                 Crefisa
                             </label>
                         </div>
 
                         <div class="col-md-2 mb-3">
-                            <input class="form-check-input" type="checkbox" value="" id="check-pan">
-                            <label class="form-check-label" for="flexCheckChecked">
+                            <input class="form-check-input" type="checkbox" value="1" id="check-pan">
+                            <label class="form-check-label" for="check-pan">
                                 Pan
                             </label>
                         </div>
 
                         <div class="col-md-2 mb-3">
-                            <input class="form-check-input" type="checkbox" value="" id="check-sim">
-                            <label class="form-check-label" for="flexCheckChecked">
+                            <input class="form-check-input" type="checkbox" value="1" id="check-sim">
+                            <label class="form-check-label" for="check-sim">
                                 Sim
                             </label>
                         </div>
                         <div class="col-md-2 mb-3">
-                            <input class="form-check-input" type="checkbox" value="" id="check-cetelem">
-                            <label class="form-check-label" for="flexCheckChecked">
+                            <input class="form-check-input" type="checkbox" value="1" id="check-cetelem">
+                            <label class="form-check-label" for="check-cetelem">
                                 Cetelem
                             </label>
                         </div>
 
                         <div class="col-md-2 mb-3">
-                            <input class="form-check-input" type="checkbox" value="" id="check-daycoval">
-                            <label class="form-check-label" for="flexCheckChecked">
+                            <input class="form-check-input" type="checkbox" value="1" id="check-daycoval">
+                            <label class="form-check-label" for="check-daycoval">
                                 Daycoval
                             </label>
                         </div>
 
                         <div class="col-md-2 mb-3">
-                            <input class="form-check-input" type="checkbox" value="" id="check-parana">
-                            <label class="form-check-label" for="flexCheckChecked">
+                            <input class="form-check-input" type="checkbox" value="1" id="check-parana">
+                            <label class="form-check-label" for="check-parana">
                                 Parana
                             </label>
                         </div>
 
 
                         <div class="col-md-2 mb-3">
-                            <input class="form-check-input" type="checkbox" value="" id="check-f5bgm">
-                            <label class="form-check-label" for="flexCheckChecked">
+                            <input class="form-check-input" type="checkbox" value="1" id="check-f5bgm">
+                            <label class="form-check-label" for="check-f5bgm">
                                 F5 Bmg
                             </label>
                         </div>
 
                         <div class="col-md-2 mb-3">
-                            <input class="form-check-input" type="checkbox" value="" id="check-consorciobb">
-                            <label class="form-check-label" for="flexCheckChecked">
+                            <input class="form-check-input" type="checkbox" value="1" id="check-consorciobb">
+                            <label class="form-check-label" for="check-consorciobb">
                                 Consorcio BB
                             </label>
                         </div>
 
                         <div class="col-md-2 mb-3">
-                            <input class="form-check-input" type="checkbox" value="" id="check-imobiliario">
-                            <label class="form-check-label" for="flexCheckChecked">
+                            <input class="form-check-input" type="checkbox" value="1" id="check-imobiliario">
+                            <label class="form-check-label" for="check-imobiliario">
                                 Imobiliario
                             </label>
                         </div>
 
                         <div class="col-md-2 mb-3">
-                            <input class="form-check-input" type="checkbox" value="" id="check-santander">
-                            <label class="form-check-label" for="flexCheckChecked">
+                            <input class="form-check-input" type="checkbox" value="1" id="check-santander">
+                            <label class="form-check-label" for="check-santander">
                                 Santander
                             </label>
                         </div>
 
                         <div class="col-md-2 mb-3">
-                            <input class="form-check-input" type="checkbox" value="" id="check-wimo">
-                            <label class="form-check-label" for="flexCheckChecked">
+                            <input class="form-check-input" type="checkbox" value="1" id="check-wimo">
+                            <label class="form-check-label" for="check-wimo">
                                 Consorcio Wimo
                             </label>
                         </div>
 
                         <div class="col-md-2 mb-3">
-                            <input class="form-check-input" type="checkbox" value="" id="check-itau">
-                            <label class="form-check-label" for="flexCheckChecked">
+                            <input class="form-check-input" type="checkbox" value="1" id="check-itau">
+                            <label class="form-check-label" for="check-itau">
                                 Itau
                             </label>
                         </div>
 
                         <div class="col-md-2 mb-3">
-                            <input class="form-check-input" type="checkbox" value="" id="check-safra">
-                            <label class="form-check-label" for="flexCheckChecked">
+                            <input class="form-check-input" type="checkbox" value="1" id="check-safra">
+                            <label class="form-check-label" for="check-safra">
                                 Safra
                             </label>
                         </div>
 
                         <div class="col-md-2 mb-3">
-                            <input class="form-check-input" type="checkbox" value="" id="check-vendas">
-                            <label class="form-check-label" for="flexCheckChecked">
+                            <input class="form-check-input" type="checkbox" value="1" id="check-vendas">
+                            <label class="form-check-label" for="check-vendas">
                                 BB Indica Vendas
                             </label>
                         </div>
 
                         <div class="col-md-2 mb-3">
-                            <input class="form-check-input" type="checkbox" value="" id="check-ole">
-                            <label class="form-check-label" for="flexCheckChecked">
+                            <input class="form-check-input" type="checkbox" value="1" id="check-ole">
+                            <label class="form-check-label" for="check-ole">
                                 Ole
                             </label>
                         </div>
 
                         <div class="col-md-2 mb-3">
-                            <input class="form-check-input" type="checkbox" value="" id="check-brasil">
-                            <label class="form-check-label" for="flexCheckChecked">
+                            <input class="form-check-input" type="checkbox" value="1" id="check-brasil">
+                            <label class="form-check-label" for="check-brasil">
                                 Banco do Brasil
                             </label>
                         </div>
 
                         <div class="col-md-2 mb-3">
-                            <input class="form-check-input" type="checkbox" value="" id="check-portal">
-                            <label class="form-check-label" for="flexCheckChecked">
+                            <input class="form-check-input" type="checkbox" value="1" id="check-portal">
+                            <label class="form-check-label" for="check-portal">
                                 Esteira Portal
                             </label>
                         </div>
 
                         <div class="col-md-2 mb-3">
-                            <input class="form-check-input" type="checkbox" value="" id="check-crm">
-                            <label class="form-check-label" for="flexCheckChecked">
+                            <input class="form-check-input" type="checkbox" value="1" id="check-crm">
+                            <label class="form-check-label" for="check-crm">
                                 CRM
                             </label>
                         </div>
 
                     </div>
                 </form>
+
+                <!--Só um teste
+                <div id="div-acessos-banco"></div>
+                 <div class="bg-subtitulo mt-1">
+
+                    <h3>Respostas </h3>
+
+                </div>
+
+                <form class="needs-validation" novalidate>
+                    <div class="form-row mt-4">
+                </div>
+                </form> -->
 
                 <div class="bg-subtitulo mt-1">
 
@@ -618,7 +1259,8 @@
                                 <a class="nav-link pr-lg-0" href="#" role="button" data-toggle="dropdown"
                                     aria-haspopup="true" aria-expanded="false">
                                     <span class="avatar avatar-sm rounded-circle">
-                                        <img alt="Image placeholder" src="../assets/img/theme/light/team-4-800x800.jpg">
+                                        <img alt="Image placeholder"
+                                            src="../../assets/img/theme/light/team-4-800x800.jpg">
                                     </span>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-sm dropdown-menu-right dropdown-menu-arrow">
@@ -771,7 +1413,7 @@
                                                     <!-- SVG icon -->
                                                     <figure style="width: 50px;">
                                                         <img alt="Image placeholder"
-                                                            src="../assets/img/icons/essential/detailed/DOC_File.svg"
+                                                            src="../../assets/img/icons/essential/detailed/DOC_File.svg"
                                                             class="svg-inject img-fluid" style="height: 50px;">
                                                     </figure>
                                                     <!-- Media body -->
@@ -1047,16 +1689,14 @@
 
                             <div class="opcoes-cadastro" style="text-align: center; margin-inline: block;">
 
-                                <button type="button" class="btn btn-primary btn-icon-label" id="btnBuscar"
-                                    onclick="filter()">
+                                <button type="button" class="btn btn-primary btn-icon-label" id="btnBuscar">
                                     <span class="btn-inner--icon">
                                         <i class="fas fa-search"></i>
                                     </span>
                                     <span class="btn-inner--text">Buscar</span>
                                 </button>
                                 <button type="button" class="btn btn-primary btn-icon-label" data-toggle="modal"
-                                    data-target=".modal-alterar-saldodevedor" title="Alterar" id="btnIncluir"
-                                    onclick="change()">
+                                    data-target=".modal-alterar-saldodevedor" title="Alterar" id="btnIncluir">
                                     <span class="btn-inner--icon">
                                         <i class="fas fa-plus"></i>
                                     </span>
@@ -1078,23 +1718,19 @@
                             <hr>
 
                             <div class="container table-responsive">
-                                <table class="table table-striped table-hover">
+                                <table class="table table-striped table-hover" style="text-align: center;">
                                     <thead>
                                         <tr>
+                                            <th scope="col" style="text-align: center;"><b>Nome</b></th>
                                             <th scope="col" style="text-align: center;"><b>CPF</b></th>
-                                            <th scope="col" style="text-align: center;"><b>Data Cadastro</b></th>
-                                            <th scope="col" style="text-align: center;"><b>Convênio</b></th>
-                                            <th scope="col" style="text-align: center;"><b>Matrícula</b></th>
-                                            <th scope="col" style="text-align: center;"><b>Status</b></th>
-                                            <th scope="col" style="text-align: center;"><b>Parceiro</b></th>
-                                            <th scope="col" style="text-align: center;"><b>Parcela</b></th>
-                                            <th scope="col" style="text-align: center;"><b>Renda</b></th>
+                                            <th scope="col" style="text-align: center;"><b>RG</b></th>
                                             <th scope="col" style="text-align: center;"><b>Data Nascimento</b></th>
-                                            <th scope="col" style="text-align: center;"><b>Data Atualização</b></th>
-                                            <th scope="col" style="text-align: center;"><b>Log Alteração</b></th>
-                                            <th scope="col" style="text-align: center;"><b>Banco Origi</b></th>
-                                            <th scope="col" style="text-align: center;"><b>Saldo Devedor</b></th>
-                                            <th scope="col" style="text-align: center;"><b>Prazo Restante</b></th>
+                                            <th scope="col" style="text-align: center;"><b>Nome Mãe</b></th>
+                                            <th scope="col" style="text-align: center;"><b>Certificação</b></th>
+                                            <th scope="col" style="text-align: center;"><b>Telefone Celular</b></th>
+                                            <th scope="col" style="text-align: center;"><b>Bairro</b></th>
+                                            <th scope="col" style="text-align: center;"><b>UF</b></th>
+                                            <th scope="col" style="text-align: center;"><b>CEP</b></th>
                                             <th scope="col" style="text-align: center;"><b>Alterar</b></th>
 
                                         </tr>
@@ -1111,15 +1747,11 @@
                                         <td style="text-align: center;"> XXXXXXXX </td>
                                         <td style="text-align: center;"> XXXXXXXX </td>
                                         <td style="text-align: center;"> XXXXXXXX </td>
-                                        <td style="text-align: center;"> XXXXXXXX </td>
-                                        <td style="text-align: center;"> XXXXXXXX </td>
-                                        <td style="text-align: center;"> XXXXXXXX </td>
-                                        <td style="text-align: center;"> XXXXXXXX </td>
                                         <td style="text-align: center;">
 
                                             <div class="actions ml-3" style="text-align: center;">
                                                 <a href="#" class="action-item mr-2" data-toggle="modal"
-                                                    data-target=".modal-alterar-saldodevedor" onclick="updateSaldo()"
+                                                    data-target=".modal-alterar-saldodevedor2" id="icon-update"
                                                     title="Alterar">
                                                     <i class="fas fa-external-link-alt"></i>
                                                 </a>
@@ -1173,7 +1805,8 @@
     <!-- Demo JS - remove it when starting your project -->
     <script src="../../assets/js/demo.js"></script>
     <!--JS saldo-->
-    <script src="../../assets/js/saldoDevedor.js"></script>
+    <!-- <script src="../../assets/js/saldoDevedor.js"></script> -->
+    <script src="../../assets/js/chamadoAcesso.js"></script>
 </body>
 
 </html>
