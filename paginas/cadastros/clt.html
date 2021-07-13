@@ -7,7 +7,7 @@
     <meta name="description"
         content="Purpose Application UI is the following chapter we've finished in order to create a complete and robust solution next to the already known Purpose Website UI.">
     <meta name="author" content="Webpixels">
-    <title>Cadastro - Portal Mais Valor</title>
+    <title>Formulário - Mais Valor</title>
     <!-- Favicon -->
     <link rel="icon" href="../../assets/img/brand/favicon.png" type="image/png">
     <!-- Font Awesome 5 -->
@@ -106,12 +106,12 @@
                                         </div>
 
                                         <div class="col-md-4 mb-3">
-                                            <label for="validationCustom01">Endereço Completo</label>
+                                            <label for="validationCustom01">Endereço</label>
                                             <input type="text" class="form-control form-control-sm" id="id-endereco"
                                                 required>
 
                                         </div>
-                                        
+
 
                                     </div>
 
@@ -180,14 +180,14 @@
                                         <div class="col-md-2 mb-3">
                                             <label for="validationCustom01">Telefone Residencial</label>
                                             <input type="text" class="form-control form-control-sm"
-                                                onKeyDown="fMasc(this, mTelefone);" id="id-telefone" maxlength="14"
-                                                required>
+                                                onKeyDown="fMasc(this, mTelefoneResidencial);" id="id-telefone"
+                                                maxlength="13" required>
 
                                         </div>
                                     </div>
 
                                     <div class="form-row mt-0">
-                                        <div class="col-md-4 mb-3">
+                                        <div class="col-md-2 mb-3">
                                             <div class="form-group">
                                                 <label for="exampleFormControlSelect1">Celular</label>
                                                 <input type="text" class="form-control form-control-sm" id="id-celular"
@@ -198,8 +198,8 @@
 
                                         </div>
 
-                                        <div class="col-md-5 mb-3">
-                                            <label for="validationCustom01">Email</label>
+                                        <div class="col-md-4 mb-3">
+                                            <label for="validationCustom01">E-mail</label>
                                             <input type="text" class="form-control form-control-sm" id="id-email"
                                                 required />
 
@@ -211,42 +211,32 @@
                                                 required>
 
                                         </div>
+
+                                        <div class="col-md-3 mb-3">
+                                            <label for="validationCustom01">Nome da Mãe</label>
+                                            <input type="text" min="1921-01-01" class="form-control form-control-sm" id="id-nome-mae" required />
+                                        
+                                        </div>
                                     </div>
                                     <div class="form-row mt-0">
-                                        <div class="col-md-2 mb-3">
-                                            <label for="validationCustom01">Nome da Mãe</label>
-                                            <input type="text" min="1921-01-01" class="form-control form-control-sm"
-                                                id="id-nome-mae" required />
+                                        
 
-                                        </div>
-
-                                        <div class="col-md-4 mb-3">
+                                        <div class="col-md-3 mb-3">
                                             <label for="validationCustom01">Estado Civil</label>
                                             <select name='cpfcnpj' class="form-control form-control-sm"
                                                 id="id-estado-civil" required />
-                                                <option> </option>
-                                                <option value="solteiro"> Solteiro </option>
-                                                <option value="casado"> Casado </option>
-                                                <option value="divorciado"> Divorciado </option>
-                                                <option value="viuvo"> Viúvo </option>
-                                                <option value="Separado judicialmente"> Separado judicialmente </option>
+                                            <option> </option>
+                                            <option value="solteiro"> Solteiro </option>
+                                            <option value="casado"> Casado </option>
+                                            <option value="divorciado"> Divorciado </option>
+                                            <option value="viuvo"> Viúvo </option>
+                                            <option value="Separado judicialmente"> Separado judicialmente </option>
                                             </select>
 
                                         </div>
 
-                                        <div class="col-md-2 mb-3">
-                                            <div class="form-group">
-                                                <label for="exampleFormControlSelect1">Filhos:</label>
-                                                <select class="form-control form-control-sm" id="id-filhos" required>
-                                                    <option> </option>
-                                                    <option value="SIM">SIM</option>
-                                                    <option value="NAO">NÃO</option>
-                                                </select>
-                                            </div>
 
-                                        </div>
-
-                                        <div class="col-md-2 mb-3">
+                                        <div class="col-md-3 mb-3">
                                             <label for="validationCustom01">Cidade/UF Nascimento</label>
                                             <select class="form-control form-control-sm" id="id-cidade-uf" required>
                                                 <option></option>
@@ -285,7 +275,7 @@
 
 
 
-                                        <div class="col-md-2 mb-3">
+                                        <div class="col-md-3 mb-3">
                                             <label for="validationCustom01">Escolaridade</label>
                                             <select class="form-control form-control-sm" id="id-escolaridade" required>
                                                 <option value=""></option>
@@ -338,11 +328,10 @@
 
                                         </div>
 
-                                        <div class="col-md-3 mb-4">
+                                        <div class="col-md-3 mb-3">
                                             <div class="form-group">
-                                                <label for="exampleFormControlSelect1">Possui Filhos Menores de 14
-                                                    anos</label>
-                                                <select class="form-control form-control-sm" id="id-filhos-14" required>
+                                                <label for="exampleFormControlSelect1">Filhos:</label>
+                                                <select class="form-control form-control-sm" id="id-filhos" required>
                                                     <option> </option>
                                                     <option value="SIM">SIM</option>
                                                     <option value="NAO">NÃO</option>
@@ -351,12 +340,18 @@
 
                                         </div>
 
-                                        <div class="col-md-3 mb-3">
-                                            <label for="validationCustom01">Quantos</label>
-                                            <input type="text" class="form-control form-control-sm" id="id-quantos"
-                                                onKeyDown="fMasc( this, nContrtato );" maxlength="2" required>
+                                        <div class="col-md-3 mb-4">
+                                            <div class="form-group">
+                                                <label for="exampleFormControlSelect1">Filhos Menores de 14
+                                                    anos</label>
+
+                                                <input type="text" class="form-control form-control-sm"
+                                                    id="id-filhos-14" onKeyDown="fMasc( this, nContrtato );"
+                                                    maxlength="2" required>
+                                            </div>
 
                                         </div>
+
 
                                         <!-- <div id="tabela">
                                             <h1>tabela</h1>
@@ -378,15 +373,6 @@
 
 
                                     <div class="form-row mt-4">
-
-
-                                        <div class="col-md-3 mb-3">
-                                            <label for="validationCustom01">Data</label>
-                                            <input type="text" class="form-control form-control-sm" id="id-dt-reservita"
-                                                onKeyDown="fMasc( this, data );" maxlength="10" required>
-
-
-                                        </div>
 
                                         <div class="col-md-3 mb-3">
                                             <label for="validationCustom01">Número do PIS / Cartão do Cidadão</label>
@@ -437,10 +423,16 @@
                                             </select>
 
                                         </div>
+
+                                        <div class="col-md-3 mb-3">
+                                            <label for="validationCustom01">Nº da CTPS</label>
+                                            <input type="text" class="form-control form-control-sm" id="id-ctps" required>
+                                        
+                                        </div>
                                     </div>
 
                                     <div class="form-row mt-4">
-                                        <div class="col-md-3 mb-3">
+                                        <!-- <div class="col-md-3 mb-3">
                                             <div class="form-group">
                                                 <label for="exampleFormControlSelect1">Possuo nº de PIS</label>
                                                 <select class="form-control form-control-sm" id="n-pis" required>
@@ -451,14 +443,9 @@
                                                 </select>
                                             </div>
 
-                                        </div>
+                                        </div> -->
 
-                                        <div class="col-md-3 mb-3">
-                                            <label for="validationCustom01">CTPS</label>
-                                            <input type="text" class="form-control form-control-sm" id="id-ctps"
-                                                required>
-
-                                        </div>
+                                        
 
                                         <div class="col-md-3 mb-3">
                                             <label for="validationCustom01">Série</label>
@@ -476,8 +463,8 @@
 
                                         <div class="col-md-3 mb-3">
                                             <label for="validationCustom01">Titulo de Eleitor</label>
-                                            <input type="text" class="form-control form-control-sm" id="id-titulo" onkeydown="mascaraMutuario(this, nContrtato)" maxlength="12"
-                                                required>
+                                            <input type="text" class="form-control form-control-sm" id="id-titulo"
+                                                onkeydown="mascaraMutuario(this, nContrtato)" maxlength="12" required>
 
                                         </div>
 
@@ -497,8 +484,8 @@
 
                                         <div class="col-md-3 mb-3">
                                             <label for="validationCustom01">Numero Reservista</label>
-                                            <input type="text" class="form-control form-control-sm" id="id_reservista" onkeydown="mascaraMutuario(this, nContrtato)"
-                                                required>
+                                            <input type="text" class="form-control form-control-sm" id="id_reservista"
+                                                onkeydown="mascaraMutuario(this, nContrtato)" required>
 
                                         </div>
                                     </div>
@@ -516,38 +503,26 @@
 
                                     <div class="form-row mt-4">
 
-                                        <div class="col-md-3 mb-3">
-                                            <label for="validationCustom01">Banco</label>
+                                        <div class="col-md-4 mb-3">
+                                            <label for="validationCustom01">Nº do Banco</label>
                                             <input type="text" class="form-control form-control-sm" id="id-banco"
                                                 required>
 
                                         </div>
 
-                                        <div class="col-md-3 mb-3">
+                                        <div class="col-md-4 mb-3">
                                             <label for="validationCustom01">Agência</label>
                                             <input type="text" class="form-control form-control-sm" id="id-agencia"
                                                 required>
 
                                         </div>
-                                        <div class="col-md-3 mb-3">
+                                        <div class="col-md-4 mb-3">
                                             <label for="validationCustom01">Conta Corrente</label>
                                             <input type="text" class="form-control form-control-sm"
                                                 id="id-conta-corrente" required>
 
                                         </div>
 
-                                        <div class="col-md-3 mb-3">
-                                            <div class="form-group">
-                                                <label for="exampleFormControlSelect1">Ação</label>
-                                                <select class="form-control form-control-sm" id="id-acao" required>
-                                                    <option> </option>
-                                                    <option value="CONSIGNADO">CONSIGNADO</option>
-                                                    <option value="OUTROS">OUTROS</option>
-
-                                                </select>
-                                            </div>
-
-                                        </div>
                                     </div>
                                 </form>
 
