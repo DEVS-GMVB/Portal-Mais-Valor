@@ -247,38 +247,56 @@ function preencherModal(data) {
     document.getElementById('rg_arq2_file').innerHTML =
         `<button type="button" class="btn btn-primary btn-icon-label" id="rg_arq2" name="rg_arq" 
         onclick="downloadRg(mapHash.get(${data.id}))" style="background-color: white; color: gray; border-color: gray;">
-            <span class="btn-inner--text">Rg :</span>
+        <span class="btn-inner--icon">
+                                        <i class="fa fa-upload"></i>
+                                    </span>    
+        <span class="btn-inner--text">Rg :</span>
         </button>`
 
     document.getElementById('cpf_arq2_file').innerHTML =
         `<button type="button" class="btn btn-primary btn-icon-label" id="cpf_arq2" name="cpf_arq2" 
     onclick="downloadCpf(mapHash.get(${data.id}))" style="background-color: white; color: gray; border-color: gray;">
-        <span class="btn-inner--text">Cpf :</span>
+    <span class="btn-inner--icon">
+                                        <i class="fa fa-upload"></i>
+                                    </span>     
+    <span class="btn-inner--text">Cpf :</span>
     </button>`
 
     document.getElementById('aneps_arq2_file').innerHTML =
         `<button type="button" class="btn btn-primary btn-icon-label" id="aneps_arq" name="aneps_arq" 
     onclick="downloadAneps(mapHash.get(${data.id}))" style="background-color: white; color: gray; border-color: gray;">
-        <span class="btn-inner--text">Aneps :</span>
+    <span class="btn-inner--icon">
+                                        <i class="fa fa-upload"></i>
+                                    </span>     
+    <span class="btn-inner--text">Aneps :</span>
     </button>`
 
 
     document.getElementById('pis_arq2_file').innerHTML =
         `<button type="button" class="btn btn-primary btn-icon-label" id="pis_arq" name="pis_arq" 
     onclick="downloadPis(mapHash.get(${data.id}))" style="background-color: white; color: gray; border-color: gray;">
-        <span class="btn-inner--text">Pis :</span>
+    <span class="btn-inner--icon">
+                                        <i class="fa fa-upload"></i>
+                                    </span> 
+                                    <span class="btn-inner--text">Pis :</span>
     </button>`
 
     document.getElementById('titulo_arq2_file').innerHTML =
         `<button type="button" class="btn btn-primary btn-icon-label" id="titulo_arq" name="titulo_arq" 
     onclick="downloadTitulo(mapHash.get(${data.id}))" style="background-color: white; color: gray; border-color: gray;">
-        <span class="btn-inner--text">Titulo :</span>
+    <span class="btn-inner--icon">
+                                        <i class="fa fa-upload"></i>
+                                    </span>     
+    <span class="btn-inner--text">Titulo :</span>
     </button>`
 
     document.getElementById('comprovante_endereco_arq2_file').innerHTML =
         `<button type="button" class="btn btn-primary btn-icon-label" id="comprovante_endereco_arq2" name="comprovante_endereco_arq2" 
     onclick="downloadEnd(mapHash.get(${data.id}))" style="background-color: white; color: gray; border-color: gray;">
-        <span class="btn-inner--text">Pis :</span>
+    <span class="btn-inner--icon">
+                                        <i class="fa fa-upload"></i>
+                                    </span>     
+    <span class="btn-inner--text">Pis :</span>
     </button>`
 }
 
@@ -466,7 +484,9 @@ alterarBtn.addEventListener('click', (e) => {
         esteiraportal_login,
         esteiraportal_senha,
         crm_login,
-        crm_senha
+        crm_senha,
+        data_alteracao: dateNow(),
+        responsavel: dataSession.nome
     });
 
     var requestOptions = {
