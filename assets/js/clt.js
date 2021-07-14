@@ -4,14 +4,65 @@ const URL_API_CEP = 'https://viacep.com.br/ws';
 const incluir = document.getElementById('buttonIncluir');
 //liberar button
 const filho14 = document.getElementById('id-filhos-14');
-const quantos = document.getElementById('id-quantos');
+
+const dependentes = document.getElementById('id-dependentes');
+const quantos = document.getElementById('id-quantos-dependente');
 
 const cep = document.getElementById("cep-campo");
+
+dependentes.addEventListener('blur', () => {
+    if (dependentes.value === 'SIM') {
+        $("#id-quantos-dependente").attr('disabled', false);
+        quantos.addEventListener('blur', () => {
+            if (quantos.value == 1) {
+                $("#id-nome-dependente1").attr('disabled', false);
+                $("#id-dt-nasci-dependente1").attr('disabled', false);
+                $("#id-parentesco-dependente1").attr('disabled', false);
+                $("#id-nome-dependente2").attr('disabled', true);
+                $("#id-dt-nasci-dependente2").attr('disabled', true);
+                $("#id-parentesco-dependente2").attr('disabled', true);
+                $("#id-nome-dependente3").attr('disabled', true);
+                $("#id-dt-nasci-dependente3").attr('disabled', true);
+                $("#id-parentesco-dependente3").attr('disabled', true);
+            } else if (quantos.value == 2) {
+                $("#id-nome-dependente1").attr('disabled', false);
+                $("#id-dt-nasci-dependente1").attr('disabled', false);
+                $("#id-parentesco-dependente1").attr('disabled', false);
+                $("#id-nome-dependente2").attr('disabled', false);
+                $("#id-dt-nasci-dependente2").attr('disabled', false);
+                $("#id-parentesco-dependente2").attr('disabled', false);
+                $("#id-nome-dependente3").attr('disabled', true);
+                $("#id-dt-nasci-dependente3").attr('disabled', true);
+                $("#id-parentesco-dependente3").attr('disabled', true);
+            } else if (quantos.value >= 3) {
+                $("#id-nome-dependente1").attr('disabled', false);
+                $("#id-dt-nasci-dependente1").attr('disabled', false);
+                $("#id-parentesco-dependente1").attr('disabled', false);
+                $("#id-nome-dependente2").attr('disabled', false);
+                $("#id-dt-nasci-dependente2").attr('disabled', false);
+                $("#id-parentesco-dependente2").attr('disabled', false);
+                $("#id-nome-dependente3").attr('disabled', false);
+                $("#id-dt-nasci-dependente3").attr('disabled', false);
+                $("#id-parentesco-dependente3").attr('disabled', false);
+            } else {
+                $("#id-nome-dependente1").attr('disabled', true);
+                $("#id-dt-nasci-dependente1").attr('disabled', true);
+                $("#id-parentesco-dependente1").attr('disabled', true);
+                $("#id-nome-dependente2").attr('disabled', true);
+                $("#id-dt-nasci-dependente2").attr('disabled', true);
+                $("#id-parentesco-dependente2").attr('disabled', true);
+                $("#id-nome-dependente3").attr('disabled', true);
+                $("#id-dt-nasci-dependente3").attr('disabled', true);
+                $("#id-parentesco-dependente3").attr('disabled', true);
+            }
+        })
+    }
+});
 
 cep.addEventListener('blur', async (e) => {
     console.log(e.target.value === '')
 
-    if(e.target.value === '' || e.target.value === null) {
+    if (e.target.value === '' || e.target.value === null) {
         $("#id-cidade").val('');
         $("#id-endereco").val('');
         $("#id-bairro").val('');
@@ -29,16 +80,6 @@ cep.addEventListener('blur', async (e) => {
     $("#id-endereco").val(data.logradouro);
     $("#id-bairro").val(data.bairro);
     $("#id-uf").val(data.uf)
-});
-
-document.getElementById('id-filhos-14').addEventListener('blur', () => {
-
-    if (filho14.value === 'SIM') {
-        $("#id-quantos").attr('disabled', false);
-    } else {
-        $("#id-quantos").attr('disabled', true);
-    }
-
 });
 
 incluir.addEventListener('click', async () => {
@@ -79,6 +120,19 @@ incluir.addEventListener('click', async () => {
     const agencia = $("#id-agencia").val();
     const cCorrente = $("#id-conta-corrente").val();
     const acao = $("#id-acao").val();
+    const naturalidade = $("#id-naturalidade").val();
+    const nacionalidade = $("#id-nacionalidade").val();
+    const nome_filho1 = $("#id-nome-dependente1").val();
+    const data_nascimento_filho1 = $("#id-dt-nasci-dependente1").val();
+    const parentesco_filho1 = $("#id-parentesco-dependente1").val();
+    const nome_filho2 = $("#id-nome-dependente2").val();
+    const data_nascimento_filho2 = $("#id-dt-nasci-dependente2").val();
+    const parentesco_filho2 = $("#id-parentesco-dependente2").val();
+    const nome_filho3 = $("#id-nome-dependente3").val();
+    const data_nascimento_filho3 = $("#id-dt-nasci-dependente3").val();
+    const parentesco_filho3 = $("#id-parentesco-dependente3").val();
+    const nome_contato_emergencial = $("#id-nome-emergencial-contato").val();
+    const telefone_contato_emergencial = $("#id-telfone-emergencial-contato").val();
 
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
@@ -99,7 +153,9 @@ incluir.addEventListener('click', async () => {
         nome_mae: nmMae,
         estado_civil: estadoCivil,
         filhos,
-        naturalidade: cidadeUf,
+        uf: cidadeUf,
+        naturalidade,
+        nacionalidade,
         escolaridade,
         curso,
         data_nascimento: nasci,
@@ -107,6 +163,8 @@ incluir.addEventListener('click', async () => {
         rg,
         cnpj: rg,
         cracha,
+        nome_contato_emergencial,
+        telefone_contato_emergencial,
         //filhos14
         //quantos filhos
         data_rg: dtReservita,
@@ -125,7 +183,16 @@ incluir.addEventListener('click', async () => {
         conta: cCorrente,
         //acao
         status: 'AGUARDANDO APROVAÇÃO DP',
-        data_criacao: new Date().toLocaleDateString()
+        data_criacao: new Date().toLocaleString(),
+        nome_filho1,
+        data_nascimento_filho1,
+        parentesco_filho1,
+        nome_filho2,
+        data_nascimento_filho2,
+        parentesco_filho2,
+        nome_filho3,
+        data_nascimento_filho3,
+        parentesco_filho3
     }
 
     const raw = JSON.stringify(body)

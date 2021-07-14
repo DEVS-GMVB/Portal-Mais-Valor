@@ -117,7 +117,7 @@
 
                                     <div class="form-row mt-0">
 
-                                        <div class="col-md-3 mb-3">
+                                        <div class="col-md-1 mb-3">
                                             <label for="validationCustom01">Número</label>
                                             <input type="text" class="form-control form-control-sm" id="id-numero"
                                                 required>
@@ -125,7 +125,7 @@
                                         </div>
 
 
-                                        <div class="col-md-2 mb-3">
+                                        <div class="col-md-3 mb-3">
                                             <label for="validationCustom01">Bairro</label>
                                             <input type="text" class="form-control form-control-sm" id="id-bairro"
                                                 required>
@@ -177,17 +177,21 @@
 
                                         </div>
 
-                                        <div class="col-md-2 mb-3">
-                                            <label for="validationCustom01">Telefone Residencial</label>
+                                        <div class="col-md-3 mb-0">
+                                            <label for="validationCustom01">Nacionalidade</label>
                                             <input type="text" class="form-control form-control-sm"
-                                                onKeyDown="fMasc(this, mTelefoneResidencial);" id="id-telefone"
-                                                maxlength="13" required>
+                                                id="id-nacionalidade" required />
 
                                         </div>
-                                    </div>
 
-                                    <div class="form-row mt-0">
-                                        <div class="col-md-2 mb-3">
+                                        <div class="col-md-3 mb-0">
+                                            <label for="validationCustom01">Naturalidade</label>
+                                            <input type="text" class="form-control form-control-sm" id="id-naturalidade"
+                                                required />
+
+                                        </div>
+
+                                        <div class="col-md-2 mb-0">
                                             <div class="form-group">
                                                 <label for="exampleFormControlSelect1">Celular</label>
                                                 <input type="text" class="form-control form-control-sm" id="id-celular"
@@ -198,7 +202,7 @@
 
                                         </div>
 
-                                        <div class="col-md-4 mb-3">
+                                        <div class="col-md-4 mb-0">
                                             <label for="validationCustom01">E-mail</label>
                                             <input type="text" class="form-control form-control-sm" id="id-email"
                                                 required />
@@ -206,22 +210,35 @@
                                         </div>
 
                                         <div class="col-md-3 mb-3">
+                                            <label for="validationCustom01">Nome Contato Emergencial</label>
+                                            <input type="text" class="form-control form-control-sm" id="id-nome-emergencial-contato"
+                                                required />
+
+                                        </div>
+
+                                        <div class="col-md-3 mb-3">
+                                            <label for="validationCustom01">Telefone Emergencial</label>
+                                            <input type="text" class="form-control form-control-sm" id="id-telfone-emergencial-contato"
+                                                required />
+
+                                        </div>
+
+                                        <div class="col-md-3 mb-1">
                                             <label for="validationCustom01">Nome do Pai</label>
                                             <input type="text" class="form-control form-control-sm" id="id-nome-pai"
                                                 required>
 
                                         </div>
 
-                                        <div class="col-md-3 mb-3">
+                                        <div class="col-md-3 mb-1">
                                             <label for="validationCustom01">Nome da Mãe</label>
-                                            <input type="text" min="1921-01-01" class="form-control form-control-sm" id="id-nome-mae" required />
-                                        
-                                        </div>
-                                    </div>
-                                    <div class="form-row mt-0">
-                                        
+                                            <input type="text" min="1921-01-01" class="form-control form-control-sm"
+                                                id="id-nome-mae" required />
 
-                                        <div class="col-md-3 mb-3">
+                                        </div>
+
+
+                                        <div class="col-md-3 mb-0">
                                             <label for="validationCustom01">Estado Civil</label>
                                             <select name='cpfcnpj' class="form-control form-control-sm"
                                                 id="id-estado-civil" required />
@@ -328,10 +345,11 @@
 
                                         </div>
 
-                                        <div class="col-md-3 mb-3">
+                                        <div class="col-md-5 mb-3">
                                             <div class="form-group">
-                                                <label for="exampleFormControlSelect1">Filhos:</label>
-                                                <select class="form-control form-control-sm" id="id-filhos" required>
+                                                <label for="exampleFormControlSelect1">Dependentes</label>
+                                                <select class="form-control form-control-sm" id="id-dependentes"
+                                                    required>
                                                     <option> </option>
                                                     <option value="SIM">SIM</option>
                                                     <option value="NAO">NÃO</option>
@@ -340,14 +358,97 @@
 
                                         </div>
 
-                                        <div class="col-md-3 mb-4">
-                                            <div class="form-group">
-                                                <label for="exampleFormControlSelect1">Filhos Menores de 14
-                                                    anos</label>
+                                        <div class="col-md-4 mb-3">
+                                            <label for="validationCustom01">Quantos Dependentes</label>
+                                            <input type="text" class="form-control form-control-sm"
+                                                id="id-quantos-dependente" onKeyDown="fMasc(this, nContrtato );"
+                                                maxlength="2" required disabled>
 
-                                                <input type="text" class="form-control form-control-sm"
-                                                    id="id-filhos-14" onKeyDown="fMasc( this, nContrtato );"
-                                                    maxlength="2" required>
+                                        </div>
+
+                                        <div class="col-md-4 mb-3">
+                                            <label for="validationCustom01">Nome Dependente 1</label>
+                                            <input type="text" class="form-control form-control-sm"
+                                                id="id-nome-dependente1" required disabled>
+
+                                        </div>
+
+                                        <div class="col-md-4 mb-3">
+                                            <label for="validationCustom01">Data de Nascimento Dependente 1</label>
+                                            <input type="text" class="form-control form-control-sm"
+                                                id="id-dt-nasci-dependente1" onKeyDown="fMasc( this, data );"
+                                                maxlength="10" required disabled>
+
+                                        </div>
+
+                                        <div class="col-md-4 mb-3">
+                                            <div class="form-group">
+                                                <label for="exampleFormControlSelect1">Parentesco Dependente 1</label>
+                                                <select class="form-control form-control-sm"
+                                                    id="id-parentesco-dependente1" required disabled>
+                                                    <option value=""> </option>
+                                                    <option value="CONJUGE">CONJUGE</option>
+                                                    <option value="FILHO MENOR QUE 21">FILHO MENOR QUE 21</option>
+                                                    <option value="UNIÃO ESTÁVEL">UNIÃO ESTÁVEL</option>
+                                                </select>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="col-md-4 mb-3">
+                                            <label for="validationCustom01">Nome Dependente 2</label>
+                                            <input type="text" class="form-control form-control-sm"
+                                                id="id-nome-dependente2" required disabled>
+
+                                        </div>
+
+                                        <div class="col-md-4 mb-3">
+                                            <label for="validationCustom01">Data de Nascimento Dependente 2</label>
+                                            <input type="text" class="form-control form-control-sm"
+                                                id="id-dt-nasci-dependente2" onKeyDown="fMasc( this, data );"
+                                                maxlength="10" required disabled>
+
+                                        </div>
+
+                                        <div class="col-md-4 mb-3">
+                                            <div class="form-group">
+                                                <label for="exampleFormControlSelect1">Parentesco Dependente 2</label>
+                                                <select class="form-control form-control-sm"
+                                                    id="id-parentesco-dependente2" required disabled>
+                                                    <option value=""> </option>
+                                                    <option value="CONJUGE">CONJUGE</option>
+                                                    <option value="FILHO MENOR QUE 21">FILHO MENOR QUE 21</option>
+                                                    <option value="UNIÃO ESTÁVEL">UNIÃO ESTÁVEL</option>
+                                                </select>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="col-md-4 mb-3">
+                                            <label for="validationCustom01">Nome Dependente 3</label>
+                                            <input type="text" class="form-control form-control-sm"
+                                                id="id-nome-dependente3" required disabled>
+
+                                        </div>
+
+                                        <div class="col-md-4 mb-3">
+                                            <label for="validationCustom01">Data de Nascimento Dependente 3</label>
+                                            <input type="text" class="form-control form-control-sm"
+                                                id="id-dt-nasci-dependente3" onKeyDown="fMasc(this, data);"
+                                                maxlength="10" required disabled>
+
+                                        </div>
+
+                                        <div class="col-md-4 mb-3">
+                                            <div class="form-group">
+                                                <label for="exampleFormControlSelect1">Parentesco Dependente 3</label>
+                                                <select class="form-control form-control-sm"
+                                                    id="id-parentesco-dependente3" required disabled>
+                                                    <option value=""> </option>
+                                                    <option value="CONJUGE">CONJUGE</option>
+                                                    <option value="FILHO MENOR QUE 21">FILHO MENOR QUE 21</option>
+                                                    <option value="UNIÃO ESTÁVEL">UNIÃO ESTÁVEL</option>
+                                                </select>
                                             </div>
 
                                         </div>
@@ -426,12 +527,13 @@
 
                                         <div class="col-md-3 mb-3">
                                             <label for="validationCustom01">Nº da CTPS</label>
-                                            <input type="text" class="form-control form-control-sm" id="id-ctps" required>
-                                        
+                                            <input type="text" class="form-control form-control-sm" id="id-ctps"
+                                                required>
+
                                         </div>
                                     </div>
 
-                                    <div class="form-row mt-4">
+                                    <div class="form-row mt-2">
                                         <!-- <div class="col-md-3 mb-3">
                                             <div class="form-group">
                                                 <label for="exampleFormControlSelect1">Possuo nº de PIS</label>
@@ -445,7 +547,7 @@
 
                                         </div> -->
 
-                                        
+
 
                                         <div class="col-md-3 mb-3">
                                             <label for="validationCustom01">Série</label>

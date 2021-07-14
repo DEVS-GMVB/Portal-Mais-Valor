@@ -4,28 +4,6 @@ const URL_API_CEP = 'https://viacep.com.br/ws';
 const incluir = document.getElementById('buttonIncluir');
 
 const cep = document.getElementById("cep-campo");
-const cep2 = document.getElementById("id-cep");
-
-cep2.addEventListener('blur', async (e) => {
-
-    if (e.target.value === '' || e.target.value === null) {
-        $("#id-cidade2").val('');
-        $("#id-endereco2").val('');
-        $("#id-bairro2").val('');
-        $("#id-uf2").val('');
-
-        return;
-    }
-
-    const data = await fetch(`${URL_API_CEP}/${cep2.value.replace(/-/g, "")}/json`).then(response => (response.status === 200) ? response.json() : {
-        message: "CEP Inválido"
-    });
-
-    $("#id-cidade2").val(data.localidade);
-    $("#id-endereco2").val(data.logradouro);
-    $("#id-bairro2").val(data.bairro);
-    $("#id-uf2").val(data.uf)
-});
 
 cep.addEventListener('blur', async (e) => {
 
@@ -80,6 +58,8 @@ incluir.addEventListener('click', async () => {
     const cidade2 = $("#id-cidade").val();
     const uf2 = $("#id-uf").val();
     const cep2 = $("#cep-campo").val();
+    const nome_contato_emergencial = $("#id-nome-emergencial-contato").val();
+    const telefone_contato_emergencial = $("#id-telfone-emergencial-contato").val();
 
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
@@ -105,6 +85,8 @@ incluir.addEventListener('click', async () => {
         telefone: telefone,
         telefone: celular,
         email,
+        nome_contato_emergencial,
+        telefone_contato_emergencial,
         tipo_pagamento: pagamentoCartao,
         favorecido,
         cnpj: rg,

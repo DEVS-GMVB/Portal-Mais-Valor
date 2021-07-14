@@ -62,7 +62,7 @@
                     </div>
 
                     <div>
-                        <img src="./assets/img/brand/white1 copy.png" class="navbar-brand-img" alt="..."
+                        <img src="../../assets/img/brand/white1 copy.png" class="navbar-brand-img" alt="..."
                             style="height: 70px; right: 70px;">
                     </div>
                 </div>
@@ -80,7 +80,15 @@
                                 <form class="needs-validation" novalidate>
 
                                     <div class="form-row mt-4">
-                                        <div class="col-md-5 mb-3">
+
+                                        <div class="col-md-2 mb-3">
+                                            <label for="validationCustom01">CPF</label>
+                                            <input type="text" class="form-control form-control-sm" id="cpf-cnpj"
+                                                onkeypress='mascaraMutuario(this,cpfCnpj)' maxlength="14" required>
+
+                                        </div>
+
+                                        <div class="col-md-4 mb-3">
                                             <div class="form-group">
                                                 <label for="exampleFormControlSelect1">Nome</label>
 
@@ -133,7 +141,7 @@
 
                                         </div>
 
-                                        <div class="col-md-3 mb-3">
+                                        <div class="col-md-2 mb-3">
                                             <label for="validationCustom01">UF</label>
 
                                             <select class="form-control form-control-sm" id="id-uf" required>
@@ -191,23 +199,16 @@
                                         </div>
 
                                         <div class="col-md-4 mb-3">
-                                            <label for="validationCustom01">Nome de Contato</label>
-                                            <input type="text" class="form-control form-control-sm" id="id-nome-contato"
+                                            <label for="validationCustom01">Nome Contato Emergencial</label>
+                                            <input type="text" class="form-control form-control-sm" id="id-nome-emergencial-contato"
                                                 required />
 
                                         </div>
 
-                                        <!-- <div class="col-md-3 mb-3">
-                                            <label for="validationCustom01">Nome</label>
-                                            <input type="text" class="form-control form-control-sm" id="id-nome"
-                                                required>
-
-                                        </div> -->
-
                                         <div class="col-md-2 mb-3">
-                                            <label for="validationCustom01">CPF</label>
-                                            <input type="text" class="form-control form-control-sm" id="cpf-cnpj"
-                                                onkeypress='mascaraMutuario(this,cpfCnpj)' maxlength="14" required>
+                                            <label for="validationCustom01">Telefone Emergencial</label>
+                                            <input type="text" class="form-control form-control-sm" id="id-telfone-emergencial-contato"
+                                                required />
 
                                         </div>
 
@@ -225,14 +226,14 @@
 
                                         </div>
 
-                                        <div class="col-md-3 mb-3">
+                                        <div class="col-md-5 mb-3">
                                             <label for="validationCustom01">Nome da Mãe</label>
                                             <input type="text" min="1921-01-01" class="form-control form-control-sm"
                                                 id="id-nome-mae" required />
 
                                         </div>
 
-                                        <div class="col-md-2 mb-3">
+                                        <div class="col-md-3 mb-3">
                                             <label for="validationCustom01">Telefone Celular</label>
                                             <input type="text" class="form-control form-control-sm" onKeyDown="fMasc(this, mTelefone);" id="id-telefone"
                                                 maxlength="14" required>
@@ -421,6 +422,14 @@
                                             <label for="exampleFormControlFile1"><b>Contrato :</b></label>
                                             <input type="file" class="form-control-file" id="contrato"
                                                 name="contrato_arq">
+
+                                        </div>
+
+                                        <div class="col-md-4 mb-3">
+                                            <label for="exampleFormControlFile1"><b>Cartão Dados Conta Corrente
+                                                    :</b></label>
+                                            <input type="file" class="form-control-file" id="cartao_arq"
+                                                name="cartao_arq">
 
                                         </div>
                                     </div>
