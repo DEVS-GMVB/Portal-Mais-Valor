@@ -498,7 +498,11 @@ alterarBtn.addEventListener('click', (e) => {
 
     fetch(`${URL}/acessochamado/atualizar?id=${id}`, requestOptions)
         .then(response => response.json())
-        .then(result => console.log(result))
+        .then(result =>{ console.log(result)
+            $('#alert-sucesso2').show();
+            $('#alert-sucesso2').fadeIn(300).delay(3000).fadeOut(400);
+            document.getElementById("alert-sucesso2").textContent = "Alterado"
+    })
         .catch(error => console.log('error', error));
 
 });
