@@ -97,5 +97,25 @@ function criarTxt(i, agencia, cpf, nome, cidade, estado, valorAss, count, valorF
   }
 
 
+
   export { criarTxt, updateStatusAssistenciaTxt, envioEmailBanco };
   
+
+  /**criar rota download txt banco do portal
+   *  consumir essa rota e colocar no botao dwoload
+      enviar no site
+      download do site (retorno)
+      upload retorno  */
+
+      /**
+       * Robo na VM vai fazer o download do txt do banco em um horariodeterminado (esta arquivo estará no servidor)
+       * após isso vai no site do santander e incluir esse arquivo 
+       * fica atualizando o site para não cair 
+       */
+
+    /**
+     * VERIFICAR
+     * 
+     * Depois de subir o arquivo para o site trocar ele de pasta 
+     * para não perder a referencia da tela quando fizer um novo download
+     */

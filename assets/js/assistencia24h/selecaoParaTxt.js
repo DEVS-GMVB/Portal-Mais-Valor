@@ -4,7 +4,7 @@ import { updateParcelasRestantes } from './atualizaParcelas.js';
 import { personalizaHtml} from './certBoasVindas.js'; 
 import { criarDocumentoIke, envioSftp} from './txtIke.js'; 
 import { LOCALHOST } from './session.js';
-//import { envioEmailcliente } from './emailCliente.js';
+import { envioEmailcliente } from './emailCliente.js';
 
 
 
@@ -29,7 +29,6 @@ function setarEnvioDiaHora() {
   
   }
 
-  
   
   function filtraAssistenciasDebito() {
     var now = new Date

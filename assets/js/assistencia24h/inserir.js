@@ -44,7 +44,6 @@ import{ INDEXPAGE, LOCALHOST, dataSession  } from './session.js';
       var parcelas_restantes = 0;
     }
   
-  
     var vencimento1 = document.getElementById("vencimento").value;
     var vencimento = vencimento1.split('-').reverse().join('-');
     vencimento = vencimento.replace("-", "/");
@@ -56,14 +55,10 @@ import{ INDEXPAGE, LOCALHOST, dataSession  } from './session.js';
     var cpf_parceiro = sessionStorage.getItem('cpf_usuario');
     var gerente = sessionStorage.getItem('gerente');
     var supervisor = sessionStorage.getItem('supervisor');
-//     var parceiro = "a";
-//     var id_parceiro = "1"; 
-//     var cpf_parceiro = "a";
-//     var gerente = "a";
-//     var supervisor ="a";
+
     var now = new Date;
     var data_inclusao = "" + now.getDate() + "/" + now.getMonth() + "/" + now.getFullYear() + " " + now.getHours() + ":" + now.getMinutes() + ":" + now.getSeconds()
-    var responsavel_alteracao = "z";
+    var responsavel_alteracao = sessionStorage.getItem('nome');
     var data_alteracao = "" + now.getDate() + "/" + now.getMonth() + "/" + now.getFullYear() + " " + now.getHours() + ":" + now.getMinutes() + ":" + now.getSeconds()
   
     var mes_debito = now.getMonth();

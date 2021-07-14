@@ -65,8 +65,6 @@ window.addEventListener("load", function () {
 
 });
 
-
-
 var inclusao = (nomeBotaoClicado) => {
     if (nomeBotaoClicado == "btnFP") {
         let forma_de_pagamento = document.getElementById("tipoContratacao").value;
