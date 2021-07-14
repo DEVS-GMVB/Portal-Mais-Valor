@@ -4,13 +4,14 @@ import { LOCALHOST } from './session.js';
 
 function todosPorParceiro() {
 
+ let id_parceiro =sessionStorage.getItem('id_acesso');
     let arrayUpdate = [];
     let arrayLinhas = [];
 
     let myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
     let raw = JSON.stringify({
-        "id_parceiro": sessionStorage.getItem('id_acesso')
+        "id_parceiro": id_parceiro
     });
     let requestOptions = {
         method: 'POST',
