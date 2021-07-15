@@ -247,7 +247,7 @@ class GovernoMg {
                 DE 76 A 76 ANOS 11 MESES E 29 DIAS R$ 10.000,00 MAX PARC 48
                 DE 77 A 77 ANOS 11 MESES E 29 DIAS R$ 10.000,00 MAX PARC 36
                 DE 78 A 78 ANOS 11 MESES E 29 DIAS R$ 10.000,00 MAX PARC 24
-                DE 79 A 79 ANOS 11 MESES E 29 DIAS R$ 10.000,00 MAX PARC 12 
+                DE 79 A 79 ANOS 11 MESES E 29 DIAS R$ 10.000,00 MAX PARC 12 "
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
             <span class="btn-inner--icon"><i
             class="fas fa-times"></i></span>
@@ -260,7 +260,7 @@ class GovernoMg {
             DE 76 A 76 ANOS 11 MESES E 29 DIAS R$ 10.000,00 MAX PARC 48
             DE 77 A 77 ANOS 11 MESES E 29 DIAS R$ 10.000,00 MAX PARC 36
             DE 78 A 78 ANOS 11 MESES E 29 DIAS R$ 10.000,00 MAX PARC 24
-            DE 79 A 79 ANOS 11 MESES E 29 DIAS R$ 10.000,00 MAX PARC 12 
+            DE 79 A 79 ANOS 11 MESES E 29 DIAS R$ 10.000,00 MAX PARC 12"
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
             <span class="btn-inner--icon"><i
             class="fas fa-times"></i></span>
@@ -273,7 +273,7 @@ class GovernoMg {
                 DE 76 A 76 ANOS 11 MESES E 29 DIAS R$ 10.000,00 MAX PARC 48
                 DE 77 A 77 ANOS 11 MESES E 29 DIAS R$ 10.000,00 MAX PARC 36
                 DE 78 A 78 ANOS 11 MESES E 29 DIAS R$ 10.000,00 MAX PARC 24
-                DE 79 A 79 ANOS 11 MESES E 29 DIAS R$ 10.000,00 MAX PARC 12 
+                DE 79 A 79 ANOS 11 MESES E 29 DIAS R$ 10.000,00 MAX PARC 12 "
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
             <span class="btn-inner--icon"><i
             class="fas fa-times"></i></span>
@@ -345,7 +345,7 @@ class GovernoMg {
                 De 68 a 69 anos e 11 meses R$ 190.000,00
                 De 70 a 70 anos e 11 meses R$ 150.000,00
                 De 71 a 71 anos e 11 meses R$ 120.000,00
-                De 72 a 74 anos e 11 meses R$ 20.000,00       
+                De 72 a 74 anos e 11 meses R$ 20.000,00 "      
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
             <span class="btn-inner--icon"><i
             class="fas fa-times"></i></span>
@@ -357,7 +357,7 @@ class GovernoMg {
                 De 68 a 69 anos e 11 meses R$ 190.000,00
                 De 70 a 70 anos e 11 meses R$ 150.000,00
                 De 71 a 71 anos e 11 meses R$ 120.000,00
-                De 72 a 74 anos e 11 meses R$ 20.000,00       
+                De 72 a 74 anos e 11 meses R$ 20.000,00   "    
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
             <span class="btn-inner--icon"><i
             class="fas fa-times"></i></span>
@@ -369,7 +369,7 @@ class GovernoMg {
                 De 68 a 69 anos e 11 meses R$ 190.000,00
                 De 70 a 70 anos e 11 meses R$ 150.000,00
                 De 71 a 71 anos e 11 meses R$ 120.000,00
-                De 72 a 74 anos e 11 meses R$ 20.000,00       
+                De 72 a 74 anos e 11 meses R$ 20.000,00 "      
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
             <span class="btn-inner--icon"><i
             class="fas fa-times"></i></span>
@@ -381,7 +381,7 @@ class GovernoMg {
                 De 68 a 69 anos e 11 meses R$ 190.000,00
                 De 70 a 70 anos e 11 meses R$ 150.000,00
                 De 71 a 71 anos e 11 meses R$ 120.000,00
-                De 72 a 74 anos e 11 meses R$ 20.000,00       
+                De 72 a 74 anos e 11 meses R$ 20.000,00  "     
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
             <span class="btn-inner--icon"><i
             class="fas fa-times"></i></span>
@@ -393,7 +393,7 @@ class GovernoMg {
                 De 68 a 69 anos e 11 meses R$ 190.000,00
                 De 70 a 70 anos e 11 meses R$ 150.000,00
                 De 71 a 71 anos e 11 meses R$ 120.000,00
-                De 72 a 74 anos e 11 meses R$ 20.000,00       
+                De 72 a 74 anos e 11 meses R$ 20.000,00  "     
             class="btn btn-sm btn-soft-danger btn-icon rounded-pill">
             <span class="btn-inner--icon"><i
             class="fas fa-times"></i></span>

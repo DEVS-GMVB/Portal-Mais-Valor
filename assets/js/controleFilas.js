@@ -71,6 +71,7 @@ window.onload = () => {
         .catch(error => console.error(error))
 
 
+
     fetch(`${URL}/filas/integradasmes/buscar`, requestOptions)
         .then(response => response.json())
         .then(function (data) {

@@ -54,6 +54,23 @@ function incluirAcessoFunction() {
   let aceConsCaixa = document.getElementById('ace-cadusu-conscaixa').value;
   let aceConsItau = document.getElementById('id-cadusu-aceconsitau').value;
   let cnpjMatriz = document.getElementById("id-cadusu-cnpjMatriz").value;
+  //Aqui
+  let senhaPan = document.getElementById('id-cadusu-senhapan').value;
+  let senhaCetelem = document.getElementById('id-cadusu-senhacetelem').value;
+  let senhaItau = document.getElementById('id-cadusu-senhaitau').value;
+  let senhaBmg = document.getElementById('id-cadusu-senhaf5bmg').value;
+  let senhaF5Itau = document.getElementById('id-cadusu-senha5itau').value;
+  let senhaDaycoval = document.getElementById('id-cadusu-senhadaycoval').value;
+  let senhaSIm = document.getElementById('id-cadusu-senhasim').value;
+  let senhaSafra = document.getElementById('id-cadusu-senhasafra').value;
+  let senhaBradesco = document.getElementById('id-cadusu-acebradesco').value;
+  let senhaParana = document.getElementById('id-cadusu-senhaparana').value;
+  let senhaCrefisa = document.getElementById('id-cadusu-senhacrefisa').value;
+  let senhaConsorcioBb = document.getElementById('id-cadusu-senhaconsorciobb').value;
+  let senhaConsorcioCaixa = document.getElementById('ace-cadusu-senhacaixa').value;
+  let senhaConsorcioItau = document.getElementById('id-cadusu-senhaconsitau').value;
+  let senhaOle = document.getElementById('id-cadusu-senhaole').value;
+
 
   var myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/json");
@@ -99,7 +116,23 @@ function incluirAcessoFunction() {
     consorcio_itau: aceConsItau,
     consorcio_caixa: aceConsCaixa,
     crefisa: aceCrefisa,
-    itau: acessoItau
+    itau: acessoItau,
+    //Aqui
+    senha_ole: senhaOle,
+    senha_pan: senhaPan,
+    senha_cetelem: senhaCetelem,
+    senha_itau: senhaItau,
+    senha_bmg: senhaBmg,
+    senha_f5itau: senhaF5Itau,
+    senha_daycoval: senhaDaycoval,
+    senha_sim: senhaSIm,
+    senha_safra: senhaSafra,
+    senha_bradesco: senhaBradesco,
+    senha_parana: senhaParana,
+    senha_crefisa: senhaCrefisa,
+    senha_consorcio_bb: senhaConsorcioBb,
+    senha_consorcio_caixa: senhaConsorcioCaixa,
+    senha_consorcio_itau: senhaConsorcioItau
   });
 
   var requestOptions = {
@@ -113,6 +146,9 @@ function incluirAcessoFunction() {
     .then(response => response.json())
     .then(result => {
       // console.log("Resposta da inclusão", result);
+
+      //Aqui
+      console.log(result);
 
       if (!(result.erro === 'usuario já tem acesso cadastrado')) {
 
@@ -185,7 +221,7 @@ function incluirAcessoFunction() {
 
 // faz parte do acesso quando incluido dispara este
 function editarCpfAcesso(e, idRow) {
-  console.log("Cliquei em alterar me passa a linha exata" + idRow)
+  //console.log("Cliquei em alterar me passa a linha exata" + idRow)
   linha = idRow;
 
   // Trocar para o botão alterar
@@ -213,9 +249,9 @@ function editarCpfAcesso(e, idRow) {
     redirect: 'follow'
   }
 
-  fetch("http://172.16.0.197:3000/user/cadastro/busca/acesso", requestOptions).
+  fetch(URL + '/user/cadastro/busca/acesso', requestOptions).
   then(response => response.json().then(function (data) {
-
+    console.log(data);
     $("#id-cadusu-usuario").val(data.nome);
     $("#id-cadusu-login").val(data.usuario);
     $("#id-cadusu-senha").val(data.senha);
@@ -246,6 +282,22 @@ function editarCpfAcesso(e, idRow) {
     $("#id-cadusu-aceconsorciobb").val(data.consorcio_bb);
     $("#ace-cadusu-conscaixa").val(data.consorcio_caixa);
     $("#id-cadusu-aceconsitau").val(data.consorcio_itau);
+    //Aqui
+    $("#id-cadusu-senhaole").val(data.senha_ole);
+    $("#id-cadusu-senhapan").val(data.senha_pan);
+    $("#id-cadusu-senhacetelem").val(data.senha_cetelem);
+    $("#id-cadusu-senhaitau").val(data.senha_itau);
+    $("#id-cadusu-senhaf5bmg").val(data.senha_bmg);
+    $("#id-cadusu-senha5itau").val(data.senha_f5itau);
+    $("#id-cadusu-senhadaycoval").val(data.senha_daycoval);
+    $("#id-cadusu-senhasim").val(data.senha_sim);
+    $("#id-cadusu-senhasafra").val(data.senha_safra);
+    $("#id-cadusu-acebradesco").val(data.senha_bradesco);
+    $("#id-cadusu-senhaparana").val(data.senha_parana);
+    $("#id-cadusu-senhacrefisa").val(data.senha_crefisa);
+    $("#id-cadusu-senhaconsorciobb").val(data.senha_consorcio_bb);
+    $("#ace-cadusu-senhacaixa").val(data.senha_consorcio_caixa);
+    $("#id-cadusu-senhaconsitau").val(data.senha_consorcio_itau);
 
   })).catch(error => console.log('error', error))
 
@@ -296,6 +348,22 @@ function funcCadastroAcessoAlterar(data, li) {
   $("#id-cadusu-aceconsorciobb").val(data.consorcio_bb);
   $("#ace-cadusu-conscaixa").val(data.consorcio_caixa);
   $("#id-cadusu-aceconsitau").val(data.consorcio_itau);
+  //Aqui
+  $("#id-cadusu-senhaole").val(data.senha_ole);
+  $("#id-cadusu-senhapan").val(data.senha_pan);
+  $("#id-cadusu-senhacetelem").val(data.senha_cetelem);
+  $("#id-cadusu-senhaitau").val(data.senha_itau);
+  $("#id-cadusu-senhaf5bmg").val(data.senha_bmg);
+  $("#id-cadusu-senha5itau").val(data.senha_f5itau);
+  $("#id-cadusu-senhadaycoval").val(data.senha_daycoval);
+  $("#id-cadusu-senhasim").val(data.senha_sim);
+  $("#id-cadusu-senhasafra").val(data.senha_safra);
+  $("#id-cadusu-acebradesco").val(data.senha_bradesco);
+  $("#id-cadusu-senhaparana").val(data.senha_parana);
+  $("#id-cadusu-senhacrefisa").val(data.senha_crefisa);
+  $("#id-cadusu-senhaconsorciobb").val(data.senha_consorcio_bb);
+  $("#ace-cadusu-senhacaixa").val(data.senha_consorcio_caixa);
+  $("#id-cadusu-senhaconsitau").val(data.senha_consorcio_itau);
   //-----------------
 }
 
@@ -334,6 +402,22 @@ function alterarAcesso(idAcesso, objTr) {
   const aceConsCaixa = document.getElementById('ace-cadusu-conscaixa').value;
   const aceConsItau = document.getElementById('id-cadusu-aceconsitau').value;
   const cnpjMatriz = document.getElementById("id-cadusu-cnpjMatriz").value;
+  //Aqui
+  const senhaPan = document.getElementById('id-cadusu-senhapan').value;
+  const senhaCetelem = document.getElementById('id-cadusu-senhacetelem').value;
+  const senhaItau = document.getElementById('id-cadusu-senhaitau').value;
+  const senhaBmg = document.getElementById('id-cadusu-senhaf5bmg').value;
+  const senhaF5Itau = document.getElementById('id-cadusu-senha5itau').value;
+  const senhaDaycoval = document.getElementById('id-cadusu-senhadaycoval').value;
+  const senhaSIm = document.getElementById('id-cadusu-senhasim').value;
+  const senhaSafra = document.getElementById('id-cadusu-senhasafra').value;
+  const senhaBradesco = document.getElementById('id-cadusu-acebradesco').value;
+  const senhaParana = document.getElementById('id-cadusu-senhaparana').value;
+  const senhaCrefisa = document.getElementById('id-cadusu-senhacrefisa').value;
+  const senhaConsorcioBb = document.getElementById('id-cadusu-senhaconsorciobb').value;
+  const senhaConsorcioCaixa = document.getElementById('ace-cadusu-senhacaixa').value;
+  const senhaConsorcioItau = document.getElementById('id-cadusu-senhaconsitau').value;
+  const senhaOle = document.getElementById('id-cadusu-senhaole').value;
 
   var myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/json");
@@ -380,7 +464,23 @@ function alterarAcesso(idAcesso, objTr) {
     consorcio_itau: aceConsItau,
     consorcio_caixa: aceConsCaixa,
     crefisa: aceCrefisa,
-    itau: acessoItau
+    itau: acessoItau,
+    //Aqui
+    senha_ole: senhaOle,
+    senha_pan: senhaPan,
+    senha_cetelem: senhaCetelem,
+    senha_itau: senhaItau,
+    senha_bmg: senhaBmg,
+    senha_f5itau: senhaF5Itau,
+    senha_daycoval: senhaDaycoval,
+    senha_sim: senhaSIm,
+    senha_safra: senhaSafra,
+    senha_bradesco: senhaBradesco,
+    senha_parana: senhaParana,
+    senha_crefisa: senhaCrefisa,
+    senha_consorcio_bb: senhaConsorcioBb,
+    senha_consorcio_caixa: senhaConsorcioCaixa,
+    senha_consorcio_itau: senhaConsorcioItau
   });
 
   var requestOptions = {
@@ -434,4 +534,6 @@ function atualizaListaAcesso(r){
   
   // `
 }
+
+//console.log()
 

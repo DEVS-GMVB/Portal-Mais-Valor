@@ -82,7 +82,8 @@
 
                         <div class="col-md-2 mb-3">
                             <label for="validationCustom01">Data Cadastro</label>
-                            <input type="text" class="form-control form-control-sm" id="dtCadastro-incluir" required>
+                            <input type="text" class="form-control form-control-sm" id="dtCadastro-incluir" 
+                            onkeyPress="DataHora(event, this)" required>
 
                         </div>
                         <div class="col-md-5 mb-3">
@@ -94,7 +95,7 @@
                             <label for="validationCustom01">Status</label>
                             <select class="form-control form-control-sm" id="status-incluir">
                                 <option> </option>
-                                <option value="SOLICITACAO DE APROVAÇÃO">SOLICITACAO DE APROVAÇÃO</option>
+                                <option value="SOLICITACAO DE APROVAÇÃO" disabled selected>SOLICITACAO DE APROVAÇÃO</option>
                                 <option value="PROPOSTA APROVADA">SOLICITAÇÃO APROVADA</option>
                             </select>
 

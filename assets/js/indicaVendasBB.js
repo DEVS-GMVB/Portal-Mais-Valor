@@ -540,7 +540,7 @@ incluirindicaVC.addEventListener("click", async () => {
             redirect: 'follow'
         };
 
-        fetch(`${URL}/indica/anexo?id_proposta=${id_przoposta}`, requestOptions)
+        fetch(`${URL}/indica/anexo?id_proposta=${id_proposta}`, requestOptions)
 
         return;
     }

@@ -29,6 +29,14 @@ function mTelefone(telefone) {
     return telefone
 }
 
+function mTelefoneResidencial(telefone) {
+    telefone = telefone.replace(/\D/g, "")
+    telefone = telefone.replace(/(\d{0})(\d)/, "$1($2")
+    telefone = telefone.replace(/(\d{2})(\d)/, "$1)$2")
+    telefone = telefone.replace(/(\d{4})(\d)/, "$1-$2")
+    return telefone
+}
+
 function mTelefoneCliente(telefone) {
     telefone = telefone.replace(/\D/g, "")
     telefone = telefone.replace(/(\d{4})(\d)/, "$1-$2")
@@ -209,6 +217,37 @@ function data(v) {
     return v;
 }
 
+function Hora(evento, objeto) {
+    var keypress = (window.event) ? event.keyCode : evento.which;
+    campo = eval(objeto);
+    if (campo.value == '00:00:00 00/00/0000') {
+        campo.value = ""
+    }
+
+    caracteres = '0123456789';
+    separacao1 = ':';
+    separacao2 = ' ';
+    separacao3 = '/';
+    conjunto1 = 2;
+    conjunto2 = 5;
+    conjunto3 = 10;
+    conjunto4 = 13;
+    conjunto5 = 16;
+    if ((caracteres.search(String.fromCharCode(keypress)) != -1) && campo.value.length < (19)) {
+        if (campo.value.length == conjunto1)
+            campo.value = campo.value + separacao1;
+        else if (campo.value.length == conjunto2)
+            campo.value = campo.value + separacao1;
+        else if (campo.value.length == conjunto3)
+            campo.value = campo.value + separacao2;
+        else if (campo.value.length == conjunto4)
+            campo.value = campo.value + separacao3;
+        else if (campo.value.length == conjunto5)
+            campo.value = campo.value + separacao3;
+    } else
+        event.returnValue = false;
+}
+
 function DataHora(evento, objeto) {
     var keypress = (window.event) ? event.keyCode : evento.which;
     campo = eval(objeto);
@@ -240,11 +279,40 @@ function DataHora(evento, objeto) {
         event.returnValue = false;
 }
 
-// function mHora(val) {
-//     val = val.split(":");
-//     return (parseInt(val[0]) > 19)? "HZ:M0" : "H0:M0"
+function Hora(evento, objeto) {
+    var keypress = (window.event) ? event.keyCode : evento.which;
+    campo = eval(objeto);
+    if (campo.value == '00:00:00 00/00/0000') {
+        campo.value = ""
+    }
 
-// }
+    caracteres = '0123456789';
+    separacao1 = ':';
+    separacao2 = ' ';
+    separacao3 = '/';
+    conjunto1 = 2;
+    conjunto2 = 5;
+    conjunto3 = 10;
+    conjunto4 = 13;
+    conjunto5 = 16;
+    if ((caracteres.search(String.fromCharCode(keypress)) != -1) && campo.value.length < (19)) {
+        if (campo.value.length == conjunto1)
+            campo.value = campo.value + separacao1;
+        else if (campo.value.length == conjunto2)
+            campo.value = campo.value + separacao1;
+        else if (campo.value.length == conjunto3)
+            campo.value = campo.value + separacao2;
+        else if (campo.value.length == conjunto4)
+            campo.value = campo.value + separacao3;
+        else if (campo.value.length == conjunto5)
+            campo.value = campo.value + separacao3;
+    } else
+        event.returnValue = false;
+}
+
+function mHora(val) {
+    return val.replace(/([01][0-9]|2[0-3]):([0-5][0-9])/, "$1.$2");
+}
 
 function mQtde(v) {
     v = /d{3}-\d{3}-\d{4}/
@@ -316,4 +384,23 @@ function mComissao(v) {
     var d = v.replace(/\D/g, "");
     d = d.replace(/(\d{2,3})(\d{2,3})$/, "$1.$2");
     return d;
+}
+
+function validacaoEmail(field) {
+    usuario = field.value.substring(0, field.value.indexOf("@"));
+    dominio = field.value.substring(field.value.indexOf("@") + 1, field.value.length);
+
+    if ((usuario.length >= 1) &&
+        (dominio.length >= 3) &&
+        (usuario.search("@") == -1) &&
+        (dominio.search("@") == -1) &&
+        (usuario.search(" ") == -1) &&
+        (dominio.search(" ") == -1) &&
+        (dominio.search(".") != -1) &&
+        (dominio.indexOf(".") >= 1) &&
+        (dominio.lastIndexOf(".") < dominio.length - 1)) {
+        alert("E-mail valido");
+    } else {
+        alert("E-mail invalido");
+    }
 }
