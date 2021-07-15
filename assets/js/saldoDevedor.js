@@ -341,6 +341,8 @@ function change() {
     $("#DtNascimento").attr('disabled', false)
 
     //Bloqueando os campos
+    document.getElementById('Parceiro').value = sessionStorage.getItem('nome', 'nome')
+    $('#Parceiro').attr('disabled', true)
     $("#SaldoDev").attr('disabled', true)
     $("#PrazoRestante").attr('disabled', true)
     $("#TaxaJuros").attr('disabled', true)
@@ -392,14 +394,14 @@ function updateTbody(l,date) {
     r[1].textContent = $("#DtCadastro").val()
     r[2].textContent = $("#Convenio").val()
     r[3].textContent = $("#matricula").val()
-    r[4].textContent = ""
+    r[4].textContent = $("#Status").val()
     r[5].textContent = $("#Parceiro").val()
     r[6].textContent = $("#Parcela").val()
-    r[7].textContent = ""
-    r[8].textContent = $("#DtNascimento").val()
-    r[9].textContent = ""
-    r[10].textContent = ""
+    r[7].textContent = '' //Renda
+    r[8].textContent = $('#DtNascimento').val() 
+    r[9].textContent = '' //Data atualização
+    r[10].textContent = '' //Log alteração
     r[11].textContent = $("#bancoOrigi").val()
     r[12].textContent =  $("#SaldoDev").val()
-    r[13].textContent = $("#PrazoRestante").val()    
+    r[13].textContent = $("#PrazoRestante").val()
 }

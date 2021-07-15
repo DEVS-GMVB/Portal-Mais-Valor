@@ -221,6 +221,9 @@ class ConsultaMargem {
         //Resets campos
         this.empty()
 
+        $('#parceiro-incluir').attr('disabled', true);
+        document.getElementById('parceiro-incluir').value = sessionStorage.getItem('nome', 'nome')
+
 
         document.getElementById("button").innerHTML = `
         <button type="button" class="btn btn-primary btn-icon-label" id="insert" onclick="insertDB()">
@@ -306,7 +309,7 @@ class ConsultaMargem {
         // const resultCpfs = this.searchCpfs(dataSession.supervisor, dataSession.gerente);
 
         const dataCadas = $('#data-incluir').val()
-        // const parceiro = $('#parceiro-incluir').val()
+         const parceiro = $('#parceiro-incluir').val()
         const cpf = $('#cpf-incluir').val()
         const matricula = $('#matricula-incluir').val()
         const convenio = $('#convenio-incluir').val()
@@ -319,7 +322,7 @@ class ConsultaMargem {
         const body = {
             id_parceiro: dataSession.id_acesso,
             data_cadastro: dataCadas,
-            parceiro: dataSession.nome,
+            parceiro: parceiro,
             cpf: cpf,
             matricula: matricula,
             convenio: convenio,

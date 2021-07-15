@@ -71,7 +71,7 @@
                             <div class="col-md-12 mb-3">
                                 <label for="validationCustom01">Nova Proposta</label>
                                 <input type="text" class="form-control form-control-sm" id="nova-proposta-modal-1"
-                                    required>
+                                    onKeyDown="fMasc( this, nContrtato );" required>
 
                             </div>
                             <div class="col-md-12 mb-3">
@@ -190,6 +190,9 @@
 
                         </div>
 
+                        <!-- Alert sucesso acesso -->
+                        <div class="alert alert-success sucesso" id="sucesso2" role="alert">
+                        </div>
 
                     </form>
 
@@ -241,8 +244,13 @@
                             <div class="col-md-6 mb-3">
                                 <label for="validationCustom01">Tipo</label>
                                 <select class="custom-select custom-select-sm" id="tipo-modal-3">
-                                    <option value="1"></option>
-                                    <option value="2"></option>
+                                    <option value="FUNCIONARIO">FUNCIONARIO</option>
+                                    <option value="GERENTE">GERENTE</option>
+                                    <option value="GENRENTE-MEI">GERENTE-MEI</option>
+                                    <option value="PROMOTOR">PROMOTOR</option>
+                                    <option value="PROMOTOR-MEI">PROMOTOR-MEI</option>
+                                    <option value="SUPERVISOR">SUPERVISOR</option>
+                                    <option value="SUPERVISOR-MEI">SUPERVISOR-MEI</option>
                                 </select>
 
                             </div>
@@ -262,14 +270,14 @@
 
                                 <div class="col-md-6 mb-2">
                                     <label for="exampleFormControlFile1"><b>Saldo 1:</b></label>
-                                    <input type="file" class="form-control-file" id="saldo1-modal-3">
+                                    <input type="file" class="form-control-file" id="saldo1-modal-3" name="saldo_port1">
 
                                 </div>
 
 
                                 <div class="col-md-6 mb-2">
                                     <label for="exampleFormControlFile1"><b>Saldo 2:</b></label>
-                                    <input type="file" class="form-control-file" id="saldo2-modal-3">
+                                    <input type="file" class="form-control-file" id="saldo2-modal-3" name="saldo_port2">
 
                                 </div>
 
@@ -290,6 +298,9 @@
 
                         </div>
 
+                        <!-- Alert sucesso acesso -->
+                        <div class="alert alert-success sucesso" id="sucesso3" role="alert">
+                        </div>
 
                     </form>
 
@@ -336,34 +347,38 @@
 
                         </div>
 
-                        <form class="needs-validation" novalidate id="form2-modal-4">
+                        <form class="needs-validation" novalidate id="form2-modal-4" id="form-modal4">
 
-                            <div class="form-row mt-4 mx-6">
+                            <div class="form-row mt-4 mx-6" id="arquivos-campos">
 
 
                                 <div class="col-md-6 mb-2">
                                     <label for="exampleFormControlFile1"><b>Pendência 1:</b></label>
-                                    <input type="file" class="form-control-file" id="pendencia1-modal-4">
+                                    <input type="file" class="form-control-file" name="arquivo_pendente1"
+                                        id="pendencia1-modal-4">
 
                                 </div>
 
 
                                 <div class="col-md-6 mb-2">
                                     <label for="exampleFormControlFile1"><b>Pendência 2:</b></label>
-                                    <input type="file" class="form-control-file" id="pendencia2-modal-4">
+                                    <input type="file" class="form-control-file" name="arquivo_pendente2"
+                                        id="pendencia2-modal-4">
 
                                 </div>
 
                                 <div class="col-md-6 mb-2">
                                     <label for="exampleFormControlFile1"><b>Pendência 3:</b></label>
-                                    <input type="file" class="form-control-file" id="pendencia3-modal-4">
+                                    <input type="file" class="form-control-file" name="arquivo_pendente1n"
+                                        id="pendencia3-modal-4">
 
                                 </div>
 
 
                                 <div class="col-md-6 mb-2">
                                     <label for="exampleFormControlFile1"><b>Pendência 4:</b></label>
-                                    <input type="file" class="form-control-file" id="pendencia4-modal-4">
+                                    <input type="file" class="form-control-file" name="arquivo_pendente2n"
+                                        id="pendencia4-modal-4">
 
                                 </div>
 
@@ -382,6 +397,10 @@
                                 <span class="btn-inner--text">Incluir / Salvar Alteração</span>
                             </button>
 
+                        </div>
+
+                        <!-- Alert sucesso acesso -->
+                        <div class="alert alert-success sucesso" id="sucesso4" role="alert">
                         </div>
 
 
@@ -439,51 +458,55 @@
 
                                 <div class="col-md-6 mb-2">
                                     <label for="exampleFormControlFile1"><b>Cadastro 1:</b></label>
-                                    <input type="file" class="form-control-file" id="cadastro1-modal-5">
+                                    <input type="file" class="form-control-file" id="cadastro1-modal-5" name="arq_cad1">
 
                                 </div>
 
 
                                 <div class="col-md-6 mb-2">
                                     <label for="exampleFormControlFile1"><b>Cadastro 2:</b></label>
-                                    <input type="file" class="form-control-file" id="cadastro2-modal-5">
+                                    <input type="file" class="form-control-file" id="cadastro2-modal-5" name="arq_cad2">
 
                                 </div>
 
                                 <div class="col-md-6 mb-2">
                                     <label for="exampleFormControlFile1"><b>Cadastro 3:</b></label>
-                                    <input type="file" class="form-control-file" id="cadastro3-modal-5">
+                                    <input type="file" class="form-control-file" id="cadastro3-modal-5" name="arq_cad3">
 
                                 </div>
 
 
                                 <div class="col-md-6 mb-2">
                                     <label for="exampleFormControlFile1"><b>Cadastro 4:</b></label>
-                                    <input type="file" class="form-control-file" id="cadastro4-modal-5">
+                                    <input type="file" class="form-control-file" id="cadastro4-modal-5" name="arq_cad4">
 
                                 </div>
 
                                 <div class="col-md-6 mb-2">
                                     <label for="exampleFormControlFile1"><b>Cadastro 5:</b></label>
-                                    <input type="file" class="form-control-file" id="cadastro5-modal-5">
+                                    <input type="file" class="form-control-file" id="cadastro5-modal-5"
+                                        name="arq_cad1n">
 
                                 </div>
 
                                 <div class="col-md-6 mb-2">
                                     <label for="exampleFormControlFile1"><b>Cadastro 6:</b></label>
-                                    <input type="file" class="form-control-file" id="cadastro6-modal-5">
+                                    <input type="file" class="form-control-file" id="cadastro6-modal-5"
+                                        name="arq_cad2n">
 
                                 </div>
 
                                 <div class="col-md-6 mb-0">
                                     <label for="exampleFormControlFile1"><b>Cadastro 7:</b></label>
-                                    <input type="file" class="form-control-file" id="cadastro7-modal-5">
+                                    <input type="file" class="form-control-file" id="cadastro7-modal-5"
+                                        name="arq_cad3n">
 
                                 </div>
 
                                 <div class="col-md-6 mb-0">
                                     <label for="exampleFormControlFile1"><b>Cadastro 8:</b></label>
-                                    <input type="file" class="form-control-file" id="cadastro8-modal-5">
+                                    <input type="file" class="form-control-file" id="cadastro8-modal-5"
+                                        name="arq_cad4n">
 
                                 </div>
                             </div>
@@ -501,6 +524,10 @@
                                 <span class="btn-inner--text">Incluir / Salvar Alteração</span>
                             </button>
 
+                        </div>
+
+                        <!-- Alert sucesso acesso -->
+                        <div class="alert alert-success sucesso" id="sucesso5" role="alert">
                         </div>
 
 
@@ -535,10 +562,7 @@
 
                             <div class="col-md-12 mb-3">
                                 <label for="validationCustom01">Convênio</label>
-                                <select class="custom-select" id="convenio-modal-6">
-                                    <option value="1"></option>
-                                    <option value="2"></option>
-                                    <option value="3"></option>
+                                <input type="text" class="custom-select" id="convenio-modal-6">
                                 </select>
 
                             </div>
@@ -547,8 +571,6 @@
                                 <label for="validationCustom01">Produto</label>
                                 <select class="custom-select" id="produto-modal-6">
                                     <option value="1"></option>
-                                    <option value="2"></option>
-                                    <option value="3"></option>
                                 </select>
 
                             </div>
@@ -568,6 +590,9 @@
 
                         </div>
 
+                        <!-- Alert sucesso acesso -->
+                        <div class="alert alert-success sucesso" id="sucesso6" role="alert">
+                        </div>
 
                     </form>
 
@@ -602,7 +627,8 @@
 
                             <div class="col-md-6 mb-3">
                                 <label for="validationCustom01">Novo Telefone</label>
-                                <input type="text" class="form-control form-control-sm" id="novo-telefone-modal-6">
+                                <input type="text" class="form-control form-control-sm" id="novo-telefone-modal-6"
+                                    onKeyDown="fMasc( this, mTelefone );">
 
                             </div>
 
@@ -615,22 +641,24 @@
                             <div class="col-md-12 mb-3">
                                 <label for="validationCustom01">Deseja Agendar Horário Para Confirmação?</label>
                                 <select class="custom-select custom-select-sm" id="deseja-confirmacao-modal-7">
-                                    <option value="1"></option>
-                                    <option value="2"></option>
+                                    <option value="">-</option>
+                                    <option value="SIM">SIM</option>
+                                    <option value="NÃO">NÃO</option>
                                 </select>
 
                             </div>
 
                             <div class="col-md-6 mb-0">
                                 <label for="validationCustom01">Melhor Data - Confirmação Cliente</label>
-                                <input type="text" class="form-control form-control-sm" id="data-confirmacao-modal-7">
+                                <input type="text" class="form-control form-control-sm" id="data-confirmacao-modal-7"
+                                onKeyDown="fMasc( this, data );" maxlength="10">
 
                             </div>
 
                             <div class="col-md-6 mb-0">
                                 <label for="validationCustom01">Melhor Horário - Confirmação Cliente</label>
                                 <input type="text" class="form-control form-control-sm"
-                                    id="horario-confirmacao-modal-7">
+                                maxlength="8" onKeyPress="Hora(event, this)" id="horario-confirmacao-modal-7">
 
                             </div>
 
@@ -649,6 +677,9 @@
 
                         </div>
 
+                        <!-- Alert sucesso acesso -->
+                        <div class="alert alert-success sucesso" id="sucesso7" role="alert">
+                        </div>
 
                     </form>
 
@@ -691,7 +722,6 @@
                                 <label for="validationCustom01">Banco Cliente</label>
                                 <select class="custom-select custom-select-sm" id="banco-cliente-modal-8">
                                     <option value="1"></option>
-                                    <option value="2"></option>
                                 </select>
 
                             </div>
@@ -807,7 +837,8 @@
 
                             <div class="col-md-4 mb-3">
                                 <label for="validationCustom01">Proposta</label>
-                                <input type="text" class="form-control form-control-sm" id="proposta-filtro">
+                                <input type="text" class="form-control form-control-sm" id="proposta-filtro"
+                                    onKeyDown="fMasc( this, nContrtato );">
 
                             </div>
 
@@ -816,13 +847,26 @@
                                     <label for="exampleFormControlSelect1">Status</label>
                                     <select class="form-control form-control-sm" id="status-filtro">
                                         <option> </option>
-                                        <option>TODOS</option>
-                                        <option>AGUARDANDO APROVAÇÃO DP</option>
-                                        <option>ATIVO</option>
-                                        <option>INATIVO</option>
-                                        <option>BLOQUEADO</option>
-
-
+                                        <option value="PENDENTE">PENDENTE</option>
+                                        <option value="ANEXAR EXTRATO DE CONSIGNACOES">ANEXAR EXTRATO DE CONSIGNACOES
+                                        </option>
+                                        <option value="MODALIDADE DIVERGENTE ENTRE CSG E CONTRATO">MODALIDADE DIVERGENTE
+                                            ENTRE CSG E CONTRATO</option>
+                                        <option value="CONVENIO DIVERGENTE DA CCB">CONVENIO DIVERGENTE DA CCB</option>
+                                        <option value="PENDENTE CSG">PENDENTE CSG</option>
+                                        <option value="INFORMAR TABELA DE SALDO - BRADESCO">INFORMAR TABELA DE SALDO -
+                                            BRADESCO</option>
+                                        <option value="SALDO COLETAR ASSINATURA">SALDO COLETAR ASSINATURA</option>
+                                        <option value="SALDO RECEBIDO - AGUARDANDO AUTORIZACAO">SALDO RECEBIDO -
+                                            AGUARDANDO AUTORIZACAO</option>
+                                        <option value="SALDO - PENDENTE NS">SALDO - PENDENTE NS</option>
+                                        <option value="SALDO - PENDENTE NS SMS">SALDO - PENDENTE NS SMS</option>
+                                        <option value="SEM CONTATO COM O CLIENTE - SALDO BRADESCO">SEM CONTATO COM O
+                                            CLIENTE - SALDO BRADESCO</option>
+                                        <option value="SALDO A MAIOR MOBILE COLETAR ASSINATURA">SALDO A MAIOR MOBILE
+                                            COLETAR ASSINATURA</option>
+                                        <option value="SEM CONTATO COM O CLIENTE - ANEXAR GRAVACAO">SEM CONTATO COM O
+                                            CLIENTE - ANEXAR GRAVACAO</option>
                                     </select>
                                 </div>
 
@@ -833,13 +877,13 @@
                                     <label for="exampleFormControlSelect1">Tipo</label>
                                     <select class="form-control form-control-sm" id="tipo-filtro">
                                         <option> </option>
-                                        <option>FUNCIONARIO</option>
-                                        <option>GERENTE</option>
-                                        <option>GERENTE-MEI</option>
-                                        <option>PROMOTOR</option>
-                                        <option>PROMOTOR-MEI</option>
-                                        <option>SUPERVISOR</option>
-                                        <option>SUPERVISOR-MEI</option>
+                                        <option value="FUNCIONARIO">FUNCIONARIO</option>
+                                        <option value="GERENTE">GERENTE</option>
+                                        <option value="GENRENTE-MEI">GERENTE-MEI</option>
+                                        <option value="PROMOTOR">PROMOTOR</option>
+                                        <option value="PROMOTOR-MEI">PROMOTOR-MEI</option>
+                                        <option value="SUPERVISOR">SUPERVISOR</option>
+                                        <option value="SUPERVISOR-MEI">SUPERVISOR-MEI</option>
 
 
                                     </select>
@@ -899,7 +943,8 @@
 
                             <div class="col-md-3 mb-3">
                                 <label for="validationCustom01">Nova Proposta</label>
-                                <input type="text" class="form-control form-control-sm" id="nova-proposta-filtro">
+                                <input type="text" class="form-control form-control-sm" id="nova-proposta-filtro"
+                                    onKeyDown="fMasc( this, nContrtato );">
 
                             </div>
 
@@ -929,13 +974,15 @@
 
                             <div class="col-md-4 mb-3">
                                 <label for="validationCustom01">Data Cadastro</label>
-                                <input type="text" class="form-control form-control-sm" id="data-cadastro-filtro" onKeyPress="DataHora(event, this)">
+                                <input type="text" class="form-control form-control-sm" id="data-cadastro-filtro"
+                                    onKeyPress="DataHora(event, this)">
 
                             </div>
 
                             <div class="col-md-4 mb-3">
                                 <label for="validationCustom01">Data Atualização</label>
-                                <input type="text" class="form-control form-control-sm" id="data-atualizacao-filtro" onKeyPress="DataHora(event, this)">
+                                <input type="text" class="form-control form-control-sm" id="data-atualizacao-filtro"
+                                    onKeyPress="DataHora(event, this)">
 
                             </div>
 
@@ -1128,8 +1175,8 @@
                                     <label for="exampleFormControlSelect1">Tipo Usuário Master</label>
                                     <select class="form-control form-control-sm" id="tp-usuario-master-filtro">
                                         <option> </option>
-                                        <option>PARCEIRO</option>
-                                        <option>PROMOTOR</option>
+                                        <option value="PARCEIRO">PARCEIRO</option>
+                                        <option value="PROMOTOR">PROMOTOR</option>
                                     </select>
                                 </div>
 
@@ -1138,7 +1185,8 @@
                             <div class="col-md-4 mb-3">
                                 <div class="form-group">
                                     <label for="exampleFormControlSelect1">Data de Corte</label>
-                                    <input type="text" class="form-control form-control-sm" id="data-corte-filtro" onKeyPress="DataHora(event, this)">
+                                    <input type="text" class="form-control form-control-sm" id="data-corte-filtro"
+                                        onKeyPress="DataHora(event, this)">
 
                                 </div>
 
@@ -1999,8 +2047,6 @@
                                                         style="text-align: center;">Gravação</th>
                                                     <th scope="col" class="sort" data-sort="telefoneconstanotfc"
                                                         style="text-align: center;">Telefone Consta no TFC</th>
-                                                    <th scope="col" class="sort" data-sort="anexos"
-                                                        style="text-align: center;">Anexos</th>
                                                     <th scope="col" class="sort" data-sort="visualizar"
                                                         style="text-align: center;">Visualizar/Alterar</th>
 
@@ -2008,7 +2054,7 @@
                                                 </tr>
                                             </thead>
 
-                                            <tbody class="list" id="list">
+                                            <tbody class="list" id="list" style="text-align: center;">
 
                                                 <tr>
 
@@ -2037,8 +2083,6 @@
                                                     <td style="text-align: center;"> NÃO</td>
                                                     <td style="text-align: center;"> SIM</td>
                                                     <td style="text-align: center;"> NÃO</td>
-                                                    <td style="text-align: center;"> - </td>
-                                                    <td style="text-align: center;"> - </td>
 
                                                 </tr>
 
@@ -2069,9 +2113,6 @@
                                                     <td style="text-align: center;"> SIM</td>
                                                     <td style="text-align: center;"> NÃO</td>
                                                     <td style="text-align: center;"> NÃO</td>
-                                                    <td style="text-align: center;"> - </td>
-                                                    <td style="text-align: center;"> - </td>
-
                                                 </tr>
 
                                             </tbody>

@@ -1,7 +1,7 @@
 import Portabilidade from './Portabilidade.js';
 import InssNovo from './InssNovo.js';
 import InssRefin from './InssRefin.js';
-import SiapeNovo from './SiapeNovo.js';
+import SiapeNovo from './SiapeNovo.js'; //Esse
 import SiapeRefin from './SiapeRefin.js';
 import GovernoSp  from './GovernoSp.js';
 import PoliciaMilitar from './PoliciaMilitar.js';

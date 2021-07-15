@@ -1,4 +1,4 @@
-const URL = `http://localhost:3000/user`;
+const URL = `http://localhost:3000/user`; 
 //Botão principal
 const pesquisar = document.getElementById("btn-pesquisar");
 //Obj
@@ -51,7 +51,7 @@ pesquisar.addEventListener('click', async () => {
 
         tbodyProducaoTotal.appendChild(trEl);
 
-    }
+}
 
 })
 
@@ -109,7 +109,23 @@ pesquisar.addEventListener('click', async () => {
 
         tbodyEvolucaoMensal.appendChild(trEl);
 
-    }
+    const raw = JSON.stringify({
+        ...objProp
+    })
+
+    const {
+        pesquisaMes : evolucaoMensal,
+    } = await fetch(`${URL}/producao/analista/mes`, {
+        method: "POST",
+        headers: myHeaders,
+        body: raw,
+        redirect: "follow"
+    })
+    .then(response => response.json().then(function (data) {
+        return data;
+    }))
+    .catch(error => console.error(error));
+}
 
 });
 
@@ -221,6 +237,6 @@ pesquisar.addEventListener('click', async () => {
 
         tbodyEvolucaoDiaria.appendChild(trEl);
 
-    }
+}
 
 });

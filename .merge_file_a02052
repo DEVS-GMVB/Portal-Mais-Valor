@@ -1,0 +1,2899 @@
+<!DOCTYPE html>
+<html lang="pt-5">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description"
+        content="Purpose Application UI is the following chapter we've finished in order to create a complete and robust solution next to the already known Purpose Website UI.">
+    <meta name="author" content="Webpixels">
+    <title>Propostas Imobiliário - Portal Mais Valor</title>
+    <!-- Favicon -->
+    <link rel="icon" href="../assets/img/brand/favicon.png" type="image/png">
+    <!-- Font Awesome 5 -->
+    <link rel="stylesheet" href="../assets/libs/@fortawesome/fontawesome-free/css/all.min.css">
+    <!-- Page CSS -->
+    <link rel="stylesheet" href="../assets/libs/fullcalendar/dist/fullcalendar.min.css">
+    <!-- Purpose CSS -->
+    <link rel="stylesheet" href="../assets/css/purpose.css" id="stylesheet">
+    <!-- CSS Personalizado -->
+    <link rel="stylesheet" href="../assets/css/personalizado.css" id="stylesheet">
+</head>
+
+
+<style>
+    .bg-titulo {
+
+        background-color: #93d482;
+        text-align: center;
+        font-family: -apple-system;
+        border-radius: 10px;
+    }
+
+    .bg-subtitulo {
+
+        background-color: #c0dfb8;
+        text-align: center;
+        font-family: -apple-system;
+        border-radius: 10px;
+
+    }
+
+    .anexocampo1 {
+        text-align: align-self auto;
+        ;
+    }
+</style>
+
+<!--MODAL FILTROS DE PESQUISA-->
+
+
+<div class="modal fade modal-filtroproposta" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Filtros de Pesquisa</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form class="needs-validation" novalidate>
+
+
+
+                    <div class="form-row mt-0">
+
+
+                        <div class="col-md-6 mb-0">
+                            <label for="validationCustom01">Parceiro</label>
+                            <input type="text" class="form-control form-control-sm" id="parceiro-pesquisa">
+
+
+                        </div>
+
+                        <div class="col-md-6 mb-0">
+                            <div class="form-group">
+                                <label for="exampleFormControlSelect1">Nome Operador</label>
+                                <input class="form-control form-control-sm" id="nome-operador-pesquisa">
+                                </input>
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-6 mb-0">
+                            <div class="form-group">
+                                <label for="exampleFormControlSelect1">Gerente</label>
+                                <select class="form-control form-control-sm" id="gerente-pesquisa">
+                                    <option> </option>
+
+
+                                </select>
+                            </div>
+
+                        </div>
+
+
+                        <div class="col-md-6 mb-0">
+                            <div class="form-group">
+                                <label for="exampleFormControlSelect1">Supervisor</label>
+                                <select class="form-control form-control-sm" id="supervisor-pesquisa">
+                                    <option> </option>
+
+
+                                </select>
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-4 mb-0">
+                            <div class="form-group">
+                                <label for="exampleFormControlSelect1">Status</label>
+                                <select class="form-control form-control-sm" id="status-pesquisa">
+                                    <option> </option>
+
+
+                                </select>
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-4 mb-0">
+                            <label for="validationCustom01">Imóvel</label>
+                            <select class="form-control form-control-sm" id="imovel-pesquisa">
+                                <option> </option>
+
+
+                            </select>
+                        </div>
+
+                        <div class="col-md-4 mb-0">
+                            <div class="form-group">
+                                <label for="exampleFormControlSelect1">Tipo Imóvel</label>
+                                <select class="form-control form-control-sm" id="tipo-imovel-pesquisa">
+                                    <option> </option>
+
+
+                                </select>
+                            </div>
+
+                        </div>
+
+
+
+                        <div class="col-md-4 mb-0">
+                            <label for="validationCustom01">CPF Cliente</label>
+                            <input type="text" class="form-control form-control-sm" id="cpf-pesquisa">
+
+                        </div>
+
+                        <div class="col-md-4 mb-0">
+                            <label for="validationCustom01">Proposta</label>
+                            <input type="text" class="form-control form-control-sm" id="proposta-pesquisa">
+
+                        </div>
+
+                        <div class="col-md-4 mb-0">
+                            <div class="form-group">
+                                <label for="exampleFormControlSelect1">Data Agendamento</label>
+                                <input type="text" class="form-control form-control-sm" id="data-agendamento-pesquisa">
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-6 mb-0">
+                            <label for="validationCustom01">Nome Cliente</label>
+                            <input type="text" class="form-control form-control-sm" id="nome-cliente-pesquisa">
+
+                        </div>
+
+                        <div class="col-md-6 mb-0">
+                            <div class="form-group">
+                                <label for="exampleFormControlSelect1">Modalidade</label>
+                                <input type="text" class="form-control form-control-sm" id="modalidade-pesquisa">
+                            </div>
+
+                        </div>
+
+
+                        <div class="col-md-4 mb-0">
+                            <div class="form-group">
+                                <label for="exampleFormControlSelect1">UF</label>
+                                <select class="form-control form-control-sm" id="uf-pesquisa">
+                                    <option> </option>
+
+
+                                </select>
+                            </div>
+
+                        </div>
+
+
+                        <div class="col-md-4 mb-0">
+                            <div class="form-group">
+                                <label for="exampleFormControlSelect1">Identificação Imóvel</label>
+                                <select class="form-control form-control-sm" id="identificacao-imovel-pesquisa">
+                                    <option> </option>
+
+
+                                </select>
+                            </div>
+
+                        </div>
+
+
+                        <div class="col-md-4 mb-0">
+                            <div class="form-group">
+                                <label for="exampleFormControlSelect1">Banco</label>
+                                <select class="form-control form-control-sm" id="banco-pesquisa">
+                                    <option> </option>
+
+
+                                </select>
+                            </div>
+
+                        </div>
+
+
+
+                    </div>
+
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                <button type="button" id="filtrar" class="btn btn-primary">Filtrar Busca</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!--FIM DO MODAL FILTROS DE PESQUISA-->
+
+<!--MODAL NOVA PROPOSTA-->
+
+
+<div class="modal fade modalincluirpropostas" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <img src="logocolorido.png" style="height: 70px; right: 70px;">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+
+                <nav>
+                    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+
+                        <a class="nav-item nav-link active" id="nav-proposta-tab" data-toggle="tab" href="#nav-proposta"
+                            role="tab" aria-controls="nav-proposta" aria-selected="true">Proposta</a>
+
+                        <a class="nav-item nav-link" id="nav-anexo-tab" data-toggle="tab" href="#nav-anexo" role="tab"
+                            aria-controls="nav-anexo" aria-selected="false">Anexo</a>
+
+                        <a class="nav-item nav-link" id="nav-observacao-tab" data-toggle="tab" href="#nav-observacao"
+                            role="tab" aria-controls="nav-observacao" aria-selected="false">Observação</a>
+
+                        <!-- <a class="nav-item nav-link" id="nav-logs-tab" data-toggle="tab" href="#nav-logs" role="tab"
+                            aria-controls="nav-logs" aria-selected="false">LOGS</a>
+
+                        <a class="nav-item nav-link" id="nav-dadosusuarios-tab" data-toggle="tab"
+                            href="#nav-dadosusuarios" role="tab" aria-controls="nav-dadosusuarios"
+                            aria-selected="false">Dados Usuários</a> -->
+
+                    </div>
+                </nav>
+
+                <div class="tab-content" id="nav-tabContent">
+
+                    <div class="tab-pane fade show active" id="nav-proposta" role="tabpanel"
+                        aria-labelledby="nav-proposta-tab">
+
+                        <div class="bg-titulo mt-4">
+
+                            <h3>Dados da Proposta</h3>
+
+                        </div>
+
+
+                        <form class="needs-validation" novalidate>
+
+
+
+                            <div class="form-row mt-4">
+
+
+                                <div class="col-md-4 mb-3">
+                                    <label for="validationCustom01">Número da Proposta</label>
+                                    <input type="text" class="form-control form-control-sm" id="numero-proposta-incluir"
+                                        required>
+
+                                </div>
+                                <div class="col-md-2 mb-3">
+                                    <label for="validationCustom01">Data Cadastro</label>
+                                    <input type="text" class="form-control form-control-sm" id="data-cadastro-incluir"
+                                        required>
+
+                                </div>
+                                <div class="col-md-3 mb-3">
+                                    <label for="validationCustom01">Valor Financiado</label>
+                                    <input type="text" class="form-control form-control-sm"
+                                        id="valor-financiado-incluir" required>
+
+                                </div>
+                                <div class="col-md-3 mb-3">
+                                    <label for="validationCustom01">Modalidade</label>
+                                    <select class="form-control form-control-sm" id="modalidade-incluir">
+                                        <option> </option>
+                                        <option>AQUISIÇÃO </option>
+                                        <option>PORTABILIDADE </option>
+
+                                    </select>
+                                </div>
+
+                                <div class="col-md-5 mb-3">
+                                    <div class="form-group">
+                                        <label for="exampleFormControlSelect1">Status</label>
+                                        <select class="form-control form-control-sm" id="status-incluir">
+                                            <option> </option>
+
+                                        </select>
+                                    </div>
+
+                                </div>
+
+                                <div class="col-md-2 mb-3">
+                                    <label for="validationCustom01">Tipo Imóvel</label>
+                                    <select class="form-control form-control-sm" id="tipo-imovel-incluir">
+                                        <option> </option>
+                                        <option>RESIDENCIAL </option>
+                                        <option>COMERCIAL </option>
+
+                                    </select>
+
+                                </div>
+                                <div class="col-md-2 mb-3">
+                                    <label for="validationCustom01">Banco</label>
+                                    <select class="form-control form-control-sm" id="banco-incluir">
+                                        <option> </option>
+
+                                    </select>
+                                </div>
+                                <div class="col-md-3 mb-3">
+                                    <label for="validationCustom01">Telefone Promotor Responsável</label>
+                                    <input type="text" class="form-control form-control-sm"
+                                        id="telefone-promotor-incluir" required>
+
+                                </div>
+
+                                <div class="col-md-6 mb-3">
+                                    <label for="validationCustom01">Autoriza Cliente a Outros Bancos?</label>
+                                    <select class="form-control form-control-sm" id="autoriza-cliente-incluir">
+                                        <option> </option>
+                                        <option>SIM </option>
+                                        <option>NÃO </option>
+
+                                    </select>
+
+                                </div>
+
+                                <div class="col-md-6 mb-3">
+                                    <label for="validationCustom01">Data Retorno</label>
+                                    <input type="text" class="form-control form-control-sm" id="data-retorno-incluir"
+                                        required>
+
+                                </div>
+
+                            </div>
+
+                        </form>
+
+                        <div class="bg-titulo mt-4">
+
+                            <h3>Dados do Cliente</h3>
+
+                        </div>
+
+                        <form class="needs-validation" novalidate>
+
+
+
+                            <div class="form-row mt-4">
+
+
+                                <div class="col-md-6 mb-3">
+                                    <label for="validationCustom01">Nome Cliente</label>
+                                    <input type="text" class="form-control form-control-sm" id="nome-cliente-incluir"
+                                        required>
+
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="validationCustom01">CPF Cliente</label>
+                                    <input type="text" class="form-control form-control-sm" id="cpf-cliente-incluir"
+                                        required>
+
+                                </div>
+
+                                <div class="col-md-2 mb-3">
+                                    <label for="validationCustom01">Data Nascimento</label>
+                                    <input type="text" class="form-control form-control-sm" id="data-nascimento-incluir"
+                                        required>
+
+                                </div>
+
+                                <div class="col-md-2 mb-3">
+                                    <label for="validationCustom01">UF Cliente</label>
+                                    <select class="form-control form-control-sm" id="uf-cliente-incluir">
+                                        <option value=""></option>
+                                        <option value="RO">RO</option>
+                                        <option value="AC">AC</option>
+                                        <option value="AM">AM</option>
+                                        <option value="RR">RR</option>
+                                        <option value="PA">PA</option>
+                                        <option value="AP">AP</option>
+                                        <option value="TO">TO</option>
+                                        <option value="MA">MA</option>
+                                        <option value="PI">PI</option>
+                                        <option value="CE">CE</option>
+                                        <option value="RN">RN</option>
+                                        <option value="PB">PB</option>
+                                        <option value="PE">PE</option>
+                                        <option value="AL">AL</option>
+                                        <option value="SE">SE</option>
+                                        <option value="BA">BA</option>
+                                        <option value="MG">MG</option>
+                                        <option value="ES">ES</option>
+                                        <option value="RJ">RJ</option>
+                                        <option value="SP">SP</option>
+                                        <option value="PR">PR</option>
+                                        <option value="SC">SC</option>
+                                        <option value="RS">RS</option>
+                                        <option value="MS">MS</option>
+                                        <option value="MT">MT</option>
+                                        <option value="GO">GO</option>
+                                        <option value="DF">DF</option>
+
+                                    </select>
+
+                                </div>
+
+
+
+
+
+                                <div class="col-md-1 mb-3">
+                                    <label for="validationCustom01">DDD</label>
+                                    <input type="text" class="form-control form-control-sm" id="ddd-tel-incluir"
+                                        required>
+
+                                </div>
+                                <div class="col-md-3 mb-3">
+                                    <label for="validationCustom01">Telefone Cliente</label>
+                                    <input type="text" class="form-control form-control-sm"
+                                        id="telefone-cliente-incluir" required>
+
+                                </div>
+
+                                <div class="col-md-1 mb-3">
+                                    <label for="validationCustom01">DDD</label>
+                                    <input type="text" class="form-control form-control-sm" id="ddd-cel-incluir"
+                                        required>
+
+                                </div>
+                                <div class="col-md-3 mb-3">
+                                    <label for="validationCustom01">Celular Cliente</label>
+                                    <input type="text" class="form-control form-control-sm" id="celular-cliente-incluir"
+                                        required>
+
+                                </div>
+
+                            </div>
+
+                        </form>
+
+
+                        <div class="bg-titulo mt-4">
+
+                            <h3>Dados do Parceiro</h3>
+
+                        </div>
+
+
+                        <form class="needs-validation" novalidate>
+
+
+
+                            <div class="form-row mt-4">
+
+
+                                <div class="col-md-3 mb-3">
+                                    <label for="validationCustom01">Parceiro</label>
+                                    <input type="text" class="form-control form-control-sm" id="parceiro-incluir"
+                                        required>
+
+                                </div>
+                                <div class="col-md-3 mb-3">
+                                    <label for="validationCustom01">Supervisor</label>
+                                    <input type="text" class="form-control form-control-sm" id="supervisor-incluir"
+                                        required>
+
+                                </div>
+                                <div class="col-md-3 mb-3">
+                                    <label for="validationCustom01">Gerente</label>
+                                    <input type="text" class="form-control form-control-sm" id="gerente-incluir"
+                                        required>
+
+                                </div>
+
+                                <div class="col-md-3 mb-3">
+                                    <label for="validationCustom01">Nome Especialista</label>
+                                    <input type="text" class="form-control form-control-sm"
+                                        id="nome-especialista-incluir" required>
+
+                                </div>
+
+                            </div>
+
+
+
+
+                        </form>
+
+
+
+                        <div class="opcoes-cadastro mt-3" style="text-align: center; margin-inline: block;">
+                            <a class="nav-item nav-link" id="nav-anexo-tab" data-toggle="tab" href="#nav-anexo"
+                                role="tab" aria-controls="nav-anexo" aria-selected="false">
+                                <button type="button" class="btn btn-primary btn-icon-label">
+                                    <span class="btn-inner--icon">
+                                        <i class="fas fa-plus"></i>
+                                    </span>
+
+                                    <span class="btn-inner--text">Prosseguir</span>
+                                </button>
+                            </a>
+
+                        </div>
+
+
+
+                    </div>
+
+
+
+
+
+
+                    <div class="tab-pane fade" id="nav-anexo" role="tabpanel" aria-labelledby="nav-anexo-tab">
+
+                        <div class="bg-titulo mt-4">
+
+                            <h3>Anexo</h3>
+
+                        </div>
+
+                        <div class="anexocampo1">
+
+                            <form class="needs-validation" novalidate id="files">
+
+                                <div class="form-row mt-4 mx-6">
+
+
+                                    <div class="col-md-6 mb-3">
+                                        <label for="exampleFormControlFile1"><b>Outros 5:</b></label>
+                                        <input type="file" name="outros5" class="form-control-file" id="exampleFormControlFile1">
+
+                                    </div>
+
+
+                                    <div class="col-md-6 mb-3">
+                                        <label for="exampleFormControlFile1"><b>Outros 6:</b></label>
+                                        <input type="file" name="outros6" class="form-control-file" id="exampleFormControlFile1">
+
+                                    </div>
+
+                                    <div class="col-md-6 mb-3 mt-2">
+                                        <label for="exampleFormControlFile1"><b>Outros 7:</b></label>
+                                        <input type="file" name="outros7" class="form-control-file" id="exampleFormControlFile1">
+
+                                    </div>
+
+                                    <div class="col-md-6 mb-3 mt-2">
+                                        <label for="exampleFormControlFile1"><b>Minuta:</b></label>
+                                        <input type="file" name="minuta" class="form-control-file" id="exampleFormControlFile1">
+
+                                    </div>
+
+                                    <div class="col-md-6 mb-0">
+                                        <label for="exampleFormControlFile1"><b>Comprovante Estado Civil:</b></label>
+                                        <input type="file" name="comprovanteEstadoCivil" class="form-control-file" id="exampleFormControlFile1">
+
+                                    </div>
+
+                                    <div class="col-md-6 mb-0">
+                                        <label for="exampleFormControlFile1"><b>Comprovante Residência:</b></label>
+                                        <input type="file" name="comprovanteResidencia" class="form-control-file" id="exampleFormControlFile1">
+
+                                    </div>
+
+                                </div>
+
+                                <hr>
+
+                                <div class="form-row mt-0 mx-6">
+
+
+
+                                    <div class="col-md-6 mb-3">
+                                        <label for="exampleFormControlFile1"><b>Extrato Bancário 1:</b></label>
+                                        <input type="file" name="extratobancario1" class="form-control-file" id="exampleFormControlFile1">
+
+                                    </div>
+
+                                    <div class="col-md-6 mb-3">
+                                        <label for="exampleFormControlFile1"><b>Extrato Bancário 2:</b></label>
+                                        <input type="file" name="extatobancario2" class="form-control-file" id="exampleFormControlFile1">
+
+                                    </div>
+
+                                    <div class="col-md-6 mb-3">
+                                        <label for="exampleFormControlFile1"><b>Extrato Bancário 3:</b></label>
+                                        <input type="file" name="extratobancario3" class="form-control-file" id="exampleFormControlFile1">
+
+                                    </div>
+                                   
+
+
+
+                                </div>
+                                
+
+                            </form>
+                            <div class="opcoes-cadastro mt-3" style="text-align: center; margin-inline: block;">
+                                <a class="nav-item nav-link" id="nav-anexo-tab" data-toggle="tab" href="#nav-observacao"
+                                    role="tab" aria-controls="nav-anexo" aria-selected="false">
+                                    <button type="button" class="btn btn-primary btn-icon-label">
+                                        <span class="btn-inner--icon">
+                                            <i class="fas fa-plus"></i>
+                                        </span>
+    
+                                        <span class="btn-inner--text">Prosseguir</span>
+                                    </button>
+                                </a>
+    
+                            </div>
+
+
+                            <!-- <div class="bg-titulo mt-3">
+
+                                <h3>Anexos da Proposta</h3>
+
+                            </div>
+
+                            <div class="accordion" id="accordionExample">
+                                <div class="card">
+                                    <div class="card-header" id="headingOne">
+                                        <h5 class="mb-0">
+                                            <button class="btn btn-link" type="button" style="text-align: center;"
+                                                data-toggle="collapse" data-target="#collapseOne" aria-expanded="true"
+                                                aria-controls="collapseOne">
+                                                Anexos
+                                            </button>
+                                        </h5>
+                                    </div>
+
+                                    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
+                                        data-parent="#accordionExample">
+                                        <div class="card-body">
+
+                                            <div class="table-responsive">
+                                                <table class="table align-items-center">
+                                                    <thead>
+                                                        <tr>
+                                                            <th scope="col" class="sort" data-sort="newspace"
+                                                            style="text-align: center;"></th>
+                                                            <th scope="col" class="sort" data-sort="arquivos"
+                                                                style="text-align: center;">Arquivos</th>
+                                                            <th scope="col" class="sort" data-sort="download"
+                                                                style="text-align: center;">Download</th>
+                                                           
+
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody class="list">
+
+                                                        <tr>
+
+                                                            <td>
+                                                                <b>RG/CNH:</b>
+                                                            </td>
+                                                            <td>
+
+                                                            </td>
+                                                            <td style="text-align: center;">
+                                                                <button type="button"
+                                                                    class="btn btn-sm btn-secondary btn-icon rounded-pill">
+                                                                    <span class="btn-inner--icon"><i
+                                                                            class="fas fa-download"></i></span>
+                                                                    <span class="btn-inner--text">Download</span>
+                                                                </button>
+                                                            </td>
+
+                                                        </tr>
+
+                                                        <tr>
+
+                                                            <td>
+                                                                <b>Comprovante Rendimento:</b>
+                                                            </td>
+                                                            <td>
+                                                                
+                                                            </td>
+                                                            <td style="text-align: center;">
+                                                                <button type="button"
+                                                                    class="btn btn-sm btn-secondary btn-icon rounded-pill">
+                                                                    <span class="btn-inner--icon"><i
+                                                                            class="fas fa-download"></i></span>
+                                                                    <span class="btn-inner--text">Download</span>
+                                                                </button>
+                                                            </td>
+
+                                                        </tr>
+
+                                                        <tr>
+
+                                                            <td>
+                                                                <b>Comprovante de Estado Civil:</b>
+                                                            </td>
+                                                            <td>
+                                                                
+                                                            </td>
+                                                            <td style="text-align: center;">
+                                                                <button type="button"
+                                                                    class="btn btn-sm btn-secondary btn-icon rounded-pill">
+                                                                    <span class="btn-inner--icon"><i
+                                                                            class="fas fa-download"></i></span>
+                                                                    <span class="btn-inner--text">Download</span>
+                                                                </button>
+                                                            </td>
+
+                                                        </tr>
+
+                                                        <tr>
+
+                                                            <td>
+                                                                <b>Comprovante Residência:</b>
+                                                            </td>
+                                                            <td>
+                                                                
+                                                            </td>
+                                                            <td style="text-align: center;">
+                                                                <button type="button"
+                                                                    class="btn btn-sm btn-secondary btn-icon rounded-pill">
+                                                                    <span class="btn-inner--icon"><i
+                                                                            class="fas fa-download"></i></span>
+                                                                    <span class="btn-inner--text">Download</span>
+                                                                </button>
+                                                            </td>
+
+                                                        </tr>
+
+                                                        <tr>
+
+                                                            <td>
+                                                                <b>Extrato Bancário 1:</b>
+                                                            </td>
+                                                            <td>
+                                                                
+                                                            </td>
+                                                            <td style="text-align: center;">
+                                                                <button type="button"
+                                                                    class="btn btn-sm btn-secondary btn-icon rounded-pill">
+                                                                    <span class="btn-inner--icon"><i
+                                                                            class="fas fa-download"></i></span>
+                                                                    <span class="btn-inner--text">Download</span>
+                                                                </button>
+                                                            </td>
+
+                                                        </tr>
+
+                                                        <tr>
+
+                                                            <td>
+                                                                <b>Extrato Bancário 2:</b>
+                                                            </td>
+                                                            <td>
+                                                                
+                                                            </td>
+                                                            <td style="text-align: center;">
+                                                                <button type="button"
+                                                                    class="btn btn-sm btn-secondary btn-icon rounded-pill">
+                                                                    <span class="btn-inner--icon"><i
+                                                                            class="fas fa-download"></i></span>
+                                                                    <span class="btn-inner--text">Download</span>
+                                                                </button>
+                                                            </td>
+
+                                                        </tr>
+
+                                                        <tr>
+
+                                                            <td>
+                                                                <b>Extrato Bancário 3:</b>
+                                                            </td>
+                                                            <td>
+                                                                
+                                                            </td>
+                                                            <td style="text-align: center;">
+                                                                <button type="button"
+                                                                    class="btn btn-sm btn-secondary btn-icon rounded-pill">
+                                                                    <span class="btn-inner--icon"><i
+                                                                            class="fas fa-download"></i></span>
+                                                                    <span class="btn-inner--text">Download</span>
+                                                                </button>
+                                                            </td>
+
+                                                        </tr>
+
+                                                        <tr>
+
+                                                            <td>
+                                                                <b>Outros 5:</b>
+                                                            </td>
+                                                            <td>
+                                                                
+                                                            </td>
+                                                            <td style="text-align: center;">
+                                                                <button type="button"
+                                                                    class="btn btn-sm btn-secondary btn-icon rounded-pill">
+                                                                    <span class="btn-inner--icon"><i
+                                                                            class="fas fa-download"></i></span>
+                                                                    <span class="btn-inner--text">Download</span>
+                                                                </button>
+                                                            </td>
+
+                                                        </tr>
+
+
+                                                        <tr>
+
+                                                            <td>
+                                                                <b>Outros 6:</b>
+                                                            </td>
+                                                            <td>
+                                                                
+                                                            </td>
+                                                            <td style="text-align: center;">
+                                                                <button type="button"
+                                                                    class="btn btn-sm btn-secondary btn-icon rounded-pill">
+                                                                    <span class="btn-inner--icon"><i
+                                                                            class="fas fa-download"></i></span>
+                                                                    <span class="btn-inner--text">Download</span>
+                                                                </button>
+                                                            </td>
+
+                                                        </tr>
+
+
+                                                        <tr>
+
+                                                            <td>
+                                                                <b>Outros 7:</b>
+                                                            </td>
+                                                            <td>
+                                                                
+                                                            </td>
+                                                            <td style="text-align: center;">
+                                                                <button type="button"
+                                                                    class="btn btn-sm btn-secondary btn-icon rounded-pill">
+                                                                    <span class="btn-inner--icon"><i
+                                                                            class="fas fa-download"></i></span>
+                                                                    <span class="btn-inner--text">Download</span>
+                                                                </button>
+                                                            </td>
+
+                                                        </tr>
+
+
+                                                        <tr>
+
+                                                            <td>
+                                                                <b>Outros 8:</b>
+                                                            </td>
+                                                            <td>
+                                                                
+                                                            </td>
+                                                            <td style="text-align: center;">
+                                                                <button type="button"
+                                                                    class="btn btn-sm btn-secondary btn-icon rounded-pill">
+                                                                    <span class="btn-inner--icon"><i
+                                                                            class="fas fa-download"></i></span>
+                                                                    <span class="btn-inner--text">Download</span>
+                                                                </button>
+                                                            </td>
+
+                                                        </tr>
+
+                               
+
+                                                    </tbody>
+                                                </table>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div> -->
+
+
+
+
+
+
+
+
+
+                            <!-- </div> -->
+
+
+
+
+
+
+
+
+
+                        </div>
+
+                    </div>
+
+                    <div class="tab-pane fade" id="nav-observacao" role="tabpanel" aria-labelledby="nav-observacao-tab">
+
+
+                        <div class="bg-titulo mt-3">
+
+                            <h3>Observação</h3>
+
+                        </div>
+
+                        <div class="observacao mt-3" style="text-align: center;">
+                            <label for="exampleFormControlSelect1">Observação</label>
+                            <textarea class="form-control" placeholder="" rows="3" id="observacao-incluir"></textarea>
+                        </div>
+
+
+
+                        <div class="bg-titulo mt-3">
+
+                            <h3>Observações Antigas </h3>
+
+                        </div>
+
+                        <div class="card-header" id="heading10">
+                            <h5 class="mb-0">
+                                <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                                    data-target="#collapse10" aria-expanded="false" aria-controls="collapse10">
+                                    Observação
+                                </button>
+                            </h5>
+                        </div>
+                        <div id="collapse10" class="collapse" aria-labelledby="heading10"
+                            data-parent="#accordionExample">
+                            <div class="card-body">
+
+                                <div class="table-responsive">
+                                    <table class="table align-items-center">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col" class="sort" data-sort="arquivos"
+                                                    style="text-align: center;">Observação</th>
+                                                <th scope="col" class="sort" data-sort="download"
+                                                    style="text-align: center;">Responsável</th>
+                                                <th scope="col" class="sort" data-sort="newspace"
+                                                    style="text-align: center;">Data Inclusão</th>
+
+                                            </tr>
+                                        </thead>
+                                        <tbody class="list">
+
+                                            <tr>
+
+                                                <td>
+
+                                                </td>
+
+                                                <td style="text-align: center;">
+
+                                                </td>
+                                                <td style="text-align: center;">
+
+                                                </td>
+
+
+                                            </tr>
+
+
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                            </div>
+                        </div>
+
+
+
+
+                        <div class="opcoes-cadastro mt-1" style="text-align: center; margin-inline: block;">
+                            <button type="button" class="btn btn-primary btn-icon-label" id="incluir-nova-proposta">
+                                <span class="btn-inner--icon">
+                                    <i class="fas fa-plus"></i>
+                                </span>
+                                <span class="btn-inner--text">Incluir Proposta</span>
+                            </button>
+
+                        </div>
+
+
+
+                    </div>
+
+
+                    <div class="tab-pane fade" id="nav-logs" role="tabpanel" aria-labelledby="nav-logs-tab">
+
+                        <div class="bg-titulo mt-3">
+
+                            <h3>LOGS</h3>
+
+                        </div>
+
+
+                        <div class="table-responsive">
+                            <table class="table align-items-center">
+                                <thead>
+                                    <tr>
+                                        <th scope="col" class="sort" data-sort="arquivos" style="text-align: center;">
+                                            Data LOG</th>
+                                        <th scope="col" class="sort" data-sort="download" style="text-align: center;">
+                                            Campo</th>
+                                        <th scope="col" class="sort" data-sort="newspace" style="text-align: center;">
+                                            Valor Antigo</th>
+                                        <th scope="col" class="sort" data-sort="newspace" style="text-align: center;">
+                                            Valor Novo</th>
+                                        <th scope="col" class="sort" data-sort="newspace" style="text-align: center;">
+                                            Responsável</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody class="list">
+
+                                    <tr>
+
+                                        <td>
+
+                                        </td>
+
+                                        <td style="text-align: center;">
+
+                                        </td>
+                                        <td style="text-align: center;">
+
+                                        </td>
+
+                                        <td>
+
+                                        </td>
+                                        <td>
+
+                                        </td>
+
+
+                                    </tr>
+
+
+                                </tbody>
+                            </table>
+                        </div>
+
+
+
+                    </div>
+
+
+                    <div class="tab-pane fade" id="nav-outraspropostas" role="tabpanel"
+                        aria-labelledby="nav-outraspropostas-tab">
+
+
+                        <div class="bg-titulo mt-3">
+
+                            <h3>Outras Propostas</h3>
+
+                        </div>
+
+                        <div class="table-responsive">
+                            <table class="table align-items-center">
+                                <thead>
+                                    <tr>
+                                        <th scope="col" class="sort" data-sort="arquivos" style="text-align: center;">
+                                            Proposta</th>
+                                        <th scope="col" class="sort" data-sort="download" style="text-align: center;">
+                                            Parceiro</th>
+                                        <th scope="col" class="sort" data-sort="newspace" style="text-align: center;">
+                                            Data Cadastro</th>
+                                        <th scope="col" class="sort" data-sort="newspace" style="text-align: center;">
+                                            Status</th>
+
+
+                                    </tr>
+                                </thead>
+                                <tbody class="list">
+
+                                    <tr>
+
+                                        <td>
+
+                                        </td>
+
+                                        <td style="text-align: center;">
+
+                                        </td>
+                                        <td style="text-align: center;">
+
+                                        </td>
+
+                                        <td>
+
+                                        </td>
+                                        <td>
+
+                                        </td>
+
+
+                                    </tr>
+
+
+                                </tbody>
+                            </table>
+                        </div>
+
+
+
+
+                    </div>
+
+                    <div class="tab-pane fade" id="nav-dadosusuarios" role="tabpanel"
+                        aria-labelledby="nav-dadosusuarios-tab">
+
+                        <div class="bg-titulo mt-3">
+
+                            <h3>Dados Usuários</h3>
+
+                        </div>
+
+                        <div class="table-responsive">
+                            <table class="table align-items-center">
+                                <thead>
+                                    <tr>
+                                        <th scope="col" class="sort" data-sort="arquivos" style="text-align: center;">
+                                            Usuário</th>
+                                        <th scope="col" class="sort" data-sort="download" style="text-align: center;">
+                                            Supervisor</th>
+                                        <th scope="col" class="sort" data-sort="newspace" style="text-align: center;">
+                                            Gerente</th>
+                                        <th scope="col" class="sort" data-sort="newspace" style="text-align: center;">
+                                            Empresa</th>
+                                        <th scope="col" class="sort" data-sort="newspace" style="text-align: center;">
+                                            Tipo Usuário</th>
+                                        <th scope="col" class="sort" data-sort="newspace" style="text-align: center;">
+                                            Classificação</th>
+
+
+                                    </tr>
+                                </thead>
+                                <tbody class="list" id="lista">
+
+                                    <tr>
+
+                                        <td style="text-align: center;">
+                                            XXXXXX </td>
+
+                                        <td style="text-align: center;">
+
+                                            XXXXXXXXXX
+
+                                        </td>
+
+                                        <td style="text-align: center;">
+
+                                            XXXXXXXXXX
+                                        </td>
+                                        <td style="text-align: center;">
+                                            XXXXXXXXXX
+                                        </td>
+
+                                        <td style="text-align: center;">
+                                            XXXXXXXX
+                                        </td>
+                                        <td style="text-align: center;">
+                                            XXXXXX
+                                        </td>
+
+
+                                    </tr>
+
+
+                                </tbody>
+                            </table>
+                        </div>
+
+
+
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--MODAL ALTERAR PROPOSTA -->
+<div class="modal fade modalalterarpropostas" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <img src="logocolorido.png" style="height: 70px; right: 70px;">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+
+                <nav>
+                    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+
+                        <a class="nav-item nav-link active" id="nav-proposta-tab" data-toggle="tab" href="#nav-proposta-alt"
+                            role="tab" aria-controls="nav-proposta" aria-selected="true">Proposta</a>
+
+                        <a class="nav-item nav-link" id="nav-anexo-tab" data-toggle="tab" href="#nav-anexo-alt" role="tab"
+                            aria-controls="nav-anexo" aria-selected="false">Anexo</a>
+
+                        <a class="nav-item nav-link" id="nav-observacao-tab" data-toggle="tab" href="#nav-observacao-alt"
+                            role="tab" aria-controls="nav-observacao" aria-selected="false">Observação</a>
+
+                        <a class="nav-item nav-link" id="nav-logs-tab" data-toggle="tab" href="#nav-logs-alt" role="tab"
+                            aria-controls="nav-logs" aria-selected="false">LOGS</a>
+
+                        <a class="nav-item nav-link" id="nav-dadosusuarios-tab" data-toggle="tab"
+                            href="#nav-dadosusuarios-alt" role="tab" aria-controls="nav-dadosusuarios"
+                            aria-selected="false">Dados Usuários</a>
+
+                    </div>
+                </nav>
+
+                <div class="tab-content" id="nav-tabContent">
+
+                    <div class="tab-pane fade show active" id="nav-proposta-alt" role="tabpanel"
+                        aria-labelledby="nav-proposta-tab">
+
+                        <div class="bg-titulo mt-4">
+
+                            <h3>Dados da Proposta</h3>
+
+                        </div>
+
+
+                        <form class="needs-validation" novalidate>
+
+
+
+                            <div class="form-row mt-4">
+
+
+                                <div class="col-md-4 mb-3">
+                                    <label for="validationCustom01">Número da Proposta</label>
+                                    <input type="text" class="form-control form-control-sm" id="numero-proposta-alterar "
+                                        required>
+
+                                </div>
+                                <div class="col-md-2 mb-3">
+                                    <label for="validationCustom01">Data Cadastro</label>
+                                    <input type="text" class="form-control form-control-sm" id="data-cadastro-alterar"
+                                        required>
+
+                                </div>
+                                <div class="col-md-3 mb-3">
+                                    <label for="validationCustom01">Valor Financiado</label>
+                                    <input type="text" class="form-control form-control-sm" id="valor-financiado-alterar"
+                                        required>
+
+                                </div>
+                                <div class="col-md-3 mb-3">
+                                    <label for="validationCustom01">Modalidade</label>
+                                    <input class="form-control form-control-sm" id="modalidade-alterar">
+                                        
+
+                                    </input>
+                                </div>
+
+                                <div class="col-md-5 mb-3">
+                                    <div class="form-group">
+                                        <label for="exampleFormControlSelect1">Status</label>
+                                        <input class="form-control form-control-sm" id="status-alterar">
+                                            
+
+                                        </input>
+                                    </div>
+
+                                </div>
+
+                                <div class="col-md-2 mb-3">
+                                    <label for="validationCustom01">Tipo Imóvel</label>
+                                    <input class="form-control form-control-sm" id="tipo-imovel-alterar">
+                                        
+
+                                    </input>
+
+                                </div>
+                                <div class="col-md-2 mb-3">
+                                    <label for="validationCustom01">Banco</label>
+                                    <input class="form-control form-control-sm" id="banco-alterar">
+                                        
+
+                                    </input>
+                                </div>
+                                <div class="col-md-3 mb-3">
+                                    <label for="validationCustom01">Telefone Promotor Responsável</label>
+                                    <input type="text" class="form-control form-control-sm" id="telefone-promotor-alterar"
+                                        required>
+
+                                </div>
+
+                                <div class="col-md-6 mb-3">
+                                    <label for="validationCustom01">Autoriza Cliente a Outros Bancos?</label>
+                                    <input class="form-control form-control-sm" id="autoriza-alterar">
+                                        
+
+                                    </input>
+
+                                </div>
+
+                                <div class="col-md-6 mb-3">
+                                    <label for="validationCustom01">Data Retorno</label>
+                                    <input type="text" class="form-control form-control-sm" id="data-retorno-alterar"
+                                        required>
+
+                                </div>
+
+                            </div>
+
+                        </form>
+
+                        <div class="bg-titulo mt-4">
+
+                            <h3>Dados do Cliente</h3>
+
+                        </div>
+
+                        <form class="needs-validation" novalidate>
+
+
+
+                            <div class="form-row mt-4">
+
+
+                                <div class="col-md-6 mb-3">
+                                    <label for="validationCustom01">Nome Cliente</label>
+                                    <input type="text" class="form-control form-control-sm" id="nome-cliente-alterar"
+                                        required>
+
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="validationCustom01">CPF Cliente</label>
+                                    <input type="text" class="form-control form-control-sm" id="cpf-cliente-alterar"
+                                        required>
+
+                                </div>
+
+                                <div class="col-md-2 mb-3">
+                                    <label for="validationCustom01">Data Nascimento</label>
+                                    <input type="text" class="form-control form-control-sm" id="data-nascimento-alterar"
+                                        required>
+
+                                </div>
+
+                                <div class="col-md-2 mb-3">
+                                    <label for="validationCustom01">UF Cliente</label>
+                                    <input class="form-control form-control-sm" id="uf-cliente-alterar">
+                                        
+
+                                    </input>
+
+                                </div>
+
+
+
+
+
+                                <div class="col-md-1 mb-3">
+                                    <label for="validationCustom01">DDD</label>
+                                    <input type="text" class="form-control form-control-sm" id="ddd-tel-alterar"
+                                        required>
+
+                                </div>
+                                <div class="col-md-3 mb-3">
+                                    <label for="validationCustom01">Telefone Cliente</label>
+                                    <input type="text" class="form-control form-control-sm" id="telefone-cliente-alterar"
+                                        required>
+
+                                </div>
+
+                                <div class="col-md-1 mb-3">
+                                    <label for="validationCustom01">DDD</label>
+                                    <input type="text" class="form-control form-control-sm" id="ddd-cel-alterar"
+                                        required>
+
+                                </div>
+                                <div class="col-md-3 mb-3">
+                                    <label for="validationCustom01">Celular Cliente</label>
+                                    <input type="text" class="form-control form-control-sm" id="celular-cliente-alterar"
+                                        required>
+
+                                </div>
+
+                            </div>
+
+                        </form>
+
+
+                        <div class="bg-titulo mt-4">
+
+                            <h3>Dados do Parceiro</h3>
+
+                        </div>
+
+
+                        <form class="needs-validation" novalidate>
+
+
+
+                            <div class="form-row mt-4">
+
+
+                                <div class="col-md-3 mb-3">
+                                    <label for="validationCustom01">Parceiro</label>
+                                    <input type="text" class="form-control form-control-sm" id="parceiro-alterar"
+                                        required>
+
+                                </div>
+                                <div class="col-md-3 mb-3">
+                                    <label for="validationCustom01">Supervisor</label>
+                                    <input type="text" class="form-control form-control-sm" id="supervisor-alterar"
+                                        required>
+
+                                </div>
+                                <div class="col-md-3 mb-3">
+                                    <label for="validationCustom01">Gerente</label>
+                                    <input type="text" class="form-control form-control-sm" id="gerente-alterar"
+                                        required>
+
+                                </div>
+
+                                <div class="col-md-3 mb-3">
+                                    <label for="validationCustom01">Nome Especialista</label>
+                                    <input type="text" class="form-control form-control-sm" id="nome-especialista-alterar"
+                                        required>
+
+                                </div>
+
+                            </div>
+
+
+
+
+                        </form>
+
+
+
+                        <div class="opcoes-cadastro mt-3" style="text-align: center; margin-inline: block;">
+                            <a class="nav-item nav-link" id="nav-anexo-tab" data-toggle="tab" href="#nav-anexo-alt" role="tab"
+                            aria-controls="nav-anexo" aria-selected="false">
+                            <button type="button" class="btn btn-primary btn-icon-label">
+                                <span class="btn-inner--icon">
+                                    <i class="fas fa-plus"></i>
+                                </span>
+                                <span class="btn-inner--text">Prosseguir</span>
+                            </button>
+                            </a>
+
+                        </div>
+
+
+
+                    </div>
+
+
+
+
+
+
+                    <div class="tab-pane fade" id="nav-anexo-alt" role="tabpanel" aria-labelledby="nav-anexo-tab">
+
+                        <div class="bg-titulo mt-4">
+
+                            <h3>Anexo</h3>
+
+                        </div>
+
+                        <div class="anexocampo1">
+
+                            <form class="needs-validation" novalidate>
+
+                                <div class="form-row mt-4 mx-6">
+
+
+                                    <div class="col-md-6 mb-3">
+                                        <label for="exampleFormControlFile1"><b>Outros 5:</b></label>
+                                        <input type="file" class="form-control-file" id="outros5-alterar">
+
+                                    </div>
+
+
+                                    <div class="col-md-6 mb-3">
+                                        <label for="exampleFormControlFile1"><b>Outros 6:</b></label>
+                                        <input type="file" class="form-control-file" id="outros6-alterar">
+
+                                    </div>
+
+                                    <div class="col-md-6 mb-3 mt-2">
+                                        <label for="exampleFormControlFile1"><b>Outros 7:</b></label>
+                                        <input type="file" class="form-control-file" id="outros7-alterar">
+
+                                    </div>
+
+                                    <div class="col-md-6 mb-3 mt-2">
+                                        <label for="exampleFormControlFile1"><b>Minuta:</b></label>
+                                        <input type="file" class="form-control-file" id="minuta-alterar">
+
+                                    </div>
+
+                                    <div class="col-md-6 mb-0">
+                                        <label for="exampleFormControlFile1"><b>Comprovante Estado Civil:</b></label>
+                                        <input type="file" class="form-control-file" id="comprovanteEstadoCivil-alterar">
+
+                                    </div>
+
+                                    <div class="col-md-6 mb-0">
+                                        <label for="exampleFormControlFile1"><b>Comprovante Residência:</b></label>
+                                        <input type="file" class="form-control-file" id="comprovanteResidencia-alterar">
+
+                                    </div>
+
+                                </div>
+
+                                <hr>
+
+                                <div class="form-row mt-0 mx-6">
+
+
+
+                                    <div class="col-md-6 mb-3">
+                                        <label for="exampleFormControlFile1"><b>Extrato Bancário 1:</b></label>
+                                        <input type="file" class="form-control-file" id="extratobancario1-alterar">
+
+                                    </div>
+
+                                    <div class="col-md-6 mb-3">
+                                        <label for="exampleFormControlFile1"><b>Extrato Bancário 2:</b></label>
+                                        <input type="file" class="form-control-file" id="extratobancario2-alterar">
+
+                                    </div>
+
+                                    <div class="col-md-6 mb-3">
+                                        <label for="exampleFormControlFile1"><b>Extrato Bancário 3:</b></label>
+                                        <input type="file" class="form-control-file" id="extratobancario3-alterar">
+
+                                    </div>
+
+
+
+                                </div>
+
+                            </form>
+
+
+                            <div class="bg-titulo mt-3">
+
+                                <h3>Anexos da Proposta</h3>
+
+                            </div>
+
+                            <div class="accordion" id="accordionExample">
+                                <div class="card">
+                                    <div class="card-header" id="headingOne">
+                                        <h5 class="mb-0">
+                                            <button class="btn btn-link" type="button" style="text-align: center;"
+                                                data-toggle="collapse" data-target="#collapseOne" aria-expanded="true"
+                                                aria-controls="collapseOne">
+                                                Anexos
+                                            </button>
+                                        </h5>
+                                    </div>
+
+                                    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
+                                        data-parent="#accordionExample">
+                                        <div class="card-body">
+
+                                            <div class="table-responsive">
+                                                <table class="table align-items-center">
+                                                    <thead>
+                                                        <tr>
+                                                            <th scope="col" class="sort" data-sort="newspace"
+                                                                style="text-align: center;"></th>
+                                                            <th scope="col" class="sort" data-sort="arquivos"
+                                                                style="text-align: center;">Arquivos</th>
+                                                            <th scope="col" class="sort" data-sort="download"
+                                                                style="text-align: center;">Download</th>
+
+
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody class="list">
+
+                                                        <tr>
+
+                                                            <td>
+                                                                <b>RG/CNH:</b>
+                                                            </td>
+                                                            <td>
+
+                                                            </td>
+                                                            <td style="text-align: center;">
+                                                                <button type="button"
+                                                                    class="btn btn-sm btn-secondary btn-icon rounded-pill">
+                                                                    <span class="btn-inner--icon"><i
+                                                                            class="fas fa-download"></i></span>
+                                                                    <span class="btn-inner--text">Download</span>
+                                                                </button>
+                                                            </td>
+
+                                                        </tr>
+
+                                                        <tr>
+
+                                                            <td>
+                                                                <b>Comprovante Rendimento:</b>
+                                                            </td>
+                                                            <td>
+
+                                                            </td>
+                                                            <td style="text-align: center;">
+                                                                <button type="button"
+                                                                    class="btn btn-sm btn-secondary btn-icon rounded-pill">
+                                                                    <span class="btn-inner--icon"><i
+                                                                            class="fas fa-download"></i></span>
+                                                                    <span class="btn-inner--text">Download</span>
+                                                                </button>
+                                                            </td>
+
+                                                        </tr>
+
+                                                        <tr>
+
+                                                            <td>
+                                                                <b>Comprovante de Estado Civil:</b>
+                                                            </td>
+                                                            <td>
+
+                                                            </td>
+                                                            <td style="text-align: center;">
+                                                                <button type="button"
+                                                                    class="btn btn-sm btn-secondary btn-icon rounded-pill">
+                                                                    <span class="btn-inner--icon"><i
+                                                                            class="fas fa-download"></i></span>
+                                                                    <span class="btn-inner--text">Download</span>
+                                                                </button>
+                                                            </td>
+
+                                                        </tr>
+
+                                                        <tr>
+
+                                                            <td>
+                                                                <b>Comprovante Residência:</b>
+                                                            </td>
+                                                            <td>
+
+                                                            </td>
+                                                            <td style="text-align: center;">
+                                                                <button type="button"
+                                                                    class="btn btn-sm btn-secondary btn-icon rounded-pill">
+                                                                    <span class="btn-inner--icon"><i
+                                                                            class="fas fa-download"></i></span>
+                                                                    <span class="btn-inner--text">Download</span>
+                                                                </button>
+                                                            </td>
+
+                                                        </tr>
+
+                                                        <tr>
+
+                                                            <td>
+                                                                <b>Extrato Bancário 1:</b>
+                                                            </td>
+                                                            <td>
+
+                                                            </td>
+                                                            <td style="text-align: center;">
+                                                                <button type="button"
+                                                                    class="btn btn-sm btn-secondary btn-icon rounded-pill">
+                                                                    <span class="btn-inner--icon"><i
+                                                                            class="fas fa-download"></i></span>
+                                                                    <span class="btn-inner--text">Download</span>
+                                                                </button>
+                                                            </td>
+
+                                                        </tr>
+
+                                                        <tr>
+
+                                                            <td>
+                                                                <b>Extrato Bancário 2:</b>
+                                                            </td>
+                                                            <td>
+
+                                                            </td>
+                                                            <td style="text-align: center;">
+                                                                <button type="button"
+                                                                    class="btn btn-sm btn-secondary btn-icon rounded-pill">
+                                                                    <span class="btn-inner--icon"><i
+                                                                            class="fas fa-download"></i></span>
+                                                                    <span class="btn-inner--text">Download</span>
+                                                                </button>
+                                                            </td>
+
+                                                        </tr>
+
+                                                        <tr>
+
+                                                            <td>
+                                                                <b>Extrato Bancário 3:</b>
+                                                            </td>
+                                                            <td>
+
+                                                            </td>
+                                                            <td style="text-align: center;">
+                                                                <button type="button"
+                                                                    class="btn btn-sm btn-secondary btn-icon rounded-pill">
+                                                                    <span class="btn-inner--icon"><i
+                                                                            class="fas fa-download"></i></span>
+                                                                    <span class="btn-inner--text">Download</span>
+                                                                </button>
+                                                            </td>
+
+                                                        </tr>
+
+                                                        <tr>
+
+                                                            <td>
+                                                                <b>Outros 5:</b>
+                                                            </td>
+                                                            <td>
+
+                                                            </td>
+                                                            <td style="text-align: center;">
+                                                                <button type="button"
+                                                                    class="btn btn-sm btn-secondary btn-icon rounded-pill">
+                                                                    <span class="btn-inner--icon"><i
+                                                                            class="fas fa-download"></i></span>
+                                                                    <span class="btn-inner--text">Download</span>
+                                                                </button>
+                                                            </td>
+
+                                                        </tr>
+
+
+                                                        <tr>
+
+                                                            <td>
+                                                                <b>Outros 6:</b>
+                                                            </td>
+                                                            <td>
+
+                                                            </td>
+                                                            <td style="text-align: center;">
+                                                                <button type="button"
+                                                                    class="btn btn-sm btn-secondary btn-icon rounded-pill">
+                                                                    <span class="btn-inner--icon"><i
+                                                                            class="fas fa-download"></i></span>
+                                                                    <span class="btn-inner--text">Download</span>
+                                                                </button>
+                                                            </td>
+
+                                                        </tr>
+
+
+                                                        <tr>
+
+                                                            <td>
+                                                                <b>Outros 7:</b>
+                                                            </td>
+                                                            <td>
+
+                                                            </td>
+                                                            <td style="text-align: center;">
+                                                                <button type="button"
+                                                                    class="btn btn-sm btn-secondary btn-icon rounded-pill">
+                                                                    <span class="btn-inner--icon"><i
+                                                                            class="fas fa-download"></i></span>
+                                                                    <span class="btn-inner--text">Download</span>
+                                                                </button>
+                                                            </td>
+
+                                                        </tr>
+
+
+                                                        <tr>
+
+                                                            <td>
+                                                                <b>Outros 8:</b>
+                                                            </td>
+                                                            <td>
+
+                                                            </td>
+                                                            <td style="text-align: center;">
+                                                                <button type="button"
+                                                                    class="btn btn-sm btn-secondary btn-icon rounded-pill">
+                                                                    <span class="btn-inner--icon"><i
+                                                                            class="fas fa-download"></i></span>
+                                                                    <span class="btn-inner--text">Download</span>
+                                                                </button>
+                                                            </td>
+
+                                                        </tr>
+
+
+
+                                                    </tbody>
+                                                </table>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+
+
+
+
+
+
+                            </div>
+
+
+
+
+
+
+
+
+
+                        </div>
+
+                    </div>
+
+                    <div class="tab-pane fade" id="nav-observacao-alt" role="tabpanel" aria-labelledby="nav-observacao-tab">
+
+
+                        <div class="bg-titulo mt-3">
+
+                            <h3>Observação</h3>
+
+                        </div>
+
+                        <div class="observacao mt-3" style="text-align: center;">
+                            <label for="exampleFormControlSelect1">Observação</label>
+                            <textarea class="form-control" placeholder="" rows="3" id="observacao-alterar"></textarea>
+                        </div>
+
+
+
+                        <div class="bg-titulo mt-3">
+
+                            <h3>Observações Antigas </h3>
+
+                        </div>
+
+                        <div class="card-header" id="heading10">
+                            <h5 class="mb-0">
+                                <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                                    data-target="#collapse10" aria-expanded="false" aria-controls="collapse10">
+                                    Observação
+                                </button>
+                            </h5>
+                        </div>
+                        <div id="collapse10" class="collapse" aria-labelledby="heading10"
+                            data-parent="#accordionExample">
+                            <div class="card-body">
+
+                                <div class="table-responsive">
+                                    <table class="table align-items-center">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col" class="sort" data-sort="arquivos"
+                                                    style="text-align: center;">Observação</th>
+                                                <th scope="col" class="sort" data-sort="download"
+                                                    style="text-align: center;">Responsável</th>
+                                                <th scope="col" class="sort" data-sort="newspace"
+                                                    style="text-align: center;">Data Inclusão</th>
+
+                                            </tr>
+                                        </thead>
+                                        <tbody class="list">
+
+                                            <tr>
+
+                                                <td>
+
+                                                </td>
+
+                                                <td style="text-align: center;">
+
+                                                </td>
+                                                <td style="text-align: center;">
+
+                                                </td>
+
+
+                                            </tr>
+
+
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                            </div>
+                        </div>
+
+
+
+
+                        <div class="opcoes-cadastro mt-1" style="text-align: center; margin-inline: block;">
+                            <button type="button" class="btn btn-primary btn-icon-label">
+                                <span class="btn-inner--icon">
+                                    <i class="fas fa-plus"></i>
+                                </span>
+                                <span class="btn-inner--text">Prosseguir</span>
+                            </button>
+
+                        </div>
+
+
+
+                    </div>
+
+
+                    <div class="tab-pane fade" id="nav-logs-alt" role="tabpanel" aria-labelledby="nav-logs-tab">
+
+                        <div class="bg-titulo mt-3">
+
+                            <h3>LOGS</h3>
+
+                        </div>
+
+
+                        <div class="table-responsive">
+                            <table class="table align-items-center">
+                                <thead>
+                                    <tr>
+                                        <th scope="col" class="sort" data-sort="arquivos" style="text-align: center;">
+                                            Data LOG</th>
+                                        <th scope="col" class="sort" data-sort="download" style="text-align: center;">
+                                            Campo</th>
+                                        <th scope="col" class="sort" data-sort="newspace" style="text-align: center;">
+                                            Valor Antigo</th>
+                                        <th scope="col" class="sort" data-sort="newspace" style="text-align: center;">
+                                            Valor Novo</th>
+                                        <th scope="col" class="sort" data-sort="newspace" style="text-align: center;">
+                                            Responsável</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody class="list">
+
+                                    <tr>
+
+                                        <td>
+
+                                        </td>
+
+                                        <td style="text-align: center;">
+
+                                        </td>
+                                        <td style="text-align: center;">
+
+                                        </td>
+
+                                        <td>
+
+                                        </td>
+                                        <td>
+
+                                        </td>
+
+
+                                    </tr>
+
+
+                                </tbody>
+                            </table>
+                        </div>
+
+
+
+                    </div>
+
+
+                    <div class="tab-pane fade" id="nav-outraspropostas" role="tabpanel"
+                        aria-labelledby="nav-outraspropostas-tab">
+
+
+                        <div class="bg-titulo mt-3">
+
+                            <h3>Outras Propostas</h3>
+
+                        </div>
+
+                        <div class="table-responsive">
+                            <table class="table align-items-center">
+                                <thead>
+                                    <tr>
+                                        <th scope="col" class="sort" data-sort="arquivos" style="text-align: center;">
+                                            Proposta</th>
+                                        <th scope="col" class="sort" data-sort="download" style="text-align: center;">
+                                            Parceiro</th>
+                                        <th scope="col" class="sort" data-sort="newspace" style="text-align: center;">
+                                            Data Cadastro</th>
+                                        <th scope="col" class="sort" data-sort="newspace" style="text-align: center;">
+                                            Status</th>
+
+
+                                    </tr>
+                                </thead>
+                                <tbody class="list">
+
+                                    <tr>
+
+                                        <td>
+
+                                        </td>
+
+                                        <td style="text-align: center;">
+
+                                        </td>
+                                        <td style="text-align: center;">
+
+                                        </td>
+
+                                        <td>
+
+                                        </td>
+                                        <td>
+
+                                        </td>
+
+
+                                    </tr>
+
+
+                                </tbody>
+                            </table>
+                        </div>
+
+
+
+
+                    </div>
+
+                    <div class="tab-pane fade" id="nav-dadosusuarios-alt" role="tabpanel"
+                        aria-labelledby="nav-dadosusuarios-tab">
+
+                        <div class="bg-titulo mt-3">
+
+                            <h3>Dados Usuários</h3>
+
+                        </div>
+
+                        <div class="table-responsive">
+                            <table class="table align-items-center">
+                                <thead>
+                                    <tr>
+                                        <th scope="col" class="sort" data-sort="arquivos" style="text-align: center;">
+                                            Usuário</th>
+                                        <th scope="col" class="sort" data-sort="download" style="text-align: center;">
+                                            Supervisor</th>
+                                        <th scope="col" class="sort" data-sort="newspace" style="text-align: center;">
+                                            Gerente</th>
+                                        <th scope="col" class="sort" data-sort="newspace" style="text-align: center;">
+                                            Empresa</th>
+                                        <th scope="col" class="sort" data-sort="newspace" style="text-align: center;">
+                                            Tipo Usuário</th>
+                                        <th scope="col" class="sort" data-sort="newspace" style="text-align: center;">
+                                            Classificação</th>
+
+
+                                    </tr>
+                                </thead>
+                                <tbody class="list" id="lista">
+
+                                    <tr>
+
+                                        <td style="text-align: center;">
+                                            XXXXXX </td>
+
+                                        <td style="text-align: center;">
+
+                                            XXXXXXXXXX
+
+                                        </td>
+
+                                        <td style="text-align: center;">
+
+                                            XXXXXXXXXX
+                                        </td>
+                                        <td style="text-align: center;">
+                                            XXXXXXXXXX
+                                        </td>
+
+                                        <td style="text-align: center;">
+                                            XXXXXXXX
+                                        </td>
+                                        <td style="text-align: center;">
+                                            XXXXXX
+                                        </td>
+
+
+                                    </tr>
+
+
+                                </tbody>
+                            </table>
+                        </div>
+
+
+
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!--FINAL MODAL NOVA PROPOSTA-->
+
+
+<body class="application application-offset">
+
+    <!-- Application container -->
+    <div class="container-fluid container-application">
+        <!-- Sidenav -->
+        <div class="sidenav" id="sidenav-main">
+            <!-- Sidenav header -->
+            <div class="sidenav-header d-flex align-items-center">
+                <a class="navbar-brand" href="../index.html">
+                    <img src="../assets/img/brand/white1 copy.png" class="navbar-brand-img" alt="..."
+                        style="height: 55px; right: 70px;">
+                </a>
+                <div class="ml-auto">
+                    <!-- Sidenav toggler -->
+                    <div class="sidenav-toggler sidenav-toggler-dark d-md-none" data-action="sidenav-unpin"
+                        data-target="#sidenav-main">
+                        <div class="sidenav-toggler-inner">
+                            <i class="sidenav-toggler-line bg-white"></i>
+                            <i class="sidenav-toggler-line bg-white"></i>
+                            <i class="sidenav-toggler-line bg-white"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- User mini profile -->
+            <div class="sidenav-user d-flex flex-column align-items-center justify-content-between text-center">
+                <!-- Avatar -->
+                <div>
+                    <a href="#" class="avatar rounded-circle avatar-xl">
+                        <img alt="Image placeholder" src="../assets/img/theme/light/team-1-800x800.jpg" class="">
+                    </a>
+                    <div class="mt-4">
+                        <h5 class="mb-0 text-white">Jucleia Silva</h5>
+                        <span class="d-block text-sm text-white opacity-8 mb-3">Promotor</span>
+                        <a href="#" class="btn btn-sm btn-white btn-icon rounded-pill shadow hover-translate-y-n3">
+                            <span class="btn-inner--icon"><i class="fas fa-coins"></i></span>
+                            <span class="btn-inner--text">R$ 30.300,78</span>
+                        </a>
+                    </div>
+                </div>
+                <!-- User info -->
+                <!-- Actions -->
+                <div class="w-100 mt-4 actions d-flex justify-content-between">
+                    <a href="../application/user/profile.html" class="action-item action-item-lg text-white pl-0">
+                        <i class="fas fa-user"></i>
+                    </a>
+                    <a href="#modal-chat" class="action-item action-item-lg text-white" data-toggle="modal">
+                        <i class="fas fa-comment-alt"></i>
+                    </a>
+                    <a href="../application/shop/invoices.html" class="action-item action-item-lg text-white pr-0">
+                        <i class="fas fa-receipt"></i>
+                    </a>
+                </div>
+            </div>
+            <!-- Application nav -->
+            <div class="nav-application clearfix">
+                <a href="../paginas/home.html" class="btn btn-square text-sm active">
+                    <span class="btn-inner--icon d-block"><i class="fas fa-home fa-2x"></i></span>
+                    <span class="btn-inner--icon d-block pt-2">Home</span>
+                </a>
+                <a href="../paginas/propostas.html" class="btn btn-square text-sm">
+                    <span class="btn-inner--icon d-block"> <i class="fas fa-file-invoice-dollar fa-2x"></i></span>
+                    <span class="btn-inner--icon d-block pt-2">Propostas</span>
+                </a>
+                <a href="../paginas/comissao.html" class="btn btn-square text-sm">
+                    <span class="btn-inner--icon d-block"><i class="fas fa-money-bill-wave fa-2x"></i></span>
+                    <span class="btn-inner--icon d-block pt-2">Comissão</span>
+                </a>
+                <a href="../application/task/kanban-board.html" class="btn btn-square text-sm">
+                    <span class="btn-inner--icon d-block"><i class="fas fa-columns fa-2x"></i></span>
+                    <span class="btn-inner--icon d-block pt-2">Simulação</span>
+                </a>
+                <a href="../application/user/card-listing.html" class="btn btn-square text-sm">
+                    <span class="btn-inner--icon d-block"><i class="fas fa-exclamation-triangle fa-2x"></i></span>
+                    <span class="btn-inner--icon d-block pt-2">Pendências</span>
+                </a>
+                <a href="../application/user/profile.html" class="btn btn-square text-sm">
+                    <span class="btn-inner--icon d-block"><i class="fas fa-user-ninja fa-2x"></i></span>
+                    <span class="btn-inner--icon d-block pt-2">Integrações</span>
+                </a>
+                <a href="../application/shop/invoices.html" class="btn btn-square text-sm">
+                    <span class="btn-inner--icon d-block"><i class="fas fa-user-graduate fa-2x"></i></span>
+                    <span class="btn-inner--icon d-block pt-2">Treinamento</span>
+                </a>
+                <a href="../application/widgets.html" class="btn btn-square text-sm">
+                    <span class="btn-inner--icon d-block"><i class="fas fa-flag fa-2x"></i></span>
+                    <span class="btn-inner--icon d-block pt-2">Relatórios</span>
+                </a>
+
+                <a href="../application/widgets.html" class="btn btn-square text-sm">
+                    <span class="btn-inner--icon d-block"><i class="fas fa-bookmark fa-2x"></i></span>
+                    <span class="btn-inner--icon d-block pt-2">Comunicados</span>
+                </a>
+                <a href="../paginas/cadastro.html" class="btn btn-square text-sm">
+                    <span class="btn-inner--icon d-block"><i class="fas fa-user-plus fa-2x"></i></span>
+                    <span class="btn-inner--icon d-block pt-2">Cadastro</span>
+                </a>
+            </div>
+        </div>
+        <!-- Content -->
+        <div class="main-content position-relative">
+            <!-- Main nav -->
+            <nav class="navbar navbar-main navbar-expand-lg navbar-dark bg-primary navbar-border" id="navbar-main">
+                <div class="container-fluid">
+                    <!-- Brand + Toggler (for mobile devices) -->
+                    <button class="navbar-toggler" type="button" data-toggle="collapse"
+                        data-target="#navbar-main-collapse" aria-controls="navbar-main-collapse" aria-expanded="false"
+                        aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <!-- User's navbar -->
+                    <div class="navbar-user d-lg-none ml-auto">
+                        <ul class="navbar-nav flex-row align-items-center">
+                            <li class="nav-item">
+                                <a href="#" class="nav-link nav-link-icon sidenav-toggler" data-action="sidenav-pin"
+                                    data-target="#sidenav-main"><i class="fas fa-bars"></i></a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link nav-link-icon" data-action="omnisearch-open"
+                                    data-target="#omnisearch"><i class="fas fa-search"></i></a>
+                            </li>
+                            <li class="nav-item dropdown dropdown-animate">
+                                <a class="nav-link nav-link-icon" href="#" role="button" data-toggle="dropdown"
+                                    aria-haspopup="true" aria-expanded="false"><i class="fas fa-bell"></i></a>
+                                <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg dropdown-menu-arrow p-0">
+                                    <div class="py-3 px-3">
+                                        <h5 class="heading h6 mb-0">Notifications</h5>
+                                    </div>
+                                    <div class="list-group list-group-flush">
+                                        <a href="#" class="list-group-item list-group-item-action">
+                                            <div class="d-flex align-items-center" data-toggle="tooltip"
+                                                data-placement="right" data-title="2 hrs ago">
+                                                <div>
+                                                    <span class="avatar bg-primary text-white rounded-circle">AM</span>
+                                                </div>
+                                                <div class="flex-fill ml-3">
+                                                    <div class="h6 text-sm mb-0">Alex Michael <small
+                                                            class="float-right text-muted">2 hrs ago</small></div>
+                                                    <p class="text-sm lh-140 mb-0">
+                                                        Some quick example text to build on the card title.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <a href="#" class="list-group-item list-group-item-action">
+                                            <div class="d-flex align-items-center" data-toggle="tooltip"
+                                                data-placement="right" data-title="3 hrs ago">
+                                                <div>
+                                                    <span class="avatar bg-warning text-white rounded-circle">SW</span>
+                                                </div>
+                                                <div class="flex-fill ml-3">
+                                                    <div class="h6 text-sm mb-0">Sandra Wayne <small
+                                                            class="float-right text-muted">3 hrs ago</small></div>
+                                                    <p class="text-sm lh-140 mb-0">
+                                                        Some quick example text to build on the card title.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <a href="#" class="list-group-item list-group-item-action">
+                                            <div class="d-flex align-items-center" data-toggle="tooltip"
+                                                data-placement="right" data-title="5 hrs ago">
+                                                <div>
+                                                    <span class="avatar bg-info text-white rounded-circle">JM</span>
+                                                </div>
+                                                <div class="flex-fill ml-3">
+                                                    <div class="h6 text-sm mb-0">Jason Miller <small
+                                                            class="float-right text-muted">5 hrs ago</small></div>
+                                                    <p class="text-sm lh-140 mb-0">
+                                                        Some quick example text to build on the card title.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <a href="#" class="list-group-item list-group-item-action">
+                                            <div class="d-flex align-items-center" data-toggle="tooltip"
+                                                data-placement="right" data-title="2 hrs ago">
+                                                <div>
+                                                    <span class="avatar bg-dark text-white rounded-circle">MJ</span>
+                                                </div>
+                                                <div class="flex-fill ml-3">
+                                                    <div class="h6 text-sm mb-0">Mike Thomson <small
+                                                            class="float-right text-muted">2 hrs ago</small></div>
+                                                    <p class="text-sm lh-140 mb-0">
+                                                        Some quick example text to build on the card title.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <a href="#" class="list-group-item list-group-item-action">
+                                            <div class="d-flex align-items-center" data-toggle="tooltip"
+                                                data-placement="right" data-title="3 hrs ago">
+                                                <div>
+                                                    <span class="avatar bg-primary text-white rounded-circle">RN</span>
+                                                </div>
+                                                <div class="flex-fill ml-3">
+                                                    <div class="h6 text-sm mb-0">Richard Nixon <small
+                                                            class="float-right text-muted">3 hrs ago</small></div>
+                                                    <p class="text-sm lh-140 mb-0">
+                                                        Some quick example text to build on the card title.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="py-3 text-center">
+                                        <a href="#" class="link link-sm link--style-3">View all notifications</a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="nav-item dropdown dropdown-animate">
+                                <a class="nav-link pr-lg-0" href="#" role="button" data-toggle="dropdown"
+                                    aria-haspopup="true" aria-expanded="false">
+                                    <span class="avatar avatar-sm rounded-circle">
+                                        <img alt="Image placeholder" src="../assets/img/theme/light/team-4-800x800.jpg">
+                                    </span>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-sm dropdown-menu-right dropdown-menu-arrow">
+                                    <h6 class="dropdown-header px-0">Hi, Heather!</h6>
+                                    <a href="../application/user/profile.html" class="dropdown-item">
+                                        <i class="fas fa-user"></i>
+                                        <span>My profile</span>
+                                    </a>
+                                    <a href="../application/account/settings.html" class="dropdown-item">
+                                        <i class="fas fa-cog"></i>
+                                        <span>Settings</span>
+                                    </a>
+                                    <a href="../application/account/billing.html" class="dropdown-item">
+                                        <i class="fas fa-credit-card"></i>
+                                        <span>Billing</span>
+                                    </a>
+                                    <a href="../application/shop/orders.html" class="dropdown-item">
+                                        <i class="fas fa-shopping-basket"></i>
+                                        <span>Orders</span>
+                                    </a>
+                                    <div class="dropdown-divider"></div>
+                                    <a href="../application/authentication/login.html" class="dropdown-item">
+                                        <i class="fas fa-sign-out-alt"></i>
+                                        <span>Logout</span>
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- Navbar nav -->
+                    <div class="collapse navbar-collapse navbar-collapse-fade" id="navbar-main-collapse">
+                        <ul class="navbar-nav align-items-lg-center">
+                            <!-- Overview  -->
+                            <li class="nav-item d-lg-none ">
+                                <a class="nav-link" href="../index.html">
+                                    Overview
+                                </a>
+                            </li>
+                            <li class="border-top opacity-2 my-2"></li>
+                            <!-- Home  -->
+                            <li class="nav-item ">
+                                <a class="nav-link pl-lg-0" href="../paginas/home.html">
+                                    Home
+                                </a>
+                            </li>
+                            <!-- Application menu -->
+                            <li class="nav-item dropdown dropdown-animate" data-toggle="hover">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
+                                    aria-haspopup="true" aria-expanded="false">
+                                    Esteira
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-arrow p-lg-0">
+                                    <!-- Top dropdown menu -->
+                                    <div class="p-lg-4">
+                                        <div class="dropdown dropdown-animate dropdown-submenu" data-toggle="hover">
+                                            <a href="#" class="dropdown-item dropdown-toggle" role="button"
+                                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                Propostas
+                                            </a>
+                                            <div class="dropdown-menu"><a class="dropdown-item"
+                                                    href="../paginas/propostas.html">
+                                                    Propostas
+                                                </a>
+                                                <a class="dropdown-item" href="../paginas/propostasimobiliario.html">
+                                                    Propostas Imobiliário
+                                                </a>
+                                                <a class="dropdown-item"
+                                                    href="../application/project/propostasaguardandoct.html">
+                                                    Propostas Aguardando Contrato
+                                                </a>
+                                                <a class="dropdown-item" href="../application/project/create-new.html">
+                                                    Identificação de Proposta
+                                                </a>
+                                                <a class="dropdown-item" href="../application/project/estoque.html">
+                                                    Estoque
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="dropdown dropdown-animate dropdown-submenu" data-toggle="hover">
+                                            <a href="#" class="dropdown-item dropdown-toggle" role="button"
+                                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                Solicitações
+                                            </a>
+                                            <div class="dropdown-menu"><a class="dropdown-item"
+                                                    href="../application/task/saldodevedor.html">
+                                                    Saldo Devedor
+                                                </a>
+                                                <a class="dropdown-item"
+                                                    href="../application/task/consultasaldofer.html">
+                                                    Consulta de Saldo Fer
+                                                </a>
+                                                <a class="dropdown-item"
+                                                    href="../application/task/atualizacaocadastralcli.html">
+                                                    Atualização Cadastral Cliente
+                                                </a>
+                                                <a class="dropdown-item"
+                                                    href="../application/task/solicitacaocancelamento.html">
+                                                    Solicitação Cancelamento
+                                                </a>
+                                                <a class="dropdown-item"
+                                                    href="../application/task/apropropostadigital.html">
+                                                    Aprovação Proposta- Digital
+                                                </a>
+                                                <a class="dropdown-item" href="../application/task/averbacaogoias.html">
+                                                    Averbação Goias
+
+                                                </a>
+                                                <a class="dropdown-item" href="../application/task/autoriinsssms.html">
+                                                    Autorização INSS - VIA SMS
+                                                </a>
+                                            </div>
+                                        </div>
+
+
+
+                                    </div>
+                                    <!-- Bottom dropdown menu -->
+                                    <div class="dropdown-menu-links rounded-bottom delimiter-top p-lg-4">
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <a href="../application/calendar.html"
+                                                    class="dropdown-item">Calendar</a>
+                                                <a href="../application/timeline.html"
+                                                    class="dropdown-item">Timeline</a>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <a href="../application/task/kanban-board.html"
+                                                    class="dropdown-item">Kanban board</a>
+                                                <a href="../application/google-map.html" class="dropdown-item">Google
+                                                    map</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="../application/widgets.html">
+                                    Ident. de Propostas
+                                </a>
+                            </li>
+                            <li class="nav-item dropdown dropdown-animate" data-toggle="hover">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
+                                    aria-haspopup="true" aria-expanded="false">Produtos</a>
+                                <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg dropdown-menu-arrow p-0">
+                                    <ul class="list-group list-group-flush">
+                                        <li>
+
+                                            <a href="../docs/index.html" class="list-group-item list-group-item-action"
+                                                role="button">
+                                                <div class="media d-flex align-items-center">
+                                                    <!-- SVG icon -->
+                                                    <figure style="width: 50px;">
+                                                        <img alt="Image placeholder"
+                                                            src="../assets/img/icons/essential/detailed/DOC_File.svg"
+                                                            class="svg-inject img-fluid" style="height: 50px;">
+                                                    </figure>
+                                                    <!-- Media body -->
+                                                    <div class="media-body ml-3">
+                                                        <h6 class="mb-1">Documentation</h6>
+                                                        <p class="mb-0">Awesome section examples for any scenario.</p>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li>
+
+                                        </li>
+                                    </ul>
+                                    <div class="dropdown-menu-links rounded-bottom delimiter-top p-4">
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <a href="../docs/getting-started/installation.html"
+                                                    class="dropdown-item">Installation</a>
+                                                <a href="../docs/getting-started/file-structure.html"
+                                                    class="dropdown-item">File structure</a>
+                                                <a href="../docs/getting-started/build-tools.html"
+                                                    class="dropdown-item">Build tools</a>
+                                                <a href="../docs/getting-started/customization.html"
+                                                    class="dropdown-item">Customization</a>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <a href="../docs/getting-started/plugins.html"
+                                                    class="dropdown-item">Using plugins</a>
+                                                <a href="../docs/components/index.html"
+                                                    class="dropdown-item">Components</a>
+                                                <a href="../docs/plugins/animate.html" class="dropdown-item">Plugins</a>
+                                                <a href="../docs/support.html" class="dropdown-item">Support</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="border-top opacity-2 my-2"></li>
+                            <!-- Docs menu -->
+                            <li class="nav-item d-lg-none">
+                                <a class="nav-link" href="../docs/index.html">
+                                    Docs
+                                </a>
+                            </li>
+                            <li class="nav-item d-lg-none">
+                                <a class="nav-link" href="../application/authentication/register.html">
+                                    Register
+                                </a>
+                            </li>
+                            <li class="nav-item d-lg-none">
+                                <a class="nav-link" href="../application/authentication/login.html">
+                                    Sign in
+                                </a>
+                            </li>
+                        </ul><!-- Right menu -->
+                        <ul class="navbar-nav ml-lg-auto align-items-center d-none d-lg-flex">
+                            <li class="nav-item">
+                                <a href="#" class="nav-link nav-link-icon sidenav-toggler" data-action="sidenav-pin"
+                                    data-target="#sidenav-main"><i class="fas fa-bars"></i></a>
+                            </li>
+
+
+                            <li class="nav-item dropdown dropdown-animate">
+                                <a class="nav-link nav-link-icon" href="#" role="button" data-toggle="dropdown"
+                                    aria-haspopup="true" aria-expanded="false"><i class="fas fa-bell"></i></a>
+                                <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg dropdown-menu-arrow p-0">
+                                    <div class="py-3 px-3">
+                                        <h5 class="heading h6 mb-0">Notifications</h5>
+                                    </div>
+                                    <div class="list-group list-group-flush">
+                                        <a href="#" class="list-group-item list-group-item-action">
+                                            <div class="d-flex align-items-center" data-toggle="tooltip"
+                                                data-placement="right" data-title="2 hrs ago">
+                                                <div>
+                                                    <span class="avatar bg-primary text-white rounded-circle">AM</span>
+                                                </div>
+                                                <div class="flex-fill ml-3">
+                                                    <div class="h6 text-sm mb-0">Alex Michael <small
+                                                            class="float-right text-muted">2 hrs ago</small></div>
+                                                    <p class="text-sm lh-140 mb-0">
+                                                        Some quick example text to build on the card title.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <a href="#" class="list-group-item list-group-item-action">
+                                            <div class="d-flex align-items-center" data-toggle="tooltip"
+                                                data-placement="right" data-title="3 hrs ago">
+                                                <div>
+                                                    <span class="avatar bg-warning text-white rounded-circle">SW</span>
+                                                </div>
+                                                <div class="flex-fill ml-3">
+                                                    <div class="h6 text-sm mb-0">Sandra Wayne <small
+                                                            class="float-right text-muted">3 hrs ago</small></div>
+                                                    <p class="text-sm lh-140 mb-0">
+                                                        Some quick example text to build on the card title.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <a href="#" class="list-group-item list-group-item-action">
+                                            <div class="d-flex align-items-center" data-toggle="tooltip"
+                                                data-placement="right" data-title="5 hrs ago">
+                                                <div>
+                                                    <span class="avatar bg-info text-white rounded-circle">JM</span>
+                                                </div>
+                                                <div class="flex-fill ml-3">
+                                                    <div class="h6 text-sm mb-0">Jason Miller <small
+                                                            class="float-right text-muted">5 hrs ago</small></div>
+                                                    <p class="text-sm lh-140 mb-0">
+                                                        Some quick example text to build on the card title.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <a href="#" class="list-group-item list-group-item-action">
+                                            <div class="d-flex align-items-center" data-toggle="tooltip"
+                                                data-placement="right" data-title="2 hrs ago">
+                                                <div>
+                                                    <span class="avatar bg-dark text-white rounded-circle">MJ</span>
+                                                </div>
+                                                <div class="flex-fill ml-3">
+                                                    <div class="h6 text-sm mb-0">Mike Thomson <small
+                                                            class="float-right text-muted">2 hrs ago</small></div>
+                                                    <p class="text-sm lh-140 mb-0">
+                                                        Some quick example text to build on the card title.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <a href="#" class="list-group-item list-group-item-action">
+                                            <div class="d-flex align-items-center" data-toggle="tooltip"
+                                                data-placement="right" data-title="3 hrs ago">
+                                                <div>
+                                                    <span class="avatar bg-primary text-white rounded-circle">RN</span>
+                                                </div>
+                                                <div class="flex-fill ml-3">
+                                                    <div class="h6 text-sm mb-0">Richard Nixon <small
+                                                            class="float-right text-muted">3 hrs ago</small></div>
+                                                    <p class="text-sm lh-140 mb-0">
+                                                        Some quick example text to build on the card title.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="py-3 text-center">
+                                        <a href="#" class="link link-sm link--style-3">View all notifications</a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="nav-item dropdown dropdown-animate">
+                                <a class="nav-link pr-lg-0" href="#" role="button" data-toggle="dropdown"
+                                    aria-haspopup="true" aria-expanded="false">
+                                    <div class="media media-pill align-items-center">
+                                        <span class="avatar rounded-circle">
+                                            <img alt="Image placeholder"
+                                                src="../assets/img/theme/light/team-1-800x800.jpg">
+                                        </span>
+                                        <div class="ml-2 d-none d-lg-block">
+                                            <span class="mb-0 text-sm  font-weight-bold">Jucleia Silva</span>
+                                        </div>
+                                    </div>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-sm dropdown-menu-right dropdown-menu-arrow">
+
+                                    <a href="#!" class="dropdown-item">
+                                        <i class="fas fa-user"></i>
+                                        <span>Meu Perfil</span>
+                                    </a>
+                                    <a href="#!" class="dropdown-item">
+                                        <i class="fas fa-cog"></i>
+                                        <span>Suporte</span>
+                                    </a>
+
+                                    <div class="dropdown-divider"></div>
+                                    <a href="#!" class="dropdown-item">
+                                        <i class="fas fa-sign-out-alt"></i>
+                                        <span>Sair</span>
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+            <!-- Page content -->
+            <div class="page-content">
+                <!-- Page title -->
+                <div class="page-title">
+                    <div class="row justify-content-between align-items-center">
+                        <div class="col-md-12 mb-3 mb-md-0">
+                            <h6 class="h3 font-weight-400 mb-0 text-white">Propostas Imobiliário </h6>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xl-12 col-md-6">
+                        <div class="card card-fluid">
+
+                            <div class="card-body">
+
+                                <div class="opcoes-cadastro mt-1" style="text-align: center; margin-inline: block;">
+
+                                    <button type="button" class="btn btn-primary btn-icon-label" data-toggle="modal"
+                                        data-target=".modalincluirpropostas">
+                                        <span class="btn-inner--icon">
+                                            <i class="fas fa-plus"></i>
+                                        </span>
+                                        <span class="btn-inner--text">Nova Proposta</span>
+                                    </button>
+
+                                    <button id="button-filtros-pesquisa" type="button" class="btn btn-primary btn-icon-label" data-toggle="modal"
+                                        data-target=".modal-filtroproposta">
+                                        <span class="btn-inner--icon">
+                                            <i class="fas fa-filter"></i>
+                                        </span>
+                                        <span class="btn-inner--text">Filtros de Pesquisa</span>
+                                    </button>
+
+                                </div>
+
+
+                                <div class="table-responsive mt-4">
+                                    <table class="table align-items-center">
+                                        <thead>
+                                            <tr class="bg-tabeltacad">
+                                                <th scope="col" class="sort" data-sort="propostasimobiliario"
+                                                    style="text-align: center;">Proposta</th>
+                                                <th scope="col" class="sort" data-sort="nome"
+                                                    style="text-align: center;">Nome</th>
+                                                <th scope="col" class="sort" data-sort="cpfcliente"
+                                                    style="text-align: center;">CPF</th>
+                                                <th scope="col" class="sort" data-sort="datacadastro"
+                                                    style="text-align: center;">Data Cadastro</th>
+                                                <th scope="col" class="sort" data-sort="mescadastro"
+                                                    style="text-align: center;">Mês Cadastro</th>
+                                                <th scope="col" class="sort" data-sort="parceiro"
+                                                    style="text-align: center;">Parceiro</th>
+                                                <th scope="col" class="sort" data-sort="valor"
+                                                    style="text-align: center;">Valor</th>
+                                                <th scope="col" class="sort" data-sort="status"
+                                                    style="text-align: center;">Status</th>
+                                                <th scope="col" class="sort" data-sort="substatus"
+                                                    style="text-align: center;">Sub-Status</th>
+                                                <th scope="col" class="sort" data-sort="situacaosac"
+                                                    style="text-align: center;">Situação SAC</th>
+                                                <th scope="col" class="sort" data-sort="operadorvinculado"
+                                                    style="text-align: center;">Operador Vinculado</th>
+                                                <th scope="col" class="sort" data-sort="respalteracao"
+                                                    style="text-align: center;">Responsável Alteração</th>
+                                                <th scope="col" class="sort" data-sort="dataatualizacao"
+                                                    style="text-align: center;">Data Atualização</th>
+                                                <th scope="col" class="sort" data-sort="modalidade"
+                                                    style="text-align: center;">Modalidade</th>
+                                                <th scope="col" class="sort" data-sort="tipoimovel"
+                                                    style="text-align: center;">Tipo Imóvel</th>
+                                                <th scope="col" class="sort" data-sort="dataretorno"
+                                                    style="text-align: center;">Data Retorno</th>
+                                                <th scope="col" class="sort" data-sort="telefonectcliente"
+                                                    style="text-align: center;">Telefone Contato Cliente</th>
+                                                <th scope="col" class="sort" data-sort="telefonectpromotor"
+                                                    style="text-align: center;">Telefone Contato Promotor</th>
+                                                <th scope="col" class="sort" data-sort="uf" style="text-align: center;">
+                                                    UF</th>
+                                                <th scope="col" class="sort" data-sort="bancoprincipal"
+                                                    style="text-align: center;">Banco Principal</th>
+                                                <th scope="col" class="sort" data-sort="autorizabanco"
+                                                    style="text-align: center;">Autoriza Banco</th>
+                                                <th scope="col" class="sort" data-sort="alterar"
+                                                    style="text-align: center;">Alterar/Visualizar</th>
+
+
+
+                                            </tr>
+                                        </thead>
+
+                                        <tbody class="list" id="lista1">
+
+                                            <tr>
+
+                                                <td style="text-align: center;">XXXXXXX XXXXXX XXXX</td>
+                                                <td style="text-align: center;">XXXXXXXXXX</td>
+                                                <td style="text-align: center;">323.323.323.32</td>
+                                                <td style="text-align: center;">00/00/0000</td>
+                                                <td style="text-align: center;">XXXXXXXX XXXXX XXXXXXXX</td>
+                                                <td style="text-align: center;">R$ 289483,92</td>
+                                                <td style="text-align: center;">R$ 9483,92</td>
+                                                <td style="text-align: center;">XXXXXXX XXXXXX XXXXX</td>
+                                                <td style="text-align: center;">Banco Santander</td>
+                                                <td style="text-align: center;">CONSIGNADO</td>
+                                                <td style="text-align: center;">XXXXXXXX</td>
+                                                <td style="text-align: center;">XXXXXXXX</td>
+                                                <td style="text-align: center;">XXXXXXXX</td>
+                                                <td style="text-align: center;">XX/XX/XXXX</td>
+                                                <td style="text-align: center;">XXXXXXXX</td>
+                                                <td style="text-align: center;">XXXXXXXX</td>
+                                                <td style="text-align: center;"> XXXXXXXX</td>
+                                                <td style="text-align: center;">XXXXXXXX</td>
+                                                <td style="text-align: center;">XXXXXXXX</td>
+                                                <td style="text-align: center;">XXXXXXXX</td>
+                                                <td style="text-align: center;">(XX)XXXX-XXXX</td>
+
+                                                <td class="text-right" style="text-align: center;">
+                                                    <!-- Actions -->
+                                                    <div class="actions ml-3" style="text-align: center;">
+                                                        <a href="#" class="action-item mr-2 " data-toggle="modal"
+                                                            data-target=".modalalterarpropostas" title="Alterar">
+                                                            <i class="fas fa-external-link-alt"></i>
+                                                        </a>
+                                                        <a href="#" class="action-item mr-2" data-toggle="modal"
+                                                            data-target=".modalteladecadastro" title="Visualizar">
+                                                            <i class="fas fa-eye"></i>
+                                                        </a>
+                                                    </div>
+                                                </td>
+                                            </tr>
+
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                            </div>
+
+
+                        </div>
+
+
+                    </div>
+
+
+
+
+                </div>
+
+            </div>
+
+
+        </div>
+    </div>
+    <!-- Scripts -->
+    <!-- Core JS - includes jquery, bootstrap, popper, in-view and sticky-kit -->
+    <script src="../assets/js/purpose.core.js"></script>
+    <!-- Page JS -->
+    <script src="../assets/libs/progressbar.js/dist/progressbar.min.js"></script>
+    <script src="../assets/libs/apexcharts/dist/apexcharts.min.js"></script>
+    <script src="../assets/libs/moment/min/moment.min.js"></script>
+    <script src="../assets/libs/fullcalendar/dist/fullcalendar.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <!-- Purpose JS -->
+    <script src="../assets/js/purpose.js"></script>
+    <!-- Demo JS - remove it when starting your project -->
+    <script src="../assets/js/demo.js"></script>
+    <!-- Mascaras -->
+    <script src="../assets/js/mascaras.js"></script>
+    <script src="../assets/js/propostaImobiliario.js"></script>
+</body>
+
+</html>

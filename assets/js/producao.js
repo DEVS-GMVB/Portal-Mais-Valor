@@ -188,7 +188,7 @@ const buscaProducao = async (supervisor) => {
     myHeaders.append("Content-Type", "application/json");
 
     const raw = JSON.stringify({
-        "supervisor": "ANA PAULA COELHO"
+        "supervisor": supervisor
     });
 
     const requestOptions = {

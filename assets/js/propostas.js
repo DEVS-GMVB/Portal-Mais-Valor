@@ -4,8 +4,11 @@ const bancoPortado = document.getElementById('exampleFormBP');
 const produtoComissao = document.getElementById("produto-incluir");
 const supervisorProposta = document.getElementById("supervisor-filtro");
 const gerenteProposta = document.getElementById("gerente-filtro")
-const sub_status = document.getElementById("substatus-filtro");
+const subStatusFiltro = document.getElementById("substatus-filtro");
 const buttonTrocar = document.getElementById("id-trocar");
+const statuFiltro = document.getElementById("status-filtro");
+const botao_excel = document.getElementById("planilhaExcel");
+const btnFiltro = document.getElementById("btn-filtro");
 
 //Hasmap
 const modal = new Map();
@@ -50,12 +53,20 @@ window.onload = function () {
     redirect: 'follow'
   };
 
+  fetch(`${URL}/user/proposta/status`, requestOptions)
+    .then(response => response.json())
+    .then(data => {
+      data.forEach(item => {
+        statusFiltro.innerHTML += `<option value="${item.status}">${(item.status !== null && item.status !== "") ? item.status : ""}</option>`;
+      });
+    });
+
   fetch(URL + "/user/proposta/produto", requestOptions)
     .then(response => response.json())
     .then(function (data) {
       data.forEach(element => {
-        produto.innerHTML += `<option value =${element.produto}>${element.produto}</option>`;
-        produtoFiltro.innerHTML += `<option value =${element.produto}>${element.produto}</option>`;
+        produto.innerHTML += `<option value="${element.produto}">${element.produto}</option>`;
+        produtoFiltro.innerHTML += `<option value="${element.produto}">${element.produto}</option>`;
       });
     })
 
@@ -64,7 +75,7 @@ window.onload = function () {
     .then(response => response.json())
     .then(function (data) {
       data.forEach(element => {
-        tipoOperacao.innerHTML += `<option value =${element.tipo}>${element.tipo}</option>`;
+        tipoOperacao.innerHTML += `<option value="${element.tipo}">${element.tipo}</option>`;
       });
     })
 
@@ -72,9 +83,9 @@ window.onload = function () {
     .then(response => response.json())
     .then(function (data) {
       data.forEach(element => {
-        bancoPortador.innerHTML += `<option value =${element.banco}>${element.banco}</option>`;
-        bancoPortabilidadeFiltro.innerHTML += `<option value =${element.banco}>${element.banco}</option>`;
-        bancoFiltro.innerHTML += `<option value =${element.banco}>${element.banco}</option>`;
+        bancoPortador.innerHTML += `<option value="${element.banco}">${element.banco}</option>`;
+        bancoPortabilidadeFiltro.innerHTML += `<option value="${element.banco}">${element.banco}</option>`;
+        bancoFiltro.innerHTML += `<option value="${element.banco}">${element.banco}</option>`;
       });
     })
 
@@ -82,15 +93,15 @@ window.onload = function () {
     .then(response => response.json())
     .then(function (data) {
       data.forEach(element => {
-        empresaFiltro.innerHTML += `<option value =${element.empresa}>${element.empresa}</option>`;
+        empresaFiltro.innerHTML += `<option value="${element.empresa}">${element.empresa}</option>`;
       });
     })
 
   fetch(URL + "/user/proposta/substatus", requestOptions)
     .then(response => response.json())
     .then(function (data) {
-      data.forEach(element => {
-        substatusFiltros.innerHTML += `<option value =${element.sub_status}>${element.sub_status}</option>`;
+      data.forEach(subStatus => {
+        subStatusFiltro.innerHTML += `<option value="${subStatus}">${subStatus}</option>`;
       });
     })
 
@@ -121,14 +132,14 @@ window.onload = function () {
     nome: dataSession.nome
   })
 
-  fetch(URL+'/user/vinculo', {
+  fetch(URL + '/user/vinculo', {
     method: 'POST',
     headers: myHeaders,
     body: raw,
     redirect: 'follow'
-  }).then(response => response.json().then(function (data){
+  }).then(response => response.json().then(function (data) {
     const selectParent = document.getElementById("vinculo-filtro");
-    selectParent.innerHTML = `<option value=${data} selected> ${data} </option>` 
+    selectParent.innerHTML = `<option value=${data} selected> ${data} </option>`
 
 
   })).catch(error => console.log('error', error))
@@ -239,7 +250,6 @@ filtros.addEventListener('click', () => {
   fetch(URL + "/user/proposta/filtro", requestOptions).
   then(response => response.json()).
   then(function (data) {
-
     //HashMap estrutura de dados
     for (let i = 0; i < data.length; i++) {
 
@@ -311,11 +321,11 @@ filtros.addEventListener('click', () => {
       telefoneconstanotfc.appendChild(telefoneconstanotfcText);
 
       //Passando minha proposta neste escopo
-      modal.set(data[i].codigo, data[i])
+      modal.set(data[i].codigo, data[i]);
 
       anexos.innerHTML = `<td id="" class="text-right" style="text-align: center;">
                              <div class="actions ml-3" style="text-align: center;">
-                              <a href="#" class="action-item mr-2 " data-toggle="modal" data-target=".modalteladecadastro" title="Alterar" >
+                              <a href="#" class="action-item mr-2 " data-toggle="modal" data-target=".modalteladecadastro" title="Alterar" onclick="downloadFile(modal.get(${data[i].codigo}))">
                                 <i class="fas fa-download"></i>
                               </a>
                              </div>
@@ -325,7 +335,7 @@ filtros.addEventListener('click', () => {
                               <a href="#" class="action-item mr-2 " data-toggle="modal" data-target=".modal-incluirproposta-parc" title="Alterar" onclick="preencherModal(modal.get(${data[i].codigo}))">
                                   <i class="fas fa-external-link-alt"></i>
                               </a>
-                              <a href="#" class="action-item mr-2" data-toggle="modal" data-target=".modal-filtroproposta" title="Visualizar">
+                              <a href="#" class="action-item mr-2" data-toggle="modal" data-target=".modal-incluirproposta-parc" title="Visualizar" onclick="visualizar(modal.get(${data[i].codigo}))">
                                   <i class="fas fa-eye"></i>
                               </a>
                           </div>`;
@@ -428,6 +438,7 @@ function preencherModal(id) {
   quebraReferenciaModaisProxy.limparCampos();
   quebraReferenciaModaisProxy.trocaButtonUpdate(id);
   quebraReferenciaModaisProxy.popupaCamposModal(id);
+  desbloqueiaCampos();
 }
 
 function updatePropostas(value) {
@@ -550,11 +561,102 @@ function updatePropostas(value) {
 
 }
 
-const botao_excel = document.getElementById("planilhaExcel");
-
-
 botao_excel.addEventListener('click', () => {
   var table2excel = new Table2Excel();
   table2excel.export(document.querySelector("#table"));
 
+});
+
+const downloadFile = ({
+  arquivo1 = null
+}) => {
+  if (arquivo1)
+    window.location.href = `${URL}/user/proposta/aguardando/download?hash=${arquivo1}`;
+  else
+    alert('Arquivo não cadastrado');
+}
+
+function visualizar(id) {
+
+  $('.needs-validation').each(function () {
+    this.reset();
+  });
+
+  bloqueiaCampos();
+
+  quebraReferenciaModaisProxy.popupaCamposModal(id);
+
+}
+
+btnFiltro.addEventListener('click', () => {
+  desbloqueiaCampos();
 })
+
+function bloqueiaCampos() {
+
+  $('#numero-proposta-incluir').attr('disabled', true);
+  $('#data-cadastro-incluir').attr('disabled', true);
+  $('#banco-incluir').attr('disabled', true);
+  $('#status-inclir').attr('disabled', true);
+  $('#produto-incluir').attr('disabled', true);
+  $('#tipo-operacao-incluir').attr('disabled', true);
+  $('#valor-entregue-incluir').attr('disabled', true);
+  $('#valor-troco-incluir').attr('disabled', true);
+  $('#convenio-incluir').attr('disabled', true);
+  $('#banco-portador-incluir').attr('disabled', true);
+  $('#portabilidade-incluir').attr('disabled', true);
+  $('#valor-parcela-incluir').attr('disabled', true);
+  $('#seguro-incluir').attr('disabled', true);
+  $('#parcelas-pagas-incluir').attr('disabled', true);
+  $('#nome-cliente-incluir').attr('disabled', true);
+  $('#cpf-cliente-incluir').attr('disabled', true);
+  $('#ddd-incluir').attr('disabled', true);
+  $('#telefone-cliente-incluir').attr('disabled', true);
+  $('#correntista-incluir').attr('disabled', true);
+  $('#telefone-sms-incluir').attr('disabled', true);
+  $('#matricula-incluir').attr('disabled', true);
+  $('#agendar-horario-confirmacao-incluir').attr('disabled', true);
+  $('#melhor-data-incluir').attr('disabled', true);
+  $('#melhor-horario-incluir').attr('disabled', true);
+  $('#exercito-temporario-incluir').attr('disabled', true);
+  $('#codigo-exercito-incluir').attr('disabled', true);
+  $('#sexo-incluir').attr('disabled', true);
+  $('#data-nascimento-incluir').attr('disabled', true);
+  $('#email-incluir').attr('disabled', true);
+  $('#uf-incluir').attr('disabled', true);
+  $('#observacao-incluir').attr('disabled', true);
+}
+
+function desbloqueiaCampos() {
+  $('#numero-proposta-incluir').attr('disabled', false);
+  $('#data-cadastro-incluir').attr('disabled', false);
+  $('#banco-incluir').attr('disabled', false);
+  $('#status-inclir').attr('disabled', false);
+  $('#produto-incluir').attr('disabled', false);
+  $('#tipo-operacao-incluir').attr('disabled', false);
+  $('#valor-entregue-incluir').attr('disabled', false);
+  $('#valor-troco-incluir').attr('disabled', false);
+  $('#convenio-incluir').attr('disabled', false);
+  $('#banco-portador-incluir').attr('disabled', false);
+  $('#portabilidade-incluir').attr('disabled', false);
+  $('#valor-parcela-incluir').attr('disabled', false);
+  $('#seguro-incluir').attr('disabled', false);
+  $('#parcelas-pagas-incluir').attr('disabled', false);
+  $('#nome-cliente-incluir').attr('disabled', false);
+  $('#cpf-cliente-incluir').attr('disabled', false);
+  $('#ddd-incluir').attr('disabled', false);
+  $('#telefone-cliente-incluir').attr('disabled', false);
+  $('#correntista-incluir').attr('disabled', false);
+  $('#telefone-sms-incluir').attr('disabled', false);
+  $('#matricula-incluir').attr('disabled', false);
+  $('#agendar-horario-confirmacao-incluir').attr('disabled', false);
+  $('#melhor-data-incluir').attr('disabled', false);
+  $('#melhor-horario-incluir').attr('disabled', false);
+  $('#exercito-temporario-incluir').attr('disabled', false);
+  $('#codigo-exercito-incluir').attr('disabled', false);
+  $('#sexo-incluir').attr('disabled', false);
+  $('#data-nascimento-incluir').attr('disabled', false);
+  $('#email-incluir').attr('disabled', false);
+  $('#uf-incluir').attr('disabled', false);
+  $('#observacao-incluir').attr('disabled', false);
+}
