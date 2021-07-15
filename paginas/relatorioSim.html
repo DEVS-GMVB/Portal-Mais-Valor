@@ -2,12 +2,12 @@
 <html lang="pt-5">
 
 <head>
-    <meta charset="utf-8">
+    <meta charset=" utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description"
         content="Purpose Application UI is the following chapter we've finished in order to create a complete and robust solution next to the already known Purpose Website UI.">
     <meta name="author" content="Webpixels">
-    <title>Comunicados - Portal Mais Valor</title>
+    <title>Relatório SIM - Portal Mais Valor</title>
     <!-- Favicon -->
     <link rel="icon" href="../assets/img/brand/favicon.png" type="image/png">
     <!-- Font Awesome 5 -->
@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="../assets/libs/fullcalendar/dist/fullcalendar.min.css">
     <!-- Purpose CSS -->
     <link rel="stylesheet" href="../assets/css/purpose.css" id="stylesheet">
-    <!-- CSS Personalizado -->
+    <!-- Purpose CSS -->
     <link rel="stylesheet" href="../assets/css/personalizado.css" id="stylesheet">
 </head>
 
@@ -37,128 +37,8 @@
         border-radius: 10px;
 
     }
-
-    .anexocampo1 {
-        text-align: align-self auto;
-        ;
-    }
 </style>
 
-<!-- Large modal -->
-
-
-<div class="modal fade moda-alterar-comunicados" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-
-            <div class="modal-header">
-                <img src="logocolorido.png" style="height: 70px; right: 70px;">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-
-
-                <form class="needs-validation" novalidate>
-
-
-
-                    <div class="form-row mt-2 mx-6">
-
-
-                        <div class="col-md-12 mb-3">
-                            <label for="validationCustom01">Título Comunicado</label>
-                            <input type="text" class="form-control form-control-sm" id="campo-titulo" required>
-
-                        </div>
-                        <div class="col-md-12 mb-3">
-                            <label for="exampleFormControlTextarea1">Texto</label>
-                            <textarea class="form-control" id="campo-texto" rows="3"></textarea>
-                        </div>
-
-                        <div class="col-md-4 mb-3">
-                            <label for="exampleFormControlTextarea1">Imagem:</label>
-                            <input type="file" name="url_img" id="url_img" class="custom-input-file"
-                                data-multiple-caption="{count} files selected" multiple />
-                            <label for="url_img">
-                                <i class="fa fa-upload"></i>
-                                <span>Choose a file…</span>
-                            </label>
-
-                        </div>
-
-                        <div class="col-md-4 mb-3">
-                            <label for="exampleFormControlTextarea1">Imagem 2:</label>
-                            <input type="file" name="url_img1" id="url_img1" class="custom-input-file"
-                                data-multiple-caption="{count} files selected" multiple />
-                            <label for="url_img1">
-                                <i class="fa fa-upload"></i>
-                                <span>Choose a file…</span>
-                            </label>
-
-                        </div>
-
-                        <div class="col-md-4 mb-3">
-                            <label for="exampleFormControlTextarea1">Imagem 3:</label>
-                            <input type="file" name="url_img2" id="url_img2" class="custom-input-file"
-                                data-multiple-caption="{count} files selected" multiple />
-                            <label for="url_img2">
-                                <i class="fa fa-upload"></i>
-                                <span>Choose a file…</span>
-                            </label>
-
-                        </div>
-
-                        <div class="col-md-12 mb-3">
-                            <div class="form-group">
-                                <label for="exampleFormControlSelect1">Status</label>
-                                <select class="form-control form-control-sm" id="campo-status" required>
-                                    <option> </option>
-                                    <option> ATIVO </option>
-                                    <option> INATIVO </option>
-
-                                </select>
-                            </div>
-
-                        </div>
-
-
-
-                    </div>
-
-
-                </form>
-
-                <div class="opcoes-cadastro" style="text-align: center; margin-inline: block;">
-
-                    <button type="button" class="btn btn-primary btn-icon-label" title="Analisar" data-toggle="modal"
-                        data-target=".moda-alterar-comunicados" id="btn-incluir">
-
-                        <span class="btn-inner--icon">
-                            <i class="fas fa-plus"></i>
-                        </span>
-                        <span class="btn-inner--text">Incluir/ Alterar</span>
-                    </button>
-
-
-
-
-                </div>
-
-                <!-- Alert sucesso acesso -->
-                <div class="alert alert-success sucesso" id="sucesso" role="alert">
-                </div>
-
-
-
-
-
-            </div>
-        </div>
-    </div>
-</div>
 
 
 <body class="application application-offset">
@@ -195,10 +75,9 @@
                     <div class="mt-4">
                         <h5 class="mb-0 text-white">Jucleia Silva</h5>
                         <span class="d-block text-sm text-white opacity-8 mb-3">Promotor</span>
-                        <a href="https://www.grupomaisvalor.com.br"
-                            class="btn btn-sm btn-white btn-icon rounded-pill shadow hover-translate-y-n3">
-
-                            <span class="btn-inner--text">Grupo Mais Valor</span>
+                        <a href="#" class="btn btn-sm btn-white btn-icon rounded-pill shadow hover-translate-y-n3">
+                            <span class="btn-inner--icon"><i class="fas fa-coins"></i></span>
+                            <span class="btn-inner--text">R$ 30.300,78</span>
                         </a>
                     </div>
                 </div>
@@ -218,24 +97,46 @@
             </div>
             <!-- Application nav -->
             <div class="nav-application clearfix">
-                <a href="../paginas/home.html" class="btn btn-square text-sm ">
+                <a href="../paginas/home.html" class="btn btn-square text-sm active">
                     <span class="btn-inner--icon d-block"><i class="fas fa-home fa-2x"></i></span>
                     <span class="btn-inner--icon d-block pt-2">Home</span>
                 </a>
-
-                <a href="../paginas/profile.html" class="btn btn-square text-sm ">
-                    <span class="btn-inner--icon d-block"><i class="fas fa-user fa-2x"></i></span>
-                    <span class="btn-inner--icon d-block pt-2">Meu Perfil</span>
+                <a href="../paginas/propostas.html" class="btn btn-square text-sm">
+                    <span class="btn-inner--icon d-block"> <i class="fas fa-file-invoice-dollar fa-2x"></i></span>
+                    <span class="btn-inner--icon d-block pt-2">Propostas</span>
+                </a>
+                <a href="../paginas/comissao.html" class="btn btn-square text-sm">
+                    <span class="btn-inner--icon d-block"><i class="fas fa-money-bill-wave fa-2x"></i></span>
+                    <span class="btn-inner--icon d-block pt-2">Comissão</span>
+                </a>
+                <a href="../application/task/kanban-board.html" class="btn btn-square text-sm">
+                    <span class="btn-inner--icon d-block"><i class="fas fa-columns fa-2x"></i></span>
+                    <span class="btn-inner--icon d-block pt-2">Simulação</span>
+                </a>
+                <a href="../application/user/card-listing.html" class="btn btn-square text-sm">
+                    <span class="btn-inner--icon d-block"><i class="fas fa-exclamation-triangle fa-2x"></i></span>
+                    <span class="btn-inner--icon d-block pt-2">Pendências</span>
+                </a>
+                <a href="../application/user/profile.html" class="btn btn-square text-sm">
+                    <span class="btn-inner--icon d-block"><i class="fas fa-user-ninja fa-2x"></i></span>
+                    <span class="btn-inner--icon d-block pt-2">Integrações</span>
+                </a>
+                <a href="../application/shop/invoices.html" class="btn btn-square text-sm">
+                    <span class="btn-inner--icon d-block"><i class="fas fa-user-graduate fa-2x"></i></span>
+                    <span class="btn-inner--icon d-block pt-2">Treinamento</span>
+                </a>
+                <a href="../application/widgets.html" class="btn btn-square text-sm">
+                    <span class="btn-inner--icon d-block"><i class="fas fa-flag fa-2x"></i></span>
+                    <span class="btn-inner--icon d-block pt-2">Relatórios</span>
                 </a>
 
-
-                <a href="../paginas/comunicados.html" class="btn btn-square text-sm active">
+                <a href="../application/widgets.html" class="btn btn-square text-sm">
                     <span class="btn-inner--icon d-block"><i class="fas fa-bookmark fa-2x"></i></span>
                     <span class="btn-inner--icon d-block pt-2">Comunicados</span>
                 </a>
-                <a href="../paginas/login e recover/login.html" class="btn btn-square text-sm">
-                    <span class="btn-inner--icon d-block"><i class="fas fa-sign-out-alt fa-2x"></i></span>
-                    <span class="btn-inner--icon d-block pt-2">Sair</span>
+                <a href="../paginas/cadastro.html" class="btn btn-square text-sm">
+                    <span class="btn-inner--icon d-block"><i class="fas fa-user-plus fa-2x"></i></span>
+                    <span class="btn-inner--icon d-block pt-2">Cadastro</span>
                 </a>
             </div>
         </div>
@@ -386,7 +287,185 @@
                     </div>
                     <!-- Navbar nav -->
                     <div class="collapse navbar-collapse navbar-collapse-fade" id="navbar-main-collapse">
-                        <!-- Right menu -->
+                        <ul class="navbar-nav align-items-lg-center">
+                            <!-- Overview  -->
+                            <li class="nav-item d-lg-none ">
+                                <a class="nav-link" href="../index.html">
+                                    Overview
+                                </a>
+                            </li>
+                            <li class="border-top opacity-2 my-2"></li>
+                            <!-- Home  -->
+                            <li class="nav-item ">
+                                <a class="nav-link pl-lg-0" href="../paginas/home.html">
+                                    Home
+                                </a>
+                            </li>
+                            <!-- Application menu -->
+                            <li class="nav-item dropdown dropdown-animate" data-toggle="hover">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
+                                    aria-haspopup="true" aria-expanded="false">
+                                    Esteira
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-arrow p-lg-0">
+                                    <!-- Top dropdown menu -->
+                                    <div class="p-lg-4">
+                                        <div class="dropdown dropdown-animate dropdown-submenu" data-toggle="hover">
+                                            <a href="#" class="dropdown-item dropdown-toggle" role="button"
+                                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                Propostas
+                                            </a>
+                                            <div class="dropdown-menu"><a class="dropdown-item"
+                                                    href="../paginas/propostas.html">
+                                                    Propostas
+                                                </a>
+                                                <a class="dropdown-item" href="../paginas/propostasimobiliario.html">
+                                                    Propostas Imobiliário
+                                                </a>
+                                                <a class="dropdown-item"
+                                                    href="../application/project/propostasaguardandoct.html">
+                                                    Propostas Aguardando Contrato
+                                                </a>
+                                                <a class="dropdown-item" href="../application/project/create-new.html">
+                                                    Identificação de Proposta
+                                                </a>
+                                                <a class="dropdown-item" href="../application/project/estoque.html">
+                                                    Estoque
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="dropdown dropdown-animate dropdown-submenu" data-toggle="hover">
+                                            <a href="#" class="dropdown-item dropdown-toggle" role="button"
+                                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                Solicitações
+                                            </a>
+                                            <div class="dropdown-menu">
+                                                <a class="dropdown-item" href="../paginas/saldodevedor.html">
+                                                    Saldo Devedor
+                                                </a>
+                                                <a class="dropdown-item" href="../paginas/consultademargem.html">
+                                                    Consulta de Margem
+                                                </a>
+                                                <a class="dropdown-item" href="../paginas/consultasaldofer.html">
+                                                    Consulta de Saldo Fer
+                                                </a>
+                                                <a class="dropdown-item" href="../paginas/atualizacaocadastralcli.html">
+                                                    Atualização Cadastral Cliente
+                                                </a>
+                                                <a class="dropdown-item" href="../paginas/solicitacaocancelamento.html">
+                                                    Solicitação Cancelamento
+                                                </a>
+                                                <a class="dropdown-item" href="../paginas/apropropostadigital.html">
+                                                    Aprovação Proposta- Digital
+                                                </a>
+                                                <a class="dropdown-item" href="../paginas/averbacaogoias.html">
+                                                    Averbação Goias
+
+                                                </a>
+                                                <a class="dropdown-item" href="../application/task/autoriinsssms.html">
+                                                    Autorização INSS - VIA SMS
+                                                </a>
+                                            </div>
+                                        </div>
+
+
+
+                                    </div>
+                                    <!-- Bottom dropdown menu -->
+                                    <div class="dropdown-menu-links rounded-bottom delimiter-top p-lg-4">
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <a href="../application/calendar.html"
+                                                    class="dropdown-item">Calendar</a>
+                                                <a href="../application/timeline.html"
+                                                    class="dropdown-item">Timeline</a>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <a href="../application/task/kanban-board.html"
+                                                    class="dropdown-item">Kanban board</a>
+                                                <a href="../application/google-map.html" class="dropdown-item">Google
+                                                    map</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="../application/widgets.html">
+                                    Ident. de Propostas
+                                </a>
+                            </li>
+                            <li class="nav-item dropdown dropdown-animate" data-toggle="hover">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
+                                    aria-haspopup="true" aria-expanded="false">Produtos</a>
+                                <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg dropdown-menu-arrow p-0">
+                                    <ul class="list-group list-group-flush">
+                                        <li>
+
+                                            <a href="../docs/index.html" class="list-group-item list-group-item-action"
+                                                role="button">
+                                                <div class="media d-flex align-items-center">
+                                                    <!-- SVG icon -->
+                                                    <figure style="width: 50px;">
+                                                        <img alt="Image placeholder"
+                                                            src="../assets/img/icons/essential/detailed/DOC_File.svg"
+                                                            class="svg-inject img-fluid" style="height: 50px;">
+                                                    </figure>
+                                                    <!-- Media body -->
+                                                    <div class="media-body ml-3">
+                                                        <h6 class="mb-1">Documentation</h6>
+                                                        <p class="mb-0">Awesome section examples for any scenario.
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li>
+
+                                        </li>
+                                    </ul>
+                                    <div class="dropdown-menu-links rounded-bottom delimiter-top p-4">
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <a href="../docs/getting-started/installation.html"
+                                                    class="dropdown-item">Installation</a>
+                                                <a href="../docs/getting-started/file-structure.html"
+                                                    class="dropdown-item">File structure</a>
+                                                <a href="../docs/getting-started/build-tools.html"
+                                                    class="dropdown-item">Build tools</a>
+                                                <a href="../docs/getting-started/customization.html"
+                                                    class="dropdown-item">Customization</a>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <a href="../docs/getting-started/plugins.html"
+                                                    class="dropdown-item">Using plugins</a>
+                                                <a href="../docs/components/index.html"
+                                                    class="dropdown-item">Components</a>
+                                                <a href="../docs/plugins/animate.html" class="dropdown-item">Plugins</a>
+                                                <a href="../docs/support.html" class="dropdown-item">Support</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="border-top opacity-2 my-2"></li>
+                            <!-- Docs menu -->
+                            <li class="nav-item d-lg-none">
+                                <a class="nav-link" href="../docs/index.html">
+                                    Docs
+                                </a>
+                            </li>
+                            <li class="nav-item d-lg-none">
+                                <a class="nav-link" href="../application/authentication/register.html">
+                                    Register
+                                </a>
+                            </li>
+                            <li class="nav-item d-lg-none">
+                                <a class="nav-link" href="../application/authentication/login.html">
+                                    Sign in
+                                </a>
+                            </li>
+                        </ul><!-- Right menu -->
                         <ul class="navbar-nav ml-lg-auto align-items-center d-none d-lg-flex">
                             <li class="nav-item">
                                 <a href="#" class="nav-link nav-link-icon sidenav-toggler" data-action="sidenav-pin"
@@ -498,7 +577,7 @@
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-sm dropdown-menu-right dropdown-menu-arrow">
 
-                                    <a href="profile.html" class="dropdown-item">
+                                    <a href="#!" class="dropdown-item">
                                         <i class="fas fa-user"></i>
                                         <span>Meu Perfil</span>
                                     </a>
@@ -525,117 +604,76 @@
                 <div class="page-title">
                     <div class="row justify-content-between align-items-center">
                         <div class="col-md-12 mb-3 mb-md-0">
-                            <h6 class="h3 font-weight-400 mb-0 text-white">Comunicados </h6>
+                            <h6 class="h3 font-weight-400 mb-0 text-white">Relatório SIM</h6>
 
                         </div>
                     </div>
                 </div>
-
                 <div class="row">
                     <div class="col-xl-12 col-md-6">
                         <div class="card card-fluid">
-
                             <div class="card-body">
+                                <form class="needs-validation" novalidate>
+                                    <div class="form-row">
+                                        <div class="col-md-3 mb-3">
+                                            <div class="form-group">
+                                                <label for="exampleFormControlSelect1">Proposta</label>
+                                                <input type="text" class="form-control form-control-sm" id="ddd" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="opcoes-cadastro" style="text-align: center; margin-inline: block;">
+                                        <button type="button" class="btn btn-primary btn-icon-label" id="btn-buscar">
+                                            <span class="btn-inner--icon">
+                                                <i class="fas fa-search"></i>
+                                            </span>
+                                            <span class="btn-inner--text">Buscar</span>
+                                        </button>
+                                        <button type="reset" class="btn btn-primary btn-icon-label" id="btn-apagar">
+                                            <span class="btn-inner--icon">
+                                                <i class="fas fa-trash-alt"></i>
+                                            </span>
+                                            <span class="btn-inner--text">Apagar Filtros</span>
+                                        </button>
+    
+                                        <button type="button" class="btn btn-primary btn-icon-label" data-toggle="modal"
+                                            data-target=".modal-incluirproposta-idp" title="Incluir" id="btn-excel">
+                                            <span class="btn-inner--icon">
+                                                <i class="fas fa-file-excel"></i>
+                                            </span>
+                                            <span class="btn-inner--text">Gerar Excel</span>
+                                        </button>
+    
+    
+    
+                                    </div>
+    
+ 
 
-                                <div class="opcoes-cadastro" style="text-align: center; margin-inline: block;">
+                                </form>
 
-                                    <button type="button" class="btn btn-primary btn-icon-label" title="Analisar"
-                                        data-toggle="modal" data-target=".moda-alterar-comunicados" id="btn-apagar">
+                                
 
-                                        <span class="btn-inner--icon">
-                                            <i class="fas fa-plus"></i>
-                                        </span>
-                                        <span class="btn-inner--text">Incluir Novo Comunicado</span>
-                                    </button>
-
-
-                                </div>
-
-                                <div class="table-responsive mt-4">
-                                    <table class="table align-items-center" id="table">
+                                <div class="container table-responsive mt-4">
+                                    <table class="table table-striped table-hover" id="table-1">
                                         <thead>
                                             <tr>
-                                                <th scope="col" style="text-align: center;"><b>Título Chamado</b></th>
-                                                <th scope="col" style="text-align: center;"><b>Descrição do Chamado</b>
-                                                </th>
-                                                <th scope="col" style="text-align: center;"><b></b></th>
-                                                <th scope="col" style="text-align: center;"><b>Downloads</b></th>
-                                                <th scope="col" style="text-align: center;"><b></b></th>
-                                                <th scope="col" style="text-align: center;"><b>Ações</b></th>
-
-
+                                                <th scope="col" style="text-align: center;"><b>PROPOSTA</b></th>
+                                                <th scope="col" style="text-align: center;"><b>ID_EXTERNO</b></th>
+                                                <th scope="col" style="text-align: center;"><b>STATUS</b></th>
+                                                <th scope="col" style="text-align: center;"><b>OPERADOR</b></th>
+                                                <th scope="col" style="text-align: center;"><b>CPF</b></th>
+                                                <th scope="col" style="text-align: center;"><b>PARCEIRO</b></th>
+                                                <th scope="col" style="text-align: center;"><b>SUPERVISOR</b></th>
+                                                <th scope="col" style="text-align: center;"><b>GERENTE</b></th>
+                                               
                                             </tr>
                                         </thead>
-                                        <tbody id="list">
-
-                                            <!-- <tr>
-                                                <td>
-                                                    XXXXXXXXXX
-                                                </td>
-                                                <td>
-                                                    XXXXXXXXXXXXXXXX
-                                                </td>
-                                                <th scope="row">
-                                                        <button type="button"
-                                                        class="btn btn-sm btn-secondary btn-icon rounded-pill" id="btn-download1">
-                                                        <span class="btn-inner--icon"><i
-                                                                class="far fa-download"></i></span>
-                                                        <span class="btn-inner--text">Download</span>
-                                                        </button>
-                                                </th>
-                                                <th scope="row">
-                                                    <button type="button"
-                                                        class="btn btn-sm btn-secondary btn-icon rounded-pill" id="btn-download2">
-                                                        <span class="btn-inner--icon"><i
-                                                                class="far fa-download"></i></span>
-                                                        <span class="btn-inner--text">Download</span>
-                                                    </button>
-                                                </th>
-                                                <th scope="row">
-                                                    <button type="button"
-                                                        class="btn btn-sm btn-secondary btn-icon rounded-pill" id="btn-download3">
-                                                        <span class="btn-inner--icon"><i
-                                                                class="far fa-download"></i></span>
-                                                        <span class="btn-inner--text">Download</span>
-                                                    </button>
-                                                </th>
-                                                <td>
-                                                    <div class="d-flex align-items-center justify-content-end">
-
-
-                                                        <!-- Actions -->
-                                            <!-- <div class="actions ml-3">
-                                                            <a href="#" class="action-item mr-2" title="Alterar"
-                                                                data-toggle="modal"
-                                                                data-target=".moda-alterar-comunicados">
-                                                                <i class="far fa-pencil-alt"></i>
-                                                            </a>
-                                                            <a href="#" class="action-item mr-2" data-toggle="tooltip"
-                                                                title="Archive">
-                                                                <i class="fas fa-trash-alt"></i>
-                                                            </a>
-
-                                                        </div>
-                                                    </div> -->
-
-                                            <!-- </td> -->
-                                            <!-- </tr> -->
-
+                                        <tbody id="listRelatorio" style="text-align: center;">
 
                                         </tbody>
                                     </table>
                                 </div>
-
-
-
-
-
-
-
-
-
-
-
 
                             </div>
 
@@ -645,19 +683,22 @@
 
 
 
-
                     </div>
 
 
                 </div>
 
 
+
+
             </div>
 
+
+
+        </div>
+
+
     </div>
-
-
-
 
     <!-- Scripts -->
     <!-- Core JS - includes jquery, bootstrap, popper, in-view and sticky-kit -->
@@ -669,14 +710,14 @@
     <script src="../assets/libs/fullcalendar/dist/fullcalendar.min.js"></script>
     <!-- Purpose JS -->
     <script src="../assets/js/purpose.js"></script>
-    <!-- Demo JS - remove it when starting your project -->
-    <script src="../assets/js/demo.js"></script>
-    <!--Script-->
-    <script src="../assets/js/comunicados.js"></script>
     <!-- Mascaras -->
     <script src="../assets/js/mascaras.js"></script>
-    <script src="../assets/js/mascarasvalores.js"></script>
-    <!-- Import Get para popular campos -->
+    <!-- Demo JS - remove it when starting your project -->
+    <script src="../assets/js/demo.js"></script>
+    <!--Script Excel-->
+    <script src="../assets/service/table2excel.js"></script>
+    <!--Script-->
+    <script type="module" src="../assets/js/relatorioSim/index.js"></script>
 </body>
 
 </html>
