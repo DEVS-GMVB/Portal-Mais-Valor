@@ -56,6 +56,8 @@ dependentes.addEventListener('blur', () => {
                 $("#id-parentesco-dependente3").attr('disabled', true);
             }
         })
+    } else {
+        $("#id-quantos-dependente").attr('disabled', true);
     }
 });
 
